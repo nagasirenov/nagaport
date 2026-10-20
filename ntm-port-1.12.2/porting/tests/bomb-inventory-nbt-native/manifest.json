@@ -1,0 +1,96 @@
+{
+  "base": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "callers": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java",
+      "before_sha256": "6fb190c68c35b291d94461f588eee289645469a914f3a2c595bfeb98d97ca6d3",
+      "after_sha256": "dbdd64866d0ac3c4533a3fde09ea152301e774e203d2132d9b763fd8161774be",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java",
+      "pristine_sha256": "86142dc702403952f8bd99a7158b8b68a48065fad0ea2c43acadca4f13431439"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "before_sha256": "8f2eb498ff22c6de63ef9a2ef0a67f91a5d960cbab480320b9ed604f3d125be0",
+      "after_sha256": "773875d2a0cdb34f5905ad56bbb94c35f8f37c74a78cd25d4b61e4d8f80987b7",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "pristine_sha256": "d41955ad838e22cc558829d910c8d9a8d65b2ad6d5fcb4cb0431330e9edcb98f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "before_sha256": "ffa6f5d7a800f4709959efa7f551ebdfd6fb1a355a5f7e8d4c3c0ee14e385597",
+      "after_sha256": "84fd5b0d10b78fa006b257d3516b44833836a9bb6eba00e0ba3157565ee43abe",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "pristine_sha256": "c9e47d8ad214d9db7c1de5fdb33b18349151eaa062a2f460dfe0b05c8cb534e8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java",
+      "before_sha256": "90d78dff56409f290dffdd6a52c4b696660ef0699c42af1a31b58e825a5cebde",
+      "after_sha256": "32e98c687569d6ebca43f8d4400a14205007ec9bb547f5272f1e7e9b8cd3de9a",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java",
+      "pristine_sha256": "427e12d698894b8bb4c3d25702abdc3c85b97f5c64853357f71df41a997ffcb0"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java",
+      "before_sha256": "4624e7d6ed67854a642fa983a44b77671e0d78244a9bcbb91bc18c6f5110d388",
+      "after_sha256": "6fe524b30dab13b1f280d1145d2fbbeaa3e403aea1be1b6b2d03c06d503fd166",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java",
+      "pristine_sha256": "5c5431bb782c2cdbe5f11d81651d794e6e6ee4117662a22bcdaa255f5645d949"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java",
+      "before_sha256": "24218c60bb6b9adf3a565c5558e82a54b45f7b8819c971012ec2a60d3252a357",
+      "after_sha256": "0adb301f3285bed2b4722f334cba9409ce9f846d2f8c0a42c1f30538e762b5ab",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java",
+      "pristine_sha256": "e79fbb2289e160cae33dc78395b83cf2da49064540da8acce2e4db63b2c2ab87"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java",
+      "before_sha256": "653a37367cf9b95467851d7a1ef650bc789cb0bc3ed2b7be90ddc57b6bac24ef",
+      "after_sha256": "31ff18104354b38d438fd8235168c0bb733ee31ce03ed8bb62372471b052e583",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java",
+      "pristine_sha256": "c55cb62d7e23694578e26bc1c7760bddbd11c398213fb2c3785f01e7ddae5e24"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java",
+      "before_sha256": "3567bc261a67ec2c25dd8ba8b9d10e9a8862d66c91547a7a5b6094db18fbc04f",
+      "after_sha256": "67d5fc41341e000da91e8d0983cb2389879241446d951c71b47ae9881f7d3eb8",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java",
+      "pristine_sha256": "0902fb4c6dbed55480f7bfe7174bed43cfcea365878534ae4bf4ed1d9ce556b3"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java",
+      "before_sha256": "1dc42cf7b53e2a755666690985cb791998989aadce5a053b7932f664dcce4433",
+      "after_sha256": "507b9b81fc47255499261203314fe9670a3444820ba4904a006ec3b6ed997665",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java",
+      "pristine_sha256": "3395c95dc6d356e2cb967bfe2c7b2e4c2449f4c695305e2b830f49a0430b7808"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java",
+      "before_sha256": "0b520778954bae62cef07ca4ab2b57626c2979dcded57c28c5a014fcb2e4b671",
+      "after_sha256": "3afeec62b3b63a6d0dedcde8124919c836ee2704ade81f717212bf27f6ea41b8",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java",
+      "pristine_sha256": "64da156cc17f621d729db2d6656bb361a977b3054fd78382fd2e324cb9b33b6d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java",
+      "before_sha256": "781a24437729c7b1705ed6e9a9c045c4e99276f5a3619cda07242344a0dff2ae",
+      "after_sha256": "b906a7c73d58a3f5b109883dc3a88cc43127be378afdf4a9a7c530877cfdde46",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java",
+      "pristine_sha256": "9004d70ec7756b45ede54ce8bffeaa28b86de2f7a09d3e7a391aa261990f21f8"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java",
+      "before_sha256": "52116783d19099f6790c7fa312587f4aa4e65fe67a7e8687f2de4cb65c894f93",
+      "after_sha256": "0db9fb0b3377f77f3dec9fa056ad5061b3fe6308573fbbf67526e7245673c413",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java",
+      "pristine_sha256": "90c12dd50a7e61456812a30095172c62204d1a29ddac262a056cf6d0694dd291"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java",
+      "before_sha256": "d4f52217051e6302bef598b45ecd2205d137540805cef71cdfd947fa2df6f53c",
+      "after_sha256": "bfecb56b6a0c817f61272bafb2dd9d99ce594e64f21da21602f450f615329d86",
+      "pristine_path": "ntm-original-pristine/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java",
+      "pristine_sha256": "fd9c58e596cbea3e6c4f146143c248f02133cf608ef864cde587dfe3a6bd8946"
+    }
+  ]
+}

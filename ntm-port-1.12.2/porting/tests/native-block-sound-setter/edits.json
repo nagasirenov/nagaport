@@ -1,0 +1,12 @@
+[
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockCrop.java",
+    "old": "\t\tsetStepSound(soundTypeGrass);",
+    "new": "\t\tsetSoundType(net.minecraft.block.SoundType.PLANT);"
+  },
+  {
+    "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java",
+    "old": "\t\tthis.setStepSound(Block.soundTypeMetal);",
+    "new": "\t\tthis.setSoundType(com.hbm.blocks.ModSoundTypes.legacyMetal);"
+  }
+]

@@ -18,7 +18,7 @@ public class RenderMilkReformer extends TileEntitySpecialRenderer {
 
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+	public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		{
 

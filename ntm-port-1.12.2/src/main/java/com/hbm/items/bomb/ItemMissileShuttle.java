@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class ItemMissileShuttle extends Item {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Tonite, on bo''om gear:");
 		list.add("James huffs leaded gasoline and");
 		list.add("goes insane, Richard spends the");

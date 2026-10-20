@@ -369,10 +369,10 @@ public class ExplosionChaos { //TODO: destroy this entire class
 			if(ArmorRegistry.hasAnyProtection(entity, 3, HazardClass.GAS_LUNG, HazardClass.GAS_BLISTERING)) {
 				ArmorUtil.damageGasMaskFilter(entity, 1);
 			} else {
-				entity.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 5 * 20, 0));
-				entity.addPotionEffect(new PotionEffect(Potion.poison.getId(), 20 * 20, 2));
-				entity.addPotionEffect(new PotionEffect(Potion.wither.getId(), 1 * 20, 1));
-				entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 30 * 20, 1));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 20 * 20, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 1 * 20, 1));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 30 * 20, 1));
 				entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 30 * 20, 2));
 			}
 		}

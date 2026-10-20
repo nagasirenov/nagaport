@@ -44,10 +44,10 @@ public class BlockGasClorine extends BlockGasBase {
 			ArmorUtil.damageGasMaskFilter(entityLiving, 1);
 
 		} else {
-			entityLiving.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 5 * 20, 0));
-			entityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(), 20 * 20, 2));
-			entityLiving.addPotionEffect(new PotionEffect(Potion.wither.getId(), 1 * 20, 1));
-			entityLiving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 30 * 20, 1));
+			entityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 20, 0));
+			entityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 20 * 20, 2));
+			entityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 1 * 20, 1));
+			entityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 30 * 20, 1));
 			entityLiving.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 30 * 20, 2));
 		}
 	}

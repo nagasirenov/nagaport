@@ -41,7 +41,7 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
 
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		} else {
@@ -50,8 +50,9 @@ public abstract class BlockTNTBase extends BlockDetonatable implements IToolable
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			this.onBlockDestroyedByPlayer(world, x, y, z, 1);
 			com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
 		} else {

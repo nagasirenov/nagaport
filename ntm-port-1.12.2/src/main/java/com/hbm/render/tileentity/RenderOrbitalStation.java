@@ -21,7 +21,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderOrbitalStation extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		float armRotation;
 		if(te instanceof TileEntityOrbitalStation) {
 			TileEntityOrbitalStation station = (TileEntityOrbitalStation) te;

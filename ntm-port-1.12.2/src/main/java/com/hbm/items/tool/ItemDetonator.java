@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 public class ItemDetonator extends Item {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Shift right-click to set position,");
 		list.add("right-click to detonate!");
 		if(itemstack.getTagCompound() == null) {

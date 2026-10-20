@@ -1,0 +1,313 @@
+{
+  "baseline": "a4739afa41966b75e2012bccd7df919e51d5c3a0",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/DispenserBehaviorHandler.java",
+      "before_sha256": "cff016a29fde24463cd2b68f9d5fa21d2302d7cc1d7cffe56c3c7d373ed9639d",
+      "after_sha256": "59031be99f308515687febafb88c1d0617fbd70d54a38d1134ae6ef84d196536",
+      "edits": [
+        {
+          "start": 3080,
+          "end": 3104,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 3379,
+          "end": 3403,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 3676,
+          "end": 3700,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 3969,
+          "end": 3993,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 4262,
+          "end": 4286,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 4561,
+          "end": 4585,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 4856,
+          "end": 4880,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 5157,
+          "end": 5181,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 5454,
+          "end": 5478,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 5745,
+          "end": 5769,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 6052,
+          "end": 6076,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 6345,
+          "end": 6369,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 6644,
+          "end": 6668,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 6939,
+          "end": 6963,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 7236,
+          "end": 7260,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 7527,
+          "end": 7551,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 7822,
+          "end": 7846,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 8113,
+          "end": 8137,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 8412,
+          "end": 8436,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 8705,
+          "end": 8729,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 9006,
+          "end": 9030,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 9310,
+          "end": 9334,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 9607,
+          "end": 9631,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 9902,
+          "end": 9926,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 10199,
+          "end": 10223,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 10494,
+          "end": 10518,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 10787,
+          "end": 10811,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 11084,
+          "end": 11108,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 11379,
+          "end": 11403,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 11683,
+          "end": 11707,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 11977,
+          "end": 12001,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 12279,
+          "end": 12303,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 12581,
+          "end": 12605,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 12883,
+          "end": 12907,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 13193,
+          "end": 13217,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 13493,
+          "end": 13517,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 13803,
+          "end": 13827,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 14111,
+          "end": 14135,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 14415,
+          "end": 14439,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 14715,
+          "end": 14739,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 15019,
+          "end": 15043,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 15317,
+          "end": 15341,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 15616,
+          "end": 15640,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 15915,
+          "end": 15939,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 16269,
+          "end": 16293,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 16644,
+          "end": 16668,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 17739,
+          "end": 17763,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        },
+        {
+          "start": 18619,
+          "end": 18643,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemModMinecart.java",
+      "before_sha256": "c8105f6866eb4a9ab57112319671f15ab13ed831b5d7a3bbefb93a139cdb389f",
+      "after_sha256": "896a50b99fc41d7c59bf22f9d5c8f4a7001f6ac44b61123de405ca6bce601273",
+      "edits": [
+        {
+          "start": 2464,
+          "end": 2488,
+          "old": "dispenseBehaviorRegistry",
+          "new": "DISPENSE_BEHAVIOR_REGISTRY"
+        }
+      ]
+    }
+  ]
+}

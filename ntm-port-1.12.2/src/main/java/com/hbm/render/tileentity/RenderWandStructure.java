@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderWandStructure extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		if(!(tile instanceof TileEntityWandStructure)) return;
 		TileEntityWandStructure structure = (TileEntityWandStructure) tile;
 

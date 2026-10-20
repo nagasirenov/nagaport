@@ -14,6 +14,8 @@ import com.hbm.tileentity.machine.TileEntityFEL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -84,19 +86,20 @@ public class GUIFEL extends GuiInfoContainer {
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glLineWidth(5F);
 			
-			Tessellator tessellator = Tessellator.instance;
-			tessellator.startDrawing(1);
-			tessellator.setColorOpaque_I(color);
+			Tessellator tessellator = Tessellator.getInstance();
+			BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+			tessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);
+			int tessellatorColor0 = color;
 			
-			tessellator.addVertex(guiLeft + 113, guiTop + 31.5F, this.zLevel);
-			tessellator.addVertex(guiLeft + 135, guiTop + 31.5F, this.zLevel);
+			tessellatorBuffer.pos(guiLeft + 113, guiTop + 31.5F, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();
+			tessellatorBuffer.pos(guiLeft + 135, guiTop + 31.5F, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();
 			tessellator.draw();
 			
-			tessellator.startDrawing(1);
-			tessellator.setColorOpaque_I(color);
+			tessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);
+			int tessellatorColor1 = color;
 			
-			tessellator.addVertex(0, guiTop + 31.5F, this.zLevel);
-			tessellator.addVertex(guiLeft + 4, guiTop + 31.5F, this.zLevel);
+			tessellatorBuffer.pos(0, guiTop + 31.5F, this.zLevel).color((tessellatorColor1 >> 16) & 255, (tessellatorColor1 >> 8) & 255, tessellatorColor1 & 255, 255).endVertex();
+			tessellatorBuffer.pos(guiLeft + 4, guiTop + 31.5F, this.zLevel).color((tessellatorColor1 >> 16) & 255, (tessellatorColor1 >> 8) & 255, tessellatorColor1 & 255, 255).endVertex();
 			tessellator.draw();
 			
 			GL11.glEnable(GL11.GL_TEXTURE_2D);

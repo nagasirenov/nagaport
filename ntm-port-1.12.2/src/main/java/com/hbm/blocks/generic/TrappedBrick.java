@@ -111,7 +111,7 @@ public class TrappedBrick extends BlockContainer {
 			}
 			break;
 		case SLOWNESS:
-			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 300, 2));
 			break;
 		case WEAKNESS:
 			player.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 2));

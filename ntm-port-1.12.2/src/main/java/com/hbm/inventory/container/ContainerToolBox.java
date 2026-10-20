@@ -16,7 +16,7 @@ public class ContainerToolBox extends Container {
 
 	public ContainerToolBox(InventoryPlayer invPlayer, InventoryToolBox box) {
 		this.box = box;
-		this.box.openInventory();
+		this.box.openInventory(invPlayer.player);
 
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 8; j++) {
@@ -80,6 +80,6 @@ public class ContainerToolBox extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.box.closeInventory();
+		this.box.closeInventory(player);
 	}
 }

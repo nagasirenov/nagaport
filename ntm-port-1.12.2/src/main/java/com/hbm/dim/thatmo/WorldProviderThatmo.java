@@ -52,26 +52,26 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 	@Override
 	public void updateWeather() {
 		super.updateWeather();
-		CBT_BATTLEFIELD war = CelestialBody.getTrait(worldObj, CBT_BATTLEFIELD.class);
+		CBT_BATTLEFIELD war = CelestialBody.getTrait(this.world, CBT_BATTLEFIELD.class);
 
 		// i am violating the genercizing philosphy mellow told me about, this shit sucks
 		// if other planets have the battlefield trait, what could be done....?
 
 		if(war != null) {
-			if(!worldObj.isRemote) {
-				for(Object p : worldObj.playerEntities) {
+			if(!this.world.isRemote) {
+				for(Object p : this.world.playerEntities) {
 					long currentTime = System.currentTimeMillis();
 					if(currentTime % 8000 < 50) {
 
 						BlockPos playerPos = new BlockPos(((EntityPlayer) p).posX, ((EntityPlayer) p).posY, ((EntityPlayer) p).posZ);
 						int radius = 40;
 
-						Random rand = worldObj.rand;
+						Random rand = this.world.rand;
 						int offsetX = rand.nextInt(radius * 2 + 1) - radius;
 						int offsetZ = rand.nextInt(radius * 2 + 1) - radius;
 
 						BlockPos targetPos = playerPos.add(offsetX, 0, offsetZ);
-						EntityBomber bomber = EntityBomber.statFacCarpetJet(worldObj, targetPos.getX(), targetPos.getY(), targetPos.getZ());
+						EntityBomber bomber = EntityBomber.statFacCarpetJet(this.world, targetPos.getX(), targetPos.getY(), targetPos.getZ());
 						bomber.posY = targetPos.getY() + 20;
 						WorldUtil.loadAndSpawnEntityInWorld(bomber);
 					}
@@ -80,7 +80,7 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 
 			Random rand = new Random();
 
-			if(worldObj.isRemote) {
+			if(this.world.isRemote) {
 				EntityPlayer player = MainRegistry.proxy.me();
 
 				if(chargetime <= 0 || chargetime <= 1000) {
@@ -137,7 +137,7 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 
 				if(altitude >= 400) {
 					altitude = 0;
-					randPos = worldObj.rand.nextFloat();
+					randPos = this.world.rand.nextFloat();
 				}
 
 				for(Meteor meteor : meteors) {
@@ -197,7 +197,7 @@ public class WorldProviderThatmo extends WorldProviderCelestial {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderThatmo(this.worldObj, this.getSeed(), false);
+		return new ChunkProviderThatmo(this.world, this.getSeed(), false);
 	}
 
 	@Override

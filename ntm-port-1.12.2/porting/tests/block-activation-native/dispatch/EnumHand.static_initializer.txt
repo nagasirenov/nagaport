@@ -1,0 +1,27 @@
+  static {};
+    Code:
+       0: new           #2                  // class net/minecraft/util/EnumHand
+       3: dup
+       4: ldc           #38                 // String MAIN_HAND
+       6: iconst_0
+       7: invokespecial #39                 // Method "<init>":(Ljava/lang/String;I)V
+      10: putstatic     #41                 // Field MAIN_HAND:Lnet/minecraft/util/EnumHand;
+      13: new           #2                  // class net/minecraft/util/EnumHand
+      16: dup
+      17: ldc           #42                 // String OFF_HAND
+      19: iconst_1
+      20: invokespecial #39                 // Method "<init>":(Ljava/lang/String;I)V
+      23: putstatic     #44                 // Field OFF_HAND:Lnet/minecraft/util/EnumHand;
+      26: iconst_2
+      27: anewarray     #2                  // class net/minecraft/util/EnumHand
+      30: dup
+      31: iconst_0
+      32: getstatic     #41                 // Field MAIN_HAND:Lnet/minecraft/util/EnumHand;
+      35: aastore
+      36: dup
+      37: iconst_1
+      38: getstatic     #44                 // Field OFF_HAND:Lnet/minecraft/util/EnumHand;
+      41: aastore
+      42: putstatic     #15                 // Field $VALUES:[Lnet/minecraft/util/EnumHand;
+      45: return
+}

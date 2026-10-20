@@ -42,7 +42,7 @@ public class CableDetector extends BlockContainer {
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 
-		boolean on = world.isBlockIndirectlyGettingPowered(x, y, z);
+		boolean on = world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 
 		boolean update = false;

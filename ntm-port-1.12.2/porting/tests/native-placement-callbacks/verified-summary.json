@@ -1,0 +1,403 @@
+{
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "selected": 72,
+  "excluded": [
+    {
+      "owner": "com.hbm.blocks.BlockDummyable",
+      "reason": "Existing native callback/domain overload bridge."
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.CompactLauncher",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockBedrockOreTE",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockOre",
+      "reason": "Existing native callback/domain overload bridge."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockStorageCrate",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.BlockMassStorage",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.BlockTransporterRocket",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineEPress",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineHeatBoiler",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineITER",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineLargeTurbine",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineSawmill",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineStirling",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.SoyuzLauncher",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    }
+  ],
+  "native_overrides": 72,
+  "removed_override_errors": 69,
+  "added_errors": 0,
+  "before_errors": 14612,
+  "after_errors": 14543,
+  "descendants": [
+    {
+      "owner": "com.hbm.blocks.WarController",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.BlockChargeC4",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockChargeBase",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.BlockChargeDynamite",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockChargeBase",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.BlockChargeMiner",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockChargeBase",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.BlockChargeSemtex",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockChargeBase",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.NukeAntimatter",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": true,
+      "callbacks": [
+        "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)"
+      ]
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.NukeBalefire",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": true,
+      "callbacks": [
+        "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)"
+      ]
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineDiesel",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineMicrowave",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    },
+    {
+      "owner": "com.hbm.blocks.machine.StorageDrum",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase"
+      ],
+      "selected": false,
+      "callbacks": []
+    }
+  ],
+  "explicit_calls": [
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "71",
+      "receiver": "<implicit>",
+      "receiver_type": "",
+      "receiver_kind": "",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos.getX() || pos.getY() || pos.getZ() || placer || stack",
+      "source": "onBlockPlacedBy(world, pos.getX(), pos.getY(), pos.getZ(), placer, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "336",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || new BlockPos(x, y, z) || world.getBlockState(new BlockPos(x, y, z)) || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+      "line": "92",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockContainer",
+      "method_signature": "net.minecraft.block.BlockContainer.onBlockPlacedBy",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockBedrockOreTE.java",
+      "line": "84",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockContainer",
+      "method_signature": "net.minecraft.block.BlockContainer.onBlockPlacedBy",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || entity || stack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, entity, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockOre.java",
+      "line": "57",
+      "receiver": "<implicit>",
+      "receiver_type": "",
+      "receiver_kind": "",
+      "method_owner": "com.hbm.blocks.generic.BlockOre",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos.getX() || pos.getY() || pos.getZ() || player || stack",
+      "source": "onBlockPlacedBy(world, pos.getX(), pos.getY(), pos.getZ(), player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockStorageCrate.java",
+      "line": "252",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockContainer",
+      "method_signature": "net.minecraft.block.BlockContainer.onBlockPlacedBy",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || player || stack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockSupplyCrate.java",
+      "line": "99",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos || state || player || stack",
+      "source": "super.onBlockPlacedBy(world, pos, state, player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockWandLoot.java",
+      "line": "325",
+      "receiver": "replaceBlock",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "this.world || this.pos || this.world.getBlockState(this.pos) || fakePlayer || fakeStack",
+      "source": "replaceBlock.onBlockPlacedBy(this.world, this.pos, this.world.getBlockState(this.pos), fakePlayer, fakeStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockFluidBarrel.java",
+      "line": "167",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos || state || player || stack",
+      "source": "super.onBlockPlacedBy(world, pos, state, player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockMassStorage.java",
+      "line": "204",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockContainer",
+      "method_signature": "net.minecraft.block.BlockContainer.onBlockPlacedBy",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || player || stack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/BlockTransporterRocket.java",
+      "line": "47",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineEPress.java",
+      "line": "46",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineHeatBoiler.java",
+      "line": "85",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineITER.java",
+      "line": "135",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java",
+      "line": "72",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineSawmill.java",
+      "line": "126",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/MachineStirling.java",
+      "line": "98",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": "114",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,int,int,int,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || player || itemStack",
+      "source": "super.onBlockPlacedBy(world, x, y, z, player, itemStack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/tool/ItemConveyorWand.java",
+      "line": "143",
+      "receiver": "toPlace",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "onBlockPlacedBy(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,net.minecraft.entity.EntityLivingBase,net.minecraft.item.ItemStack)",
+      "method_kind": "METHOD",
+      "arguments": "world || new BlockPos(x, y, z) || world.getBlockState(new BlockPos(x, y, z)) || player || stack",
+      "source": "toPlace.onBlockPlacedBy(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), player, stack)"
+    },
+    {
+      "path": "src/main/java/com/hbm/main/ModEventHandler.java",
+      "line": "639",
+      "receiver": "ModBlocks.furnace",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "net.minecraft.block.Block.onBlockPlacedBy",
+      "method_kind": "CLASS",
+      "arguments": "event.world || event.x || event.y || event.z || event.player || event.itemInHand",
+      "source": "ModBlocks.furnace.onBlockPlacedBy(event.world, event.x, event.y, event.z, event.player, event.itemInHand)"
+    }
+  ]
+}

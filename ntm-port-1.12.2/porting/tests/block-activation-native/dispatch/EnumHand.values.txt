@@ -1,0 +1,6 @@
+  public static net.minecraft.util.EnumHand[] values();
+    Code:
+       0: getstatic     #15                 // Field $VALUES:[Lnet/minecraft/util/EnumHand;
+       3: invokevirtual #20                 // Method "[Lnet/minecraft/util/EnumHand;".clone:()Ljava/lang/Object;
+       6: checkcast     #16                 // class "[Lnet/minecraft/util/EnumHand;"
+       9: areturn

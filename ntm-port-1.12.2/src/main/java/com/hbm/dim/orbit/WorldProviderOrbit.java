@@ -70,24 +70,24 @@ public class WorldProviderOrbit extends WorldProvider {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderOrbit(this.worldObj);
+		return new ChunkProviderOrbit(this.world);
 	}
 
 	@Override
 	public void updateWeather() {
-		isHellWorld = !worldObj.isRemote && !Loader.isModLoaded(Compat.MOD_COFH);
+		isHellWorld = !this.world.isRemote && !Loader.isModLoaded(Compat.MOD_COFH);
 
-		worldObj.prevRainingStrength = 0.0F;
-		worldObj.rainingStrength = 0.0F;
-		worldObj.prevThunderingStrength = 0.0F;
-		worldObj.thunderingStrength = 0.0F;
+		this.world.prevRainingStrength = 0.0F;
+		this.world.rainingStrength = 0.0F;
+		this.world.prevThunderingStrength = 0.0F;
+		this.world.thunderingStrength = 0.0F;
 	}
 
 	// This is called once, at the beginning of every frame
 	// so we use this to memoise expensive calcs
 	@SideOnly(Side.CLIENT)
 	protected void updateSky(float partialTicks) {
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 		OrbitalStation station = OrbitalStation.clientStation;
 
 		// First fetch the suns true size
@@ -98,17 +98,17 @@ public class WorldProviderOrbit extends WorldProvider {
 		// Get our orrery of bodies, this is cached for reuse in sky rendering
 		if(station.state == StationState.ORBIT) {
 			double altitude = getOrbitalAltitude(station.orbiting);
-			metrics = SolarSystem.calculateMetricsFromSatellite(worldObj, partialTicks, station.orbiting, altitude);
+			metrics = SolarSystem.calculateMetricsFromSatellite(this.world, partialTicks, station.orbiting, altitude);
 		} else {
 			double fromAlt = getOrbitalAltitude(station.orbiting);
 			double toAlt = getOrbitalAltitude(station.target);
-			metrics = SolarSystem.calculateMetricsBetweenSatelliteOrbits(worldObj, partialTicks, station.orbiting, station.target, fromAlt, toAlt, progress);
+			metrics = SolarSystem.calculateMetricsBetweenSatelliteOrbits(this.world, partialTicks, station.orbiting, station.target, fromAlt, toAlt, progress);
 		}
 
 		// Get our sun angle
-		float angle = (float)SolarSystem.calculateSingleAngle(worldObj, partialTicks, metrics, station.orbiting, getOrbitalAltitude(station.orbiting));
+		float angle = (float)SolarSystem.calculateSingleAngle(this.world, partialTicks, metrics, station.orbiting, getOrbitalAltitude(station.orbiting));
 		if(progress > 0) {
-			angle = (float)BobMathUtil.clerp(progress, angle, (float)SolarSystem.calculateSingleAngle(worldObj, partialTicks, metrics, station.target, getOrbitalAltitude(station.target)));
+			angle = (float)BobMathUtil.clerp(progress, angle, (float)SolarSystem.calculateSingleAngle(this.world, partialTicks, metrics, station.target, getOrbitalAltitude(station.target)));
 		}
 
 		celestialAngle = 0.5F - (angle / 360.0F);
@@ -207,7 +207,7 @@ public class WorldProviderOrbit extends WorldProvider {
 			return 0;
 
 		// If the bed location has no breathable atmosphere, respawn in overworld
-		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());
+		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, coords.getX(), coords.getY(), coords.getZ());
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 

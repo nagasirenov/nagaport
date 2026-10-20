@@ -16,8 +16,8 @@ public class TileEntityCrateDesh extends TileEntityCrateBase {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.crateDesh";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateDesh";
 	}
 
 	@Override

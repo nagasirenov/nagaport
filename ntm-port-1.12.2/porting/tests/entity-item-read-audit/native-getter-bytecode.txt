@@ -1,0 +1,23 @@
+  public net.minecraft.item.ItemStack getItem();
+    Code:
+       0: aload_0
+       1: invokevirtual #115                // Method getDataManager:()Lnet/minecraft/network/datasync/EntityDataManager;
+       4: getstatic     #117                // Field ITEM:Lnet/minecraft/network/datasync/DataParameter;
+       7: invokevirtual #626                // Method net/minecraft/network/datasync/EntityDataManager.get:(Lnet/minecraft/network/datasync/DataParameter;)Ljava/lang/Object;
+      10: checkcast     #85                 // class net/minecraft/item/ItemStack
+      13: areturn
+
+  public void setItem(net.minecraft.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokevirtual #115                // Method getDataManager:()Lnet/minecraft/network/datasync/EntityDataManager;
+       4: getstatic     #117                // Field ITEM:Lnet/minecraft/network/datasync/DataParameter;
+       7: aload_1
+       8: invokevirtual #629                // Method net/minecraft/network/datasync/EntityDataManager.set:(Lnet/minecraft/network/datasync/DataParameter;Ljava/lang/Object;)V
+      11: aload_0
+      12: invokevirtual #115                // Method getDataManager:()Lnet/minecraft/network/datasync/EntityDataManager;
+      15: getstatic     #117                // Field ITEM:Lnet/minecraft/network/datasync/DataParameter;
+      18: invokevirtual #633                // Method net/minecraft/network/datasync/EntityDataManager.setDirty:(Lnet/minecraft/network/datasync/DataParameter;)V
+      21: return
+
+  public java.lang.String getOwner();

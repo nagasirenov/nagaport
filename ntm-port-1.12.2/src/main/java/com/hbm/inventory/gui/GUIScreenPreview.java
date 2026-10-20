@@ -11,6 +11,8 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -70,12 +72,13 @@ public class GUIScreenPreview extends GuiScreen {
 	public void drawTexturedModalRect(double x, double y, int sourceX, int sourceY, int sizeX, int sizeY) {
 		double f = 0.00390625D;
 		double f1 = 0.00390625D;
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV((double) (x + 0), (double) (y + sizeY), (double) this.zLevel, (double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + sizeY) * f1));
-		tessellator.addVertexWithUV((double) (x + sizeX), (double) (y + sizeY), (double) this.zLevel, (double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + sizeY) * f1));
-		tessellator.addVertexWithUV((double) (x + sizeX), (double) (y + 0), (double) this.zLevel, (double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + 0) * f1));
-		tessellator.addVertexWithUV((double) (x + 0), (double) (y + 0), (double) this.zLevel, (double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + 0) * f1));
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos((double) (x + 0), (double) (y + sizeY), (double) this.zLevel).tex((double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + sizeY) * f1)).endVertex();
+		tessellatorBuffer.pos((double) (x + sizeX), (double) (y + sizeY), (double) this.zLevel).tex((double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + sizeY) * f1)).endVertex();
+		tessellatorBuffer.pos((double) (x + sizeX), (double) (y + 0), (double) this.zLevel).tex((double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + 0) * f1)).endVertex();
+		tessellatorBuffer.pos((double) (x + 0), (double) (y + 0), (double) this.zLevel).tex((double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + 0) * f1)).endVertex();
 		tessellator.draw();
 	}
 

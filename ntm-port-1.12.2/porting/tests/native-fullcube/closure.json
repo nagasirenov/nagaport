@@ -1,0 +1,646 @@
+{
+  "com.hbm.blocks.BlockKelp": {
+    "selected_ancestor": "com.hbm.blocks.BlockKelp",
+    "chain": [
+      "com.hbm.blocks.BlockKelp"
+    ]
+  },
+  "com.hbm.blocks.BlockWaterPlant": {
+    "selected_ancestor": "com.hbm.blocks.BlockWaterPlant",
+    "chain": [
+      "com.hbm.blocks.BlockWaterPlant"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockChargeBase": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockChargeBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeBase"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockChargeC4": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockChargeBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeC4",
+      "com.hbm.blocks.bomb.BlockChargeBase"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockChargeDynamite": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockChargeBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeDynamite",
+      "com.hbm.blocks.bomb.BlockChargeBase"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockChargeMiner": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockChargeBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeMiner",
+      "com.hbm.blocks.bomb.BlockChargeBase"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockChargeSemtex": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockChargeBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeSemtex",
+      "com.hbm.blocks.bomb.BlockChargeBase"
+    ]
+  },
+  "com.hbm.blocks.bomb.BlockCrashedBomb": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BlockCrashedBomb",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockCrashedBomb"
+    ]
+  },
+  "com.hbm.blocks.bomb.BombMulti": {
+    "selected_ancestor": "com.hbm.blocks.bomb.BombMulti",
+    "chain": [
+      "com.hbm.blocks.bomb.BombMulti"
+    ]
+  },
+  "com.hbm.blocks.bomb.CompactLauncher": {
+    "selected_ancestor": "com.hbm.blocks.bomb.CompactLauncher",
+    "chain": [
+      "com.hbm.blocks.bomb.CompactLauncher"
+    ]
+  },
+  "com.hbm.blocks.bomb.DigammaFlame": {
+    "selected_ancestor": "com.hbm.blocks.bomb.DigammaFlame",
+    "chain": [
+      "com.hbm.blocks.bomb.DigammaFlame"
+    ]
+  },
+  "com.hbm.blocks.bomb.DigammaMatter": {
+    "selected_ancestor": "com.hbm.blocks.bomb.DigammaMatter",
+    "chain": [
+      "com.hbm.blocks.bomb.DigammaMatter"
+    ]
+  },
+  "com.hbm.blocks.bomb.Landmine": {
+    "selected_ancestor": "com.hbm.blocks.bomb.Landmine",
+    "chain": [
+      "com.hbm.blocks.bomb.Landmine"
+    ]
+  },
+  "com.hbm.blocks.bomb.LaunchTable": {
+    "selected_ancestor": "com.hbm.blocks.bomb.LaunchTable",
+    "chain": [
+      "com.hbm.blocks.bomb.LaunchTable"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeAntimatter": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeAntimatter",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeAntimatter"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeBalefire": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeBalefire",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeBalefire"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeBoy": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeBoy",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeBoy"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeCustom": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeCustom",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeCustom"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeFleija": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeFleija",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeFleija"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeGadget": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeGadget",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeGadget"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeMan": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeMan",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeMan"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeMike": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeMike",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeMike"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeN2": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeN2",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeN2"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukePrototype": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukePrototype",
+    "chain": [
+      "com.hbm.blocks.bomb.NukePrototype"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeSolinium": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeSolinium",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeSolinium"
+    ]
+  },
+  "com.hbm.blocks.bomb.NukeTsar": {
+    "selected_ancestor": "com.hbm.blocks.bomb.NukeTsar",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeTsar"
+    ]
+  },
+  "com.hbm.blocks.fluid.MeltedFlesh": {
+    "selected_ancestor": "com.hbm.blocks.fluid.MeltedFlesh",
+    "chain": [
+      "com.hbm.blocks.fluid.MeltedFlesh"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasAsbestos": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasAsbestos",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasBase": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasClorine": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasClorine",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasCoal": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasCoal",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasExplosive": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasExplosive",
+      "com.hbm.blocks.gas.BlockGasFlammable",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasFlammable": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasFlammable",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasMeltdown": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasMeltdown",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasMonoxide": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasMonoxide",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasRadon": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasRadon",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasRadonDense": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasRadonDense",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockGasRadonTomb": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockGasBase",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasRadonTomb",
+      "com.hbm.blocks.gas.BlockGasBase"
+    ]
+  },
+  "com.hbm.blocks.gas.BlockVacuum": {
+    "selected_ancestor": "com.hbm.blocks.gas.BlockVacuum",
+    "chain": [
+      "com.hbm.blocks.gas.BlockVacuum"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockBobble": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockBobble",
+    "chain": [
+      "com.hbm.blocks.generic.BlockBobble"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockDeadPlant": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockDeadPlant",
+    "chain": [
+      "com.hbm.blocks.generic.BlockDeadPlant"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockFallout": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockFallout",
+    "chain": [
+      "com.hbm.blocks.generic.BlockFallout"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockFenceGate": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockModDoor",
+    "chain": [
+      "com.hbm.blocks.generic.BlockFenceGate",
+      "com.hbm.blocks.generic.BlockModDoor"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockLayering": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockLayering",
+    "chain": [
+      "com.hbm.blocks.generic.BlockLayering"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockLoot": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockLoot",
+    "chain": [
+      "com.hbm.blocks.generic.BlockLoot"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockModDoor": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockModDoor",
+    "chain": [
+      "com.hbm.blocks.generic.BlockModDoor"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockMush": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockMush",
+    "chain": [
+      "com.hbm.blocks.generic.BlockMush"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockNTMFlower": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockNTMFlower",
+    "chain": [
+      "com.hbm.blocks.generic.BlockNTMFlower"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockOrrery": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockOrrery",
+    "chain": [
+      "com.hbm.blocks.generic.BlockOrrery"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockPlasma": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockPlasma",
+    "chain": [
+      "com.hbm.blocks.generic.BlockPlasma"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockPlushie": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockPlushie",
+    "chain": [
+      "com.hbm.blocks.generic.BlockPlushie"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockRubberPlant": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockRubberPlant",
+    "chain": [
+      "com.hbm.blocks.generic.BlockRubberPlant"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockSkeletonHolder": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockSkeletonHolder",
+    "chain": [
+      "com.hbm.blocks.generic.BlockSkeletonHolder"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockSnowglobe": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockSnowglobe",
+    "chain": [
+      "com.hbm.blocks.generic.BlockSnowglobe"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockStalagmite": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockStalagmite",
+    "chain": [
+      "com.hbm.blocks.generic.BlockStalagmite"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockTallPlant": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockTallPlant",
+    "chain": [
+      "com.hbm.blocks.generic.BlockTallPlant"
+    ]
+  },
+  "com.hbm.blocks.generic.BlockTallPlantWater": {
+    "selected_ancestor": "com.hbm.blocks.generic.BlockTallPlantWater",
+    "chain": [
+      "com.hbm.blocks.generic.BlockTallPlantWater"
+    ]
+  },
+  "com.hbm.blocks.generic.DecoBlock": {
+    "selected_ancestor": "com.hbm.blocks.generic.DecoBlock",
+    "chain": [
+      "com.hbm.blocks.generic.DecoBlock"
+    ]
+  },
+  "com.hbm.blocks.generic.DecoBlockAlt": {
+    "selected_ancestor": "com.hbm.blocks.generic.DecoBlockAlt",
+    "chain": [
+      "com.hbm.blocks.generic.DecoBlockAlt"
+    ]
+  },
+  "com.hbm.blocks.generic.DecoPoleSatelliteReceiver": {
+    "selected_ancestor": "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+    "chain": [
+      "com.hbm.blocks.generic.DecoPoleSatelliteReceiver"
+    ]
+  },
+  "com.hbm.blocks.generic.WasteLeaves": {
+    "selected_ancestor": "com.hbm.blocks.generic.WasteLeaves",
+    "chain": [
+      "com.hbm.blocks.generic.WasteLeaves"
+    ]
+  },
+  "com.hbm.blocks.machine.BlastDoor": {
+    "selected_ancestor": "com.hbm.blocks.machine.BlastDoor",
+    "chain": [
+      "com.hbm.blocks.machine.BlastDoor"
+    ]
+  },
+  "com.hbm.blocks.machine.BlockCMGlass": {
+    "selected_ancestor": "com.hbm.blocks.machine.BlockCMGlass",
+    "chain": [
+      "com.hbm.blocks.machine.BlockCMGlass"
+    ]
+  },
+  "com.hbm.blocks.machine.BlockFF": {
+    "selected_ancestor": "com.hbm.blocks.machine.BlockFF",
+    "chain": [
+      "com.hbm.blocks.machine.BlockFF"
+    ]
+  },
+  "com.hbm.blocks.machine.BlockRefueler": {
+    "selected_ancestor": "com.hbm.blocks.machine.BlockRefueler",
+    "chain": [
+      "com.hbm.blocks.machine.BlockRefueler"
+    ]
+  },
+  "com.hbm.blocks.machine.Charger": {
+    "selected_ancestor": "com.hbm.blocks.machine.Charger",
+    "chain": [
+      "com.hbm.blocks.machine.Charger"
+    ]
+  },
+  "com.hbm.blocks.machine.CombatDropPod": {
+    "selected_ancestor": "com.hbm.blocks.machine.CombatDropPod",
+    "chain": [
+      "com.hbm.blocks.machine.CombatDropPod"
+    ]
+  },
+  "com.hbm.blocks.machine.CoreComponent": {
+    "selected_ancestor": "com.hbm.blocks.machine.CoreComponent",
+    "chain": [
+      "com.hbm.blocks.machine.CoreComponent"
+    ]
+  },
+  "com.hbm.blocks.machine.CoreCore": {
+    "selected_ancestor": "com.hbm.blocks.machine.CoreCore",
+    "chain": [
+      "com.hbm.blocks.machine.CoreCore"
+    ]
+  },
+  "com.hbm.blocks.machine.DemonLamp": {
+    "selected_ancestor": "com.hbm.blocks.machine.DemonLamp",
+    "chain": [
+      "com.hbm.blocks.machine.DemonLamp"
+    ]
+  },
+  "com.hbm.blocks.machine.DummyBlockBlast": {
+    "selected_ancestor": "com.hbm.blocks.machine.DummyBlockBlast",
+    "chain": [
+      "com.hbm.blocks.machine.DummyBlockBlast"
+    ]
+  },
+  "com.hbm.blocks.machine.DummyBlockMachine": {
+    "selected_ancestor": "com.hbm.blocks.machine.DummyOldBase",
+    "chain": [
+      "com.hbm.blocks.machine.DummyBlockMachine",
+      "com.hbm.blocks.machine.DummyOldBase"
+    ]
+  },
+  "com.hbm.blocks.machine.DummyOldBase": {
+    "selected_ancestor": "com.hbm.blocks.machine.DummyOldBase",
+    "chain": [
+      "com.hbm.blocks.machine.DummyOldBase"
+    ]
+  },
+  "com.hbm.blocks.machine.Floodlight": {
+    "selected_ancestor": "com.hbm.blocks.machine.Floodlight",
+    "chain": [
+      "com.hbm.blocks.machine.Floodlight"
+    ]
+  },
+  "com.hbm.blocks.machine.GeigerCounter": {
+    "selected_ancestor": "com.hbm.blocks.machine.GeigerCounter",
+    "chain": [
+      "com.hbm.blocks.machine.GeigerCounter"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineAutosaw": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineAutosaw",
+    "chain": [
+      "com.hbm.blocks.machine.MachineAutosaw"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineDiesel": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineDiesel",
+    "chain": [
+      "com.hbm.blocks.machine.MachineDiesel"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineFan": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineFan",
+    "chain": [
+      "com.hbm.blocks.machine.MachineFan"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineForceField": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineForceField",
+    "chain": [
+      "com.hbm.blocks.machine.MachineForceField"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineMicrowave": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineMicrowave",
+    "chain": [
+      "com.hbm.blocks.machine.MachineMicrowave"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineMissileAssembly": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineMissileAssembly",
+    "chain": [
+      "com.hbm.blocks.machine.MachineMissileAssembly"
+    ]
+  },
+  "com.hbm.blocks.machine.MachinePuF6Tank": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachinePuF6Tank",
+    "chain": [
+      "com.hbm.blocks.machine.MachinePuF6Tank"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineRadar": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineRadar",
+    "chain": [
+      "com.hbm.blocks.machine.MachineRadar"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineSatDock": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineSatDock",
+    "chain": [
+      "com.hbm.blocks.machine.MachineSatDock"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineTesla": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineTesla",
+    "chain": [
+      "com.hbm.blocks.machine.MachineTesla"
+    ]
+  },
+  "com.hbm.blocks.machine.MachineUF6Tank": {
+    "selected_ancestor": "com.hbm.blocks.machine.MachineUF6Tank",
+    "chain": [
+      "com.hbm.blocks.machine.MachineUF6Tank"
+    ]
+  },
+  "com.hbm.blocks.machine.PinkCloudBroadcaster": {
+    "selected_ancestor": "com.hbm.blocks.machine.PinkCloudBroadcaster",
+    "chain": [
+      "com.hbm.blocks.machine.PinkCloudBroadcaster"
+    ]
+  },
+  "com.hbm.blocks.machine.PistonInserter": {
+    "selected_ancestor": "com.hbm.blocks.machine.PistonInserter",
+    "chain": [
+      "com.hbm.blocks.machine.PistonInserter"
+    ]
+  },
+  "com.hbm.blocks.machine.RadioRec": {
+    "selected_ancestor": "com.hbm.blocks.machine.RadioRec",
+    "chain": [
+      "com.hbm.blocks.machine.RadioRec"
+    ]
+  },
+  "com.hbm.blocks.machine.Radiobox": {
+    "selected_ancestor": "com.hbm.blocks.machine.Radiobox",
+    "chain": [
+      "com.hbm.blocks.machine.Radiobox"
+    ]
+  },
+  "com.hbm.blocks.machine.SoyuzCapsule": {
+    "selected_ancestor": "com.hbm.blocks.machine.SoyuzCapsule",
+    "chain": [
+      "com.hbm.blocks.machine.SoyuzCapsule"
+    ]
+  },
+  "com.hbm.blocks.machine.StorageDrum": {
+    "selected_ancestor": "com.hbm.blocks.machine.StorageDrum",
+    "chain": [
+      "com.hbm.blocks.machine.StorageDrum"
+    ]
+  },
+  "com.hbm.blocks.network.ConnectorRedWire": {
+    "selected_ancestor": "com.hbm.blocks.network.PylonBase",
+    "chain": [
+      "com.hbm.blocks.network.ConnectorRedWire",
+      "com.hbm.blocks.network.PylonBase"
+    ]
+  },
+  "com.hbm.blocks.network.ConnectorRedWireSuper": {
+    "selected_ancestor": "com.hbm.blocks.network.PylonBase",
+    "chain": [
+      "com.hbm.blocks.network.ConnectorRedWireSuper",
+      "com.hbm.blocks.network.PylonBase"
+    ]
+  },
+  "com.hbm.blocks.network.DroneWaypoint": {
+    "selected_ancestor": "com.hbm.blocks.network.DroneWaypoint",
+    "chain": [
+      "com.hbm.blocks.network.DroneWaypoint"
+    ]
+  },
+  "com.hbm.blocks.network.DroneWaypointRequest": {
+    "selected_ancestor": "com.hbm.blocks.network.DroneWaypointRequest",
+    "chain": [
+      "com.hbm.blocks.network.DroneWaypointRequest"
+    ]
+  },
+  "com.hbm.blocks.network.FluidPipeAnchor": {
+    "selected_ancestor": "com.hbm.blocks.network.FluidPipeAnchor",
+    "chain": [
+      "com.hbm.blocks.network.FluidPipeAnchor"
+    ]
+  },
+  "com.hbm.blocks.network.FluidPump": {
+    "selected_ancestor": "com.hbm.blocks.network.FluidPump",
+    "chain": [
+      "com.hbm.blocks.network.FluidPump"
+    ]
+  },
+  "com.hbm.blocks.network.PylonBase": {
+    "selected_ancestor": "com.hbm.blocks.network.PylonBase",
+    "chain": [
+      "com.hbm.blocks.network.PylonBase"
+    ]
+  },
+  "com.hbm.blocks.network.PylonRedWire": {
+    "selected_ancestor": "com.hbm.blocks.network.PylonBase",
+    "chain": [
+      "com.hbm.blocks.network.PylonRedWire",
+      "com.hbm.blocks.network.PylonBase"
+    ]
+  },
+  "com.hbm.blocks.test.TestObjTester": {
+    "selected_ancestor": "com.hbm.blocks.test.TestObjTester",
+    "chain": [
+      "com.hbm.blocks.test.TestObjTester"
+    ]
+  },
+  "com.hbm.blocks.turret.TurretBase": {
+    "selected_ancestor": "com.hbm.blocks.turret.TurretBase",
+    "chain": [
+      "com.hbm.blocks.turret.TurretBase"
+    ]
+  },
+  "com.hbm.blocks.turret.TurretSentry": {
+    "selected_ancestor": "com.hbm.blocks.turret.TurretSentry",
+    "chain": [
+      "com.hbm.blocks.turret.TurretSentry"
+    ]
+  },
+  "com.hbm.blocks.turret.TurretSentryDamaged": {
+    "selected_ancestor": "com.hbm.blocks.turret.TurretSentryDamaged",
+    "chain": [
+      "com.hbm.blocks.turret.TurretSentryDamaged"
+    ]
+  }
+}

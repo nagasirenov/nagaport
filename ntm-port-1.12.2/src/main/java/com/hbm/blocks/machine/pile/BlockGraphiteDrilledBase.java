@@ -37,7 +37,7 @@ public abstract class BlockGraphiteDrilledBase extends BlockFlammable implements
 		super(ModBlocks.block_graphite.getDefaultState().getMaterial(), ((BlockFlammable) ModBlocks.block_graphite).encouragement, ((BlockFlammable) ModBlocks.block_graphite).flammability);
 		
 		this.setCreativeTab(null);
-		this.setStepSound(Block.soundTypeMetal);
+		this.setSoundType(com.hbm.blocks.ModSoundTypes.legacyMetal);
 		this.setHardness(5.0F);
 		this.setResistance(10.0F);
 	}

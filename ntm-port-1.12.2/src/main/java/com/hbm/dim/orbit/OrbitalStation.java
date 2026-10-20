@@ -216,7 +216,7 @@ public class OrbitalStation {
 			if(state != RocketState.AWAITING && state != RocketState.LANDED) continue;
 
 			// and make sure it doesn't have a rider!!
-			if(rocket.riddenByEntity != null) continue;
+			if(rocket.isBeingRidden()) continue;
 
 			rocket.recallPod(destination);
 			return true;

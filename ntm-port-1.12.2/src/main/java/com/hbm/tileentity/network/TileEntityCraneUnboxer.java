@@ -51,7 +51,7 @@ public class TileEntityCraneUnboxer extends TileEntityCraneBase implements IGUIP
 				}
 			}*/
 			
-			if(this.world.getTotalWorldTime() % delay == 0 && !this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
+			if(this.world.getTotalWorldTime() % delay == 0 && !this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {
 				int amount = 1;
 				
 				if(slots[21] != null && slots[21].getItem() == ModItems.upgrade_stack) {

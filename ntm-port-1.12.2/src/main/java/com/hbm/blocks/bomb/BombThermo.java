@@ -55,8 +55,9 @@ public class BombThermo extends Block implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
-		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
+		if(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
 			if(this == ModBlocks.therm_endo) {
 				ExplosionThermo.freeze(p_149695_1_, x, y, z, 15);
@@ -89,7 +90,8 @@ public class BombThermo extends Block implements IBomb {
 		return BombReturnCode.DETONATED;
 	}
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 	if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
 			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());

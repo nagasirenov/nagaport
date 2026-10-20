@@ -1,0 +1,31 @@
+  static {};
+    Code:
+       0: getstatic     #203                // Field aji.c:Lcw;
+       3: ldc           #3                  // String air
+       5: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+       8: checkcast     #173                // class aji
+      11: putstatic     #230                // Field a:Laji;
+      14: getstatic     #203                // Field aji.c:Lcw;
+      17: ldc           #143                // String stone
+      19: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      22: checkcast     #173                // class aji
+      25: putstatic     #283                // Field b:Laji;
+      28: getstatic     #203                // Field aji.c:Lcw;
+      31: ldc           #63                 // String grass
+      33: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      36: checkcast     #184                // class alh
+      39: putstatic     #336                // Field c:Lalh;
+      42: getstatic     #203                // Field aji.c:Lcw;
+      45: ldc           #35                 // String dirt
+      47: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      50: checkcast     #173                // class aji
+      53: putstatic     #352                // Field d:Laji;
+      56: getstatic     #203                // Field aji.c:Lcw;
+      59: ldc           #24                 // String cobblestone
+      61: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      64: checkcast     #173                // class aji
+      67: putstatic     #353                // Field e:Laji;
+      70: getstatic     #203                // Field aji.c:Lcw;
+      73: ldc           #108                // String planks
+      75: invokevirtual #375                // Method cw.a:(Ljava/lang/String;)Ljava/lang/Object;
+      78: checkcast     #173                // class aji

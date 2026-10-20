@@ -52,7 +52,8 @@ public class BombFloat extends Block implements IBomb {
 		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon);
 	}
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 	if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
 			MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());
@@ -61,9 +62,10 @@ public class BombFloat extends Block implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
 		this.worldObj = p_149695_1_;
-		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			explode(p_149695_1_, x, y, z);
 		}
 	}

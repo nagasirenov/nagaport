@@ -29,7 +29,7 @@ public class WorldProviderEve extends WorldProviderCelestial {
 	@Override
 	public void init() {
 		super.init();
-		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class WorldProviderEve extends WorldProviderCelestial {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderEve(this.worldObj, this.getSeed(), false);
+		return new ChunkProviderEve(this.world, this.getSeed(), false);
 	}
 
 
@@ -49,7 +49,7 @@ public class WorldProviderEve extends WorldProviderCelestial {
 	@Override
 	public void updateWeather() {
 		super.updateWeather();
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if (chargetime <= 0 || chargetime <= 800) {
 				chargetime += 1;
 			} else if (chargetime >= 800) {

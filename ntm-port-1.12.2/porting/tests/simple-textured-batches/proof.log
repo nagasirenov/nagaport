@@ -1,0 +1,2 @@
+PASS 15 exact source reversals, 22 complete owned POSITION_TEX batches, 108 vertex expressions, 75 rejected mutations
+PASS actual 1.7.10 bmh vs actual 1.12.2 BufferBuilder: 22 extracted production batches x 4 fixture environments x 3 translations = 264 batches, 1296 vertices; bit-exact position/UV float words, modes, formats and finished lengths. No GL draw or in-game pixel claim.

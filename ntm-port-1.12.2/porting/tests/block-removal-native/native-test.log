@@ -1,0 +1,12 @@
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:12:30] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_5`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS RemovalNativeTest 4383 assertions; six full callback slices; genuine World.setBlockState -> Chunk -> virtual Block.breakBlock; production spillItems helper slice comparator; no complete owner/tile/gameplay claim
+PASS six whole-file inverse hashes; unused metadata; exact direct native parent; no named or anonymous descendants; callback receiver/scope inventory recorded
+PASS rejected runtime mutant: lost super removal
+PASS rejected runtime mutant: new owner instead of old owner
+PASS rejected runtime mutant: lost wrong-tile early return
+PASS rejected runtime mutant: duplicate inventory drops

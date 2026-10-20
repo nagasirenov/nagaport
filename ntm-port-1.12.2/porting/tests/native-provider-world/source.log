@@ -1,0 +1,1 @@
+PASS 105 exact attributed accesses, 13 baseline inverses, 39 source mutants; two accepted and six excluded controls; no selected old provider accesses after migration. Full provider classes and game not tested.

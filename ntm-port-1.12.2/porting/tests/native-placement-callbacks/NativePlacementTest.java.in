@@ -1,0 +1,67 @@
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderSurface;
+import net.minecraft.world.storage.SaveHandlerMP;
+import net.minecraft.world.storage.WorldInfo;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.profiler.Profiler;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
+import java.util.*;
+import sun.misc.Unsafe;
+/** Exact selected callback projection, not a complete production owner/game test. */
+public class NativePlacementTest {
+ static int checks,calls;static Object seenWorld,seenPlayer;static int sx,sy,sz;static boolean update;
+ static void check(boolean ok,String why){checks++;if(!ok)throw new AssertionError(why);}
+ static class FixtureWorld extends World {
+  IBlockState live;boolean success=true,replace=false,mutateAfterCapture=false;int writes,reads,nbt;BlockPos target;List<String> trace=new ArrayList<>();
+  FixtureWorld(){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),false);}
+  protected IChunkProvider createChunkProvider(){return null;}
+  protected boolean isChunkLoaded(int x,int z,boolean empty){throw new AssertionError("unexpected chunk access");}
+  public boolean setBlockState(BlockPos p,IBlockState state,int flags){check(flags==11,"genuine ItemBlock flags");writes++;target=p;trace.add("write");if(success)live=replace?Blocks.STONE.getDefaultState():state;return success;}
+  public IBlockState getBlockState(BlockPos p){check(p.equals(target),"world target");reads++;trace.add("read");return live;}
+  public MinecraftServer getMinecraftServer(){nbt++;trace.add("nbt");if(mutateAfterCapture)live=Blocks.DIRT.getDefaultState();return null;}
+ }
+ static class FloodlightProjection extends Block {
+  FloodlightProjection(){super(Material.ROCK);}
+  @Override
+  @CALLBACK@
+  public void setAngle(World world,int x,int y,int z,EntityLivingBase player,boolean updateMeta){calls++;seenWorld=world;sx=x;sy=y;sz=z;seenPlayer=player;update=updateMeta;}
+ }
+ static class InheritedProjection extends FloodlightProjection {}
+ static class OverriddenDomainProjection extends FloodlightProjection {
+  @Override public void setAngle(World w,int x,int y,int z,EntityLivingBase p,boolean u){super.setAngle(w,x,y,z,p,u);check(u,"virtual domain dispatch");}
+ }
+ static class BoundaryFixture extends Block {
+  ItemStack expected;EntityPlayer player;BlockPos pos;IBlockState supplied;int count;
+  BoundaryFixture(){super(Material.ROCK);}
+  @Override public void onBlockPlacedBy(World w,BlockPos p,IBlockState state,EntityLivingBase placer,ItemStack stack){count++;check(p==pos&&placer==player&&stack==expected,"engine identity");supplied=state;check(w.getBlockState(p)==Blocks.DIRT.getDefaultState(),"live read after NBT differs from captured callback state");}
+ }
+ static EntityPlayer player()throws Exception {java.lang.reflect.Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return (EntityPlayer)((Unsafe)f.get(null)).allocateInstance(net.minecraft.client.entity.EntityPlayerSP.class);}
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();EntityPlayer player=player();
+  for(FloodlightProjection block:new FloodlightProjection[]{new FloodlightProjection(),new InheritedProjection(),new OverriddenDomainProjection()})for(BlockPos p:new BlockPos[]{new BlockPos(-17,64,31),new BlockPos(29999999,255,-30000000),new BlockPos(Integer.MIN_VALUE,-1,Integer.MAX_VALUE)}){
+   FixtureWorld world=new FixtureWorld();ItemBlock item=new ItemBlock(block);ItemStack stack=new ItemStack(Blocks.STONE);int before=calls;
+   check(item.placeBlockAt(stack,player,world,p,EnumFacing.UP,.2F,.3F,.4F,block.getDefaultState()),"native placement result");
+   check(calls==before+1&&seenWorld==world&&seenPlayer==player&&sx==p.getX()&&sy==p.getY()&&sz==p.getZ()&&update,"exact production callback coordinates/player/once");
+   check(world.trace.equals(Arrays.asList("write","read","nbt")),"native lifecycle order");
+   world=new FixtureWorld();world.success=false;before=calls;check(!item.placeBlockAt(stack,player,world,p,EnumFacing.UP,0,0,0,block.getDefaultState())&&calls==before&&world.reads==0&&world.nbt==0,"failed write skips callback");
+   world=new FixtureWorld();world.replace=true;check(item.placeBlockAt(stack,player,world,p,EnumFacing.UP,0,0,0,block.getDefaultState())&&calls==before&&world.nbt==0,"changed owner skips callback");
+   // Direct native Block invocation with null unused state/stack must not dereference either.
+   ((Block)block).onBlockPlacedBy(world,p,null,player,null);check(calls==before+1,"unused state and stack preserved");
+  }
+  BoundaryFixture block=new BoundaryFixture();FixtureWorld world=new FixtureWorld();world.mutateAfterCapture=true;block.pos=new BlockPos(3,91,-7);block.player=player;block.expected=new ItemStack(Blocks.STONE);IBlockState placed=block.getDefaultState();
+  check(new ItemBlock(block).placeBlockAt(block.expected,player,world,block.pos,EnumFacing.DOWN,0,0,0,placed),"boundary fixture placement");check(block.count==1&&block.supplied==placed,"post-write captured state and stack identity");
+  System.out.println("PASS "+checks+" assertions: actual ItemBlock.placeBlockAt and Block virtual dispatch; exact Floodlight callback projection; explicit bounded recording World/domain fixtures, not owner/game proof.");
+ }
+}

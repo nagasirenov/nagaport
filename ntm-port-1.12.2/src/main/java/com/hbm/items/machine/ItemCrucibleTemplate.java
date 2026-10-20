@@ -52,7 +52,7 @@ public class ItemCrucibleTemplate extends Item {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		
 		CrucibleRecipe recipe = CrucibleRecipes.indexMapping.get(stack.getItemDamage());
 		

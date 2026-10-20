@@ -1,0 +1,960 @@
+Compiled from "SourceFile"
+public class rv {
+  public static final rv[] a;
+
+  public static final rv b;
+
+  public static final rv c;
+
+  public static final rv d;
+
+  public static final rv e;
+
+  public static final rv f;
+
+  public static final rv g;
+
+  public static final rv h;
+
+  public static final rv i;
+
+  public static final rv j;
+
+  public static final rv k;
+
+  public static final rv l;
+
+  public static final rv m;
+
+  public static final rv n;
+
+  public static final rv o;
+
+  public static final rv p;
+
+  public static final rv q;
+
+  public static final rv r;
+
+  public static final rv s;
+
+  public static final rv t;
+
+  public static final rv u;
+
+  public static final rv v;
+
+  public static final rv w;
+
+  public static final rv x;
+
+  public static final rv y;
+
+  public static final rv z;
+
+  public static final rv A;
+
+  public static final rv B;
+
+  public static final rv C;
+
+  public static final rv D;
+
+  public static final rv E;
+
+  public static final rv F;
+
+  public static final rv G;
+
+  public final int H;
+
+  private final java.util.Map I;
+
+  private final boolean J;
+
+  private final int K;
+
+  private java.lang.String L;
+
+  private int M;
+
+  private double N;
+
+  private boolean O;
+
+  protected rv(int, boolean, int);
+    Code:
+       0: aload_0
+       1: invokespecial #147                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #145                // Method com/google/common/collect/Maps.newHashMap:()Ljava/util/HashMap;
+       8: putfield      #108                // Field I:Ljava/util/Map;
+      11: aload_0
+      12: ldc           #24                 // String
+      14: putfield      #111                // Field L:Ljava/lang/String;
+      17: aload_0
+      18: iconst_m1
+      19: putfield      #112                // Field M:I
+      22: aload_0
+      23: iload_1
+      24: putfield      #107                // Field H:I
+      27: getstatic     #115                // Field a:[Lrv;
+      30: iload_1
+      31: aload_0
+      32: aastore
+      33: aload_0
+      34: iload_2
+      35: putfield      #109                // Field J:Z
+      38: iload_2
+      39: ifeq          52
+      42: aload_0
+      43: ldc2_w        #87                 // double 0.5d
+      46: putfield      #113                // Field N:D
+      49: goto          57
+      52: aload_0
+      53: dconst_1
+      54: putfield      #113                // Field N:D
+      57: aload_0
+      58: iload_3
+      59: putfield      #110                // Field K:I
+      62: return
+
+  protected rv b(int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: bipush        8
+       5: imul
+       6: iadd
+       7: putfield      #112                // Field M:I
+      10: aload_0
+      11: areturn
+
+  public int c();
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field H:I
+       4: ireturn
+
+  public void a(sv, int);
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field H:I
+       4: getstatic     #126                // Field l:Lrv;
+       7: getfield      #107                // Field H:I
+      10: if_icmpne     33
+      13: aload_1
+      14: invokevirtual #174                // Method sv.aS:()F
+      17: aload_1
+      18: invokevirtual #175                // Method sv.aY:()F
+      21: fcmpg
+      22: ifge          284
+      25: aload_1
+      26: fconst_1
+      27: invokevirtual #176                // Method sv.f:(F)V
+      30: goto          284
+      33: aload_0
+      34: getfield      #107                // Field H:I
+      37: getstatic     #135                // Field u:Lrv;
+      40: getfield      #107                // Field H:I
+      43: if_icmpne     67
+      46: aload_1
+      47: invokevirtual #174                // Method sv.aS:()F
+      50: fconst_1
+      51: fcmpl
+      52: ifle          284
+      55: aload_1
+      56: getstatic     #98                 // Field ro.k:Lro;
+      59: fconst_1
+      60: invokevirtual #172                // Method sv.a:(Lro;F)Z
+      63: pop
+      64: goto          284
+      67: aload_0
+      68: getfield      #107                // Field H:I
+      71: getstatic     #136                // Field v:Lrv;
+      74: getfield      #107                // Field H:I
+      77: if_icmpne     92
+      80: aload_1
+      81: getstatic     #99                 // Field ro.l:Lro;
+      84: fconst_1
+      85: invokevirtual #172                // Method sv.a:(Lro;F)Z
+      88: pop
+      89: goto          284
+      92: aload_0
+      93: getfield      #107                // Field H:I
+      96: getstatic     #133                // Field s:Lrv;
+      99: getfield      #107                // Field H:I
+     102: if_icmpne     129
+     105: aload_1
+     106: instanceof    #79                 // class yz
+     109: ifeq          129
+     112: aload_1
+     113: checkcast     #79                 // class yz
+     116: ldc           #23                 // float 0.025f
+     118: iload_2
+     119: iconst_1
+     120: iadd
+     121: i2f
+     122: fmul
+     123: invokevirtual #182                // Method yz.a:(F)V
+     126: goto          284
+     129: aload_0
+     130: getfield      #107                // Field H:I
+     133: getstatic     #139                // Field y:Lrv;
+     136: getfield      #107                // Field H:I
+     139: if_icmpne     176
+     142: aload_1
+     143: instanceof    #79                 // class yz
+     146: ifeq          176
+     149: aload_1
+     150: getfield      #141                // Field sv.o:Lahb;
+     153: getfield      #97                 // Field ahb.E:Z
+     156: ifne          284
+     159: aload_1
+     160: checkcast     #79                 // class yz
+     163: invokevirtual #183                // Method yz.bQ:()Lzr;
+     166: iload_2
+     167: iconst_1
+     168: iadd
+     169: fconst_1
+     170: invokevirtual #184                // Method zr.a:(IF)V
+     173: goto          284
+     176: aload_0
+     177: getfield      #107                // Field H:I
+     180: getstatic     #122                // Field h:Lrv;
+     183: getfield      #107                // Field H:I
+     186: if_icmpne     196
+     189: aload_1
+     190: invokevirtual #173                // Method sv.aR:()Z
+     193: ifeq          216
+     196: aload_0
+     197: getfield      #107                // Field H:I
+     200: getstatic     #123                // Field i:Lrv;
+     203: getfield      #107                // Field H:I
+     206: if_icmpne     231
+     209: aload_1
+     210: invokevirtual #173                // Method sv.aR:()Z
+     213: ifeq          231
+     216: aload_1
+     217: iconst_4
+     218: iload_2
+     219: ishl
+     220: iconst_0
+     221: invokestatic  #146                // Method java/lang/Math.max:(II)I
+     224: i2f
+     225: invokevirtual #176                // Method sv.f:(F)V
+     228: goto          284
+     231: aload_0
+     232: getfield      #107                // Field H:I
+     235: getstatic     #123                // Field i:Lrv;
+     238: getfield      #107                // Field H:I
+     241: if_icmpne     251
+     244: aload_1
+     245: invokevirtual #173                // Method sv.aR:()Z
+     248: ifeq          271
+     251: aload_0
+     252: getfield      #107                // Field H:I
+     255: getstatic     #122                // Field h:Lrv;
+     258: getfield      #107                // Field H:I
+     261: if_icmpne     284
+     264: aload_1
+     265: invokevirtual #173                // Method sv.aR:()Z
+     268: ifeq          284
+     271: aload_1
+     272: getstatic     #98                 // Field ro.k:Lro;
+     275: bipush        6
+     277: iload_2
+     278: ishl
+     279: i2f
+     280: invokevirtual #172                // Method sv.a:(Lro;F)Z
+     283: pop
+     284: return
+
+  public void a(sv, sv, int, double);
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field H:I
+       4: getstatic     #122                // Field h:Lrv;
+       7: getfield      #107                // Field H:I
+      10: if_icmpne     20
+      13: aload_2
+      14: invokevirtual #173                // Method sv.aR:()Z
+      17: ifeq          40
+      20: aload_0
+      21: getfield      #107                // Field H:I
+      24: getstatic     #123                // Field i:Lrv;
+      27: getfield      #107                // Field H:I
+      30: if_icmpne     64
+      33: aload_2
+      34: invokevirtual #173                // Method sv.aR:()Z
+      37: ifeq          64
+      40: dload         4
+      42: iconst_4
+      43: iload_3
+      44: ishl
+      45: i2d
+      46: dmul
+      47: ldc2_w        #87                 // double 0.5d
+      50: dadd
+      51: d2i
+      52: istore        6
+      54: aload_2
+      55: iload         6
+      57: i2f
+      58: invokevirtual #176                // Method sv.f:(F)V
+      61: goto          150
+      64: aload_0
+      65: getfield      #107                // Field H:I
+      68: getstatic     #123                // Field i:Lrv;
+      71: getfield      #107                // Field H:I
+      74: if_icmpne     84
+      77: aload_2
+      78: invokevirtual #173                // Method sv.aR:()Z
+      81: ifeq          104
+      84: aload_0
+      85: getfield      #107                // Field H:I
+      88: getstatic     #122                // Field h:Lrv;
+      91: getfield      #107                // Field H:I
+      94: if_icmpne     150
+      97: aload_2
+      98: invokevirtual #173                // Method sv.aR:()Z
+     101: ifeq          150
+     104: dload         4
+     106: bipush        6
+     108: iload_3
+     109: ishl
+     110: i2d
+     111: dmul
+     112: ldc2_w        #87                 // double 0.5d
+     115: dadd
+     116: d2i
+     117: istore        6
+     119: aload_1
+     120: ifnonnull     137
+     123: aload_2
+     124: getstatic     #98                 // Field ro.k:Lro;
+     127: iload         6
+     129: i2f
+     130: invokevirtual #172                // Method sv.a:(Lro;F)Z
+     133: pop
+     134: goto          150
+     137: aload_2
+     138: aload_2
+     139: aload_1
+     140: invokestatic  #154                // Method ro.b:(Lsa;Lsa;)Lro;
+     143: iload         6
+     145: i2f
+     146: invokevirtual #172                // Method sv.a:(Lro;F)Z
+     149: pop
+     150: return
+
+  public boolean b();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean a(int, int);
+    Code:
+       0: aload_0
+       1: getfield      #107                // Field H:I
+       4: getstatic     #126                // Field l:Lrv;
+       7: getfield      #107                // Field H:I
+      10: if_icmpne     36
+      13: bipush        50
+      15: iload_2
+      16: ishr
+      17: istore_3
+      18: iload_3
+      19: ifle          34
+      22: iload_1
+      23: iload_3
+      24: irem
+      25: ifne          32
+      28: iconst_1
+      29: goto          33
+      32: iconst_0
+      33: ireturn
+      34: iconst_1
+      35: ireturn
+      36: aload_0
+      37: getfield      #107                // Field H:I
+      40: getstatic     #135                // Field u:Lrv;
+      43: getfield      #107                // Field H:I
+      46: if_icmpne     72
+      49: bipush        25
+      51: iload_2
+      52: ishr
+      53: istore_3
+      54: iload_3
+      55: ifle          70
+      58: iload_1
+      59: iload_3
+      60: irem
+      61: ifne          68
+      64: iconst_1
+      65: goto          69
+      68: iconst_0
+      69: ireturn
+      70: iconst_1
+      71: ireturn
+      72: aload_0
+      73: getfield      #107                // Field H:I
+      76: getstatic     #136                // Field v:Lrv;
+      79: getfield      #107                // Field H:I
+      82: if_icmpne     108
+      85: bipush        40
+      87: iload_2
+      88: ishr
+      89: istore_3
+      90: iload_3
+      91: ifle          106
+      94: iload_1
+      95: iload_3
+      96: irem
+      97: ifne          104
+     100: iconst_1
+     101: goto          105
+     104: iconst_0
+     105: ireturn
+     106: iconst_1
+     107: ireturn
+     108: aload_0
+     109: getfield      #107                // Field H:I
+     112: getstatic     #133                // Field s:Lrv;
+     115: getfield      #107                // Field H:I
+     118: if_icmpne     123
+     121: iconst_1
+     122: ireturn
+     123: iconst_0
+     124: ireturn
+
+  public rv b(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #111                // Field L:Ljava/lang/String;
+       5: aload_0
+       6: areturn
+
+  public java.lang.String a();
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field L:Ljava/lang/String;
+       4: areturn
+
+  public boolean d();
+    Code:
+       0: aload_0
+       1: getfield      #112                // Field M:I
+       4: iflt          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public int e();
+    Code:
+       0: aload_0
+       1: getfield      #112                // Field M:I
+       4: ireturn
+
+  public boolean f();
+    Code:
+       0: aload_0
+       1: getfield      #109                // Field J:Z
+       4: ireturn
+
+  public static java.lang.String a(rw);
+    Code:
+       0: aload_0
+       1: invokevirtual #171                // Method rw.g:()Z
+       4: ifeq          10
+       7: ldc           #26                 // String **:**
+       9: areturn
+      10: aload_0
+      11: invokevirtual #170                // Method rw.b:()I
+      14: istore_1
+      15: iload_1
+      16: invokestatic  #153                // Method qn.a:(I)Ljava/lang/String;
+      19: areturn
+
+  protected rv a(double);
+    Code:
+       0: aload_0
+       1: dload_1
+       2: putfield      #113                // Field N:D
+       5: aload_0
+       6: areturn
+
+  public double g();
+    Code:
+       0: aload_0
+       1: getfield      #113                // Field N:D
+       4: dreturn
+
+  public boolean i();
+    Code:
+       0: aload_0
+       1: getfield      #114                // Field O:Z
+       4: ireturn
+
+  public int j();
+    Code:
+       0: aload_0
+       1: getfield      #110                // Field K:I
+       4: ireturn
+
+  public rv a(th, java.lang.String, double, int);
+    Code:
+       0: new           #76                 // class tj
+       3: dup
+       4: aload_2
+       5: invokestatic  #152                // Method java/util/UUID.fromString:(Ljava/lang/String;)Ljava/util/UUID;
+       8: aload_0
+       9: invokevirtual #164                // Method a:()Ljava/lang/String;
+      12: dload_3
+      13: iload         5
+      15: invokespecial #177                // Method tj."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      18: astore        6
+      20: aload_0
+      21: getfield      #108                // Field I:Ljava/util/Map;
+      24: aload_1
+      25: aload         6
+      27: invokeinterface #188,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      32: pop
+      33: aload_0
+      34: areturn
+
+  public java.util.Map k();
+    Code:
+       0: aload_0
+       1: getfield      #108                // Field I:Ljava/util/Map;
+       4: areturn
+
+  public void a(sv, tl, int);
+    Code:
+       0: aload_0
+       1: getfield      #108                // Field I:Ljava/util/Map;
+       4: invokeinterface #187,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #191,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore        4
+      16: aload         4
+      18: invokeinterface #185,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      23: ifeq          79
+      26: aload         4
+      28: invokeinterface #186,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #62                 // class java/util/Map$Entry
+      36: astore        5
+      38: aload_2
+      39: aload         5
+      41: invokeinterface #189,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      46: checkcast     #74                 // class th
+      49: invokevirtual #181                // Method tl.a:(Lth;)Lti;
+      52: astore        6
+      54: aload         6
+      56: ifnull        76
+      59: aload         6
+      61: aload         5
+      63: invokeinterface #190,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      68: checkcast     #76                 // class tj
+      71: invokeinterface #193,  2          // InterfaceMethod ti.b:(Ltj;)V
+      76: goto          16
+      79: return
+
+  public void b(sv, tl, int);
+    Code:
+       0: aload_0
+       1: getfield      #108                // Field I:Ljava/util/Map;
+       4: invokeinterface #187,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #191,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore        4
+      16: aload         4
+      18: invokeinterface #185,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      23: ifeq          140
+      26: aload         4
+      28: invokeinterface #186,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #62                 // class java/util/Map$Entry
+      36: astore        5
+      38: aload_2
+      39: aload         5
+      41: invokeinterface #189,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      46: checkcast     #74                 // class th
+      49: invokevirtual #181                // Method tl.a:(Lth;)Lti;
+      52: astore        6
+      54: aload         6
+      56: ifnull        137
+      59: aload         5
+      61: invokeinterface #190,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      66: checkcast     #76                 // class tj
+      69: astore        7
+      71: aload         6
+      73: aload         7
+      75: invokeinterface #193,  2          // InterfaceMethod ti.b:(Ltj;)V
+      80: aload         6
+      82: new           #76                 // class tj
+      85: dup
+      86: aload         7
+      88: invokevirtual #178                // Method tj.a:()Ljava/util/UUID;
+      91: new           #59                 // class java/lang/StringBuilder
+      94: dup
+      95: invokespecial #148                // Method java/lang/StringBuilder."<init>":()V
+      98: aload_0
+      99: invokevirtual #164                // Method a:()Ljava/lang/String;
+     102: invokevirtual #150                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     105: ldc           #25                 // String
+     107: invokevirtual #150                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     110: iload_3
+     111: invokevirtual #149                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     114: invokevirtual #151                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     117: aload_0
+     118: iload_3
+     119: aload         7
+     121: invokevirtual #166                // Method a:(ILtj;)D
+     124: aload         7
+     126: invokevirtual #179                // Method tj.c:()I
+     129: invokespecial #177                // Method tj."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+     132: invokeinterface #192,  2          // InterfaceMethod ti.a:(Ltj;)V
+     137: goto          16
+     140: return
+
+  public double a(int, tj);
+    Code:
+       0: aload_2
+       1: invokevirtual #180                // Method tj.d:()D
+       4: iload_1
+       5: iconst_1
+       6: iadd
+       7: i2d
+       8: dmul
+       9: dreturn
+
+  static {};
+    Code:
+       0: bipush        32
+       2: anewarray     #71                 // class rv
+       5: putstatic     #115                // Field a:[Lrv;
+       8: aconst_null
+       9: putstatic     #116                // Field b:Lrv;
+      12: new           #71                 // class rv
+      15: dup
+      16: iconst_1
+      17: iconst_0
+      18: ldc           #14                 // int 8171462
+      20: invokespecial #163                // Method "<init>":(IZI)V
+      23: ldc           #46                 // String potion.moveSpeed
+      25: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+      28: iconst_0
+      29: iconst_0
+      30: invokevirtual #168                // Method b:(II)Lrv;
+      33: getstatic     #143                // Field yj.d:Lth;
+      36: ldc           #31                 // String 91AEAA56-376B-4498-935B-2F7F68070635
+      38: ldc2_w        #83                 // double 0.20000000298023224d
+      41: iconst_2
+      42: invokevirtual #167                // Method a:(Lth;Ljava/lang/String;DI)Lrv;
+      45: putstatic     #117                // Field c:Lrv;
+      48: new           #71                 // class rv
+      51: dup
+      52: iconst_2
+      53: iconst_1
+      54: ldc           #12                 // int 5926017
+      56: invokespecial #163                // Method "<init>":(IZI)V
+      59: ldc           #45                 // String potion.moveSlowdown
+      61: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+      64: iconst_1
+      65: iconst_0
+      66: invokevirtual #168                // Method b:(II)Lrv;
+      69: getstatic     #143                // Field yj.d:Lth;
+      72: ldc           #30                 // String 7107DE5E-7CE8-4030-940E-514C1F160890
+      74: ldc2_w        #81                 // double -0.15000000596046448d
+      77: iconst_2
+      78: invokevirtual #167                // Method a:(Lth;Ljava/lang/String;DI)Lrv;
+      81: putstatic     #118                // Field d:Lrv;
+      84: new           #71                 // class rv
+      87: dup
+      88: iconst_3
+      89: iconst_0
+      90: ldc           #19                 // int 14270531
+      92: invokespecial #163                // Method "<init>":(IZI)V
+      95: ldc           #37                 // String potion.digSpeed
+      97: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     100: iconst_2
+     101: iconst_0
+     102: invokevirtual #168                // Method b:(II)Lrv;
+     105: ldc2_w        #89                 // double 1.5d
+     108: invokevirtual #165                // Method a:(D)Lrv;
+     111: putstatic     #119                // Field e:Lrv;
+     114: new           #71                 // class rv
+     117: dup
+     118: iconst_4
+     119: iconst_1
+     120: ldc           #8                  // int 4866583
+     122: invokespecial #163                // Method "<init>":(IZI)V
+     125: ldc           #36                 // String potion.digSlowDown
+     127: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     130: iconst_3
+     131: iconst_0
+     132: invokevirtual #168                // Method b:(II)Lrv;
+     135: putstatic     #120                // Field f:Lrv;
+     138: new           #68                 // class rs
+     141: dup
+     142: iconst_5
+     143: iconst_0
+     144: ldc           #16                 // int 9643043
+     146: invokespecial #157                // Method rs."<init>":(IZI)V
+     149: ldc           #35                 // String potion.damageBoost
+     151: invokevirtual #158                // Method rs.b:(Ljava/lang/String;)Lrv;
+     154: iconst_4
+     155: iconst_0
+     156: invokevirtual #168                // Method b:(II)Lrv;
+     159: getstatic     #144                // Field yj.e:Lth;
+     162: ldc           #29                 // String 648D7064-6A60-4F59-8ABE-C2C23A6DD7A9
+     164: ldc2_w        #93                 // double 3.0d
+     167: iconst_2
+     168: invokevirtual #167                // Method a:(Lth;Ljava/lang/String;DI)Lrv;
+     171: putstatic     #121                // Field g:Lrv;
+     174: new           #70                 // class ru
+     177: dup
+     178: bipush        6
+     180: iconst_0
+     181: ldc           #21                 // int 16262179
+     183: invokespecial #161                // Method ru."<init>":(IZI)V
+     186: ldc           #40                 // String potion.heal
+     188: invokevirtual #162                // Method ru.b:(Ljava/lang/String;)Lrv;
+     191: putstatic     #122                // Field h:Lrv;
+     194: new           #70                 // class ru
+     197: dup
+     198: bipush        7
+     200: iconst_1
+     201: ldc           #6                  // int 4393481
+     203: invokespecial #161                // Method ru."<init>":(IZI)V
+     206: ldc           #39                 // String potion.harm
+     208: invokevirtual #162                // Method ru.b:(Ljava/lang/String;)Lrv;
+     211: putstatic     #123                // Field i:Lrv;
+     214: new           #71                 // class rv
+     217: dup
+     218: bipush        8
+     220: iconst_0
+     221: ldc           #13                 // int 7889559
+     223: invokespecial #163                // Method "<init>":(IZI)V
+     226: ldc           #44                 // String potion.jump
+     228: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     231: iconst_2
+     232: iconst_1
+     233: invokevirtual #168                // Method b:(II)Lrv;
+     236: putstatic     #124                // Field j:Lrv;
+     239: new           #71                 // class rv
+     242: dup
+     243: bipush        9
+     245: iconst_1
+     246: ldc           #10                 // int 5578058
+     248: invokespecial #163                // Method "<init>":(IZI)V
+     251: ldc           #34                 // String potion.confusion
+     253: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     256: iconst_3
+     257: iconst_1
+     258: invokevirtual #168                // Method b:(II)Lrv;
+     261: ldc2_w        #85                 // double 0.25d
+     264: invokevirtual #165                // Method a:(D)Lrv;
+     267: putstatic     #125                // Field k:Lrv;
+     270: new           #71                 // class rv
+     273: dup
+     274: bipush        10
+     276: iconst_0
+     277: ldc           #18                 // int 13458603
+     279: invokespecial #163                // Method "<init>":(IZI)V
+     282: ldc           #49                 // String potion.regeneration
+     284: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     287: bipush        7
+     289: iconst_0
+     290: invokevirtual #168                // Method b:(II)Lrv;
+     293: ldc2_w        #85                 // double 0.25d
+     296: invokevirtual #165                // Method a:(D)Lrv;
+     299: putstatic     #126                // Field l:Lrv;
+     302: new           #71                 // class rv
+     305: dup
+     306: bipush        11
+     308: iconst_0
+     309: ldc           #17                 // int 10044730
+     311: invokespecial #163                // Method "<init>":(IZI)V
+     314: ldc           #50                 // String potion.resistance
+     316: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     319: bipush        6
+     321: iconst_1
+     322: invokevirtual #168                // Method b:(II)Lrv;
+     325: putstatic     #127                // Field m:Lrv;
+     328: new           #71                 // class rv
+     331: dup
+     332: bipush        12
+     334: iconst_0
+     335: ldc           #20                 // int 14981690
+     337: invokespecial #163                // Method "<init>":(IZI)V
+     340: ldc           #38                 // String potion.fireResistance
+     342: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     345: bipush        7
+     347: iconst_1
+     348: invokevirtual #168                // Method b:(II)Lrv;
+     351: putstatic     #128                // Field n:Lrv;
+     354: new           #71                 // class rv
+     357: dup
+     358: bipush        13
+     360: iconst_0
+     361: ldc           #4                  // int 3035801
+     363: invokespecial #163                // Method "<init>":(IZI)V
+     366: ldc           #52                 // String potion.waterBreathing
+     368: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     371: iconst_0
+     372: iconst_2
+     373: invokevirtual #168                // Method b:(II)Lrv;
+     376: putstatic     #129                // Field o:Lrv;
+     379: new           #71                 // class rv
+     382: dup
+     383: bipush        14
+     385: iconst_0
+     386: ldc           #15                 // int 8356754
+     388: invokespecial #163                // Method "<init>":(IZI)V
+     391: ldc           #43                 // String potion.invisibility
+     393: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     396: iconst_0
+     397: iconst_1
+     398: invokevirtual #168                // Method b:(II)Lrv;
+     401: putstatic     #130                // Field p:Lrv;
+     404: new           #71                 // class rv
+     407: dup
+     408: bipush        15
+     410: iconst_1
+     411: ldc           #1                  // int 2039587
+     413: invokespecial #163                // Method "<init>":(IZI)V
+     416: ldc           #33                 // String potion.blindness
+     418: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     421: iconst_5
+     422: iconst_1
+     423: invokevirtual #168                // Method b:(II)Lrv;
+     426: ldc2_w        #85                 // double 0.25d
+     429: invokevirtual #165                // Method a:(D)Lrv;
+     432: putstatic     #131                // Field q:Lrv;
+     435: new           #71                 // class rv
+     438: dup
+     439: bipush        16
+     441: iconst_0
+     442: ldc           #2                  // int 2039713
+     444: invokespecial #163                // Method "<init>":(IZI)V
+     447: ldc           #47                 // String potion.nightVision
+     449: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     452: iconst_4
+     453: iconst_1
+     454: invokevirtual #168                // Method b:(II)Lrv;
+     457: putstatic     #132                // Field r:Lrv;
+     460: new           #71                 // class rv
+     463: dup
+     464: bipush        17
+     466: iconst_1
+     467: ldc           #11                 // int 5797459
+     469: invokespecial #163                // Method "<init>":(IZI)V
+     472: ldc           #42                 // String potion.hunger
+     474: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     477: iconst_1
+     478: iconst_1
+     479: invokevirtual #168                // Method b:(II)Lrv;
+     482: putstatic     #133                // Field s:Lrv;
+     485: new           #68                 // class rs
+     488: dup
+     489: bipush        18
+     491: iconst_1
+     492: ldc           #7                  // int 4738376
+     494: invokespecial #157                // Method rs."<init>":(IZI)V
+     497: ldc           #53                 // String potion.weakness
+     499: invokevirtual #158                // Method rs.b:(Ljava/lang/String;)Lrv;
+     502: iconst_5
+     503: iconst_0
+     504: invokevirtual #168                // Method b:(II)Lrv;
+     507: getstatic     #144                // Field yj.e:Lth;
+     510: ldc           #27                 // String 22653B89-116E-49DC-9B6B-9971489B5BE5
+     512: ldc2_w        #91                 // double 2.0d
+     515: iconst_0
+     516: invokevirtual #167                // Method a:(Lth;Ljava/lang/String;DI)Lrv;
+     519: putstatic     #134                // Field t:Lrv;
+     522: new           #71                 // class rv
+     525: dup
+     526: bipush        19
+     528: iconst_1
+     529: ldc           #9                  // int 5149489
+     531: invokespecial #163                // Method "<init>":(IZI)V
+     534: ldc           #48                 // String potion.poison
+     536: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     539: bipush        6
+     541: iconst_0
+     542: invokevirtual #168                // Method b:(II)Lrv;
+     545: ldc2_w        #85                 // double 0.25d
+     548: invokevirtual #165                // Method a:(D)Lrv;
+     551: putstatic     #135                // Field u:Lrv;
+     554: new           #71                 // class rv
+     557: dup
+     558: bipush        20
+     560: iconst_1
+     561: ldc           #5                  // int 3484199
+     563: invokespecial #163                // Method "<init>":(IZI)V
+     566: ldc           #54                 // String potion.wither
+     568: invokevirtual #169                // Method b:(Ljava/lang/String;)Lrv;
+     571: iconst_1
+     572: iconst_2
+     573: invokevirtual #168                // Method b:(II)Lrv;
+     576: ldc2_w        #85                 // double 0.25d
+     579: invokevirtual #165                // Method a:(D)Lrv;
+     582: putstatic     #136                // Field v:Lrv;
+     585: new           #69                 // class rt
+     588: dup
+     589: bipush        21
+     591: iconst_0
+     592: ldc           #22                 // int 16284963
+     594: invokespecial #159                // Method rt."<init>":(IZI)V
+     597: ldc           #41                 // String potion.healthBoost
+     599: invokevirtual #160                // Method rt.b:(Ljava/lang/String;)Lrv;
+     602: iconst_2
+     603: iconst_2
+     604: invokevirtual #168                // Method b:(II)Lrv;
+     607: getstatic     #142                // Field yj.a:Lth;
+     610: ldc           #28                 // String 5D6F0BA2-1186-46AC-B896-C61C5CEE99CC
+     612: ldc2_w        #95                 // double 4.0d
+     615: iconst_0
+     616: invokevirtual #167                // Method a:(Lth;Ljava/lang/String;DI)Lrv;
+     619: putstatic     #137                // Field w:Lrv;
+     622: new           #67                 // class rr
+     625: dup
+     626: bipush        22
+     628: iconst_0
+     629: ldc           #3                  // int 2445989
+     631: invokespecial #155                // Method rr."<init>":(IZI)V
+     634: ldc           #32                 // String potion.absorption
+     636: invokevirtual #156                // Method rr.b:(Ljava/lang/String;)Lrv;
+     639: iconst_2
+     640: iconst_2
+     641: invokevirtual #168                // Method b:(II)Lrv;
+     644: putstatic     #138                // Field x:Lrv;
+     647: new           #70                 // class ru
+     650: dup
+     651: bipush        23
+     653: iconst_0
+     654: ldc           #21                 // int 16262179
+     656: invokespecial #161                // Method ru."<init>":(IZI)V
+     659: ldc           #51                 // String potion.saturation
+     661: invokevirtual #162                // Method ru.b:(Ljava/lang/String;)Lrv;
+     664: putstatic     #139                // Field y:Lrv;
+     667: aconst_null
+     668: putstatic     #140                // Field z:Lrv;
+     671: aconst_null
+     672: putstatic     #100                // Field A:Lrv;
+     675: aconst_null
+     676: putstatic     #101                // Field B:Lrv;
+     679: aconst_null
+     680: putstatic     #102                // Field C:Lrv;
+     683: aconst_null
+     684: putstatic     #103                // Field D:Lrv;
+     687: aconst_null
+     688: putstatic     #104                // Field E:Lrv;
+     691: aconst_null
+     692: putstatic     #105                // Field F:Lrv;
+     695: aconst_null
+     696: putstatic     #106                // Field G:Lrv;
+     699: return
+}

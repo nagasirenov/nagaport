@@ -1,0 +1,3 @@
+PASS 17 exact incremental source reversals, pristine load loops, nullable owners/writers; sealed native helper unchanged
+PASS generated three representative exact production load loops: slots, processing, locks
+PASS exact production load-loop slices with real native ItemStack/NBT: 21 checks

@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderConnectorSuper extends RenderPylonBase implements IItemRendererProvider {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		TileEntityConnectorSuper con = (TileEntityConnectorSuper) te;
 		
 		GL11.glPushMatrix();

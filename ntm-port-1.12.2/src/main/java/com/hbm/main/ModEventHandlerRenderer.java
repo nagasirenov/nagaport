@@ -56,7 +56,7 @@ public class ModEventHandlerRenderer {
 
 		if(event.phase == Phase.START) {
 			// Zoom out third person view when inside a rocket
-			if(player != null && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {
+			if(player != null && player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket) {
 				mc.entityRenderer.thirdPersonDistance = 12.0F;
 			} else {
 				mc.entityRenderer.thirdPersonDistance = 4.0F;
@@ -70,12 +70,12 @@ public class ModEventHandlerRenderer {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onRenderRidingPlayerPre(RenderPlayerEvent.Pre event) {
-		wasRiding = event.entityPlayer.ridingEntity instanceof EntityRideableRocket;
+		wasRiding = event.entityPlayer.getRidingEntity() instanceof EntityRideableRocket;
 		if(!wasRiding) return;
 
 		GL11.glPushMatrix();
 
-		GL11.glRotated(-event.entityPlayer.ridingEntity.rotationPitch, 0, 0, 1);
+		GL11.glRotated(-event.entityPlayer.getRidingEntity().rotationPitch, 0, 0, 1);
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOWEST)

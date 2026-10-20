@@ -30,10 +30,10 @@ public class ReinforcedLamp extends Block {
 		
 		if(!world.isRemote) {
 			
-			if(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.scheduleBlockUpdate(x, y, z, this, 4);
 				
-			} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.setBlock(x, y, z, getOn(), 0, 2);
 			}
 		}
@@ -44,19 +44,20 @@ public class ReinforcedLamp extends Block {
 		
 		if(!world.isRemote) {
 			
-			if(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			if(this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.scheduleBlockUpdate(x, y, z, this, 4);
 				
-			} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			} else if(!this.isOn && world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 				world.setBlock(x, y, z, getOn(), 0, 2);
 			}
 		}
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random p_149674_5_) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		
-		if(!world.isRemote && this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(!world.isRemote && this.isOn && !world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			world.setBlock(x, y, z, getOff(), 0, 2);
 		}
 	}

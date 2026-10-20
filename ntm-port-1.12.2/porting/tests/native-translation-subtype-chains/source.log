@@ -1,0 +1,4 @@
+PASS 44 exact method-token replacements, whole-file inverse, pinned unchanged owner/runtime/bytecode proofs and independent full AST receiver/argument/predecessor/destination equality
+PASS Independently enumerated receiver AST nodes and argument records unchanged; 44 actual native Item destinations
+PASS 8 attribution controls: exact owner accepted; dynamic/factory/anonymous/subclass override/wrong argument rejected
+PASS 44 whole-file mutation guards

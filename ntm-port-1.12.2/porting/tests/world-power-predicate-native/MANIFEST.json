@@ -1,0 +1,29 @@
+{
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "production_commit": "c0f46af956d51eb865d5538247911ba65fc47fe3",
+  "calls": 58,
+  "files": 47,
+  "native_assertions": 2518,
+  "runtime_mutants_rejected": 4,
+  "compiler_mutants_rejected": 1,
+  "source_controls": "PASS",
+  "patch_whitespace_option": "-c core.whitespace=cr-at-eol (preserves original CRLF on 3 selected lines)",
+  "evidence_sha256": {
+    ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+    "PowerNativeTest.java.in": "3dd8f5ecc64285c4971ff0c42c02e98a3f46bddc95aed623dcae1dcaa16f7905",
+    "README.md": "2f9a390d3535ed36b456427abd2d759d67eae3b16292e0279e7f84ddc7a4b92c",
+    "SourceInventory.java": "69aea6ff9ea6d9e22315e3949e5624306166f816e891be04bd0c7efd5e906957",
+    "apply-fragments.py": "81aa58825e62706b85db0688fd5565845c380a57075568276c17f8d37eab6d4c",
+    "attribution.json": "423dfc41d8efb025f435c0c8a28cfd65154ed97555562c260e5afc91895a078b",
+    "baseline.zip": "953608e6dd3282dd423715358595d3e79cb2eda5bc7f1d698b419d7c6d03a585",
+    "input-sha256.json": "20b7a114e6af69aabffad9d081c114fe3dd36589685062f4c2704e9db215a3ef",
+    "main-fragment-dry-run.json": "538d712c4ba9c375b7d24cd1294fdc3cabf22aa66622840c77e5d370a4d653ce",
+    "native-api-receipt.json": "0d7361b0302bf44a07c3f83c40b595e81183a015162cd7679a589f1db3c48966",
+    "native-attribution.log": "72a44f28fb228193fef199c4ed948075c7b4164382ae2db657fc74f6183941c2",
+    "native-test.log": "689a75bfe76ecaeace26facd43de4d8fd6ff783f77ef67b32887ba53721a8701",
+    "run.py": "ff1dc34ea1db0c239be2c436215b7f08850fba43f1e00167152adccbaa9f2f50",
+    "selection.json": "d4ce443ac6d580e4b1b5209769c26415d2a90e7f329ffc7abfd75844efb5bd13",
+    "source-proof.py": "b7a2e5fed9c228ebd6589c9b2a315dcdca1b59787df006f6c5af4e4ab0f46e3e",
+    "source-test.log": "e7e68d8dbe48cafc5d7935c7528173c015b68e9586090689165db71656233f78"
+  }
+}

@@ -36,7 +36,7 @@ public class BlockVolcanoV2 extends BlockContainer {
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 

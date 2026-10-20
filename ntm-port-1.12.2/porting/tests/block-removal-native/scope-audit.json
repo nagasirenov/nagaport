@@ -1,0 +1,1154 @@
+{
+  "base": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "selected": [
+    "com.hbm.blocks.machine.MachineICFPress",
+    "com.hbm.blocks.machine.MachineReactorControl",
+    "com.hbm.blocks.machine.MachineSatDock",
+    "com.hbm.blocks.machine.MachineSatLinker",
+    "com.hbm.blocks.machine.MachineSiren",
+    "com.hbm.blocks.machine.MachineTurbine"
+  ],
+  "descendants": [],
+  "callback_occurrences": [
+    {
+      "path": "com/hbm/blocks/BlockContainerBase.java",
+      "line": 16,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/BlockContainerBase.java",
+      "line": 17,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyable.java",
+      "line": 73,
+      "scope_depth": 1,
+      "text": "@Override public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyable.java",
+      "line": 74,
+      "scope_depth": 2,
+      "text": "breakBlock(world, pos.getX(), pos.getY(), pos.getZ(), state.getBlock(), state.getBlock().getMetaFromState(state));"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyable.java",
+      "line": 418,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyable.java",
+      "line": 485,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, new BlockPos(x, y, z), b.getStateFromMeta(i));"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyableBeam.java",
+      "line": 62,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyableBeam.java",
+      "line": 77,
+      "scope_depth": 3,
+      "text": "((BlockDummyable) b).breakBlock(world, x, y, z, b, i);"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 195,
+      "scope_depth": 7,
+      "text": "breakBlock(fortune);"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 281,
+      "scope_depth": 1,
+      "text": "private void breakBlock(int fortune) {"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityPWRController.java",
+      "line": 314,
+      "scope_depth": 3,
+      "text": "b.breakBlock(this.world, pos.getX(), pos.getY(), pos.getZ(), b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()) ));"
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityFEL.java",
+      "line": 152,
+      "scope_depth": 8,
+      "text": "silexBlock.breakBlock(this.world, silex.getPos().getX(), silex.getPos().getY(), silex.getPos().getZ(), silexBlock, 0);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRadResistant.java",
+      "line": 21,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRadResistant.java",
+      "line": 23,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOutgas.java",
+      "line": 142,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOutgas.java",
+      "line": 143,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, i);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLoot.java",
+      "line": 51,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLoot.java",
+      "line": 64,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDecoContainer.java",
+      "line": 82,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDecoContainer.java",
+      "line": 125,
+      "scope_depth": 3,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/FragileBrick.java",
+      "line": 55,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPedestal.java",
+      "line": 82,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockPedestal.java",
+      "line": 93,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "line": 67,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "line": 77,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "line": 263,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStorageCrate.java",
+      "line": 309,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 72,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int metadata) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 73,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, metadata);"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BrownBarrel.java",
+      "line": 58,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BrownBarrel.java",
+      "line": 59,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "line": 53,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "line": 93,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchTable.java",
+      "line": 181,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchTable.java",
+      "line": 225,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "line": 52,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "line": 92,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "line": 53,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "line": 93,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 53,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 93,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirusSeed.java",
+      "line": 21,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirusSeed.java",
+      "line": 23,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, i);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "line": 57,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "line": 97,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "line": 50,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "line": 90,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirus.java",
+      "line": 27,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i)"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirus.java",
+      "line": 29,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, i);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "line": 52,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "line": 92,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "line": 52,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "line": 92,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "line": 165,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "line": 166,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, i);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "line": 50,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "line": 90,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CompactLauncher.java",
+      "line": 137,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CompactLauncher.java",
+      "line": 178,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "line": 53,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "line": 98,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 56,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "line": 101,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Radiobox.java",
+      "line": 124,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Radiobox.java",
+      "line": 128,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockFluidBarrel.java",
+      "line": 117,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockFluidBarrel.java",
+      "line": 162,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineDiFurnaceRTG.java",
+      "line": 140,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineDiFurnaceRTG.java",
+      "line": 189,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Watz.java",
+      "line": 93,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Watz.java",
+      "line": 104,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, i);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatLinker.java",
+      "line": 76,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatLinker.java",
+      "line": 130,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "line": 113,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "line": 167,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Spotlight.java",
+      "line": 210,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/Spotlight.java",
+      "line": 213,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineICFPress.java",
+      "line": 69,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineICFPress.java",
+      "line": 104,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineTurbine.java",
+      "line": 82,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineTurbine.java",
+      "line": 130,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyBlockBlast.java",
+      "line": 37,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineShredder.java",
+      "line": 95,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineShredder.java",
+      "line": 143,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFunnel.java",
+      "line": 65,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFunnel.java",
+      "line": 95,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "line": 66,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "line": 84,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "line": 105,
+      "scope_depth": 7,
+      "text": "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockPWR.java",
+      "line": 108,
+      "scope_depth": 6,
+      "text": "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCMPort.java",
+      "line": 28,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCMPort.java",
+      "line": 29,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/CoreCore.java",
+      "line": 65,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/CoreCore.java",
+      "line": 101,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/WasteDrum.java",
+      "line": 108,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/WasteDrum.java",
+      "line": 154,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineStrandCaster.java",
+      "line": 161,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineStrandCaster.java",
+      "line": 174,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, i);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryCastingBase.java",
+      "line": 127,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryCastingBase.java",
+      "line": 145,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzCapsule.java",
+      "line": 64,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzCapsule.java",
+      "line": 109,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "line": 59,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "line": 77,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "line": 99,
+      "scope_depth": 7,
+      "text": "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockICF.java",
+      "line": 102,
+      "scope_depth": 6,
+      "text": "this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SpotlightBeam.java",
+      "line": 19,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SpotlightBeam.java",
+      "line": 26,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineKeyForge.java",
+      "line": 78,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineKeyForge.java",
+      "line": 130,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockOrbitalStationLauncher.java",
+      "line": 40,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockOrbitalStationLauncher.java",
+      "line": 43,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockTransporterRocket.java",
+      "line": 58,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockTransporterRocket.java",
+      "line": 68,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryTank.java",
+      "line": 93,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryTank.java",
+      "line": 104,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRocketAssembly.java",
+      "line": 53,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRocketAssembly.java",
+      "line": 56,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRTG.java",
+      "line": 80,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRTG.java",
+      "line": 133,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCustomMachine.java",
+      "line": 164,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockCustomMachine.java",
+      "line": 212,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "line": 178,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "line": 224,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineDiFurnace.java",
+      "line": 110,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineDiFurnace.java",
+      "line": 157,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAutocrafter.java",
+      "line": 70,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAutocrafter.java",
+      "line": 113,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCrucible.java",
+      "line": 100,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCrucible.java",
+      "line": 121,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, i);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryChannel.java",
+      "line": 152,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/FoundryChannel.java",
+      "line": 163,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "line": 216,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMassStorage.java",
+      "line": 265,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "line": 69,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "line": 115,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineForceField.java",
+      "line": 95,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineForceField.java",
+      "line": 139,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSiren.java",
+      "line": 76,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSiren.java",
+      "line": 130,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBrickFurnace.java",
+      "line": 121,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBrickFurnace.java",
+      "line": 125,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMachineBase.java",
+      "line": 49,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockMachineBase.java",
+      "line": 102,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/DummyOldBase.java",
+      "line": 37,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/CombatDropPod.java",
+      "line": 50,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/CombatDropPod.java",
+      "line": 52,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatDock.java",
+      "line": 87,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatDock.java",
+      "line": 134,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineElectricFurnace.java",
+      "line": 184,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World p_149749_1_, BlockPos pos, IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineElectricFurnace.java",
+      "line": 239,
+      "scope_depth": 2,
+      "text": "super.breakBlock(p_149749_1_, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "line": 128,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "line": 169,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": 176,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block p_149749_5_, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzLauncher.java",
+      "line": 231,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, p_149749_5_, i);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRtgFurnace.java",
+      "line": 157,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state)"
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRtgFurnace.java",
+      "line": 211,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonMedium.java",
+      "line": 47,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonMedium.java",
+      "line": 50,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/network/BlockCraneBase.java",
+      "line": 387,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, new BlockPos(x, y, z), block.getStateFromMeta(meta));"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneUnboxer.java",
+      "line": 88,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneUnboxer.java",
+      "line": 93,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/CranePartitioner.java",
+      "line": 220,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CranePartitioner.java",
+      "line": 251,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneBoxer.java",
+      "line": 83,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneBoxer.java",
+      "line": 88,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneExtractor.java",
+      "line": 85,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneExtractor.java",
+      "line": 90,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneGrabber.java",
+      "line": 47,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneGrabber.java",
+      "line": 52,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonLarge.java",
+      "line": 51,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonLarge.java",
+      "line": 59,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneCrate.java",
+      "line": 77,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneCrate.java",
+      "line": 119,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/network/Substation.java",
+      "line": 44,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/Substation.java",
+      "line": 52,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneDock.java",
+      "line": 80,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneDock.java",
+      "line": 84,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonBase.java",
+      "line": 19,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/PylonBase.java",
+      "line": 27,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneInserter.java",
+      "line": 201,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, BlockPos pos, IBlockState state) {"
+    },
+    {
+      "path": "com/hbm/blocks/network/CraneInserter.java",
+      "line": 206,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, pos, state);"
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretSentry.java",
+      "line": 62,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretSentry.java",
+      "line": 105,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "line": 44,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block block, int meta) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/rbmk/RBMKRod.java",
+      "line": 53,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, block, meta);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      "line": 205,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int i) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/rbmk/RBMKBase.java",
+      "line": 217,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, i);"
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteDrilledTE.java",
+      "line": 20,
+      "scope_depth": 1,
+      "text": "public void breakBlock(World world, int x, int y, int z, Block b, int m) {"
+    },
+    {
+      "path": "com/hbm/blocks/machine/pile/BlockGraphiteDrilledTE.java",
+      "line": 21,
+      "scope_depth": 2,
+      "text": "super.breakBlock(world, x, y, z, b, m);"
+    }
+  ]
+}

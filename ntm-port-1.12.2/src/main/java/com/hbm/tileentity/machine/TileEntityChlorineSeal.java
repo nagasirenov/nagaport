@@ -9,7 +9,7 @@ public class TileEntityChlorineSeal extends TileEntity implements net.minecraft.
 	@Override
 	public void update() {
 		
-		if(!this.world.isRemote && this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()))
+		if(!this.world.isRemote && this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())))
 			spread(this.pos.getX(), this.pos.getY(), this.pos.getZ(), 0);
 	}
 	

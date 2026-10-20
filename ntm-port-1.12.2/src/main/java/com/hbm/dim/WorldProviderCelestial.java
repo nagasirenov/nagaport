@@ -66,7 +66,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	// Should we generate bedrock ice
 	public boolean hasIce() {
-		return CelestialBody.getBody(worldObj).hasIce;
+		return CelestialBody.getBody(this.world).hasIce;
 	}
 
 	public boolean hasLife() {
@@ -79,18 +79,18 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public void updateWeather() {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 		double pressure = atmosphere != null ? atmosphere.getPressure() : 0;
 
 		// Will prevent water from existing, will be unset immediately before using a bucket if inside a pressurized room
-		isHellWorld = !worldObj.isRemote && pressure <= 0.2F && !Loader.isModLoaded(Compat.MOD_COFH);
+		isHellWorld = !this.world.isRemote && pressure <= 0.2F && !Loader.isModLoaded(Compat.MOD_COFH);
 
 		
 		Random rand = new Random();
-		CBT_Invasion invasion = CelestialBody.getTrait(worldObj, CBT_Invasion.class);
+		CBT_Invasion invasion = CelestialBody.getTrait(this.world, CBT_Invasion.class);
 
-		if (worldObj.isRemote) {
+		if (this.world.isRemote) {
 			EntityPlayer player = MainRegistry.proxy.me();
 
 			if (invasion != null) {
@@ -115,10 +115,10 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return;
 		}
 
-		worldObj.prevRainingStrength = 0.0F;
-		worldObj.rainingStrength = 0.0F;
-		worldObj.prevThunderingStrength = 0.0F;
-		worldObj.thunderingStrength = 0.0F;
+		this.world.prevRainingStrength = 0.0F;
+		this.world.rainingStrength = 0.0F;
+		this.world.prevThunderingStrength = 0.0F;
+		this.world.thunderingStrength = 0.0F;
 
 		
 		
@@ -127,7 +127,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	// Can be overridden to provide fog changing events based on weather
 	public float fogDensity(FogDensity event) {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 		if(atmosphere == null) return 0;
 
 		float pressure = (float)atmosphere.getPressure();
@@ -194,14 +194,14 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	// so we use this to memoise expensive calcs
 	@SideOnly(Side.CLIENT)
 	protected void updateSky(float partialTicks) {
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 
 		// First fetch the suns true size
 		double sunSize = SolarSystem.calculateSunSize(body);
-		float solarAngle = worldObj.getCelestialAngle(partialTicks);
+		float solarAngle = this.world.getCelestialAngle(partialTicks);
 
 		// Get our orrery of bodies, this is cached for reuse in sky rendering
-		metrics = SolarSystem.calculateMetricsFromBody(worldObj, partialTicks, body, solarAngle);
+		metrics = SolarSystem.calculateMetricsFromBody(this.world, partialTicks, body, solarAngle);
 
 		// Get our eclipse amount
 		eclipseAmount = getEclipseFactor(metrics, sunSize, SolarSystem.MAX_APPARENT_SIZE_SURFACE);
@@ -237,7 +237,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float solarAngle, float y) {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 		// The cold hard vacuum of space
 		if(atmosphere == null) return new Vec3d(0, 0, 0);
@@ -314,8 +314,8 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			}
 		}
 
-		float dust = ImpactWorldHandler.getDustForClient(worldObj);
-		float fire = ImpactWorldHandler.getFireForClient(worldObj);
+		float dust = ImpactWorldHandler.getDustForClient(this.world);
+		float fire = ImpactWorldHandler.getFireForClient(this.world);
 
 		color.y *= 1 - (dust * 0.5F);
 		color.z *= 1 - dust;
@@ -339,7 +339,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		// getSkyColor is called first on every frame, so if you want to memoise anything, do it here
 		updateSky(partialTicks);
 
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 		Vec3NT color = new Vec3NT(0, 0, 0);
 
 		for(Map.Entry<Integer, Satellite> entry : SatelliteSavedData.getClientSats().entrySet()) {
@@ -384,8 +384,8 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			color.add(fluidColor.x * percentage, fluidColor.y * percentage, fluidColor.z * percentage);
 		}
 
-		if(CelestialBody.getBody(worldObj).hasTrait(CBT_War.class)) {
-			CBT_War wardat = CelestialBody.getTrait(worldObj, CBT_War.class);
+		if(CelestialBody.getBody(this.world).hasTrait(CBT_War.class)) {
+			CBT_War wardat = CelestialBody.getTrait(this.world, CBT_War.class);
 				for(int i = 0; i < wardat.getProjectiles().size(); i++) {
 					CBT_War.Projectile projectile = wardat.getProjectiles().get(i);
 					float flash = projectile.getFlashtime();
@@ -424,8 +424,8 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			color.z *= 1 - eclipseAmount * 0.5;
 		}
 
-		float dust = ImpactWorldHandler.getDustForClient(worldObj);
-		float fire = ImpactWorldHandler.getFireForClient(worldObj);
+		float dust = ImpactWorldHandler.getDustForClient(this.world);
+		float fire = ImpactWorldHandler.getFireForClient(this.world);
 
 		if(dust > 0) {
 			if(fire > 0) {
@@ -455,7 +455,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float[] calcSunriseSunsetColors(float solarAngle, float partialTicks) {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 		if(atmosphere == null || atmosphere.getPressure() < 0.05F) return null;
 
 		float[] colors = super.calcSunriseSunsetColors(solarAngle, partialTicks);
@@ -488,7 +488,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			colors[2] = tmp;
 		}
 
-		float dustFactor = 1 - ImpactWorldHandler.getDustForClient(worldObj);
+		float dustFactor = 1 - ImpactWorldHandler.getDustForClient(this.world);
 		colors[0] *= dustFactor;
 		colors[1] *= dustFactor;
 		colors[2] *= dustFactor;
@@ -506,13 +506,13 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 
 	@Override
 	public boolean canDoLightning(Chunk chunk) {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 		return atmosphere != null && atmosphere.getPressure() > 0.5;
 	}
 
 	@Override
 	public boolean canDoRainSnowIce(Chunk chunk) {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 		return atmosphere != null && atmosphere.getPressure() > 0.5;
 	}
 
@@ -527,12 +527,12 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		float distanceStart = 20_000_000;
 		float distanceEnd = 80_000_000;
 
-		float semiMajorAxisKm = CelestialBody.getPlanet(worldObj).semiMajorAxisKm;
+		float semiMajorAxisKm = CelestialBody.getPlanet(this.world).semiMajorAxisKm;
 		float distanceFactor = MathHelper.clamp((semiMajorAxisKm - distanceStart) / (distanceEnd - distanceStart), 0F, 1F);
 
 		float starBrightness = super.getStarBrightness(par1);
 
-		float dust = ImpactWorldHandler.getDustForClient(worldObj);
+		float dust = ImpactWorldHandler.getDustForClient(this.world);
 
 		return MathHelper.clamp(starBrightness, distanceFactor, 1F) * (1 - dust);
 	}
@@ -540,16 +540,16 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float getSunBrightness(float par1) {
-		if(CelestialBody.getStar(worldObj).hasTrait(CBT_Destroyed.class))
+		if(CelestialBody.getStar(this.world).hasTrait(CBT_Destroyed.class))
 			return 0;
 
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 		float sunBrightness = super.getSunBrightness(par1);
 
 		sunBrightness *= 1 - eclipseAmount * 0.6;
 
-		float dust = ImpactWorldHandler.getDustForClient(worldObj);
+		float dust = ImpactWorldHandler.getDustForClient(this.world);
 		sunBrightness *= (1 - dust);
 
 
@@ -565,8 +565,8 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			}
 		}
 
-		if(CelestialBody.getBody(worldObj).hasTrait(CBT_War.class)) {
-			CBT_War wardat = CelestialBody.getTrait(worldObj, CBT_War.class);
+		if(CelestialBody.getBody(this.world).hasTrait(CBT_War.class)) {
+			CBT_War wardat = CelestialBody.getTrait(this.world, CBT_War.class);
 			for (int i = 0; i < wardat.getProjectiles().size(); i++) {
 				CBT_War.Projectile projectile = wardat.getProjectiles().get(i);
 				float flash = projectile.getFlashtime();
@@ -585,7 +585,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	}
 
 	public float[] getSunColor() {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 		if(atmosphere == null) return new float[] { 1.0F, 1.0F, 1.0F };
 
@@ -617,7 +617,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return 0;
 
 		// If the bed location has no breathable atmosphere, respawn in overworld
-		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());
+		CBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, coords.getX(), coords.getY(), coords.getZ());
 		if(!ChunkAtmosphereManager.proxy.canBreathe(atmosphere))
 			return 0;
 
@@ -645,7 +645,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		super.resetRainAndThunder();
 
 		if(this.getDimension() == 0) return;
-		if(!worldObj.getGameRules().getGameRuleBooleanValue("doDaylightCycle")) return;
+		if(!this.world.getGameRules().getGameRuleBooleanValue("doDaylightCycle")) return;
 
 		long dayLength = (long)getDayLength();
 		long i = getWorldTime() % dayLength;
@@ -658,7 +658,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return super.getWorldTime();
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			localTime = CelestialBodyWorldSavedData.get(this).getLocalTime();
 		}
 
@@ -672,7 +672,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 			return;
 		}
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			CelestialBodyWorldSavedData.get(this).setLocalTime(time);
 		}
 
@@ -682,7 +682,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float getCloudHeight() {
-		CBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);
+		CBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);
 
 		if(atmosphere == null || atmosphere.getPressure() < 0.5F) return -99999;
 
@@ -717,7 +717,7 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 	}
 
 	protected double getDayLength() {
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 		return body.getRotationalPeriod() / (1 - (1 / body.getPlanet().getOrbitalPeriod()));
 	}
 
@@ -747,26 +747,26 @@ public abstract class WorldProviderCelestial extends WorldProviderSurface implem
 		// Uncomment this line as well to return moon phase difficulty calcs to vanilla
 		// if(dimensionId == 0) return super.getMoonPhase(worldTime);
 
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 
 		// if no moons, default to half-moon difficulty
 		if(body.satellites.size() == 0) return 2;
 
 		// Determine difficulty phase from closest moon
-		int phase = Math.round(8 - ((float)SolarSystem.calculateSingleAngle(worldObj, body, body.satellites.get(0)) / 45 + 4));
+		int phase = Math.round(8 - ((float)SolarSystem.calculateSingleAngle(this.world, body, body.satellites.get(0)) / 45 + 4));
 		if(phase >= 8) return 0;
 		return phase;
 	}
 
 	public boolean isEclipse() {
-		CelestialBody body = CelestialBody.getBody(worldObj);
+		CelestialBody body = CelestialBody.getBody(this.world);
 
 		// First fetch the suns true size
 		double sunSize = SolarSystem.calculateSunSize(body);
-		float solarAngle = worldObj.getCelestialAngle(0);
+		float solarAngle = this.world.getCelestialAngle(0);
 
 		// Get our orrery of bodies, this is cached for reuse in sky rendering
-		metrics = SolarSystem.calculateMetricsFromBody(worldObj, 0, body, solarAngle);
+		metrics = SolarSystem.calculateMetricsFromBody(this.world, 0, body, solarAngle);
 
 		// Get our eclipse amount
 		return getEclipseFactor(metrics, sunSize, SolarSystem.MAX_APPARENT_SIZE_SURFACE) > 0.0;

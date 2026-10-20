@@ -85,7 +85,7 @@ public class TileEntityGeysir extends TileEntity implements net.minecraft.util.I
 			for (Entity e : entities) {
 
 				if(e instanceof EntityLivingBase)
-				((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20, 0));
+				((EntityLivingBase)e).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20, 0));
 			}
 		}
 	}

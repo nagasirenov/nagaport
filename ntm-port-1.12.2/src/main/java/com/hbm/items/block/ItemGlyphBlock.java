@@ -16,7 +16,7 @@ public class ItemGlyphBlock extends ItemBlock {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		
 		switch(itemstack.getItemDamage()) {
 		case 0: list.add("Hourglass"); break;

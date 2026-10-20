@@ -1,0 +1,33 @@
+{
+  "baseline": "175b014cbb5c5990107fced236f7131f234998b6",
+  "production_commit": "3665fa2a84259808cd5660be55f7e7ecd84c2b52",
+  "selected_callbacks": 14,
+  "power_query_adaptations": 10,
+  "native_assertions": 2163,
+  "runtime_mutants_rejected": 4,
+  "compiler_mutants_rejected": 1,
+  "descendants_audited": 9,
+  "scope": "Complete native callback/helper methods, real World notification/power/removal; domain effect sinks are bounded, not full owner or mod gameplay.",
+  "files": {
+    "NeighborNativeTest.java.in": "d2c72aa4344f4217a408357a943f5b7a3ddb5b27afc15ac52fb34f6f2c587265",
+    "README.md": "6729694cd0c6032f71a1c72ae7a6af79a865e20341de3d6af3bcc1f436dd0954",
+    "apply-fragments.py": "b8e9657f8c4211fb1043c459771fb7a3fbaa3fe65334e586155327032ff8bec9",
+    "attribution.json": "bb35304a9bf7ab33c325a8f4f9997a83cc79715b09b858edc95f6d9ab01e1ff2",
+    "baseline.zip": "1e5a7ebd93a753d639b5890aeba9cc366be2d978494c65412b0594b618b7cf75",
+    "dispatch/REPORT.md": "81caaa4c5d5ec9dcd3b645f0ae0cd1b18f3663794f83fd88f344232b8226e4e4",
+    "dispatch/input-sha256.json": "f33b3ef246d8e8467cdfca0e1afde5173feb6fb2a6a3cb576d6577d4f416bfc0",
+    "dispatch/legacy-identities.srg": "aaeb2398a3fd6c5c8b2910fd479d96affe105cda98cfa6a2d52e81b07fcb7b67",
+    "dispatch/mapping-provenance.json": "abdfca19de9c4d81421153d641aa5d53d049f8f89c30fe904db789dabfe9fe38",
+    "dispatch/proof.log": "7624d87ebd7afd7da2ec31d2de69519d4ccd657b9c11d6af6c422852dcaaacca",
+    "dispatch/prove.py": "65b0ed8c9f9113c4eba3ab6bb1e37b07ed3dc7b37e0213cfdfa5aa01c85d6a00",
+    "dispatch/selected-methods.javap": "781e0fe823432b416f5f026bfd4b9d7e0c37a5fe19b107bb406fbdf1dc49b752",
+    "main-fragment-dry-run.json": "251d478282e10cd802eba29f995b6d3dc12c6f9b2d968abf4fe4b8cbd7c88fe4",
+    "native-attribution.log": "34fc8b2586fcc28ca4379512848cd5783da6eb3b05899aedb0f5697ca4952b3d",
+    "native-test.log": "3960566b4f15e5e3aa10ace9a5a798665e37316925d66e49e0c3e9b881148fc1",
+    "original-methods.json": "fd2774ab6535526372cc414a8c6eed7b0e179bbdc93e85d1655dd565007dc548",
+    "original-to-cp68.diff": "e30396f00edc26393f836e6f82dda8759cd78d01fc27db2f773a29ea174a8ed1",
+    "run.py": "79a54e2632f05a7bd4be5e20ec5de4bf3c2497cf7cef30427f6e417df5a81e10",
+    "selection.json": "325a19a7346068e2f854d8071911075c078431acbb8f2e2ef41069effc3e9de4",
+    "source-proof.py": "4e6722753d62eb83894ca3d8f753af51002745411cd1bdb001a13e5c75c2ee99"
+  }
+}

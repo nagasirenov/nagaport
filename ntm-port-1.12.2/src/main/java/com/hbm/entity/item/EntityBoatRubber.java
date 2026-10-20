@@ -105,7 +105,7 @@ public class EntityBoatRubber extends Entity {
 			boolean hitByCreative = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;
 
 			if(hitByCreative || this.getDamageTaken() > 40.0F) {
-				if(this.riddenByEntity != null) {
+				if(this.isBeingRidden()) {
 					this.riddenByEntity.mountEntity(this);
 				}
 
@@ -241,7 +241,7 @@ public class EntityBoatRubber extends Entity {
 			
 			this.isAirBorne = false;
 
-			if(this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase) {
+			if(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {
 				EntityLivingBase entitylivingbase = (EntityLivingBase) this.riddenByEntity;
 				
 				if(entitylivingbase.moveForward != 0 || entitylivingbase.moveStrafing != 0) {
@@ -366,7 +366,7 @@ public class EntityBoatRubber extends Entity {
 					}
 				}
 
-				if(this.riddenByEntity != null && this.riddenByEntity.isDead) {
+				if(this.isBeingRidden() && this.riddenByEntity.isDead) {
 					this.riddenByEntity = null;
 				}
 			}
@@ -407,7 +407,7 @@ public class EntityBoatRubber extends Entity {
 	
 	@Override
 	public void updateRiderPosition() {
-		if(this.riddenByEntity != null) {
+		if(this.isBeingRidden()) {
 			double offX = Math.cos((double) this.rotationYaw * Math.PI / 180.0D) * 0.4D;
 			double offZ = Math.sin((double) this.rotationYaw * Math.PI / 180.0D) * 0.4D;
 			this.riddenByEntity.setPosition(this.posX + offX, this.posY + this.getMountedYOffset() + this.riddenByEntity.getYOffset(), this.posZ + offZ);
@@ -430,7 +430,7 @@ public class EntityBoatRubber extends Entity {
 	
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
-		if(this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {
+		if(this.isBeingRidden() && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {
 			return true;
 		} else {
 			if(!this.world.isRemote) {

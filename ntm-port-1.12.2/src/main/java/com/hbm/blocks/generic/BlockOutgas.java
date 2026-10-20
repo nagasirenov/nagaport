@@ -105,7 +105,8 @@ public class BlockOutgas extends Block {
 	}
 	
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		
 		ForgeDirection dir = ForgeDirection.getOrientation(rand.nextInt(6));
 		

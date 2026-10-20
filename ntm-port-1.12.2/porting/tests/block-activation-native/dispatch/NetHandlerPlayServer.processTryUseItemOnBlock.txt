@@ -1,0 +1,166 @@
+  public void processTryUseItemOnBlock(net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: aload_0
+       3: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+       6: invokevirtual #353                // Method net/minecraft/entity/player/EntityPlayerMP.getServerWorld:()Lnet/minecraft/world/WorldServer;
+       9: invokestatic  #359                // Method net/minecraft/network/PacketThreadUtil.checkThreadAndEnqueue:(Lnet/minecraft/network/Packet;Lnet/minecraft/network/INetHandler;Lnet/minecraft/util/IThreadListener;)V
+      12: aload_0
+      13: getfield      #132                // Field server:Lnet/minecraft/server/MinecraftServer;
+      16: aload_0
+      17: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+      20: getfield      #702                // Field net/minecraft/entity/player/EntityPlayerMP.dimension:I
+      23: invokevirtual #706                // Method net/minecraft/server/MinecraftServer.getWorld:(I)Lnet/minecraft/world/WorldServer;
+      26: astore_2
+      27: aload_1
+      28: invokevirtual #1010               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getHand:()Lnet/minecraft/util/EnumHand;
+      31: astore_3
+      32: aload_0
+      33: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+      36: aload_3
+      37: invokevirtual #892                // Method net/minecraft/entity/player/EntityPlayerMP.getHeldItem:(Lnet/minecraft/util/EnumHand;)Lnet/minecraft/item/ItemStack;
+      40: astore        4
+      42: aload_1
+      43: invokevirtual #1013               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getPos:()Lnet/minecraft/util/math/BlockPos;
+      46: astore        5
+      48: aload_1
+      49: invokevirtual #1016               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getDirection:()Lnet/minecraft/util/EnumFacing;
+      52: astore        6
+      54: aload_0
+      55: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+      58: invokevirtual #867                // Method net/minecraft/entity/player/EntityPlayerMP.markPlayerActive:()V
+      61: aload         5
+      63: invokevirtual #910                // Method net/minecraft/util/math/BlockPos.getY:()I
+      66: aload_0
+      67: getfield      #132                // Field server:Lnet/minecraft/server/MinecraftServer;
+      70: invokevirtual #930                // Method net/minecraft/server/MinecraftServer.getBuildLimit:()I
+      73: iconst_1
+      74: isub
+      75: if_icmplt     101
+      78: aload         6
+      80: getstatic     #1022               // Field net/minecraft/util/EnumFacing.UP:Lnet/minecraft/util/EnumFacing;
+      83: if_acmpeq     246
+      86: aload         5
+      88: invokevirtual #910                // Method net/minecraft/util/math/BlockPos.getY:()I
+      91: aload_0
+      92: getfield      #132                // Field server:Lnet/minecraft/server/MinecraftServer;
+      95: invokevirtual #930                // Method net/minecraft/server/MinecraftServer.getBuildLimit:()I
+      98: if_icmpge     246
+     101: aload_0
+     102: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     105: getstatic     #918                // Field net/minecraft/entity/player/EntityPlayer.REACH_DISTANCE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     108: invokevirtual #922                // Method net/minecraft/entity/player/EntityPlayerMP.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     111: invokeinterface #927,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getAttributeValue:()D
+     116: ldc2_w        #1025               // double 3.0d
+     119: dadd
+     120: dstore        7
+     122: dload         7
+     124: dload         7
+     126: dmul
+     127: dstore        7
+     129: aload_0
+     130: getfield      #592                // Field targetPos:Lnet/minecraft/util/math/Vec3d;
+     133: ifnonnull     243
+     136: aload_0
+     137: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     140: aload         5
+     142: invokevirtual #908                // Method net/minecraft/util/math/BlockPos.getX:()I
+     145: i2d
+     146: ldc2_w        #524                // double 0.5d
+     149: dadd
+     150: aload         5
+     152: invokevirtual #910                // Method net/minecraft/util/math/BlockPos.getY:()I
+     155: i2d
+     156: ldc2_w        #524                // double 0.5d
+     159: dadd
+     160: aload         5
+     162: invokevirtual #914                // Method net/minecraft/util/math/BlockPos.getZ:()I
+     165: i2d
+     166: ldc2_w        #524                // double 0.5d
+     169: dadd
+     170: invokevirtual #1030               // Method net/minecraft/entity/player/EntityPlayerMP.getDistanceSq:(DDD)D
+     173: dload         7
+     175: dcmpg
+     176: ifge          243
+     179: aload_0
+     180: getfield      #132                // Field server:Lnet/minecraft/server/MinecraftServer;
+     183: aload_2
+     184: aload         5
+     186: aload_0
+     187: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     190: invokevirtual #938                // Method net/minecraft/server/MinecraftServer.isBlockProtected:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/EntityPlayer;)Z
+     193: ifne          243
+     196: aload_2
+     197: invokevirtual #942                // Method net/minecraft/world/WorldServer.getWorldBorder:()Lnet/minecraft/world/border/WorldBorder;
+     200: aload         5
+     202: invokevirtual #947                // Method net/minecraft/world/border/WorldBorder.contains:(Lnet/minecraft/util/math/BlockPos;)Z
+     205: ifeq          243
+     208: aload_0
+     209: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     212: getfield      #771                // Field net/minecraft/entity/player/EntityPlayerMP.interactionManager:Lnet/minecraft/server/management/PlayerInteractionManager;
+     215: aload_0
+     216: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     219: aload_2
+     220: aload         4
+     222: aload_3
+     223: aload         5
+     225: aload         6
+     227: aload_1
+     228: invokevirtual #1033               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getFacingX:()F
+     231: aload_1
+     232: invokevirtual #1036               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getFacingY:()F
+     235: aload_1
+     236: invokevirtual #1039               // Method net/minecraft/network/play/client/CPacketPlayerTryUseItemOnBlock.getFacingZ:()F
+     239: invokevirtual #1043               // Method net/minecraft/server/management/PlayerInteractionManager.processRightClickBlock:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;FFF)Lnet/minecraft/util/EnumActionResult;
+     242: pop
+     243: goto          309
+     246: new           #202                // class net/minecraft/util/text/TextComponentTranslation
+     249: dup
+     250: ldc_w         #1045               // String build.tooHigh
+     253: iconst_1
+     254: anewarray     #4                  // class java/lang/Object
+     257: dup
+     258: iconst_0
+     259: aload_0
+     260: getfield      #132                // Field server:Lnet/minecraft/server/MinecraftServer;
+     263: invokevirtual #930                // Method net/minecraft/server/MinecraftServer.getBuildLimit:()I
+     266: invokestatic  #730                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     269: aastore
+     270: invokespecial #207                // Method net/minecraft/util/text/TextComponentTranslation."<init>":(Ljava/lang/String;[Ljava/lang/Object;)V
+     273: astore        7
+     275: aload         7
+     277: invokevirtual #1049               // Method net/minecraft/util/text/TextComponentTranslation.getStyle:()Lnet/minecraft/util/text/Style;
+     280: getstatic     #1055               // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+     283: invokevirtual #1061               // Method net/minecraft/util/text/Style.setColor:(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+     286: pop
+     287: aload_0
+     288: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     291: getfield      #148                // Field net/minecraft/entity/player/EntityPlayerMP.connection:Lnet/minecraft/network/NetHandlerPlayServer;
+     294: new           #1063               // class net/minecraft/network/play/server/SPacketChat
+     297: dup
+     298: aload         7
+     300: getstatic     #1069               // Field net/minecraft/util/text/ChatType.GAME_INFO:Lnet/minecraft/util/text/ChatType;
+     303: invokespecial #1072               // Method net/minecraft/network/play/server/SPacketChat."<init>":(Lnet/minecraft/util/text/ITextComponent;Lnet/minecraft/util/text/ChatType;)V
+     306: invokevirtual #286                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     309: aload_0
+     310: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     313: getfield      #148                // Field net/minecraft/entity/player/EntityPlayerMP.connection:Lnet/minecraft/network/NetHandlerPlayServer;
+     316: new           #957                // class net/minecraft/network/play/server/SPacketBlockChange
+     319: dup
+     320: aload_2
+     321: aload         5
+     323: invokespecial #960                // Method net/minecraft/network/play/server/SPacketBlockChange."<init>":(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V
+     326: invokevirtual #286                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     329: aload_0
+     330: getfield      #142                // Field player:Lnet/minecraft/entity/player/EntityPlayerMP;
+     333: getfield      #148                // Field net/minecraft/entity/player/EntityPlayerMP.connection:Lnet/minecraft/network/NetHandlerPlayServer;
+     336: new           #957                // class net/minecraft/network/play/server/SPacketBlockChange
+     339: dup
+     340: aload_2
+     341: aload         5
+     343: aload         6
+     345: invokevirtual #1076               // Method net/minecraft/util/math/BlockPos.offset:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+     348: invokespecial #960                // Method net/minecraft/network/play/server/SPacketBlockChange."<init>":(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V
+     351: invokevirtual #286                // Method sendPacket:(Lnet/minecraft/network/Packet;)V
+     354: return

@@ -56,7 +56,7 @@ public class ItemBedrockOreBase extends Item {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		SolarSystem.Body body = getOreBody(stack);
 		list.add("Mined on: " + I18nUtil.resolveKey("body." + body.name));
 

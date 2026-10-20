@@ -131,8 +131,8 @@ public class PermaSyncHandler {
 		/// TIME OF DAY ///
 
 		/// RIDING DESYNC FIX ///
-		if(player.ridingEntity != null) {
-			buf.writeInt(player.ridingEntity.getEntityId());
+		if(player.getRidingEntity() != null) {
+			buf.writeInt(player.getRidingEntity().getEntityId());
 		} else {
 			buf.writeInt(-1);
 		}
@@ -252,7 +252,7 @@ public class PermaSyncHandler {
 
 		/// RIDING DESYNC FIX ///
 		int ridingId = buf.readInt();
-		if(ridingId >= 0 && player.ridingEntity == null) {
+		if(ridingId >= 0 && player.getRidingEntity() == null) {
 			Entity entity = world.getEntityByID(ridingId);
 			player.mountEntity(entity);
 		}

@@ -1,0 +1,3035 @@
+Compiled from "ExpressionCases.java"
+public class ExpressionCases extends net.minecraft.tileentity.TileEntity {
+  public ExpressionCases();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: return
+
+  public void rawPos(net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+       5: return
+
+  public boolean case0(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case1(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case2(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case3(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case4(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case5(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case6(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case7(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case8(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case9(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case10(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case11(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload_2
+      44: iload_3
+      45: iload         4
+      47: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      50: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      53: ireturn
+
+  public boolean case12(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload         7
+      45: iload         8
+      47: iload         9
+      49: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      52: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      55: ireturn
+
+  public boolean case13(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload         7
+      45: iload         8
+      47: iconst_1
+      48: iadd
+      49: iload         9
+      51: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      54: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      57: ireturn
+
+  public boolean case14(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case15(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case16(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case17(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case18(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case19(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case20(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case21(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case22(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case23(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case24(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case25(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case26(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload         13
+      44: iload         14
+      46: iload         15
+      48: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      51: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      54: ireturn
+
+  public boolean case27(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case28(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case29(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case30(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload         6
+      39: new           #3                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: iload         10
+      45: iload         11
+      47: iload         12
+      49: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      52: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      55: ireturn
+
+  public boolean case31(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: iload_2
+      46: iload_3
+      47: iload         4
+      49: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      52: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      55: ireturn
+
+  public boolean case32(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: iload_2
+      53: iadd
+      54: aload_0
+      55: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      58: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      61: aload_0
+      62: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      65: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      68: iload         4
+      70: iadd
+      71: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      74: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      77: ireturn
+
+  public boolean case33(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case34(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: iload_2
+      46: iload_3
+      47: iload         4
+      49: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      52: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      55: ireturn
+
+  public boolean case35(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: iload_2
+      46: iload_3
+      47: iload         4
+      49: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      52: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      55: ireturn
+
+  public boolean case36(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: iload_2
+      53: iadd
+      54: aload_0
+      55: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      58: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      61: aload_0
+      62: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      65: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      68: iload         4
+      70: iadd
+      71: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      74: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      77: ireturn
+
+  public boolean case37(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case38(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case39(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case40(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: bipush        6
+      61: iadd
+      62: aload_0
+      63: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      66: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      69: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      72: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      75: ireturn
+
+  public boolean case41(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case42(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case43(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload         16
+      47: invokevirtual #10                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getX:()I
+      50: aload         16
+      52: invokevirtual #11                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getY:()I
+      55: aload         16
+      57: invokevirtual #12                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getZ:()I
+      60: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      63: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      66: ireturn
+
+  public boolean case44(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case45(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload         16
+      47: invokevirtual #13                 // Method com/hbm/util/fauxpointtwelve/DirPos.getX:()I
+      50: aload         16
+      52: invokevirtual #14                 // Method com/hbm/util/fauxpointtwelve/DirPos.getY:()I
+      55: aload         16
+      57: invokevirtual #15                 // Method com/hbm/util/fauxpointtwelve/DirPos.getZ:()I
+      60: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      63: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      66: ireturn
+
+  public boolean case46(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload         16
+      47: invokevirtual #13                 // Method com/hbm/util/fauxpointtwelve/DirPos.getX:()I
+      50: aload         16
+      52: invokevirtual #14                 // Method com/hbm/util/fauxpointtwelve/DirPos.getY:()I
+      55: aload         16
+      57: invokevirtual #15                 // Method com/hbm/util/fauxpointtwelve/DirPos.getZ:()I
+      60: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      63: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      66: ireturn
+
+  public boolean case47(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload         16
+      47: invokevirtual #10                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getX:()I
+      50: aload         16
+      52: invokevirtual #11                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getY:()I
+      55: aload         16
+      57: invokevirtual #12                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getZ:()I
+      60: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      63: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      66: ireturn
+
+  public boolean case48(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case49(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case50(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case51(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case52(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case53(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case54(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case55(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_0
+      38: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      41: new           #3                  // class net/minecraft/util/math/BlockPos
+      44: dup
+      45: aload_0
+      46: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      49: invokevirtual #7                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      52: aload_0
+      53: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      56: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      59: aload_0
+      60: getfield      #2                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      63: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      66: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      69: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      72: ireturn
+
+  public boolean case56(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+
+  public boolean case57(net.minecraft.world.World, int, int, int, com.hbm.util.fauxpointtwelve.DirPos);
+    Code:
+       0: aload_1
+       1: astore        6
+       3: iload_2
+       4: istore        7
+       6: iload_3
+       7: istore        8
+       9: iload         4
+      11: istore        9
+      13: iload_2
+      14: istore        10
+      16: iload_3
+      17: istore        11
+      19: iload         4
+      21: istore        12
+      23: iload_2
+      24: istore        13
+      26: iload_3
+      27: istore        14
+      29: iload         4
+      31: istore        15
+      33: aload         5
+      35: astore        16
+      37: aload_1
+      38: new           #3                  // class net/minecraft/util/math/BlockPos
+      41: dup
+      42: iload_2
+      43: iload_3
+      44: iload         4
+      46: invokespecial #4                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #5                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ireturn
+}
+Compiled from "MultiMode.java"
+public class MultiMode extends net.minecraft.tileentity.TileEntity {
+  public short redHigh;
+
+  public short redLow;
+
+  private short modeCache;
+
+  public com.hbm.util.fauxpointtwelve.BlockPos[] ports;
+
+  public int portsCalls;
+
+  public MultiMode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: aload_0
+       5: iconst_3
+       6: putfield      #2                  // Field redHigh:S
+       9: aload_0
+      10: iconst_1
+      11: putfield      #3                  // Field redLow:S
+      14: aload_0
+      15: iconst_0
+      16: putfield      #4                  // Field modeCache:S
+      19: return
+
+  public com.hbm.util.fauxpointtwelve.BlockPos[] getPortPos();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #5                  // Field portsCalls:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #5                  // Field portsCalls:I
+      10: aload_0
+      11: getfield      #6                  // Field ports:[Lcom/hbm/util/fauxpointtwelve/BlockPos;
+      14: areturn
+
+  public short getRelevantMode(boolean);
+    Code:
+       0: iload_1
+       1: ifeq          9
+       4: aload_0
+       5: getfield      #4                  // Field modeCache:S
+       8: ireturn
+       9: iconst_0
+      10: istore_2
+      11: aload_0
+      12: invokevirtual #7                  // Method getPortPos:()[Lcom/hbm/util/fauxpointtwelve/BlockPos;
+      15: astore_3
+      16: aload_3
+      17: arraylength
+      18: istore        4
+      20: iconst_0
+      21: istore        5
+      23: iload         5
+      25: iload         4
+      27: if_icmpge     79
+      30: aload_3
+      31: iload         5
+      33: aaload
+      34: astore        6
+      36: aload_0
+      37: getfield      #8                  // Field world:Lnet/minecraft/world/World;
+      40: new           #9                  // class net/minecraft/util/math/BlockPos
+      43: dup
+      44: aload         6
+      46: invokevirtual #10                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getX:()I
+      49: aload         6
+      51: invokevirtual #11                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getY:()I
+      54: aload         6
+      56: invokevirtual #12                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getZ:()I
+      59: invokespecial #13                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      62: invokevirtual #14                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      65: ifeq          73
+      68: iconst_1
+      69: istore_2
+      70: goto          79
+      73: iinc          5, 1
+      76: goto          23
+      79: aload_0
+      80: iload_2
+      81: ifeq          91
+      84: aload_0
+      85: getfield      #2                  // Field redHigh:S
+      88: goto          95
+      91: aload_0
+      92: getfield      #3                  // Field redLow:S
+      95: putfield      #4                  // Field modeCache:S
+      98: aload_0
+      99: getfield      #4                  // Field modeCache:S
+     102: ireturn
+}
+Compiled from "SingleMode.java"
+public class SingleMode extends net.minecraft.tileentity.TileEntity {
+  public short redHigh;
+
+  public short redLow;
+
+  private short modeCache;
+
+  public SingleMode();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: aload_0
+       5: iconst_3
+       6: putfield      #2                  // Field redHigh:S
+       9: aload_0
+      10: iconst_1
+      11: putfield      #3                  // Field redLow:S
+      14: aload_0
+      15: iconst_0
+      16: putfield      #4                  // Field modeCache:S
+      19: return
+
+  public short getRelevantMode(boolean);
+    Code:
+       0: iload_1
+       1: ifeq          9
+       4: aload_0
+       5: getfield      #4                  // Field modeCache:S
+       8: ireturn
+       9: aload_0
+      10: aload_0
+      11: getfield      #5                  // Field world:Lnet/minecraft/world/World;
+      14: new           #6                  // class net/minecraft/util/math/BlockPos
+      17: dup
+      18: aload_0
+      19: getfield      #7                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      22: invokevirtual #8                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      25: aload_0
+      26: getfield      #7                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      29: invokevirtual #9                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      32: aload_0
+      33: getfield      #7                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      36: invokevirtual #10                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+      39: invokespecial #11                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      42: invokevirtual #12                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      45: ifeq          55
+      48: aload_0
+      49: getfield      #2                  // Field redHigh:S
+      52: goto          59
+      55: aload_0
+      56: getfield      #3                  // Field redLow:S
+      59: putfield      #4                  // Field modeCache:S
+      62: aload_0
+      63: getfield      #4                  // Field modeCache:S
+      66: ireturn
+}
+Compiled from "Dipole.java"
+public class Dipole extends net.minecraft.tileentity.TileEntity {
+  public com.hbm.util.fauxpointtwelve.DirPos[] ports;
+
+  public int portsCalls;
+
+  public Dipole();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: return
+
+  public com.hbm.util.fauxpointtwelve.DirPos[] getConPos();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #2                  // Field portsCalls:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #2                  // Field portsCalls:I
+      10: aload_0
+      11: getfield      #3                  // Field ports:[Lcom/hbm/util/fauxpointtwelve/DirPos;
+      14: areturn
+
+  public boolean checkRedstone();
+    Code:
+       0: aload_0
+       1: invokevirtual #4                  // Method getConPos:()[Lcom/hbm/util/fauxpointtwelve/DirPos;
+       4: astore_1
+       5: aload_1
+       6: arraylength
+       7: istore_2
+       8: iconst_0
+       9: istore_3
+      10: iload_3
+      11: iload_2
+      12: if_icmpge     60
+      15: aload_1
+      16: iload_3
+      17: aaload
+      18: astore        4
+      20: aload_0
+      21: getfield      #5                  // Field world:Lnet/minecraft/world/World;
+      24: new           #6                  // class net/minecraft/util/math/BlockPos
+      27: dup
+      28: aload         4
+      30: invokevirtual #7                  // Method com/hbm/util/fauxpointtwelve/DirPos.getX:()I
+      33: aload         4
+      35: invokevirtual #8                  // Method com/hbm/util/fauxpointtwelve/DirPos.getY:()I
+      38: aload         4
+      40: invokevirtual #9                  // Method com/hbm/util/fauxpointtwelve/DirPos.getZ:()I
+      43: invokespecial #10                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      46: invokevirtual #11                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      49: ifeq          54
+      52: iconst_1
+      53: ireturn
+      54: iinc          3, 1
+      57: goto          10
+      60: iconst_0
+      61: ireturn
+}
+Compiled from "MiningLaser.java"
+public class MiningLaser extends net.minecraft.tileentity.TileEntity {
+  public com.hbm.util.fauxpointtwelve.DirPos[] ports;
+
+  public MiningLaser();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: return
+
+  public com.hbm.util.fauxpointtwelve.DirPos[] getConPos();
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field ports:[Lcom/hbm/util/fauxpointtwelve/DirPos;
+       4: areturn
+
+  public boolean invoke();
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method isMultiblockRedstonePowered:()Z
+       4: ireturn
+
+  private boolean isMultiblockRedstonePowered();
+    Code:
+       0: aload_0
+       1: invokevirtual #4                  // Method getConPos:()[Lcom/hbm/util/fauxpointtwelve/DirPos;
+       4: astore_1
+       5: aload_1
+       6: arraylength
+       7: istore_2
+       8: iconst_0
+       9: istore_3
+      10: iload_3
+      11: iload_2
+      12: if_icmpge     75
+      15: aload_1
+      16: iload_3
+      17: aaload
+      18: astore        4
+      20: aload         4
+      22: aload         4
+      24: invokevirtual #5                  // Method com/hbm/util/fauxpointtwelve/DirPos.getDir:()Lcom/hbm/lib/ForgeDirection;
+      27: invokevirtual #6                  // Method com/hbm/lib/ForgeDirection.getOpposite:()Lcom/hbm/lib/ForgeDirection;
+      30: invokevirtual #7                  // Method com/hbm/util/fauxpointtwelve/DirPos.offset:(Lcom/hbm/lib/ForgeDirection;)Lcom/hbm/util/fauxpointtwelve/BlockPos;
+      33: astore        5
+      35: aload_0
+      36: getfield      #8                  // Field world:Lnet/minecraft/world/World;
+      39: new           #9                  // class net/minecraft/util/math/BlockPos
+      42: dup
+      43: aload         5
+      45: invokevirtual #10                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getX:()I
+      48: aload         5
+      50: invokevirtual #11                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getY:()I
+      53: aload         5
+      55: invokevirtual #12                 // Method com/hbm/util/fauxpointtwelve/BlockPos.getZ:()I
+      58: invokespecial #13                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      61: invokevirtual #14                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      64: ifeq          69
+      67: iconst_1
+      68: ireturn
+      69: iinc          3, 1
+      72: goto          10
+      75: iconst_0
+      76: ireturn
+}
+Compiled from "DoorPower.java"
+public class DoorPower extends net.minecraft.tileentity.TileEntity {
+  public int redstonePower;
+
+  public java.util.Set<com.hbm.util.fauxpointtwelve.BlockPos> activatedBlocks;
+
+  public DoorPower();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: aload_0
+       5: new           #2                  // class java/util/HashSet
+       8: dup
+       9: iconst_4
+      10: invokespecial #3                  // Method java/util/HashSet."<init>":(I)V
+      13: putfield      #4                  // Field activatedBlocks:Ljava/util/Set;
+      16: return
+
+  public void updateRedstonePower(int, int, int);
+    Code:
+       0: new           #5                  // class com/hbm/util/fauxpointtwelve/BlockPos
+       3: dup
+       4: iload_1
+       5: iload_2
+       6: iload_3
+       7: invokespecial #6                  // Method com/hbm/util/fauxpointtwelve/BlockPos."<init>":(III)V
+      10: astore        4
+      12: aload_0
+      13: getfield      #7                  // Field world:Lnet/minecraft/world/World;
+      16: new           #8                  // class net/minecraft/util/math/BlockPos
+      19: dup
+      20: iload_1
+      21: iload_2
+      22: iload_3
+      23: invokespecial #9                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      26: invokevirtual #10                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      29: istore        5
+      31: aload_0
+      32: getfield      #4                  // Field activatedBlocks:Ljava/util/Set;
+      35: aload         4
+      37: invokeinterface #11,  2           // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      42: istore        6
+      44: iload         6
+      46: ifne          92
+      49: iload         5
+      51: ifeq          92
+      54: aload_0
+      55: getfield      #4                  // Field activatedBlocks:Ljava/util/Set;
+      58: aload         4
+      60: invokeinterface #12,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      65: pop
+      66: aload_0
+      67: getfield      #13                 // Field redstonePower:I
+      70: iconst_m1
+      71: if_icmpne     79
+      74: aload_0
+      75: iconst_0
+      76: putfield      #13                 // Field redstonePower:I
+      79: aload_0
+      80: dup
+      81: getfield      #13                 // Field redstonePower:I
+      84: iconst_1
+      85: iadd
+      86: putfield      #13                 // Field redstonePower:I
+      89: goto          136
+      92: iload         6
+      94: ifeq          136
+      97: iload         5
+      99: ifne          136
+     102: aload_0
+     103: getfield      #4                  // Field activatedBlocks:Ljava/util/Set;
+     106: aload         4
+     108: invokeinterface #14,  2           // InterfaceMethod java/util/Set.remove:(Ljava/lang/Object;)Z
+     113: pop
+     114: aload_0
+     115: dup
+     116: getfield      #13                 // Field redstonePower:I
+     119: iconst_1
+     120: isub
+     121: putfield      #13                 // Field redstonePower:I
+     124: aload_0
+     125: getfield      #13                 // Field redstonePower:I
+     128: ifne          136
+     131: aload_0
+     132: iconst_m1
+     133: putfield      #13                 // Field redstonePower:I
+     136: return
+}
+Compiled from "Chlorine.java"
+public class Chlorine extends net.minecraft.tileentity.TileEntity implements net.minecraft.util.ITickable {
+  public int spreads;
+
+  public int[] xyz;
+
+  public Chlorine();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: return
+
+  private void spread(int, int, int, int);
+    Code:
+       0: iload         4
+       2: ifne          9
+       5: iconst_1
+       6: goto          10
+       9: iconst_0
+      10: ldc           #2                  // String original spread seed
+      12: invokestatic  #3                  // Method PowerNativeTest.check:(ZLjava/lang/String;)V
+      15: aload_0
+      16: dup
+      17: getfield      #4                  // Field spreads:I
+      20: iconst_1
+      21: iadd
+      22: putfield      #4                  // Field spreads:I
+      25: aload_0
+      26: iconst_3
+      27: newarray       int
+      29: dup
+      30: iconst_0
+      31: iload_1
+      32: iastore
+      33: dup
+      34: iconst_1
+      35: iload_2
+      36: iastore
+      37: dup
+      38: iconst_2
+      39: iload_3
+      40: iastore
+      41: putfield      #5                  // Field xyz:[I
+      44: return
+
+  public void update();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+       4: getfield      #7                  // Field net/minecraft/world/World.isRemote:Z
+       7: ifne          74
+      10: aload_0
+      11: getfield      #6                  // Field world:Lnet/minecraft/world/World;
+      14: new           #8                  // class net/minecraft/util/math/BlockPos
+      17: dup
+      18: aload_0
+      19: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      22: invokevirtual #10                 // Method net/minecraft/util/math/BlockPos.getX:()I
+      25: aload_0
+      26: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      29: invokevirtual #11                 // Method net/minecraft/util/math/BlockPos.getY:()I
+      32: aload_0
+      33: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      36: invokevirtual #12                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+      39: invokespecial #13                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      42: invokevirtual #14                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      45: ifeq          74
+      48: aload_0
+      49: aload_0
+      50: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      53: invokevirtual #10                 // Method net/minecraft/util/math/BlockPos.getX:()I
+      56: aload_0
+      57: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      60: invokevirtual #11                 // Method net/minecraft/util/math/BlockPos.getY:()I
+      63: aload_0
+      64: getfield      #9                  // Field pos:Lnet/minecraft/util/math/BlockPos;
+      67: invokevirtual #12                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+      70: iconst_0
+      71: invokespecial #15                 // Method spread:(IIII)V
+      74: return
+}
+Compiled from "BlastDoor.java"
+public class BlastDoor extends net.minecraft.tileentity.TileEntity implements net.minecraft.util.ITickable {
+  public boolean isOpening;
+
+  public int state;
+
+  private int timer;
+
+  public boolean redstoned;
+
+  public boolean locked;
+
+  public int toggles;
+
+  public int locks;
+
+  public BlastDoor();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method net/minecraft/tileentity/TileEntity."<init>":()V
+       4: aload_0
+       5: iconst_0
+       6: putfield      #2                  // Field isOpening:Z
+       9: aload_0
+      10: iconst_0
+      11: putfield      #3                  // Field state:I
+      14: aload_0
+      15: iconst_0
+      16: putfield      #4                  // Field timer:I
+      19: aload_0
+      20: iconst_0
+      21: putfield      #5                  // Field redstoned:Z
+      24: aload_0
+      25: iconst_0
+      26: putfield      #6                  // Field locked:Z
+      29: return
+
+  public boolean isLocked();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #7                  // Field locks:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #7                  // Field locks:I
+      10: aload_0
+      11: getfield      #6                  // Field locked:Z
+      14: ireturn
+
+  public void tryToggle();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #8                  // Field toggles:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #8                  // Field toggles:I
+      10: return
+
+  public void removeDummy(int, int, int);
+    Code:
+       0: new           #9                  // class java/lang/AssertionError
+       3: dup
+       4: ldc           #10                 // String out-of-scope animation
+       6: invokespecial #11                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+       9: athrow
+
+  public void placeDummy(int, int, int);
+    Code:
+       0: new           #9                  // class java/lang/AssertionError
+       3: dup
+       4: ldc           #10                 // String out-of-scope animation
+       6: invokespecial #11                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+       9: athrow
+
+  public void finishOpen();
+    Code:
+       0: new           #9                  // class java/lang/AssertionError
+       3: dup
+       4: ldc           #10                 // String out-of-scope animation
+       6: invokespecial #11                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+       9: athrow
+
+  public void finishClose();
+    Code:
+       0: new           #9                  // class java/lang/AssertionError
+       3: dup
+       4: ldc           #10                 // String out-of-scope animation
+       6: invokespecial #11                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+       9: athrow
+
+  public void update();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field world:Lnet/minecraft/world/World;
+       4: getfield      #13                 // Field net/minecraft/world/World.isRemote:Z
+       7: ifne          629
+      10: aload_0
+      11: invokevirtual #14                 // Method isLocked:()Z
+      14: ifne          55
+      17: aload_0
+      18: getfield      #12                 // Field world:Lnet/minecraft/world/World;
+      21: new           #15                 // class net/minecraft/util/math/BlockPos
+      24: dup
+      25: aload_0
+      26: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      29: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+      32: aload_0
+      33: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      36: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+      39: aload_0
+      40: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      43: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+      46: invokespecial #20                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #21                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      52: ifne          96
+      55: aload_0
+      56: getfield      #12                 // Field world:Lnet/minecraft/world/World;
+      59: new           #15                 // class net/minecraft/util/math/BlockPos
+      62: dup
+      63: aload_0
+      64: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      67: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+      70: aload_0
+      71: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      74: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+      77: bipush        6
+      79: iadd
+      80: aload_0
+      81: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+      84: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+      87: invokespecial #20                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      90: invokevirtual #21                 // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      93: ifeq          115
+      96: aload_0
+      97: getfield      #5                  // Field redstoned:Z
+     100: ifne          107
+     103: aload_0
+     104: invokevirtual #22                 // Method tryToggle:()V
+     107: aload_0
+     108: iconst_1
+     109: putfield      #5                  // Field redstoned:Z
+     112: goto          120
+     115: aload_0
+     116: iconst_0
+     117: putfield      #5                  // Field redstoned:Z
+     120: aload_0
+     121: getfield      #3                  // Field state:I
+     124: iconst_1
+     125: if_icmpeq     136
+     128: aload_0
+     129: iconst_0
+     130: putfield      #4                  // Field timer:I
+     133: goto          541
+     136: aload_0
+     137: dup
+     138: getfield      #4                  // Field timer:I
+     141: iconst_1
+     142: iadd
+     143: putfield      #4                  // Field timer:I
+     146: aload_0
+     147: getfield      #2                  // Field isOpening:Z
+     150: ifeq          334
+     153: aload_0
+     154: getfield      #4                  // Field timer:I
+     157: iflt          187
+     160: aload_0
+     161: aload_0
+     162: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     165: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     168: aload_0
+     169: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     172: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     175: iconst_1
+     176: iadd
+     177: aload_0
+     178: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     181: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     184: invokevirtual #23                 // Method removeDummy:(III)V
+     187: aload_0
+     188: getfield      #4                  // Field timer:I
+     191: bipush        20
+     193: if_icmplt     223
+     196: aload_0
+     197: aload_0
+     198: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     201: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     204: aload_0
+     205: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     208: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     211: iconst_2
+     212: iadd
+     213: aload_0
+     214: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     217: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     220: invokevirtual #23                 // Method removeDummy:(III)V
+     223: aload_0
+     224: getfield      #4                  // Field timer:I
+     227: bipush        40
+     229: if_icmplt     259
+     232: aload_0
+     233: aload_0
+     234: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     237: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     240: aload_0
+     241: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     244: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     247: iconst_3
+     248: iadd
+     249: aload_0
+     250: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     253: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     256: invokevirtual #23                 // Method removeDummy:(III)V
+     259: aload_0
+     260: getfield      #4                  // Field timer:I
+     263: bipush        60
+     265: if_icmplt     295
+     268: aload_0
+     269: aload_0
+     270: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     273: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     276: aload_0
+     277: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     280: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     283: iconst_4
+     284: iadd
+     285: aload_0
+     286: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     289: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     292: invokevirtual #23                 // Method removeDummy:(III)V
+     295: aload_0
+     296: getfield      #4                  // Field timer:I
+     299: bipush        80
+     301: if_icmplt     514
+     304: aload_0
+     305: aload_0
+     306: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     309: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     312: aload_0
+     313: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     316: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     319: iconst_5
+     320: iadd
+     321: aload_0
+     322: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     325: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     328: invokevirtual #23                 // Method removeDummy:(III)V
+     331: goto          514
+     334: aload_0
+     335: getfield      #4                  // Field timer:I
+     338: bipush        20
+     340: if_icmplt     370
+     343: aload_0
+     344: aload_0
+     345: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     348: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     351: aload_0
+     352: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     355: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     358: iconst_5
+     359: iadd
+     360: aload_0
+     361: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     364: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     367: invokevirtual #24                 // Method placeDummy:(III)V
+     370: aload_0
+     371: getfield      #4                  // Field timer:I
+     374: bipush        40
+     376: if_icmplt     406
+     379: aload_0
+     380: aload_0
+     381: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     384: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     387: aload_0
+     388: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     391: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     394: iconst_4
+     395: iadd
+     396: aload_0
+     397: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     400: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     403: invokevirtual #24                 // Method placeDummy:(III)V
+     406: aload_0
+     407: getfield      #4                  // Field timer:I
+     410: bipush        60
+     412: if_icmplt     442
+     415: aload_0
+     416: aload_0
+     417: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     420: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     423: aload_0
+     424: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     427: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     430: iconst_3
+     431: iadd
+     432: aload_0
+     433: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     436: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     439: invokevirtual #24                 // Method placeDummy:(III)V
+     442: aload_0
+     443: getfield      #4                  // Field timer:I
+     446: bipush        80
+     448: if_icmplt     478
+     451: aload_0
+     452: aload_0
+     453: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     456: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     459: aload_0
+     460: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     463: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     466: iconst_2
+     467: iadd
+     468: aload_0
+     469: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     472: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     475: invokevirtual #24                 // Method placeDummy:(III)V
+     478: aload_0
+     479: getfield      #4                  // Field timer:I
+     482: bipush        100
+     484: if_icmplt     514
+     487: aload_0
+     488: aload_0
+     489: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     492: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     495: aload_0
+     496: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     499: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     502: iconst_1
+     503: iadd
+     504: aload_0
+     505: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     508: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     511: invokevirtual #24                 // Method placeDummy:(III)V
+     514: aload_0
+     515: getfield      #4                  // Field timer:I
+     518: bipush        100
+     520: if_icmplt     541
+     523: aload_0
+     524: getfield      #2                  // Field isOpening:Z
+     527: ifeq          537
+     530: aload_0
+     531: invokevirtual #25                 // Method finishOpen:()V
+     534: goto          541
+     537: aload_0
+     538: invokevirtual #26                 // Method finishClose:()V
+     541: getstatic     #27                 // Field PacketDispatcher.wrapper:LPacketDispatcher$Sink;
+     544: new           #28                 // class TEVaultPacket
+     547: dup
+     548: aload_0
+     549: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     552: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     555: aload_0
+     556: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     559: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     562: aload_0
+     563: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     566: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     569: aload_0
+     570: getfield      #2                  // Field isOpening:Z
+     573: aload_0
+     574: getfield      #3                  // Field state:I
+     577: iconst_0
+     578: iconst_0
+     579: invokespecial #29                 // Method TEVaultPacket."<init>":(IIIZIII)V
+     582: new           #30                 // class net/minecraftforge/fml/common/network/NetworkRegistry$TargetPoint
+     585: dup
+     586: aload_0
+     587: getfield      #12                 // Field world:Lnet/minecraft/world/World;
+     590: getfield      #31                 // Field net/minecraft/world/World.provider:Lnet/minecraft/world/WorldProvider;
+     593: invokevirtual #32                 // Method net/minecraft/world/WorldProvider.getDimension:()I
+     596: aload_0
+     597: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     600: invokevirtual #17                 // Method net/minecraft/util/math/BlockPos.getX:()I
+     603: i2d
+     604: aload_0
+     605: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     608: invokevirtual #18                 // Method net/minecraft/util/math/BlockPos.getY:()I
+     611: i2d
+     612: aload_0
+     613: getfield      #16                 // Field pos:Lnet/minecraft/util/math/BlockPos;
+     616: invokevirtual #19                 // Method net/minecraft/util/math/BlockPos.getZ:()I
+     619: i2d
+     620: ldc2_w        #33                 // double 250.0d
+     623: invokespecial #35                 // Method net/minecraftforge/fml/common/network/NetworkRegistry$TargetPoint."<init>":(IDDDD)V
+     626: invokevirtual #36                 // Method PacketDispatcher$Sink.sendToAllAround:(LTEVaultPacket;Lnet/minecraftforge/fml/common/network/NetworkRegistry$TargetPoint;)V
+     629: return
+}
+Compiled from "LogicCondition.java"
+public class LogicCondition {
+  public static java.util.function.Function<LogicBlock$TileEntityLogicBlock, java.lang.Boolean> REDSTONE;
+
+  public LogicCondition();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  private static java.lang.Boolean lambda$static$0(LogicBlock$TileEntityLogicBlock);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method LogicBlock$TileEntityLogicBlock.getWorld:()Lnet/minecraft/world/World;
+       4: astore_1
+       5: aload_0
+       6: invokevirtual #3                  // Method LogicBlock$TileEntityLogicBlock.getPos:()Lnet/minecraft/util/math/BlockPos;
+       9: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getX:()I
+      12: istore_2
+      13: aload_0
+      14: invokevirtual #3                  // Method LogicBlock$TileEntityLogicBlock.getPos:()Lnet/minecraft/util/math/BlockPos;
+      17: invokevirtual #5                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      20: istore_3
+      21: aload_0
+      22: invokevirtual #3                  // Method LogicBlock$TileEntityLogicBlock.getPos:()Lnet/minecraft/util/math/BlockPos;
+      25: invokevirtual #6                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      28: istore        4
+      30: aload_1
+      31: new           #7                  // class net/minecraft/util/math/BlockPos
+      34: dup
+      35: iload_2
+      36: iload_3
+      37: iload         4
+      39: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      42: invokevirtual #9                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      45: invokestatic  #10                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      48: areturn
+
+  static {};
+    Code:
+       0: invokedynamic #11,  0             // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+       5: putstatic     #12                 // Field REDSTONE:Ljava/util/function/Function;
+       8: return
+}

@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderDysonConverterTU extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
+	public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		{
 

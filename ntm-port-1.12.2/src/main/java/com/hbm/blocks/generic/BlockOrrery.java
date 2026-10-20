@@ -19,9 +19,11 @@ public class BlockOrrery extends BlockContainer {
 		return new TileEntityOrrery();
 	}
 
-	@Override public int getRenderType() { return -1; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	public class TileEntityOrrery extends TileEntity {
 

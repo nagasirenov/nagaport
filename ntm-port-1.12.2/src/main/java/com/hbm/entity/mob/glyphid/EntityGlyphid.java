@@ -169,7 +169,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 				hasHome = true;
 			}
 
-			if(this.isPotionActive(Potion.blindness)) {
+			if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {
 				onBlinded();
 			}
 
@@ -211,7 +211,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 
 	@Override
 	protected Entity findPlayerToAttack() {
-		if(this.isPotionActive(Potion.blindness)) return null;
+		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
 
 		return this.world.getClosestVulnerablePlayerToEntity(this, useExtendedTargeting() ? 128D : 16D);
 	}
@@ -227,7 +227,7 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 	protected void updateEntityActionState() {
 		super.updateEntityActionState();
 
-		if(!this.isPotionActive(Potion.blindness)) {
+		if(!this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {
 			if (!this.hasPath()) {
 
 				// hell yeah!!
@@ -458,8 +458,8 @@ public class EntityGlyphid extends EntityMob implements IResistanceProvider, ISu
 		this.swingItem();
 
 		if(this.dataWatcher.getWatchableObjectByte(DW_SUBTYPE) == TYPE_INFECTED && victim instanceof EntityLivingBase) {
-			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 2));
-			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));
+			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 2));
+			((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0));
 		}
 
 		return super.attackEntityAsMob(victim);

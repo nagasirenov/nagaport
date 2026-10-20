@@ -108,7 +108,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	 * the player can attach torches, redstone wire, etc to this block.
 	 */
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -117,7 +117,7 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	 * (examples: signs, buttons, stairs, etc)
 	 */
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -147,7 +147,8 @@ public class BlockMush extends Block implements IGrowable, IPlantable {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		this.checkAndDropBlock(world, x, y, z);
 		
 		if(GeneralConfig.enableMycelium && com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.waste_earth && rand.nextInt(5) == 0) {

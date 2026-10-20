@@ -38,9 +38,11 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 		return new TileEntityFloodlight();
 	}
 
-	@Override public int getRenderType() { return -1; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	//only method that respects sides, called first for orientation
 	@Override
@@ -50,7 +52,8 @@ public class Floodlight extends BlockContainer implements IToolable, INBTBlockTr
 
 	//only method with player param, called second for variable rotation
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		setAngle(world, x, y, z, player, true);
 	}
 

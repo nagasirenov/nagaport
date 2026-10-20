@@ -1,0 +1,350 @@
+Compiled from "TileEntitySpecialRenderer.java"
+public abstract class net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer<T extends net.minecraft.tileentity.TileEntity> {
+  protected static final net.minecraft.util.ResourceLocation[] DESTROY_STAGES;
+
+  protected net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher rendererDispatcher;
+
+  public net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer();
+    Code:
+       0: aload_0
+       1: invokespecial #18                 // Method java/lang/Object."<init>":()V
+       4: return
+    LineNumberTable:
+      line 17: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       5     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+
+  public void render(T, double, double, double, float, int, float);
+    Code:
+       0: aload_1
+       1: invokevirtual #29                 // Method net/minecraft/tileentity/TileEntity.getDisplayName:()Lnet/minecraft/util/text/ITextComponent;
+       4: astore        11
+       6: aload         11
+       8: ifnull        70
+      11: aload_0
+      12: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+      15: getfield      #37                 // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.cameraHitResult:Lnet/minecraft/util/math/RayTraceResult;
+      18: ifnull        70
+      21: aload_1
+      22: invokevirtual #41                 // Method net/minecraft/tileentity/TileEntity.getPos:()Lnet/minecraft/util/math/BlockPos;
+      25: aload_0
+      26: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+      29: getfield      #37                 // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.cameraHitResult:Lnet/minecraft/util/math/RayTraceResult;
+      32: invokevirtual #46                 // Method net/minecraft/util/math/RayTraceResult.getBlockPos:()Lnet/minecraft/util/math/BlockPos;
+      35: invokevirtual #52                 // Method net/minecraft/util/math/BlockPos.equals:(Ljava/lang/Object;)Z
+      38: ifeq          70
+      41: aload_0
+      42: iconst_1
+      43: invokevirtual #56                 // Method setLightmapDisabled:(Z)V
+      46: aload_0
+      47: aload_1
+      48: aload         11
+      50: invokeinterface #62,  1           // InterfaceMethod net/minecraft/util/text/ITextComponent.getFormattedText:()Ljava/lang/String;
+      55: dload_2
+      56: dload         4
+      58: dload         6
+      60: bipush        12
+      62: invokevirtual #66                 // Method drawNameplate:(Lnet/minecraft/tileentity/TileEntity;Ljava/lang/String;DDDI)V
+      65: aload_0
+      66: iconst_0
+      67: invokevirtual #56                 // Method setLightmapDisabled:(Z)V
+      70: return
+    LineNumberTable:
+      line 24: 0
+      line 26: 6
+      line 28: 41
+      line 29: 46
+      line 30: 65
+      line 32: 70
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      71     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0      71     1 p_render_1_   Lnet/minecraft/tileentity/TileEntity;
+          0      71     2 p_render_2_   D
+          0      71     3 p_render_4_   D
+          0      71     4 p_render_4_   D
+          0      71     5 p_render_6_   D
+          0      71     6 p_render_6_   D
+          0      71     7 p_render_8_   F
+          0      71     8 p_render_8_   F
+          0      71     9 p_render_9_   I
+          0      71    10 p_render_10_   F
+          6      65    11 itextcomponent   Lnet/minecraft/util/text/ITextComponent;
+
+  protected void setLightmapDisabled(boolean);
+    Code:
+       0: getstatic     #85                 // Field net/minecraft/client/renderer/OpenGlHelper.lightmapTexUnit:I
+       3: invokestatic  #91                 // Method net/minecraft/client/renderer/GlStateManager.setActiveTexture:(I)V
+       6: iload_1
+       7: ifeq          16
+      10: invokestatic  #94                 // Method net/minecraft/client/renderer/GlStateManager.disableTexture2D:()V
+      13: goto          19
+      16: invokestatic  #97                 // Method net/minecraft/client/renderer/GlStateManager.enableTexture2D:()V
+      19: getstatic     #100                // Field net/minecraft/client/renderer/OpenGlHelper.defaultTexUnit:I
+      22: invokestatic  #91                 // Method net/minecraft/client/renderer/GlStateManager.setActiveTexture:(I)V
+      25: return
+    LineNumberTable:
+      line 36: 0
+      line 38: 6
+      line 40: 10
+      line 44: 16
+      line 47: 19
+      line 48: 25
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      26     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0      26     1 p_setLightmapDisabled_1_   Z
+
+  protected void bindTexture(net.minecraft.util.ResourceLocation);
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+       4: getfield      #108                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.renderEngine:Lnet/minecraft/client/renderer/texture/TextureManager;
+       7: astore_2
+       8: aload_2
+       9: ifnull        17
+      12: aload_2
+      13: aload_1
+      14: invokevirtual #112                // Method net/minecraft/client/renderer/texture/TextureManager.bindTexture:(Lnet/minecraft/util/ResourceLocation;)V
+      17: return
+    LineNumberTable:
+      line 52: 0
+      line 54: 8
+      line 56: 12
+      line 58: 17
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      18     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0      18     1 p_bindTexture_1_   Lnet/minecraft/util/ResourceLocation;
+          8      10     2 texturemanager   Lnet/minecraft/client/renderer/texture/TextureManager;
+
+  protected net.minecraft.world.World getWorld();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+       4: getfield      #121                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.world:Lnet/minecraft/world/World;
+       7: areturn
+    LineNumberTable:
+      line 62: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       8     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+
+  public void setRendererDispatcher(net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+       5: return
+    LineNumberTable:
+      line 67: 0
+      line 68: 5
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       6     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0       6     1 p_setRendererDispatcher_1_   Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+
+  public net.minecraft.client.gui.FontRenderer getFontRenderer();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+       4: invokevirtual #128                // Method net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.getFontRenderer:()Lnet/minecraft/client/gui/FontRenderer;
+       7: areturn
+    LineNumberTable:
+      line 72: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       8     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+
+  public boolean isGlobalRenderer(T);
+    Code:
+       0: iconst_0
+       1: ireturn
+    LineNumberTable:
+      line 77: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       2     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0       2     1 p_isGlobalRenderer_1_   Lnet/minecraft/tileentity/TileEntity;
+
+  public void renderTileEntityFast(T, double, double, double, float, int, float, net.minecraft.client.renderer.BufferBuilder);
+    Code:
+       0: return
+    LineNumberTable:
+      line 80: 0
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0       1     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0       1     1 p_renderTileEntityFast_1_   Lnet/minecraft/tileentity/TileEntity;
+          0       1     2 p_renderTileEntityFast_2_   D
+          0       1     3 p_renderTileEntityFast_4_   D
+          0       1     4 p_renderTileEntityFast_4_   D
+          0       1     5 p_renderTileEntityFast_6_   D
+          0       1     6 p_renderTileEntityFast_6_   D
+          0       1     7 p_renderTileEntityFast_8_   F
+          0       1     8 p_renderTileEntityFast_8_   F
+          0       1     9 p_renderTileEntityFast_9_   I
+          0       1    10 p_renderTileEntityFast_10_   F
+          0       1    11 p_renderTileEntityFast_11_   Lnet/minecraft/client/renderer/BufferBuilder;
+
+  protected void drawNameplate(T, java.lang.String, double, double, double, int);
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+       4: getfield      #146                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.entity:Lnet/minecraft/entity/Entity;
+       7: astore        10
+       9: aload_1
+      10: aload         10
+      12: getfield      #151                // Field net/minecraft/entity/Entity.posX:D
+      15: aload         10
+      17: getfield      #154                // Field net/minecraft/entity/Entity.posY:D
+      20: aload         10
+      22: getfield      #157                // Field net/minecraft/entity/Entity.posZ:D
+      25: invokevirtual #161                // Method net/minecraft/tileentity/TileEntity.getDistanceSq:(DDD)D
+      28: dstore        11
+      30: dload         11
+      32: iload         9
+      34: iload         9
+      36: imul
+      37: i2d
+      38: dcmpg
+      39: ifgt          95
+      42: aload_0
+      43: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+      46: getfield      #164                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.entityYaw:F
+      49: fstore        13
+      51: aload_0
+      52: getfield      #31                 // Field rendererDispatcher:Lnet/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher;
+      55: getfield      #167                // Field net/minecraft/client/renderer/tileentity/TileEntityRendererDispatcher.entityPitch:F
+      58: fstore        14
+      60: iconst_0
+      61: istore        15
+      63: aload_0
+      64: invokevirtual #168                // Method getFontRenderer:()Lnet/minecraft/client/gui/FontRenderer;
+      67: aload_2
+      68: dload_3
+      69: d2f
+      70: ldc           #169                // float 0.5f
+      72: fadd
+      73: dload         5
+      75: d2f
+      76: ldc           #170                // float 1.5f
+      78: fadd
+      79: dload         7
+      81: d2f
+      82: ldc           #169                // float 0.5f
+      84: fadd
+      85: iconst_0
+      86: fload         13
+      88: fload         14
+      90: iconst_0
+      91: iconst_0
+      92: invokestatic  #175                // Method net/minecraft/client/renderer/EntityRenderer.drawNameplate:(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;FFFIFFZZ)V
+      95: return
+    LineNumberTable:
+      line 84: 0
+      line 85: 9
+      line 87: 30
+      line 89: 42
+      line 90: 51
+      line 91: 60
+      line 92: 63
+      line 94: 95
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+          0      96     0  this   Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;
+          0      96     1 p_drawNameplate_1_   Lnet/minecraft/tileentity/TileEntity;
+          0      96     2 p_drawNameplate_2_   Ljava/lang/String;
+          0      96     3 p_drawNameplate_3_   D
+          0      96     4 p_drawNameplate_5_   D
+          0      96     5 p_drawNameplate_5_   D
+          0      96     6 p_drawNameplate_7_   D
+          0      96     7 p_drawNameplate_7_   D
+          0      96     8 p_drawNameplate_9_   I
+          0      96     9 p_drawNameplate_9_   I
+          9      87    10 entity   Lnet/minecraft/entity/Entity;
+         30      66    11    d0   D
+         51      44    13     f   F
+         60      35    14    f1   F
+         63      32    15  flag   Z
+
+  static {};
+    Code:
+       0: bipush        10
+       2: anewarray     #189                // class net/minecraft/util/ResourceLocation
+       5: dup
+       6: iconst_0
+       7: new           #189                // class net/minecraft/util/ResourceLocation
+      10: dup
+      11: ldc           #191                // String textures/blocks/destroy_stage_0.png
+      13: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      16: aastore
+      17: dup
+      18: iconst_1
+      19: new           #189                // class net/minecraft/util/ResourceLocation
+      22: dup
+      23: ldc           #196                // String textures/blocks/destroy_stage_1.png
+      25: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      28: aastore
+      29: dup
+      30: iconst_2
+      31: new           #189                // class net/minecraft/util/ResourceLocation
+      34: dup
+      35: ldc           #198                // String textures/blocks/destroy_stage_2.png
+      37: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      40: aastore
+      41: dup
+      42: iconst_3
+      43: new           #189                // class net/minecraft/util/ResourceLocation
+      46: dup
+      47: ldc           #200                // String textures/blocks/destroy_stage_3.png
+      49: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      52: aastore
+      53: dup
+      54: iconst_4
+      55: new           #189                // class net/minecraft/util/ResourceLocation
+      58: dup
+      59: ldc           #202                // String textures/blocks/destroy_stage_4.png
+      61: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      64: aastore
+      65: dup
+      66: iconst_5
+      67: new           #189                // class net/minecraft/util/ResourceLocation
+      70: dup
+      71: ldc           #204                // String textures/blocks/destroy_stage_5.png
+      73: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      76: aastore
+      77: dup
+      78: bipush        6
+      80: new           #189                // class net/minecraft/util/ResourceLocation
+      83: dup
+      84: ldc           #206                // String textures/blocks/destroy_stage_6.png
+      86: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      89: aastore
+      90: dup
+      91: bipush        7
+      93: new           #189                // class net/minecraft/util/ResourceLocation
+      96: dup
+      97: ldc           #208                // String textures/blocks/destroy_stage_7.png
+      99: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     102: aastore
+     103: dup
+     104: bipush        8
+     106: new           #189                // class net/minecraft/util/ResourceLocation
+     109: dup
+     110: ldc           #210                // String textures/blocks/destroy_stage_8.png
+     112: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     115: aastore
+     116: dup
+     117: bipush        9
+     119: new           #189                // class net/minecraft/util/ResourceLocation
+     122: dup
+     123: ldc           #212                // String textures/blocks/destroy_stage_9.png
+     125: invokespecial #194                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     128: aastore
+     129: putstatic     #214                // Field DESTROY_STAGES:[Lnet/minecraft/util/ResourceLocation;
+     132: return
+    LineNumberTable:
+      line 19: 0
+}

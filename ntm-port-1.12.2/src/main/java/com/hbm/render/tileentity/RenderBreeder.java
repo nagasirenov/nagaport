@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderBreeder extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+	public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		
         GL11.glPushMatrix();
         GL11.glTranslated(x + 0.5D, y, z + 0.5D);

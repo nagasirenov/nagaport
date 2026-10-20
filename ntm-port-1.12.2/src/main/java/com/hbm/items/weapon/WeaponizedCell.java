@@ -56,7 +56,7 @@ public class WeaponizedCell extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		list.add("A charged energy cell, rigged to explode");
 		list.add("when left on the floor for too long.");

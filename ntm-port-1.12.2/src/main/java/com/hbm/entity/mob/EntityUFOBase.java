@@ -85,7 +85,7 @@ public abstract class EntityUFOBase extends EntityFlying implements IMob, ISuffo
 					if(((EntityPlayer)entity).capabilities.isCreativeMode)
 						continue;
 
-					if(((EntityPlayer)entity).isPotionActive(Potion.invisibility.id))
+					if(((EntityPlayer)entity).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))
 						continue;
 
 					if(this.target == null) {

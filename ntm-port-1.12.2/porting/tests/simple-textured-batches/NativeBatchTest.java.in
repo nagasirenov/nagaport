@@ -1,0 +1,52 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.nio.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+
+/** Test-only extracted batch emissions, not replacement production classes. */
+public final class NativeBatchTest {
+ static Class<?> legacyClass;
+ static int batches, vertices;
+ float zLevel=-90.125F;
+ static final class Resolution {
+  final int width,height;
+  Resolution(int seed){width=320+seed*171;height=240+seed*73;}
+  int getScaledWidth(){return width;} int getScaledHeight(){return height;}
+ }
+ static Object get(Object o,String name)throws Exception{Field f=legacyClass.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ static final class Legacy {
+  final Object actual;
+  Legacy(double offset)throws Exception{
+   Constructor<?> c=legacyClass.getDeclaredConstructor(int.class);c.setAccessible(true);actual=c.newInstance(1024);
+   legacyClass.getMethod("b",double.class,double.class,double.class).invoke(actual,offset,-offset,offset*.25);
+  }
+  void startDrawingQuads()throws Exception{legacyClass.getMethod("b").invoke(actual);}
+  void addVertexWithUV(double x,double y,double z,double u,double v)throws Exception{
+   legacyClass.getMethod("a",double.class,double.class,double.class,double.class,double.class).invoke(actual,x,y,z,u,v);
+  }
+ }
+ static void compare(BufferBuilder nativeBuffer,Legacy old,String label)throws Exception{
+  int count=(Integer)get(old.actual,"g");
+  if(count!=nativeBuffer.getVertexCount() || (Integer)get(old.actual,"s")!=nativeBuffer.getDrawMode())throw new AssertionError(label+" count/mode");
+  if(!(Boolean)get(old.actual,"m") || (Boolean)get(old.actual,"l") || (Boolean)get(old.actual,"n") || (Boolean)get(old.actual,"o"))throw new AssertionError(label+" old attributes");
+  if(!nativeBuffer.getVertexFormat().equals(DefaultVertexFormats.POSITION_TEX) || nativeBuffer.getVertexFormat().getSize()!=20)throw new AssertionError(label+" native format");
+  int[] raw=(int[])get(old.actual,"f");ByteBuffer bytes=nativeBuffer.getByteBuffer().duplicate().order(ByteOrder.nativeOrder());bytes.clear();
+  for(int v=0;v<count;v++)for(int c=0;c<5;c++)if(raw[v*8+c]!=bytes.getInt(v*20+c*4))throw new AssertionError(label+" vertex "+v+" component "+c+": "+raw[v*8+c]+" != "+bytes.getInt(v*20+c*4));
+  nativeBuffer.finishDrawing();if(nativeBuffer.getByteBuffer().remaining()!=count*20)throw new AssertionError(label+" finished byte length");
+  batches++;vertices+=count;
+ }
+ /*GENERATED_METHODS*/
+ public static void main(String[] args)throws Exception{
+  try(URLClassLoader loader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeBatchTest.class.getClassLoader())){
+   legacyClass=Class.forName("bmh",true,loader);
+   NativeBatchTest test=new NativeBatchTest();
+   for(int seed=0;seed<4;seed++)for(double offset:new double[]{0,.125,-16777216.25}){
+    /*GENERATED_CALLS*/
+   }
+   if(batches!=264 || vertices!=1296)throw new AssertionError("coverage count");
+   System.out.println("PASS actual 1.7.10 bmh vs actual 1.12.2 BufferBuilder: 22 extracted production batches x 4 fixture environments x 3 translations = "+batches+" batches, "+vertices+" vertices; bit-exact position/UV float words, modes, formats and finished lengths. No GL draw or in-game pixel claim.");
+  }
+ }
+}

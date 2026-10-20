@@ -14,7 +14,7 @@ public class ContainerFileCabinet extends Container {
 	
 	public ContainerFileCabinet(InventoryPlayer invPlayer, TileEntityFileCabinet tile) {
 		this.cabinet = tile;
-		this.cabinet.openInventory();
+		this.cabinet.openInventory(invPlayer.player);
 		
 		for(int i = 0; i < 2; i++) {
 			for(int j = 0; j < 4; j++) {
@@ -71,6 +71,6 @@ public class ContainerFileCabinet extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.cabinet.closeInventory();
+		this.cabinet.closeInventory(player);
 	}
 }

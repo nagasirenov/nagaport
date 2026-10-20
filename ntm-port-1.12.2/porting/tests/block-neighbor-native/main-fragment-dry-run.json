@@ -1,0 +1,104 @@
+{
+  "baseline": "175b014cbb5c5990107fced236f7131f234998b6",
+  "write": false,
+  "files": [
+    {
+      "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+      "status": "will apply",
+      "before_sha256": "8ea535a639d4d2dd7226049b0b47ee2bc9aa88060a573f5b69e1e4f5a692a855",
+      "after_sha256": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CrystalPulsar.java",
+      "status": "will apply",
+      "before_sha256": "5d7691ed51625b7444198d7a219c29ea89589af6a2f3705ae5bfc96603e20509",
+      "after_sha256": "bf58bf1aa47413dfa62eb2a23ec71d6fead139a5d0e4ccf4c259e5a0cd6d9e64",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeAntimatter.java",
+      "status": "will apply",
+      "before_sha256": "5ac5be8b5b8d6bf7accbcf40b6b5a00e776f6b0a4eae57a44abe2c55ae0d2aa9",
+      "after_sha256": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFlameWar.java",
+      "status": "will apply",
+      "before_sha256": "1a9fec6a948036c6778a4814f29a9c0089077a4efce4b6ed667ccb41436b44e3",
+      "after_sha256": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBalefire.java",
+      "status": "will apply",
+      "before_sha256": "0436806b7b16a728b064946577ecece25693574cc7e6b4167f1693d62fdf22ce",
+      "after_sha256": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "status": "will apply",
+      "before_sha256": "3b8ed10ede40c65ef0802087faf2a76311555d33f9482a4532be7e3503503f71",
+      "after_sha256": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "status": "will apply",
+      "before_sha256": "f9eefbc59c42e5adb7132efec958fdea5e7d0075b04b0caffc2cce55e8d8b813",
+      "after_sha256": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "status": "will apply",
+      "before_sha256": "e3f60cd2003a12e3a5413d5c63d6f963bfb48031e82161af1360e195b5aa7856",
+      "after_sha256": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFloat.java",
+      "status": "will apply",
+      "before_sha256": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f",
+      "after_sha256": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "status": "will apply",
+      "before_sha256": "c6abb832cc8fbf3e38584da1c2d8ff96c293be7356ba5feaba743c77140f94c6",
+      "after_sha256": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "status": "will apply",
+      "before_sha256": "2a979a6c7cc8990379fdb89e19bf98b3c6ef97cfd71e6c6dec8a4604c63dbae1",
+      "after_sha256": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "status": "will apply",
+      "before_sha256": "63550b384bd7c114bb7a0c39992408df2443fec6b2113a3ce360030569ba86bd",
+      "after_sha256": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "status": "will apply",
+      "before_sha256": "480e7207b5aa4b7c74009c43403c6afda247932a9651db6a95aacdd20c5a5fac",
+      "after_sha256": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "status": "will apply",
+      "before_sha256": "783c42329a8bac39db7d23845900a62884b508ad2f2ca77ee1e9c4e26960e132",
+      "after_sha256": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395",
+      "inverse_preserves_all_other_bytes": true
+    }
+  ]
+}

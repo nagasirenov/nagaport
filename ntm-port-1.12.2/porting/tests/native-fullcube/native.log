@@ -1,0 +1,7 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+[03:45:59] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[03:45:59] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[03:45:59] [main/INFO]: Replaced 1036 ore ingredients
+[03:45:59] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+PASS 66110 assertions: 85 exact callbacks/104-owner source closure, state and inherited dispatch, five actual constructor slices, both custom state factories, genuine NTM fence consumer, native face-shape/collision separation, and original live callback/cache checks.

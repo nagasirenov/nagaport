@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderCustomMachine extends TileEntitySpecialRenderer {
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		
 		TileEntityCustomMachine custom = (TileEntityCustomMachine) tile;
 		CustomMachineConfigJSON.MachineConfiguration config = custom.config;

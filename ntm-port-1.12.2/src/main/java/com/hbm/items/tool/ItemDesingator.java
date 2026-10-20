@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class ItemDesingator extends Item implements IDesignatorItem {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(itemstack.getTagCompound() != null) {
 			list.add("Target Coordinates:");
 			list.add("X: " + itemstack.getTagCompound().getInteger("xCoord"));

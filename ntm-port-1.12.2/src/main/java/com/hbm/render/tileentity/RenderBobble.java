@@ -61,7 +61,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 	private long time;
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float intero) {
+	public void render(TileEntity tile, double x, double y, double z, float intero, int nativeDestroyStage, float nativeAlpha) {
 		time = System.currentTimeMillis();
 
 		GL11.glPushMatrix();

@@ -5,105 +5,137 @@ import java.util.Random;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.blocks.machine.ZirnoxDestroyed;
 import com.hbm.blocks.machine.rbmk.RBMKDebris;
+import com.hbm.world.WorldAirRemoval;
+import com.hbm.world.WorldBlockState;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
+import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockLayering extends Block {
 
-	public BlockLayering(Material mat) {
-		super(mat);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-		this.func_150154_b(0);
-	}
+    // Keep the complete stored nibble. Geometry uses the low three bits, but
+    // original replacement uses the unmasked value (including values 8..15).
+    public static final PropertyInteger METADATA = PropertyInteger.create("metadata", 0, 15);
 
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
-		int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_) ) & 7;
-		float f = 0.125F;
-		return AxisAlignedBB.getBoundingBox((double) p_149668_2_ + this.minX, (double) p_149668_3_ + this.minY, (double) p_149668_4_ + this.minZ, (double) p_149668_2_ + this.maxX, (double) ((float) p_149668_3_ + (float) l * f), (double) p_149668_4_ + this.maxZ);
-	}
+    public BlockLayering(Material mat) {
+        super(mat);
+        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));
+    }
 
-	public boolean isOpaqueCube() {
-		return false;
-	}
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, METADATA);
+    }
 
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(METADATA, meta & 15);
+    }
 
-	public void setBlockBoundsForItemRender() {
-		this.func_150154_b(0);
-	}
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(METADATA);
+    }
 
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-		this.func_150154_b(p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_));
-	}
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return new AxisAlignedBB(0, 0, 0, 1, ((getMetaFromState(state) & 7) + 1) / 8.0D, 1);
+    }
 
-	protected void func_150154_b(int p_150154_1_) {
-		int j = p_150154_1_ & 7;
-		float f = (float) (2 * (1 + j)) / 16.0F;
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, f, 1.0F);
-	}
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        // Intentionally one layer lower than the selection box, including a
+        // zero-height box at metadata zero, exactly as in the original block.
+        return new AxisAlignedBB(0, 0, 0, 1, (getMetaFromState(state) & 7) / 8.0D, 1);
+    }
 
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		Block block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();
-		
-		if(block instanceof RBMKDebris || block instanceof ZirnoxDestroyed)
-			return true;
-		
-		return block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;
-	}
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
 
-	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {
-		this.func_150155_m(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
-	}
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
 
-	private boolean func_150155_m(World p_150155_1_, int p_150155_2_, int p_150155_3_, int p_150155_4_) {
-		if(!this.canPlaceBlockAt(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_)) {
-			com.hbm.world.WorldAirRemoval.remove(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_);
-			return false;
-		} else {
-			return true;
-		}
-	}
+    @Override
+    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {
+        // Even eight visible layers were not a normal cube/solid support face.
+        return BlockFaceShape.UNDEFINED;
+    }
 
-	public void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_) {
-		super.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);
-		com.hbm.world.WorldAirRemoval.remove(p_149636_1_, p_149636_3_, p_149636_4_, p_149636_5_);
-	}
+    @Override
+    public boolean canPlaceBlockAt(World world, BlockPos pos) {
+        BlockPos below = pos.down();
+        IBlockState support = WorldBlockState.read(world, below.getX(), below.getY(), below.getZ());
+        Block block = support.getBlock();
+        if (block instanceof RBMKDebris || block instanceof ZirnoxDestroyed) return true;
+        if (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;
+        return block.isLeaves(support, world, below)
+                || (block == this && (getMetaFromState(support) & 7) == 7)
+                || (support.isOpaqueCube() && support.getMaterial().blocksMovement());
+    }
 
-	public Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-		return null;
-	}
+    @Override
+    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighbor, BlockPos neighborPos) {
+        if (!canPlaceBlockAt(world, pos)) {
+            // Support loss removes the layer without drops, as before.
+            WorldAirRemoval.remove(world, pos.getX(), pos.getY(), pos.getZ());
+        }
+    }
 
-	public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-		/*if(p_149674_1_.getSavedLightValue(EnumSkyBlock.Block, p_149674_2_, p_149674_3_, p_149674_4_) > 11) {
-			p_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);
-		}*/
-	}
+    @Override
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {
+        super.harvestBlock(world, player, pos, state, tile, tool);
+        WorldAirRemoval.remove(world, pos.getX(), pos.getY(), pos.getZ());
+    }
 
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {
-		return p_149646_5_ == 1 ? true : super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random random, int fortune) {
+        // Native Block.getDrops tests Items.AIR, not the old null sentinel.
+        return Items.AIR;
+    }
 
-	public int quantityDropped(int meta, int fortune, Random random) {
-		return (meta & 7) + 1;
-	}
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
+        // The original melting/light check was disabled.
+    }
 
-	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) {
-		if(this == ModBlocks.leaves_layer) return true;
-		if(this == ModBlocks.oil_spill) return true;
-		if(this == ModBlocks.foam_layer) return true;
-		int meta = world.getBlockMetadata(x, y, z);
-		return meta >= 7 ? false : blockMaterial.isReplaceable();
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
+        return side == EnumFacing.UP || super.shouldSideBeRendered(state, world, pos, side);
+    }
+
+    @Override
+    public int quantityDropped(IBlockState state, int fortune, Random random) {
+        return (getMetaFromState(state) & 7) + 1;
+    }
+
+    @Override
+    public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
+        if (this == ModBlocks.leaves_layer || this == ModBlocks.oil_spill || this == ModBlocks.foam_layer) return true;
+        // Decode the actual owner, not this block. IBlockAccess supplies native
+        // states here; this is not a codec for WorldInAJar's arbitrary raw shorts.
+        int meta = WorldBlockState.metadata(world.getBlockState(pos));
+        return meta < 7 && material.isReplaceable();
+    }
 }

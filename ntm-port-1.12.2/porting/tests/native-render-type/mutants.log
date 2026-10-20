@@ -1,0 +1,3 @@
+PASS rejected old-signature: method does not override
+PASS rejected model: AssertionError: native state dispatch
+PASS rejected state-dependent: AssertionError: native state dispatch

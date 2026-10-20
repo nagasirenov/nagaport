@@ -41,7 +41,8 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block neighbor, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
 		this.updateState(world, x, y, z);
 	}
 
@@ -112,7 +113,8 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int l = BlockPistonBase.determineOrientation(world, x, y, z, player);
 		world.setBlockMetadataWithNotify(x, y, z, l, 2);
 	}
@@ -169,17 +171,17 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 	}
 
 	@Override
-	public int getRenderType(){
-		return -1;
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -391,9 +393,9 @@ public class PistonInserter extends BlockContainerBase implements ITooltipProvid
 
 		@Override public boolean isUseableByPlayer(EntityPlayer player) { return false; }
 
-		@Override public void openInventory() {}
+		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 
-		@Override public void closeInventory() {}
+		@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 
 		@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return true; }
 

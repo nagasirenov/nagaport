@@ -1,0 +1,50 @@
+import java.util.*;
+import net.minecraft.block.*;import net.minecraft.block.state.IBlockState;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;import net.minecraft.entity.player.EntityPlayer;import net.minecraft.init.*;import net.minecraft.inventory.*;import net.minecraft.item.*;import net.minecraft.nbt.NBTTagCompound;import net.minecraft.profiler.Profiler;import net.minecraft.tileentity.TileEntity;import net.minecraft.util.EnumFacing;import net.minecraft.util.math.BlockPos;import net.minecraft.util.text.*;import net.minecraft.world.*;import net.minecraft.world.chunk.*;import net.minecraft.world.storage.*;import net.minecraftforge.fml.common.registry.ForgeRegistries;
+public class RemovalNativeTest {
+ static int checks;static final BlockPos POS=new BlockPos(8,64,8);static void check(boolean b,String s){checks++;if(!b)throw new AssertionError(s);}
+ public static class InventoryTile extends TileEntity implements ISidedInventory {
+  public ItemStack[] stacks={ItemStack.EMPTY,ItemStack.EMPTY,ItemStack.EMPTY};
+  public int getSizeInventory(){return stacks.length;}public boolean isEmpty(){for(ItemStack s:stacks)if(s!=null&&!s.isEmpty())return false;return true;}
+  public ItemStack getStackInSlot(int i){return stacks[i];}public ItemStack decrStackSize(int i,int n){return stacks[i].splitStack(n);}public ItemStack removeStackFromSlot(int i){ItemStack s=stacks[i];stacks[i]=ItemStack.EMPTY;return s;}public void setInventorySlotContents(int i,ItemStack s){stacks[i]=s;}public int getInventoryStackLimit(){return 64;}public boolean isUsableByPlayer(EntityPlayer p){return true;}public void openInventory(EntityPlayer p){}public void closeInventory(EntityPlayer p){}public boolean isItemValidForSlot(int i,ItemStack s){return true;}public int getField(int i){return 0;}public void setField(int i,int v){}public int getFieldCount(){return 0;}public void clear(){Arrays.fill(stacks,ItemStack.EMPTY);}public String getName(){return "fixture";}public boolean hasCustomName(){return false;}public ITextComponent getDisplayName(){return new TextComponentString(getName());}public int[] getSlotsForFace(EnumFacing f){return new int[]{0,1,2};}public boolean canInsertItem(int i,ItemStack s,EnumFacing f){return true;}public boolean canExtractItem(int i,ItemStack s,EnumFacing f){return true;}
+ }
+ static class NativeWorld extends World {
+  final Map<Long,Chunk> chunks=new HashMap<>();final List<EntityItem> drops=new ArrayList<>();final List<String> events=new ArrayList<>();Block comparatorOwner;boolean removing,reject,throwSpawn;int explicit;
+  NativeWorld(boolean client){super(new SaveHandlerMP(),new WorldInfo(new NBTTagCompound()),new WorldProviderSurface(),new Profiler(),client);provider.setWorld(this);chunkProvider=createChunkProvider();for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){Chunk c=new Chunk(this,x,z);c.markLoaded(true);chunks.put(key(x,z),c);}}
+  static long key(int x,int z){return ((long)x<<32)^(z&0xffffffffL);}
+  protected IChunkProvider createChunkProvider(){return new IChunkProvider(){public Chunk getLoadedChunk(int x,int z){return chunks.get(key(x,z));}public Chunk provideChunk(int x,int z){return getLoadedChunk(x,z);}public boolean tick(){return false;}public String makeString(){return "removal native fixture";}public boolean isChunkGeneratedAt(int x,int z){return getLoadedChunk(x,z)!=null;}};}
+  protected boolean isChunkLoaded(int x,int z,boolean empty){return chunks.containsKey(key(x,z));}public boolean checkLight(BlockPos p){return true;}
+  public boolean spawnEntity(Entity e){events.add("drop");if(throwSpawn)throw new IllegalStateException("spawn failure fixture");drops.add((EntityItem)e);return !reject;}
+  public void updateComparatorOutputLevel(BlockPos p,Block b){if(!removing){explicit++;comparatorOwner=b;events.add("comparator");}super.updateComparatorOutputLevel(p,b);}
+  public void removeTileEntity(BlockPos p){events.add("remove");removing=true;super.removeTileEntity(p);removing=false;}
+  void reset(){events.clear();drops.clear();explicit=0;comparatorOwner=null;}
+ }
+ static ItemStack stack(int n,int meta){ItemStack s=new ItemStack(Items.STICK,n,meta);NBTTagCompound tag=new NBTTagCompound();tag.setString("slot","slot"+meta);NBTTagCompound nested=new NBTTagCompound();nested.setInteger("marker",meta);tag.setTag("nested",nested);s.setTagCompound(tag);return s;}
+ static InventoryTile prepare(NativeWorld w,Block b,int n){w.setBlockState(POS,b.getDefaultState(),2);InventoryTile t=(InventoryTile)w.getTileEntity(POS);t.stacks=new ItemStack[]{stack(n,3),ItemStack.EMPTY,stack(7,5)};w.reset();return t;}
+ static void compare(NativeWorld a,NativeWorld b,String label){check(a.drops.size()==b.drops.size(),label+" drop count");for(int j=0;j<a.drops.size();j++){EntityItem x=a.drops.get(j),y=b.drops.get(j);check(ItemStack.areItemStacksEqual(x.getItem(),y.getItem()),label+" item/meta/NBT/count");check(x.posX==y.posX&&x.posY==y.posY&&x.posZ==y.posZ,label+" position");check(x.motionX==y.motionX&&x.motionY==y.motionY&&x.motionZ==y.motionZ,label+" velocity");}}
+ static void seed(Block b,NativeWorld w,long seed)throws Exception {w.rand.setSeed(seed);((Random)b.getClass().getField("field_149933_a").get(b)).setSeed(seed);}
+ static void keep(Block b,boolean value)throws Exception{b.getClass().getField("keepInventory").setBoolean(null,value);}
+ public static void main(String[] args)throws Exception {
+  Bootstrap.register();Block[] cases={CASES};for(int i=0;i<cases.length;i++)ForgeRegistries.BLOCKS.register(cases[i].setRegistryName("probe","removal_"+i));
+  for(int i=0;i<cases.length;i++){Block block=cases[i];boolean hasKeep=i==1||i==2||i==4;
+   for(int n:new int[]{1,10,31,64,130})for(long seed:new long[]{0,1,42})for(boolean reject:new boolean[]{false,true}){
+    keep(block,false);NativeWorld actual=new NativeWorld(false),reference=new NativeWorld(false);InventoryTile tile=prepare(actual,block,n),ref=prepare(reference,block,n);ItemStack alias=tile.stacks[0];NBTTagCompound tag=alias.getTagCompound();actual.reject=reject;reference.reject=reject;seed(block,actual,seed);
+    ProductionSpill.spillItems(reference,8,64,8,block,new Random(seed));
+    // This is the real engine entry. Chunk invokes virtual Block.breakBlock with old state.
+    check(actual.setBlockState(POS,Blocks.AIR.getDefaultState(),2),"engine replacement "+i);compare(actual,reference,"owner "+i);
+    check(tile.isEmpty()&&alias.isEmpty(),"source depleted "+i);check(actual.getTileEntity(POS)==null&&tile.isInvalid(),"native tile removed/invalidate "+i);check(actual.explicit==1&&actual.comparatorOwner==block,"comparator uses old owner "+i);
+    int comparator=actual.events.indexOf("comparator"),remove=actual.events.indexOf("remove");check(comparator>actual.events.lastIndexOf("drop")&&remove>comparator,"drops then comparator then native super removal "+i);
+    int total=0;for(EntityItem e:actual.drops){total+=e.getItem().getCount();check(e.getItem().getTagCompound()!=tag,"NBT copy "+i);}check(total==n+7,"conservation "+i);
+    long next=i==0?actual.rand.nextLong():((Random)block.getClass().getField("field_149933_a").get(block)).nextLong();Random expected=new Random(seed);NativeWorld rngRef=new NativeWorld(false);prepare(rngRef,block,n);ProductionSpill.spillItems(rngRef,8,64,8,block,expected);check(next==expected.nextLong(),"RNG draw order "+i);
+   }
+   // Existing guards and failure behavior are not normalized by the callback migration.
+   if(hasKeep){keep(block,true);NativeWorld w=new NativeWorld(false);InventoryTile t=prepare(w,block,64);check(w.setBlockState(POS,Blocks.AIR.getDefaultState(),2),"keep engine replace");check(w.drops.isEmpty()&&t.stacks[0].getCount()==64&&w.explicit==0,"keep suppresses spill not native removal");check(w.getTileEntity(POS)==null,"keep native removal");keep(block,false);}
+   NativeWorld direct=new NativeWorld(false);InventoryTile directTile=prepare(direct,block,31);block.breakBlock(direct,POS,block.getDefaultState());check(directTile.isInvalid()&&direct.getChunk(POS).getTileEntity(POS,Chunk.EnumCreateEntityType.CHECK)==null&&directTile.isEmpty(),"direct native callback reaches real super removal");check(Collections.frequency(direct.events,"remove")==1,"exactly one super removal");
+   NativeWorld client=new NativeWorld(true);InventoryTile clientTile=prepare(client,block,64);client.setBlockState(POS,Blocks.AIR.getDefaultState(),2);check(client.drops.isEmpty()&&clientTile.stacks[0].getCount()==64,"client Chunk does not invoke callback");
+   NativeWorld empty=new NativeWorld(false);InventoryTile e=prepare(empty,block,1);e.stacks=new ItemStack[]{null,ItemStack.EMPTY,ItemStack.EMPTY};empty.setBlockState(POS,Blocks.AIR.getDefaultState(),2);check(empty.drops.isEmpty()&&empty.explicit==1,"empty/null slots still comparator then removal");
+   NativeWorld wrong=new NativeWorld(false);prepare(wrong,block,1);wrong.setTileEntity(POS,new TileEntity(){});wrong.reset();boolean thrown=false;try{block.breakBlock(wrong,POS,block.getDefaultState());}catch(ClassCastException ex){thrown=true;}check(thrown==(i!=0),"wrong tile cast or original ICF early return");check(!wrong.events.contains("remove"),"wrong tile never reaches super");
+   NativeWorld missing=new NativeWorld(false);block.breakBlock(missing,POS,block.getDefaultState());check(missing.events.contains("remove")==(i!=0),"missing tile ICF early return versus super");
+   NativeWorld failure=new NativeWorld(false);InventoryTile failed=prepare(failure,block,64);failure.throwSpawn=true;seed(block,failure,1);boolean failedSpawn=false;try{failure.setBlockState(POS,Blocks.AIR.getDefaultState(),2);}catch(IllegalStateException ex){failedSpawn=true;}check(failedSpawn&&failed.stacks[0].getCount()<64,"spawn exception propagated after depletion");check(!failure.events.contains("remove")&&failure.explicit==0,"exception skips comparator/super, no invented finally");
+  }
+  System.out.println("PASS RemovalNativeTest "+checks+" assertions; six full callback slices; genuine World.setBlockState -> Chunk -> virtual Block.breakBlock; production spillItems helper slice comparator; no complete owner/tile/gameplay claim");
+ }
+}

@@ -24,7 +24,7 @@ public class RenderCrucible extends TileEntitySpecialRenderer implements ITileAc
 	public static final ResourceLocation lava = new ResourceLocation(RefStrings.MODID, "textures/models/machines/lava.png");
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);
@@ -82,7 +82,7 @@ public class RenderCrucible extends TileEntitySpecialRenderer implements ITileAc
 		int x = data.getInteger("x");
 		int y = data.getInteger("y");
 		int z = data.getInteger("z");
-		renderTileEntityAt(world.getTileEntity(x, y, z), x, y, z, interp);
+		render(world.getTileEntity(x, y, z), x, y, z, interp, -1, 1.0F);
 	}
 
 	@Override

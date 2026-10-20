@@ -36,7 +36,7 @@ public class ItemCanteen extends Item {
 		stack.setItemDamage(stack.getMaxDamage());
 
 		if(this == ModItems.canteen_vodka) {
-			player.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
 		}
 
@@ -65,7 +65,7 @@ public class ItemCanteen extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_) {
+	public void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(this == ModItems.canteen_vodka) {
 			list.add("Cooldown: 3 minutes");
 			list.add("Nausea I for 10 seconds");

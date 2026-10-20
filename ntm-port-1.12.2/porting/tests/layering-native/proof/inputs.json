@@ -1,0 +1,14 @@
+{
+  "base": "a4739afa41966b75e2012bccd7df919e51d5c3a0",
+  "native_assertions": 3247,
+  "runtime_mutants_rejected": 8,
+  "production_paths": 1,
+  "sha256": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockLayering.java": "9366ae65ddc4049e73966edf53cec1e8d45bd53ca512d3c06daba7cc573b6417",
+    "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockLayering.java": "9e4cb92100d5c1ed74af2d1b19522f78919c31e77bd6a34f968053d390ae2313",
+    "ntm-port-1.12.2/porting/tests/layering-native/LayeringNativeTest.java": "4291e394eb4e62851e261a4d0e1a890e032a10e62e8882a73c442eba7b155cf5",
+    "ntm-port-1.12.2/porting/tests/layering-native/mutations.py": "fbdbcf23771feff47a29760749df403c9622c4ea818c220005ff4cbf6f8ca518",
+    "ntm-port-1.12.2/porting/tests/layering-native/verify.py": "c35bb181d430464145b276f67b5dcc457212b9187e8bc9d3c527dcabbb1caa8e",
+    "ntm-port-1.12.2/porting/tests/layering-native/run.sh": "1348f737001b7c4a766dc51f9a0c686c562c13203e72eb87b1f95de8abc40585"
+  }
+}

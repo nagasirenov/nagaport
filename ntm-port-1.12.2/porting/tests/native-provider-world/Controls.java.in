@@ -1,0 +1,11 @@
+import net.minecraft.world.World;import net.minecraft.world.WorldProviderSurface;
+class Controls extends WorldProviderSurface {
+ World implicit(World world){return worldObj;}
+ World explicit(){return this.worldObj;}
+ World external(WorldProviderSurface other){return other.worldObj;}
+ World local(World worldObj){return worldObj;}
+ static World stat(){return worldObj;}
+ class Inner {World implicitOuter(){return worldObj;}}
+}
+class NewShadow extends WorldProviderSurface { World world; World blocked(){return worldObj;} }
+class OldShadow extends WorldProviderSurface { World worldObj; World blocked(){return worldObj;} }

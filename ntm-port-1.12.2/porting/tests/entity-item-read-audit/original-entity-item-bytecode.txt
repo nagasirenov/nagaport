@@ -1,0 +1,16 @@
+  public add f();
+    Code:
+       0: aload_0
+       1: invokevirtual #166                // Method z:()Lte;
+       4: bipush        10
+       6: invokevirtual #147                // Method te.f:(I)Ladd;
+       9: astore_1
+      10: aload_1
+      11: ifnonnull     25
+      14: new           #15                 // class add
+      17: dup
+      18: getstatic     #64                 // Field ajn.b:Laji;
+      21: invokespecial #105                // Method add."<init>":(Laji;)V
+      24: areturn
+      25: aload_1
+      26: areturn

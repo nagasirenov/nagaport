@@ -24,6 +24,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -157,7 +158,7 @@ public class TileEntityMachineRadGen extends TileEntityMachineBase implements IE
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < processing.length) {
-				processing[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				processing[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 		

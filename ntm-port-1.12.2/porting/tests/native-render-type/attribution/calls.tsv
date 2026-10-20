@@ -1,0 +1,6 @@
+path	line	receiver	receiver_type	receiver_kind	method_owner	method_signature	method_kind	arguments	source
+src/main/java/com/hbm/blocks/BlockDummyable.java	78	<implicit>			com.hbm.blocks.BlockDummyable	getRenderType()	METHOD		getRenderType()
+src/main/java/com/hbm/main/LegacyBaseModelHandler.java	210	block	com.hbm.blocks.BlockBase	DECLARED	net.minecraft.block.Block	getRenderType(net.minecraft.block.state.IBlockState)	METHOD	state	block.getRenderType(state)
+src/main/java/com/hbm/render/entity/item/RenderMinecartTest.java	100	block	net.minecraft.block.Block	DECLARED	net.minecraft.block.Block	net.minecraft.block.Block.getRenderType	CLASS		block.getRenderType()
+src/main/java/com/hbm/render/entity/item/RenderMovingItem.java	70	state	net.minecraft.block.state.IBlockState	DECLARED	net.minecraft.block.state.IBlockProperties	getRenderType()	METHOD		state.getRenderType()
+src/main/java/com/hbm/render/util/NativeBlockMaterial.java	32	state	net.minecraft.block.state.IBlockState	DECLARED	net.minecraft.block.state.IBlockProperties	getRenderType()	METHOD		state.getRenderType()

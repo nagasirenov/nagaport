@@ -1,0 +1,1 @@
+PASS exact CP71 reversal: 19 files; all eight descendants plus shared native display root, item-crate delegation, eight GUI callers and storage block callers. Existing getters/predicates match pristine exactly; null/empty/custom selection unchanged.

@@ -1,0 +1,66 @@
+Compiled from "SourceFile"
+public abstract class ajc extends aji implements akw {
+  protected ajc(awt);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #9                  // Method aji."<init>":(Lawt;)V
+       5: aload_0
+       6: iconst_1
+       7: putfield      #6                  // Field A:Z
+      10: return
+
+  public void b(ahb, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: invokespecial #12                 // Method aji.b:(Lahb;III)V
+       9: return
+
+  public void a(ahb, int, int, int, aji, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: aload         5
+       8: iload         6
+      10: invokespecial #11                 // Method aji.a:(Lahb;IIILaji;I)V
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokevirtual #8                  // Method ahb.p:(III)V
+      21: return
+
+  public boolean a(ahb, int, int, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: iload         5
+       8: iload         6
+      10: invokespecial #10                 // Method aji.a:(Lahb;IIIII)Z
+      13: pop
+      14: aload_1
+      15: iload_2
+      16: iload_3
+      17: iload         4
+      19: invokevirtual #7                  // Method ahb.o:(III)Laor;
+      22: astore        7
+      24: aload         7
+      26: ifnull        39
+      29: aload         7
+      31: iload         5
+      33: iload         6
+      35: invokevirtual #13                 // Method aor.c:(II)Z
+      38: ireturn
+      39: iconst_0
+      40: ireturn
+}

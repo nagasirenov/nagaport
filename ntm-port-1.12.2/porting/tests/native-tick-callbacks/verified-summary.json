@@ -1,0 +1,447 @@
+{
+  "baseline": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "selected": 33,
+  "excluded": [
+    {
+      "owner": "com.hbm.blocks.BlockCrop",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.BlockDummyable",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.BlockDummyableBeam",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.AcidBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.CoriumBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.CoriumFinite",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.MudBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.SchrabidicBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.VolcanicBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasAsbestos",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasClorine",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasCoal",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasFlammable",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasMeltdown",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasMonoxide",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadon",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadonDense",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadonTomb",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockFallingRad",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockHazardFalling",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockNuclearWaste",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.WasteLeaves",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.ZirnoxDestroyed",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasBase",
+      "reason": "Unconverted descendant family includes old-shaped super calls; migrate family together."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockHazard",
+      "reason": "Unconverted descendant family includes old-shaped super calls; migrate family together."
+    }
+  ],
+  "native_overrides": 33,
+  "removed_override_errors": 29,
+  "added_errors": 0,
+  "before_errors": 13966,
+  "after_errors": 13937,
+  "descendants": [
+    {
+      "owner": "com.hbm.blocks.generic.BlockNetherCoal",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockOutgas"
+      ],
+      "selected": false,
+      "callbacks": []
+    }
+  ],
+  "explicit_calls": [
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockCrop.java",
+      "line": "135",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockBush",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockBush",
+      "method_signature": "net.minecraft.block.BlockBush.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "65",
+      "receiver": "<implicit>",
+      "receiver_type": "",
+      "receiver_kind": "",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos.getX() || pos.getY() || pos.getZ() || random",
+      "source": "updateTick(world, pos.getX(), pos.getY(), pos.getZ(), random)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+      "line": "149",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockContainer",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "updateTick(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || new BlockPos(x, y, z) || world.getBlockState(new BlockPos(x, y, z)) || rand",
+      "source": "super.updateTick(world, new BlockPos(x, y, z), world.getBlockState(new BlockPos(x, y, z)), rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/AcidBlock.java",
+      "line": "79",
+      "receiver": "super",
+      "receiver_type": "net.minecraftforge.fluids.BlockFluidClassic",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraftforge.fluids.BlockFluidClassic",
+      "method_signature": "net.minecraftforge.fluids.BlockFluidClassic.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/CoriumBlock.java",
+      "line": "90",
+      "receiver": "super",
+      "receiver_type": "net.minecraftforge.fluids.BlockFluidClassic",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraftforge.fluids.BlockFluidClassic",
+      "method_signature": "net.minecraftforge.fluids.BlockFluidClassic.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/CoriumFinite.java",
+      "line": "67",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.fluid.GenericFiniteFluid",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.fluid.GenericFiniteFluid",
+      "method_signature": "com.hbm.blocks.fluid.GenericFiniteFluid.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/MudBlock.java",
+      "line": "85",
+      "receiver": "super",
+      "receiver_type": "net.minecraftforge.fluids.BlockFluidClassic",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraftforge.fluids.BlockFluidClassic",
+      "method_signature": "net.minecraftforge.fluids.BlockFluidClassic.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/SchrabidicBlock.java",
+      "line": "155",
+      "receiver": "super",
+      "receiver_type": "net.minecraftforge.fluids.BlockFluidClassic",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraftforge.fluids.BlockFluidClassic",
+      "method_signature": "net.minecraftforge.fluids.BlockFluidClassic.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/fluid/VolcanicBlock.java",
+      "line": "72",
+      "receiver": "super",
+      "receiver_type": "net.minecraftforge.fluids.BlockFluidClassic",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraftforge.fluids.BlockFluidClassic",
+      "method_signature": "net.minecraftforge.fluids.BlockFluidClassic.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasAsbestos.java",
+      "line": "65",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java",
+      "line": "63",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasCoal.java",
+      "line": "64",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasFlammable.java",
+      "line": "74",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasMeltdown.java",
+      "line": "91",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasMonoxide.java",
+      "line": "53",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasRadon.java",
+      "line": "62",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasRadonDense.java",
+      "line": "89",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/gas/BlockGasRadonTomb.java",
+      "line": "105",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.gas.BlockGasBase",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.gas.BlockGasBase",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockFallingRad.java",
+      "line": "21",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockFalling",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockFalling",
+      "method_signature": "net.minecraft.block.BlockFalling.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockHazardFalling.java",
+      "line": "53",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.BlockFalling",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.BlockFalling",
+      "method_signature": "net.minecraft.block.BlockFalling.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BlockNuclearWaste.java",
+      "line": "22",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.generic.BlockHazard",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.generic.BlockHazard",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/BrownBarrel.java",
+      "line": "92",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "updateTick(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos || state || rand",
+      "source": "super.updateTick(world, pos, state, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+      "line": "51",
+      "receiver": "super",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "net.minecraft.block.Block.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/generic/YellowBarrel.java",
+      "line": "72",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.bomb.BlockDetonatable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "updateTick(net.minecraft.world.World,net.minecraft.util.math.BlockPos,net.minecraft.block.state.IBlockState,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || pos || state || rand",
+      "source": "super.updateTick(world, pos, state, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "line": "75",
+      "receiver": "super",
+      "receiver_type": "com.hbm.blocks.BlockDummyable",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.blocks.BlockDummyable",
+      "method_signature": "updateTick(net.minecraft.world.World,int,int,int,java.util.Random)",
+      "method_kind": "METHOD",
+      "arguments": "world || x || y || z || rand",
+      "source": "super.updateTick(world, x, y, z, rand)"
+    },
+    {
+      "path": "src/main/java/com/hbm/items/ItemCustomLore.java",
+      "line": "129",
+      "receiver": "name",
+      "receiver_type": "com.hbm.items.ItemCustomLore.ScramblingName",
+      "receiver_kind": "DECLARED",
+      "method_owner": "com.hbm.items.ItemCustomLore.ScramblingName",
+      "method_signature": "updateTick(java.lang.String[])",
+      "method_kind": "METHOD",
+      "arguments": "names",
+      "source": "name.updateTick(names)"
+    },
+    {
+      "path": "src/main/java/com/hbm/tileentity/machine/TileEntityHydroponic.java",
+      "line": "165",
+      "receiver": "currentPlant",
+      "receiver_type": "net.minecraft.block.Block",
+      "receiver_kind": "DECLARED",
+      "method_owner": "net.minecraft.block.Block",
+      "method_signature": "net.minecraft.block.Block.updateTick",
+      "method_kind": "CLASS",
+      "arguments": "this.world || x || y || z || this.world.rand",
+      "source": "currentPlant.updateTick(this.world, x, y, z, this.world.rand)"
+    }
+  ]
+}

@@ -107,7 +107,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 			}
 
 			hasDocked = docked != null;
-			hasRider = hasDocked && docked.riddenByEntity != null;
+			hasRider = hasDocked && docked.isBeingRidden();
 			needsFuel = hasDocked && docked.isReusable();
 			hasFuel = needsFuel && hasSufficientFuel(docked.getTarget().inOrbit);
 
@@ -163,7 +163,7 @@ public class TileEntityOrbitalStation extends TileEntityMachineBase implements I
 	}
 
 	public void enterCapsule(EntityPlayer player) {
-		if(docked == null || docked.riddenByEntity != null) return;
+		if(docked == null || docked.isBeingRidden()) return;
 		docked.interactFirst(player);
 	}
 

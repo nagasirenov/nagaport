@@ -100,7 +100,7 @@ public class BlockDynamicSlag extends BlockContainer {
 	}
 	
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -122,7 +122,8 @@ public class BlockDynamicSlag extends BlockContainer {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 
 		TileEntity s = Compat.getTileStandard(world, x, y, z);
 		TileEntity b = Compat.getTileStandard(world, x, y - 1, z);

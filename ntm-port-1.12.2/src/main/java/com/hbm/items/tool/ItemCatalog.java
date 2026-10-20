@@ -25,7 +25,7 @@ public class ItemCatalog extends Item implements IGUIProvider {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		
 		if(this == ModItems.bobmazon_hidden) {
 			list.add("For a guide on how to obtain this, visit https://bit.ly/2TPgcqT");

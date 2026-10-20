@@ -1,0 +1,218 @@
+  public void harvestBlock(net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.tileentity.TileEntity, net.minecraft.item.ItemStack);
+    Code:
+       0: aload_2
+       1: aload_0
+       2: invokestatic  #1032               // Method net/minecraft/stats/StatList.getBlockStats:(Lnet/minecraft/block/Block;)Lnet/minecraft/stats/StatBase;
+       5: invokevirtual #1036               // Method net/minecraft/entity/player/EntityPlayer.addStat:(Lnet/minecraft/stats/StatBase;)V
+       8: aload_2
+       9: ldc_w         #1037               // float 0.005f
+      12: invokevirtual #1041               // Method net/minecraft/entity/player/EntityPlayer.addExhaustion:(F)V
+      15: aload_0
+      16: aload_1
+      17: aload_3
+      18: aload         4
+      20: aload_2
+      21: invokevirtual #1045               // Method canSilkHarvest:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/player/EntityPlayer;)Z
+      24: ifeq          131
+      27: getstatic     #1051               // Field net/minecraft/init/Enchantments.SILK_TOUCH:Lnet/minecraft/enchantment/Enchantment;
+      30: aload         6
+      32: invokestatic  #1057               // Method net/minecraft/enchantment/EnchantmentHelper.getEnchantmentLevel:(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/item/ItemStack;)I
+      35: ifle          131
+      38: new           #1059               // class java/util/ArrayList
+      41: dup
+      42: invokespecial #1060               // Method java/util/ArrayList."<init>":()V
+      45: astore        7
+      47: aload_0
+      48: aload         4
+      50: invokevirtual #1064               // Method getSilkTouchDrop:(Lnet/minecraft/block/state/IBlockState;)Lnet/minecraft/item/ItemStack;
+      53: astore        8
+      55: aload         8
+      57: invokevirtual #819                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+      60: ifne          73
+      63: aload         7
+      65: aload         8
+      67: invokeinterface #657,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      72: pop
+      73: aload         7
+      75: aload_1
+      76: aload_3
+      77: aload         4
+      79: iconst_0
+      80: fconst_1
+      81: iconst_1
+      82: aload_2
+      83: invokestatic  #782                // Method net/minecraftforge/event/ForgeEventFactory.fireBlockHarvesting:(Ljava/util/List;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;IFZLnet/minecraft/entity/player/EntityPlayer;)F
+      86: pop
+      87: aload         7
+      89: invokeinterface #786,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      94: astore        9
+      96: aload         9
+      98: invokeinterface #791,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     103: ifeq          128
+     106: aload         9
+     108: invokeinterface #794,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     113: checkcast     #796                // class net/minecraft/item/ItemStack
+     116: astore        10
+     118: aload_1
+     119: aload_3
+     120: aload         10
+     122: invokestatic  #809                // Method spawnAsEntity:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/item/ItemStack;)V
+     125: goto          96
+     128: goto          167
+     131: aload_0
+     132: getfield      #355                // Field harvesters:Ljava/lang/ThreadLocal;
+     135: aload_2
+     136: invokevirtual #1068               // Method java/lang/ThreadLocal.set:(Ljava/lang/Object;)V
+     139: getstatic     #1071               // Field net/minecraft/init/Enchantments.FORTUNE:Lnet/minecraft/enchantment/Enchantment;
+     142: aload         6
+     144: invokestatic  #1057               // Method net/minecraft/enchantment/EnchantmentHelper.getEnchantmentLevel:(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/item/ItemStack;)I
+     147: istore        7
+     149: aload_0
+     150: aload_1
+     151: aload_3
+     152: aload         4
+     154: iload         7
+     156: invokevirtual #1073               // Method dropBlockAsItem:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)V
+     159: aload_0
+     160: getfield      #355                // Field harvesters:Ljava/lang/ThreadLocal;
+     163: aconst_null
+     164: invokevirtual #1068               // Method java/lang/ThreadLocal.set:(Ljava/lang/Object;)V
+     167: return
+
+  public void getDrops(net.minecraft.util.NonNullList<net.minecraft.item.ItemStack>, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, int);
+    Code:
+       0: aload_2
+       1: instanceof    #717                // class net/minecraft/world/World
+       4: ifeq          17
+       7: aload_2
+       8: checkcast     #717                // class net/minecraft/world/World
+      11: getfield      #799                // Field net/minecraft/world/World.rand:Ljava/util/Random;
+      14: goto          20
+      17: getstatic     #1486               // Field RANDOM:Ljava/util/Random;
+      20: astore        6
+      22: aload_0
+      23: aload         4
+      25: iload         5
+      27: aload         6
+      29: invokevirtual #1488               // Method quantityDropped:(Lnet/minecraft/block/state/IBlockState;ILjava/util/Random;)I
+      32: istore        7
+      34: iconst_0
+      35: istore        8
+      37: iload         8
+      39: iload         7
+      41: if_icmpge     91
+      44: aload_0
+      45: aload         4
+      47: aload         6
+      49: iload         5
+      51: invokevirtual #1490               // Method getItemDropped:(Lnet/minecraft/block/state/IBlockState;Ljava/util/Random;I)Lnet/minecraft/item/Item;
+      54: astore        9
+      56: aload         9
+      58: getstatic     #1494               // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      61: if_acmpeq     85
+      64: aload_1
+      65: new           #796                // class net/minecraft/item/ItemStack
+      68: dup
+      69: aload         9
+      71: iconst_1
+      72: aload_0
+      73: aload         4
+      75: invokevirtual #1172               // Method damageDropped:(Lnet/minecraft/block/state/IBlockState;)I
+      78: invokespecial #1089               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;II)V
+      81: invokevirtual #843                // Method net/minecraft/util/NonNullList.add:(Ljava/lang/Object;)Z
+      84: pop
+      85: iinc          8, 1
+      88: goto          37
+      91: return
+
+  public void addCollisionBoxToList(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.math.AxisAlignedBB, java.util.List<net.minecraft.util.math.AxisAlignedBB>, net.minecraft.entity.Entity, boolean);
+    Code:
+       0: aload_3
+       1: aload         4
+       3: aload         5
+       5: aload_1
+       6: aload_2
+       7: aload_3
+       8: invokeinterface #631,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getCollisionBoundingBox:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+      13: invokestatic  #634                // Method addCollisionBoxToList:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/util/math/AxisAlignedBB;)V
+      16: return
+
+  public boolean shouldSideBeRendered(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: aload_3
+       3: invokeinterface #568,  3          // InterfaceMethod net/minecraft/block/state/IBlockState.getBoundingBox:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/AxisAlignedBB;
+       8: astore        5
+      10: getstatic     #571                // Field net/minecraft/block/Block$1.$SwitchMap$net$minecraft$util$EnumFacing:[I
+      13: aload         4
+      15: invokevirtual #575                // Method net/minecraft/util/EnumFacing.ordinal:()I
+      18: iaload
+      19: tableswitch   { // 1 to 6
+                     1: 56
+                     2: 68
+                     3: 80
+                     4: 92
+                     5: 104
+                     6: 116
+               default: 128
+          }
+      56: aload         5
+      58: getfield      #581                // Field net/minecraft/util/math/AxisAlignedBB.minY:D
+      61: dconst_0
+      62: dcmpl
+      63: ifle          128
+      66: iconst_1
+      67: ireturn
+      68: aload         5
+      70: getfield      #584                // Field net/minecraft/util/math/AxisAlignedBB.maxY:D
+      73: dconst_1
+      74: dcmpg
+      75: ifge          128
+      78: iconst_1
+      79: ireturn
+      80: aload         5
+      82: getfield      #587                // Field net/minecraft/util/math/AxisAlignedBB.minZ:D
+      85: dconst_0
+      86: dcmpl
+      87: ifle          128
+      90: iconst_1
+      91: ireturn
+      92: aload         5
+      94: getfield      #590                // Field net/minecraft/util/math/AxisAlignedBB.maxZ:D
+      97: dconst_1
+      98: dcmpg
+      99: ifge          128
+     102: iconst_1
+     103: ireturn
+     104: aload         5
+     106: getfield      #593                // Field net/minecraft/util/math/AxisAlignedBB.minX:D
+     109: dconst_0
+     110: dcmpl
+     111: ifle          128
+     114: iconst_1
+     115: ireturn
+     116: aload         5
+     118: getfield      #596                // Field net/minecraft/util/math/AxisAlignedBB.maxX:D
+     121: dconst_1
+     122: dcmpg
+     123: ifge          128
+     126: iconst_1
+     127: ireturn
+     128: aload_2
+     129: aload_3
+     130: aload         4
+     132: invokevirtual #600                // Method net/minecraft/util/math/BlockPos.offset:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+     135: invokeinterface #511,  2          // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     140: aload_2
+     141: aload_3
+     142: aload         4
+     144: invokevirtual #600                // Method net/minecraft/util/math/BlockPos.offset:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+     147: aload         4
+     149: invokevirtual #604                // Method net/minecraft/util/EnumFacing.getOpposite:()Lnet/minecraft/util/EnumFacing;
+     152: invokeinterface #608,  4          // InterfaceMethod net/minecraft/block/state/IBlockState.doesSideBlockRendering:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+     157: ifne          164
+     160: iconst_1
+     161: goto          165
+     164: iconst_0
+     165: ireturn

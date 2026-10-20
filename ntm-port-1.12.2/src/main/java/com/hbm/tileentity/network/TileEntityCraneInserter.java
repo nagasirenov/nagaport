@@ -41,7 +41,7 @@ public class TileEntityCraneInserter extends TileEntityCraneBase implements IGUI
 		super.update();
 		if(!this.world.isRemote) {
 
-			if(!this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {ForgeDirection outputSide = getOutputSide();
+			if(!this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {ForgeDirection outputSide = getOutputSide();
 				TileEntity te = Compat.getTileStandard(this.world, this.pos.getX() + outputSide.offsetX, this.pos.getY() + outputSide.offsetY, this.pos.getZ() + outputSide.offsetZ);
 				
 				int[] access = null;

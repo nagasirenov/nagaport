@@ -68,7 +68,7 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 			}
 
 			if(getCurrentTask() == TASK_BUILD_HIVE && getAITarget() == null) {
-				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20, 3));
+				this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 10 * 20, 3));
 			}
 
 			if(getCurrentTask() == TASK_TERRAFORM) {
@@ -128,8 +128,8 @@ public class EntityGlyphidNuclear extends EntityGlyphid {
 			List<Entity> bugs = this.world.getEntitiesWithinAABBExcludingEntity(this, bb);
 			for (Entity e: bugs){
 				if(e instanceof EntityGlyphid){
-					addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 20, 6));
-					addPotionEffect(new PotionEffect(Potion.fireResistance.id, 15 * 20, 1));
+					addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 20, 6));
+					addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 15 * 20, 1));
 				}
 			}
 		}

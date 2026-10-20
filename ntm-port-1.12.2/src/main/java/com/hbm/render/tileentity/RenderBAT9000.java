@@ -11,13 +11,15 @@ import com.hbm.tileentity.machine.storage.TileEntityMachineBAT9000;
 
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 public class RenderBAT9000 extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 
 		TileEntityMachineBAT9000 bat = (TileEntityMachineBAT9000) te;
 		
@@ -62,33 +64,34 @@ public class RenderBAT9000 extends TileEntitySpecialRenderer {
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glColor3f(1F, 1F, 1F);
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		
 		double height = bat.tank.getFill() * 1.5D / bat.tank.getMaxFill();
 		double off = 2.2;
 		
-		tess.startDrawingQuads();
-		tess.setColorOpaque_I(type.getColor());
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0 = type.getColor();
 		
-		tess.addVertex(-off, 1.5, -0.5);
-		tess.addVertex(-off, 1.5 + height, -0.5);
-		tess.addVertex(-off, 1.5 + height, 0.5);
-		tess.addVertex(-off, 1.5, 0.5);
+		tessBuffer.pos(-off, 1.5, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(-off, 1.5 + height, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(-off, 1.5 + height, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(-off, 1.5, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
 
-		tess.addVertex(off, 1.5, -0.5);
-		tess.addVertex(off, 1.5 + height, -0.5);
-		tess.addVertex(off, 1.5 + height, 0.5);
-		tess.addVertex(off, 1.5, 0.5);
+		tessBuffer.pos(off, 1.5, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(off, 1.5 + height, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(off, 1.5 + height, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(off, 1.5, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
 		
-		tess.addVertex(-0.5, 1.5, -off);
-		tess.addVertex(-0.5, 1.5 + height, -off);
-		tess.addVertex(0.5, 1.5 + height, -off);
-		tess.addVertex(0.5, 1.5, -off);
+		tessBuffer.pos(-0.5, 1.5, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(-0.5, 1.5 + height, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(0.5, 1.5 + height, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(0.5, 1.5, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
 		
-		tess.addVertex(-0.5, 1.5, off);
-		tess.addVertex(-0.5, 1.5 + height, off);
-		tess.addVertex(0.5, 1.5 + height, off);
-		tess.addVertex(0.5, 1.5, off);
+		tessBuffer.pos(-0.5, 1.5, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(-0.5, 1.5 + height, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(0.5, 1.5 + height, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(0.5, 1.5, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
 		
 		tess.draw();
 

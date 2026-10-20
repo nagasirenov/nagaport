@@ -1,0 +1,5 @@
+PASS exact inverse to sealed CP70 bytes; 13 original nullable-array loading/consumer boundaries preserved
+[03:50:56] [main/WARN]: Potentially Dangerous alternative prefix `nbtprobe` for name `hook`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS native production nullable-inventory loader: 191 checks
+PASS original client class/resource bytes unchanged in disposable signature-free oracle copy
+PASS actual original 1.7.10 loader: 123 checks

@@ -87,7 +87,7 @@ public class EntityGlyphidBehemoth extends EntityGlyphid {
 
 	public void acidAttack(){
 		if(!this.world.isRemote && entityToAttack instanceof EntityLivingBase && this.getDistanceToEntity(entityToAttack) < 20) {
-			this.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 20, 6));
+			this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 20, 6));
 			EntityChemical chem = new EntityChemical(this.world, this, 0, 0, 0);
 
 			chem.setFluid(Fluids.SULFURIC_ACID);

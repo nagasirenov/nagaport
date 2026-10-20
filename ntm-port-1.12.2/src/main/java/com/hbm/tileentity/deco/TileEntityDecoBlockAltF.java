@@ -52,8 +52,8 @@ public class TileEntityDecoBlockAltF extends TileEntity implements net.minecraft
                 if (d9 < wat)
                 {
                 	if(entity instanceof EntityPlayer) {
-                		((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.heal.id, 5, 99));
-                		((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 5, 99));
+                		((EntityPlayer)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.INSTANT_HEALTH, 5, 99));
+                		((EntityPlayer)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 5, 99));
                     }
                 }
             }

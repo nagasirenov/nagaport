@@ -43,7 +43,8 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
+	public void onBlockPlacedBy(World p_149689_1_, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
+		int p_149689_2_ = nativePlacementPos.getX(), p_149689_3_ = nativePlacementPos.getY(), p_149689_4_ = nativePlacementPos.getZ();
 		int l = determineOrientation(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_);
 		p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, l, 2);
 	}
@@ -68,8 +69,9 @@ public class BlockPlasticExplosive extends BlockDetonatable implements IBomb {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			this.explode(world, x, y, z);
 		}
 	}

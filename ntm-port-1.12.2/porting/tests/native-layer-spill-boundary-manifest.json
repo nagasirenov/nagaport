@@ -1,0 +1,812 @@
+{
+  "baseline": "5a102874e0cd18dfd6b2984a994330b9de0ece75",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "c5aa611e16e0b20bd4b1fd8ddffdb926cb7b9cb7329ec318b805afb2240286ae",
+      "after_sha256": "55258a9b023747beb9ba2eafa0f6003b4d8b73e2201b980f3ac95ecba0682016",
+      "edits": [
+        {
+          "before_offset": 1760,
+          "after_offset": 1760,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2478,
+          "after_offset": 2642,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2572,
+          "after_offset": 2737,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2654,
+          "after_offset": 2821,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2869,
+          "after_offset": 3247,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3285,
+          "after_offset": 3629,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3358,
+          "after_offset": 3695,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3451,
+          "after_offset": 3774,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "7a681ecaa5fde1125a677dcf6d4084f83a032b3cb7cda5cacac5fc193f2f2e69",
+      "after_sha256": "1728f0357c57a60b44ab80ff732eb3516ba7bd79c513c4d4d6e66082e5e784dc",
+      "edits": [
+        {
+          "before_offset": 1636,
+          "after_offset": 1636,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2359,
+          "after_offset": 2523,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2456,
+          "after_offset": 2621,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2538,
+          "after_offset": 2705,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2753,
+          "after_offset": 3131,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3178,
+          "after_offset": 3522,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3251,
+          "after_offset": 3588,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3344,
+          "after_offset": 3667,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "e741866aaf925348f55a6fa2d437bd61f0a6ad3a01bedae2699e15d8ea9333d1",
+      "after_sha256": "010a8b4417c239460af053f9ce5d3a880e8d5d94be074c350d7293fa31fdd056",
+      "edits": [
+        {
+          "before_offset": 1865,
+          "after_offset": 1865,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2615,
+          "after_offset": 2779,
+          "old": "\t\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2716,
+          "after_offset": 2881,
+          "old": "\t\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2799,
+          "after_offset": 2966,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "before_offset": 2954,
+          "after_offset": 3358,
+          "old": "\t\t\t\t\t\t\t\t\tnew ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\t\tnew ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 3032,
+          "after_offset": 3410,
+          "old": "\t\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif (spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3478,
+          "after_offset": 3822,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3551,
+          "after_offset": 3888,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3644,
+          "after_offset": 3967,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "9c06fb1b11ee36e65e738d71d67b651bba273f17d7f1ef0c063f074ea8e63733",
+      "after_sha256": "febcb8de3e827eb2a128827f4dd9d4306b8024c531879189c9d11ba5f0516f7e",
+      "edits": [
+        {
+          "before_offset": 1619,
+          "after_offset": 1619,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2339,
+          "after_offset": 2503,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2433,
+          "after_offset": 2598,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2515,
+          "after_offset": 2682,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2730,
+          "after_offset": 3108,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3146,
+          "after_offset": 3490,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3219,
+          "after_offset": 3556,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3312,
+          "after_offset": 3635,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "059635f970df109438d8ae3e3f55d6671cef6a03ca78abd52bfadc1ef5c74ca7",
+      "after_sha256": "280a4e7fbc64a5f23d314bae5ecf8c5256076e83349b12c21df3fbeac8e972fb",
+      "edits": [
+        {
+          "before_offset": 1618,
+          "after_offset": 1618,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,\n\t\t\tint p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2350,
+          "after_offset": 2511,
+          "old": "\t\t\t\t\t\twhile (itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile (itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2445,
+          "after_offset": 2607,
+          "old": "\t\t\t\t\t\t\tif (j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif (j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2528,
+          "after_offset": 2692,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n"
+        },
+        {
+          "before_offset": 2683,
+          "after_offset": 3084,
+          "old": "\t\t\t\t\t\t\t\t\tnew ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t\t\tnew ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2761,
+          "after_offset": 3136,
+          "old": "\t\t\t\t\t\t\tif (itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif (spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem()\n\t\t\t\t\t\t\t\t\t\t.setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3189,
+          "after_offset": 3530,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3262,
+          "after_offset": 3596,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3355,
+          "after_offset": 3675,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "97d18f4fff4b34e779f6533bcd6e4bb59231d288fd73980c4c4514b3ae77d501",
+      "after_sha256": "e8b5379031ce5facf9450d7b62e918cd5567b217fa84d020ede6b47d4a23bf9c",
+      "edits": [
+        {
+          "before_offset": 1597,
+          "after_offset": 1597,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2311,
+          "after_offset": 2475,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2405,
+          "after_offset": 2570,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2487,
+          "after_offset": 2654,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2702,
+          "after_offset": 3080,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3118,
+          "after_offset": 3462,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3191,
+          "after_offset": 3528,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3284,
+          "after_offset": 3607,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "0fb724a6b74497b83e407eba5ae10902087009ab92d02b97ce29b7081c9e9ac7",
+      "after_sha256": "f98c4b847f19beb67522f3d371ae563b75d9f3d3ac3be3897dae8e7bdc982a26",
+      "edits": [
+        {
+          "before_offset": 1603,
+          "after_offset": 1603,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2319,
+          "after_offset": 2483,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2413,
+          "after_offset": 2578,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2495,
+          "after_offset": 2662,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2710,
+          "after_offset": 3088,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3126,
+          "after_offset": 3470,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3199,
+          "after_offset": 3536,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3292,
+          "after_offset": 3615,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "6cb8bc19471d9f1f1a89a9b60550df56a7e7db008085a7fc97442f83f0129872",
+      "after_sha256": "6aa777ab4c2a09c03c8a1a6ec6679a467cd7fba435e285063110e10be384313a",
+      "edits": [
+        {
+          "before_offset": 1532,
+          "after_offset": 1532,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2244,
+          "after_offset": 2408,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2338,
+          "after_offset": 2503,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2420,
+          "after_offset": 2587,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2635,
+          "after_offset": 3013,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3051,
+          "after_offset": 3395,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3124,
+          "after_offset": 3461,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3217,
+          "after_offset": 3540,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "cfbbe9c8290ae33fd49ae0b6ba563fe46d14b7e2211990c9a14e653516119aee",
+      "after_sha256": "e9887bd3cc6167a4ac035818727a7fe29d521525680b73608ae39a9bab410fe0",
+      "edits": [
+        {
+          "before_offset": 1671,
+          "after_offset": 1671,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2397,
+          "after_offset": 2561,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2491,
+          "after_offset": 2656,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2573,
+          "after_offset": 2740,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2788,
+          "after_offset": 3166,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3204,
+          "after_offset": 3548,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3277,
+          "after_offset": 3614,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3370,
+          "after_offset": 3693,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "85f51e1e18887e893b86ef3d19f2eb96214ed1606ab5cdd6fa0a7d5d10287d7f",
+      "after_sha256": "85cddecebff4841733258c4bed43fdd0e5b9de4ecc7c838a201dc9d13b9a21a0",
+      "edits": [
+        {
+          "before_offset": 1566,
+          "after_offset": 1566,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2290,
+          "after_offset": 2454,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2384,
+          "after_offset": 2549,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2466,
+          "after_offset": 2633,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2681,
+          "after_offset": 3059,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3097,
+          "after_offset": 3441,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3170,
+          "after_offset": 3507,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3263,
+          "after_offset": 3586,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "6ace8146840073ed13e1548debae9eecbf892cc8246722e127ffcdca3de0f751",
+      "after_sha256": "cd2002d84da0ecf29000a59b6261939d0b3a68f81ce295109a1b15fe026d077e",
+      "edits": [
+        {
+          "before_offset": 1603,
+          "after_offset": 1603,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 2319,
+          "after_offset": 2483,
+          "old": "\t\t\t\t\t\twhile(itemstack.stackSize > 0) {\n",
+          "new": "\t\t\t\t\t\twhile(itemstack.getCount() > 0) {\n"
+        },
+        {
+          "before_offset": 2413,
+          "after_offset": 2578,
+          "old": "\t\t\t\t\t\t\tif(j1 > itemstack.stackSize) {\n\t\t\t\t\t\t\t\tj1 = itemstack.stackSize;\n",
+          "new": "\t\t\t\t\t\t\tif(j1 > itemstack.getCount()) {\n\t\t\t\t\t\t\t\tj1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 2495,
+          "after_offset": 2662,
+          "old": "\t\t\t\t\t\t\titemstack.stackSize -= j1;\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "\t\t\t\t\t\t\t// Capture identity before native depletion hides the item.\n\t\t\t\t\t\t\tnet.minecraft.item.Item spillItem = itemstack.getItem();\n\t\t\t\t\t\t\tint spillMeta = itemstack.getItemDamage();\n\t\t\t\t\t\t\tNBTTagCompound spillTag = itemstack.getTagCompound();\n\t\t\t\t\t\t\titemstack.shrink(j1);\n\t\t\t\t\t\t\tEntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 2710,
+          "after_offset": 3088,
+          "old": "\t\t\t\t\t\t\tif(itemstack.hasTagCompound()) {\n\t\t\t\t\t\t\t\tentityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());\n",
+          "new": "\t\t\t\t\t\t\tif(spillTag != null) {\n\t\t\t\t\t\t\t\tentityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());\n"
+        },
+        {
+          "before_offset": 3126,
+          "after_offset": 3470,
+          "old": "\t\t\t\t\t\t\tp_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "\t\t\t\t\t\t\tp_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 3199,
+          "after_offset": 3536,
+          "old": "\t\t\t\tp_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "\t\t\t\tp_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 3292,
+          "after_offset": 3615,
+          "old": "\t\tsuper.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "\t\tsuper.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": {
+      "before_sha256": "7917beeb8f4038ca7d2c23853cf62da7a4dd1bf8dcceb0725b36fe95de4ff868",
+      "after_sha256": "9366ae65ddc4049e73966edf53cec1e8d45bd53ca512d3c06daba7cc573b6417",
+      "edits": [
+        {
+          "before_offset": 186,
+          "after_offset": 186,
+          "old": "",
+          "new": "import com.hbm.world.WorldAirRemoval;\nimport com.hbm.world.WorldBlockState;\n"
+        },
+        {
+          "before_offset": 365,
+          "after_offset": 441,
+          "old": "",
+          "new": "import net.minecraft.block.properties.PropertyInteger;\nimport net.minecraft.block.state.BlockStateContainer;\nimport net.minecraft.block.state.BlockFaceShape;\nimport net.minecraft.block.state.IBlockState;\n"
+        },
+        {
+          "before_offset": 448,
+          "after_offset": 728,
+          "old": "",
+          "new": "import net.minecraft.init.Items;\n"
+        },
+        {
+          "before_offset": 480,
+          "after_offset": 793,
+          "old": "",
+          "new": "import net.minecraft.item.ItemStack;\nimport net.minecraft.tileentity.TileEntity;\nimport net.minecraft.util.EnumFacing;\n"
+        },
+        {
+          "before_offset": 526,
+          "after_offset": 958,
+          "old": "",
+          "new": "import net.minecraft.util.math.BlockPos;\n"
+        },
+        {
+          "before_offset": 646,
+          "after_offset": 1119,
+          "old": "\tpublic BlockLayering(Material mat) {\n\t\tsuper(mat);\n\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);\n\t\tthis.func_150154_b(0);\n\t}\n",
+          "new": "    // Keep the complete stored nibble. Geometry uses the low three bits, but\n    // original replacement uses the unmasked value (including values 8..15).\n    public static final PropertyInteger METADATA = PropertyInteger.create(\"metadata\", 0, 15);\n"
+        },
+        {
+          "before_offset": 788,
+          "after_offset": 1370,
+          "old": "\tpublic AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {\n\t\tint l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_) ) & 7;\n\t\tfloat f = 0.125F;\n\t\treturn AxisAlignedBB.getBoundingBox((double) p_149668_2_ + this.minX, (double) p_149668_3_ + this.minY, (double) p_149668_4_ + this.minZ, (double) p_149668_2_ + this.maxX, (double) ((float) p_149668_3_ + (float) l * f), (double) p_149668_4_ + this.maxZ);\n\t}\n",
+          "new": "    public BlockLayering(Material mat) {\n        super(mat);\n        setDefaultState(blockState.getBaseState().withProperty(METADATA, 0));\n    }\n"
+        },
+        {
+          "before_offset": 1338,
+          "after_offset": 1516,
+          "old": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}\n",
+          "new": "    @Override\n    protected BlockStateContainer createBlockState() {\n        return new BlockStateContainer(this, METADATA);\n    }\n"
+        },
+        {
+          "before_offset": 1434,
+          "after_offset": 1648,
+          "old": "\tpublic boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}\n",
+          "new": "    @Override\n    public IBlockState getStateFromMeta(int meta) {\n        return getDefaultState().withProperty(METADATA, meta & 15);\n    }\n"
+        },
+        {
+          "before_offset": 1528,
+          "after_offset": 1789,
+          "old": "\tpublic void setBlockBoundsForItemRender() {\n\t\tthis.func_150154_b(0);\n\t}\n",
+          "new": "    @Override\n    public int getMetaFromState(IBlockState state) {\n        return state.getValue(METADATA);\n    }\n"
+        },
+        {
+          "before_offset": 1602,
+          "after_offset": 1904,
+          "old": "\tpublic void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {\n\t\tthis.func_150154_b(p_149719_1_.getBlockMetadata(p_149719_2_, p_149719_3_, p_149719_4_));\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        return new AxisAlignedBB(0, 0, 0, 1, ((getMetaFromState(state) & 7) + 1) / 8.0D, 1);\n    }\n"
+        },
+        {
+          "before_offset": 1816,
+          "after_offset": 2113,
+          "old": "\tprotected void func_150154_b(int p_150154_1_) {\n\t\tint j = p_150154_1_ & 7;\n\t\tfloat f = (float) (2 * (1 + j)) / 16.0F;\n\t\tthis.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, f, 1.0F);\n\t}\n",
+          "new": "    @Override\n    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {\n        // Intentionally one layer lower than the selection box, including a\n        // zero-height box at metadata zero, exactly as in the original block.\n        return new AxisAlignedBB(0, 0, 0, 1, (getMetaFromState(state) & 7) / 8.0D, 1);\n    }\n"
+        },
+        {
+          "before_offset": 1995,
+          "after_offset": 2481,
+          "old": "\tpublic boolean canPlaceBlockAt(World world, int x, int y, int z) {\n\t\tBlock block = com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock();\n\t\t\n\t\tif(block instanceof RBMKDebris || block instanceof ZirnoxDestroyed)\n\t\t\treturn true;\n\t\t\n\t\treturn block != Blocks.ICE && block != Blocks.PACKED_ICE ? (block.isLeaves(world, x, y - 1, z) ? true : (block == this && (com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y - 1, z) ) & 7) == 7 ? true : block.isOpaqueCube() && block.getDefaultState().getMaterial().blocksMovement())) : false;\n\t}\n",
+          "new": "    @Override\n    public boolean isOpaqueCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 2572,
+          "after_offset": 2577,
+          "old": "\tpublic void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {\n\t\tthis.func_150155_m(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t}\n",
+          "new": "    @Override\n    public boolean isFullCube(IBlockState state) {\n        return false;\n    }\n"
+        },
+        {
+          "before_offset": 2776,
+          "after_offset": 2671,
+          "old": "\tprivate boolean func_150155_m(World p_150155_1_, int p_150155_2_, int p_150155_3_, int p_150155_4_) {\n\t\tif(!this.canPlaceBlockAt(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_150155_1_, p_150155_2_, p_150155_3_, p_150155_4_);\n\t\t\treturn false;\n\t\t} else {\n\t\t\treturn true;\n\t\t}\n\t}\n",
+          "new": "    @Override\n    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {\n        // Even eight visible layers were not a normal cube/solid support face.\n        return BlockFaceShape.UNDEFINED;\n    }\n"
+        },
+        {
+          "before_offset": 3106,
+          "after_offset": 2929,
+          "old": "\tpublic void harvestBlock(World p_149636_1_, EntityPlayer p_149636_2_, int p_149636_3_, int p_149636_4_, int p_149636_5_, int p_149636_6_) {\n\t\tsuper.harvestBlock(p_149636_1_, p_149636_2_, p_149636_3_, p_149636_4_, p_149636_5_, p_149636_6_);\n\t\tcom.hbm.world.WorldAirRemoval.remove(p_149636_1_, p_149636_3_, p_149636_4_, p_149636_5_);\n\t}\n",
+          "new": "    @Override\n    public boolean canPlaceBlockAt(World world, BlockPos pos) {\n        BlockPos below = pos.down();\n        IBlockState support = WorldBlockState.read(world, below.getX(), below.getY(), below.getZ());\n        Block block = support.getBlock();\n        if (block instanceof RBMKDebris || block instanceof ZirnoxDestroyed) return true;\n        if (block == Blocks.ICE || block == Blocks.PACKED_ICE) return false;\n        return block.isLeaves(support, world, below)\n                || (block == this && (getMetaFromState(support) & 7) == 7)\n                || (support.isOpaqueCube() && support.getMaterial().blocksMovement());\n    }\n"
+        },
+        {
+          "before_offset": 3443,
+          "after_offset": 3576,
+          "old": "\tpublic Item getItemDropped(net.minecraft.block.state.IBlockState p_149650_1_, Random p_149650_2_, int p_149650_3_) {\n\t\treturn null;\n\t}\n",
+          "new": "    @Override\n    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block neighbor, BlockPos neighborPos) {\n        if (!canPlaceBlockAt(world, pos)) {\n            // Support loss removes the layer without drops, as before.\n            WorldAirRemoval.remove(world, pos.getX(), pos.getY(), pos.getZ());\n        }\n    }\n"
+        },
+        {
+          "before_offset": 3580,
+          "after_offset": 3920,
+          "old": "\tpublic void updateTick(World p_149674_1_, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {\n\t\tint p_149674_2_ = nativeTickPos.getX(), p_149674_3_ = nativeTickPos.getY(), p_149674_4_ = nativeTickPos.getZ();\n\t\t/*if(p_149674_1_.getSavedLightValue(EnumSkyBlock.Block, p_149674_2_, p_149674_3_, p_149674_4_) > 11) {\n\t\t\tp_149674_1_.setBlockToAir(p_149674_2_, p_149674_3_, p_149674_4_);\n\t\t}*/\n\t}\n",
+          "new": "    @Override\n    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tile, ItemStack tool) {\n        super.harvestBlock(world, player, pos, state, tile, tool);\n        WorldAirRemoval.remove(world, pos.getX(), pos.getY(), pos.getZ());\n    }\n"
+        },
+        {
+          "before_offset": 4046,
+          "after_offset": 4214,
+          "old": "\t@SideOnly(Side.CLIENT)\n\tpublic boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {\n\t\treturn p_149646_5_ == 1 ? true : super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);\n\t}\n",
+          "new": "    @Override\n    public Item getItemDropped(IBlockState state, Random random, int fortune) {\n        // Native Block.getDrops tests Items.AIR, not the old null sentinel.\n        return Items.AIR;\n    }\n"
+        },
+        {
+          "before_offset": 4335,
+          "after_offset": 4418,
+          "old": "\tpublic int quantityDropped(int meta, int fortune, Random random) {\n\t\treturn (meta & 7) + 1;\n\t}\n",
+          "new": "    @Override\n    public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {\n        // The original melting/light check was disabled.\n    }\n"
+        },
+        {
+          "before_offset": 4432,
+          "after_offset": 4587,
+          "old": "\tpublic boolean isReplaceable(IBlockAccess world, int x, int y, int z) {\n\t\tif(this == ModBlocks.leaves_layer) return true;\n\t\tif(this == ModBlocks.oil_spill) return true;\n\t\tif(this == ModBlocks.foam_layer) return true;\n\t\tint meta = world.getBlockMetadata(x, y, z);\n\t\treturn meta >= 7 ? false : blockMaterial.isReplaceable();\n\t}\n",
+          "new": "    @Override\n    @SideOnly(Side.CLIENT)\n    public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {\n        return side == EnumFacing.UP || super.shouldSideBeRendered(state, world, pos, side);\n    }\n\n    @Override\n    public int quantityDropped(IBlockState state, int fortune, Random random) {\n        return (getMetaFromState(state) & 7) + 1;\n    }\n\n    @Override\n    public boolean isReplaceable(IBlockAccess world, BlockPos pos) {\n        if (this == ModBlocks.leaves_layer || this == ModBlocks.oil_spill || this == ModBlocks.foam_layer) return true;\n        // Decode the actual owner, not this block. IBlockAccess supplies native\n        // states here; this is not a codec for WorldInAJar's arbitrary raw shorts.\n        int meta = WorldBlockState.metadata(world.getBlockState(pos));\n        return meta < 7 && material.isReplaceable();\n    }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineShredder.java": {
+      "before_sha256": "2bf0bd6be81d05fe801bc800b1d2590aa784695278f024f89b19a0725b88fbf0",
+      "after_sha256": "12bb9edf648e34434581520fdc879d5478e065f529abad254ac8598993334bf1",
+      "edits": [
+        {
+          "before_offset": 3066,
+          "after_offset": 3066,
+          "old": "\tpublic void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_)\n    {\n",
+          "new": "\tpublic void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {\n\t\tint p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();\n\t\tBlock p_149749_5_ = nativeState.getBlock();\n"
+        },
+        {
+          "before_offset": 3976,
+          "after_offset": 4136,
+          "old": "                        while (itemstack.stackSize > 0)\n",
+          "new": "                        while (itemstack.getCount() > 0)\n"
+        },
+        {
+          "before_offset": 4134,
+          "after_offset": 4295,
+          "old": "                            if (j1 > itemstack.stackSize)\n",
+          "new": "                            if (j1 > itemstack.getCount())\n"
+        },
+        {
+          "before_offset": 4222,
+          "after_offset": 4384,
+          "old": "                                j1 = itemstack.stackSize;\n",
+          "new": "                                j1 = itemstack.getCount();\n"
+        },
+        {
+          "before_offset": 4311,
+          "after_offset": 4474,
+          "old": "                            itemstack.stackSize -= j1;\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));\n",
+          "new": "                            // Capture identity before native depletion hides the item.\n                            net.minecraft.item.Item spillItem = itemstack.getItem();\n                            int spillMeta = itemstack.getItemDamage();\n                            NBTTagCompound spillTag = itemstack.getTagCompound();\n                            itemstack.shrink(j1);\n                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));\n"
+        },
+        {
+          "before_offset": 4568,
+          "after_offset": 5026,
+          "old": "                            if (itemstack.hasTagCompound())\n",
+          "new": "                            if (spillTag != null)\n"
+        },
+        {
+          "before_offset": 4658,
+          "after_offset": 5106,
+          "old": "                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());\n",
+          "new": "                                entityitem.getItem().setTagCompound((NBTTagCompound)spillTag.copy());\n"
+        },
+        {
+          "before_offset": 5159,
+          "after_offset": 5583,
+          "old": "                            p_149749_1_.spawnEntityInWorld(entityitem);\n",
+          "new": "                            p_149749_1_.spawnEntity(entityitem);\n"
+        },
+        {
+          "before_offset": 5298,
+          "after_offset": 5715,
+          "old": "                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);\n",
+          "new": "                p_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);\n"
+        },
+        {
+          "before_offset": 5418,
+          "after_offset": 5821,
+          "old": "        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);\n",
+          "new": "        super.breakBlock(p_149749_1_, nativePos, nativeState);\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

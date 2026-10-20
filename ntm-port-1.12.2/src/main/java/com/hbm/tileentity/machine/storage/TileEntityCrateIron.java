@@ -16,8 +16,8 @@ public class TileEntityCrateIron extends TileEntityCrateBase {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.crateIron";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateIron";
 	}
 
 	@Override

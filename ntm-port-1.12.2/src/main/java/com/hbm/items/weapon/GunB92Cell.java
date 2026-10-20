@@ -34,7 +34,7 @@ public class GunB92Cell extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		list.add("Draws energy from the B92, allowing you to");
 		list.add("reload it an additional 25 times.");

@@ -80,7 +80,7 @@ public class ItemFluidIDMulti extends Item implements IItemFluidIdentifier, IIte
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(I18nUtil.resolveKey(getTranslationKey() + ".info"));
 		list.add("   " + getType(stack, true).getLocalizedName());
 		list.add(I18nUtil.resolveKey(getTranslationKey() + ".info2"));

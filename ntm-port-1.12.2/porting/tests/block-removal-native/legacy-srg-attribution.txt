@@ -1,0 +1,5 @@
+CL: ajc net/minecraft/block/BlockContainer
+CL: apx net/minecraft/world/chunk/Chunk
+MD: ahb/p (III)V net/minecraft/world/World/func_147475_p (III)V
+MD: ajc/a (Lahb;IIILaji;I)V net/minecraft/block/BlockContainer/func_149749_a (Lnet/minecraft/world/World;IIILnet/minecraft/block/Block;I)V
+MD: apx/a (IIILaji;I)Z net/minecraft/world/chunk/Chunk/func_150807_a (IIILnet/minecraft/block/Block;I)Z

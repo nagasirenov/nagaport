@@ -1,0 +1,27 @@
+{
+  "selected": 230,
+  "excluded": 0,
+  "body_byte_parity": 230,
+  "native_overrides": 230,
+  "removed_override_errors": 230,
+  "added_errors": 0,
+  "before_errors": 14612,
+  "after_errors": 14382,
+  "hierarchies": {
+    "net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer": 214,
+    "com.hbm.render.tileentity.RenderPylonBase": 6,
+    "com.hbm.render.tileentity.RenderTurretBase": 10
+  },
+  "direct_call": {
+    "path": "src/main/java/com/hbm/render/tileentity/RenderCrucible.java",
+    "line": "85",
+    "receiver": "<implicit>",
+    "receiver_type": "",
+    "receiver_kind": "",
+    "method_owner": "com.hbm.render.tileentity.RenderCrucible",
+    "method_signature": "render(net.minecraft.tileentity.TileEntity,double,double,double,float,int,float)",
+    "method_kind": "METHOD",
+    "arguments": "world.getTileEntity(x, y, z) || x || y || z || interp || -1 || 1.0F",
+    "source": "render(world.getTileEntity(x, y, z), x, y, z, interp, -1, 1.0F)"
+  }
+}

@@ -1,0 +1,1 @@
+PASS CrateNamesNativeTest: 388 assertions; eight exact descendant getters, original null/empty/custom rules, inherited virtual display, actual literal/translation components and native window-packet roundtrip. Item factory and markDirty are bounded collaborators; no whole machine or rendering claim.

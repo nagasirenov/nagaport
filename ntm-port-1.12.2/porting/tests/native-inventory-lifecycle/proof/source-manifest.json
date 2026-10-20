@@ -1,0 +1,277 @@
+{
+  "base": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "base_sha256": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395",
+      "ported_sha256": "0dbe3e4f7274ca0599b24b3de73d03301ca2cacd0d612418e8b5966feafa605e",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java",
+      "base_sha256": "3a39cca4989e818aeb22c507fb724efd9cde5dee60a5f672afeb9623c2c0ab09",
+      "ported_sha256": "db03e4a572246dabdfa64c0e236ce0753db483105a6689b692646f6a9cf0e670",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java",
+      "base_sha256": "fd20ec9b47e015f7bb91fe2351ac4b527ce9e5e6a7848ed2de95f6df173f5fd9",
+      "ported_sha256": "ce57f631148badc5c80a85803de1afc20110d4217bd70cc90a1161ab87668e1c",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java",
+      "base_sha256": "36e734284dbe234ccfa1ef69e0c0632e00f3cf124be37fdfa5d2674c618a773e",
+      "ported_sha256": "f608dc90d29f25a4f324368bc70a3c43c8f82e13cc844612a0450338486b05a6",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCasingBag.java",
+      "base_sha256": "423229f7dda82bc5c99c2dc08b08a424587088fbd90a8b717c3a143c4cde8d90",
+      "ported_sha256": "f5cc55233cf78cd2fbf660d493869a33497306eace02dfc872255dd33405488a",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerCrateBase.java",
+      "base_sha256": "a9af6f9d86c82cd42bd72979561b5758fcb07d71f72c4428ee66ddf70cc05a9b",
+      "ported_sha256": "da017502e3cbbcb470540f6644b15be9504f3d72f53553e132ddb0abcbcd3a84",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerFileCabinet.java",
+      "base_sha256": "1b5d665658493bf41ba133e960ea4b4505650087add305d78a35badbab31068c",
+      "ported_sha256": "fbdb5d3f2d12be2c2d0c6d64a1df792bf960c2bbadc9f6edf44a32781a7da419",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerLeadBox.java",
+      "base_sha256": "083f9c7772bf8fa218139248e2dc4f482373eeae78001e8d6c3c28810dd6d103",
+      "ported_sha256": "670faed187ee7c63054d6862bd3813d4e75de72fd76f04cd4877778f3b2ebbb3",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerMassStorage.java",
+      "base_sha256": "0ce0828156006de9bd5800e774c0a4c542d9a2f5e1a0cc5a47c2b60360697005",
+      "ported_sha256": "dcff671d98ae230e2f94220ad9579a8a2c85fb6c35ff5282058b79426face582",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java",
+      "base_sha256": "090e1b13641021a8de0fb32103ab246e386dcd2223b5bb0a997dfef12abdb5fb",
+      "ported_sha256": "5ff4504dad32df3a06a8906f15446b759df3e3c24f6d8d2cb9014a716c50f4cc",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/container/ContainerToolBox.java",
+      "base_sha256": "558519274bf175ccaeebc9e0b9f06d716ad7f8e533814b8512dddd6d823b55ca",
+      "ported_sha256": "2cd2fabae7a28b6641d84f71bb77c6ea95e26a19c49dcd57a3f494e90fe91197",
+      "callbacks": 0
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemInventory.java",
+      "base_sha256": "0d3abb31adc6532d798def02fad85f94de5b5edf31928c4ea8d2ca808cfbee3e",
+      "ported_sha256": "b41934e72e7728f2c1b45566e34e752c7e8207ec3ae4502fb7346b4367934e4c",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java",
+      "base_sha256": "53ffa382ce52112d8424e72b06a1148518dd732c4277152e3b6751a70cdae50e",
+      "ported_sha256": "709957c4a7f984bddcbae19e9bfa73e4ab6ff98451e970c9444e8582a152482e",
+      "callbacks": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemAmmoBag.java",
+      "base_sha256": "8af49ceafd08c0fc9c419094cd48611e0c70b684d96364bd9580ac8184e5e59d",
+      "ported_sha256": "43018a444df344841f11c9bf93e8d0eff55ba71bad667bcb5d9eef04ba38d04b",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemCasingBag.java",
+      "base_sha256": "3363e45304ce5bba628690dd4820d9457d93469b5fa6227782b00e4fd6ee989c",
+      "ported_sha256": "738626280db16261d3913f227e9fe386c0c93ba3e0716dcee5827d22b199c229",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemPlasticBag.java",
+      "base_sha256": "8173fddfbc1d0155d63896b436995417d80d957973b8dc9e5ddcbc47061c1698",
+      "ported_sha256": "e8f55fd28fc2b36e6dbf3b3938a7d4515f0142590cf9b176ca71dcef0f346f7c",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/ItemToolBox.java",
+      "base_sha256": "1fe7d39d008f8de9855b11a7e8c2a22deef9238541cf84193ac54507bd4eb0e5",
+      "ported_sha256": "37445c4a6e331e33e4ee93a68a6e75e8bbb7d4df0b362a8bb0c99438388d1e56",
+      "callbacks": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java",
+      "base_sha256": "6fb190c68c35b291d94461f588eee289645469a914f3a2c595bfeb98d97ca6d3",
+      "ported_sha256": "672695795a0bb4fbb813335b8a6319521bccb7b670a4d5ba1f2c79110ba051bf",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "base_sha256": "8f2eb498ff22c6de63ef9a2ef0a67f91a5d960cbab480320b9ed604f3d125be0",
+      "ported_sha256": "93736841dc9c7ae0f72e623a544292482ca05e84f33873da1a9dfa5d4547ae16",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "base_sha256": "ffa6f5d7a800f4709959efa7f551ebdfd6fb1a355a5f7e8d4c3c0ee14e385597",
+      "ported_sha256": "7f993a0c1badaca0894e0cdb6c2c041206919dc82ba9b1d63a46c07a2fda6d1b",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java",
+      "base_sha256": "90d78dff56409f290dffdd6a52c4b696660ef0699c42af1a31b58e825a5cebde",
+      "ported_sha256": "c7d9bca30b274b9ea93d870c19a4343dd996848724d2f36fd6bccee4ec6f5941",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java",
+      "base_sha256": "4624e7d6ed67854a642fa983a44b77671e0d78244a9bcbb91bc18c6f5110d388",
+      "ported_sha256": "103bfa3c33a20d1290f91f858e339d99e83919b86b6a3214ec7d9b6c80b6c45d",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java",
+      "base_sha256": "24218c60bb6b9adf3a565c5558e82a54b45f7b8819c971012ec2a60d3252a357",
+      "ported_sha256": "8e29d35949edb1398e5ee2e4a6e4faaf15d5861653d5807502a445ea29f6b0ba",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java",
+      "base_sha256": "653a37367cf9b95467851d7a1ef650bc789cb0bc3ed2b7be90ddc57b6bac24ef",
+      "ported_sha256": "2133a3477d9ff79c918fd99d7fc3c6277568a5b1ec8364d36db2dcc7918daf95",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java",
+      "base_sha256": "3567bc261a67ec2c25dd8ba8b9d10e9a8862d66c91547a7a5b6094db18fbc04f",
+      "ported_sha256": "049afca6acd81b310c2f43faa4fbdd6f5203fefe5a29080c1c7221cf5e7df55a",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java",
+      "base_sha256": "1dc42cf7b53e2a755666690985cb791998989aadce5a053b7932f664dcce4433",
+      "ported_sha256": "62d355e8145f5e0ec50db0f921b6c0549d422c5614da7313b5be73a5d3f68a59",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java",
+      "base_sha256": "0b520778954bae62cef07ca4ab2b57626c2979dcded57c28c5a014fcb2e4b671",
+      "ported_sha256": "a682d701c7f6cce3032354d4e72ef04537a4efa468e08f6fd6f539af53b36554",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java",
+      "base_sha256": "781a24437729c7b1705ed6e9a9c045c4e99276f5a3619cda07242344a0dff2ae",
+      "ported_sha256": "dd958f351a2e389b5ec982ce852d08d01fa77a3fbb6d804a03c985620939d782",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java",
+      "base_sha256": "52116783d19099f6790c7fa312587f4aa4e65fe67a7e8687f2de4cb65c894f93",
+      "ported_sha256": "83c5720bd1e1039568dff8b318f77412480dca1ab38e9aad6e17ce33e559e9e7",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java",
+      "base_sha256": "d4f52217051e6302bef598b45ecd2205d137540805cef71cdfd947fa2df6f53c",
+      "ported_sha256": "da85f6b7f3101ce06e9752c0550a36becad80f55bdf8535039459ffd38c5541b",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java",
+      "base_sha256": "45b09e3e08052a01e49302a7185a07503bac56ce6928e4419cf6e45b6a446ff3",
+      "ported_sha256": "c8ab6dfba450db0d9b7c61874699f6c57d5b28e6d6777f4ace0424012d6a6ac3",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java",
+      "base_sha256": "46ae9275fbc17f9c7b7c8dc7a687ce867023f71b39df5294783001851c76398a",
+      "ported_sha256": "0ae30da9133fe8321752bebc24960250c8f6ad50ab13a3e82ec648784c62b4e6",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java",
+      "base_sha256": "3e0450ab354b965f839f824591cb7d58408a7b23c53c0b5b94ca3407b2565865",
+      "ported_sha256": "5010f3b45a5f875561509f8e46cf075231fd0edd6972fae309e30ac3247789ee",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java",
+      "base_sha256": "88cbb6761ed12dea210de8aed8be29e18da163413be9fc2c19b545ca44f1c5e2",
+      "ported_sha256": "754dbb3dfd7c005f5c6c91f65e75bea20e6b9cac6af50b4a87cc16377f7e9b01",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java",
+      "base_sha256": "31b285d9b88c083e0234c06331a3a60b216f65ce6a9217eab4f40cb761b943b4",
+      "ported_sha256": "f497c1da17a59a113735f5fdaa2e6a3fc388056186f90b7b044bb495e78343aa",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java",
+      "base_sha256": "343d10a33cd48aa259d31b8087ece20903bc5e3baf147f4e65cc6d5016058557",
+      "ported_sha256": "49984bde057d34c925dd0d4cce29c976a7d957fe5e169a30aa5bfd818fb67cb3",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java",
+      "base_sha256": "c2e1d7d53ce4c54fc71e7456242c8d1f3a5635bde70013e723e9e2593cf6c4e7",
+      "ported_sha256": "c46592b6c760c37428275bf0e085e9aa3023540d9d16be0d9b359bbc82d1f571",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java",
+      "base_sha256": "509087c549f65784cf7b905855785dcb0984e93d92af345ef2f326d1db0a4def",
+      "ported_sha256": "9ef14ea7826e3ffaa47d5122836f2fc5e16e1e4ab90e29bfc6e524881cb00894",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java",
+      "base_sha256": "0d3f6059b4d6422b42ee1b1503123b6d39f6ae933df50c1da91a0876aee5ba6c",
+      "ported_sha256": "6ae20ce6bd879515aa0402b710a0ffef7ce9cc25b49ad2d2af0d7f3a9eb61ce3",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java",
+      "base_sha256": "b11db34b7e078e5d4e64e91246ddf0b5f42c9dc5b856d856007b44cacf8c681c",
+      "ported_sha256": "6ece08ccbf3c9ee944c22d5fbacdd38b7964ac5efc4e9989b2dd5f8cfa1c8127",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java",
+      "base_sha256": "5d6bb4c07ebcb461eab99c69cb1b51e720cdea0d9b7176db615523a297fdb7fc",
+      "ported_sha256": "0c92f42d4bf867f8958419add14aed1934bd757143db579a05c63f1382d7042a",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java",
+      "base_sha256": "c6342387ebbbf22049952fcac7a620755790c097cac8222b90b7164c311a9bd1",
+      "ported_sha256": "120f6eab5f78d94d8e4f9ec90d1120ce29cafa8d22eb85262013be665536a7bf",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java",
+      "base_sha256": "adb7b55d4529bfb9e4223226c1a7f6e9099edfa85765bee5f605205c4b8396ed",
+      "ported_sha256": "2d4c21d0a2bb402e94c8d236e964872e6098282034f24c7bc4b6f44dff468b99",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java",
+      "base_sha256": "118fb6838d4829e68bd2de01438965b5e0d4a26861ec5f003cf9695eacd1b2ba",
+      "ported_sha256": "681bb1cf08b657fbcab6ec787ba72408dc6fe6acc8856428cbe7e3292389b211",
+      "callbacks": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java",
+      "base_sha256": "1a34325ef20578bef5434a9e104876e77c9460454b18fd222a9b52b988f9c469",
+      "ported_sha256": "f3d29677bbd51311fa4bf9d44a117380721ccbf460af7db6adb0d47d2e5eb74c",
+      "callbacks": 2
+    }
+  ],
+  "declarations": 72,
+  "calls": 18
+}

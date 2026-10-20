@@ -147,7 +147,7 @@ public class EntityMist extends Entity {
 		if(type.temperature < -20) {
 			if(living != null) { //only living things are affected
 				EntityDamageUtil.attackEntityFromIgnoreIFrame(e, new DamageSource(ModDamageSource.s_cryolator), 0.2F + (type.temperature + 20) * -0.05F); //5 damage at -20°C with one extra damage every -20°C
-				living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 2));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 100, 2));
 				living.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 100, 4));
 			}
 		}
@@ -190,7 +190,7 @@ public class EntityMist extends Entity {
 			FT_Poison trait = type.getTrait(FT_Poison.class);
 			
 			if(living != null) {
-				living.addPotionEffect(new PotionEffect(trait.isWithering() ? Potion.wither.id : Potion.poison.id, (int) (5 * 20 * intensity)));
+				living.addPotionEffect(new PotionEffect(trait.isWithering() ? net.minecraft.init.MobEffects.WITHER : net.minecraft.init.MobEffects.POISON, (int) (5 * 20 * intensity)));
 			}
 		}
 		
@@ -214,12 +214,12 @@ public class EntityMist extends Entity {
 				if ((living instanceof EntityGlyphid && pheromone.getType() == 1) || (living instanceof EntityPlayer && pheromone.getType() == 2)) {
 					int mult = pheromone.getType();
 
-					living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,  mult * 60 * 20, 1));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED,  mult * 60 * 20, 1));
 					living.addPotionEffect(new PotionEffect(Potion.digSpeed.id, mult * 60 * 20, 1));
-					living.addPotionEffect(new PotionEffect(Potion.regeneration.id,  mult * 2 * 20, 0));
-					living.addPotionEffect(new PotionEffect(Potion.resistance.id,  mult * 60 * 20, 0));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION,  mult * 2 * 20, 0));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE,  mult * 60 * 20, 0));
 					living.addPotionEffect(new PotionEffect(Potion.damageBoost.id,  mult * 60 * 20, 1));
-					living.addPotionEffect(new PotionEffect(Potion.fireResistance.id,  mult * 60 * 20, 0));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE,  mult * 60 * 20, 0));
 
 				}
 			}

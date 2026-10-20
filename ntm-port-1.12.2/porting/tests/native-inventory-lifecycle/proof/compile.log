@@ -1,0 +1,19 @@
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe;
+        ^
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);Bootstrap.register();
+          ^
+/workspace/shared/nagaport-inventory-callbacks/ntm-port-1.12.2/porting/tests/native-inventory-lifecycle/LifecycleNativeTest.java:32: warning: Unsafe is internal proprietary API and may be removed in a future release
+  Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);unsafe=(Unsafe)f.get(null);Bootstrap.register();
+                                                                                   ^
+6 warnings

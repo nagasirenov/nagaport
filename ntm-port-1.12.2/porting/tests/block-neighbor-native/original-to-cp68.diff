@@ -1,0 +1,56 @@
+--- original/com/hbm/blocks/bomb/CrystalPulsar.java
++++ CP68/com/hbm/blocks/bomb/CrystalPulsar.java
+@@ -1,11 +1,11 @@
+ public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+
+-       if(world.getBlock(x + 1, y, z) == ModBlocks.crystal_virus ||
+-               world.getBlock(x - 1, y, z) == ModBlocks.crystal_virus ||
+-               world.getBlock(x, y + 1, z) == ModBlocks.crystal_virus ||
+-               world.getBlock(x, y - 1, z) == ModBlocks.crystal_virus ||
+-               world.getBlock(x, y, z + 1) == ModBlocks.crystal_virus ||
+-               world.getBlock(x, y, z - 1) == ModBlocks.crystal_virus ||
++       if(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus ||
++               com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus ||
++               com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus ||
++               com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus ||
++               com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus ||
++               com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus ||
+                !world.isRemote) {
+            ExplosionChaos.hardenVirus(world, x, y, z, 10);
+        }
+--- original/com/hbm/blocks/bomb/BombThermo.java
++++ CP68/com/hbm/blocks/bomb/BombThermo.java
+@@ -1,6 +1,6 @@
+ public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
+        if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {
+-           p_149695_1_.setBlock(x, y, z, Blocks.air);
++           { net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }
+            if(this == ModBlocks.therm_endo) {
+                ExplosionThermo.freeze(p_149695_1_, x, y, z, 15);
+                ExplosionThermo.freezer(p_149695_1_, x, y, z, 20);
+--- original/com/hbm/blocks/bomb/BlockChargeBase.java
++++ CP68/com/hbm/blocks/bomb/BlockChargeBase.java
+@@ -1,9 +1,9 @@
+ public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+
+-       ForgeDirection dir = ForgeDirection.getOrientation(world.getBlockMetadata(x, y, z));
++       ForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));
+
+-       if(!world.isSideSolid(x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {
+-           world.setBlockToAir(x, y, z);
++       if(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {
++           com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
+            //this.explode(world, x, y, z);
+        }
+    }
+--- original/com/hbm/blocks/bomb/BlockTNTBase.java
++++ CP68/com/hbm/blocks/bomb/BlockTNTBase.java
+@@ -1,7 +1,7 @@
+ public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+        if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+            this.onBlockDestroyedByPlayer(world, x, y, z, 1);
+-           world.setBlockToAir(x, y, z);
++           com.hbm.world.WorldAirRemoval.remove(world, x, y, z);
+        } else {
+            checkAndIgnite(world, x, y, z);
+        }

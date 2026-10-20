@@ -12,7 +12,7 @@ import net.minecraft.util.math.Vec3d;
 public class RenderForceField extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f) {
+	public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		
         GL11.glPushMatrix();
         GL11.glTranslated(x + 0.5D, y, z + 0.5D);

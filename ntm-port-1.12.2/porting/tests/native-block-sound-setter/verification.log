@@ -1,0 +1,4 @@
+PASS exact byte reversal; only two setter statements change, complete constructor order retained
+Note: /tmp/native-constructor-sound-4oov3y0e/SoundSetterTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+PASS native protected subclass invocation, stored/reference/return/null semantics, argument-once, virtual override return; unmodified original 1.7 Block setter and original grass/metal parameters.

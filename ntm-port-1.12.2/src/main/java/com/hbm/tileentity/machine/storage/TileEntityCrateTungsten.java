@@ -24,8 +24,8 @@ public class TileEntityCrateTungsten extends TileEntityCrateBase implements ILas
 	}
 
 	@Override
-	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.customName : "container.crateTungsten";
+	public String getName() {
+		return this.hasCustomName() ? this.customName : "container.crateTungsten";
 	}
 
 	@Override

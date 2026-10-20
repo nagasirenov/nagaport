@@ -1,0 +1,9 @@
+PASS mutant rejected: collapse-high-bit  nibble roundtrip
+PASS mutant rejected: collision-extra-layer  original collision height
+PASS mutant rejected: mask-replacement  unmasked replacement cutoff 8
+PASS mutant rejected: old-null-drop-sentinel  original no normal drop
+PASS mutant rejected: omit-harvest-super  native superclass harvest invoked exactly once
+PASS mutant rejected: retain-unsupported  native state neighbor dispatch removes unsupported layer through real World/Chunk
+PASS mutant rejected: solid-faces  native face shape stays non-solid
+PASS mutant rejected: wrong-quantity  original quantity formula native dispatch
+PASS 8 semantic runtime mutants rejected

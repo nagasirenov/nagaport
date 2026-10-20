@@ -8,6 +8,8 @@ import com.hbm.tileentity.machine.rbmk.TileEntityRBMKRod;
 import com.hbm.util.ColorUtil;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +19,7 @@ public class RenderRBMKFuelChannel extends TileEntitySpecialRenderer {
 	private static final ResourceLocation texture_rods = new ResourceLocation(RefStrings.MODID + ":textures/blocks/rbmk/rbmk_element_fuel.png");
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i) {
+	public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha) {
 
 		boolean hasRod = false;
 		boolean cherenkov = false;
@@ -74,15 +76,19 @@ public class RenderRBMKFuelChannel extends TileEntitySpecialRenderer {
 			GL11.glDisable(GL11.GL_ALPHA_TEST);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 
-			Tessellator tess = Tessellator.instance;
-			tess.startDrawingQuads();
-			tess.setColorRGBA_F(0.4F, 0.9F, 1.0F, 0.1F);
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder tessBuffer = tess.getBuffer();
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+			int tessColor0Red = Math.max(0, Math.min(255, (int) ((0.4F) * 255.0F)));
+			int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.9F) * 255.0F)));
+			int tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));
+			int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.1F) * 255.0F)));
 
 			for(double j = 0; j <= offset; j += 0.25) {
-				tess.addVertex(-0.5, j, -0.5);
-				tess.addVertex(-0.5, j, 0.5);
-				tess.addVertex(0.5, j, 0.5);
-				tess.addVertex(0.5, j, -0.5);
+				tessBuffer.pos(-0.5, j, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(-0.5, j, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(0.5, j, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+				tessBuffer.pos(0.5, j, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 			}
 			tess.draw();
 

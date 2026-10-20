@@ -1,0 +1,405 @@
+{
+  "baseline": "a4739afa41966b75e2012bccd7df919e51d5c3a0",
+  "rule": "Exact attributed manifest spans mapped only through equal source substrings, all prior edits preserved, inverse restores pre-integration bytes",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "baseline_sha256": "1b794ab6dd62f9a1190d588cb7ffeae4bf3f6e2d4da61b6c0dd0c006a19c3569",
+      "integrated_before_sha256": "e8966b51a8f17be64b78c275093620017aa7f24007dae31ff1032175483e8495",
+      "integrated_after_sha256": "60fd0822fd8ce5c25d927ab2028cb1cdb8127b77f26aa3fdc8ba9368c33e30b2",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerClient.java",
+      "baseline_sha256": "7f46d0af338c93107676b19cf6ac6b6ec7fffacd4ad28e7df4f9e3fd28f5455e",
+      "integrated_before_sha256": "7f46d0af338c93107676b19cf6ac6b6ec7fffacd4ad28e7df4f9e3fd28f5455e",
+      "integrated_after_sha256": "9f8815739a68aa10e7630ef9e59ab09627a8e04269461992f54151e428828364",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemAppleEuphemium.java",
+      "baseline_sha256": "85814be24c724d5761822c72c91f3939c2dda320445a8afcf550d4d0987573fe",
+      "integrated_before_sha256": "85814be24c724d5761822c72c91f3939c2dda320445a8afcf550d4d0987573fe",
+      "integrated_after_sha256": "677d6d3f577ca9a9596d2e1c6a80e14f51a501951cf35737beb8578746dd7090",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemEnergy.java",
+      "baseline_sha256": "b211a8ac8418cc8a541053d9989bbbc0e9ff44148a9426c538aa6d70abf65b79",
+      "integrated_before_sha256": "b211a8ac8418cc8a541053d9989bbbc0e9ff44148a9426c538aa6d70abf65b79",
+      "integrated_after_sha256": "03a5aea8872c00752d02c084e28d7bc3dcdd1cbe64c38e0e52aefcad04c1686b",
+      "edits": 33
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemFlask.java",
+      "baseline_sha256": "6c76bd96c48cce63f4c1c61fa9718160d863e7cca6ffdd9233f2d40f9b7a0bf3",
+      "integrated_before_sha256": "6c76bd96c48cce63f4c1c61fa9718160d863e7cca6ffdd9233f2d40f9b7a0bf3",
+      "integrated_after_sha256": "d40f49dbb538f36d5033915638b021af81219d257e28018ec738b9692819fece",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemAppleSchrabidium.java",
+      "baseline_sha256": "2726b1c7c500a12e91a031ef814d2410be7d85599b2e020f3ae35206712d1c9f",
+      "integrated_before_sha256": "2726b1c7c500a12e91a031ef814d2410be7d85599b2e020f3ae35206712d1c9f",
+      "integrated_after_sha256": "da526c656d509efb32044a854479966ee5c31d27c63f3db2abeec898a3917667",
+      "edits": 17
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemCanteen.java",
+      "baseline_sha256": "350e4482f7d060c8dcfb0f1e2b40daa8b6f6e48ea6220bc293f8cd275f590b9e",
+      "integrated_before_sha256": "350e4482f7d060c8dcfb0f1e2b40daa8b6f6e48ea6220bc293f8cd275f590b9e",
+      "integrated_after_sha256": "b663a2f83d3e8eb4f5270571442653e0a95295e463d198ba50f7a1e225229d1c",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemLemon.java",
+      "baseline_sha256": "057aebf6530da1c089c9f1a1dd2d6e8854086df69ced708a2eb5d7b3d35aaaa8",
+      "integrated_before_sha256": "057aebf6530da1c089c9f1a1dd2d6e8854086df69ced708a2eb5d7b3d35aaaa8",
+      "integrated_after_sha256": "30a9a15c75a1570d9e89dc7f3287a68cc8cdb406c8ff790277c8c236441ccee1",
+      "edits": 4
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemPill.java",
+      "baseline_sha256": "954f76d7103310485bb148c60a1d2bdcadefa5c61ed3b5d68c63409c91100612",
+      "integrated_before_sha256": "954f76d7103310485bb148c60a1d2bdcadefa5c61ed3b5d68c63409c91100612",
+      "integrated_after_sha256": "bbae33f00337e2ca1131a8d0d4a65df9fd2708c23f8e18f340cbecbb36cb1c2e",
+      "edits": 9
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemSchnitzelVegan.java",
+      "baseline_sha256": "45ada53ba56429626d8d3501bdb65c3c14e896d10d7141cefc7452598c4331c7",
+      "integrated_before_sha256": "45ada53ba56429626d8d3501bdb65c3c14e896d10d7141cefc7452598c4331c7",
+      "integrated_after_sha256": "f1180b5ad35fc4bd624a32640bdfec533608522ebd502808bee41c387e396fc7",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemCottonCandy.java",
+      "baseline_sha256": "65bb3e0e89925ef3de2651c368ceb161a82fad3a72bb1fcead48142da13b6dc7",
+      "integrated_before_sha256": "65bb3e0e89925ef3de2651c368ceb161a82fad3a72bb1fcead48142da13b6dc7",
+      "integrated_after_sha256": "52ad606a4eb3231157293ba55855c6af73a655304988006b22ae985078b1bdee",
+      "edits": 4
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/food/ItemMuchoMango.java",
+      "baseline_sha256": "1d382e1f8db5ac4462528e30877946a78e4a7e801c361e468e7a3d78f248cd21",
+      "integrated_before_sha256": "1d382e1f8db5ac4462528e30877946a78e4a7e801c361e468e7a3d78f248cd21",
+      "integrated_after_sha256": "4a18da77eae4d5c0872c3924fb988c947b79858fc1ccc60bd6e3f92ceeb3a82c",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ModItemsArmor.java",
+      "baseline_sha256": "fc3b04aa6a3bb013c94cb488d34b43cfb24e169bc81b64ced3722d76096a5c6f",
+      "integrated_before_sha256": "77823d526196af960e779b919b481455331aebf2b80e3d5a0aeb40b225025f55",
+      "integrated_after_sha256": "8236f48616870559678917207cef871f941b718a087ce1492587e0c1c140a5b1",
+      "edits": 11
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModBathwater.java",
+      "baseline_sha256": "23e86b445596795049136c71e815c965f5f4c0b150ecd627da2c972ff32532f7",
+      "integrated_before_sha256": "23e86b445596795049136c71e815c965f5f4c0b150ecd627da2c972ff32532f7",
+      "integrated_after_sha256": "16c765c0d8f08a5fbd92a5047f2c7f60e6950f69bc6713fe5c8175ab95446ca5",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModNightVision.java",
+      "baseline_sha256": "f198d8f6073c2fd4373f16d4ae14078c509f9e4868afb94d4353d31bfbde12f6",
+      "integrated_before_sha256": "f198d8f6073c2fd4373f16d4ae14078c509f9e4868afb94d4353d31bfbde12f6",
+      "integrated_after_sha256": "c42eb80d381471838acae25831388ef0cadcf4d35ff919f0bd2c95807c417111",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ArmorEnvsuit.java",
+      "baseline_sha256": "36ba070cdce042edcb22a65bb000b96174fe3597ab2a436262e609b1154e0254",
+      "integrated_before_sha256": "36ba070cdce042edcb22a65bb000b96174fe3597ab2a436262e609b1154e0254",
+      "integrated_after_sha256": "83943b9deb13d5b635827e71700b7d8a7938bdf8e5b6cfcf245dbaac663fc3c9",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModSerum.java",
+      "baseline_sha256": "af7c1294a918f0d14c1356249c96210cc43cad1065a1a7c7816a20ae68a34dca",
+      "integrated_before_sha256": "af7c1294a918f0d14c1356249c96210cc43cad1065a1a7c7816a20ae68a34dca",
+      "integrated_after_sha256": "14444604cce4f90c5f4c5025916078144f67e002953dbc4966beaf616db1ff6a",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/armor/ItemModMorningGlory.java",
+      "baseline_sha256": "8c9439b17c1e224cfc9ed3867396caeee5d6612987d1352dab9686494f2ea19c",
+      "integrated_before_sha256": "8c9439b17c1e224cfc9ed3867396caeee5d6612987d1352dab9686494f2ea19c",
+      "integrated_after_sha256": "a7c83c6e5d1cab5fffb04f2a079109cfe242e90828b27a17c178f60b97a30ff7",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/tool/WeaponSpecial.java",
+      "baseline_sha256": "ab7f0934351072c06b6d0c574be3ad2800eb1e9065e93146bfccb50833374bee",
+      "integrated_before_sha256": "ab7f0934351072c06b6d0c574be3ad2800eb1e9065e93146bfccb50833374bee",
+      "integrated_after_sha256": "37e7920278dba3336572c77dcae00f306b332d97bdf473ab56594b8041b72a07",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java",
+      "baseline_sha256": "70cb94556de618b85ca9627a682b9bf514c1a6188d99ed0cf05a49b99e229229",
+      "integrated_before_sha256": "70cb94556de618b85ca9627a682b9bf514c1a6188d99ed0cf05a49b99e229229",
+      "integrated_after_sha256": "1d86ff9205d655b4c2a212970c30d0400f7221186f45ea918da8fd12b2194506",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java",
+      "baseline_sha256": "90ea4a9270811da209b1ace9749325539db0ffd3d6a98238417b7b295a4e39db",
+      "integrated_before_sha256": "90ea4a9270811da209b1ace9749325539db0ffd3d6a98238417b7b295a4e39db",
+      "integrated_after_sha256": "d640b1de5a371eb9825bc05751010ceed3cfdcfeac34dc7a5076957e8dcc5cb7",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemGlitch.java",
+      "baseline_sha256": "114eed0fab91a91c66fadaeff118804ffa5422891074ec9b0b3d277893b51903",
+      "integrated_before_sha256": "114eed0fab91a91c66fadaeff118804ffa5422891074ec9b0b3d277893b51903",
+      "integrated_after_sha256": "857f96fe84932f5b52747c5fc1106100100189831a0dd0e192eebc091cbe17c3",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemPolaroid.java",
+      "baseline_sha256": "5ea246ceb2411a81dd5b07d174e1d04e2b4380aa2b18829ae2b475e9ae326fb1",
+      "integrated_before_sha256": "5ea246ceb2411a81dd5b07d174e1d04e2b4380aa2b18829ae2b475e9ae326fb1",
+      "integrated_after_sha256": "072f3a71d92c326704def8c80edd87668ec6010ccc8845ad0bb3e18a2d22b740",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSyringe.java",
+      "baseline_sha256": "54b386405f07ad1eab526bb63792228f5323f4efb4fe6eb9ecf55fe073625565",
+      "integrated_before_sha256": "54b386405f07ad1eab526bb63792228f5323f4efb4fe6eb9ecf55fe073625565",
+      "integrated_after_sha256": "f40bd2e8b2e2f7213a80dcb9095b10a9d78289daf60a542f30b05a024a3fd0b5",
+      "edits": 13
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemSimpleConsumable.java",
+      "baseline_sha256": "5e49643fd48e461ea4f80d2d8cd6a2a9d18737c4aeed0a546e341fd0c44d447a",
+      "integrated_before_sha256": "5e49643fd48e461ea4f80d2d8cd6a2a9d18737c4aeed0a546e341fd0c44d447a",
+      "integrated_after_sha256": "111eb266690a7658cb1c351a05dabb384cc83b1172b791eb19798cc49f296267",
+      "edits": 7
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/special/ItemCigarette.java",
+      "baseline_sha256": "de9162451b4ffb92ef8825c8c5ce447fa447d31a47a6b9f307cf27e2f6acc342",
+      "integrated_before_sha256": "de9162451b4ffb92ef8825c8c5ce447fa447d31a47a6b9f307cf27e2f6acc342",
+      "integrated_after_sha256": "a0b7e7e9ad9f3c184bfd08140e6985d66502fde2815b06fb7bb2e352d57e2413",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/effect/EntityMist.java",
+      "baseline_sha256": "ab4289cf1ccc4309338d9272ac19c32e0430d8ee79e8d88e84b557cc1cb09d23",
+      "integrated_before_sha256": "ab4289cf1ccc4309338d9272ac19c32e0430d8ee79e8d88e84b557cc1cb09d23",
+      "integrated_after_sha256": "a4e44cd69e0c7743498c49acb952b5ec98d47caf066396501033941a311b79ae",
+      "edits": 7
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFOBase.java",
+      "baseline_sha256": "4864cae59246254ef013b8dd56fabdf2f2b21d1c57be9ef0ee607526ee0aa087",
+      "integrated_before_sha256": "4864cae59246254ef013b8dd56fabdf2f2b21d1c57be9ef0ee607526ee0aa087",
+      "integrated_after_sha256": "89daba58b83842806c3bd9bd0a6390f363f5dff19b6e831e2f30f7ba8efb8b2a",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityTankbot.java",
+      "baseline_sha256": "ff12313c4ee06ad70ba3912a51dd5d813436e0ec0cacd64e9719d7273b1ed087",
+      "integrated_before_sha256": "ff12313c4ee06ad70ba3912a51dd5d813436e0ec0cacd64e9719d7273b1ed087",
+      "integrated_after_sha256": "c5c094c73a0197407e9a6c935e25183e1f7578daf50582f5aef6f549ddbc1953",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityBFAngel.java",
+      "baseline_sha256": "a2aa4a6d407d3702b9bdf48c18820076c3a668d3f93a0ebeb7abee398915bd9c",
+      "integrated_before_sha256": "a2aa4a6d407d3702b9bdf48c18820076c3a668d3f93a0ebeb7abee398915bd9c",
+      "integrated_after_sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityUFO.java",
+      "baseline_sha256": "41a489f9bd9d03078560cdef33bdeac0b462651b8db2052603f3b85a9c3b0b5a",
+      "integrated_before_sha256": "41a489f9bd9d03078560cdef33bdeac0b462651b8db2052603f3b85a9c3b0b5a",
+      "integrated_after_sha256": "d256ec3dade2660f0e81dbd6bd887f033aad8414a0a584237b5f0127b3b52c00",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBehemoth.java",
+      "baseline_sha256": "8cca606b9c6bcb79f21062b1ff781f811fe56fc8fa9176b2ab710a37805a7c5a",
+      "integrated_before_sha256": "8cca606b9c6bcb79f21062b1ff781f811fe56fc8fa9176b2ab710a37805a7c5a",
+      "integrated_after_sha256": "9d43b8ae5067ee512d39f68aaf33cb8b013d6e60c358fad5a2685788a6f5655c",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java",
+      "baseline_sha256": "157b5e75729e4294d63e508c8ce7f206e73bc8204ad8f6317de321014cacffc7",
+      "integrated_before_sha256": "157b5e75729e4294d63e508c8ce7f206e73bc8204ad8f6317de321014cacffc7",
+      "integrated_after_sha256": "8c36c31dd00cb0b2bbba7114ea063a7b6e647850d55c094816392d5d19cd6edf",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java",
+      "baseline_sha256": "cfa7ba97d39a75e9edd67eb729f09f2238a704ab2ed33cb96af07679ac876888",
+      "integrated_before_sha256": "cfa7ba97d39a75e9edd67eb729f09f2238a704ab2ed33cb96af07679ac876888",
+      "integrated_after_sha256": "fb20225f15c45ea6aa9e584e1b31dfe0bb967f53c846c9e4cbfd5e4d7556dbcf",
+      "edits": 5
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java",
+      "baseline_sha256": "4d7e7452c3710d9abe1a0179bb0c5386e3645ac9f4a96aa30a755e2714c035b5",
+      "integrated_before_sha256": "4d7e7452c3710d9abe1a0179bb0c5386e3645ac9f4a96aa30a755e2714c035b5",
+      "integrated_after_sha256": "5139774dbbf38da5f7bb046d731714946728ddd524588ef2d2872574ca935c08",
+      "edits": 7
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityBullet.java",
+      "baseline_sha256": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+      "integrated_before_sha256": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+      "integrated_after_sha256": "8a676c92c28ae87bf1eb8d03369f8e2f90860fd4ad183c98c7058646a7e8ac84",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/projectile/EntityChemical.java",
+      "baseline_sha256": "ba22aa412d230e884fff65c3cbb5aa24d078be1108255d4b1c16ca567535987d",
+      "integrated_before_sha256": "ba22aa412d230e884fff65c3cbb5aa24d078be1108255d4b1c16ca567535987d",
+      "integrated_after_sha256": "1848c1d15c5d1f17ac5c9d9830695ec1bd2df4892b912ccd6338a050c0883546",
+      "edits": 7
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeAutism.java",
+      "baseline_sha256": "304274b71a2e85d1c8107d1cf10470af77c35309211ee587b6334dace916de76",
+      "integrated_before_sha256": "304274b71a2e85d1c8107d1cf10470af77c35309211ee587b6334dace916de76",
+      "integrated_after_sha256": "57a89b70305822a5e0c2d6c18669ca3adad7b8b8807b4a02fdcc2b7b6598e4ee",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java",
+      "baseline_sha256": "f7bb7fa4b9aae77f09744c48df35f5028e1714d26d7cec1d6cff9df7464ef1e7",
+      "integrated_before_sha256": "f7bb7fa4b9aae77f09744c48df35f5028e1714d26d7cec1d6cff9df7464ef1e7",
+      "integrated_after_sha256": "0f7dafebfe89375ec283fd50ba8f7a233ef57c28c2c6caa8d2e6a25f5e89c0b6",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/hazard/type/HazardTypeBlinding.java",
+      "baseline_sha256": "ebb68e0e6e09126a99f35e7bb5ac7c831b5054b259656ba48485571b489b5127",
+      "integrated_before_sha256": "ebb68e0e6e09126a99f35e7bb5ac7c831b5054b259656ba48485571b489b5127",
+      "integrated_after_sha256": "7809928a3e50624a5fd6938d38f418a2321b43d6b511624e64d53c10ceab9ea6",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "baseline_sha256": "88b1848fd074556a93459a06839b1643070a4a186246749e9b2cfc251e737d1a",
+      "integrated_before_sha256": "4b480684c6f61c642d44fcd8518bb85c935de1b947002130bd9c57f02909a9df",
+      "integrated_after_sha256": "0c4c8058d9b05f988fa520ffddc0823fbd7a681cf849df8b4ad3e354ef46a007",
+      "edits": 16
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/ability/IWeaponAbility.java",
+      "baseline_sha256": "d27e03305732fa369864a57c0610b96a7bb490873fa49a283fedf574e551135b",
+      "integrated_before_sha256": "d27e03305732fa369864a57c0610b96a7bb490873fa49a283fedf574e551135b",
+      "integrated_after_sha256": "2d14dbb98eb95a05e789f53071e02227577e2763b2567e21525419a9ff1b8b03",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/explosion/ExplosionChaos.java",
+      "baseline_sha256": "8ba1c8aa11adbe2d371144f1fd595e2b84fb59cb2a4f6b21bab9eb9a3031092f",
+      "integrated_before_sha256": "8ba1c8aa11adbe2d371144f1fd595e2b84fb59cb2a4f6b21bab9eb9a3031092f",
+      "integrated_after_sha256": "b60d93b1cf2206c73005675c973065fdf7a270592b1b9caf02fe91c37bf0058d",
+      "edits": 4
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/explosion/ExplosionThermo.java",
+      "baseline_sha256": "63d2d161bf5b600d793c1cf9b7eef11d55d1c6003682b8d54a02f532f26a3711",
+      "integrated_before_sha256": "63d2d161bf5b600d793c1cf9b7eef11d55d1c6003682b8d54a02f532f26a3711",
+      "integrated_after_sha256": "e8cbe7c7a5f4c954f3dd1ff1b4337084747a67cf3a638ad8138d0a5a2d020637",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java",
+      "baseline_sha256": "05b75f2e102581b739554d903eff188da89c1d2fedfe3c6b89a04365b6c649b9",
+      "integrated_before_sha256": "05b75f2e102581b739554d903eff188da89c1d2fedfe3c6b89a04365b6c649b9",
+      "integrated_after_sha256": "1c441287b0fbd60889543c1a26731125b9b767a6ec6756ff80ec940d03bdef84",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java",
+      "baseline_sha256": "4b5227d454af9eadd57174f1cfd7e3a79f8faf04e7585dad9b475fcf1cfb9ac1",
+      "integrated_before_sha256": "4b5227d454af9eadd57174f1cfd7e3a79f8faf04e7585dad9b475fcf1cfb9ac1",
+      "integrated_after_sha256": "e3a8e5e121177a1bc1f9398fbc0310a37dc847b4a902ef3b0fe0d716d63f3028",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java",
+      "baseline_sha256": "beed3f88d81996a26e88d4300f920d81550157a5c493905354c9d7b2e1e13071",
+      "integrated_before_sha256": "beed3f88d81996a26e88d4300f920d81550157a5c493905354c9d7b2e1e13071",
+      "integrated_after_sha256": "85d5cd3e335376bff2e85143bcc2b178cf63ab73693d3367554680a2a69503ca",
+      "edits": 2
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/deco/TileEntityLantern.java",
+      "baseline_sha256": "241c1d4911ad0cac13f49f62ab38d5937dd2e91353eb4b4267e92fd70f864595",
+      "integrated_before_sha256": "241c1d4911ad0cac13f49f62ab38d5937dd2e91353eb4b4267e92fd70f864595",
+      "integrated_after_sha256": "8edf90766d5ae44e3a720a0edc59ac6f18e3fc98385ceabae29ebfdcc938c877",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/deco/TileEntityGeysir.java",
+      "baseline_sha256": "6ca36852e40380fdf083ea16bffd59ba2a17f77f105878287226322838b01122",
+      "integrated_before_sha256": "6ca36852e40380fdf083ea16bffd59ba2a17f77f105878287226322838b01122",
+      "integrated_after_sha256": "265f0616e2efee6b39bcc1d3941efc2dab06bc6396e411f981d346b83e9fe83b",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java",
+      "baseline_sha256": "57c17f9de2655d626e9e26c8bf8c5ea70a8e05f30605c92a9bb3e469fb56dcb2",
+      "integrated_before_sha256": "57c17f9de2655d626e9e26c8bf8c5ea70a8e05f30605c92a9bb3e469fb56dcb2",
+      "integrated_after_sha256": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "baseline_sha256": "eada4ca3d2b311a39e127bf3b4293f25d559254f5a4c9b5323828997892e7469",
+      "integrated_before_sha256": "784e564d363d2a09fb9c9c52faff165b2b2b4b0252839f8a7cf0ae32ce7ff557",
+      "integrated_after_sha256": "7a2a92b7bbfae144b7dc09bb9259db593c9ce8829c9ff4be189ec8b566d4ada9",
+      "edits": 4
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/inventory/fluid/Fluids.java",
+      "baseline_sha256": "11bd1035cc0fdd3cccda8609effdf143be80da6faf907106099da9998325d716",
+      "integrated_before_sha256": "11bd1035cc0fdd3cccda8609effdf143be80da6faf907106099da9998325d716",
+      "integrated_after_sha256": "4edd922106257f40dba766327bed483cab83f39e698a44bf6de67671b9b1c0d4",
+      "edits": 3
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/gas/BlockGasClorine.java",
+      "baseline_sha256": "133cfb8ccc3a2198571adaa5ac34c44b0769264fa0d77c9d98091920368897f8",
+      "integrated_before_sha256": "133cfb8ccc3a2198571adaa5ac34c44b0769264fa0d77c9d98091920368897f8",
+      "integrated_after_sha256": "e0fafc90087f82e503c0e15b007d44e81eab0cb1b6a25bd35e4a4932939858a9",
+      "edits": 4
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStepEffect.java",
+      "baseline_sha256": "20bc5b773ac7d40e38c4fcc99929a3e8c89964d6a22dd9e695d12ed27f84c56c",
+      "integrated_before_sha256": "20bc5b773ac7d40e38c4fcc99929a3e8c89964d6a22dd9e695d12ed27f84c56c",
+      "integrated_after_sha256": "d5554e91d90a3f345f6036cc3d2327672294a3b0d364c4d55e29262d473da9a8",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+      "baseline_sha256": "92f2d0a7abda3a30e0232e502068fae85561e178db0616b7860f9292965eb4e7",
+      "integrated_before_sha256": "92f2d0a7abda3a30e0232e502068fae85561e178db0616b7860f9292965eb4e7",
+      "integrated_after_sha256": "980d2af122d2462006348723b25b640f036c2509cc6e0cbdda0db9dd6b9f2d67",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/TrappedBrick.java",
+      "baseline_sha256": "f12e6d5b955896f479aa87652fbf276396d56b9253b83ebc99f6983524893877",
+      "integrated_before_sha256": "f12e6d5b955896f479aa87652fbf276396d56b9253b83ebc99f6983524893877",
+      "integrated_after_sha256": "d0f8c79c64eb4da3666e9f44c3c1c884ffa19dc77c593ebc7f95a08c1d08b513",
+      "edits": 1
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CheaterVirus.java",
+      "baseline_sha256": "00058f156f2decf0cd2903befe7147c28e4337eb6b28e28fc29eb2ae0b3cc355",
+      "integrated_before_sha256": "00058f156f2decf0cd2903befe7147c28e4337eb6b28e28fc29eb2ae0b3cc355",
+      "integrated_after_sha256": "b75c45bddd76afa45c3217cb3e6c2104911a3abdfec4a699a557e413ac5fba35",
+      "edits": 1
+    }
+  ]
+}

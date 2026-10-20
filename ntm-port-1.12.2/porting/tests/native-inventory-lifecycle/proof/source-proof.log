@@ -1,0 +1,2 @@
+PASS original pristine parity: all 72 callback bodies, limited explicit world/sound migration, native parameter/super forwarding and map-empty predicate substitutions only.
+PASS byte-exact CP70 reversal: 45 files, 72 declarations, 18 caller/super edges; no zero-argument lifecycle remains; generated native callback fixtures (62 exact existing no-ops).

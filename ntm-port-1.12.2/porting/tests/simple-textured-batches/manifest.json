@@ -1,0 +1,893 @@
+{
+  "base": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "files": {
+    "src/main/java/com/hbm/inventory/gui/GUIMachineGasCent.java": {
+      "before_sha256": "e4da3c8a003fda32a0b88673dfb4a6970eb943babe661e3f4a9a2271bfbf39ec",
+      "after_sha256": "633133a98468c4a357a08d963a28e77ca4d18bc05e94b63f2d6d43e682babfa5",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 11,
+          "new_start": 11,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 103,
+          "new_start": 105,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(minX, maxY, z, minU, maxV);\n",
+            "\t\ttessellator.addVertexWithUV(maxX, maxY, z, maxU, maxV);\n",
+            "\t\ttessellator.addVertexWithUV(maxX, minY, z, maxU, minV);\n",
+            "\t\ttessellator.addVertexWithUV(minX, minY, z, minU, minV);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(minX, maxY, z).tex(minU, maxV).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(maxX, maxY, z).tex(maxU, maxV).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(maxX, minY, z).tex(maxU, minV).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(minX, minY, z).tex(minU, minV).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineStardar.java": {
+      "before_sha256": "fcdbe3eed0f9cbec8514f46bc9edac1d07291326e0da9fa42a56add392690e75",
+      "after_sha256": "6ab37d84066ee2d49002259ff6028999f4442af8281eb37771814e1c790ba838",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 30,
+          "new_start": 30,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 226,
+          "new_start": 228,
+          "old": [
+            "\t\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\t\ttessellator.startDrawingQuads();\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n"
+          ]
+        },
+        {
+          "old_start": 231,
+          "new_start": 234,
+          "old": [
+            "\t\t\ttessellator.addVertexWithUV(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY + 11, 0, 0, 1);\n",
+            "\t\t\ttessellator.addVertexWithUV(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY + 11, 0, 1, 1);\n",
+            "\t\t\ttessellator.addVertexWithUV(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY - 5, 0, 1, 0);\n",
+            "\t\t\ttessellator.addVertexWithUV(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY - 5, 0, 0, 0);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.pos(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY + 11, 0).tex(0, 1).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY + 11, 0).tex(1, 1).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY - 5, 0).tex(1, 0).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY - 5, 0).tex(0, 0).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIMachineTurbineGas.java": {
+      "before_sha256": "5a87ef3142706132daf77be781f32d21f81267657b55d4cdf8bbd75ce85ae738",
+      "after_sha256": "877fa5579a3661ad044476184bb9752c5d76cad7f558ffc7327a37815aedffa1",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 2,
+      "vertices": 8,
+      "edits": [
+        {
+          "old_start": 21,
+          "new_start": 21,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 275,
+          "new_start": 277,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 277,
+          "new_start": 280,
+          "old": [
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(xPos, yPos + height, this.zLevel, uMin, vMax);\n",
+            "\t\ttessellator.addVertexWithUV(xPos + width, yPos + height, this.zLevel, uMax, vMax);\n",
+            "\t\ttessellator.addVertexWithUV(xPos + width, yPos + 64 - (64 * temp / maxTemp), this.zLevel,uMax, vMin);\n",
+            "\t\ttessellator.addVertexWithUV(xPos, yPos + 64 - (64 * temp / maxTemp), this.zLevel, uMin, vMin);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(xPos, yPos + height, this.zLevel).tex(uMin, vMax).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos + width, yPos + height, this.zLevel).tex(uMax, vMax).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos + width, yPos + 64 - (64 * temp / maxTemp), this.zLevel).tex(uMax, vMin).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos, yPos + 64 - (64 * temp / maxTemp), this.zLevel).tex(uMin, vMin).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 303,
+          "new_start": 306,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 305,
+          "new_start": 309,
+          "old": [
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(xPos, yPos + squareSideLenght, this.zLevel, uMin, vMax);\n",
+            "\t\ttessellator.addVertexWithUV(xPos + squareSideLenght, yPos + squareSideLenght, this.zLevel, uMax, vMax);\n",
+            "\t\ttessellator.addVertexWithUV(xPos + squareSideLenght, yPos, this.zLevel,uMax, vMin);\n",
+            "\t\ttessellator.addVertexWithUV(xPos, yPos, this.zLevel, uMin, vMin);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(xPos, yPos + squareSideLenght, this.zLevel).tex(uMin, vMax).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos + squareSideLenght, yPos + squareSideLenght, this.zLevel).tex(uMax, vMax).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos + squareSideLenght, yPos, this.zLevel).tex(uMax, vMin).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(xPos, yPos, this.zLevel).tex(uMin, vMin).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenPreview.java": {
+      "before_sha256": "9ae30e69b3dffa26c4fe9ebafa17bbd5517a07e8d1bff031073f8b3bf90dd750",
+      "after_sha256": "64de9d181651423b7e9ff9a20751e9ad01bd9a64e79ee689c7346f285d867aff",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 72,
+          "new_start": 74,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV((double) (x + 0), (double) (y + sizeY), (double) this.zLevel, (double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + sizeY) * f1));\n",
+            "\t\ttessellator.addVertexWithUV((double) (x + sizeX), (double) (y + sizeY), (double) this.zLevel, (double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + sizeY) * f1));\n",
+            "\t\ttessellator.addVertexWithUV((double) (x + sizeX), (double) (y + 0), (double) this.zLevel, (double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + 0) * f1));\n",
+            "\t\ttessellator.addVertexWithUV((double) (x + 0), (double) (y + 0), (double) this.zLevel, (double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + 0) * f1));\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos((double) (x + 0), (double) (y + sizeY), (double) this.zLevel).tex((double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + sizeY) * f1)).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) (x + sizeX), (double) (y + sizeY), (double) this.zLevel).tex((double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + sizeY) * f1)).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) (x + sizeX), (double) (y + 0), (double) this.zLevel).tex((double) ((float) (sourceX + sizeX) * f), (double) ((float) (sourceY + 0) * f1)).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) (x + 0), (double) (y + 0), (double) this.zLevel).tex((double) ((float) (sourceX + 0) * f), (double) ((float) (sourceY + 0) * f1)).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorAsbestos.java": {
+      "before_sha256": "62cc3bde807be1e6eaa2ecac9f276458124b54a1086f76099ea6c207f8054e77",
+      "after_sha256": "fbf816c10bfdc6a1bf9ad8b2fedc635ab2dbcb0fcfe81300e5464bc1deed080c",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 6,
+          "new_start": 6,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 96,
+          "new_start": 98,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorFSB.java": {
+      "before_sha256": "6f7499abef7aaea5f38d5902a239f70cd7ae5019602970d480baacb97a1bb4d2",
+      "after_sha256": "bcce52a5e6883c7e9e9e1b07e5c40df3f97786f7e5b316d45cf34fb5011bafc7",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 33,
+          "new_start": 33,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 472,
+          "new_start": 474,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorGasMask.java": {
+      "before_sha256": "9895c4d65ffe28affc6f28627cf81ba9adec999dd1d7e333a3211e72712faae7",
+      "after_sha256": "8c77d38b43cb9ad90faa94ea39907aae58ff54d88452ab76846bb423eb8de924",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 24,
+          "new_start": 24,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 133,
+          "new_start": 135,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorHazmat.java": {
+      "before_sha256": "f766e5cd4705aa12054a74d8dc95e95775ca6a37ef6e27e957a03d51acf16eda",
+      "after_sha256": "424b97b4094b1595e311f952f57c8d9e614bb20d5c2f548872bf7a6d8becf07c",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 38,
+          "new_start": 40,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorLiquidator.java": {
+      "before_sha256": "4f8b02339ae6b117f40aaaf0017b9fc166c19ab6ce27130892685e95e630528f",
+      "after_sha256": "9346f879e9867ba4600bac47f6d0071a1c91c083a762b368f32c2bd87517997c",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 18,
+          "new_start": 18,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 69,
+          "new_start": 71,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, (double) resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV((double) resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, (double) resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), (double) resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos((double) resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorModel.java": {
+      "before_sha256": "1364f3176f4b587bcd5c255dc0ea5e6b49baba0ca8a5643f238309d690cffa7a",
+      "after_sha256": "58dba0c25f66659cb6c8823c6dfb11798602a8853ac487b4f1f6ee2a1329fa87",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 21,
+          "new_start": 21,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 112,
+          "new_start": 114,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, resolution.getScaledHeight(), -90.0D, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(resolution.getScaledWidth(), resolution.getScaledHeight(), -90.0D, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(resolution.getScaledWidth(), 0.0D, -90.0D, 1.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(0.0D, resolution.getScaledHeight(), -90.0D).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(resolution.getScaledWidth(), resolution.getScaledHeight(), -90.0D).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(resolution.getScaledWidth(), 0.0D, -90.0D).tex(1.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(0.0D, 0.0D, -90.0D).tex(0.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/effect/FogRenderer.java": {
+      "before_sha256": "40b2ac4fd9f67d441b9dee3f576b87182ec6f4634916771d18e5999ba72aa596",
+      "after_sha256": "44a385449d7e41b205e1d000cf4c355fbb3eac1b63d3eb45536fcab07762d496",
+      "names": [
+        "tess"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 12,
+          "new_start": 12,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 71,
+          "new_start": 73,
+          "old": [
+            "\t\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 73,
+          "new_start": 76,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.addVertexWithUV(-1, -1, 0, 1, 0);\n",
+            "\t\t\ttess.addVertexWithUV(-1, 1, 0, 0, 0);\n",
+            "\t\t\ttess.addVertexWithUV(1, 1, 0, 0, 1);\n",
+            "\t\t\ttess.addVertexWithUV(1, -1, 0, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessBuffer.pos(-1, -1, 0).tex(1, 0).endVertex();\n",
+            "\t\t\ttessBuffer.pos(-1, 1, 0).tex(0, 0).endVertex();\n",
+            "\t\t\ttessBuffer.pos(1, 1, 0).tex(0, 1).endVertex();\n",
+            "\t\t\ttessBuffer.pos(1, -1, 0).tex(1, 1).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderMeteor.java": {
+      "before_sha256": "1281a1485b3fbf25ee8ce52121204baf912ab7ba3d6dbcd7da81c76e80292391",
+      "after_sha256": "7175a1fbfacaac2ea6b8b65e9eabd3e9f5781f612cf9a83d395e8807ce79559f",
+      "names": [
+        "tesseract"
+      ],
+      "batches": 1,
+      "vertices": 24,
+      "edits": [
+        {
+          "old_start": 6,
+          "new_start": 6,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 39,
+          "new_start": 41,
+          "old": [
+            "\t\tTessellator tesseract = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tesseract = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tesseractBuffer = tesseract.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 42,
+          "new_start": 45,
+          "old": [
+            "\t\ttesseract.startDrawingQuads();\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, -0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, -0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, -0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, -0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\ttesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, -0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, -0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, -0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, -0.5).tex(1, 1).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 48,
+          "new_start": 51,
+          "old": [
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, +0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, -0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, -0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, +0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, +0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, -0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, -0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, +0.5).tex(1, 1).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 53,
+          "new_start": 56,
+          "old": [
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, +0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, +0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, +0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, +0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, +0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, +0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, +0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, +0.5).tex(1, 1).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 58,
+          "new_start": 61,
+          "old": [
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, -0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, +0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, +0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, -0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, -0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, +0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, +0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, -0.5).tex(1, 1).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 63,
+          "new_start": 66,
+          "old": [
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, +0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, +0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, -0.5, -0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, -0.5, -0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, +0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, +0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, -0.5, -0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, -0.5, -0.5).tex(1, 1).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 68,
+          "new_start": 71,
+          "old": [
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, +0.5, 1, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, +0.5, 0, 0);\n",
+            "\t\t\ttesseract.addVertexWithUV(-0.5, +0.5, -0.5, 0, 1);\n",
+            "\t\t\ttesseract.addVertexWithUV(+0.5, +0.5, -0.5, 1, 1);\n"
+          ],
+          "new": [
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, +0.5).tex(1, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, +0.5).tex(0, 0).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(-0.5, +0.5, -0.5).tex(0, 1).endVertex();\n",
+            "\t\t\ttesseractBuffer.pos(+0.5, +0.5, -0.5).tex(1, 1).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/DiamondPronter.java": {
+      "before_sha256": "183eaa9caff7185018d7328074cf70b8e806a3ee59240134485e152f49db4529",
+      "after_sha256": "717a33c5c06a732441398bae41ae5fc8851b05b096d45c674b15bb6c14c6a5bf",
+      "names": [
+        "tess"
+      ],
+      "batches": 5,
+      "vertices": 20,
+      "edits": [
+        {
+          "old_start": 9,
+          "new_start": 9,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 23,
+          "new_start": 25,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 27,
+          "new_start": 30,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.addVertexWithUV(0.0, 0.5, -0.5, p * 144, p * 45);\n",
+            "\t\ttess.addVertexWithUV(0.0, 0.5, 0.5, p * 5, p * 45);\n",
+            "\t\ttess.addVertexWithUV(0.0, -0.5, 0.5, p * 5, p * 184);\n",
+            "\t\ttess.addVertexWithUV(0.0, -0.5, -0.5, p * 144, p * 184);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessBuffer.pos(0.0, 0.5, -0.5).tex(p * 144, p * 45).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0, 0.5, 0.5).tex(p * 5, p * 45).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0, -0.5, 0.5).tex(p * 5, p * 184).endVertex();\n",
+            "\t\ttessBuffer.pos(0.0, -0.5, -0.5).tex(p * 144, p * 184).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 47,
+          "new_start": 50,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 65,
+          "new_start": 68,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 83,
+          "new_start": 86,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 102,
+          "new_start": 105,
+          "old": [
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.addVertexWithUV(0.01, symSize + oY, -symSize + oZ, (x + 59) * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, symSize + oY, symSize + oZ, x * p, y * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -symSize + oY, symSize + oZ, x * p, (y + 59) * p);\n",
+            "\t\t\ttess.addVertexWithUV(0.01, -symSize + oY, -symSize + oZ, (x + 59) * p, (y + 59) * p);\n"
+          ],
+          "new": [
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessBuffer.pos(0.01, symSize + oY, -symSize + oZ).tex((x + 59) * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, symSize + oY, symSize + oZ).tex(x * p, y * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -symSize + oY, symSize + oZ).tex(x * p, (y + 59) * p).endVertex();\n",
+            "\t\t\ttessBuffer.pos(0.01, -symSize + oY, -symSize + oZ).tex((x + 59) * p, (y + 59) * p).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/world/RenderNTMSkyboxChainloader.java": {
+      "before_sha256": "4c889d2af8430b3a146086ffb11d3c9ecbb43ba411ea11f82097948da50c9913",
+      "after_sha256": "b6995c5233aa6931575e5fe202e6525f261a389332789fed4554c7334e6939d1",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 3,
+      "vertices": 12,
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 58,
+          "new_start": 60,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 79,
+          "new_start": 82,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 106,
+          "new_start": 109,
+          "old": [
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 124,
+          "new_start": 127,
+          "old": [
+            "\t\ttessellator.startDrawingQuads();\n",
+            "\t\ttessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);\n",
+            "\t\ttessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);\n",
+            "\t\ttessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\ttessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/saveddata/satellites/Satellite.java": {
+      "before_sha256": "fb0df39237638c5644d72c115c57bc9eac07005f221e94d539e9cf27c39ef14e",
+      "after_sha256": "97cfed933194cfc97350d21df6a9281cc44cd7607a22506924eea55ef7bef6a7",
+      "names": [
+        "tessellator"
+      ],
+      "batches": 1,
+      "vertices": 4,
+      "edits": [
+        {
+          "old_start": 10,
+          "new_start": 10,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 154,
+          "new_start": 156,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 173,
+          "new_start": 176,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.addVertexWithUV(-size, 100.0, -size, 0.0D, 0.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(size, 100.0, -size, 0.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(size, 100.0, size, 1.0D, 1.0D);\n",
+            "\t\t\ttessellator.addVertexWithUV(-size, 100.0, size, 1.0D, 0.0D);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);\n",
+            "\t\t\ttessellatorBuffer.pos(-size, 100.0, -size).tex(0.0D, 0.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(size, 100.0, -size).tex(0.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(size, 100.0, size).tex(1.0D, 1.0D).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(-size, 100.0, size).tex(1.0D, 0.0D).endVertex();\n"
+          ]
+        }
+      ]
+    }
+  }
+}

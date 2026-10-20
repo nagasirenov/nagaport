@@ -10,6 +10,8 @@ import com.hbm.lib.RefStrings;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -69,13 +71,14 @@ public class FogRenderer extends Render {
 
 			GL11.glPushMatrix();
 			this.bindEntityTexture(p_76986_1_);
-			Tessellator tess = Tessellator.instance;
+			Tessellator tess = Tessellator.getInstance();
+			BufferBuilder tessBuffer = tess.getBuffer();
 			
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(-1, -1, 0, 1, 0);
-			tess.addVertexWithUV(-1, 1, 0, 0, 0);
-			tess.addVertexWithUV(1, 1, 0, 0, 1);
-			tess.addVertexWithUV(1, -1, 0, 1, 1);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(-1, -1, 0).tex(1, 0).endVertex();
+			tessBuffer.pos(-1, 1, 0).tex(0, 0).endVertex();
+			tessBuffer.pos(1, 1, 0).tex(0, 1).endVertex();
+			tessBuffer.pos(1, -1, 0).tex(1, 1).endVertex();
 			tess.draw();
 			
 			GL11.glPopMatrix();

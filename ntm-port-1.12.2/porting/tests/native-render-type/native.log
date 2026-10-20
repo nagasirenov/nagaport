@@ -1,0 +1,14 @@
+/tmp/nagaport-render-type-evidence/RenderTypeNativeTest.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Object allocate(Class<?> c)throws Exception { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return ((sun.misc.Unsafe)f.get(null)).allocateInstance(c); }
+                                                                      ^
+/tmp/nagaport-render-type-evidence/RenderTypeNativeTest.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Object allocate(Class<?> c)throws Exception { Field f=sun.misc.Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);return ((sun.misc.Unsafe)f.get(null)).allocateInstance(c); }
+                                                                                                                                                         ^
+Note: /tmp/tmp4ljzo43c/CallbackBank.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+[04:16:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+[04:16:35] [main/INFO]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[04:16:35] [main/INFO]: Replaced 1036 ore ingredients
+[04:16:35] [main/INFO]: MinecraftForge v14.23.5.2768 Initialized
+PASS: 1984 genuine native state/renderer dispatches; actual original RenderBlocks negative dispatch. Exact callback slices only; renderer constructor, TESR bodies, item rendering and pixels not executed.

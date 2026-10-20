@@ -38,7 +38,8 @@ public class BlockTaint extends Block implements ITooltipProvider {
 	@Override public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) { return null; }
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 
 		int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 		if(meta >= 15) return;

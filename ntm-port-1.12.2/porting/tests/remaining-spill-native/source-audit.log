@@ -1,0 +1,8 @@
+PASS twelve exact original callback sources; no named/anonymous descendants in supplied full source tree
+com/hbm/blocks/BlockDummyableBeam.java:77:((BlockDummyable) b).breakBlock(world, x, y, z, b, i);
+com/hbm/tileentity/machine/TileEntityPWRController.java:314:b.breakBlock(this.world, pos.getX(), pos.getY(), pos.getZ(), b, com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(this.world, pos.getX(), pos.getY(), pos.getZ()) ));
+com/hbm/tileentity/machine/TileEntityFEL.java:152:silexBlock.breakBlock(this.world, silex.getPos().getX(), silex.getPos().getY(), silex.getPos().getZ(), silexBlock, 0);
+com/hbm/blocks/machine/BlockPWR.java:105:this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+com/hbm/blocks/machine/BlockPWR.java:108:this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+com/hbm/blocks/machine/BlockICF.java:99:this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());
+com/hbm/blocks/machine/BlockICF.java:102:this.getBlockType().breakBlock(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ(), this.getBlockType(), this.getBlockMetadata());

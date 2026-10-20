@@ -1,0 +1,37 @@
+src/main/java/com/hbm/blocks/bomb/NukeCustom.java:84:								entityitem.getEntityItem()
+src/main/java/com/hbm/blocks/bomb/NukeGadget.java:81:								entityitem.getEntityItem()
+src/main/java/com/hbm/blocks/bomb/NukeSolinium.java:74:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeTsar.java:76:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeFleija.java:76:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeN2.java:74:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/BombMulti.java:81:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeBoy.java:77:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukePrototype.java:77:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeMike.java:76:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/bomb/NukeMan.java:77:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/blocks/fluid/GenericFluidBlock.java:80:						if(this == ModBlocks.sulfuric_acid_block && entity.isDead && ((EntityItem)entity).getEntityItem().getItem() == Items.SLIME_BALL) {
+src/main/java/com/hbm/blocks/machine/MachineShredder.java:127:                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+src/main/java/com/hbm/hazard/HazardSystem.java:231:		ItemStack stack = entity.getEntityItem();
+src/main/java/com/hbm/items/ItemInventory.java:71:								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/handler/EntityEffectHandler.java:517:							ItemStack stack = ((EntityItem)ent).getEntityItem();
+src/main/java/com/hbm/items/special/ItemDrop.java:42:			ItemStack stack = entityItem.getEntityItem();
+src/main/java/com/hbm/items/special/ItemRag.java:25:				ItemStack stack = entityItem.getEntityItem();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:632:		items.forEach(i -> { if(!i.isDead) stacks.add(i.getEntityItem());});
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:646:		items.removeIf(i -> i.isDead || i.getEntityItem().stackSize <= 0);
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineExcavator.java:653:			ItemStack stack = item.getEntityItem();
+src/main/java/com/hbm/main/ModEventHandler.java:605:		ItemStack yeet = event.entityItem.getEntityItem();
+src/main/java/com/hbm/main/ModEventHandler.java:687:					ItemStack stack = item.getEntityItem();
+src/main/java/com/hbm/main/ModEventHandler.java:1660:		if(event.pickedUp.getEntityItem().getItem() == Items.SLIME_BALL)
+src/main/java/com/hbm/main/ModEventHandler.java:1662:		if(event.pickedUp.getEntityItem().getItem() == ModItems.egg_balefire)
+src/main/java/com/hbm/tileentity/machine/TileEntityCrucible.java:117:					ItemStack stack = item.getEntityItem();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:392:			if(nullifier && isBad(entityItem.getEntityItem())) {
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:398:			Item item = entityItem.getEntityItem().getItem();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:403:					int meta = entityItem.getEntityItem().getItemDamage();
+src/main/java/com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java:420:			ItemStack stack = InventoryUtil.tryAddItemToInventory(slots, 9, 29, entityItem.getEntityItem().copy());
+src/main/java/com/hbm/items/tool/ItemToolBox.java:217:									entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+src/main/java/com/hbm/entity/effect/EntityBlackHole.java:154:					ItemStack stack = item.getEntityItem();
+src/main/java/com/hbm/entity/cart/EntityMinecartDestroyer.java:96:				ItemStack stack = item.getEntityItem();
+src/main/java/com/hbm/entity/item/EntityItemBuoyant.java:8:public class EntityItemBuoyant extends EntityItem {
+src/main/java/com/hbm/entity/item/EntityItemWaste.java:8:public class EntityItemWaste extends EntityItem {
+src/main/java/com/hbm/entity/mob/ai/EntityAIEatBread.java:31:			if(item.getEntityItem().getItem() == Items.BREAD) {
+src/main/java/com/hbm/entity/mob/ai/EntityAIEatBread.java:54:				ItemStack stack = this.item.getEntityItem();

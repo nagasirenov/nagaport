@@ -1,0 +1,34 @@
+Compiled from "SourceFile"
+public class rs extends rv {
+  protected rs(int, boolean, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: iload_3
+       4: invokespecial #10                 // Method rv."<init>":(IZI)V
+       7: return
+
+  public double a(int, tj);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field H:I
+       4: getstatic     #9                  // Field rv.t:Lrv;
+       7: getfield      #8                  // Field rv.H:I
+      10: if_icmpne     22
+      13: ldc           #1                  // float -0.5f
+      15: iload_1
+      16: iconst_1
+      17: iadd
+      18: i2f
+      19: fmul
+      20: f2d
+      21: dreturn
+      22: ldc2_w        #5                  // double 1.3d
+      25: iload_1
+      26: iconst_1
+      27: iadd
+      28: i2d
+      29: dmul
+      30: dreturn
+}

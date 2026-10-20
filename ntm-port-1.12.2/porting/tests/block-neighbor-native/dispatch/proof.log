@@ -1,0 +1,17 @@
+PASS BlockPos unit directional helpers and EnumFacing standard side index/axis/sign definitions
+PASS legacy obfuscated class/field/neighbor/power SRG identities
+PASS IBlockState inherits callback; native WorldServer/WorldClient declare no overrides of these methods
+PASS server gate, target-state lookup, exact native/legacy callback argument stack and virtual dispatch
+PASS both dispatchers wrap callback Throwable; lookup is outside try; native target state/pos and changedBlock feed crash report
+PASS notify wrappers cancel before neighbors; no wrapper remote gate/catch; observer update follows all six only when requested
+PASS CFG: all native cancellation/observer/excluded-face cases and old dispatcher cases preserve W/E/D/U/N/S order and arguments
+PASS CFG: both remote states and unchanged native fromPos; state-to-block dispatch passes target state, world, target pos, changed block, fromPos
+PASS CFG: 729 six-side sign assignments prove boolean query >0, D/U/N/S/W/E order, side argument and short-circuit correspondence
+PASS CFG: 729 six-side strong-power assignments prove max/15 early exit and direction/query correspondence
+PASS native boolean isBlockPowered vs integer getRedstonePowerFromNeighbors; no indirect-getting-powered name on this classpath
+PASS leaf structure: native Forge hook defaults to normal-cube; legacy normal-cube branch; both choose aggregate strong or direct weak power
+PASS total 12 assertion groups
+BOUND: static bytecode/CFG proof only. No Minecraft launch, integration test, complete modded-world equivalence, or migrated block-body test.
+BOUND: native Forge cancellation/observer behavior and shouldCheckWeakPower override point differ from the supplied vanilla legacy client. Query parity is the boolean/aggregate dispatcher contract, not every block implementation.
+BOUND: isRemote guard belongs to World.neighborChanged. Direct state/block callback invocation has no added guard; wrapper events/observer update are not independently remote-gated here.
+SOURCES: input-sha256.json, selected-methods.javap, raw native/legacy javap regenerated in memory; baseline commit is provenance, not a repository audit.

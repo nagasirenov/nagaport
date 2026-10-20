@@ -24,7 +24,7 @@ public class WorldProviderMoho extends WorldProviderCelestial {
 	@Override
 	public void init() {
 		super.init();
-		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class WorldProviderMoho extends WorldProviderCelestial {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderMoho(this.worldObj, this.getSeed(), false);
+		return new ChunkProviderMoho(this.world, this.getSeed(), false);
 	}
 
 	@Override

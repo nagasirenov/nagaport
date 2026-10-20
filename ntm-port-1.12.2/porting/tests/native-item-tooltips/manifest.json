@@ -1,0 +1,3617 @@
+{
+  "base": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "files": {
+    "src/main/java/com/hbm/items/ItemRemap.java": {
+      "owner": "com.hbm.items.ItemRemap",
+      "ancestry": [
+        "com.hbm.items.ItemRemap",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "d491b7f65a23ac174f1e2309b233ebcce0d6c0e322eb15c3a0d04f65ab8fc5ba",
+      "after_sha256": "303f5b59694fd6ed3b9f9a9f51dea58c212be4c40cfd6c950a51095270e912ed",
+      "offset": 1181,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(TextFormatting.RED + \"Compatibility item, hold in inventory to convert!\");\n\t}",
+      "body_sha256": "06bb2054556304755cfce8adfe141c818afc216efbba985e9a75852562d48fe5",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean ext"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemGlyphBlock.java": {
+      "owner": "com.hbm.items.block.ItemGlyphBlock",
+      "ancestry": [
+        "com.hbm.items.block.ItemGlyphBlock",
+        "net.minecraft.item.ItemBlock",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "d87b7b61a25237dcb93681131d458aebfc991475ec0ec802c4a60096ebeae29e",
+      "after_sha256": "53a1dbc7a53d76b7624858f860b519d84b4bcd2ba2c21fddee65797de6e3738b",
+      "offset": 409,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tswitch(itemstack.getItemDamage()) {\n\t\tcase 0: list.add(\"Hourglass\"); break;\n\t\tcase 1: list.add(\"Eye\"); break;\n\t\tcase 2: list.add(\"'Pillar'\"); break;\n\t\tcase 3: list.add(\"IOI\"); break;\n\t\tcase 4: list.add(\"Delta\"); break;\n\t\tcase 5: list.add(\"VTPC\"); break;\n\t\tcase 6: list.add(\"Cool S\"); break;\n\t\tcase 7: list.add(\"Trefoil\"); break;\n\t\tcase 8: list.add(\"Pony\"); break;\n\t\tcase 9: list.add(\"Sparkle\"); break;\n\t\tcase 10: list.add(\"PiP\"); break;\n\t\tcase 11: list.add(\"Triangles\"); break;\n\t\tcase 12: list.add(\"Linux Mint\"); break;\n\t\tcase 13: list.add(\"13\"); break;\n\t\tcase 14: list.add(\"Digamma\"); break;\n\t\tcase 15: list.add(\"Celestial Altar\"); break;\n\t\t}\n\t}",
+      "body_sha256": "7fe527cf391c6ed33dc6769ce0f7e6c038e2b696505edd90533f84d4ac7433c2",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemTrapBlock.java": {
+      "owner": "com.hbm.items.block.ItemTrapBlock",
+      "ancestry": [
+        "com.hbm.items.block.ItemTrapBlock",
+        "net.minecraft.item.ItemBlock",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "c07340d9cd1289985e0cee487f34b6ab5dc37717851ce70fd973a671f22f8e23",
+      "after_sha256": "563fb3cc9e34afc69c83b55aabf7ef7c2e5b7da959c973edfad4ea70929d6e7f",
+      "offset": 444,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tlist.add(Trap.get(itemstack.getItemDamage()).toString());\n\t}",
+      "body_sha256": "ae1a062d12275cb1f746d6b5e730b259e4f9dd2b4a681a262c3098973df02b77",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "itemstack"
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemMissileShuttle.java": {
+      "owner": "com.hbm.items.bomb.ItemMissileShuttle",
+      "ancestry": [
+        "com.hbm.items.bomb.ItemMissileShuttle",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "28f97d74394c51fdeb56e0427c34ca430ce835f76b0b0a984701a5063bf002be",
+      "after_sha256": "8dc109005296b0fb349dd970620e3b34c8cddf42f3fdc40939ea03bb8ab72547",
+      "offset": 244,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Tonite, on bo''om gear:\");\n\t\tlist.add(\"James huffs leaded gasoline and\");\n\t\tlist.add(\"goes insane, Richard spends the\");\n\t\tlist.add(\"entire budget on a broken .PNG,\");\n\t\tlist.add(\"And I forget to set the infinite\");\n\t\tlist.add(\"Water tanks on our RBMK to flow\");\n\t\tlist.add(\"out, blowing up our entire base\");\n\t}",
+      "body_sha256": "163a65a0de1665f26c524d2b1c9940f7dded7f72b1154c1c997f6822cca8981b",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemN2.java": {
+      "owner": "com.hbm.items.bomb.ItemN2",
+      "ancestry": [
+        "com.hbm.items.bomb.ItemN2",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "12b366c296dba7906a21f41da24e2e0d6fcc49534102acddbdd3de9c10d2faab",
+      "after_sha256": "b8b411ed513efec24b12319f50400a108f6e4b996c54cf9f5cac9e031f2a9120",
+      "offset": 301,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(I18nUtil.resolveKey(\"item.bomb_part.used_in\"));\n\t\tlist.add(ModBlocks.nuke_n2.getLocalizedName());\n\t}",
+      "body_sha256": "4481ad16af361bdd3b47f0ca083d13af7933c9fa45b20172bb77a2c73a36c214",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemPrototypeBlock.java": {
+      "owner": "com.hbm.items.bomb.ItemPrototypeBlock",
+      "ancestry": [
+        "com.hbm.items.bomb.ItemPrototypeBlock",
+        "net.minecraft.item.ItemBlock",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "dc755cb71715a1136409bccce6741294ac8e423bc5b5124908cc6463cd074639",
+      "after_sha256": "9b89b80c84bb4cb452f65ceadb75460e94857ec0f816a18c176a4507f1968485",
+      "offset": 363,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"It didn't have to be like this.\");\n\t\tlist.add(\"\");\n\t\tlist.add(\"You monster.\");\n\t\t\n\t\t/*list.add(\"In memory of Euphemia.\");\n\t\tlist.add(\"\");\n\t\tlist.add(\"Rest in spaghetti, never forgetti.\");*/\n\t}",
+      "body_sha256": "4619ab2a52c628f00126ad49660bda74d607bada4561bc4b7035fa3f0a6f33bd",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemCanteen.java": {
+      "owner": "com.hbm.items.food.ItemCanteen",
+      "ancestry": [
+        "com.hbm.items.food.ItemCanteen",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "9fb581842fd20e78ab70a9dd8cbb8e0fce824ba16fc0ab6e86d51c48cd8ed5e7",
+      "after_sha256": "350e4482f7d060c8dcfb0f1e2b40daa8b6f6e48ea6220bc293f8cd275f590b9e",
+      "offset": 1803,
+      "old": "addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_)",
+      "new": "addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.canteen_vodka) {\n\t\t\tlist.add(\"Cooldown: 3 minutes\");\n\t\t\tlist.add(\"Nausea I for 10 seconds\");\n\t\t\tlist.add(\"Strength III for 30 seconds\");\n\t\t\tlist.add(\"\");\n\n\t\t\tif(MainRegistry.polaroidID == 11)\n\t\t\t\t// list.add(\"Why sipp when you can succ?\");\n\t\t\t\tlist.add(\"Time to get hammered & sickled!\");\n\t\t\telse\n\t\t\t\tlist.add(\"Smells like disinfectant, tastes like disinfectant.\");\n\t\t}\n\t}",
+      "body_sha256": "ea0ed679614684011ee35501ce91e5f9e7db8504365f67bad06833606632c54e",
+      "original_parameters": [
+        "ItemStack p_77624_1_",
+        "EntityPlayer p_77624_2_",
+        "List list",
+        "boolean p_77624_4_"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemEnergy.java": {
+      "owner": "com.hbm.items.food.ItemEnergy",
+      "ancestry": [
+        "com.hbm.items.food.ItemEnergy",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "0fcead9733129649f889d08d83b31c6b859dcdb7da044b7989a55dc72e2885bc",
+      "after_sha256": "b211a8ac8418cc8a541053d9989bbbc0e9ff44148a9426c538aa6d70abf65b79",
+      "offset": 9610,
+      "old": "addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_)",
+      "new": "addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.can_smart) {\n\t\t\tlist.add(\"Cheap and full of bubbles\");\n\t\t}\n\t\tif(this == ModItems.can_creature) {\n\t\t\tlist.add(\"Basically gasoline in a tin can\");\n\t\t}\n\t\tif(this == ModItems.can_redbomb) {\n\t\t\tlist.add(\"Liquefied explosives\");\n\t\t}\n\t\tif(this == ModItems.can_mrsugar) {\n\t\t\tlist.add(\"An intellectual drink, for the chosen ones!\");\n\t\t}\n\t\tif(this == ModItems.can_overcharge) {\n\t\t\tlist.add(\"Possible side effects include heart attacks, seizures or zombification\");\n\t\t}\n\t\tif(this == ModItems.can_luna) {\n\t\t\tlist.add(\"Contains actual selenium and star metal. Tastes like night.\");\n\t\t}\n\t\tif(this == ModItems.can_bepis) {\n\t\t\tlist.add(\"beppp\");\n\t\t}\n\t\tif(this == ModItems.can_breen) {\n\t\t\tlist.add(\"Don't drink the water. They put something in it, to make you forget.\");\n\t\t\tlist.add(\"I don't even know how I got here.\");\n\t\t}\n\t\tif(this == ModItems.chocolate_milk) {\n\t\t\tlist.add(\"Regular chocolate milk. Safe to drink.\");\n\t\t\tlist.add(\"Totally not made from nitroglycerine.\");\n\t\t}\n\t\tif(this == ModItems.bottle_nuka) {\n\t\t\tlist.add(\"Contains about 210 kcal and 1500 mSv.\");\n\t\t}\n\t\tif(this == ModItems.bottle_cherry) {\n\t\t\tlist.add(\"Now with severe radiation poisoning in every seventh bottle!\");\n\t\t}\n\t\tif(this == ModItems.bottle_quantum) {\n\t\t\tlist.add(\"Comes with a colorful mix of over 70 isotopes!\");\n\t\t}\n\t\tif(this == ModItems.bottle2_korl) {\n\t\t\tlist.add(\"Contains actual orange juice!\");\n\t\t}\n\t\tif(this == ModItems.bottle2_fritz) {\n\t\t\tlist.add(\"moremore caffeine\");\n\t\t}\n\t\tif(this == ModItems.bottle_sparkle) {\n\t\t\tif(MainRegistry.polaroidID == 11)\n\t\t\t\tlist.add(\"Contains trace amounts of taint.\");\n\t\t\telse\n\t\t\t\tlist.add(\"The most delicious beverage in the wasteland!\");\n\t\t}\n\t\tif(this == ModItems.bottle_rad) {\n\t\t\tif(MainRegistry.polaroidID == 11)\n\t\t\t\tlist.add(\"Now with 400% more radiation!\");\n\t\t\telse\n\t\t\t\tlist.add(\"Tastes like radish and radiation.\");\n\t\t}\n\t\t\n\t\tif(this.requiresOpener) list.add(\"[Requires bottle opener]\");\n\t}",
+      "body_sha256": "f6637b6ebda4ff1092ad896509cd873eb33a343e45ed33e18037d79bfb94eaaf",
+      "original_parameters": [
+        "ItemStack p_77624_1_",
+        "EntityPlayer p_77624_2_",
+        "List list",
+        "boolean p_77624_4_"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemLemon.java": {
+      "owner": "com.hbm.items.food.ItemLemon",
+      "ancestry": [
+        "com.hbm.items.food.ItemLemon",
+        "net.minecraft.item.ItemFood",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "93b0348b37aa605b72a882a3b7a9ce19f8aa62ed51473c8fb45597e833e09f3c",
+      "after_sha256": "057aebf6530da1c089c9f1a1dd2d6e8854086df69ced708a2eb5d7b3d35aaaa8",
+      "offset": 970,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.lemon) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.lemon.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.med_ipecac) {\n\t\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.med_ipecac.desс\");\n\t\t\tfor (String line : lines) {\n\t\t\t\tlist.add(line);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.med_ptsd) {\n\t\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.med_ptsd.desc\");\n\t\t\tfor (String line : lines) {\n\t\t\t\tlist.add(line);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.med_schizophrenia) {\n\t\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.med_schizophrenia.desc\");\n\t\t\tfor (String line : lines) {\n\t\t\t\tlist.add(line);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.loops) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.loops.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.loop_stew) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.loop_stew.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.twinkie) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.twinkie.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.pudding) {\n\t\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.pudding.desc\");\n\t\t\tfor (String line : lines) {\n\t\t\t\tlist.add(line);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.ingot_semtex) {\n\t\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.ingot_semtex.desc\");\n\t\t\tfor (String line : lines) {\n\t\t\t\tlist.add(line);\n\t\t\t}\n\t\t}\n\n\t\tif(this == ModItems.peas) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.peas.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.quesadilla) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.cheese_quesadilla.desc\"));\n\t\t}\n\n\t\tif(this == ModItems.flesh_burger) {\n\t\t\tlist.add(I18nUtil.resolveKey(\"item.flesh_burger.desc\"));\n\t\t}\n\t}",
+      "body_sha256": "85a0c74490fd5890ede807ff63658d0ea2ec25353f169175c5bf3ad75053bb5e",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemMuchoMango.java": {
+      "owner": "com.hbm.items.food.ItemMuchoMango",
+      "ancestry": [
+        "com.hbm.items.food.ItemMuchoMango",
+        "net.minecraft.item.ItemFood",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "58160e5a830c222f6612b4e12c4018d8f8ecff595c832168b6cb7c5a24bf932a",
+      "after_sha256": "1d382e1f8db5ac4462528e30877946a78e4a7e801c361e468e7a3d78f248cd21",
+      "offset": 770,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.mucho_mango) {\n\t\t\tlist.add(\"The Comically Large Can\");\n\t\t}\n\t}",
+      "body_sha256": "ad4f50c4332c25df54ed573e66cd625c4c1756773216778aa9be80881792784b",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPancake.java": {
+      "owner": "com.hbm.items.food.ItemPancake",
+      "ancestry": [
+        "com.hbm.items.food.ItemPancake",
+        "net.minecraft.item.ItemFood",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "3e85ba73a79fba4aad08da35474e2e1033539638bc7765d30800f3cc6fd3e0ec",
+      "after_sha256": "0de4339a7b31e1174515dc61cb9231b43ad693c53811830f9373fb9a2f29151f",
+      "offset": 1555,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Can be eaten to recharge lunar cybernetic armor\");\r\n\t\tlist.add(\"Not for people with weak molars\");\r\n\t\tlist.add(\"\");\r\n\t\tlist.add(\"Half burnt and smells horrible\");\r\n\t}",
+      "body_sha256": "9092fa6a9fc1de6b44512c2c8d33e7caefce88a8b591452e3b857653a7e9a01e",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "owner": "com.hbm.items.food.ItemPill",
+      "ancestry": [
+        "com.hbm.items.food.ItemPill",
+        "net.minecraft.item.ItemFood",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "5071f8f5144b47de42512c5d38a276898e7a3fc49738688ac59f7181638b5acf",
+      "after_sha256": "954f76d7103310485bb148c60a1d2bdcadefa5c61ed3b5d68c63409c91100612",
+      "offset": 5112,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tString unloc = this.getTranslationKey() + \".desc\"; //this should really be an interface...\n\t\tString loc = I18nUtil.resolveKey(unloc);\n\t\t\n\t\tif(!unloc.equals(loc)) {\n\t\t\tString[] locs = loc.split(\"\\\\$\");\n\t\t\t\n\t\t\tfor(String s : locs) {\n\t\t\t\tlist.add(s);\n\t\t\t}\n\t\t}\n\t}",
+      "body_sha256": "7312a56d94280b8726b5ebe941b9f943d4795d274aacf30af02b521c2794e6ba",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemTemFlakes.java": {
+      "owner": "com.hbm.items.food.ItemTemFlakes",
+      "ancestry": [
+        "com.hbm.items.food.ItemTemFlakes",
+        "net.minecraft.item.ItemFood",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "fd9d7b234769caa2d146a5949b4dd691f643066c94b87d50007f18a32243a4dc",
+      "after_sha256": "2625c5d7564b609648b7168193c6958a2ba4279b23e167ff67bba0eae9ed736e",
+      "offset": 1127,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(itemstack.getItemDamage() == 0)\n\t\t{\n\t\t\tlist.add(\"Heals 2HP DISCOUNT FOOD OF TEM!!!\");\n\t\t}\n\t\tif(itemstack.getItemDamage() == 1)\n\t\t{\n\t\t\tlist.add(\"Heals 2HP food of tem\");\n\t\t}\n\t\tif(itemstack.getItemDamage() == 2)\n\t\t{\n\t\t\tlist.add(\"Heals food of tem (expensiv)\");\n\t\t}\n\t}",
+      "body_sha256": "b46a2c78ce4351c651dca5f2d4770ad7f47e51b17ce8cd181cb84183b3e7ec4d",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemBlueprints.java": {
+      "owner": "com.hbm.items.machine.ItemBlueprints",
+      "ancestry": [
+        "com.hbm.items.machine.ItemBlueprints",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b2ec77bcaa7d725a65bcc9253c5b88edf7d2ce85ed5eea43514e69131751ef43",
+      "after_sha256": "93c59800ce04ed975455d213b6ef9560590c21e8097de02b328970283184e9e7",
+      "offset": 3247,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tif(!stack.hasTagCompound()) {\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tString poolName = stack.getTagCompound().getString(\"pool\");\n\t\tList<String> pool = GenericRecipes.blueprintPools.get(poolName);\n\t\t\n\t\tif(pool == null || pool.isEmpty()) {\n\t\t\treturn;\n\t\t}\n\t\tif(poolName.startsWith(GenericRecipes.POOL_PREFIX_SECRET)) {\n\t\t\tlist.add(TextFormatting.RED + \"Cannot be copied!\");\n\t\t} else {\n\t\t\tlist.add(TextFormatting.YELLOW + \"Right-click to copy (requires paper)\");\n\t\t}\n\t\t\n\t\tfor(String name : pool) {\n\t\t\tGenericRecipe recipe = GenericRecipes.pooledBlueprints.get(name);\n\t\t\tif(recipe != null) {\n\t\t\t\tlist.add(recipe.getLocalizedName());\n\t\t\t}\n\t\t}\n\t}",
+      "body_sha256": "abdc69d8a91027adc02092ecf7424a64bf0f1ef6e8c3f23b3314de1b144a7ba3",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean ext"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCassette.java": {
+      "owner": "com.hbm.items.machine.ItemCassette",
+      "ancestry": [
+        "com.hbm.items.machine.ItemCassette",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "41a7366bb90ddb9a9fa246600e7d9bda6bbcf37ced1450242e8f317263468908",
+      "after_sha256": "12bc180bf18a3be75f6ca5b1686e26f3d7b92294767d68b624d6014d7bbd8f0a",
+      "offset": 4606,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n    \t\n    \tif(!(stack.getItem() instanceof ItemCassette))\n    \t\treturn;\n\n\t\tlist.add(TextFormatting.YELLOW + I18nUtil.resolveKey(\"info.templatefolder\", I18nUtil.resolveKey(ModItems.template_folder.getTranslationKey() + \".name\")));\n\t\tlist.add(\"\");\n    \t\n    \tlist.add(\"Siren sound cassette:\");\n    \tlist.add(\"   Name: \" + TrackType.getEnum(stack.getItemDamage()).getTrackTitle());\n    \tlist.add(\"   Type: \" + TrackType.getEnum(stack.getItemDamage()).getType().name());\n    \tlist.add(\"   Volume: \" + TrackType.getEnum(stack.getItemDamage()).getVolume());\n\t}",
+      "body_sha256": "a8868186cf5dc00174a36f8f23d67fff409256f951580d025a4e13e2eca7e8e4",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCatalyst.java": {
+      "owner": "com.hbm.items.machine.ItemCatalyst",
+      "ancestry": [
+        "com.hbm.items.machine.ItemCatalyst",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "82245fb78be42a830fef6112127a704bdc75dd308454f538b23164433d210ce5",
+      "after_sha256": "33262104c437e4d6da45a40cf197ae12dbb3cc9273c44c655bb8488b71984dd4",
+      "offset": 753,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Adds spice to the core.\");\n\t\tlist.add(\"Look at all those colors!\");\n\t}",
+      "body_sha256": "00ee2f4dd1ee2d6110c3e8bb1e3308c3d65133b27b83d22c782e8621e519d397",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCrucibleTemplate.java": {
+      "owner": "com.hbm.items.machine.ItemCrucibleTemplate",
+      "ancestry": [
+        "com.hbm.items.machine.ItemCrucibleTemplate",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "ec85a7781a59c13d45537adbc8c88e29488c0475d11cdcc37042467c71206bd0",
+      "after_sha256": "e0684167f4d972050126bec6bfa5402c7055eac6befc9f0b453c5aff60f2eee2",
+      "offset": 1497,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tCrucibleRecipe recipe = CrucibleRecipes.indexMapping.get(stack.getItemDamage());\n\t\t\n\t\tif(recipe == null) {\n\t\t\treturn;\n\t\t}\n\n\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"info.template_out_p\"));\n\t\tfor(MaterialStack out : recipe.output) {\n\t\t\tlist.add(I18nUtil.resolveKey(out.material.getUnlocalizedName()) + \": \" + Mats.formatAmount(out.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));\n\t\t}\n\n\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"info.template_in_p\"));\n\t\t\n\t\tfor(MaterialStack in : recipe.input) {\n\t\t\tlist.add(I18nUtil.resolveKey(in.material.getUnlocalizedName()) + \": \" + Mats.formatAmount(in.amount, Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)));\n\t\t}\n\t}",
+      "body_sha256": "dfd99a8c99fc5d11c65f52639749d45fd6015d27d5b8b3096ef665f300280ff3",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFELCrystal.java": {
+      "owner": "com.hbm.items.machine.ItemFELCrystal",
+      "ancestry": [
+        "com.hbm.items.machine.ItemFELCrystal",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "f2fee6dd6a3b6d7d1299975134491dcf12662edc01cb79f31390365e01fe09ed",
+      "after_sha256": "7f2dfbcb42a7f6fdcb2805ce4e1d34c103b4d4ee5d62d75338ca06e554e5ab54",
+      "offset": 656,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tString desc = (stack.getItem() == ModItems.laser_crystal_digamma) ? (TextFormatting.OBFUSCATED + \"THERADIANCEOFATHOUSANDSUNS\") : (this.getUnlocalizedNameInefficiently(stack) + \".desc\");\n\t\tlist.add(I18nUtil.resolveKey(desc));\n\t\tlist.add(wavelength.textColor + I18nUtil.resolveKey(wavelength.name) + \" - \" + wavelength.textColor + I18nUtil.resolveKey(this.wavelength.wavelengthRange));\n\t}",
+      "body_sha256": "d92e85eaf4182300ccf9b49704fcb48d39c813b071f0f99752b38d5f2dddbbd6",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java": {
+      "owner": "com.hbm.items.machine.ItemFluidIDMulti",
+      "ancestry": [
+        "com.hbm.items.machine.ItemFluidIDMulti",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b50abfd4f8aad2e2b2f5ab50b9c11afce6f29903b524892fa2ce55317c142cf2",
+      "after_sha256": "ba5f3829184791ca6d500d16de24660c64c3d8b2ffb786a6bcf7a2dcf0ccb68d",
+      "offset": 2681,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(I18nUtil.resolveKey(getTranslationKey() + \".info\"));\n\t\tlist.add(\"   \" + getType(stack, true).getLocalizedName());\n\t\tlist.add(I18nUtil.resolveKey(getTranslationKey() + \".info2\"));\n\t\tlist.add(\"   \" + getType(stack, false).getLocalizedName());\n\t}",
+      "body_sha256": "2c07bcf88de730298657fbca073dd5f3e0b349654fe748ad602bea6ef7930e7f",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "stack",
+        "list",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidIcon.java": {
+      "owner": "com.hbm.items.machine.ItemFluidIcon",
+      "ancestry": [
+        "com.hbm.items.machine.ItemFluidIcon",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "95b5a7c295297ca3438d94d22a4ee0e0ec029b67fab918e8236d9d085a32ac7d",
+      "after_sha256": "579dccdc0b0cd77db465183d6fce20d3e675c76d63732c70942439f034d25dc4",
+      "offset": 1086,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(stack.hasTagCompound()) {\n\t\t\tif(getQuantity(stack) > 0) {\n\t\t\t\tlist.add(getQuantity(stack) + \"mB\");\n\t\t\t} else if(getAtmospheres(stack) > 0) {\n\t\t\t\tdouble pressure = BobMathUtil.roundDecimal(getAtmospheres(stack), 3);\n\t\t\t\tlist.add(pressure + \"atm\");\n\t\t\t}\n\n\t\t\tif(getPressure(stack) > 0) {\n\t\t\t\tlist.add(TextFormatting.RED + \"\" + getPressure(stack) + \"PU\");\n\t\t\t\tlist.add((BobMathUtil.getBlink() ? TextFormatting.RED : TextFormatting.DARK_RED) + \"Pressurized, use compressor!\");\n\t\t\t}\n\t\t}\n\n\t\tFluids.fromID(stack.getItemDamage()).addInfo(list);\n\t}",
+      "body_sha256": "1ab671a206314a533d8ed8e13be1decad3db39d2e0648151dd9b05a9be554cbf",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemICFPellet.java": {
+      "owner": "com.hbm.items.machine.ItemICFPellet",
+      "ancestry": [
+        "com.hbm.items.machine.ItemICFPellet",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "f7f0e3308ea136499fe9f3aa0792bc4ea0f6100260b9ff6f1b4924e61616b88d",
+      "after_sha256": "e034df2e80c3fbec9d63bd03dedaf40f6852556831552ecfaac65f9611fa655c",
+      "offset": 6475,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tboolean muon = stack.hasTagCompound() && stack.getTagCompound().getBoolean(\"muon\");\n\t\tlist.add(TextFormatting.GREEN + \"Depletion: \" + String.format(Locale.US, \"%.1f\", getDurabilityForDisplay(stack) * 100D) + \"%\");\n\t\tlist.add(TextFormatting.YELLOW + \"Fuel: \" + I18nUtil.resolveKey(\"icffuel.\" + getType(stack, true).name().toLowerCase(Locale.US)) + \" / \" + I18nUtil.resolveKey(\"icffuel.\" + getType(stack, false).name().toLowerCase(Locale.US)));\n\t\tlist.add(TextFormatting.YELLOW + \"Heat required: \" + BobMathUtil.getShortNumber(this.getFusingDifficulty(stack)) + \"TU\");\n\t\tlist.add(TextFormatting.YELLOW + \"Reactivity multiplier: x\" + (int) (getType(stack, true).reactionMult * getType(stack, false).reactionMult * 100) / 100D);\n\t\tif(muon) list.add(TextFormatting.DARK_AQUA + \"Muon catalyzed!\");\n\t}",
+      "body_sha256": "10a6a24391bbeeb35ec7ee40af558fc1dd28da68b1ce3195a9c6ae60c793e76c",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemInfiniteFluid.java": {
+      "owner": "com.hbm.items.machine.ItemInfiniteFluid",
+      "ancestry": [
+        "com.hbm.items.machine.ItemInfiniteFluid",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b4845d54d7f08062a20a3753f90911fdf3f73ed64ded4978713fa9aef5543ad0",
+      "after_sha256": "1f78f35c30a36a01153870141b68ddb14a0117855e4fa1fa095d100e304ce254",
+      "offset": 2058,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(canOperate(stack))\n\t\t\treturn;\n\n\t\tFluidType currentFluid = Fluids.fromID(stack.getTagCompound().getInteger(\"fluid\"));\n\n\t\tif(currentFluid == Fluids.NONE) {\n\t\t\tlist.add(\"Current environment has insufficient vapor pressure\");\n\t\t} else {\n\t\t\tlist.add(\"Current environment has an incompatible fluid table\");\n\t\t}\n\n\t\tlist.add(\"Requires: \" + type.getLocalizedName() + \" table\");\n\n\t\tif(currentFluid == Fluids.NONE) {\n\t\t\tlist.add(\"Releasing 0.2atm of vapor into the atmosphere will add a table on dry celestial bodies\");\n\t\t} else {\n\t\t\tlist.add(\"Current environment: \" + currentFluid.getLocalizedName() + \" table\");\n\t\t}\n\t}",
+      "body_sha256": "28c242953e6a88156ca9febb50fa9412c1f4a60050fc6cbe7e9e3911665cee09",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemLens.java": {
+      "owner": "com.hbm.items.machine.ItemLens",
+      "ancestry": [
+        "com.hbm.items.machine.ItemLens",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "05c62f77bb811e76529432a05184a89d40db8d877b7af31315f35b9d645c0fc9",
+      "after_sha256": "64509f1e5b6638822b2283f96e6aeee2a08dc4f6d2d33790a285078042b57f36",
+      "offset": 587,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tlong damage = getLensDamage(stack);\n\t\tint percent = (int) ((maxDamage - damage) * 100 / maxDamage);\n\t\t\n\t\tlist.add(\"Durability: \" + (maxDamage - damage) + \"/\" + maxDamage + \" (\" + percent + \"%)\");\n\t}",
+      "body_sha256": "732f3cdeedbefa3f48a2ac5d0fcb2477bd7ca6ad913f7a76434c0200a291e326",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemMold.java": {
+      "owner": "com.hbm.items.machine.ItemMold",
+      "ancestry": [
+        "com.hbm.items.machine.ItemMold",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "a7d3f5020b4688321e838ff0a95b7402a3369be9c6c1ebcbb60b167ae59da066",
+      "after_sha256": "3127af78404157fc0f05233b6f6d4035e5af21d4b034ec8017ad25a9c0d6b41d",
+      "offset": 5451,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tMold mold = getMold(stack);\n\t\tlist.add(TextFormatting.YELLOW + mold.getTitle());\n\n\t\tif(mold.size == 0) list.add(TextFormatting.GOLD + I18nUtil.resolveKey(ModBlocks.foundry_mold.getTranslationKey() + \".name\"));\n\t\tif(mold.size == 1) list.add(TextFormatting.RED + I18nUtil.resolveKey(ModBlocks.foundry_basin.getTranslationKey() + \".name\"));\n\t}",
+      "body_sha256": "c74d16c0712fa898317c8d4ede9d1c407be1f61b688146c4a89af24f3bdafa79",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemPWRPrinter.java": {
+      "owner": "com.hbm.items.machine.ItemPWRPrinter",
+      "ancestry": [
+        "com.hbm.items.machine.ItemPWRPrinter",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "0f15f716a03fb37e9af35eedb5a62b28a936a26e50a2c708bc351b5d2f06b4a9",
+      "after_sha256": "174cdb7cc8d39398d8284ec3eacfc48884bf9cec17392d05020c21f37e6cbd94",
+      "offset": 5442,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Use on a constructed PWR controller to generate construction diagrams\");\n\t}",
+      "body_sha256": "5ac4754dfb965824de2c0a318ceb07fcbfc2be99846b8cee53a3528741986b2f",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemPileRod.java": {
+      "owner": "com.hbm.items.machine.ItemPileRod",
+      "ancestry": [
+        "com.hbm.items.machine.ItemPileRod",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b517d25855739171e95bc8497af08ba883424dff9c3cccd8ba6f32269159c5db",
+      "after_sha256": "4f6a9502eda58555b2d6676575fffdce63717a0c4c7985ed6ec61a27f1725068",
+      "offset": 277,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tString[] defaultLocs = I18nUtil.resolveKey(\"desc.item.pileRod\").split(\"\\\\$\");\n\t\t\n\t\tfor(String loc : defaultLocs) {\n\t\t\tlist.add(loc);\n\t\t}\n\t\t\n\t\tString[] descLocs = I18nUtil.resolveKey(this.getTranslationKey() + \".desc\").split(\"\\\\$\");\n\t\t\n\t\tfor(String loc : descLocs) {\n\t\t\tlist.add(loc);\n\t\t}\n\t}",
+      "body_sha256": "7a2c424c24f7635b4aa9347f2881516b3a7ec7e6a84f29b0c24dc14122c92e7a",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemReactorSensor.java": {
+      "owner": "com.hbm.items.machine.ItemReactorSensor",
+      "ancestry": [
+        "com.hbm.items.machine.ItemReactorSensor",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "401becced7e57c04eba4cba1816b594b71cadd799f3c74b7069ba92c293cc6d9",
+      "after_sha256": "6abafd5de7e53ed8e32df872552b5db8f1a1c9ec350016610f4a795ad351601e",
+      "offset": 2581,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif (itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"x: \" + itemstack.getTagCompound().getInteger(\"x\"));\r\n\t\t\tlist.add(\"y: \" + itemstack.getTagCompound().getInteger(\"y\"));\r\n\t\t\tlist.add(\"z: \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"No reactor selected!\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "88e6a4c12ef593b98124569ba79ac94a6961ee2d47146d379d1776214e96b643",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemSelfcharger.java": {
+      "owner": "com.hbm.items.machine.ItemSelfcharger",
+      "ancestry": [
+        "com.hbm.items.machine.ItemSelfcharger",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "8d5e741247265ebd916be1b558b26be9bf008f8269506c8346e1e608630b0c46",
+      "after_sha256": "5b89c270f31735acb4c6925ebd9066213738921df5369cf76a889bdd51f0522f",
+      "offset": 472,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(TextFormatting.YELLOW + \"\" + BobMathUtil.getShortNumber(charge) + \"HE/t\");\n\t}",
+      "body_sha256": "62975b88f859f81ad4310c1dc738fcc7afff54ed6e31a5e8517f5585df08c299",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemTemplateFolder.java": {
+      "owner": "com.hbm.items.machine.ItemTemplateFolder",
+      "ancestry": [
+        "com.hbm.items.machine.ItemTemplateFolder",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "753e55d1f99299f45968b9f8ebb3f2352a6fb26befcd518d5c2c93f87691d3b5",
+      "after_sha256": "1c2cb19f5ce8f43ec065444f5f35039abdf8f1522d293fedda351a09a237d662",
+      "offset": 928,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tString[] lang = I18nUtil.resolveKeyArray(ModItems.template_folder.getTranslationKey() + \".desc\");\n\t\tTextFormatting color = BobMathUtil.getBlink() ? TextFormatting.RED : TextFormatting.YELLOW;\n\t\tfor(String line : lang) {\n\t\t\tlist.add(color + line);\n\t\t}\n\t}",
+      "body_sha256": "203f3f142b052869ccf55c5ce593d49faf6c11477bdaf893445ec0668fc2c1f4",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemAMSCore.java": {
+      "owner": "com.hbm.items.special.ItemAMSCore",
+      "ancestry": [
+        "com.hbm.items.special.ItemAMSCore",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "4062281f4899a218bc8b9a3565a3507a7bd351c09631d2815804891f13ba0509",
+      "after_sha256": "fff96c8bdbd69be67fca71198844c51c8a1007f69acb94c6f95eefa3b083a27a",
+      "offset": 647,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif (this == ModItems.ams_core_sing) {\n\t\t\tlist.add(\"A modified undefined state of spacetime\");\n\t\t\tlist.add(\"used to aid in inter-gluon fusion and\");\n\t\t\tlist.add(\"spacetime annihilation. Yes, this destroys\");\n\t\t\tlist.add(\"the universe itself, slowly but steadily,\");\n\t\t\tlist.add(\"but at least you can power your toaster with\");\n\t\t\tlist.add(\"this, so it's all good.\");\n\t\t}\n\n\t\tif (this == ModItems.ams_core_wormhole) {\n\t\t\tlist.add(\"A cloud of billions of nano-wormholes which\");\n\t\t\tlist.add(\"deliberately fail at tunneling matter from\");\n\t\t\tlist.add(\"another dimension, rather it converts all\");\n\t\t\tlist.add(\"that matter into pure energy. That means\");\n\t\t\tlist.add(\"you're actively contributing to the destruction\");\n\t\t\tlist.add(\"of another dimension, sucking it dry like a\");\n\t\t\tlist.add(\"juicebox.\");\n\t\t\tlist.add(\"That dimension probably sucked, anyways. I\");\n\t\t\tlist.add(\"bet it was full of wasps or some crap, man,\");\n\t\t\tlist.add(\"I hate these things.\");\n\t\t}\n\n\t\tif (this == ModItems.ams_core_eyeofharmony) {\n\t\t\tlist.add(\"A star collapsing in on itself, mere nanoseconds\");\n\t\t\tlist.add(\"away from being turned into a black hole,\");\n\t\t\tlist.add(\"frozen in time. If I didn't know better I\");\n\t\t\tlist.add(\"would say this is some deep space magic\");\n\t\t\tlist.add(\"bullcrap some guy made up to sound intellectual.\");\n\t\t\tlist.add(\"Probably Steve from accounting. You still owe me\");\n\t\t\tlist.add(\"ten bucks.\");\n\t\t}\n\n\t\tif (this == ModItems.ams_core_thingy) {\n\t\t\tif(MainRegistry.polaroidID == 11) {\n\t\t\t\tlist.add(\"Yeah I'm not even gonna question that one.\");\n\t\t\t} else {\n\t\t\t\tlist.add(\"...\");\n\t\t\t\tlist.add(\"...\");\n\t\t\t\tlist.add(\"...am I even holding this right?\");\n\t\t\t\tlist.add(\"It's a small metal thing. I dunno where it's from\");\n\t\t\t\tlist.add(\"or what it does, maybe they found it on a\");\n\t\t\t\tlist.add(\"junkyard and sold it as some kind of antique\");\n\t\t\t\tlist.add(\"artifact. If it weren't for the fact that I can\");\n\t\t\t\tlist.add(\"actually stuff this into some great big laser\");\n\t\t\t\tlist.add(\"reactor thing, I'd probably bring it back to where\");\n\t\t\t\tlist.add(\"it belongs. In the trash.\");\n\t\t\t}\n\t\t}\n\t}",
+      "body_sha256": "2be89d8cfd387202c623c580151925953912bc6850a5990dca49186c5815e882",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBedrockOreBase.java": {
+      "owner": "com.hbm.items.special.ItemBedrockOreBase",
+      "ancestry": [
+        "com.hbm.items.special.ItemBedrockOreBase",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "028c92d93bb3905343b8f93582ed804409f591919eced263b0f663c492916dcf",
+      "after_sha256": "6c8cdd68807fad2f96f4c2b6850bc6ec96ba95919410d171e93f303a5256f050",
+      "offset": 2018,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tSolarSystem.Body body = getOreBody(stack);\n\t\tlist.add(\"Mined on: \" + I18nUtil.resolveKey(\"body.\" + body.name));\n\n\t\tfor(CelestialBedrockOreType type : CelestialBedrockOre.get(body).types) {\n\t\t\tdouble amount = getOreAmount(stack, type);\n\t\t\tString typeName = I18nUtil.format(\"item.bedrock_ore.type.\" + type.suffix + \".name\");\n\t\t\tlist.add(typeName + \": \" + ((int) (amount * 100)) / 100D + \" (\" + ItemOreDensityScanner.getColor(amount) + I18nUtil.format(ItemOreDensityScanner.translateDensity(amount)) + TextFormatting.GRAY + \")\");\n\t\t}\n\t}",
+      "body_sha256": "f1e67c3ab07d0d2b622ffcd24f36b84931dda9c236cc4c76efc697513781369c",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java": {
+      "owner": "com.hbm.items.special.ItemBedrockOreNew",
+      "ancestry": [
+        "com.hbm.items.special.ItemBedrockOreNew",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "34e673a21527f465497d5de8ace3128569be11fac0e63161fefc9da3aff50f11",
+      "after_sha256": "51226cb0fdbf34bc1a90a44e4129d95766fd4ac0fc93d5be50c6e83c3eb8d9db",
+      "offset": 4301,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tfor(ProcessingTrait trait : this.getGrade(stack.getItemDamage()).traits) {\n\t\t\tlist.add(I18nUtil.resolveKey(this.getUnlocalizedNameInefficiently(stack) + \".trait.\" + trait.name().toLowerCase(Locale.US)));\n\t\t}\n\t}",
+      "body_sha256": "02e51cd76b0a0466772b1e4cdf82d306b1188908a7e976c19d2b24213bcc5589",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBook.java": {
+      "owner": "com.hbm.items.special.ItemBook",
+      "ancestry": [
+        "com.hbm.items.special.ItemBook",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "6c5255ff9e5e329e1c9a65c355ffe8e6e923fd919b3dbe6c1e34b6aaacbdfb76",
+      "after_sha256": "2cb437d441c90ada7d0c1220e1743e99ab11245ada56b097bc83030792d704df",
+      "offset": 599,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tlist.add(\"Edition 4, gold lined pages\");\n\t}",
+      "body_sha256": "aa736f34a0b26ce0d38fc4a31c805b62d1c68943ea62df0ea787359eba2cfa27",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBookLore.java": {
+      "owner": "com.hbm.items.special.ItemBookLore",
+      "ancestry": [
+        "com.hbm.items.special.ItemBookLore",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "f03b384f38713f7ffaeb2805855c98aba71dbd0e90fb6e59940d36dfde3cbe3f",
+      "after_sha256": "4e4f7554c9e5803194057d95ece5c138291684eebcafb2ac5f4b225f8faa4272",
+      "offset": 1405,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(!stack.hasTagCompound()) return;\n\t\tString key = stack.getTagCompound().getString(\"k\");\n\t\tif(key.isEmpty()) return;\n\t\t\n\t\tkey = \"book_lore.\" + key + \".author\";\n\t\tString loc = I18nUtil.resolveKey(key);\n\t\tif(!loc.equals(key))\n\t\t\tlist.add(I18nUtil.resolveKey(\"book_lore.author\", loc));\n\t}",
+      "body_sha256": "b85646867a390b05df774dc7b47c312b2ccd010864f30111b7d77ebb936c6700",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "owner": "com.hbm.items.special.ItemCigarette",
+      "ancestry": [
+        "com.hbm.items.special.ItemCigarette",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "cc2dc9bd4a873d0c639cd184c7fe8e9cbf0f68638c99f48e2eb466e7d373a44d",
+      "after_sha256": "de9162451b4ffb92ef8825c8c5ce447fa447d31a47a6b9f307cf27e2f6acc342",
+      "offset": 2482,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif(this == ModItems.cigarette) {\n\t\t\tlist.add(TextFormatting.RED + \"✓ Asbestos filter\");\n\t\t\tlist.add(TextFormatting.RED + \"✓ High in tar\");\n\t\t\tlist.add(TextFormatting.RED + \"✓ Tobacco contains 100% Polonium-210\");\n\t\t\tlist.add(TextFormatting.RED + \"✓ Yum\");\n\t\t} else {\n\t\t\tString[] colors = new String[] {\n\t\t\t\t\tTextFormatting.RED + \"\",\n\t\t\t\t\tTextFormatting.GOLD + \"\",\n\t\t\t\t\tTextFormatting.YELLOW + \"\",\n\t\t\t\t\tTextFormatting.GREEN + \"\",\n\t\t\t\t\tTextFormatting.AQUA + \"\",\n\t\t\t\t\tTextFormatting.BLUE + \"\",\n\t\t\t\t\tTextFormatting.DARK_PURPLE + \"\",\n\t\t\t\t\tTextFormatting.LIGHT_PURPLE + \"\",\n\t\t\t};\n\t\t\tint len = 2000;\n\t\t\tlist.add(\"This can't be good for me, but I feel \" + colors[(int)(System.currentTimeMillis() % len * colors.length / len)] + \"GREAT\");\n\t\t}\n\t}",
+      "body_sha256": "5d1c2b8fc74eb9f0055e16dfc5dfcc61aecba5ffbcb253f314d065669d6faf5d",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean ext"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemDrop.java": {
+      "owner": "com.hbm.items.special.ItemDrop",
+      "ancestry": [
+        "com.hbm.items.special.ItemDrop",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "7a89d8b0b712fbbd1a9fbb43a9f378f11a3b9a6645122968e098e892ac1189a1",
+      "after_sha256": "7ba674a958f13ea1675daed0b1f77b3f244367cf13500d48c34ab28d3a47e4e5",
+      "offset": 7136,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif (this == ModItems.cell_antimatter) {\r\n\t\t\tlist.add(\"Warning: Exposure to matter will\");\r\n\t\t\tlist.add(\"lead to violent annihilation!\");\r\n\t\t}\r\n\t\tif (this == ModItems.pellet_antimatter) {\r\n\t\t\tlist.add(\"Very heavy antimatter cluster.\");\r\n\t\t\tlist.add(\"Gets rid of black holes.\");\r\n\t\t}\r\n\t\tif (this == ModItems.cell_anti_schrabidium) {\r\n\t\t\tlist.add(\"Warning: Exposure to matter will\");\r\n\t\t\tlist.add(\"create a fólkvangr field!\");\r\n\t\t}\r\n\t\tif (this == ModItems.singularity) {\r\n\t\t\tlist.add(\"You may be asking:\");\r\n\t\t\tlist.add(\"\\\"But HBM, a manifold with an undefined\");\r\n\t\t\tlist.add(\"state of spacetime? How is this possible?\\\"\");\r\n\t\t\tlist.add(\"Long answer short:\");\r\n\t\t\tlist.add(\"\\\"I have no idea!\\\"\");\r\n\t\t}\r\n\t\tif (this == ModItems.singularity_counter_resonant) {\r\n\t\t\tlist.add(\"Nullifies resonance of objects in\");\r\n\t\t\tlist.add(\"non-euclidean space, creates variable\");\r\n\t\t\tlist.add(\"gravity well. Spontaneously spawns\");\r\n\t\t\tlist.add(\"tesseracts. If a tesseract happens to\");\r\n\t\t\tlist.add(\"appear near you, do not look directly\");\r\n\t\t\tlist.add(\"at it.\");\r\n\t\t}\r\n\t\tif (this == ModItems.singularity_super_heated) {\r\n\t\t\tlist.add(\"Continuously heats up matter by\");\r\n\t\t\tlist.add(\"resonating every planck second.\");\r\n\t\t\tlist.add(\"Tends to catch fire or to create\");\r\n\t\t\tlist.add(\"small plasma arcs. Not edible.\");\r\n\t\t}\r\n\t\tif (this == ModItems.black_hole) {\r\n\t\t\tlist.add(\"Contains a regular singularity\");\r\n\t\t\tlist.add(\"in the center. Large enough to\");\r\n\t\t\tlist.add(\"stay stable. It's not the end\");\r\n\t\t\tlist.add(\"of the world as we know it,\");\r\n\t\t\tlist.add(\"and I don't feel fine.\");\r\n\t\t}\r\n\t\tif (this == ModItems.detonator_deadman) {\r\n\t\t\tlist.add(\"Shift right-click to set position,\");\r\n\t\t\tlist.add(\"drop to detonate!\");\r\n\t\t\tif(itemstack.getTagCompound() == null)\r\n\t\t\t{\r\n\t\t\t\tlist.add(\"No position set!\");\r\n\t\t\t} else {\r\n\t\t\t\tlist.add(\"Set pos to \" + itemstack.getTagCompound().getInteger(\"x\") + \", \" + itemstack.getTagCompound().getInteger(\"y\") + \", \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t\t}\r\n\t\t}\r\n\t\tif (this == ModItems.detonator_de) {\r\n\t\t\tlist.add(\"Explodes when dropped!\");\r\n\t\t}\r\n\t\t\r\n\t\tlist.add(TextFormatting.RED + \"[\" + I18nUtil.resolveKey(\"trait.drop\") + \"]\");\r\n\t}",
+      "body_sha256": "266499f08f9a554b833a5313bcf5eee130bb43e23b1b9785b764438268cc0055",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "itemstack",
+        "itemstack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemFusionShield.java": {
+      "owner": "com.hbm.items.special.ItemFusionShield",
+      "ancestry": [
+        "com.hbm.items.special.ItemFusionShield",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b2e6be4bbf91fb632f2e488b159100524b7a6b844e3f9096b08ae19e4b85fda4",
+      "after_sha256": "d1ad96599b11d39979118245400a63b73e464f019374171c07b2dd2846757cde",
+      "offset": 712,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tlong damage = getShieldDamage(stack);\n\t\tint percent = (int) ((maxDamage - damage) * 100 / maxDamage);\n\n\t\tlist.add(\"Durability: \" + (maxDamage - damage) + \"/\" + maxDamage + \" (\" + percent + \"%)\");\n\t\t\n\t\tlist.add(\"Melting point: \" + TextFormatting.RED + \"\" + maxTemp + \"°C\");\n\t}",
+      "body_sha256": "92fefb82adee6bc094c26a518ec8fb6b51ca8c104e81b1cbea5e7fb4a4f4d6d5",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemGlitch.java": {
+      "owner": "com.hbm.items.special.ItemGlitch",
+      "ancestry": [
+        "com.hbm.items.special.ItemGlitch",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "909307ef7350e5bc6aa94a391841b1ce651507f5d65e0ad3de64282fa358958b",
+      "after_sha256": "114eed0fab91a91c66fadaeff118804ffa5422891074ec9b0b3d277893b51903",
+      "offset": 6689,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"It's a gamble!\");\r\n\t\tlist.add(\"\");\r\n\t\tswitch(MainRegistry.polaroidID) {\r\n\t\tcase 1: \r\n\t\t\tlist.add(\"Click-click-click!\");\r\n\t\t\tbreak;\r\n\t\tcase 2: \r\n\t\t\tlist.add(\"Creek!\");\r\n\t\t\tbreak;\r\n\t\tcase 3: \r\n\t\t\tlist.add(\"Bzzzt!\");\r\n\t\t\tbreak;\r\n\t\tcase 4: \r\n\t\t\tlist.add(\"TS staring off into space.\");\r\n\t\t\tbreak;\r\n\t\tcase 5: \r\n\t\t\tlist.add(\"BANG!!\");\r\n\t\t\tbreak;\r\n\t\tcase 6: \r\n\t\t\tlist.add(\"Woop!\");\r\n\t\t\tbreak;\r\n\t\tcase 7: \r\n\t\t\tlist.add(\"Poow!\");\r\n\t\t\tbreak;\r\n\t\tcase 8: \r\n\t\t\tlist.add(\"Pft!\");\r\n\t\t\tbreak;\r\n\t\tcase 9: \r\n\t\t\tlist.add(\"GF fgnevat bss vagb fcnpr.\");\r\n\t\t\tbreak;\r\n\t\tcase 10: \r\n\t\t\tlist.add(\"Backup memory #8 on 1.44 million bytes.\");\r\n\t\t\tbreak;\r\n\t\tcase 11: \r\n\t\t\tlist.add(\"PTANG!\");\r\n\t\t\tbreak;\r\n\t\tcase 12: \r\n\t\t\tlist.add(\"Bzzt-zrrt!\");\r\n\t\t\tbreak;\r\n\t\tcase 13: \r\n\t\t\tlist.add(\"Clang, click-brrthththrtrtrtrtrtr!\");\r\n\t\t\tbreak;\r\n\t\tcase 14: \r\n\t\t\tlist.add(\"KABLAM!\");\r\n\t\t\tbreak;\r\n\t\tcase 15: \r\n\t\t\tlist.add(\"PLENG!\");\r\n\t\t\tbreak;\r\n\t\tcase 16: \r\n\t\t\tlist.add(\"Wheeeeeeee-\");\r\n\t\t\tbreak;\r\n\t\tcase 17: \r\n\t\t\tlist.add(\"Thump.\");\r\n\t\t\tbreak;\r\n\t\tcase 18: \r\n\t\t\tlist.add(\"BANG! Choo-chooo! B A N G ! ! !\");\r\n\t\t\tbreak;\r\n\t\t}\r\n\t}",
+      "body_sha256": "b4ebbbe7c1ea11de10aa2a29ee2d9020297ec5b8e3e935737d2398bb60b8a154",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemMineralOre.java": {
+      "owner": "com.hbm.items.special.ItemMineralOre",
+      "ancestry": [
+        "com.hbm.items.special.ItemMineralOre",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "1cec1c02bf371f93f5542e5ad913961b572b06b641a96b375ec4bfa980f80d48",
+      "after_sha256": "45f8a2a0537d6938721164f51ebbc40b04c0507ea597d091d89c652889a6d759",
+      "offset": 1539,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tString r = TextFormatting.RED + \"\";\n\t\tString y = TextFormatting.YELLOW + \"\";\n\t\tString b = TextFormatting.BLUE + \"\";\n\t\tString o = TextFormatting.GOLD + \"\";\n\t\tString g = TextFormatting.GREEN + \"\";\n\t\t\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase CLUMP_PEROXIDE:\n\t\t\tlist.add(y + \"[Peroxide]\");\n\t\t\tbreak;\n\t\tcase CLUMP_NITRIC:\n\t\t\tlist.add(o + \"[Nitric]\");\n\t\t\tbreak;\n\t\tcase CLUMP_SULFURIC:\n\t\t\tlist.add(y + \"[Sulfuric]\");\n\t\t\tbreak;\n\t\tcase CLUMP_SOLVENT:\n\t\t\tlist.add(r + \"[Solvent]\");\n\t\t\tbreak;\n\t\tcase CLUMP_HYDROCHLORIC:\n\t\t\tlist.add(g + \"[Chloric]\");\n\t\t\tbreak;\n\t\tcase CLUMP_SCHRABIDIC:\n\t\t\tlist.add(b + \"[Schrabidic]\");\n\t\t\tbreak;\n\t\t}\n\t}",
+      "body_sha256": "9af2aee73d7cd02a4152b392e1a737bf42149868111101639bf3f06d6db3215c",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemModRecord.java": {
+      "owner": "com.hbm.items.special.ItemModRecord",
+      "ancestry": [
+        "com.hbm.items.special.ItemModRecord",
+        "net.minecraft.item.ItemRecord",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "a7e7cb30a958bb62ce8a8f383782f9a06b47672e63b2e41bf612f818eecd3d6e",
+      "after_sha256": "eaf6425a021e1afd32f4ad7015728f3da762b66366f7962be6134d4db7e94a62",
+      "offset": 1819,
+      "old": "addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_)",
+      "new": "addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> p_77624_3_, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tp_77624_3_.add(this.getRecordNameLocal());\n\t}",
+      "body_sha256": "3490ec261fae6b5ef366aec1047ce0a4d85e5dae8cc1bf10df2a1a1c66cfe48c",
+      "original_parameters": [
+        "ItemStack p_77624_1_",
+        "EntityPlayer p_77624_2_",
+        "List p_77624_3_",
+        "boolean p_77624_4_"
+      ],
+      "parameter_references": [
+        "p_77624_3_"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemPolaroid.java": {
+      "owner": "com.hbm.items.special.ItemPolaroid",
+      "ancestry": [
+        "com.hbm.items.special.ItemPolaroid",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "062bc2abca9941879c891efa8f4c63b740bc244e37698146363d2acfb720d8b1",
+      "after_sha256": "5ea246ceb2411a81dd5b07d174e1d04e2b4380aa2b18829ae2b475e9ae326fb1",
+      "offset": 730,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Fate chosen\");\n\t\tlist.add(\"\");\n\t\tswitch(MainRegistry.polaroidID) {\n\t\tcase 1: \n\t\t\tlist.add(\"...\");\n\t\t\tbreak;\n\t\tcase 2: \n\t\t\tlist.add(\"Clear as glass.\");\n\t\t\tbreak;\n\t\tcase 3: \n\t\t\tlist.add(\"'M\");\n\t\t\tbreak;\n\t\tcase 4: \n\t\t\tlist.add(\"It's about time.\");\n\t\t\tbreak;\n\t\tcase 5: \n\t\t\tlist.add(\"If you stare long into the abyss, the abyss stares back.\");\n\t\t\tbreak;\n\t\tcase 6: \n\t\t\tlist.add(\"public Party celebration = new Party();\");\n\t\t\tbreak;\n\t\tcase 7: \n\t\t\tlist.add(\"V urnerq lbh yvxr EBG13!\");\n\t\t\tbreak;\n\t\tcase 8: \n\t\t\tlist.add(\"11011100\");\n\t\t\tbreak;\n\t\tcase 9: \n\t\t\tlist.add(\"Vg'f nobhg gvzr.\");\n\t\t\tbreak;\n\t\tcase 10: \n\t\t\tlist.add(\"Schrabidium dislikes the breeding reactor.\");\n\t\t\tbreak;\n\t\tcase 11: \n\t\t\tlist.add(\"yss stares back.6public Party cel\");\n\t\t\tbreak;\n\t\tcase 12: \n\t\t\tlist.add(\"Red streaks.\");\n\t\t\tbreak;\n\t\tcase 13: \n\t\t\tlist.add(\"Q1\");\n\t\t\tbreak;\n\t\tcase 14: \n\t\t\tlist.add(\"Q4\");\n\t\t\tbreak;\n\t\tcase 15: \n\t\t\tlist.add(\"Q3\");\n\t\t\tbreak;\n\t\tcase 16: \n\t\t\tlist.add(\"Q2\");\n\t\t\tbreak;\n\t\tcase 17: \n\t\t\tlist.add(\"Two friends before christmas.\");\n\t\t\tbreak;\n\t\tcase 18: \n\t\t\tlist.add(\"Duchess of the boxcars.\");\n\t\t\tlist.add(\"\");\n\t\t\tlist.add(\"\\\"P.S.: Thirty-one.\\\"\");\n\t\t\tlist.add(\"\\\"Huh, what does thirty-one mean?\\\"\");\n\t\t\tbreak;\n\t\t}\n\t}",
+      "body_sha256": "5f5fe6d5ebccac90d404e53bb7b24f24c1d3ec90963ba8ff37d220577f98ca7d",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemRag.java": {
+      "owner": "com.hbm.items.special.ItemRag",
+      "ancestry": [
+        "com.hbm.items.special.ItemRag",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "da2c5d440b8e1a9b09f12eda7d8f63f8b2109e1dfe39e087a2374c6133f23e0f",
+      "after_sha256": "d6a7c0d03452469ca85ab56cac5f84c516e655b51d2cc5b8ff15f8f27febb7fa",
+      "offset": 1400,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tString[] lines = I18nUtil.resolveKeyArray(\"item.rag.desc\");\n\t\tfor (String line : lines) {\n\t\t\tlist.add(line);\n\t\t}\n\t}",
+      "body_sha256": "b1cf375249f8f6a086d48d9ff6fb49b6d6c818f548787aaf82c8680f43ac425b",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSoyuz.java": {
+      "owner": "com.hbm.items.special.ItemSoyuz",
+      "ancestry": [
+        "com.hbm.items.special.ItemSoyuz",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "3bc65cc7cd8f667d0320a4a4b5feff5ed3e710cac895d960c7573ec6c6aae08f",
+      "after_sha256": "fedaf62d121a5731516231847f6b0424ea6cdae027a021220f0b1e62f3af30a6",
+      "offset": 1252,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tlist.add(\"Skin:\");\n\t\t\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase 0: list.add(TextFormatting.GOLD + \"Original\"); break;\n\t\tcase 1: list.add(TextFormatting.BLUE + \"Luna Space Center\"); break;\n\t\tcase 2: list.add(TextFormatting.GREEN + \"Post War\"); break;\n\t\t}\n\t}",
+      "body_sha256": "07f040f301f3469c866e04cef8718f1d03d98ee93e3a537507d3d88d472714df",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "stack",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarmetal.java": {
+      "owner": "com.hbm.items.special.ItemStarmetal",
+      "ancestry": [
+        "com.hbm.items.special.ItemStarmetal",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "9e39802ad47d4a29de8e74f14d6e4c604b951fcc1f58e66b33c0b619d04ef0d8",
+      "after_sha256": "573e833c43229ddb10ff0d269baabc977647daf8745502a62ef885aba0ad5e4c",
+      "offset": 1445,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase 1: list.add(TextFormatting.ITALIC + \"Astra\"); break;\n\t\tcase 2: list.add(TextFormatting.ITALIC + \"Ursa\"); break;\n\t\tcase 3: list.add(TextFormatting.ITALIC + \"Orion\"); break;\n\t\t}\n\t}",
+      "body_sha256": "effd84ae80e8d7a288b7bdea0fc227fa8be21ab756bfc77b9e7fbef6827e3cac",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "owner": "com.hbm.items.special.ItemStarterKit",
+      "ancestry": [
+        "com.hbm.items.special.ItemStarterKit",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "160f15be4e08ba8a6d3243d4cb068cb22c1717c5ae6c8cd6e175ef09dc65535b",
+      "after_sha256": "f1075dea4875f1be41d53567103c1f319d8045835fd57116151fb163c0dd4a61",
+      "offset": 27341,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean b)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif(this == ModItems.nuke_starter_kit ||\n\t\t\t\tthis == ModItems.nuke_advanced_kit ||\n\t\t\t\tthis == ModItems.nuke_commercially_kit ||\n\t\t\t\tthis == ModItems.nuke_electric_kit ||\n\t\t\t\tthis == ModItems.gadget_kit ||\n\t\t\t\tthis == ModItems.boy_kit ||\n\t\t\t\tthis == ModItems.man_kit ||\n\t\t\t\tthis == ModItems.mike_kit ||\n\t\t\t\tthis == ModItems.tsar_kit ||\n\t\t\t\tthis == ModItems.prototype_kit ||\n\t\t\t\tthis == ModItems.fleija_kit ||\n\t\t\t\tthis == ModItems.solinium_kit ||\n\t\t\t\tthis == ModItems.grenade_kit ||\n\t\t\t\tthis == ModItems.missile_kit ||\n\t\t\t\tthis == ModItems.multi_kit) {\n\t\t\tlist.add(\"Please empty inventory before opening!\");\n\t\t}\n\t\tif(this == ModItems.nuke_starter_kit ||\n\t\t\t\tthis == ModItems.nuke_advanced_kit ||\n\t\t\t\tthis == ModItems.nuke_commercially_kit ||\n\t\t\t\tthis == ModItems.gadget_kit ||\n\t\t\t\tthis == ModItems.boy_kit ||\n\t\t\t\tthis == ModItems.man_kit ||\n\t\t\t\tthis == ModItems.mike_kit ||\n\t\t\t\tthis == ModItems.tsar_kit ||\n\t\t\t\tthis == ModItems.prototype_kit ||\n\t\t\t\tthis == ModItems.fleija_kit ||\n\t\t\t\tthis == ModItems.solinium_kit ||\n\t\t\t\tthis == ModItems.hazmat_kit) {\n\t\t\tlist.add(\"Armor will be displaced by hazmat suit.\");\n\t\t}\n\t}",
+      "body_sha256": "a0277ea3e17ce91875fef223234594e74ac59f9fd467a19221b1e335f160a083",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean b"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "owner": "com.hbm.items.special.ItemSyringe",
+      "ancestry": [
+        "com.hbm.items.special.ItemSyringe",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "f1abbb0187bc03ff9042e1affecfc7ba5d1ecd3d74d3388794f4ab48c24aa710",
+      "after_sha256": "54b386405f07ad1eab526bb63792228f5323f4efb4fe6eb9ecf55fe073625565",
+      "offset": 12754,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.syringe_antidote) {\n\t\t\tlist.add(\"Removes all potion effects\");\n\t\t}\n\t\tif(this == ModItems.syringe_awesome) {\n\t\t\tlist.add(\"Every good effect for 50 seconds\");\n\t\t}\n\t\tif(this == ModItems.syringe_metal_medx) {\n\t\t\tlist.add(\"Resistance III for 4 minutes\");\n\t\t}\n\t\tif(this == ModItems.syringe_metal_psycho) {\n\t\t\tlist.add(\"Resistance I for 2 minutes\");\n\t\t\tlist.add(\"Strength I for 2 minutes\");\n\t\t}\n\t\tif(this == ModItems.syringe_metal_stimpak) {\n\t\t\tlist.add(\"Heals 2.5 hearts\");\n\t\t}\n\t\tif(this == ModItems.syringe_metal_super) {\n\t\t\tlist.add(\"Heals 25 hearts\");\n\t\t\tlist.add(\"Slowness I for 10 seconds\");\n\t\t}\n\t\tif(this == ModItems.syringe_poison) {\n\t\t\tlist.add(\"Deadly\");\n\t\t}\n\t\tif(this == ModItems.med_bag) {\n\t\t\tlist.add(\"Full heal, regardless of max health\");\n\t\t\tlist.add(\"Removes negative effects\");\n\t\t}\n\t\tif(this == ModItems.radaway) {\n\t\t\tlist.add(\"Removes 140 RAD\");\n\t\t}\n\t\tif(this == ModItems.radaway_strong) {\n\t\t\tlist.add(\"Removes 350 RAD\");\n\t\t}\n\t\tif(this == ModItems.radaway_flush) {\n\t\t\tlist.add(\"Removes 1000 RAD\");\n\t\t}\n\t\tif(this == ModItems.syringe_taint) {\n\t\t\tlist.add(\"Tainted I for 60 seconds\");\n\t\t\tlist.add(\"Nausea I for 5 seconds\");\n\t\t\tlist.add(\"Cloud damage + taint = tainted heart effect\");\n\t\t}\n\t\tif(this == ModItems.gas_mask_filter) {\n\t\t\tlist.add(\"Repairs worn gas mask\");\n\t\t}\n\t\tif(this == ModItems.gas_mask_filter_mono) {\n\t\t\tlist.add(\"Repairs worn monoxide mask\");\n\t\t}\n\t\tif(this == ModItems.jetpack_tank) {\n\t\t\tlist.add(\"Fills worn jetpack with up to 1000mB of kerosene\");\n\t\t}\n\t\tif(this == ModItems.lox_tank) {\n\t\t\tlist.add(\"Fills a worn PLSS with 1000mB of oxygen\");\n\t\t}\n\t\tif(this == ModItems.gun_kit_1) {\n\t\t\tlist.add(\"Repairs all weapons in hotbar by 10%\");\n\t\t}\n\t\tif(this == ModItems.gun_kit_2) {\n\t\t\tlist.add(\"Repairs all weapons in hotbar by 50%\");\n\t\t}\n\n\t\tif(this == ModItems.syringe_mkunicorn) {\n\t\t\tlist.add(TextFormatting.RED + \"?\");\n\t\t}\n\t}",
+      "body_sha256": "e1174fbb2c45f882a2acf42c04cc2d8ac38b29a73d66829c2df7d9534bab5408",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemTeleLink.java": {
+      "owner": "com.hbm.items.special.ItemTeleLink",
+      "ancestry": [
+        "com.hbm.items.special.ItemTeleLink",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "6151234ceb0705e0d7315f6a728a4be3b0380330679dbdc2208f6ed95c68bbee",
+      "after_sha256": "695c56f4967bc6682a61b5fb8ced5eb1623647b01510479a89d6e904bef8a318",
+      "offset": 2454,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif (itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"X: \" + itemstack.getTagCompound().getInteger(\"x\"));\r\n\t\t\tlist.add(\"Y: \" + itemstack.getTagCompound().getInteger(\"y\"));\r\n\t\t\tlist.add(\"Z: \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t\tlist.add(\"D: \" + itemstack.getTagCompound().getInteger(\"dim\"));\r\n\t\t} else {\r\n\t\t\tlist.add(TextFormatting.RED + \"Select exit location first!\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "27da05cb0d13ecbdcf2863a454dde37d6ea821ef838e4e3bb8ac8f84ffe8af99",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemUnstable.java": {
+      "owner": "com.hbm.items.special.ItemUnstable",
+      "ancestry": [
+        "com.hbm.items.special.ItemUnstable",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "693dbf4385493b706523170425f9950aebfedae426566e1fa1580b79695fbec2",
+      "after_sha256": "b3b42451dbafc58465a53521f174e8c4e9666a520b8529228b7ee954e41db3c7",
+      "offset": 869,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n    \t\n    \tif(stack.getItemDamage() != 0)\n    \t\treturn;\n\t\t\n\t\tlist.add(\"Decay: \" + (getTimer(stack) * 100 / timer) + \"%\");\n\t}",
+      "body_sha256": "edb679d55eb86fb37c92e5221d6f0b69d9a5e354cbe78f73843e14d18bb249c9",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java": {
+      "owner": "com.hbm.items.tool.ItemAmmoContainer",
+      "ancestry": [
+        "com.hbm.items.tool.ItemAmmoContainer",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "2733a2e6aaf0334e1cb42fc50802b437189954cad7ac4276b52cf8cd19057c55",
+      "after_sha256": "be0a5fa60f95c3e3ed39360ca72330df128cae63b94c9d30801068bf12a0a513",
+      "offset": 2641,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tString[] lines = I18nUtil.resolveKeyArray(this.getTranslationKey() + (stack.getItemDamage() == 1 ? \".1\" : \"\") + \".desc\");\n\t\tfor(String line : lines) list.add(TextFormatting.YELLOW + line);\n\t}",
+      "body_sha256": "3ca3a17bd9c7753db3756edaf942472b5ebd2ac94bf57a61d45e8d37de03d0f5",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBlowtorch.java": {
+      "owner": "com.hbm.items.tool.ItemBlowtorch",
+      "ancestry": [
+        "com.hbm.items.tool.ItemBlowtorch",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "64466cc76e59e05d4e683b4cf8b51c92a6a17ffa419de1b72e21d04492f77302",
+      "after_sha256": "f470f9da2a45fc02c899c31e655e97bae06565c36cb0e8616ad62237f2cdce5b",
+      "offset": 5692,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif(this == ModItems.blowtorch) {\n\t\t\tlist.add(TextFormatting.YELLOW + getFillGauge(stack, Fluids.GAS));\n\t\t}\n\t\tif(this == ModItems.acetylene_torch) {\n\t\t\tlist.add(TextFormatting.YELLOW + getFillGauge(stack, Fluids.UNSATURATEDS));\n\t\t\tlist.add(TextFormatting.AQUA + getFillGauge(stack, Fluids.OXYGEN));\n\t\t}\n\t}",
+      "body_sha256": "7b3f1200ab3a0819787393649806dba54c1e80d7d460bc760da4442eec603144",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean ext"
+      ],
+      "parameter_references": [
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBombCaller.java": {
+      "owner": "com.hbm.items.tool.ItemBombCaller",
+      "ancestry": [
+        "com.hbm.items.tool.ItemBombCaller",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "402f784da7ec8a71437a1aa8225f1139f63beddde201f7ae485b394c92aaff04",
+      "after_sha256": "b21bb5b0914299180228c513b833d1cdbdc4bd29fa1e382db9eee84718e44f49",
+      "offset": 716,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Aim & click to call an airstrike!\");\r\n\r\n\t\tswitch (stack.getItemDamage()) {\r\n\t\t\tcase 0: list.add(\"Type: Carpet bombing\"); break;\r\n\t\t\tcase 1: list.add(\"Type: Napalm\"); break;\r\n\t\t\tcase 2: list.add(\"Type: Poison gas\"); break;\r\n\t\t\tcase 3: list.add(\"Type: Agent orange\"); break;\r\n\t\t\tcase 4: list.add(\"Type: Atomic bomb\"); break;\r\n\t\t\tcase 5: list.add(\"Type: VT stinger rockets\"); break;\r\n\t\t\tcase 6: list.add(\"Type: PIP OH GOD\"); break;\r\n\t\t\tcase 7: list.add(\"Type: Cloud the cloud oh god the cloud\"); break;\r\n\t\t\tcase 8: list.add(\"Civilian Airliner.\"); break;\r\n\t\t\tdefault: list.add(\"Type: INVALID, Report it to mod creator\");\r\n\r\n\t\t}\r\n\t}",
+      "body_sha256": "9db4d5954bf501d56ffcbbbeeb5e1f3024cee01ef7cf1c96c6a814529bd5bca5",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCatalog.java": {
+      "owner": "com.hbm.items.tool.ItemCatalog",
+      "ancestry": [
+        "com.hbm.items.tool.ItemCatalog",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "f6a96a38c34143f00f9d79bd1d45e532e59f1b2bc6d865efbfe1260d9b14a3a0",
+      "after_sha256": "ffe7e898622928f8f4dff48565ded6bae1abc6efcd2c1395f181920b59a9f952",
+      "offset": 832,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tif(this == ModItems.bobmazon_hidden) {\n\t\t\tlist.add(\"For a guide on how to obtain this, visit https://bit.ly/2TPgcqT\");\n\t\t\tlist.add(\"No tricks this time, i promise.\");\n\t\t}\n\t}",
+      "body_sha256": "8939877c30a41449eb81154c60c9f4cbda7150c266adceae588836123d3d406d",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemColtanCompass.java": {
+      "owner": "com.hbm.items.tool.ItemColtanCompass",
+      "ancestry": [
+        "com.hbm.items.tool.ItemColtanCompass",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "986e8a64ac9eb8419965f5721a7181bb52f4abab60f763b2b28529546e529548",
+      "after_sha256": "4199469cd525a1aa8414ef58a699486c09b8dc4482530375d3ebbba07221c4cb",
+      "offset": 1011,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Points towards the coltan deposit.\");\n\t\tlist.add(\"The deposit is a large area where coltan ore spawns like standard ore,\");\n\t\tlist.add(\"it's not one large blob of ore on that exact location.\");\n\t}",
+      "body_sha256": "c419cc446fc95d7478f83def2b9eb1413136a20823f1720b0b6e92538b5c39c1",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean ext"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCounterfitKeys.java": {
+      "owner": "com.hbm.items.tool.ItemCounterfitKeys",
+      "ancestry": [
+        "com.hbm.items.tool.ItemCounterfitKeys",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "474c8ba35f290ed7ba46113f81bd2d76ce6db595c1581ce0e31c9ef576abc8df",
+      "after_sha256": "cc0bb6fe9f194ddd0f01181c52a5cfa57d0e87960b404d6c945a131bee8fd0e5",
+      "offset": 1275,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Use on a locked container to create two counterfeit keys!\");\n\t}",
+      "body_sha256": "2f001a011a75a763b2e7206ba1a56b920d0f017d63c37406e9c8f498cf18123e",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesignatorArtyRange.java": {
+      "owner": "com.hbm.items.tool.ItemDesignatorArtyRange",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDesignatorArtyRange",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "19cf24a4930f4faed21b8be7a1b0c3a836104258d58814eb460af1e50b671307",
+      "after_sha256": "e915c00e756ee9d929a1b18975928055d22b7bf40a7efa291c8ef4984cce6aeb",
+      "offset": 714,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(itemstack.getTagCompound() == null) {\n\t\t\tlist.add(TextFormatting.RED + \"No turret linked!\");\n\t\t} else {\n\t\t\tlist.add(TextFormatting.YELLOW + \"Linked to \" + itemstack.getTagCompound().getInteger(\"x\") + \", \" + itemstack.getTagCompound().getInteger(\"y\") + \", \" + itemstack.getTagCompound().getInteger(\"z\"));\n\t\t}\n\t}",
+      "body_sha256": "6eefee0ed724773ba07ea460d40bb99d087df57b3f36f2ad7fb5e2708f522167",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "itemstack",
+        "itemstack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingator.java": {
+      "owner": "com.hbm.items.tool.ItemDesingator",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDesingator",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "5bf52e3aa13ecac0c045f78c177e13dac58071aab127b211e3d98aaeb9177ed3",
+      "after_sha256": "ef2626874478779cc7c986404fa07d5ac3ada8fef10debcb2440290808714e65",
+      "offset": 525,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"Target Coordinates:\");\r\n\t\t\tlist.add(\"X: \" + itemstack.getTagCompound().getInteger(\"xCoord\"));\r\n\t\t\tlist.add(\"Z: \" + itemstack.getTagCompound().getInteger(\"zCoord\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Please select a target.\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "477de2c46e4cad408a32befc298f7f495790b43ea6e31eb0c525179cf6f34296",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingatorManual.java": {
+      "owner": "com.hbm.items.tool.ItemDesingatorManual",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDesingatorManual",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "88ae15de6ccafef81917b2f5de7cc2f2798d6833d869af0fc9f7aaf6940599e2",
+      "after_sha256": "e4bade1a9fdc722c273380770d4c106edaa3fc23aa6e769ff95f799534778f1e",
+      "offset": 864,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(stack.getTagCompound() != null) {\n\t\t\tlist.add(\"Target Coordinates:\");\n\t\t\tlist.add(\"X: \" + stack.getTagCompound().getInteger(\"xCoord\"));\n\t\t\tlist.add(\"Z: \" + stack.getTagCompound().getInteger(\"zCoord\"));\n\t\t} else {\n\t\t\tlist.add(\"Please select a target.\");\n\t\t}\n\t}",
+      "body_sha256": "24d23d38158ec2f132e01446b8a791d41edd92d5f4a03af2a84b7f7531d8f5de",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingatorRange.java": {
+      "owner": "com.hbm.items.tool.ItemDesingatorRange",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDesingatorRange",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "8542d188b3bd1c38c1e0b88f2beac7a088723cca83913e87ce679b69249d5deb",
+      "after_sha256": "501dfbc06cef80eda32ba8fb1e2697a7d2f0e04921cf4a6ec7e92adc642205c2",
+      "offset": 606,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"Target Coordinates:\");\r\n\t\t\tlist.add(\"X: \" + itemstack.getTagCompound().getInteger(\"xCoord\"));\r\n\t\t\tlist.add(\"Z: \" + itemstack.getTagCompound().getInteger(\"zCoord\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Please select a target.\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "477de2c46e4cad408a32befc298f7f495790b43ea6e31eb0c525179cf6f34296",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDetonator.java": {
+      "owner": "com.hbm.items.tool.ItemDetonator",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDetonator",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "76ebefe738a217c98b65715464040c25bbc266b7574b9ffb17fb766bc9d90938",
+      "after_sha256": "2a35adedba0152162e433c946afa0659f8cfbf476066e9c2b5faed404b8a9819",
+      "offset": 609,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Shift right-click to set position,\");\r\n\t\tlist.add(\"right-click to detonate!\");\r\n\t\tif(itemstack.getTagCompound() == null) {\r\n\t\t\tlist.add(TextFormatting.RED + \"No position set!\");\r\n\t\t} else {\r\n\t\t\tlist.add(TextFormatting.YELLOW + \"Linked to \" + itemstack.getTagCompound().getInteger(\"x\") + \", \" + itemstack.getTagCompound().getInteger(\"y\") + \", \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t}\r\n\t}",
+      "body_sha256": "0b3f594f23593eb708f35b14fa1f3f5be658452a5dfaffbf5bbad0a693978c2a",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "itemstack",
+        "itemstack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDiscord.java": {
+      "owner": "com.hbm.items.tool.ItemDiscord",
+      "ancestry": [
+        "com.hbm.items.tool.ItemDiscord",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "0e8e1213324275f1e88b66eddc960944d1373a60f37e2b0ec28cc8a947a7b087",
+      "after_sha256": "34b89f6214b33ba8f97006c39c2bdde33023eeb41b8d6c7f17bfe37f1b957e75",
+      "offset": 1450,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tlist.add(TextFormatting.YELLOW + \"\" + TextFormatting.ITALIC + \"I've seen the Rod of Discord and honestly\");\n\t\tlist.add(TextFormatting.YELLOW + \"\" + TextFormatting.ITALIC + \"it's not as amazing as people say.\");\n\t\tlist.add(\"\");\n\t\tlist.add(TextFormatting.RED + \"\" + TextFormatting.ITALIC + \"Rod of Discord is crucial in so many boss fights.\");\n\t\tlist.add(TextFormatting.RED + \"\" + TextFormatting.ITALIC + \"Imagine getting coiled by worm bosses.\");\n\t\tlist.add(\"\");\n\t\tlist.add(TextFormatting.YELLOW + \"\" + TextFormatting.ITALIC + \"Oh, you mean the Terraria item.\");\n\t\tlist.add(TextFormatting.YELLOW + \"\" + TextFormatting.ITALIC + \"Idk about that thing.\");\n\t}",
+      "body_sha256": "01c75a023a5e8b4373bc42fac868e3fe4c13e3b12ddcd340c140e68e60597291",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemFusionCore.java": {
+      "owner": "com.hbm.items.tool.ItemFusionCore",
+      "ancestry": [
+        "com.hbm.items.tool.ItemFusionCore",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "df7924c3c8a88a28457368416f2fc6d0bd1fcd8c885260e084e1e18a93c3f7c3",
+      "after_sha256": "23b0b1d0cdf392ddc8b0270d84dd0e709b83eb58f1a6866a1a65d3a51a1a87b2",
+      "offset": 1319,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t\tlist.add(TextFormatting.YELLOW + \"Charges all worn armor pieces by \" + BobMathUtil.getShortNumber(charge) + \"HE\");\n\t\tlist.add(\"[Requires full electric set to be worn]\");\n\t}",
+      "body_sha256": "a56034e4fcb9d8a0eb7bc4712ed928a8c61662b3ff9fd831bb415394211dbc3c",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemGuideBook.java": {
+      "owner": "com.hbm.items.tool.ItemGuideBook",
+      "ancestry": [
+        "com.hbm.items.tool.ItemGuideBook",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "e8324ff053da7c8ac1bc683d26fb9e540c9399c3dc4761c1624651813b5a6544",
+      "after_sha256": "8d12060d6ff5ebd2c6bf312ba9b140742454bcea6bab09eb7c1e7b39c6ab0c63",
+      "offset": 1238,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(String.join(\" \", I18nUtil.resolveKeyArray(BookType.getType(stack.getItemDamage()).title)));\n\t}",
+      "body_sha256": "90a9e3416b4bb290c5d1db9ae2cfa885cb7bd91fb69572eeda9cf588494f630d",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemLaserDetonator.java": {
+      "owner": "com.hbm.items.tool.ItemLaserDetonator",
+      "ancestry": [
+        "com.hbm.items.tool.ItemLaserDetonator",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "e73a83423a5de6d657f8f4e51cea89ac1bff5003d86d108afb611ca0b3e57d11",
+      "after_sha256": "5e682ce56cba0ff7a8ee0626002dd0dfd37dd34634c333f332499a647217de12",
+      "offset": 921,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Aim & click to detonate!\");\n\t}",
+      "body_sha256": "1ae08c023b599466a74a930db84d4a653e15699f33d04cdd31403d88a62be253",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMS.java": {
+      "owner": "com.hbm.items.tool.ItemMS",
+      "ancestry": [
+        "com.hbm.items.tool.ItemMS",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "dc16731220d1890c23a211ad7605341fc264903344d66c013f5982aba6718c4d",
+      "after_sha256": "44aa9f006f81476eb74c775cc61ded21b02679094d43e4331fe4e4be55c7e0ce",
+      "offset": 430,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Lost but not forgotten\");\n\t}",
+      "body_sha256": "6e45d2fe3cdb30cd22d48c7b7379260d60d90b245752b022401e351b57674ff9",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMeteorRemote.java": {
+      "owner": "com.hbm.items.tool.ItemMeteorRemote",
+      "ancestry": [
+        "com.hbm.items.tool.ItemMeteorRemote",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "297ac2ecdd050c45e4c95586691cf967f0d6ed738903b9c28694619542370298",
+      "after_sha256": "f281c2b2aa762af20367f64f9ccf509b02a5630a242971853b8fe72644efbe00",
+      "offset": 530,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Right click to summon a meteorite!\");\r\n\t}",
+      "body_sha256": "886c26a28f20e8cf60faabb4ebb317fccf83fa2f2a1500f74c95d3f1757e0d01",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "owner": "com.hbm.items.tool.ItemMirrorTool",
+      "ancestry": [
+        "com.hbm.items.tool.ItemMirrorTool",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "6797c46714895fb260a15a3ab49410a3383d3c9ebcb331328c18f3b844f4f0a8",
+      "after_sha256": "7615e3113f46c71b3799258a3ff13e933c0a9f1c12c35dfdc058f60964462290",
+      "offset": 2717,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\t\r\n\t\tfor(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + \".desc\"))\r\n\t\t\tlist.add(TextFormatting.YELLOW + s);\r\n\t}",
+      "body_sha256": "6c45403bb4a0119fab5eee63c46c0e42ffc281fbf523c3c3c83e726cc1555579",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMultiDetonator.java": {
+      "owner": "com.hbm.items.tool.ItemMultiDetonator",
+      "ancestry": [
+        "com.hbm.items.tool.ItemMultiDetonator",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "387b926201ccd23fcd70f4e82bfbbc2664248391c996bbba4dab17c5a9c20ae9",
+      "after_sha256": "6f60b4da9ae587e846026b9dbff7e7fef5823f4aaeba61875b89b3fb717f971f",
+      "offset": 659,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Shift right-click block to add position,\");\r\n\t\tlist.add(\"right-click to detonate!\");\r\n\t\tlist.add(\"Shift right-click in the air to clear positions.\");\r\n\r\n\t\tif(itemstack.getTagCompound() == null || getLocations(itemstack) == null) {\r\n\t\t\tlist.add(TextFormatting.RED + \"No position set!\");\r\n\t\t} else {\r\n\r\n\t\t\tint[][] locs = getLocations(itemstack);\r\n\r\n\t\t\tfor(int i = 0; i < locs[0].length; i++) {\r\n\r\n\t\t\t\tlist.add(TextFormatting.YELLOW + \"\" + locs[0][i] + \" / \" + locs[1][i] + \" / \" + locs[2][i]);\r\n\t\t\t}\r\n\t\t}\r\n\t}",
+      "body_sha256": "6b2198b7770b2e7b6e1cb8c3ebe3e949f87d0dde488d7a4c71405886b962b228",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "itemstack",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemOilDetector.java": {
+      "owner": "com.hbm.items.tool.ItemOilDetector",
+      "ancestry": [
+        "com.hbm.items.tool.ItemOilDetector",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "6810e9f5b179d5672ba889c8f4fabda97ac02d9a56498d957f922254d5c80e2a",
+      "after_sha256": "70f81a4fdd3c8f5dbfcdd200c794d23a3af02b8fa33fc62a6784bda491c9131a",
+      "offset": 721,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(I18nUtil.format(this.getTranslationKey() + \".desc1\"));\n\t\tlist.add(I18nUtil.format(this.getTranslationKey() + \".desc2\"));\n\t}",
+      "body_sha256": "339fdf7bf53f482b9f779def581feef6c34585e5130f1d5c4bcbb719a46a7d08",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPipette.java": {
+      "owner": "com.hbm.items.tool.ItemPipette",
+      "ancestry": [
+        "com.hbm.items.tool.ItemPipette",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "5965189c71d74e90a730471b70e62df12f6d3764b4f620bd70cb85985e45263e",
+      "after_sha256": "a02dd0778404b1326c5088ef28557837abe84a65cb0307f8e4c13d9eda5ca1e4",
+      "offset": 2966,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(this == ModItems.pipette_laboratory) {\r\n\t\t\tlist.add(I18nUtil.resolveKey(\"desc.item.pipette.corrosive\"));\r\n\t\t\tlist.add(I18nUtil.resolveKey(\"desc.item.pipette.laboratory\"));\r\n\t\t}\r\n\t\tif(this == ModItems.pipette_boron)\r\n\t\t\tlist.add(I18nUtil.resolveKey(\"desc.item.pipette.corrosive\"));\r\n\t\tif(this == ModItems.pipette)\r\n\t\t\tlist.add(I18nUtil.resolveKey(\"desc.item.pipette.noCorrosive\"));\r\n\t\tlist.add(\"Fluid: \" + this.getType(stack).getLocalizedName());\r\n\t\tlist.add(\"Amount: \" + this.getFill(stack) + \"/\" + this.getCapacity(stack) + \"mB (\" + this.getMaxFill() + \"mB)\");\r\n\t}",
+      "body_sha256": "fb81e79181e392c8d31692914b0f9a6e0b7ff58908dc2b11618bf362a065d04d",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPowerNetTool.java": {
+      "owner": "com.hbm.items.tool.ItemPowerNetTool",
+      "ancestry": [
+        "com.hbm.items.tool.ItemPowerNetTool",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "8eaf355cf40e5b53de12459fe469759e04d5a93bb9ec7c7e2df41716e1b4ea8c",
+      "after_sha256": "6d4245e1e3baf57c4567f889f39457e141e0bc7fa0776008b51c60a4f48ef644",
+      "offset": 2988,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(TextFormatting.RED + \"Right-click cable to analyze the power net.\");\n\t\tlist.add(TextFormatting.RED + \"Links (cables, poles, etc.) are YELLOW\");\n\t\tlist.add(TextFormatting.RED + \"Subscribers (any receiver) are BLUE\");\n\t\tlist.add(TextFormatting.RED + \"Links with mismatching network info (BUGGED!) are RED\");\n\t\tlist.add(TextFormatting.RED + \"Displays stats such as link and subscriber count\");\n\t\tlist.add(TextFormatting.RED + \"Proxies are connection points for multiblock links (e.g. 4 for substations)\");\n\t\tlist.add(TextFormatting.RED + \"Particles only spawn in a \" + radius + \" block radius!\");\n\t}",
+      "body_sha256": "9768d1f8882d30f8eef781cf5441b9857c4d35aca1e2eaee0e3393e24b77681e",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "owner": "com.hbm.items.tool.ItemRBMKTool",
+      "ancestry": [
+        "com.hbm.items.tool.ItemRBMKTool",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "8ddd00d07e986e879b30d7e42f26c87579916049423acbe5a99cb04de5a2a845",
+      "after_sha256": "fecdba2c1e2332d86ca99eec87d965b99273a6d76884c3e25c77a536a149c2f8",
+      "offset": 3943,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\t\r\n\t\tfor(String s : I18nUtil.resolveKeyArray(this.getTranslationKey() + \".desc\"))\r\n\t\t\tlist.add(TextFormatting.YELLOW + s);\r\n\t}",
+      "body_sha256": "6c45403bb4a0119fab5eee63c46c0e42ffc281fbf523c3c3c83e726cc1555579",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "owner": "com.hbm.items.tool.ItemRebarPlacer",
+      "ancestry": [
+        "com.hbm.items.tool.ItemRebarPlacer",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "74f1b80bcc526e0507bdc697129ec08191bb9d447836c38defcfd967cc0710c1",
+      "after_sha256": "11716fbc6d7d9b4f9464a95e9bb3dabe47467a38f99d0725b4b2753b7f08cb39",
+      "offset": 3265,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\t\n\t}",
+      "body_sha256": "dc03354e479e0e9d6f225a3805ca3af6549f720f8f7ee637d0564ca57a0b63f2",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        ""
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSettingsTool.java": {
+      "owner": "com.hbm.items.tool.ItemSettingsTool",
+      "ancestry": [
+        "com.hbm.items.tool.ItemSettingsTool",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "dcb1a3760565997efcac9c7e414290c2a83c855c243c55568596bff6bc310715",
+      "after_sha256": "08e8dcc1f49ef75ebccca2d2546235fc22434cf0b98728429244a05ca427ea8e",
+      "offset": 2348,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Can copy the settings (filters, fluid ID, etc) of machines\");\n\t\tlist.add(\"Shift right-click to copy, right click to paste\");\n\t\tlist.add(\"Ctrl click on pipes to paste settings to multiple pipes\");\n\t\tif(stack.getTagCompound() != null) {\n\t\t\tNBTTagCompound nbt = stack.getTagCompound();\n\t\t\tif (nbt.hasKey(\"tileName\")){\n\t\t\t\tlist.add(TextFormatting.BLUE + I18nUtil.resolveKey(nbt.getString(\"tileName\") + \".name\"));\n\t\t\t} else {\n\t\t\t\tlist.add(TextFormatting.RED + \" None \");\n\t\t\t}\n\n\t\t}\n\t}",
+      "body_sha256": "2786098bb4ab9ed380ffff0cec7ce79cce3b2e215ee712a90bb2f701f342e3c6",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "stack",
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": {
+      "owner": "com.hbm.items.tool.ItemToolBox",
+      "ancestry": [
+        "com.hbm.items.tool.ItemToolBox",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "1fe7d39d008f8de9855b11a7e8c2a22deef9238541cf84193ac54507bd4eb0e5",
+      "after_sha256": "dc02eee387aa7ae80eeb22256906636a50014f0356b3f2dbba805cbac1653264",
+      "offset": 2169,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tlist.add(\"Click with the toolbox to swap hotbars in/out of the toolbox.\");\n\t\tlist.add(\"Shift-click with the toolbox to open the toolbox.\");\n\t}",
+      "body_sha256": "1387246ce0b8985a3f18bcf65fbfdfde4dd15bcfe57b9c6dd3b677080da0433b",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java": {
+      "owner": "com.hbm.items.tool.ItemTransporterLinker",
+      "ancestry": [
+        "com.hbm.items.tool.ItemTransporterLinker",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "b83634e13d28fd1791e7dc7d57ac4ea5e3c31e52cf9079a4f931796347436fd6",
+      "after_sha256": "dae196f1449a1c2c9783298339a8ef280c18207b2324221abc6115d653097e9a",
+      "offset": 1518,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Sneak-click to save transporter\");\r\n\t\tlist.add(\"Use on transporter to link to a saved transporter\");\r\n\t}",
+      "body_sha256": "defcc0eaec177cd12801888757284de988277562f634111a800a49261d21fe52",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTurretControl.java": {
+      "owner": "com.hbm.items.tool.ItemTurretControl",
+      "ancestry": [
+        "com.hbm.items.tool.ItemTurretControl",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "39a911e469d4b2c749ce5e0d49add426913faa66fe921a3326e07bb57e63a297",
+      "after_sha256": "b0299288e84322be99e56741ab1b00c54d9c6b2b5cc45488c52f7ff3f8e80bf2",
+      "offset": 3289,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"Linked to:\");\r\n\t\t\tlist.add(\"X: \" + String.valueOf(itemstack.getTagCompound().getInteger(\"xCoord\")));\r\n\t\t\tlist.add(\"Y: \" + String.valueOf(itemstack.getTagCompound().getInteger(\"yCoord\")));\r\n\t\t\tlist.add(\"Z: \" + String.valueOf(itemstack.getTagCompound().getInteger(\"zCoord\")));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Please select a turret.\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "a33779cec769ce5513b0d523849d5d6b7a965127358cbea27a7a57198dedaa66",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWand.java": {
+      "owner": "com.hbm.items.tool.ItemWand",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWand",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "65803a237b43fb9e92e6d336029ffbde0fab788207ec42265b1f68e3ab46c80e",
+      "after_sha256": "a993beedfa9a45c7fe37961c86bd266bea9865786b6b150b1cf3d71767db8b17",
+      "offset": 529,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Creative-only item\");\r\n\t\tlist.add(\"\\\"Destruction brings creation\\\"\");\r\n\t\tlist.add(\"(Set positions with right click,\");\r\n\t\tlist.add(\"set block with shift-right click!)\");\r\n\r\n\t\tif(stack.getTagCompound() != null && !(stack.getTagCompound().getInteger(\"x\") == 0 && stack.getTagCompound().getInteger(\"y\") == 0 && stack.getTagCompound().getInteger(\"z\") == 0)) {\r\n\t\t\tlist.add(\"Pos: \" + stack.getTagCompound().getInteger(\"x\") + \", \" + stack.getTagCompound().getInteger(\"y\") + \", \" + stack.getTagCompound().getInteger(\"z\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Positions not set!\");\r\n\t\t}\r\n\t\tif(stack.getTagCompound() != null)\r\n\t\t\tlist.add(\"Block saved: \" + Block.getBlockById(stack.getTagCompound().getInteger(\"block\")).getTranslationKey());\r\n\t}",
+      "body_sha256": "305ebc9f958ca69c3c1e361a5bf6f24305a7b1effd71772544fa185f8baeaf93",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "stack",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": {
+      "owner": "com.hbm.items.tool.ItemWandD",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWandD",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "ac46f4f7cbfd9a863d9b115683920a4694f6845cba1f412b7ebe5da87b33db0f",
+      "after_sha256": "cc70312322190d0d5a53a2037ca760b1fe9def7f5976d18f6b16c4dd285062bc",
+      "offset": 4378,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Dimension teleporter and atmosphere debugger.\");\r\n\r\n\t\tif(stack.getTagCompound() != null) {\r\n\t\t\tint targetId = stack.getTagCompound().getInteger(\"dim\");\r\n\t\t\tif(targetId == 0) {\r\n\t\t\t\tlist.add(\"Teleportation target: ORBIT\");\r\n\t\t\t} else {\r\n\t\t\t\tSolarSystem.Body target = SolarSystem.Body.values()[targetId];\r\n\t\t\t\tlist.add(\"Teleportation target: \" + target.getBody().getUnlocalizedName());\r\n\t\t\t}\r\n\t\t}\r\n\t}",
+      "body_sha256": "018da2f1fd5cdf11034464c4d0cf7b7fd684ebbbde974099e08afff9ca99bc3b",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "stack",
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandS.java": {
+      "owner": "com.hbm.items.tool.ItemWandS",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWandS",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "52f0bc6242cd6a6c8b3c7efc9e0882fc65f3faff3153ae4462fb05c11ac54052",
+      "after_sha256": "f8135f9f8b30d5f50dc81206e10d22da3a19d4c188a72b4e22027765c99ad4ff",
+      "offset": 731,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Creative-only item\");\r\n\t\tlist.add(\"\\\"Replication breeds decadence\\\"\");\r\n\t\tlist.add(\"(Saves an area defined by two right-clicks,\");\r\n\t\tlist.add(\"adds a block to the blacklist by crouch right-clicking!)\");\r\n\r\n\t\tif(stack.getTagCompound() != null) {\r\n\t\t\tint px = stack.getTagCompound().getInteger(\"x\");\r\n\t\t\tint py = stack.getTagCompound().getInteger(\"y\");\r\n\t\t\tint pz = stack.getTagCompound().getInteger(\"z\");\r\n\r\n\t\t\tif(px != 0 || py != 0 || pz != 0) {\r\n\t\t\t\tlist.add(TextFormatting.AQUA + \"From: \" + px + \", \" + py + \", \" + pz);\r\n\t\t\t} else {\r\n\t\t\t\tlist.add(TextFormatting.AQUA + \"No start position set\");\r\n\t\t\t}\r\n\r\n\t\t\tSet<Pair<Block, Integer>> blocks = getBlocks(stack);\r\n\r\n\t\t\tif(blocks.size() > 0) {\r\n\t\t\t\tlist.add(\"Blacklist:\");\r\n\t\t\t\tfor(Pair<Block, Integer> block : blocks) {\r\n\t\t\t\t\tlist.add(TextFormatting.RED + \"- \" + block.key.getTranslationKey());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}",
+      "body_sha256": "a7d46cd5add20d80ae01066d185279fab0c2e6906dd50a83632dffb125019985",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "stack",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "list",
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandTime.java": {
+      "owner": "com.hbm.items.tool.ItemWandTime",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWandTime",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "c0458969f01e70cc11516af0599fd45378e9e8ec1e0965b5b9296ae844ad8bdb",
+      "after_sha256": "e73653e65f7249fb17b445b862e80be894699a4671b01d6b9dee091ad3b66f50",
+      "offset": 423,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tlist.add(\"Creative-only item\");\r\n\t\tlist.add(TextFormatting.ITALIC + \"\\\"Wibbly wobbly, timey-wimey... stuff\\\"\");\r\n\t\tlist.add(\"Probably doesn't work on servers\");\r\n\t}",
+      "body_sha256": "5045222c1aa7e04283adb403926b38ae9e4af3a92639cda930ccc785c6150899",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWiring.java": {
+      "owner": "com.hbm.items.tool.ItemWiring",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWiring",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "739e382a2e4166549a64469b6e7e0a644e78d76d93e55588d0cb5a88fa646641",
+      "after_sha256": "a3286d1271696069cb221e189e05f53375377fb7c631461e3045b9b0d6f0f760",
+      "offset": 3122,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"Wire start x: \" + itemstack.getTagCompound().getInteger(\"x\"));\r\n\t\t\tlist.add(\"Wire start y: \" + itemstack.getTagCompound().getInteger(\"y\"));\r\n\t\t\tlist.add(\"Wire start z: \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Right-click poles to connect\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "80743a1a6cf90c9cdc9e210f36e6065532c2c2167df386870b0698abb684b9aa",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWrench.java": {
+      "owner": "com.hbm.items.tool.ItemWrench",
+      "ancestry": [
+        "com.hbm.items.tool.ItemWrench",
+        "net.minecraft.item.ItemSword",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "016629e72ec65c601e521595dc6667d0bf869f2220477244e8bd57106643b632",
+      "after_sha256": "714490c64f11861af5bc106a05c109651f58c2f76d98f2426c0ab701cd7a5bc9",
+      "offset": 3751,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\r\n\t\tif(itemstack.getTagCompound() != null) {\r\n\t\t\tlist.add(\"Pipe start x: \" + itemstack.getTagCompound().getInteger(\"x\"));\r\n\t\t\tlist.add(\"Pipe start y: \" + itemstack.getTagCompound().getInteger(\"y\"));\r\n\t\t\tlist.add(\"Pipe start z: \" + itemstack.getTagCompound().getInteger(\"z\"));\r\n\t\t} else {\r\n\t\t\tlist.add(\"Right-click anchor to connect\");\r\n\t\t}\r\n\t}",
+      "body_sha256": "219968a5614d76b48b3612a196191c734ca1dd60c9920dd44e294a7b4973776e",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list",
+        "itemstack",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ModSword.java": {
+      "owner": "com.hbm.items.tool.ModSword",
+      "ancestry": [
+        "com.hbm.items.tool.ModSword",
+        "net.minecraft.item.ItemSword",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "ffca520743e6effdebc4b148b19fbd9431003800efd48773d153f60b8f076da5",
+      "after_sha256": "e54b71f704c6a5109fb4f881f2463b3634d700861dbb2e395a6d4e63dad9aa01",
+      "offset": 348,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.saw)\n\t\t\tlist.add(\"Prepare for your examination!\");\n\t\tif(this == ModItems.bat)\n\t\t\tlist.add(\"Do you like hurting other people?\");\n\t\tif(this == ModItems.bat_nail)\n\t\t\tlist.add(\"Or is it a classic?\");\n\t\tif(this == ModItems.golf_club)\n\t\t\tlist.add(\"Property of Miami Beach Golf Club.\");\n\t\tif(this == ModItems.pipe_rusty)\n\t\t\tlist.add(\"Ouch! Ouch! Ouch!\");\n\t\tif(this == ModItems.pipe_lead)\n\t\t\tlist.add(\"Manually override anything by smashing it with this pipe.\");\n\t\t\t//list.add(\"I'm going to attempt a manual override on this wall.\");\n\t\tif(this == ModItems.reer_graar) {\n\t\t\tlist.add(\"Call now!\");\n\t\t\tlist.add(\"555-10-3728-ZX7-INFINITE\");\n\t\t}\n\t}",
+      "body_sha256": "2da70481a5b8eb4e60b09c5f7598db9b807cf92f4118b1b5fd42b64016687444",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "owner": "com.hbm.items.tool.WeaponSpecial",
+      "ancestry": [
+        "com.hbm.items.tool.WeaponSpecial",
+        "net.minecraft.item.ItemSword",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "705a5b704c29cdc92e49c98af8f80ea909f837da5379d92431a5eef980013baf",
+      "after_sha256": "ab7f0934351072c06b6d0c574be3ad2800eb1e9065e93146bfccb50833374bee",
+      "offset": 8321,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tif(this == ModItems.schrabidium_hammer) {\n\t\t\tlist.add(\"Even though it says \\\"+1000000000\");\n\t\t\tlist.add(\"damage\\\", it's actually \\\"onehit anything\\\"\");\n\t\t}\n\t\tif(this == ModItems.ullapool_caber) {\n\t\t\tlist.add(\"High-yield Scottish face removal.\");\n\t\t\tlist.add(\"A sober person would throw it...\");\n\t\t}\n\t\tif(this == ModItems.bottle_opener) {\n\t\t\tlist.add(\"My very own bottle opener.\");\n\t\t\tlist.add(\"Use with caution!\");\n\t\t}\n\t\tif(this == ModItems.shimmer_sledge) {\n\t\t\tif(MainRegistry.polaroidID == 11) {\n\t\t\t\tlist.add(\"shimmer no\");\n\t\t\t\tlist.add(\"drop that hammer\");\n\t\t\t\tlist.add(\"you're going to hurt somebody\");\n\t\t\t\tlist.add(\"shimmer no\");\n\t\t\t\tlist.add(\"shimmer pls\");\n\t\t\t} else {\n\t\t\t\tlist.add(\"Breaks everything, even portals.\");\n\t\t\t}\n\t\t}\n\t\tif(this == ModItems.shimmer_axe) {\n\t\t\tif(MainRegistry.polaroidID == 11) {\n\t\t\t\tlist.add(\"shim's toolbox does an e-x-p-a-n-d\");\n\t\t\t} else {\n\t\t\t\tlist.add(\"Timber!\");\n\t\t\t}\n\t\t}\n\t\tif(this == ModItems.wrench_flipped) {\n\t\t\tlist.add(\"Wrench 2: The Wrenchening\");\n\t\t}\n\t\tif(this == ModItems.memespoon) {\n\t\t\tlist.add(TextFormatting.DARK_GRAY + \"Level 10 Shovel\");\n\t\t\tlist.add(TextFormatting.AQUA + \"Deals crits while the wielder is rocket jumping\");\n\t\t\tlist.add(TextFormatting.RED + \"20% slower firing speed\");\n\t\t\tlist.add(TextFormatting.RED + \"No random critical hits\");\n\t\t}\n\n\t\tif(this == ModItems.wood_gavel) {\n\t\t\tlist.add(\"Thunk!\");\n\t\t}\n\t\tif(this == ModItems.lead_gavel) {\n\t\t\tlist.add(\"You are hereby sentenced to lead poisoning.\");\n\t\t}\n\t\tif(this == ModItems.diamond_gavel) {\n\t\t\tlist.add(\"The joke! It makes sense now!!\");\n\t\t\tlist.add(\"\");\n\t\t\tlist.add(TextFormatting.BLUE + \"Deals as much damage as it needs to.\");\n\t\t}\n\t}",
+      "body_sha256": "d17ac7e5f29faaf4fd49045ba03c1a9244d292f71d5a026e3ac2650f437b1a41",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "owner": "com.hbm.items.weapon.GunB92",
+      "ancestry": [
+        "com.hbm.items.weapon.GunB92",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "a28afd13de3bb5de515097ae3b209bd64069a11b6cdcefb3004bd5b2024d37b2",
+      "after_sha256": "73fde70705188c9ad2849f4ba363563ecf08af11383d8f77033542c2882230c2",
+      "offset": 4869,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif(MainRegistry.polaroidID == 11) {\n\t\t\tlist.add(\"A weapon that came from the stars.\");\n\t\t\tlist.add(\"It screams for murder.\");\n\t\t} else if(MainRegistry.polaroidID == 18) {\n\t\t\tlist.add(\"One could turn the gun into a bomb\");\n\t\t\tlist.add(\"by overloading the capacitors...\");\n\t\t} else {\n\t\t\tlist.add(\"Stay away from me compootur!\");\n\t\t}\n\t\tlist.add(\"\");\n\t\tlist.add(\"Projectiles explode on impact.\");\n\t\tlist.add(\"Sneak while holding the right mouse button\");\n\t\tlist.add(\"to charge additional energy.\");\n\t\tlist.add(\"The more energy is stored, the less accurate\");\n\t\tlist.add(\"the beams become.\");\n\t\tlist.add(\"Only up to ten charges may be stored.\");\n\t\tlist.add(\"\");\n\t\tlist.add(\"\\\"It's nerf or nothing!\\\"\");\n\t\tlist.add(\"\");\n\t\tlist.add(\"[LEGENDARY WEAPON]\");\n\t}",
+      "body_sha256": "968b1cee097fc4843d6e9d8d1bef0b55c83a0ce1f8a264fd71d28e7131588a00",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92Cell.java": {
+      "owner": "com.hbm.items.weapon.GunB92Cell",
+      "ancestry": [
+        "com.hbm.items.weapon.GunB92Cell",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "fad774dff240e8a249e6c0d5aa71797263d59280c15dffa5b4a25158798728f9",
+      "after_sha256": "802c92a2bb7b810afc5aaf4f53a9c558fa9c702c50ef4132bfe1c99e7f1c9beb",
+      "offset": 1061,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tlist.add(\"Draws energy from the B92, allowing you to\");\n\t\tlist.add(\"reload it an additional 25 times.\");\n\t\tlist.add(\"The cell will permanently hold its charge,\");\n\t\tlist.add(\"it is not meant to be used as a battery enhancement\");\n\t\tlist.add(\"for the B92, but rather as a bomb.\");\n\t\tlist.add(\"\");\n\t\tlist.add(\"Charges: \" + getPower(itemstack) + \" / 25\");\n\t}",
+      "body_sha256": "07bcffe28746b928e5524489275916214ead4a98a752702d08642fe2a5320c8e",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "itemstack"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java": {
+      "owner": "com.hbm.items.weapon.ItemAmmoArty",
+      "ancestry": [
+        "com.hbm.items.weapon.ItemAmmoArty",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "ccfe1c2acccb4d0825927cfd9546d374355da094242253b432f15358fb8f5926",
+      "after_sha256": "135aa7d7a3bf4803f5d1af6b68e6aaf276ba8f13ce7741959eb9b5bff9acf4c1",
+      "offset": 3572,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tString r = TextFormatting.RED + \"\";\n\t\tString y = TextFormatting.YELLOW + \"\";\n\t\tString b = TextFormatting.BLUE + \"\";\n\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase NORMAL:\n\t\t\tlist.add(y + \"Strength: 10\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(b + \"Does not destroy blocks\");\n\t\t\tbreak;\n\t\tcase CLASSIC:\n\t\t\tlist.add(y + \"Strength: 15\");\n\t\t\tlist.add(y + \"Damage modifier: 5x\");\n\t\t\tlist.add(b + \"Does not destroy blocks\");\n\t\t\tbreak;\n\t\tcase EXPLOSIVE:\n\t\t\tlist.add(y + \"Strength: 15\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase PHOSPHORUS:\n\t\t\tlist.add(y + \"Strength: 10\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(r + \"Phosphorus splash\");\n\t\t\tlist.add(b + \"Does not destroy blocks\");\n\t\t\tbreak;\n\t\tcase PHOSPHORUS_MULTI:\n\t\t\tlist.add(r + \"Splits x10\");\n\t\t\tbreak;\n\t\tcase MINI_NUKE:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(r + \"Deals nuclear damage\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase MINI_NUKE_MULTI:\n\t\t\tlist.add(r + \"Splits x5\");\n\t\t\tbreak;\n\t\tcase NUKE:\n\t\t\tlist.add(r + \"☠\");\n\t\t\tlist.add(r + \"(that is the best skull and crossbones\");\n\t\t\tlist.add(r + \"minecraft's unicode has to offer)\");\n\t\t\tbreak;\n\t\tcase CARGO:\n\n\t\t\tif(stack.hasTagCompound() && stack.getTagCompound().getCompoundTag(\"cargo\") != null) {\n\t\t\t\tItemStack cargo = ItemStack.loadItemStackFromNBT(stack.getTagCompound().getCompoundTag(\"cargo\"));\n\t\t\t\tlist.add(y + cargo.getDisplayName());\n\t\t\t} else {\n\t\t\t\tlist.add(r + \"Empty\");\n\t\t\t}\n\t\t\tbreak;\n\t\t}\n\t}",
+      "body_sha256": "d24993b670aa265f6f80b19b64827025217456e300e835fd966f06d324bdb061",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java": {
+      "owner": "com.hbm.items.weapon.ItemAmmoHIMARS",
+      "ancestry": [
+        "com.hbm.items.weapon.ItemAmmoHIMARS",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "a2277924dfe89965534b9c4f3a92cb7e0d045ba8261a9ce15eca3655bde0d65e",
+      "after_sha256": "c5c1c25049b7a57926e998072328ec9e67e12d268a8e501d7f6f4baeec4b0f9c",
+      "offset": 2825,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tString r = TextFormatting.RED + \"\";\n\t\tString y = TextFormatting.YELLOW + \"\";\n\t\tString b = TextFormatting.BLUE + \"\";\n\n\t\tswitch(stack.getItemDamage()) {\n\t\tcase SMALL:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(b + \"Does not destroy blocks\");\n\t\t\tbreak;\n\t\tcase SMALL_HE:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase SMALL_WP:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(y + \"Damage modifier: 3x\");\n\t\t\tlist.add(r + \"Phosphorus splash\");\n\t\t\tlist.add(b + \"Does not destroy blocks\");\n\t\t\tbreak;\n\t\tcase SMALL_TB:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(y + \"Damage modifier: 10x\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase SMALL_MINI_NUKE:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(r + \"Deals nuclear damage\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase SMALL_LAVA:\n\t\t\tlist.add(y + \"Strength: 20\");\n\t\t\tlist.add(r + \"Creates volcanic lava\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase LARGE:\n\t\t\tlist.add(y + \"Strength: 50\");\n\t\t\tlist.add(y + \"Damage modifier: 5x\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\tcase LARGE_TB:\n\t\t\tlist.add(y + \"Strength: 50\");\n\t\t\tlist.add(y + \"Damage modifier: 12x\");\n\t\t\tlist.add(r + \"Destroys blocks\");\n\t\t\tbreak;\n\t\t}\n\t}",
+      "body_sha256": "d895b093e0aab3611aea4705791aae8692c23f3a1fdd819fc9b306aac41c2351",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCustomMissile.java": {
+      "owner": "com.hbm.items.weapon.ItemCustomMissile",
+      "ancestry": [
+        "com.hbm.items.weapon.ItemCustomMissile",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "e39faaae9837573647c69f827991752ab9c81a57a11909098b8e9d19d7d0207a",
+      "after_sha256": "9a737886fd1d985f8de16bb68d25dea6bbe0b34bdb4232b19f0b5cffc56d9869",
+      "offset": 1876,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tif(!stack.hasTagCompound())\n\t\t\treturn;\n\n\t\ttry {\n\t\t\tItemCustomMissilePart chip = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, \"chip\"));\n\t\t\tItemCustomMissilePart warhead = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, \"warhead\"));\n\t\t\tItemCustomMissilePart fuselage = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, \"fuselage\"));\n\t\t\tItemCustomMissilePart stability = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, \"stability\"));\n\t\t\tItemCustomMissilePart thruster = (ItemCustomMissilePart) Item.getItemById(readFromNBT(stack, \"thruster\"));\n\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.warhead\") + \": \" + TextFormatting.GRAY + warhead.getWarhead());\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.strength\") + \": \" + TextFormatting.GRAY + warhead.attributes[1]);\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.fuelType\") + \": \" + TextFormatting.GRAY + fuselage.getFuelName());\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.fuelAmount\") + \": \" + TextFormatting.GRAY + fuselage.getTankSize() + \"l\");\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.chipInaccuracy\") + \": \" + TextFormatting.GRAY + (Float)chip.attributes[0] * 100 + \"%\");\n\n\t\t\tif(stability != null)\n\t\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.finInaccuracy\") + \": \" + TextFormatting.GRAY + (Float)stability.attributes[0] * 100 + \"%\");\n\t\t\telse\n\t\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.finInaccuracy\") + \": \" + TextFormatting.GRAY + \"100%\");\n\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.size\") + \": \" + TextFormatting.GRAY + fuselage.getSize(fuselage.top) + \"/\" + fuselage.getSize(fuselage.bottom));\n\n\t\t\tfloat health = warhead.health + fuselage.health + thruster.health;\n\t\t\tif(stability != null)\n\t\t\t\thealth += stability.health;\n\n\t\t\tlist.add(TextFormatting.BOLD + I18nUtil.resolveKey(\"item.missile.desc.health\") + \": \" + TextFormatting.GRAY + health + \"HP\");\n\n\t\t} catch(Exception ex) {\n\t\t\tlist.add(TextFormatting.RED + I18nUtil.resolveKey(\"error.generic\"));\n\t\t}\n\t}",
+      "body_sha256": "0cd747b6850e3e4c0521d73344248bff66c656fa2359dfd388c7e5cc302745c5",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "stack",
+        "stack",
+        "stack",
+        "stack",
+        "stack",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list",
+        "list"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCustomRocket.java": {
+      "owner": "com.hbm.items.weapon.ItemCustomRocket",
+      "ancestry": [
+        "com.hbm.items.weapon.ItemCustomRocket",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "da42af009e49efa7359fec582fd3b6fb751a5a2608a35c8d28530af32b352c40",
+      "after_sha256": "f01a5fed9e22674234d5f04f63532e0951784d89a90ecb40df361302ddcccf78",
+      "offset": 1562,
+      "old": "addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\t\tRocketStruct rocket = get(stack);\n\n\t\tif(rocket == null) return;\n\n\t\tlist.add(TextFormatting.BOLD + \"Payload: \" + TextFormatting.GRAY + I18nUtil.resolveKey(rocket.capsule.part.getTranslationKey() + \".name\"));\n\t\tlist.add(TextFormatting.BOLD + \"Stages: \" + TextFormatting.GRAY + rocket.stages.size());\n\n\t\tif(hasFuel(stack)) {\n\t\t\tlist.add(TextFormatting.GRAY + \"Is fully fueled\");\n\t\t}\n\n\t\tif(getFreq(stack) != 0) {\n\t\t\tlist.add(TextFormatting.BOLD + \"Satellite Frequency: \" + TextFormatting.GRAY + getFreq(stack));\n\t\t}\n\t}",
+      "body_sha256": "f17315c1acd2cbf24c98416e47c7ddd987dca05b197c53b6def1bf74b76f882d",
+      "original_parameters": [
+        "ItemStack stack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "stack",
+        "list",
+        "list",
+        "stack",
+        "list",
+        "stack",
+        "list",
+        "stack"
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/WeaponizedCell.java": {
+      "owner": "com.hbm.items.weapon.WeaponizedCell",
+      "ancestry": [
+        "com.hbm.items.weapon.WeaponizedCell",
+        "net.minecraft.item.Item",
+        "net.minecraftforge.registries.IForgeRegistryEntry.Impl",
+        "java.lang.Object"
+      ],
+      "before_sha256": "52c67ab755f84c3d01a00e59ea8e9def7ce0dec8b0480d95880946ef64792748",
+      "after_sha256": "c746bf3948fc2454daa49b8c191423ff18a37dbc9512a49b86769d71428e7e19",
+      "offset": 2104,
+      "old": "addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)",
+      "new": "addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)",
+      "body": "{\n\n\t\tlist.add(\"A charged energy cell, rigged to explode\");\n\t\tlist.add(\"when left on the floor for too long.\");\n\t}",
+      "body_sha256": "ca5dd7944408f4277dd46eb67e3c393afb7b57edd11ea8437d373d9ef96a89d6",
+      "original_parameters": [
+        "ItemStack itemstack",
+        "EntityPlayer player",
+        "List list",
+        "boolean bool"
+      ],
+      "parameter_references": [
+        "list",
+        "list"
+      ]
+    }
+  },
+  "excluded": [
+    [
+      "com.hbm.items.armor.ArmorBJJetpack",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorDNT",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSB",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSBFueled",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorFSBPowered",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorGasMask",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorHat",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorHazmatMask",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorLiquidatorMask",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorModel",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorNo9",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ArmorTrenchmaster",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemArmorMod",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModAuto",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModBandaid",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModBathwater",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModCard",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModCharm",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModCladding",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModDefuser",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModFlippers",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModGasmask",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModHealth",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModHeavyBoots",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModInk",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModInsert",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModIron",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModKnife",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModLens",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModLodestone",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModMedal",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModMilk",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModMorningGlory",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModNightVision",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModObsidian",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModOxy",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModPads",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModPolish",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModQuartz",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModRevive",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModSensor",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModSerum",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModServos",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModShackles",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModShield",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModTesla",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModTwoKick",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModV1",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.ItemModWD40",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackBase",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackBooster",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackBreak",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackFueledBase",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackRegular",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.armor.JetpackVectorized",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.block.ItemBlockBase",
+      [
+        "player used",
+        "advanced boolean used",
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.block.ItemBlockBlastInfo",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.block.ItemBlockLore",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.block.ItemBlockRemap",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.bomb.ItemFleija",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.bomb.ItemSolinium",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemDepletedFuel",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemPlateFuel",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemRBMKPellet",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemRBMKRod",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemSatChip",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemSatellite",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemScraps",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemStamp",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.machine.ItemTurretBiometry",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemDemonCore",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemDigamma",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemHotDusted",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemKitNBT",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemSiegeCoin",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemWasteLong",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.special.ItemWasteShort",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemCMStructure",
+      [
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemCoordinateBase",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemKeyPin",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructurePattern",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructureRandomized",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructureRandomly",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructureSingle",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructureSolid",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemStructureTool",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemSwordAbility",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemSwordAbilityPower",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemSwordMeteorite",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemToolAbility",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemToolAbilityFueled",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used",
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.tool.ItemToolAbilityPower",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.ItemCrucible",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.ItemCustomMissilePart",
+      [
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.ItemGrenade",
+      [
+        "source descendants"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.sedna.ItemGunBaseNT",
+      [
+        "player used",
+        "source descendants",
+        "direct consumers"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.sedna.factory.XFactoryPA.ItemGunPA",
+      [
+        "custom parent/domain family deferred"
+      ]
+    ],
+    [
+      "com.hbm.items.weapon.sedna.impl.ItemGunNI4NI",
+      [
+        "custom parent/domain family deferred",
+        "player used",
+        "advanced boolean used"
+      ]
+    ]
+  ]
+}

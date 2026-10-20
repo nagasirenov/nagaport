@@ -94,7 +94,7 @@ public class XFactoryEnergy {
 
 		if(mop.typeOfHit == RayTraceResult.Type.ENTITY) {
 			if(mop.entityHit instanceof EntityLivingBase) {
-				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 9));
+				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));
 				((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 60, 9));
 			}
 		}

@@ -1,0 +1,336 @@
+{
+  "mode": "dry-run",
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "calls": 58,
+  "files": [
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "calls": 1,
+      "before_sha256": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce",
+      "after_sha256": "e39d1ba4bbb388254a4cd302ea95de0c7036e96649ecad82ec3ccd7a00528e9f",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "calls": 1,
+      "before_sha256": "d8c8a3763677fea88fce932c384a5cc9dbea81f2b805478848ed8c2acdf9b855",
+      "after_sha256": "f07185a3afa5a0fa506ff8a10b64619c1532f3b72938cddd04197951eaf11c28",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/Landmine.java",
+      "calls": 1,
+      "before_sha256": "625b43510a63b64fa78580f485cb18076c391d248d677327b0d7b8a0714b35a1",
+      "after_sha256": "254d6cb2985d1e6590c1e614fdca1a48bf732a475bf9c468aa7c3b45cd838ce3",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "calls": 1,
+      "before_sha256": "22b54d131b15c687045b95422f372d20651d7eb6f3b996d907088ef55a7a339e",
+      "after_sha256": "e10e7bd5c7f8cb6bbfc38f54b26e3380da95975637642fac65ecf120637aba11",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "calls": 1,
+      "before_sha256": "f055f4a104a1478857ee59806bdf991b4735a815c884e53283f31380f98261f4",
+      "after_sha256": "076e3126e3058139972dc5898d99d15ee9835c4cd1de136fbe4cd4b7ce566a84",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "calls": 1,
+      "before_sha256": "ea77a069967ab3477b1aaf1d92bc033b156ac7afdd5ac89e13a460f54ff63955",
+      "after_sha256": "499f85ea8063429266d692c3c97cd811b70ac261080d7373b4ceb49f2033e5c6",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "calls": 1,
+      "before_sha256": "b2b67bf21706615b87dc458623211472481e8693d54aab5da50b4bbb4be0af8e",
+      "after_sha256": "3883d767bac3aa075c2c4de65c45459e60fd880686575058733a220073f5d187",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "calls": 1,
+      "before_sha256": "fe1691f4ab53640fe89e0631bca3e97ba23b1fc76209bea95cb195d184ca0a93",
+      "after_sha256": "0de915c55d39ae45ee924aa56e3e076c1968f3ee8bb4ff858b711033ce521a0c",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "calls": 1,
+      "before_sha256": "0898a22a54fedc09d973e8402529433cf21bc46312a7d37024e062008fcbf314",
+      "after_sha256": "5acb3db82cdff0ecd042fb5b4fa686eadd0481d544db858a662da0c67d69449d",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "calls": 1,
+      "before_sha256": "8f05791570ceae897456fa2ba07d5ddf905f8d06ff2e6ef23dafcc906d075823",
+      "after_sha256": "fb357078bf34e1a72b57ff89f167704bddde52ba9a41c8236af333bd2a68644d",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "calls": 1,
+      "before_sha256": "18555c63b01ce72df4a41c87a35d197ea6c334d195f7918cbb644c25b667d001",
+      "after_sha256": "0243017e60e9dd0a6ba23aa04190bb7d0ad8d0e9934f48afebf1a26427355372",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "calls": 1,
+      "before_sha256": "68aa398e77575a41244feaaa156f2de0e448d913a73cdefda010c75b07a15ead",
+      "after_sha256": "f9a5bddf23f43c57c83fe0d8bd24f89a5452ee4e0845e336ac0667a76c22286c",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockModDoor.java",
+      "calls": 2,
+      "before_sha256": "0e73fb1e3461f9d990e012326bd76f74686ccff67905568ed9e0e0dc1b6750cc",
+      "after_sha256": "9e0752b722ebe53671b5ac676b9fa05ee1d2ecce812f7bcbce0f27bd6445e9fe",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "calls": 5,
+      "before_sha256": "748cad26fd50017cce16adfe602b70ae97cca28a6aed6f9b03d23ca474c2a0b4",
+      "after_sha256": "d4cd5643f0389f5589baa98e557fdec88178c70a199c0e91585af10d2791232b",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "calls": 5,
+      "before_sha256": "73c1fc3b0c49979c63e27d9064b22cd9a9d86cafd5956f5d2c947c1f5aa07c7c",
+      "after_sha256": "1f41d1194081dfb3a50da4c9b38222bcdc9a5faefacd4685f3c51a8d0d2203ff",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockSeal.java",
+      "calls": 1,
+      "before_sha256": "6eeae9485f99fa55749f9e167cf1b078028816e0374011a4031dfa772aa77ee3",
+      "after_sha256": "fd8288fa00505122a557496708524fe1a8acb55986341ae234e36a85ee243c7e",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFan.java",
+      "calls": 1,
+      "before_sha256": "94ba86772f7fa871c5efee24463b97f1f5a91c2aa8ce95d85595cb130f2adeaa",
+      "after_sha256": "287f3787f192bb838b61d5a452da8e5eef71205fa1a0a0aaca0299bf3e6e8881",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/ReactorZirnox.java",
+      "calls": 1,
+      "before_sha256": "677189bb5db94b34113d70ef06db52d2ef97042289dc7b473ce50d0cac3921c5",
+      "after_sha256": "c531a4a4699cd5d2d7e46b58266cf235950d196484f2d862aaaa0508fdf26588",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/network/CableDetector.java",
+      "calls": 1,
+      "before_sha256": "73731e69d60aefa0c5effa168ca37ec7e2624b5d17d2200ba90bfb9a309cba97",
+      "after_sha256": "b6c5aa2b7fe2230f99ac580ce5e5f634cf69ec3dae8bdbc3a0aecc3c15703159",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/network/FluidPump.java",
+      "calls": 1,
+      "before_sha256": "72a4998c1f66c6b3b1989a045d791235c822a9f3889f54c9eb0f55bc08c8e3c7",
+      "after_sha256": "3ccb10ce125c9e159423b24730ba8b41adac87743526bd2e4660dbb1e915bded",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/network/FluidSwitch.java",
+      "calls": 1,
+      "before_sha256": "113dc691af54d6b64e0169068e2eeabe91bac0ddd990799f08313d449d4aab12",
+      "after_sha256": "b881119b563992b74206c9d9d25a13ffd4651417706e9932d9531529589e830d",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/blocks/test/TestEventTester.java",
+      "calls": 1,
+      "before_sha256": "46d3d0a3213bd6e05903e25cd48f3ac598a9edba90463640d784213f6bb17eb1",
+      "after_sha256": "f7fbd59e823620fa54df4ca276105534b22d3b137a91413d676d3b0ef69bea0a",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/TileEntityDoorGeneric.java",
+      "calls": 1,
+      "before_sha256": "72553dabae14e4e06539475f513f8d8715b5157886c5640d866e858024ffd8f8",
+      "after_sha256": "767855573f8ae2a85839722b3f5de95112d8b42a7c799b43c30c070808dcb011",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "calls": 1,
+      "before_sha256": "773875d2a0cdb34f5905ad56bbb94c35f8f37c74a78cd25d4b61e4d8f80987b7",
+      "after_sha256": "cfae9e6e77269592dfa7a6f128034857d305c0c8c99159ac1759e24393852e97",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityFireworks.java",
+      "calls": 1,
+      "before_sha256": "14b10c72efb95e2b6b46057f638f128d4735076b6a197ffcb4c4eef7f57a31ae",
+      "after_sha256": "6f0761e05763949f44ab9867e437cf6b339781df0e5c6cc4bd9a803cb8053d66",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+      "calls": 1,
+      "before_sha256": "8194813d6f8af96720162a07f431e819c9d5c12a093329a7f9c505ca64f4ffd8",
+      "after_sha256": "138fb5968535b808fc49934591c2966e60d26d38fdda1083ad3bedaf6f4695b2",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+      "calls": 1,
+      "before_sha256": "f6b4afdaafbd657e93a7155a6869a00908f8d922eb08f1ffb15cf8efa7c609c9",
+      "after_sha256": "c3c378b2c4ac8922d2fb8ba6d3886d7136897fa5468711df2a28a9a0ba298439",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "calls": 1,
+      "before_sha256": "84fd5b0d10b78fa006b257d3516b44833836a9bb6eba00e0ba3157565ee43abe",
+      "after_sha256": "78aa832603d9607a1dcac3e4f446f04c27cfc7e4503eb243012ad9323a39c8b6",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/deco/TileEntityDecoTapeRecorder.java",
+      "calls": 1,
+      "before_sha256": "9a930a10640074d4b32442d8d0747594d4572dc78c32aae4cf03cb67d2460e77",
+      "after_sha256": "bddde78fd65911073c53176dba614404e5ed8a05b5e18f02c0542426c3e790eb",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/deco/TileEntityVent.java",
+      "calls": 1,
+      "before_sha256": "8471984eeea42d4889244ca39023ecb2f505fc4cd8eb9d488e3433e4bb83ec54",
+      "after_sha256": "3c07129d9b1e833d2e3d5f4d7c82bf6f92e1a1b02b71f247521356e7b52bc0d2",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "calls": 2,
+      "before_sha256": "5854d553fcf7be446fc2f1f30cfcce624234ac6d7bac9c09418ae22db3fc720c",
+      "after_sha256": "d79637d7236560b91185f821b1a648db83b2ba307ae5f1498b20ae210f8e320e",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityChlorineSeal.java",
+      "calls": 1,
+      "before_sha256": "19cc1d175526b309429fa7d51b190a7fa9020e84a7ba05b0b383fbfb091f1ab2",
+      "after_sha256": "85aef62e97007e1dbff06b19ae37282e986b14d1b8bfee838207e02a7c5a7867",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineDiesel.java",
+      "calls": 1,
+      "before_sha256": "9e15ddbc2c47bb7ded7d4337d7d2b52c1fdd8dbc9c3c210a17c335465e43716a",
+      "after_sha256": "c23f1623d108a6d7d53bf3a0ad5078e10b70c25cf932c2dc474dc23d75494040",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "calls": 1,
+      "before_sha256": "5b310e2d041e12aafd657c15d6a0646680e7f2680c04d87eda87665ca1d50607",
+      "after_sha256": "eb229854239c11af9f510e930691243172caabe7cd78438469abb7419ba41577",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineSiren.java",
+      "calls": 1,
+      "before_sha256": "c2e1d7d53ce4c54fc71e7456242c8d1f3a5635bde70013e723e9e2593cf6c4e7",
+      "after_sha256": "02096222c645b06ebd64d8be28d9d58a54dfdb38eb66e39fe0e37f1c55aee7f7",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "calls": 1,
+      "before_sha256": "d3789a23bfc5dcdaf2d945a63eab3f3e353c0e9b311a2022d53256075498d1d2",
+      "after_sha256": "e6488d499bb0c12d849f4800d933374760ab0f2619923d6370c961db8f6d179c",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+      "calls": 1,
+      "before_sha256": "18bc178b4afc1669794accf86f963da58c00f004c1b86521d42ca4fd953e40b1",
+      "after_sha256": "70c84e8ea7b5ca2b02a3a67f1d3491932f0cff3320f13cc84b23abeee2382f63",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java",
+      "calls": 1,
+      "before_sha256": "1b316b225c55f4f81a1d0770d855f066e3b4de2b5b5a5ec451d4db88b8deef59",
+      "after_sha256": "53e73d57104d6737c6576aeb74f8e1ca837bb84427d817a7e2d550118c76e38c",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java",
+      "calls": 1,
+      "before_sha256": "a5b044b9994368f0054afe33207e579612f51fc5f61699ba0f7b5ea99d6f5e82",
+      "after_sha256": "65ad6b906b5ef5d1435c6e9cf9baa0ebf9ec5b228e7958309d43a8d4ce602203",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneBoxer.java",
+      "calls": 1,
+      "before_sha256": "ba3c3d6d67cf1f7daa040f3a02c87db39a6433f80864f306a06949aa9f3d8cc5",
+      "after_sha256": "c2f9f007b6db2445eab4d6e0d952ee28e157fa79b35c81ecf4be521014410da9",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+      "calls": 1,
+      "before_sha256": "dbf0bf1e07276e7762d9264d84cd15d4171e37f329745c25a93f49c42221f9b3",
+      "after_sha256": "f51187f1a93d1f12ae2d35ce77888b1fcb5305db5f86c641d3638c8f8270be2b",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      "calls": 1,
+      "before_sha256": "dbc56600106ffd77b555eea2a2afa525163e07fc2eabe7956bb1f8ea50474e18",
+      "after_sha256": "7309ca77e5ec26b12b5f0ecac5d8b705672f1f86d8fbe15ddba4e49c74e08a4c",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneInserter.java",
+      "calls": 1,
+      "before_sha256": "501949c86d7dcf708e8fcac649d8cb1aec1b497c4f30fe8a8e72b0c8b9982ee7",
+      "after_sha256": "e974d714799eeb0b02982a623a65e9f27b46185c2ef6c20fec34e16ea8df7935",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneUnboxer.java",
+      "calls": 1,
+      "before_sha256": "c3d29080daca5f240b1aae936e8c4f828f9ba6f3cadbb29451cbd7e96ad47b3b",
+      "after_sha256": "d194f76b386f475b1004384c45a8835d8f9b8f0d70c12aafc2fdf1ea6ab90c4d",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "calls": 1,
+      "before_sha256": "d187a0c8cc10de7b345917f29f105c9808efda6da6393ff1cfa5487deae0bf7f",
+      "after_sha256": "bb65a442d9036f1d6908d0dc9e164d18468c9c27310f6f74a2bf3a370b087f5a",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityRequestNetwork.java",
+      "calls": 1,
+      "before_sha256": "0a823c3559c6624f2ccc96df5eeb348087b650bb97626a068e21050298556504",
+      "after_sha256": "2ac90a3c5fafa9f09a07190b1c4872bc4673b4663c25a192a63f897b33399ad6",
+      "exact_inverse": true
+    },
+    {
+      "path": "com/hbm/world/gen/util/LogicBlockConditions.java",
+      "calls": 2,
+      "before_sha256": "f68c843adf339feea6b0ef91e77fb1d3f8e6882d785f0e1f9d2b7b54c31fcf9a",
+      "after_sha256": "1db21a8eaaa8d23d46f17d2f87728616cab992d40a966f95c0fe2a38e4a37aa3",
+      "exact_inverse": true
+    }
+  ]
+}

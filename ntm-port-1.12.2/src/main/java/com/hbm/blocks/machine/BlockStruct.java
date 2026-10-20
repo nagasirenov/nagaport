@@ -18,7 +18,7 @@ public class BlockStruct extends BlockContainer {
 		return new TileEntityMultiblock();
 	}
 	
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
     	
         return false;
     }

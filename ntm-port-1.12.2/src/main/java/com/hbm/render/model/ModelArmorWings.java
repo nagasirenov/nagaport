@@ -59,7 +59,7 @@ public class ModelArmorWings extends ModelArmorBase {
 		int tipZOffset = 2;
 		double inwardAngle = 10D;
 
-		boolean relaxWings = entity.onGround || entity.ridingEntity != null;
+		boolean relaxWings = entity.onGround || entity.getRidingEntity() != null;
 
 		GL11.glPushMatrix();
 

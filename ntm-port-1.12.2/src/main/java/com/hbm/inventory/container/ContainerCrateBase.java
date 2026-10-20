@@ -12,7 +12,7 @@ public class ContainerCrateBase extends ContainerBase {
 
 	public ContainerCrateBase(InventoryPlayer invPlayer, IInventory tedf) {
 		super(invPlayer, tedf);
-		tile.openInventory();
+		tile.openInventory(invPlayer.player);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class ContainerCrateBase extends ContainerBase {
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);
-		tile.closeInventory();
+		tile.closeInventory(p_75134_1_);
 	}
 
 	/**

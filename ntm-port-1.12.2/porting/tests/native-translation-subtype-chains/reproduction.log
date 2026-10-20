@@ -1,0 +1,8 @@
+PASS 53 real original/native armor inherited setter, raw identity, fluent return, key-prefix, stack and virtual getter assertions
+PASS 161 actual legacy/native name setter/getter, raw identity, return, prefix, null, ItemBlock delegation and virtual-dispatch assertions
+PASS 4 actual original/native armor superclass and inherited setter declaration checks
+PASS exact cloneStats: 13 assignments, one ignored-result setRadResist invocation, terminal return this, no alternate return or control flow
+PASS 44 exact method-token replacements, whole-file inverse, pinned unchanged owner/runtime/bytecode proofs and independent full AST receiver/argument/predecessor/destination equality
+PASS Independently enumerated receiver AST nodes and argument records unchanged; 44 actual native Item destinations
+PASS 8 attribution controls: exact owner accepted; dynamic/factory/anonymous/subclass override/wrong argument rejected
+PASS 44 whole-file mutation guards

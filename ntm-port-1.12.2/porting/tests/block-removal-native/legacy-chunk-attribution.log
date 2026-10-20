@@ -1,0 +1,46 @@
+     181: getfield      #68                 // Field ahb.E:Z
+     184: ifne          203
+     187: aload         8
+     189: aload_0
+     190: getfield      #86                 // Field e:Lahb;
+     193: iload         12
+     195: iload_2
+     196: iload         13
+     198: iload         9
+     200: invokevirtual #140                // Method aji.f:(Lahb;IIII)V
+     203: aload         10
+     205: iload_1
+     206: iload_2
+     207: bipush        15
+     209: iand
+     210: iload_3
+     211: aload         4
+     213: invokevirtual #176                // Method apz.a:(IIILaji;)V
+     216: aload_0
+     217: getfield      #86                 // Field e:Lahb;
+     220: getfield      #68                 // Field ahb.E:Z
+     223: ifne          247
+     226: aload         8
+     228: aload_0
+     229: getfield      #86                 // Field e:Lahb;
+     232: iload         12
+     234: iload_2
+     235: iload         13
+     237: aload         8
+     239: iload         9
+     241: invokevirtual #138                // Method aji.a:(Lahb;IIILaji;I)V
+     244: goto          274
+     247: aload         8
+     249: instanceof    #26                 // class akw
+     252: ifeq          274
+     255: aload         8
+     257: aload         4
+     259: if_acmpeq     274
+     262: aload_0
+     263: getfield      #86                 // Field e:Lahb;
+     266: iload         12
+     268: iload_2
+     269: iload         13
+     271: invokevirtual #134                // Method ahb.p:(III)V
+     274: aload         10
+     276: iload_1

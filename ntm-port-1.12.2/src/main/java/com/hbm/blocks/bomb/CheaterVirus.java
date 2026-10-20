@@ -33,7 +33,8 @@ public class CheaterVirus extends Block {
 	}
 
     @Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
     	
     	if(GeneralConfig.enableVirus){
     		if(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.cheater_virus && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.cheater_virus) {
@@ -87,7 +88,7 @@ public class CheaterVirus extends Block {
 	public void onEntityWalking(World p_149724_1_, int p_149724_2_, int p_149724_3_, int p_149724_4_, Entity entity)
     {
     	if(entity instanceof EntityLivingBase) {
-    		((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 60 * 60 * 60, 9));
+    		((EntityLivingBase)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 60 * 60 * 60, 9));
     	}
     }
 

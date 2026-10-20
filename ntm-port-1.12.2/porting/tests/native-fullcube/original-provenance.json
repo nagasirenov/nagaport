@@ -1,0 +1,427 @@
+[
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/BlockKelp.java",
+    "sha256": "3b286743554d4c616baa7577f92434fc114801867104b0c020db5c6cad0eade9",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "sha256": "ad3a82a8159d3b0f53e289a8bea48850769d4048c246f88c542ccb7740846c9c",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+    "sha256": "10e3c052920c8637b83683786516dde7b2a7def0431513d7186fea2519b37376",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "sha256": "2ba4ac35f7770ae866bf6e4f865db49e745744bca6175fb28d3fc5f49fc6efdf",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "sha256": "ff90d779997a7583445f847dbd0d6910e160fdf08141606852a4f9e048b70fd6",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "sha256": "6843a6f2defd65c16de160983c37670ba29b7541215a80cfbfab274ee9c4e501",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "sha256": "8bf570c11d4ab814ddf694786d83cda32d02c7c6c9e4798be6555fc40b1bef65",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+    "sha256": "91bcd76d6091b6c1a43f6f1a6bf54496a7814a2b6b0adeb67cc8239d5e4e439d",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "sha256": "6a8d009ffae03d4c5ae00d1479debe9449d321955af65b1f83030caad4f560dd",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "sha256": "8b81a61f20b9fa8f0f063991cc1f662c63800a1d296444a9d3ad91a06a91a3b2",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "sha256": "5c73c612ae71d6abf6a40283ea784b8249bc8ce0453d4f651584a47b8bcd060e",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "sha256": "b73894207378372194004f3d2f21b98db7435af56378ca8670ecdad4263837a9",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "sha256": "c188fe62734d8cba1a456210dca3aee921c05867729c0eb822850514619f5bf7",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "sha256": "0184305be69c014a38ebb9bcbc3adcc0932eb67bdf6b4b77dccf7c996e4ff48f",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "sha256": "1a7ab2bac7445cbfe80cc0c627050b30dfbfcde6f3576e4a5706d4d5f4fc1e26",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "sha256": "2b8764fa0dfa6db733a8ff0dc819e5bd62690072fb61b6064e37f8f5cd43f3c7",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "sha256": "b3e105902ced1c7e1f8b3a69636d88e75bc27a635949c26e8c5cf03b3845588d",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "sha256": "9d8dd33c6913aff2ad7316bac60fba5b15053ee8b2eae22664635e7d3809acc3",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "sha256": "2881900203a6afc155dc332c674102e5de8e71d18fb985ca5bee0bddeeb453af",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "sha256": "d079064e445d310785b9ed48de5f073afb0c8a38944fa89cfa8fadee17503deb",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "sha256": "38786dcb0b561c2dae0f4cd461097024f77e9233b65278e740957b295f530e4c",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "sha256": "b6f30a732da19a8968f907176b030384e2140704214dfe6de0593e5f94767127",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "sha256": "fbea668ef2f367413411a65c6eb5fc2c766d455b25ae96c6814d66d0fe970aa7",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+    "sha256": "9bca694f5c5cc608975856aeb8379fbb53ebeb0b91cfb2b5566b3941f2096d34",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "sha256": "e34984655d6d3a599b3d90be9f8a52dfc4a102fe97cafc7c84a92333e90ab257",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "sha256": "6d9e4b783e6554a2a4a81b56d476837abbb13521c878f163ac8b3d3e145a05cb",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "sha256": "71cd481d861c743d26df0a8b58a0345587c7566f2cc48e87cf81c2f50a047f75",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "sha256": "6d9b9417019edae9d03caba95094b75d3153e0fdb92bd0f19807047134e4ab64",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+    "sha256": "9e4cb92100d5c1ed74af2d1b19522f78919c31e77bd6a34f968053d390ae2313",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "sha256": "ded5e15ef0a4cf22e0b4ec384d9ed1219d353f445c1a86d037d0ded9065c97c7",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+    "sha256": "d933ed54775b505ebeed1c9b3a1bae4ae410620d3a97b9f5ad90a85f3576dbe2",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "sha256": "0ab3450fbe03897b1149ea83372443460d5e4c2a759eb00cf788f22569a253f6",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+    "sha256": "c44d0b37b2dd7d0f579c3fd4e5fd3465d8b2d73a578a43b470135d3bb88e566b",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "sha256": "3f8def12e7555b848d717f10d74a17b5ddc2d925782b7be3391efa8379946930",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockPlasma.java",
+    "sha256": "5468b944dd7f42272213466b34351d5c32b674f7b92b8d6f275aa994b6c5158b",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "sha256": "530c45e32cd41618b1a40b4fdca1340a39e1997469a2e654a1a487d64f09bdcf",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "sha256": "f298b71172ab30784e1d51634bec2ea4069ee3e8ebe68d03e239fd0285fe4c72",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "sha256": "3633ce6f903efb778ce8b97abc52d576f39f8af70787edc9198571251c7bd7d6",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "sha256": "5e00a74bea2b27b962ce24e24947e2fd3f1b7e2fa8f8b8ff40db5f1519ceec69",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "sha256": "21a2b23760ffb7949a69529ea377a8fafe35f438ca1ecbcefe4a2405ede8754a",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "sha256": "2762c3762f7cf9e41abbe8f9e9c8172e2e398f0dd16e57eaaafdf0cae7d3c9da",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "sha256": "c6ab9bb41e8d957784b5820f3f7b14d8c3988119b84004d167dd50a2f3e0a9c0",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+    "sha256": "cf68503a802e931e2bae0a49c0d57de9ca748cf19edcddaa0d957b34edbadf11",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "sha256": "19fc455a33152681454498893d87ffe370289e119e8f1c2810ecbd09ab07fc3d",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "sha256": "958e2fd91dca2c9adec42890e3584a22931fe2c58c750cf87321453544dcea02",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "sha256": "390cde4a9a864676d1e2877b75655ed479165987fd0841c4b13fdf6656698561",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "sha256": "f33177aaaa1598b5d64177701711ebd65460f1f6ffa25605745b7368f5c35408",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/BlockCMGlass.java",
+    "sha256": "afe9e6ae00facc356396477c790963fdff876c9de68f7514b4c31520d263a270",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "sha256": "67cdd7471b7b3458ff6b8a8097eaec6608f8b21a1c36b93f95eb73d45c732638",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "sha256": "56a41c38bc30649dec4c79f5cf29040e5263682aef5c6fb2aeab288d8b1755f4",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/Charger.java",
+    "sha256": "66f9f92d37f9889f6df93b661fc2df9c9f9c1c364d82553a3a1899488201d920",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "sha256": "0018c5f200deade25fc7a88b75a8f469e469b2bb05e21c3b65dfac47980522d1",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "sha256": "465dba79bf16be82cd6e36981a04786daa232f0aa2637dcc2124ad4ccd9cf266",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "sha256": "5f6585d65add3508ada463d6b11a82806cfa44a19618b5d5dbc247fa5179d067",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "sha256": "d632b891d8f45c7ac9aead57ee09338f8f8bf3d45a67a782ce9ea1716dee9965",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "sha256": "486a97d6bf256a5a4763f9994714eed117ab9d5a83f5ea8377f3b194dc31f044",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "sha256": "6f8b7ae5a8d79e3fdaa2e0df2c4a9d1f4fb4a843905c8f824f442670b0ecf4ce",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "sha256": "51526ee537d93d7e09213f6a118739ebf26f2b4b76e012c19f9c8cb74e08e851",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "sha256": "26c6681390f5a36a05e62aa97d287604b8d83d4a7e4d81b6dc32d0067f5cc271",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "sha256": "34d47787c02f7dae35bc761adf6bed9046826eb2e2303c13426b5f3d5c4d309c",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "sha256": "45bd3a843ed20e46250b9cfcfd387f0d4b4fd2f1e66278237dfe1392edb32f00",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "sha256": "84a64f1f598cd5bdb7786893e760f55e89e23fcc5167e21acd3e2558ec448481",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "sha256": "8d0c4a9349547c7dbce68a24ea082a9d72efb8cf66495a55bf42b02dbca1a4db",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "sha256": "ca270a184c64ab18aeda351a086c366d9256d47364cffbb5e2e5d75fe051f7ae",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "sha256": "e2cbb0f551e380b9692f10d90c1205699e2557eb3a4954749331344c45b58e52",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "sha256": "54a8b6713449791fdd28e047c55210a90f180a07f2a8d388ae4811677f1422ed",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "sha256": "2be281716a9ae5b79e454fc868b5bf7a2a84ec6b64535e1d3d8447b8c1b0ca2b",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "sha256": "c0fb71144ce815a33ca1f8f0fc46920e832383d0853358682a4bb41b879700ed",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "sha256": "da8ef19d7066bcfb18c94e0a976508aa37bb30203ac39cd544ee11ed7f280161",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "sha256": "3a839c9d42d0c9a84d37027a48ce7f0e13a081ab1f60ceaf4185b04d5676704e",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "sha256": "1bea19e3dc0aae2b5a2735a7988e4372f8aba108ee6faf90a250d1801607e27d",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "sha256": "23057301175c0b64987fd402c6fe36e2428375e3925f74310a9c5c39ff6773e2",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "sha256": "d99cbbac0a5eb97af099e58266356b2b2d7e80abe74372080712334f6b05eb83",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "sha256": "18c869389bf7d553dbee5d21de2150e94fa5e0bbbe052d2495e2897cdb635556",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "sha256": "97e0719d2105a3417c57f080e2aefc7962893540b305ec1db1f44040a04e9d83",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "sha256": "8c24fd193b8851771f15708b51b1263bb3c69f935e739d851169de65237de0a6",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "sha256": "6fac1b2c9bfd1f6b78af68223d6748f1db8e63328485f91d4a9ee6c7ead5dd9e",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+    "sha256": "74e046ccbb72c0e2c2ecc7fca67f47b909d0da3096360f73acc24bc9ad4fb1a3",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "sha256": "5e6c64a2210b3a18bb2c01f8be76d2f05c232251ad90d78d133e571df60913cc",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "sha256": "e5f5dc0eb5a08b13dc55ec21fb43ecbc1a883b02faad8be995a58375162fb4ee",
+    "method": "public boolean renderAsNormalBlock() { return false; }"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "sha256": "6dc6cd4195e22a2b0753cbfb6f871cc38412a9792e43fa71dd2abca098ec6cb8",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "sha256": "6491acb8780a6e6a3f0d739f7dfd23bcac1aeb39bebaced85f99f4d361490446",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "sha256": "2418f9a2268cfd22bf95edd2e2b58f84237793eb6e7e69dbcd296513c802a82e",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "sha256": "654b8daf1b111bcbe52c84c99d56ebbad8c2b9c1e04b822313c22bfae86afdb9",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "sha256": "510ba87a3ffeec3e768929048baf633cdff36ae9fe2e74aa40a6571fe5a1bf78",
+    "method": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}"
+  }
+]

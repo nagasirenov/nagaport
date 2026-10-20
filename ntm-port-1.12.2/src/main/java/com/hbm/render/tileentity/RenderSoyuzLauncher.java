@@ -12,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderSoyuzLauncher extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float inter) {
+	public void render(TileEntity te, double x, double y, double z, float inter, int nativeDestroyStage, float nativeAlpha) {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y - 4, (float) z + 0.5F);

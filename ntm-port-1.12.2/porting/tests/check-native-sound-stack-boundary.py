@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """CP36 exact reversible loop/item/block source boundary; not runtime/GL parity proof."""
-import hashlib,json
+import hashlib,json,importlib.util
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
+_spec=importlib.util.spec_from_file_location('rtg_items_boundary',ROOT/'porting/tests/check-native-block-callback-boundary.py')
+_next=importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_next)
 RAW=Path(__file__).with_name('native-sound-stack-boundary-manifest.json').read_bytes()
 assert hashlib.sha256(RAW).hexdigest() == '5e5e5f90f94e78559f6f66258f9bbe58c83075caa6decac5a96707bcd58d236f'
 MANIFEST=json.loads(RAW)
@@ -12,6 +15,7 @@ assert len(FILES)==117 and len(NEW_FILES)==2
 
 def digest(text): return hashlib.sha256(text.encode('utf-8')).hexdigest()
 def reverse_source(relative,text):
+    text=_next.reverse_source(relative,text)
     if relative in MANIFEST['deleted_files']:
         assert text=='',(relative,'retired source reappeared')
         return MANIFEST['deleted_files'][relative]['original']
@@ -37,6 +41,7 @@ def verify(root=ROOT,verbose=True):
         path=Path(root)/relative
         if entry['after_sha256'] is None: assert not path.exists(),relative
         else: assert hashlib.sha256(path.read_bytes()).hexdigest()==entry['after_sha256'],relative
+    _next.verify(root,verbose)
     rejected=0
     for relative in sorted(set(FILES)|set(NEW_FILES)):
         current=(Path(root)/relative).read_bytes().decode('utf-8')
@@ -47,7 +52,7 @@ def verify(root=ROOT,verbose=True):
                 off=edit['before_offset']; old=edit['old']
                 assert forward[off:off+len(old)]==old
                 forward=forward[:off]+edit['new']+forward[off+len(old):]
-            assert forward==current
+            assert forward==_next.reverse_source(relative,current)
         for mutant in (current+'\n',current[:-1],current.replace('\r\n','\n') if '\r\n' in current else current.replace('\n','\r\n')):
             assert mutant!=current
             try: reverse_source(relative,mutant)

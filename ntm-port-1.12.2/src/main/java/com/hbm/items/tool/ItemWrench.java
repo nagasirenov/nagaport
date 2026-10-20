@@ -114,7 +114,7 @@ public class ItemWrench extends ItemSword {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(itemstack.getTagCompound() != null) {
 			list.add("Pipe start x: " + itemstack.getTagCompound().getInteger("x"));
 			list.add("Pipe start y: " + itemstack.getTagCompound().getInteger("y"));

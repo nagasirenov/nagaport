@@ -202,8 +202,8 @@ public class EntityDeliveryDrone extends EntityDroneBase implements IInventory, 
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return false; }
 
 	@Override public void markDirty() { }
-	@Override public void openInventory() { }
-	@Override public void closeInventory() { }
+	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
+	@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 
 	@Override
 	protected void loadNeighboringChunks() {

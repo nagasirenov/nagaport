@@ -1,0 +1,20 @@
+{
+  "base": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "production_patch_sha256": "af38df22999cb2d3d02fba93a1d01fd9b2d6acb9fc577e2011858ee52a662f7a",
+  "files": {
+    "ntm-port-1.12.2/porting/tests/block-removal-native/README.md": "9f78d6c7d28f0b111c14dbe21c9894b5c968355c4507ab08a0d6ae01b2e4a917",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/RemovalNativeTest.java.in": "d483149d9f50ba28866ead81f3d0fa8aa623374d9060e4dc9b03613b88e21785",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/apply-fragments.py": "92f57f5adf0044cf4421f2dd3e43a8be22973a74c59d1ad4d65cefb44dc66ef7",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/legacy-chunk-attribution.log": "96c0246c62256f3c8c73c9bd4c4f5f65ecf859d4f27b96e83b3e7ba5b8767e66",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/legacy-container-attribution.log": "0e40e23818e43c744493f1dd5789f92127c0c01f2fec73d5d90e24de84cdb922",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/legacy-srg-attribution.txt": "c27639d3c260b244cead02bd873e2df22dcae2577c4d232da35a9228b08c54e4",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/main-fragment-dry-run.json": "a6d7ed339ecb45032130e0ef9350af0b1af194cf50df9bf5e1360527a3462771",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/native-attribution.log": "ae92ebb34fd73116530163caef55f3933da1dbbfdf09f3cea2bcecfd6e0ffc29",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/native-chunk-attribution.log": "33abb9c65873fd6570a17431ebf3ac21b69f37241a3a1183d892b3ccc248be6d",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/native-test.log": "8ce7bf4157a3425b7c7b76e58ee12704e1f376b9b9e51bb3a1c8e4c3ebcbd62c",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/original-audit.json": "8b6bd41e3f8a1dd8ccf0dd1522c23000e3e9f5024031bb02cfab3af139662e1d",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/run.py": "53fec4975e693aaefc9689fe19413e3c6932f58d4b113190dba5f154fac11134",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/scope-audit.json": "8de7f0cea1a72de113218b0e6c05dea892e82c5841c0245bd4b32e406a354030",
+    "ntm-port-1.12.2/porting/tests/block-removal-native/selection.json": "66a0fb6e4920db3cc8fd58ababc5e98e403d8629fb920dd07af74de0cdd590aa"
+  }
+}

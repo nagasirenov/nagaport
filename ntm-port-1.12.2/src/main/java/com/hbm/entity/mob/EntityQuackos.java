@@ -101,7 +101,7 @@ public class EntityQuackos extends EntityDuck implements INtmBossDisplay {
 
 		} else {
 
-			if(!this.world.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {
+			if(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {
 				player.mountEntity(this);
 				return true;
 			}

@@ -18,7 +18,7 @@ public class BlockSoyuzStruct extends BlockContainer {
 		return new TileEntitySoyuzStruct();
 	}
 	
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
     	
         return false;
     }

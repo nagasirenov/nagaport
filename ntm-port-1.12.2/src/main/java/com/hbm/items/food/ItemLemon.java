@@ -30,7 +30,7 @@ public class ItemLemon extends ItemFood {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		if(this == ModItems.lemon) {
 			list.add(I18nUtil.resolveKey("item.lemon.desc"));
@@ -118,13 +118,13 @@ public class ItemLemon extends ItemFood {
 		}
 
 		if(this == ModItems.loop_stew) {
-			player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 20 * 20, 1));
-			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20, 2));
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 1));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 1));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 1));
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20 * 20, 2));
 		}
 		if(this == ModItems.s_cream) {
-			player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 20 * 20, 2));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 2));
 		}
     }
 

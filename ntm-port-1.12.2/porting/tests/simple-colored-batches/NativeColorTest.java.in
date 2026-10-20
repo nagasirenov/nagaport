@@ -1,0 +1,60 @@
+import java.lang.reflect.*;
+import java.net.*;
+import java.io.*;
+import java.nio.*;
+import java.util.*;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import org.lwjgl.opengl.GL11;
+
+public final class NativeColorTest {
+ static Class<?> legacyClass;static int batches,vertices,draws;
+ float zLevel=-90.125F;
+ static final int[] RGB={0,0x123456,0xFF804020,-1};
+ static final float[] FLOATS={-Float.POSITIVE_INFINITY,-100F,-1F,-.001F,-0F,0F,1F/255F,.1F,.25F,.5F,.999F,1F,1.001F,2F,Float.POSITIVE_INFINITY,Float.NaN};
+ static class Type {final int seed;int calls;Type(int s){seed=s;}int getColor(){calls++;return RGB[seed];}}
+ static Object get(Object o,String name)throws Exception{Field f=legacyClass.getDeclaredField(name);f.setAccessible(true);return f.get(o);}
+ static final class Legacy {
+  final Object actual;
+  Legacy(double translation)throws Exception{Constructor<?> c=legacyClass.getDeclaredConstructor(int.class);c.setAccessible(true);actual=c.newInstance(8192);legacyClass.getMethod("b",double.class,double.class,double.class).invoke(actual,translation,-translation,translation*.25);}
+  void startDrawingQuads()throws Exception{startDrawing(7);}
+  void startDrawing(int mode)throws Exception{legacyClass.getMethod("a",int.class).invoke(actual,mode);}
+  void setColorOpaque_I(int c)throws Exception{legacyClass.getMethod("c",int.class).invoke(actual,c);}
+  void setColorRGBA_F(float r,float g,float b,float a)throws Exception{legacyClass.getMethod("a",float.class,float.class,float.class,float.class).invoke(actual,r,g,b,a);}
+  void addVertex(double x,double y,double z)throws Exception{legacyClass.getMethod("a",double.class,double.class,double.class).invoke(actual,x,y,z);}
+  void draw()throws Exception{legacyClass.getMethod("a").invoke(actual);}
+ }
+ static int[] state(){FloatBuffer f=org.lwjgl.BufferUtils.createFloatBuffer(16);GL11.glGetFloat(GL11.GL_CURRENT_COLOR,f);return new int[]{Float.floatToRawIntBits(f.get(0)),Float.floatToRawIntBits(f.get(1)),Float.floatToRawIntBits(f.get(2)),Float.floatToRawIntBits(f.get(3)),GL11.glIsEnabled(GL11.GL_COLOR_ARRAY)?1:0,GL11.glIsEnabled(GL11.GL_VERTEX_ARRAY)?1:0,GL11.glIsEnabled(GL11.GL_TEXTURE_2D)?1:0,GL11.glIsEnabled(GL11.GL_BLEND)?1:0,GL11.glIsEnabled(GL11.GL_LIGHTING)?1:0,GL11.glIsEnabled(GL11.GL_CULL_FACE)?1:0,GL11.glGetInteger(GL11.GL_SHADE_MODEL),GL11.glGetBoolean(GL11.GL_DEPTH_WRITEMASK)?1:0};}
+ static void current(){GlStateManager.resetColor();GlStateManager.color(.23F,.47F,.61F,.83F);}
+ static void compare(Tessellator owner,Legacy old,String label)throws Exception{
+  BufferBuilder b=owner.getBuffer();int count=(Integer)get(old.actual,"g");
+  if(count!=b.getVertexCount() || (Integer)get(old.actual,"s")!=b.getDrawMode())throw new AssertionError(label+" count/mode");
+  if((Boolean)get(old.actual,"m") || !(Boolean)get(old.actual,"l") || (Boolean)get(old.actual,"n") || (Boolean)get(old.actual,"o"))throw new AssertionError(label+" old attributes");
+  if(!b.getVertexFormat().equals(DefaultVertexFormats.POSITION_COLOR) || b.getVertexFormat().getSize()!=16)throw new AssertionError(label+" format");
+  int[] raw=(int[])get(old.actual,"f");ByteBuffer bytes=b.getByteBuffer().duplicate().order(ByteOrder.nativeOrder());bytes.clear();
+  for(int v=0;v<count;v++){
+   for(int c=0;c<3;c++)if(raw[v*8+c]!=bytes.getInt(v*16+c*4))throw new AssertionError(label+" position "+v+"/"+c);
+   if(raw[v*8+5]!=bytes.getInt(v*16+12))throw new AssertionError(label+" RGBA "+v+": "+Integer.toHexString(raw[v*8+5])+" != "+Integer.toHexString(bytes.getInt(v*16+12)));
+  }
+  current();int[] prior=state();old.draw();int[] oldState=state();
+  current();if(!Arrays.equals(prior,state()))throw new AssertionError("current color setup");owner.draw();int[] nativeState=state();
+  if(!Arrays.equals(oldState,nativeState))throw new AssertionError(label+" post-draw GL/current color: "+Arrays.toString(oldState)+" != "+Arrays.toString(nativeState));
+  if(GL11.glGetError()!=0)throw new AssertionError(label+" GL error");
+  if(b.getVertexCount()!=0)throw new AssertionError(label+" native owner reset");
+  batches++;vertices+=count;draws+=2;
+ }
+ /*GENERATED_METHODS*/
+ public static void main(String[] args)throws Exception{
+  Constructor<?> c=Class.forName("MaterialTextureAtlasSpriteNativeTest$Context").getDeclaredConstructor();c.setAccessible(true);
+  try(AutoCloseable context=(AutoCloseable)c.newInstance();URLClassLoader loader=new URLClassLoader(new URL[]{new File(args[0]).toURI().toURL()},NativeColorTest.class.getClassLoader())){
+   Method initialize=Class.forName("MaterialTextureAtlasSpriteNativeTest").getDeclaredMethod("initializeNativeClientSettings");initialize.setAccessible(true);initialize.invoke(null);
+   legacyClass=Class.forName("bmh",true,loader);NativeColorTest test=new NativeColorTest();
+   GL11.glDisable(GL11.GL_TEXTURE_2D);GL11.glDisable(GL11.GL_LIGHTING);GL11.glDisable(GL11.GL_CULL_FACE);GL11.glEnable(GL11.GL_BLEND);GL11.glShadeModel(GL11.GL_SMOOTH);GL11.glDepthMask(false);
+   for(int seed=0;seed<4;seed++)for(double translation:new double[]{0,.125,-16777216.25}){
+    /*GENERATED_CALLS*/
+   }
+   for(float value:FLOATS)for(int channel=0;channel<4;channel++)test.boundary(value,channel);
+   System.out.println("PASS actual original/native POSITION_COLOR bytes and actual offscreen driver draws: "+batches+" batches, "+vertices+" vertices, "+draws+" draws; packed signed RGB, per-channel float truncation/clamping/nonfinite boundaries and matching post-draw GL/current-color state. No in-game pixel claim.");
+  }
+ }
+}

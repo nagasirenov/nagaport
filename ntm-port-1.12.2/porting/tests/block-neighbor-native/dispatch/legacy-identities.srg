@@ -1,0 +1,8 @@
+CL: ahb net/minecraft/world/World
+CL: aji net/minecraft/block/Block
+CL: s net/minecraft/util/ReportedException
+FD: ahb/E net/minecraft/world/World/field_72995_K
+MD: ahb/e (IIILaji;)V net/minecraft/world/World/func_147460_e (IIILnet/minecraft/block/Block;)V
+MD: aji/a (Lahb;IIILaji;)V net/minecraft/block/Block/func_149695_a (Lnet/minecraft/world/World;IIILnet/minecraft/block/Block;)V
+MD: ahb/v (III)Z net/minecraft/world/World/func_72864_z (III)Z
+MD: aji/r ()Z net/minecraft/block/Block/func_149721_r ()Z

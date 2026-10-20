@@ -1,0 +1,1177 @@
+[
+  {
+    "owner": "BlockWaterPlant",
+    "path": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "parent": "Block",
+    "chain": [
+      "BlockWaterPlant",
+      "Block"
+    ],
+    "line": 26,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockVolcanoV2",
+    "path": "src/main/java/com/hbm/blocks/BlockVolcanoV2.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockVolcanoV2",
+      "BlockContainer"
+    ],
+    "line": 39,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockRubberLeaves",
+    "path": "src/main/java/com/hbm/blocks/BlockRubberLeaves.java",
+    "parent": "BlockLeaves",
+    "chain": [
+      "BlockRubberLeaves",
+      "BlockLeaves"
+    ],
+    "line": 31,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockKelp",
+    "path": "src/main/java/com/hbm/blocks/BlockKelp.java",
+    "parent": "Block",
+    "chain": [
+      "BlockKelp",
+      "Block"
+    ],
+    "line": 37,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockGeysierDCM",
+    "path": "src/main/java/com/hbm/blocks/BlockGeysierDCM.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockGeysierDCM",
+      "BlockContainer"
+    ],
+    "line": 32,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "TurretSentryDamaged",
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "TurretSentryDamaged",
+      "BlockContainer"
+    ],
+    "line": 30,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "TurretSentry",
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "TurretSentry",
+      "BlockContainer"
+    ],
+    "line": 49,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "TurretBase",
+    "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "TurretBase",
+      "BlockContainer"
+    ],
+    "line": 23,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "TestObjTester",
+    "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "TestObjTester",
+      "BlockContainer"
+    ],
+    "line": 29,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "PylonBase",
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "PylonBase",
+      "BlockContainer"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "FluidPump",
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "FluidPump",
+      "BlockContainer"
+    ],
+    "line": 63,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "FluidPipeAnchor",
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "parent": "FluidDuctBase",
+    "chain": [
+      "FluidPipeAnchor",
+      "FluidDuctBase",
+      "BlockContainer"
+    ],
+    "line": 38,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "DroneWaypointRequest",
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DroneWaypointRequest",
+      "BlockContainer"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DroneWaypoint",
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DroneWaypoint",
+      "BlockContainer"
+    ],
+    "line": 47,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "StorageDrum",
+    "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "parent": "BlockMachineBase",
+    "chain": [
+      "StorageDrum",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "line": 28,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "SoyuzCapsule",
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "SoyuzCapsule",
+      "BlockContainer"
+    ],
+    "line": 37,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "Radiobox",
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "Radiobox",
+      "BlockContainer"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "RadioRec",
+    "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "RadioRec",
+      "BlockContainer"
+    ],
+    "line": 40,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "PistonInserter",
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "parent": "BlockContainerBase",
+    "chain": [
+      "PistonInserter",
+      "BlockContainerBase",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 177,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "PinkCloudBroadcaster",
+    "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "PinkCloudBroadcaster",
+      "BlockContainer"
+    ],
+    "line": 31,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineUF6Tank",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineUF6Tank",
+      "BlockContainer"
+    ],
+    "line": 32,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineTesla",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineTesla",
+      "BlockContainer"
+    ],
+    "line": 27,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineSatDock",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineSatDock",
+      "BlockContainer"
+    ],
+    "line": 44,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineRadar",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineRadar",
+      "BlockContainer"
+    ],
+    "line": 34,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachinePuF6Tank",
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachinePuF6Tank",
+      "BlockContainer"
+    ],
+    "line": 32,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineMissileAssembly",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineMissileAssembly",
+      "BlockContainer"
+    ],
+    "line": 39,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineMicrowave",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "parent": "BlockMachineBase",
+    "chain": [
+      "MachineMicrowave",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "line": 27,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineForceField",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineForceField",
+      "BlockContainer"
+    ],
+    "line": 42,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineFan",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineFan",
+      "BlockContainer"
+    ],
+    "line": 67,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MachineDiesel",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "parent": "BlockMachineBase",
+    "chain": [
+      "MachineDiesel",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "line": 34,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "MachineAutosaw",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "MachineAutosaw",
+      "BlockContainer"
+    ],
+    "line": 43,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "GeigerCounter",
+    "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "GeigerCounter",
+      "BlockContainer"
+    ],
+    "line": 34,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "Floodlight",
+    "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "Floodlight",
+      "BlockContainer"
+    ],
+    "line": 42,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "DummyOldBase",
+    "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DummyOldBase",
+      "BlockContainer"
+    ],
+    "line": 58,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DummyBlockBlast",
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DummyBlockBlast",
+      "BlockContainer"
+    ],
+    "line": 59,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DemonLamp",
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DemonLamp",
+      "BlockContainer"
+    ],
+    "line": 27,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "CoreCore",
+    "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "CoreCore",
+      "BlockContainer"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "CoreComponent",
+    "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "CoreComponent",
+      "BlockContainer"
+    ],
+    "line": 47,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "CombatDropPod",
+    "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "CombatDropPod",
+      "BlockContainer"
+    ],
+    "line": 38,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "Charger",
+    "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "Charger",
+      "BlockContainer"
+    ],
+    "line": 33,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockWatzStruct",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockWatzStruct.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockWatzStruct",
+      "BlockContainer"
+    ],
+    "line": 22,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockStruct",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockStruct.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockStruct",
+      "BlockContainer"
+    ],
+    "line": 21,
+    "before": "public boolean isOpaqueCube() {\n    \t\n        return false;\n    }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n    \t\n        return false;\n    }"
+  },
+  {
+    "owner": "BlockSoyuzStruct",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockSoyuzStruct.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockSoyuzStruct",
+      "BlockContainer"
+    ],
+    "line": 21,
+    "before": "public boolean isOpaqueCube() {\n    \t\n        return false;\n    }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n    \t\n        return false;\n    }"
+  },
+  {
+    "owner": "BlockRefueler",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockRefueler",
+      "BlockContainer"
+    ],
+    "line": 39,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockICFStruct",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockICFStruct.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockICFStruct",
+      "BlockContainer"
+    ],
+    "line": 17,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockFusionTorusStruct",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFusionTorusStruct.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockFusionTorusStruct",
+      "BlockContainer"
+    ],
+    "line": 15,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockFF",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockFF",
+      "BlockContainer"
+    ],
+    "line": 27,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockCMGlass",
+    "path": "src/main/java/com/hbm/blocks/machine/BlockCMGlass.java",
+    "parent": "BlockCM",
+    "chain": [
+      "BlockCMGlass",
+      "BlockCM",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 16,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlastDoor",
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlastDoor",
+      "BlockContainer"
+    ],
+    "line": 35,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "WasteLeaves",
+    "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "parent": "Block",
+    "chain": [
+      "WasteLeaves",
+      "Block"
+    ],
+    "line": 74,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DecoPoleSatelliteReceiver",
+    "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DecoPoleSatelliteReceiver",
+      "BlockContainer"
+    ],
+    "line": 31,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DecoBlockAlt",
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DecoBlockAlt",
+      "BlockContainer"
+    ],
+    "line": 46,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DecoBlock",
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "DecoBlock",
+      "BlockContainer"
+    ],
+    "line": 79,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockTallPlantWater",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockTallPlantWater",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 74,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockTallPlant",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockTallPlant",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 109,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockStalagmite",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockStalagmite",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 26,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockSnowglobe",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockSnowglobe",
+      "BlockContainer"
+    ],
+    "line": 46,
+    "before": "public boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "owner": "BlockSkeletonHolder",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockSkeletonHolder",
+      "BlockContainer"
+    ],
+    "line": 29,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockRubberPlant",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockRubberPlant",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 59,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockPlushie",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockPlushie",
+      "BlockContainer"
+    ],
+    "line": 39,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockPlasma",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlasma.java",
+    "parent": "Block",
+    "chain": [
+      "BlockPlasma",
+      "Block"
+    ],
+    "line": 38,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockOrrery",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockOrrery",
+      "BlockContainer"
+    ],
+    "line": 23,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockNTMFlower",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockNTMFlower",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 125,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockMush",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "parent": "Block",
+    "chain": [
+      "BlockMush",
+      "Block"
+    ],
+    "line": 111,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockModDoor",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+    "parent": "Block",
+    "chain": [
+      "BlockModDoor",
+      "Block"
+    ],
+    "line": 102,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockLoot",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockLoot",
+      "BlockContainer"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "owner": "BlockLayering",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+    "parent": "Block",
+    "chain": [
+      "BlockLayering",
+      "Block"
+    ],
+    "line": 34,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockFallout",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "parent": "Block",
+    "chain": [
+      "BlockFallout",
+      "Block"
+    ],
+    "line": 36,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockEmitter",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockEmitter",
+      "BlockContainer"
+    ],
+    "line": 45,
+    "before": "public boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "owner": "BlockDynamicSlag",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockDynamicSlag",
+      "BlockContainer"
+    ],
+    "line": 103,
+    "before": "public boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "owner": "BlockDeadPlant",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockDeadPlant",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 62,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockBobble",
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BlockBobble",
+      "BlockContainer"
+    ],
+    "line": 49,
+    "before": "public boolean isOpaqueCube() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "owner": "BlockVacuum",
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "parent": "Block",
+    "chain": [
+      "BlockVacuum",
+      "Block"
+    ],
+    "line": 29,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockGasBase",
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+    "parent": "Block",
+    "chain": [
+      "BlockGasBase",
+      "Block"
+    ],
+    "line": 39,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "MeltedFlesh",
+    "path": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "parent": "Block",
+    "chain": [
+      "MeltedFlesh",
+      "Block"
+    ],
+    "line": 27,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeTsar",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeTsar",
+      "BlockContainer"
+    ],
+    "line": 147,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeSolinium",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeSolinium",
+      "BlockContainer"
+    ],
+    "line": 145,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukePrototype",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukePrototype",
+      "BlockContainer"
+    ],
+    "line": 158,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeN2",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeN2",
+      "BlockContainer"
+    ],
+    "line": 138,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeMike",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeMike",
+      "BlockContainer"
+    ],
+    "line": 149,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeMan",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeMan",
+      "BlockContainer"
+    ],
+    "line": 142,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeGadget",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeGadget",
+      "BlockContainer"
+    ],
+    "line": 149,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeFleija",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeFleija",
+      "BlockContainer"
+    ],
+    "line": 147,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeCustom",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeCustom",
+      "BlockContainer"
+    ],
+    "line": 230,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeBoy",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "NukeBoy",
+      "BlockContainer"
+    ],
+    "line": 148,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeBalefire",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "parent": "BlockMachineBase",
+    "chain": [
+      "NukeBalefire",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "line": 37,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "NukeAntimatter",
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "parent": "BlockMachineBase",
+    "chain": [
+      "NukeAntimatter",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "line": 38,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "LaunchTable",
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "LaunchTable",
+      "BlockContainer"
+    ],
+    "line": 44,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "Landmine",
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "Landmine",
+      "BlockContainer"
+    ],
+    "line": 57,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "DigammaMatter",
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+    "parent": "Block",
+    "chain": [
+      "DigammaMatter",
+      "Block"
+    ],
+    "line": 26,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "DigammaFlame",
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "parent": "Block",
+    "chain": [
+      "DigammaFlame",
+      "Block"
+    ],
+    "line": 37,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "CompactLauncher",
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "CompactLauncher",
+      "BlockContainer"
+    ],
+    "line": 45,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BombMulti",
+    "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "parent": "BlockContainer",
+    "chain": [
+      "BombMulti",
+      "BlockContainer"
+    ],
+    "line": 196,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "owner": "BlockCrashedBomb",
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "parent": "BlockEnumMulti",
+    "chain": [
+      "BlockCrashedBomb",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 47,
+    "before": "public boolean isOpaqueCube() { return false; }",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "owner": "BlockChargeBase",
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+    "parent": "BlockContainerBase",
+    "chain": [
+      "BlockChargeBase",
+      "BlockContainerBase",
+      "BlockBase",
+      "Block"
+    ],
+    "line": 81,
+    "before": "public boolean isOpaqueCube() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  }
+]

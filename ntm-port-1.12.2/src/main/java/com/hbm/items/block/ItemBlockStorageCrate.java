@@ -126,19 +126,24 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		}
 
 		@Override
-		public String getInventoryName() {
+		public String getName() {
 			TileEntityCrateBase tile = findCrateType(target.getItem());
-			if (hasCustomInventoryName()) {
+			if (hasCustomName()) {
 				tile.setCustomName(target.getDisplayName());
 			}
-			return tile.getInventoryName();
+			return tile.getName();
 		}
 
 		@Override
-		public boolean hasCustomInventoryName() {
+		public boolean hasCustomName() {
 			return target.hasDisplayName();
 		}
 		
+		@Override
+		public net.minecraft.util.text.ITextComponent getDisplayName() {
+			return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
+		}
+
 		@Override
 		public boolean isUseableByPlayer(EntityPlayer player) {
 			return com.hbm.util.NativeHeldItem.getMainHandNullable(player) == this.target;
@@ -173,8 +178,8 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 		}
 
 		@Override
-		public void closeInventory() {
-			super.closeInventory();
+		public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
+			super.closeInventory(viewer);
 
 			// Check for 6kb item vomit
 			target.setTagCompound(checkNBT(target.getTagCompound()));
@@ -183,7 +188,7 @@ public class ItemBlockStorageCrate extends ItemBlockBase implements IGUIProvider
 			if(target.getTagCompound() != null) {
 				target.getTagCompound().removeTag("stacklock");
 				
-				if(target.getTagCompound().hasNoTags()) {
+				if(target.getTagCompound().isEmpty()) {
 					target.setTagCompound(null); // if there's no tags left, clear compound to make the crate stackable again
 				} else {
 					target.getTagCompound().setLong("stacklock", rand.nextLong()); // add shit that prevents crates from stacking

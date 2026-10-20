@@ -164,7 +164,7 @@ public class TileEntityLaunchPadRusted extends TileEntityMachineBase implements 
 
 	public void updateRedstonePower(int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
-		boolean powered = this.world.isBlockIndirectlyGettingPowered(x, y, z);
+		boolean powered = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));
 		boolean contained = activatedBlocks.contains(pos);
 		if(!contained && powered){
 			activatedBlocks.add(pos);

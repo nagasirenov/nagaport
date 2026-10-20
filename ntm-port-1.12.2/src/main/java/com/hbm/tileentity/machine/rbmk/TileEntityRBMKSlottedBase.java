@@ -5,6 +5,7 @@ import com.hbm.tileentity.IGUIProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
@@ -77,11 +78,11 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 	}
 
 	@Override
-	public void openInventory() {
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 	}
 
 	@Override
@@ -146,7 +147,7 @@ public abstract class TileEntityRBMKSlottedBase extends TileEntityRBMKActiveBase
 				NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 				byte b0 = nbt1.getByte("slot");
 				if(b0 >= 0 && b0 < slots.length) {
-					slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+					slots[b0] = NullableInventoryStackNbt.read(nbt1);
 				}
 			}
 

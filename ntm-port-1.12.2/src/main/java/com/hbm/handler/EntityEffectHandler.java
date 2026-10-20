@@ -269,25 +269,25 @@ public class EntityEffectHandler {
 			if(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadDeath);
 
 		} else if(eRad >= 800) {
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 2));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 20, 2));
-			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 2));
-			if(world.rand.nextInt(700) == 0) entity.addPotionEffect(new PotionEffect(Potion.wither.id, 3 * 20, 1));
+			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 2));
+			if(world.rand.nextInt(700) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 3 * 20, 1));
 
 		} else if(eRad >= 600) {
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 2));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 20, 2));
-			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 1));
+			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 1));
 
 		} else if(eRad >= 400) {
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));
-			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 5 * 20, 0));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));
+			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 20, 0));
 			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 5 * 20, 1));
 
 		} else if(eRad >= 200) {
-			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));
+			if(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));
 			if(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 5 * 20, 0));
 
 			if(entity instanceof EntityPlayer) com.hbm.advancement.NtmAdvancements.award(((EntityPlayer) entity), MainRegistry.achRadPoison);
@@ -404,7 +404,7 @@ public class EntityEffectHandler {
 	private static void handleOxy(EntityLivingBase entity, CBT_Atmosphere atmosphere) {
 		if(entity.world.isRemote) return;
 		if(entity instanceof ISuffocationImmune) return;
-		if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return; // breathe easy in your ship
+		if(entity.getRidingEntity() != null && entity.getRidingEntity() instanceof EntityRideableRocket) return; // breathe easy in your ship
 
 		if (!ArmorUtil.checkForOxy(entity, atmosphere)) {
 			HbmLivingProps.setOxy(entity, HbmLivingProps.getOxy(entity) - 1);
@@ -418,7 +418,7 @@ public class EntityEffectHandler {
 		if(entity.world.isRemote) return;
 		if(entity instanceof EntityGlyphid) return;
 		if(entity instanceof EntityCyberCrab) return;
-		if(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return;
+		if(entity.getRidingEntity() != null && entity.getRidingEntity() instanceof EntityRideableRocket) return;
 
 		// If we should corrode but we have armor, damage it heavily
 		// once it runs out of juice, fizzle it and start damaging the player
@@ -526,12 +526,12 @@ public class EntityEffectHandler {
 
 				//one hour in, add rare and subtle screen fuckery
 				if(contagion < 2 * hour && rand.nextInt(1000) == 0) {
-					entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 20, 0));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 20, 0));
 				}
 
 				//two hours in, give 'em the full blast
 				if(contagion < 1 * hour && rand.nextInt(100) == 0) {
-					entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 60, 0));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 60, 0));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 4));
 				}
 
@@ -612,7 +612,7 @@ public class EntityEffectHandler {
 		}
 
 		if(total > 0.95D) {
-			entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));
+			entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0));
 		}
 
 		total = 1 - (blacklungDelta * asbestosDelta * sootDelta);
@@ -679,11 +679,11 @@ public class EntityEffectHandler {
 			if(poison > 10) {
 
 				if(poison < 25) {
-					entity.addPotionEffect(new PotionEffect(Potion.poison.id, 100, 0));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 0));
 				} else if(poison < 50) {
-					entity.addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 1));
 				} else {
-					entity.addPotionEffect(new PotionEffect(Potion.wither.id, 100, 2));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 100, 2));
 				}
 			}
 		}

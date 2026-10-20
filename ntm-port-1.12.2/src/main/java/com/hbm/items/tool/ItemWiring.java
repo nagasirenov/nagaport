@@ -98,7 +98,7 @@ public class ItemWiring extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(itemstack.getTagCompound() != null) {
 			list.add("Wire start x: " + itemstack.getTagCompound().getInteger("x"));
 			list.add("Wire start y: " + itemstack.getTagCompound().getInteger("y"));

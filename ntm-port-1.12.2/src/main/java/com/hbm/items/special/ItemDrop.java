@@ -175,7 +175,7 @@ public class ItemDrop extends Item {
     }
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		if (this == ModItems.cell_antimatter) {
 			list.add("Warning: Exposure to matter will");

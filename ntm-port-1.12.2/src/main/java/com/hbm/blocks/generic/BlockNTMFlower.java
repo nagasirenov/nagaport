@@ -122,12 +122,12 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 	
@@ -146,7 +146,8 @@ public class BlockNTMFlower extends BlockEnumMulti implements IPlantable, IGrowa
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 
 		if(world.isRemote) return; //not possible i believe, but better safe than sorry
 		

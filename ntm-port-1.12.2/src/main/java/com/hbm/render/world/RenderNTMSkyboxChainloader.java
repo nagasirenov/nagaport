@@ -11,6 +11,8 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IRenderHandler;
 
@@ -56,7 +58,8 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 			world.provider.setSkyRenderer(this);
 		}
 		
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 		
 		GL11.glPushMatrix();
 		GL11.glDepthMask(false);
@@ -77,11 +80,11 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 			GL11.glColor4f(1F, 1F, 1F, 1.0F);
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(lodeStar);
 			
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 			
 			GL11.glPopMatrix();
@@ -104,11 +107,11 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 		var12 = 1F * (1 + digamma * 0.25F);
 		dist = 100D - digamma * 2.5;
 		
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-		tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+		tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+		tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+		tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 		tessellator.draw();
 		GL11.glPopMatrix();
 		
@@ -122,11 +125,11 @@ public class RenderNTMSkyboxChainloader extends IRenderHandler { //why an abstra
 		var12 = 0.5F;
 		dist = 100D;
 		
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-var12, dist, -var12, 0.0D, 0.0D);
-		tessellator.addVertexWithUV(var12, dist, -var12, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(var12, dist, var12, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(-var12, dist, var12, 1.0D, 0.0D);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(-var12, dist, -var12).tex(0.0D, 0.0D).endVertex();
+		tessellatorBuffer.pos(var12, dist, -var12).tex(0.0D, 1.0D).endVertex();
+		tessellatorBuffer.pos(var12, dist, var12).tex(1.0D, 1.0D).endVertex();
+		tessellatorBuffer.pos(-var12, dist, var12).tex(1.0D, 0.0D).endVertex();
 		tessellator.draw();
 		GL11.glPopMatrix();
 		

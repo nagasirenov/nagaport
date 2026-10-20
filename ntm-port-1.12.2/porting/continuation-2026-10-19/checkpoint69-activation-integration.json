@@ -1,0 +1,741 @@
+{
+  "baseline": "d860257bb1f4bc6043d5cb80bd752ede1ebc53bd",
+  "write": true,
+  "files": [
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "status": "applied",
+      "before_sha256": "1192097f35a04069d3cd9cfb15b98afcd1406c240a4205dbcaf6646cce249111",
+      "after_sha256": "835802b2978b5737bd67b81b6690d384195a728d98e1ffb9400513c36a31c6a5",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchTable.java",
+      "status": "applied",
+      "before_sha256": "19c966e2fe25ec6c7437c437a6166ebf6ba3d683f46d6224e834be070f0b3946",
+      "after_sha256": "71f2525fd20e148dc7924de13fd3fa87ba4179b4372fe4d38e0b49a5aa0acda4",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "status": "applied",
+      "before_sha256": "602f374411f543a195f2e4c0d99059675e6bb366a8298e65e4281edebaf55d18",
+      "after_sha256": "661e9b849851e02e79dca3f48e8363ce310c110d135129d5d3bcf9deb9333bea",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "status": "applied",
+      "before_sha256": "da508dbe424841d127e24f851955cb69bd36fc0fb8b79f84431f5d65199c016e",
+      "after_sha256": "84cd556f8b4d3a0160d21dc7238b55db0406010106602458826ef47b49c8a0b3",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadLarge.java",
+      "status": "applied",
+      "before_sha256": "09e0fb19fa78295e24c033b439252b8f7d8484e88e04a37385ec10a1e7dec68d",
+      "after_sha256": "36c9a427b2878281200a16926bfcd6305809b46a01d9efc7aa53354cb487ccdd",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "status": "applied",
+      "before_sha256": "d1f1b58837c81666fa4141b9532f621d8f7e6130eb8b10c7adfe6d95085e8089",
+      "after_sha256": "75e059ef16a24669c83cc1c191ab0eb7079233c3a64e8817827d96d1050c4a33",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "status": "applied",
+      "before_sha256": "c5c39c71ddd6c03e2bc36e34de359d7cf87b0786dcfa027551ecc967c43eb11e",
+      "after_sha256": "664d9c747acc1dc6c84d91943a2962817ce65088e7eee33db88ea3347aa15738",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "status": "applied",
+      "before_sha256": "e26971cf36711844978a927892eb56d47b509f5a67a5d219af0a2c295a31a862",
+      "after_sha256": "64206bdc2e6d2ff9d99e4aa8c90fbda73435b3f112a0faa6f4f26f05b924b55b",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadRusted.java",
+      "status": "applied",
+      "before_sha256": "32328958ca487642c9ccf42e741e0539a3846631bc5fc448b1e35dbbc4c0b8f4",
+      "after_sha256": "019695b13dd553af16f08c591f7b70b6ad4612ae5d47a297328d86a8d4475e7d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "status": "applied",
+      "before_sha256": "e5ea74a014f4d5b5b6656f57ebfaa65a7fbe80ab74b3a77372159154cd61e512",
+      "after_sha256": "ac4b416dd76fe2b109a2ebe0d76098e7ff5506937539a951e1b874f8fc273546",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "status": "applied",
+      "before_sha256": "a2ac3a7c18a0c658e813e18aabeba4db002238f9649e02b1bd5bd29cdd16be79",
+      "after_sha256": "fff295e93e9f55e0e2aa47d851a471f883d1d901374aac16de9bc065dfda541a",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CompactLauncher.java",
+      "status": "applied",
+      "before_sha256": "2c45813075633a2df4f56806b2439ad1aa0351fa7b0e57b869762fc827e7e2b8",
+      "after_sha256": "2b176cf14d78bb34e2bee44b450c538d96e1895c6f37e60a0e28cddf186dfd00",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPad.java",
+      "status": "applied",
+      "before_sha256": "d59161a174d1b48d71cac34ea5324a6da3bad181e97553393667afd88ccba27d",
+      "after_sha256": "0e96954d6a0af52c9662852cfbf6d56d602cb97ecaca7a6dac230eea1dcdcebf",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "status": "applied",
+      "before_sha256": "ddc15abbf9782c163761559bfea1aa6ce849c9209d363c42dec4bfd26a23f86b",
+      "after_sha256": "3acf266dc94207f3b1428568724820c90d781b209deb1d4dfcc06e62c9399617",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "status": "applied",
+      "before_sha256": "472ab5193d60031c6bdec85e5d11a2624b6154bc6a677e5fa563ca630b25bba7",
+      "after_sha256": "40df6abede23a535f0e7a6fa288c48d760793de2f98a691d460169f549ea1dd0",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineMilkReformer.java",
+      "status": "applied",
+      "before_sha256": "0e3bc234bc7dfe3e4a0e34c9f146c56f17e3f024a3428bf44eb89ae9902bf9a5",
+      "after_sha256": "107c63548afdcbdb9c06a4ca6a4d126dc51153f8a033f16a1b5e2738fe17cec4",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineChemicalPlant.java",
+      "status": "applied",
+      "before_sha256": "e52bb4af8ba18cfaa53a8d05b4c18098d4f0b949a2cf1a92424265134f94c1fd",
+      "after_sha256": "e7dece868057e11e2807647c3c7558e4efb1ae54194bf68d9de7978c782544c5",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/Watz.java",
+      "status": "applied",
+      "before_sha256": "4bd4acdb628002ecf0a8f21007f70eac129327d103a13392b95794d5339646ef",
+      "after_sha256": "7da7746bfd5fcd9b754989f86cc530bb67747bbc98940590e8694600cbcd0d4b",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCompressor.java",
+      "status": "applied",
+      "before_sha256": "81d4a0f2ce9218ccb9e04104761955d78973e76ab2cd38f73640397b68186030",
+      "after_sha256": "96633fb3fcb49fe05e21049822c85d69669c081f5dd685ee9fa542023fb9d536",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatLinker.java",
+      "status": "applied",
+      "before_sha256": "7a2cfd6ea7c79541b4833cd03251e8ca16cdb760341ad4206e68ccf2c4502d44",
+      "after_sha256": "2eea2918e662c15048770fd9e9417cd9a3e59d448b8b312bb96e5955cbe74d71",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "status": "applied",
+      "before_sha256": "e7d424c2339f5014b3ab3d957688bfa14933cbe1ac5c5726ff7ade96293d92cc",
+      "after_sha256": "3199391f48e488e835b008fa4119a9eaed87e28678b4e8eeebc0b3d87e32a356",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCentrifuge.java",
+      "status": "applied",
+      "before_sha256": "d83272617dbda912b7b8355f1093abaf96faf0ef7fd9f0a8dc68199f399706ef",
+      "after_sha256": "6b024a3ea216b43ec67e7aafc29809832e0c7cd6497a524a74e67c5ba971b622",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineICFPress.java",
+      "status": "applied",
+      "before_sha256": "d3021ee8da80deabf7ecb6be037f340422e72cfd89c24880ac03ba5424900782",
+      "after_sha256": "d4e1df40b61dbdf2aaa001a7ca2fdb518aa811365785c5271cdf01ed017f71d3",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineMixer.java",
+      "status": "applied",
+      "before_sha256": "15596eeb57bf3811a57a6310b280589be32ca34db62318c39c6207cdccd38751",
+      "after_sha256": "c946ccfaafd117913da39da70b651ab94cceca2bdec2456ccf3dcb1a1798a934",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineVacuumCircuit.java",
+      "status": "applied",
+      "before_sha256": "afb30c9695f5b36ccf0ec9807c4f395d4eb35cc2452b645b7fe6d7935aed0083",
+      "after_sha256": "92f69636c1bddae6c8e2d6ba68de065bb78d1f1bcbf537190fadb86abf4b4df5",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineLiquefactor.java",
+      "status": "applied",
+      "before_sha256": "3ae9c7386e31543230758ed6ab11908a692af913e3e4a529fb989468cfaa41e4",
+      "after_sha256": "6f95ed383b96b5495a3006a6a2d988e1c008b01d86ee52b90197e80c496fea86",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineLargeTurbine.java",
+      "status": "applied",
+      "before_sha256": "ff485460b982cfc0546c41b8744771005453feacaff850fdf59ca063a33c7ba3",
+      "after_sha256": "f3ac74ee9166d12722bd6c1f8f5a7a120d005f76cef0fcb2882253cc689b041e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineShredder.java",
+      "status": "applied",
+      "before_sha256": "908b709713176304bee1df0b6358ef1283980b1e9defa51ec89714f3ac576265",
+      "after_sha256": "2bf0bd6be81d05fe801bc800b1d2590aa784695278f024f89b19a0725b88fbf0",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/HeaterOilburner.java",
+      "status": "applied",
+      "before_sha256": "4ac0ace48b1e9a55620943882b6915d1a18f2e2910a81d53d2bffe6b80f28e82",
+      "after_sha256": "272ca3620be4e4d966068076b834de541b8df11e349bbb912c14c41734717ca1",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineMiningLaser.java",
+      "status": "applied",
+      "before_sha256": "23e42a735607d2a9478e053f47544189c9f1258a051a90dd02d9fc89696b4b99",
+      "after_sha256": "d67ea142851782399d7353dd89dfb89bf022520a3b5a6891ce4755c3a9a123f9",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCoker.java",
+      "status": "applied",
+      "before_sha256": "0d524e398f38c18421dabefc4c7770d721278abe4c22b037bf25a7e2608a66b6",
+      "after_sha256": "f32f3069821acf75d0946421e95f8650defd0ef32613f72174454e2609b80bac",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAssemblyMachine.java",
+      "status": "applied",
+      "before_sha256": "72184f41f93aecd5868a482baeac2b39a2efba035160ff88968f69d0698eec97",
+      "after_sha256": "36d8e1d9bd7c9f85a8d2ae977d88b658700f49a0788ee72199cc77bc6f022b86",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/CoreCore.java",
+      "status": "applied",
+      "before_sha256": "252f02911cf1779f468a0ba1a06068280366023fc5994a000cd364ace6c51fd7",
+      "after_sha256": "f941bc26e8e0c825b04ec488c03008f729c1b88960c74bba3b71923da9971183",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/HeaterFirebox.java",
+      "status": "applied",
+      "before_sha256": "cfa4036fc6f71fb5bc4384dc4f926e89ffc991faba95936067074f6054dd1043",
+      "after_sha256": "b771b219c32173890f07ef3dde209bf6f9839a5ee70b43e3b3cc035c8de6f54d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAmmoPress.java",
+      "status": "applied",
+      "before_sha256": "7b99707eae02056668359afedd2b686ceb698f560c826809410775a68220b2a9",
+      "after_sha256": "dc1e7f9d66a2dc725400d8f681b140537348c73d0aea3858efd2c29a495481bb",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineHydroponic.java",
+      "status": "applied",
+      "before_sha256": "f0e9fae6620ece85c95d8bdda0c9859a46d637fb8c5b4894d789457d35717f1c",
+      "after_sha256": "8fe343bb560b56f108dd670fa1dc762fe01b03b7f1013ff5cd6cd9476b1e3241",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineHydrotreater.java",
+      "status": "applied",
+      "before_sha256": "66ef046d8a1d94e1b1ebd3f3d8e844e0e095f969101688044aec7db1240fcaf7",
+      "after_sha256": "b52a899793b8778b0fd87147a2fad4a10d815dc69ae0cdb2841843d9a4b04927",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/FurnaceCombination.java",
+      "status": "applied",
+      "before_sha256": "e455f4918f641c79a82a9578cb2f68ca4b3fabb0671df5cf7f87cf21d4bddf5c",
+      "after_sha256": "a6476a45da293c50c30620bb191433b8aac6bbeb5a02fbd2311b9060e3215a51",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockWeaponTable.java",
+      "status": "applied",
+      "before_sha256": "f9002c40a5e4ccee11b0c9527d66169a3639b1870ee73c65213d4ef9ed836ee3",
+      "after_sha256": "263d414ca37a3a37b0499b6036ba9b434e8028be266f3a67fc096906d3f3d78a",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineGasCent.java",
+      "status": "applied",
+      "before_sha256": "72e2e95cd91ee658de47061b035fb986f52dadd03f68f025c60ece153ba28203",
+      "after_sha256": "3b2d54069c1cb048b1d800b9cff90d67890cc7126d4e5abe37c945a8e27cbb3c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSolidifier.java",
+      "status": "applied",
+      "before_sha256": "c3d8671cdf10b74a1d3967e05376266165100039255fe1b3b2f521fd41ec6581",
+      "after_sha256": "88f6a00b3a32bed862b8dff46ef216b1d08a4e5e4a707c0f3c5f877d50870f2d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/WasteDrum.java",
+      "status": "applied",
+      "before_sha256": "acdccf4919ab5f7381585c519d053aee76583a6d6743e97f6ca7a1095e7143b3",
+      "after_sha256": "15baefd91876a772487fd6ff8a29df2a48bcf112e0fe2f9555c056ef0a28d54c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePUREX.java",
+      "status": "applied",
+      "before_sha256": "91244a170ed8793190d4286cf6e6e472128d6974c7089b1dc2a4b93437c06576",
+      "after_sha256": "2fda96d0a8c81eb089d1707958fa387db9182dbc90d459b753d315b43c467ef1",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineICF.java",
+      "status": "applied",
+      "before_sha256": "bdf599ddf49324e1cc87f4b3f80474e60d1b1110142050723a221e88d17ab5cc",
+      "after_sha256": "681e119925a62aca737d762d5230b3bd13a3ff55ea667dcf6b204880b50cfe06",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCrystallizer.java",
+      "status": "applied",
+      "before_sha256": "45d4660c48fcd2e81de5afd8128a586650a711336212088ea1ea480e8805fac7",
+      "after_sha256": "7ecb7ec206004c556bac6ece78f083a9072a947a24293e22209508f571f1a7ca",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/SoyuzCapsule.java",
+      "status": "applied",
+      "before_sha256": "f37362bf6f4f6dd11b6bd0d76ad56f1d2a25efb576f5ecd3389b85f29440e836",
+      "after_sha256": "643ff28f65d372a5634385c1d1a05770cbfb8fafa0fbb3f0b907203dc58b86db",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineVacuumDistill.java",
+      "status": "applied",
+      "before_sha256": "f6b60dce7b19135aeeeb6d678083457f7a2453ba83b8123ccb76691a7e89fa29",
+      "after_sha256": "f7ac5f72d1fbdd38fae118097a745174ee24da53963ce396c2d87db2e40635e2",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCompressorCompact.java",
+      "status": "applied",
+      "before_sha256": "8e9fa4ec446d9a22091a452deedb73e410e9e165600b62c9d29b65c62e1a83c6",
+      "after_sha256": "9b619ac5680b87c4bb6dd0986d607958f0c42818bde1d71865b3738a4a1b88f4",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineArcWelder.java",
+      "status": "applied",
+      "before_sha256": "8209cb38868b81c9827be0ff3ad9d5ada8d91a0d8c00c656fed7b5b6f092cfef",
+      "after_sha256": "0d909e4af8db88bebbc4829be25944c198d92de79282baa9356a008e54dbe473",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSILEX.java",
+      "status": "applied",
+      "before_sha256": "541e729268e62b6f881bd5e40ba81c7c4891f0a413123b1b66dad66edbe77855",
+      "after_sha256": "9a1186f540ae70769920b93021e4350e79c76231a06a3e0213a10ec85e3cb9e0",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineKeyForge.java",
+      "status": "applied",
+      "before_sha256": "6bba49f5a0ab02c59f27f91b88e1b280f12d69b156f2f325753c62116c838cab",
+      "after_sha256": "2ff1299e5fa549750b0cf033191a6b6817de4ff56799f1bc471b128bd009d16c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockArmorTable.java",
+      "status": "applied",
+      "before_sha256": "ddcfe191d60904df98c1db42ecfab5035d143a1eff0ad7f12d89d82130fdf1d2",
+      "after_sha256": "f65a386202939aacbb70b49b713edfb8d6dd4edfdf69b4b0a6191889fb6808bc",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/FurnaceIron.java",
+      "status": "applied",
+      "before_sha256": "cf75fa5a8aac5ba4b7d2f86812fe8125e0d8796fada6afb4c8e95d8cf895d039",
+      "after_sha256": "c96308ca1178fa8f9d7c65cd84bd8fcf1a11e022a036c7d3d8298eac7d50c7cb",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFrackingTower.java",
+      "status": "applied",
+      "before_sha256": "dc8cc1e5779223fdf90fd2a4b47c47e3db40efd3687f412b17a637f881f0d17d",
+      "after_sha256": "6551ed6a2285fd36db0ee1522c3e7e7705ea44acda8cd8e49c75624b3d50fc7e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineExposureChamber.java",
+      "status": "applied",
+      "before_sha256": "a9fd903bcfc1f49782e764a025f6045f5dc075aad4ee77abe215ca99b0051404",
+      "after_sha256": "83a9cc702981ce62579987ecfa5df30f0a293ea1357a5e4c78f4212d359896f9",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineBattery.java",
+      "status": "applied",
+      "before_sha256": "e2baa91ed9ca4df58ab1f37a329a8331b1afaa85cc04860b9b413ffe97e27cdf",
+      "after_sha256": "990d9285630edf245d9fcda2028c42c2daf3d4f101948c06fee4850316c6bdf6",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRotaryFurnace.java",
+      "status": "applied",
+      "before_sha256": "f42c64771f0f690f750ae175e3e19cb2e48d20f76a7b4f36458467262a2e838c",
+      "after_sha256": "60f92a21f151fb01d38bc5cd45b99b1bf365b17da4a686fae6f1585846d18f46",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorBreeding.java",
+      "status": "applied",
+      "before_sha256": "aeab2bb25f23f78f1c24eace4eca6450ce3a99dc337dd85845a7d39a11a94a5e",
+      "after_sha256": "826dd15d55daa4d28c7d2adff6d860c057285deae4660260ee4e25b89be3f16d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePlasmaHeater.java",
+      "status": "applied",
+      "before_sha256": "efad1074e6d8fdf74f2105b6cb23bce99aebfda0942af7e3c9e64c58b43d36d8",
+      "after_sha256": "5f6c2f3ce17e4307e4fc3b3981d803fc185b9d357aa0855cced3f3d2163a39be",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineWoodBurner.java",
+      "status": "applied",
+      "before_sha256": "a61969ce7625cf2588e8965b147d39f446dd37e5ea4e0646be4af5798b2df977",
+      "after_sha256": "23cf19f32f3c98d0c5f2016fd68ae151c0deb0ecfade8d905046969763ad4434",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAnnihilator.java",
+      "status": "applied",
+      "before_sha256": "3c62e575900d05c0d220a4aad93df77f88fc12af21fb3bd554b6bae0fe41c8c8",
+      "after_sha256": "a98acc3abb5ccf28a53bb83b413533ebcf2c5ae1af42fab653149e03ed2c39f1",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFEL.java",
+      "status": "applied",
+      "before_sha256": "75402e20d149a2a14fbc1aaadce1ff3d8164c2ee4262422cc1c2e0f3496a1f30",
+      "after_sha256": "4a2839c0113962ff5108af17ba08de7bcf34f33f7e1ab6b0611ea8ca51cad7d0",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/CoreComponent.java",
+      "status": "applied",
+      "before_sha256": "00498b62432a4f295d904320d8cc4422d312db3dd39812c31d870331ff98cc3e",
+      "after_sha256": "2da4c6ce4c16c0d15b23bb5e6916106d80c2366d53ba8c20ccfc4c1288b2abd8",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineEPress.java",
+      "status": "applied",
+      "before_sha256": "cc97604f5f7e0f5622bda73e4fc73a2a99107f2b346faea9a30d921930f697ad",
+      "after_sha256": "372010791c1c50ab243ae22b95bbc1d7eaa83f08b1e20485a318e9fb954df9ef",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePyroOven.java",
+      "status": "applied",
+      "before_sha256": "c4e2e027d1d80fa8d3821baa49c1a8b0290ad01244dd9d031e9747abac7804e0",
+      "after_sha256": "6d32414ca8785eb8f86d9d838475eaab2a8a404f2019902de0c014d060f5ca9e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineDriveProcessor.java",
+      "status": "applied",
+      "before_sha256": "302989c7f665376e25d80a5e6ce707e8a75dad0e756284e35174ac2f4598aada",
+      "after_sha256": "ced7859c366d1a0f45cfb5fca1bd1d120547d58c8f9f807350139a1d5d9a836c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAssemblyFactory.java",
+      "status": "applied",
+      "before_sha256": "3c688a9d3d16072f46f0f3dea2b8f61aba7df3323d19edb672db486d1332020c",
+      "after_sha256": "1378150585e9d05446de45fce740595ab9419611163f22f78d4e817216fa2f20",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCryoDistill.java",
+      "status": "applied",
+      "before_sha256": "8c8b2d8e0aa2768e975b8a937dfe466732bb109e47996b1a80c83e5b0f350525",
+      "after_sha256": "103473b113215e0d3826c05d3f014a33889d5066072c76a4f7e60f65f6d0110e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineRadGen.java",
+      "status": "applied",
+      "before_sha256": "ff18534eeaa262da118141ffdf12dce71eef137d723ff0898140f44a4807905d",
+      "after_sha256": "59bcd325707a9a6836163be45a59adec3788e6c3fcd790a90408e151d2aa214d",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSolderingStation.java",
+      "status": "applied",
+      "before_sha256": "c36376682377f5d00c031fca1816ae1db3e2cbe39ea1201b34f98413c21d2b00",
+      "after_sha256": "c1e550182df7fc95f09fdd89f80b37a8e57a77306e417f919916583c41b56f6e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/FurnaceSteel.java",
+      "status": "applied",
+      "before_sha256": "7ee58a74d28d0c40fdd7eeb9c66a8b710cd6ca5cfd08f0476025ffc84af60b2f",
+      "after_sha256": "24ba8ab0946d49249c8d7672f0a591ad704e0e0743f281c55d8383c91bd7dd37",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineExcavator.java",
+      "status": "applied",
+      "before_sha256": "0bce9958a7a570219272df5f9da4afe18e3020c7fb1d940b7444773c22ca63d5",
+      "after_sha256": "86f40b15657b744991d6d4713dc9f9304efe162a21f84a32cb781b500d74a064",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFENSU.java",
+      "status": "applied",
+      "before_sha256": "91f38f5c4979b90a40c8914463333556794e020fc3fa1468c8cc772f9dde6256",
+      "after_sha256": "25d147f41b1e6d3a4120370ad560f30900e5b64d24a48b59a7bd7070c39a682c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineOilWell.java",
+      "status": "applied",
+      "before_sha256": "cde129d65dbb555a5b8323f0ee6b549a7b4b524c588d0bf4535bda49c139e36e",
+      "after_sha256": "6974b8bfb01d9acb94da47f32a89ff085c5f4db84bf0e042d2fdf91c9df62bcd",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCatalyticReformer.java",
+      "status": "applied",
+      "before_sha256": "24b5afddf4561c88ca3edac5faaf91bd7e144efaec5f0201c7a68fc5d3e8d59f",
+      "after_sha256": "a81e1ad57fa74d405f69741ca582374b19796c393a7dcca3977df9e1f4cde68c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineCombustionEngine.java",
+      "status": "applied",
+      "before_sha256": "99e7431d8b0bb7165b89e77aa2cbec65a0789a3a2d642c8c9eabf43c04b86dd7",
+      "after_sha256": "a9074587bf293049e1ed1aaaf96b58c8671e5b65ece5df6815d42804e9c1fb72",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineChemicalFactory.java",
+      "status": "applied",
+      "before_sha256": "730e1e1087bc789aeef305e28cb49f45a8d7867de8648898e905e9925354a8a1",
+      "after_sha256": "e1fe05845ad7d0bee0bb761dd6ddba992822f1a6556064156f570320212e9484",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineITER.java",
+      "status": "applied",
+      "before_sha256": "55b65e68febcc7a4c55abe05e5bbc2c4daead9db1a2dfb81c39e8c1c1699babe",
+      "after_sha256": "6c2ec042e17d73ce7c076d93e6e3035723686f9f1724647d960ada68a5fa65e7",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/HeaterOven.java",
+      "status": "applied",
+      "before_sha256": "6a8b99ce049c702a562e1376cc2e83bf1f0f643bcc230ed5317ab85d8afb5e53",
+      "after_sha256": "6874cd211e3c12a04e126a0d54f4573f2f805790026f7714c8f17045568db698",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSiren.java",
+      "status": "applied",
+      "before_sha256": "71e343dd5ff07c740ffd44d02e9e31edfd7b9d4cef134a7f6973854a832f159e",
+      "after_sha256": "eaea9d7fbf2139270beb595092b6c70a54d966f21fbd55bf40f60cfec9325080",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineElectrolyser.java",
+      "status": "applied",
+      "before_sha256": "64ed08991164a2c8c5b700c8dcefc07a8ef63da739a08055aac553776b9be1e3",
+      "after_sha256": "5ae8c2f124c93381648588d72a2252a0fab25fe4a38d4a18529dd721f38c13d3",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineAshpit.java",
+      "status": "applied",
+      "before_sha256": "09f2209eaf7509bc76abc09a4edf078b78808bd067e1b2ec40e3698105c97116",
+      "after_sha256": "34fade8115807cdd7410065b2cb89f3226de4e43ca54a6dbf93ef6557de578d8",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatDock.java",
+      "status": "applied",
+      "before_sha256": "61d35128a7efa2418054888d3194fa80c21a5feeb4cc1c460809932579596d87",
+      "after_sha256": "721eebba2f10b362c3f22835ba91fa7e2af17fa3ce2805182e2df84b5046c974",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePumpjack.java",
+      "status": "applied",
+      "before_sha256": "367981828a155f408bf02eaa4b630c15cb746aada49fb32345b147c1581be532",
+      "after_sha256": "62b0fd86a6b99656691345a83792424b1e8f85cfe7fee341eb619f96f6887596",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineGasFlare.java",
+      "status": "applied",
+      "before_sha256": "32b48fa0e9e90a30518f679d8ba886b226694a22248769474047cf3f371789d1",
+      "after_sha256": "c6e83e15d24a7243c263f0ea814220215f6363bd5f2a4e3d468adda443057cd4",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/ZirnoxDestroyed.java",
+      "status": "applied",
+      "before_sha256": "19e5ff54b982d05a39e91e794ab6c566ec5f3ea3c59e3b7c0fb611d19bd78e99",
+      "after_sha256": "b8c2f52f244dc59b0fde2e35fe259bf6347aea89ad1b518c2d8a92d0a42e4f4b",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineOreSlopper.java",
+      "status": "applied",
+      "before_sha256": "0b962ea6b6e72fc86984a4cc1c1d6a2d88af207c9596713562f1dd95e633ec7a",
+      "after_sha256": "aad2f29817aa7874657f1f05379f7bfc4ca354ffb4ff7d71193bad1f9bd339e3",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachinePress.java",
+      "status": "applied",
+      "before_sha256": "ae23420846924183359ba9bf128b3a99b1e2a7016875e380a752225cb23d580d",
+      "after_sha256": "94d9b4506c58b955e1929a664a720bf46198eb1e61351adf0c6e1d885d7f4e60",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/network/MachineBatterySocket.java",
+      "status": "applied",
+      "before_sha256": "6464c60432237d6306b19b3015a324acb501a8988b66387f21ec74e48654c9b5",
+      "after_sha256": "8877b2b58b5bb52408c7233f36189dd6ecba641200f7fe21a6ed4fe58675dd2e",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneDock.java",
+      "status": "applied",
+      "before_sha256": "06be95da0f38445312af50fd064b18a5f8e4957c7c5171d805e8123f3730e0cd",
+      "after_sha256": "9e4446fa8f1cfa6fdeda61f9128ab3dfd09a9d8426f9c33e2b7fc97887b0db02",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/network/MachineBatteryREDD.java",
+      "status": "applied",
+      "before_sha256": "90df561e53a2b31a87fa55e575efd0cbe2915e4b56b6f88665572635db7f576f",
+      "after_sha256": "642231dd1843b701a7bdc47736b002bd46b144fec8d3aa723c38256603c358a8",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretHowardDamaged.java",
+      "status": "applied",
+      "before_sha256": "0657b53719af8aac273dcf9b5881b2227e57bf4756ef4d73bbceb863069727bf",
+      "after_sha256": "616b970af6ee2ddec60e8b64c1245ee579c4298b23e3d7198bbc624834758f69",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretBaseNT.java",
+      "status": "applied",
+      "before_sha256": "3344b56fd79e3cf196d666c623a123dfcee375feb4beae936707608070f71df9",
+      "after_sha256": "691f9e8e9ed563e321144700bf2958fb26420efaf7e9d0c1df42e79b391772ac",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretArty.java",
+      "status": "applied",
+      "before_sha256": "42df5087ae2cdcdcea2089842ac735a5eb11ebd9b8b1a3bc54979a08552710de",
+      "after_sha256": "b26c26b67abc75a8139afcf152504244b7bdca8680f0028a382dbf1b391c2973",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretHIMARS.java",
+      "status": "applied",
+      "before_sha256": "d90b2412d4f2d586f1d4be1c79a25d2335c0bef6196cbb708efcbde1a9fb2971",
+      "after_sha256": "74864e12a7505bc33d04fb8c839e987fc0f9e37a6f6f6a0be6806d4ed28bbb2c",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/turret/TurretSentry.java",
+      "status": "applied",
+      "before_sha256": "663f5b0311aa8e57075841a1a4482b361fae07d24e329e5598a5cbe2c3ff15f1",
+      "after_sha256": "5a4dcd57cad8cb28a24f2c963b590f5515cdb91a35d28ccaa77b646799581025",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/fusion/MachineFusionKlystron.java",
+      "status": "applied",
+      "before_sha256": "00270f194f3fe8dd15935358bfc747f066bc39170387efed2ca201b5e713bc5d",
+      "after_sha256": "69716a8e601c40f7e68200483e5d62efd563cef2a2affee9d3aad0cb06300bd5",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/fusion/MachineFusionTorus.java",
+      "status": "applied",
+      "before_sha256": "5c05d27401f1c770230a833d6ab2376871bb27e3a9c331b343b4bc33d627cfa6",
+      "after_sha256": "40fd4a0b63f61024a0d2c7f9dc4f54516fd0210c9ed112b98e4bd10cccf4b51f",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/fusion/MachineFusionBreeder.java",
+      "status": "applied",
+      "before_sha256": "3543a668a55abcf6d27e57c2ae5eea31dfb814b30104130f7a3643634450e6b2",
+      "after_sha256": "dc8ed35085c34574e2317968f6791fbb7b3dd890fe2d7ef3ffce016ba5677932",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/rbmk/RBMKAutoloader.java",
+      "status": "applied",
+      "before_sha256": "ccabac153be7e2f11dd68e340f58b1015185386e3a89ad0f8ebcd1d3ae9580c9",
+      "after_sha256": "89b175f49f255fd615182847b6856c50de5496d54975faade7330946e4692eb2",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/albion/BlockPASource.java",
+      "status": "applied",
+      "before_sha256": "983787a1bf81f361883299e5b96f2756e14014a703f255292b7bafc7f49ccca2",
+      "after_sha256": "95f78fee752d4101babf1c959671e00aa0f2622fba73bc1f8d4bec65294109e0",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/albion/BlockPADipole.java",
+      "status": "applied",
+      "before_sha256": "6b30f1a3d0b6cd4af8fe4962dea8a8df06c2f8632295fd96ed0738d292676c51",
+      "after_sha256": "65b47b5be69e1f05dcf5fa4d7c15a9b2b603788a97fcaa673bbf43dc0c222458",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/albion/BlockPARFC.java",
+      "status": "applied",
+      "before_sha256": "98d5e8d6005d8012400a70d941579328ae5fc64d53949baac89952736d07f65f",
+      "after_sha256": "dec2721b0b5d956a82f68557a5b3116b0dc181219835f4f09eab6775ea719f25",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/albion/BlockPAQuadrupole.java",
+      "status": "applied",
+      "before_sha256": "adbecaee384b0fc00fc51b6ffb75902e0672c571e3a3f2be3ca2b2c88e1da78f",
+      "after_sha256": "4d577dd322769581b149ac7f6b1cfd3685c990f173b2c59925260d8d2d411f38",
+      "inverse_preserves_all_other_bytes": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/albion/BlockPADetector.java",
+      "status": "applied",
+      "before_sha256": "dcd897934439b3351e756cf571607c7727efdd1b7787ea8a150f9ce8a0816864",
+      "after_sha256": "64d61684af62aabf74221afd108fbcec0d0c1fcea23ddd0e6c60b96367e8ed9c",
+      "inverse_preserves_all_other_bytes": true
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+PASS parser controls: typed parameter/local lambda, custom receiver rejection, inherited field, shadow field rejection, anonymous owner, comments/strings and custom declaration detection
+PASS 58 exact call-expression replacements in 47 files; 53 exact whole-file inverses/closure files; prior native/original dispatcher proof hashes verified

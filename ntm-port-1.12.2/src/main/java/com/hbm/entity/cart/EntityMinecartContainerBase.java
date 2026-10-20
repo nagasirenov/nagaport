@@ -95,10 +95,10 @@ public abstract class EntityMinecartContainerBase extends EntityMinecartNTM impl
 	}
 
 	@Override
-	public void openInventory() { }
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 
 	@Override
-	public void closeInventory() { }
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {

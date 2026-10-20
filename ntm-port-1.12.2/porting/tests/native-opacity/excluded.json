@@ -1,0 +1,42 @@
+[
+  {
+    "owner": "BlockDummyable",
+    "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "MachineRocketAssembly",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "MachineIGenerator",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "MachineGasDock",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "MachineCyclotron",
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "RBMKRod",
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "RBMKConsole",
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  },
+  {
+    "owner": "RBMKBase",
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+    "reason": "Existing native BlockDummyable virtual bridge; retain entire true/false RBMK closure."
+  }
+]

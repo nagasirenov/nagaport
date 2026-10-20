@@ -15,7 +15,7 @@ public class ContainerPlasticBag extends Container {
 	
 	public ContainerPlasticBag(InventoryPlayer invPlayer, InventoryPlasticBag bag) {
 		this.bag = bag;
-		this.bag.openInventory();
+		this.bag.openInventory(invPlayer.player);
 
 		this.addSlotToContainer(new Slot(bag, 0, 80, 65));
 
@@ -75,6 +75,6 @@ public class ContainerPlasticBag extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.bag.closeInventory();
+		this.bag.closeInventory(player);
 	}
 }

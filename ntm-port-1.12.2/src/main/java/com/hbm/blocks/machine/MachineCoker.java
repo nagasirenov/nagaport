@@ -30,7 +30,8 @@ public class MachineCoker extends BlockDummyable implements ITooltipProvider {
 	}
 	
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();
 		return standardOpenBehavior(world, x, y, z, player, side);
 	}
 

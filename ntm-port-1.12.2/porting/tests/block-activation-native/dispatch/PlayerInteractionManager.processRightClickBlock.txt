@@ -1,0 +1,260 @@
+  public net.minecraft.util.EnumActionResult processRightClickBlock(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.item.ItemStack, net.minecraft.util.EnumHand, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_0
+       1: getfield      #52                 // Field gameType:Lnet/minecraft/world/GameType;
+       4: getstatic     #243                // Field net/minecraft/world/GameType.SPECTATOR:Lnet/minecraft/world/GameType;
+       7: if_acmpne     118
+      10: aload_2
+      11: aload         5
+      13: invokevirtual #316                // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      16: astore        10
+      18: aload         10
+      20: instanceof    #474                // class net/minecraft/world/ILockableContainer
+      23: ifeq          93
+      26: aload_2
+      27: aload         5
+      29: invokevirtual #139                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      32: invokeinterface #145,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      37: astore        11
+      39: aload         10
+      41: checkcast     #474                // class net/minecraft/world/ILockableContainer
+      44: astore        12
+      46: aload         12
+      48: instanceof    #476                // class net/minecraft/tileentity/TileEntityChest
+      51: ifeq          75
+      54: aload         11
+      56: instanceof    #478                // class net/minecraft/block/BlockChest
+      59: ifeq          75
+      62: aload         11
+      64: checkcast     #478                // class net/minecraft/block/BlockChest
+      67: aload_2
+      68: aload         5
+      70: invokevirtual #482                // Method net/minecraft/block/BlockChest.getLockableContainer:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/world/ILockableContainer;
+      73: astore        12
+      75: aload         12
+      77: ifnull        90
+      80: aload_1
+      81: aload         12
+      83: invokevirtual #486                // Method net/minecraft/entity/player/EntityPlayer.displayGUIChest:(Lnet/minecraft/inventory/IInventory;)V
+      86: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+      89: areturn
+      90: goto          114
+      93: aload         10
+      95: instanceof    #491                // class net/minecraft/inventory/IInventory
+      98: ifeq          114
+     101: aload_1
+     102: aload         10
+     104: checkcast     #491                // class net/minecraft/inventory/IInventory
+     107: invokevirtual #486                // Method net/minecraft/entity/player/EntityPlayer.displayGUIChest:(Lnet/minecraft/inventory/IInventory;)V
+     110: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     113: areturn
+     114: getstatic     #395                // Field net/minecraft/util/EnumActionResult.PASS:Lnet/minecraft/util/EnumActionResult;
+     117: areturn
+     118: aload_1
+     119: getstatic     #191                // Field net/minecraft/entity/player/EntityPlayer.REACH_DISTANCE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     122: invokevirtual #492                // Method net/minecraft/entity/player/EntityPlayer.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     125: invokeinterface #201,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getAttributeValue:()D
+     130: dstore        10
+     132: aload_1
+     133: aload         4
+     135: aload         5
+     137: aload         6
+     139: aload_1
+     140: dload         10
+     142: dconst_1
+     143: dadd
+     144: invokestatic  #207                // Method net/minecraftforge/common/ForgeHooks.rayTraceEyeHitVec:(Lnet/minecraft/entity/EntityLivingBase;D)Lnet/minecraft/util/math/Vec3d;
+     147: invokestatic  #496                // Method net/minecraftforge/common/ForgeHooks.onRightClickBlock:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock;
+     150: astore        12
+     152: aload         12
+     154: invokevirtual #497                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.isCanceled:()Z
+     157: ifeq          166
+     160: aload         12
+     162: invokevirtual #500                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getCancellationResult:()Lnet/minecraft/util/EnumActionResult;
+     165: areturn
+     166: getstatic     #395                // Field net/minecraft/util/EnumActionResult.PASS:Lnet/minecraft/util/EnumActionResult;
+     169: astore        13
+     171: aload         12
+     173: invokevirtual #501                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseItem:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     176: getstatic     #267                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.DENY:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     179: if_acmpeq     213
+     182: aload_3
+     183: aload_1
+     184: aload_2
+     185: aload         5
+     187: aload         4
+     189: aload         6
+     191: fload         7
+     193: fload         8
+     195: fload         9
+     197: invokevirtual #505                // Method net/minecraft/item/ItemStack.onItemUseFirst:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;FFF)Lnet/minecraft/util/EnumActionResult;
+     200: astore        13
+     202: aload         13
+     204: getstatic     #395                // Field net/minecraft/util/EnumActionResult.PASS:Lnet/minecraft/util/EnumActionResult;
+     207: if_acmpeq     213
+     210: aload         13
+     212: areturn
+     213: aload_1
+     214: invokevirtual #506                // Method net/minecraft/entity/player/EntityPlayer.getHeldItemMainhand:()Lnet/minecraft/item/ItemStack;
+     217: aload_2
+     218: aload         5
+     220: aload_1
+     221: invokevirtual #509                // Method net/minecraft/item/ItemStack.doesSneakBypassUse:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/EntityPlayer;)Z
+     224: ifeq          245
+     227: aload_1
+     228: invokevirtual #512                // Method net/minecraft/entity/player/EntityPlayer.getHeldItemOffhand:()Lnet/minecraft/item/ItemStack;
+     231: aload_2
+     232: aload         5
+     234: aload_1
+     235: invokevirtual #509                // Method net/minecraft/item/ItemStack.doesSneakBypassUse:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/EntityPlayer;)Z
+     238: ifeq          245
+     241: iconst_1
+     242: goto          246
+     245: iconst_0
+     246: istore        14
+     248: aload_1
+     249: invokevirtual #515                // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+     252: ifeq          271
+     255: iload         14
+     257: ifne          271
+     260: aload         12
+     262: invokevirtual #516                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseBlock:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     265: getstatic     #519                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.ALLOW:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     268: if_acmpne     324
+     271: aload_2
+     272: aload         5
+     274: invokevirtual #139                // Method net/minecraft/world/World.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     277: astore        15
+     279: aload         12
+     281: invokevirtual #516                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseBlock:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     284: getstatic     #267                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.DENY:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     287: if_acmpeq     324
+     290: aload         15
+     292: invokeinterface #145,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     297: aload_2
+     298: aload         5
+     300: aload         15
+     302: aload_1
+     303: aload         4
+     305: aload         6
+     307: fload         7
+     309: fload         8
+     311: fload         9
+     313: invokevirtual #523                // Method net/minecraft/block/Block.onBlockActivated:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;FFF)Z
+     316: ifeq          324
+     319: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     322: astore        13
+     324: aload_3
+     325: invokevirtual #255                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+     328: ifeq          335
+     331: getstatic     #395                // Field net/minecraft/util/EnumActionResult.PASS:Lnet/minecraft/util/EnumActionResult;
+     334: areturn
+     335: aload_1
+     336: invokevirtual #399                // Method net/minecraft/entity/player/EntityPlayer.getCooldownTracker:()Lnet/minecraft/util/CooldownTracker;
+     339: aload_3
+     340: invokevirtual #329                // Method net/minecraft/item/ItemStack.getItem:()Lnet/minecraft/item/Item;
+     343: invokevirtual #405                // Method net/minecraft/util/CooldownTracker.hasCooldown:(Lnet/minecraft/item/Item;)Z
+     346: ifeq          353
+     349: getstatic     #395                // Field net/minecraft/util/EnumActionResult.PASS:Lnet/minecraft/util/EnumActionResult;
+     352: areturn
+     353: aload_3
+     354: invokevirtual #329                // Method net/minecraft/item/ItemStack.getItem:()Lnet/minecraft/item/Item;
+     357: instanceof    #525                // class net/minecraft/item/ItemBlock
+     360: ifeq          402
+     363: aload_1
+     364: invokevirtual #526                // Method net/minecraft/entity/player/EntityPlayer.canUseCommandBlock:()Z
+     367: ifne          402
+     370: aload_3
+     371: invokevirtual #329                // Method net/minecraft/item/ItemStack.getItem:()Lnet/minecraft/item/Item;
+     374: checkcast     #525                // class net/minecraft/item/ItemBlock
+     377: invokevirtual #527                // Method net/minecraft/item/ItemBlock.getBlock:()Lnet/minecraft/block/Block;
+     380: astore        15
+     382: aload         15
+     384: instanceof    #318                // class net/minecraft/block/BlockCommandBlock
+     387: ifne          398
+     390: aload         15
+     392: instanceof    #320                // class net/minecraft/block/BlockStructure
+     395: ifeq          402
+     398: getstatic     #435                // Field net/minecraft/util/EnumActionResult.FAIL:Lnet/minecraft/util/EnumActionResult;
+     401: areturn
+     402: aload_0
+     403: invokevirtual #233                // Method isCreative:()Z
+     406: ifeq          497
+     409: aload_3
+     410: invokevirtual #415                // Method net/minecraft/item/ItemStack.getMetadata:()I
+     413: istore        15
+     415: aload_3
+     416: invokevirtual #412                // Method net/minecraft/item/ItemStack.getCount:()I
+     419: istore        16
+     421: aload         13
+     423: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     426: if_acmpeq     440
+     429: aload         12
+     431: invokevirtual #501                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseItem:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     434: getstatic     #267                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.DENY:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     437: if_acmpne     459
+     440: aload         13
+     442: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     445: if_acmpne     494
+     448: aload         12
+     450: invokevirtual #501                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseItem:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     453: getstatic     #519                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.ALLOW:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     456: if_acmpne     494
+     459: aload_3
+     460: aload_1
+     461: aload_2
+     462: aload         5
+     464: aload         4
+     466: aload         6
+     468: fload         7
+     470: fload         8
+     472: fload         9
+     474: invokevirtual #530                // Method net/minecraft/item/ItemStack.onItemUse:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;FFF)Lnet/minecraft/util/EnumActionResult;
+     477: astore        17
+     479: aload_3
+     480: iload         15
+     482: invokevirtual #452                // Method net/minecraft/item/ItemStack.setItemDamage:(I)V
+     485: aload_3
+     486: iload         16
+     488: invokevirtual #446                // Method net/minecraft/item/ItemStack.setCount:(I)V
+     491: aload         17
+     493: areturn
+     494: aload         13
+     496: areturn
+     497: aload         13
+     499: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     502: if_acmpeq     516
+     505: aload         12
+     507: invokevirtual #501                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseItem:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     510: getstatic     #267                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.DENY:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     513: if_acmpne     535
+     516: aload         13
+     518: getstatic     #489                // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     521: if_acmpne     576
+     524: aload         12
+     526: invokevirtual #501                // Method net/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getUseItem:()Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     529: getstatic     #519                // Field net/minecraftforge/fml/common/eventhandler/Event$Result.ALLOW:Lnet/minecraftforge/fml/common/eventhandler/Event$Result;
+     532: if_acmpne     576
+     535: aload_3
+     536: invokevirtual #351                // Method net/minecraft/item/ItemStack.copy:()Lnet/minecraft/item/ItemStack;
+     539: astore        15
+     541: aload_3
+     542: aload_1
+     543: aload_2
+     544: aload         5
+     546: aload         4
+     548: aload         6
+     550: fload         7
+     552: fload         8
+     554: fload         9
+     556: invokevirtual #530                // Method net/minecraft/item/ItemStack.onItemUse:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumHand;Lnet/minecraft/util/EnumFacing;FFF)Lnet/minecraft/util/EnumActionResult;
+     559: astore        13
+     561: aload_3
+     562: invokevirtual #255                // Method net/minecraft/item/ItemStack.isEmpty:()Z
+     565: ifeq          576
+     568: aload_1
+     569: aload         15
+     571: aload         4
+     573: invokestatic  #371                // Method net/minecraftforge/event/ForgeEventFactory.onPlayerDestroyItem:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/EnumHand;)V
+     576: aload         13
+     578: areturn

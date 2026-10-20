@@ -1,0 +1,815 @@
+CALL	"bismuth_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB)bismuth_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + ":textures/armor/starmetal_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor.ArmorBismuth#ArmorBismuth(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorBismuth	IDENTIFIER:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor#com.hbm.items.armor.ArmorBismuth
+NODE	MainRegistry.aMatBismuth	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatBismuth
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)bismuth_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bismuth_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bismuth_helmet
+ARG	"bismuth_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"bismuth_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)bismuth_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor.ArmorBismuth#ArmorBismuth(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorBismuth	IDENTIFIER:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor#com.hbm.items.armor.ArmorBismuth
+NODE	MainRegistry.aMatBismuth	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatBismuth
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)bismuth_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bismuth_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bismuth_helmet
+ARG	"bismuth_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"bismuth_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)bismuth_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor.ArmorBismuth#ArmorBismuth(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorBismuth	IDENTIFIER:com.hbm.items.armor.ArmorBismuth:com.hbm.items.armor#com.hbm.items.armor.ArmorBismuth
+NODE	MainRegistry.aMatBismuth	MEMBER_SELECT:net.minecraft.item.ItemArmor.ArmorMaterial:com.hbm.main.MainRegistry#aMatBismuth
+NODE	MainRegistry	IDENTIFIER:com.hbm.main.MainRegistry:com.hbm.main#com.hbm.main.MainRegistry
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)bismuth_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bismuth_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bismuth_helmet
+ARG	"bismuth_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"t51_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorT51(aMatT51, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB)t51_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5)	NEW_CLASS:com.hbm.items.armor.ArmorT51:com.hbm.items.armor.ArmorT51#ArmorT51(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorT51	IDENTIFIER:com.hbm.items.armor.ArmorT51:com.hbm.items.armor#com.hbm.items.armor.ArmorT51
+NODE	aMatT51	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatT51
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	5	INT_LITERAL:int:null
+NODE	(ArmorFSB)t51_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	t51_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#t51_helmet
+ARG	"t51_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"t51_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorT51(aMatT51, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB)t51_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 2, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5)	NEW_CLASS:com.hbm.items.armor.ArmorT51:com.hbm.items.armor.ArmorT51#ArmorT51(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorT51	IDENTIFIER:com.hbm.items.armor.ArmorT51:com.hbm.items.armor#com.hbm.items.armor.ArmorT51
+NODE	aMatT51	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatT51
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	5	INT_LITERAL:int:null
+NODE	(ArmorFSB)t51_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	t51_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#t51_helmet
+ARG	"t51_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"t51_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorT51(aMatT51, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB)t51_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorT51(aMatT51, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 1000, 5)	NEW_CLASS:com.hbm.items.armor.ArmorT51:com.hbm.items.armor.ArmorT51#ArmorT51(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorT51	IDENTIFIER:com.hbm.items.armor.ArmorT51:com.hbm.items.armor#com.hbm.items.armor.ArmorT51
+NODE	aMatT51	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatT51
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	5	INT_LITERAL:int:null
+NODE	(ArmorFSB)t51_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	t51_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#t51_helmet
+ARG	"t51_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"steamsuit_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDesh(aMatDesh, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats((ArmorFSB)steamsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor.ArmorDesh#ArmorDesh(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDesh	IDENTIFIER:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor#com.hbm.items.armor.ArmorDesh
+NODE	aMatDesh	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDesh
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.STEAM	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#STEAM
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)steamsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steamsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steamsuit_helmet
+ARG	"steamsuit_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"steamsuit_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDesh(aMatDesh, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats((ArmorFSB)steamsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.STEAM, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor.ArmorDesh#ArmorDesh(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDesh	IDENTIFIER:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor#com.hbm.items.armor.ArmorDesh
+NODE	aMatDesh	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDesh
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.STEAM	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#STEAM
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)steamsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steamsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steamsuit_helmet
+ARG	"steamsuit_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"steamsuit_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDesh(aMatDesh, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats((ArmorFSB)steamsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDesh(aMatDesh, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.STEAM, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor.ArmorDesh#ArmorDesh(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDesh	IDENTIFIER:com.hbm.items.armor.ArmorDesh:com.hbm.items.armor#com.hbm.items.armor.ArmorDesh
+NODE	aMatDesh	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDesh
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.STEAM	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#STEAM
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)steamsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	steamsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#steamsuit_helmet
+ARG	"steamsuit_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"dieselsuit_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats((ArmorFSB)dieselsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor.ArmorDiesel#ArmorDiesel(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDiesel	IDENTIFIER:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor#com.hbm.items.armor.ArmorDiesel
+NODE	aMatDiesel	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDiesel
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.DIESEL	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#DIESEL
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)dieselsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dieselsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dieselsuit_helmet
+ARG	"dieselsuit_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"dieselsuit_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats((ArmorFSB)dieselsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", Fluids.DIESEL, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor.ArmorDiesel#ArmorDiesel(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDiesel	IDENTIFIER:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor#com.hbm.items.armor.ArmorDiesel
+NODE	aMatDiesel	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDiesel
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.DIESEL	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#DIESEL
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)dieselsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dieselsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dieselsuit_helmet
+ARG	"dieselsuit_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"dieselsuit_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats((ArmorFSB)dieselsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", Fluids.DIESEL, 64000, 500, 50, 1)	NEW_CLASS:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor.ArmorDiesel#ArmorDiesel(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,com.hbm.inventory.fluid.FluidType,int,int,int,int)
+NODE	ArmorDiesel	IDENTIFIER:com.hbm.items.armor.ArmorDiesel:com.hbm.items.armor#com.hbm.items.armor.ArmorDiesel
+NODE	aMatDiesel	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDiesel
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	Fluids.DIESEL	MEMBER_SELECT:com.hbm.inventory.fluid.FluidType:com.hbm.inventory.fluid.Fluids#DIESEL
+NODE	Fluids	IDENTIFIER:com.hbm.inventory.fluid.Fluids:com.hbm.inventory.fluid#com.hbm.inventory.fluid.Fluids
+NODE	64000	INT_LITERAL:int:null
+NODE	500	INT_LITERAL:int:null
+NODE	50	INT_LITERAL:int:null
+NODE	1	INT_LITERAL:int:null
+NODE	(ArmorFSB)dieselsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dieselsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dieselsuit_helmet
+ARG	"dieselsuit_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"ajr_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJR(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajr_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor.ArmorAJR#ArmorAJR(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJR	IDENTIFIER:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor#com.hbm.items.armor.ArmorAJR
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajr_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajr_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajr_helmet
+ARG	"ajr_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"ajr_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJR(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajr_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor.ArmorAJR#ArmorAJR(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJR	IDENTIFIER:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor#com.hbm.items.armor.ArmorAJR
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajr_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajr_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajr_helmet
+ARG	"ajr_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"ajr_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJR(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajr_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJR(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor.ArmorAJR#ArmorAJR(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJR	IDENTIFIER:com.hbm.items.armor.ArmorAJR:com.hbm.items.armor#com.hbm.items.armor.ArmorAJR
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajr_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajr_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajr_helmet
+ARG	"ajr_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"ajro_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajro_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor.ArmorAJRO#ArmorAJRO(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJRO	IDENTIFIER:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor#com.hbm.items.armor.ArmorAJRO
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajro_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajro_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajro_helmet
+ARG	"ajro_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"ajro_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajro_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor.ArmorAJRO#ArmorAJRO(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJRO	IDENTIFIER:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor#com.hbm.items.armor.ArmorAJRO
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajro_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajro_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajro_helmet
+ARG	"ajro_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"ajro_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ajro_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor.ArmorAJRO#ArmorAJRO(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorAJRO	IDENTIFIER:com.hbm.items.armor.ArmorAJRO:com.hbm.items.armor#com.hbm.items.armor.ArmorAJRO
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ajro_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ajro_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ajro_helmet
+ARG	"ajro_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"rpa_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)rpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor.ArmorRPA#ArmorRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorRPA	IDENTIFIER:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)rpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	rpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#rpa_helmet
+ARG	"rpa_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"rpa_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)rpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor.ArmorRPA#ArmorRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorRPA	IDENTIFIER:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)rpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	rpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#rpa_helmet
+ARG	"rpa_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"rpa_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)rpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor.ArmorRPA#ArmorRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorRPA	IDENTIFIER:com.hbm.items.armor.ArmorRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)rpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	rpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#rpa_helmet
+ARG	"rpa_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"ncrpa_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ncrpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor.ArmorNCRPA#ArmorNCRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorNCRPA	IDENTIFIER:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorNCRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ncrpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ncrpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ncrpa_helmet
+ARG	"ncrpa_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"ncrpa_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ncrpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor.ArmorNCRPA#ArmorNCRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorNCRPA	IDENTIFIER:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorNCRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ncrpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ncrpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ncrpa_helmet
+ARG	"ncrpa_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"ncrpa_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB)ncrpa_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 2500000, 10000, 2000, 25)	NEW_CLASS:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor.ArmorNCRPA#ArmorNCRPA(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorNCRPA	IDENTIFIER:com.hbm.items.armor.ArmorNCRPA:com.hbm.items.armor#com.hbm.items.armor.ArmorNCRPA
+NODE	aMatAJR	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatAJR
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	2500000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2000	INT_LITERAL:int:null
+NODE	25	INT_LITERAL:int:null
+NODE	(ArmorFSB)ncrpa_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	ncrpa_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#ncrpa_helmet
+ARG	"ncrpa_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"bj_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBJ(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB)bj_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100)	NEW_CLASS:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor.ArmorBJ#ArmorBJ(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorBJ	IDENTIFIER:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor#com.hbm.items.armor.ArmorBJ
+NODE	aMatBJ	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatBJ
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	10000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	100	INT_LITERAL:int:null
+NODE	(ArmorFSB)bj_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bj_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bj_helmet
+ARG	"bj_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"bj_plate_jetpack"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB)bj_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100)	NEW_CLASS:com.hbm.items.armor.ArmorBJJetpack:com.hbm.items.armor.ArmorBJJetpack#ArmorBJJetpack(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorBJJetpack	IDENTIFIER:com.hbm.items.armor.ArmorBJJetpack:com.hbm.items.armor#com.hbm.items.armor.ArmorBJJetpack
+NODE	aMatBJ	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatBJ
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	10000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	100	INT_LITERAL:int:null
+NODE	(ArmorFSB)bj_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bj_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bj_helmet
+ARG	"bj_plate_jetpack"	STRING_LITERAL:java.lang.String:null
+CALL	"bj_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBJ(aMatBJ, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB)bj_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 1000, 100).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 10000000, 10000, 1000, 100)	NEW_CLASS:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor.ArmorBJ#ArmorBJ(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorBJ	IDENTIFIER:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor#com.hbm.items.armor.ArmorBJ
+NODE	aMatBJ	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatBJ
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	10000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	100	INT_LITERAL:int:null
+NODE	(ArmorFSB)bj_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bj_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bj_helmet
+ARG	"bj_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"bj_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorBJ(aMatBJ, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB)bj_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorBJ(aMatBJ, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 1000, 100)	NEW_CLASS:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor.ArmorBJ#ArmorBJ(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorBJ	IDENTIFIER:com.hbm.items.armor.ArmorBJ:com.hbm.items.armor#com.hbm.items.armor.ArmorBJ
+NODE	aMatBJ	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatBJ
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	10000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	100	INT_LITERAL:int:null
+NODE	(ArmorFSB)bj_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	bj_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#bj_helmet
+ARG	"bj_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"envsuit_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0).cloneStats((ArmorFSB)envsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0)	NEW_CLASS:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor.ArmorEnvsuit#ArmorEnvsuit(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorEnvsuit	IDENTIFIER:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor#com.hbm.items.armor.ArmorEnvsuit
+NODE	aMatEnv	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatEnv
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	100000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	250	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)envsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	envsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#envsuit_helmet
+ARG	"envsuit_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"envsuit_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 100000, 1000, 250, 0).cloneStats((ArmorFSB)envsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 100000, 1000, 250, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 100000, 1000, 250, 0)	NEW_CLASS:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor.ArmorEnvsuit#ArmorEnvsuit(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorEnvsuit	IDENTIFIER:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor#com.hbm.items.armor.ArmorEnvsuit
+NODE	aMatEnv	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatEnv
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	100000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	250	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)envsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	envsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#envsuit_helmet
+ARG	"envsuit_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"envsuit_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0).cloneStats((ArmorFSB)envsuit_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 100000, 1000, 250, 0)	NEW_CLASS:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor.ArmorEnvsuit#ArmorEnvsuit(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorEnvsuit	IDENTIFIER:com.hbm.items.armor.ArmorEnvsuit:com.hbm.items.armor#com.hbm.items.armor.ArmorEnvsuit
+NODE	aMatEnv	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatEnv
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	100000	INT_LITERAL:int:null
+NODE	1000	INT_LITERAL:int:null
+NODE	250	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)envsuit_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	envsuit_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#envsuit_helmet
+ARG	"envsuit_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"hev_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorHEV(aMatHEV, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB)hev_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0)	NEW_CLASS:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor.ArmorHEV#ArmorHEV(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorHEV	IDENTIFIER:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor#com.hbm.items.armor.ArmorHEV
+NODE	aMatHEV	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatHEV
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2500	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)hev_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	hev_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#hev_helmet
+ARG	"hev_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"hev_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorHEV(aMatHEV, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB)hev_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000, 10000, 2500, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000, 10000, 2500, 0)	NEW_CLASS:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor.ArmorHEV#ArmorHEV(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorHEV	IDENTIFIER:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor#com.hbm.items.armor.ArmorHEV
+NODE	aMatHEV	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatHEV
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2500	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)hev_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	hev_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#hev_helmet
+ARG	"hev_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"hev_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorHEV(aMatHEV, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB)hev_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorHEV(aMatHEV, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000, 10000, 2500, 0)	NEW_CLASS:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor.ArmorHEV#ArmorHEV(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorHEV	IDENTIFIER:com.hbm.items.armor.ArmorHEV:com.hbm.items.armor#com.hbm.items.armor.ArmorHEV
+NODE	aMatHEV	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatHEV
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2500	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)hev_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	hev_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#hev_helmet
+ARG	"hev_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"fau_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDigamma(aMatFau, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB)fau_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDigamma(aMatFau, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDigamma(aMatFau, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 10000000, 10000, 2500, 0)	NEW_CLASS:com.hbm.items.armor.ArmorDigamma:com.hbm.items.armor.ArmorDigamma#ArmorDigamma(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorDigamma	IDENTIFIER:com.hbm.items.armor.ArmorDigamma:com.hbm.items.armor#com.hbm.items.armor.ArmorDigamma
+NODE	aMatFau	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatFau
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	10000000	INT_LITERAL:int:null
+NODE	10000	INT_LITERAL:int:null
+NODE	2500	INT_LITERAL:int:null
+NODE	0	INT_LITERAL:int:null
+NODE	(ArmorFSB)fau_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	fau_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#fau_helmet
+ARG	"fau_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"dns_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDNT(aMatDNS, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB)dns_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115)	NEW_CLASS:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor.ArmorDNT#ArmorDNT(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorDNT	IDENTIFIER:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor#com.hbm.items.armor.ArmorDNT
+NODE	aMatDNS	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNS
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000000	INT_LITERAL:int:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	100000	INT_LITERAL:int:null
+NODE	115	INT_LITERAL:int:null
+NODE	(ArmorFSB)dns_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dns_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dns_helmet
+ARG	"dns_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"dns_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDNT(aMatDNS, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB)dns_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000000, 1000000, 100000, 115).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png", 1000000000, 1000000, 100000, 115)	NEW_CLASS:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor.ArmorDNT#ArmorDNT(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorDNT	IDENTIFIER:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor#com.hbm.items.armor.ArmorDNT
+NODE	aMatDNS	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNS
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000000	INT_LITERAL:int:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	100000	INT_LITERAL:int:null
+NODE	115	INT_LITERAL:int:null
+NODE	(ArmorFSB)dns_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dns_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dns_helmet
+ARG	"dns_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"dns_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorDNT(aMatDNS, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB)dns_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115).cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorDNT(aMatDNS, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png", 1000000000, 1000000, 100000, 115)	NEW_CLASS:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor.ArmorDNT#ArmorDNT(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String,long,long,long,long)
+NODE	ArmorDNT	IDENTIFIER:com.hbm.items.armor.ArmorDNT:com.hbm.items.armor#com.hbm.items.armor.ArmorDNT
+NODE	aMatDNS	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatDNS
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	1000000000	INT_LITERAL:int:null
+NODE	1000000	INT_LITERAL:int:null
+NODE	100000	INT_LITERAL:int:null
+NODE	115	INT_LITERAL:int:null
+NODE	(ArmorFSB)dns_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	dns_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#dns_helmet
+ARG	"dns_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"taurun_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)taurun_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor.ArmorTaurun#ArmorTaurun(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTaurun	IDENTIFIER:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor#com.hbm.items.armor.ArmorTaurun
+NODE	aMatTaurun	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTaurun
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)taurun_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	taurun_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#taurun_helmet
+ARG	"taurun_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"taurun_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB)taurun_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor.ArmorTaurun#ArmorTaurun(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTaurun	IDENTIFIER:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor#com.hbm.items.armor.ArmorTaurun
+NODE	aMatTaurun	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTaurun
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)taurun_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	taurun_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#taurun_helmet
+ARG	"taurun_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"taurun_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)taurun_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor.ArmorTaurun#ArmorTaurun(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTaurun	IDENTIFIER:com.hbm.items.armor.ArmorTaurun:com.hbm.items.armor#com.hbm.items.armor.ArmorTaurun
+NODE	aMatTaurun	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTaurun
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)taurun_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	taurun_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#taurun_helmet
+ARG	"taurun_boots"	STRING_LITERAL:java.lang.String:null
+CALL	"trenchmaster_plate"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)trenchmaster_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor.ArmorTrenchmaster#ArmorTrenchmaster(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTrenchmaster	IDENTIFIER:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor#com.hbm.items.armor.ArmorTrenchmaster
+NODE	aMatTrench	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTrench
+NODE	1	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)trenchmaster_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	trenchmaster_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#trenchmaster_helmet
+ARG	"trenchmaster_plate"	STRING_LITERAL:java.lang.String:null
+CALL	"trenchmaster_legs"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats((ArmorFSB)trenchmaster_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + ":textures/armor/starmetal_2.png")	NEW_CLASS:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor.ArmorTrenchmaster#ArmorTrenchmaster(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTrenchmaster	IDENTIFIER:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor#com.hbm.items.armor.ArmorTrenchmaster
+NODE	aMatTrench	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTrench
+NODE	2	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_2.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_2.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)trenchmaster_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	trenchmaster_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#trenchmaster_helmet
+ARG	"trenchmaster_legs"	STRING_LITERAL:java.lang.String:null
+CALL	"trenchmaster_boots"	METHOD_INVOCATION:net.minecraft.item.Item:net.minecraft.item.Item#setTranslationKey(java.lang.String)
+NODE	new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats((ArmorFSB)trenchmaster_helmet)	METHOD_INVOCATION:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png").cloneStats	MEMBER_SELECT:(com.hbm.items.armor.ArmorFSB)com.hbm.items.armor.ArmorFSB:com.hbm.items.armor.ArmorFSB#cloneStats(com.hbm.items.armor.ArmorFSB)
+NODE	new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + ":textures/armor/starmetal_1.png")	NEW_CLASS:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor.ArmorTrenchmaster#ArmorTrenchmaster(net.minecraft.item.ItemArmor.ArmorMaterial,int,java.lang.String)
+NODE	ArmorTrenchmaster	IDENTIFIER:com.hbm.items.armor.ArmorTrenchmaster:com.hbm.items.armor#com.hbm.items.armor.ArmorTrenchmaster
+NODE	aMatTrench	IDENTIFIER:net.minecraft.item.ItemArmor.ArmorMaterial:init()#aMatTrench
+NODE	3	INT_LITERAL:int:null
+NODE	RefStrings.MODID + ":textures/armor/starmetal_1.png"	PLUS:java.lang.String:null
+NODE	RefStrings.MODID	MEMBER_SELECT:java.lang.String:com.hbm.lib.RefStrings#MODID
+NODE	RefStrings	IDENTIFIER:com.hbm.lib.RefStrings:com.hbm.lib#com.hbm.lib.RefStrings
+NODE	":textures/armor/starmetal_1.png"	STRING_LITERAL:java.lang.String:null
+NODE	(ArmorFSB)trenchmaster_helmet	TYPE_CAST:com.hbm.items.armor.ArmorFSB:null
+NODE	ArmorFSB	IDENTIFIER:com.hbm.items.armor.ArmorFSB:com.hbm.items.armor#com.hbm.items.armor.ArmorFSB
+NODE	trenchmaster_helmet	IDENTIFIER:net.minecraft.item.Item:com.hbm.items.ModItems#trenchmaster_helmet
+ARG	"trenchmaster_boots"	STRING_LITERAL:java.lang.String:null

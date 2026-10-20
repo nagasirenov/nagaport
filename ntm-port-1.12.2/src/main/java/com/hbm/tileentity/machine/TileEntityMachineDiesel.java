@@ -237,7 +237,7 @@ public class TileEntityMachineDiesel extends TileEntityMachinePolluting implemen
 
 	public void generate() {
 
-		if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) return;
+		if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) return;
 
 		if(hasAcceptableFuel()) {
 			if (tank.getFill() > 0 && breatheAir(1)) {

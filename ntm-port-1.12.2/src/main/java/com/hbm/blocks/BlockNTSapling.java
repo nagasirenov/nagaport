@@ -83,7 +83,8 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random random) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		if(!world.isRemote) {
 			if(world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) {
 				this.func_149878_d(world, x, y, z, random);
@@ -124,7 +125,8 @@ public class BlockNTSapling extends BlockSapling implements IBlockMulti, IPlanta
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		world.setBlockMetadataWithNotify(x, y, z, stack.getItemDamage(), 2);
 	}
 

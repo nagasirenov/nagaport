@@ -84,7 +84,7 @@ public class ItemTurretControl extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(itemstack.getTagCompound() != null) {
 			list.add("Linked to:");
 			list.add("X: " + String.valueOf(itemstack.getTagCompound().getInteger("xCoord")));

@@ -20,7 +20,7 @@ public class RenderPylon extends RenderPylonBase {
 	}
 	
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f) {
+	public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		TileEntityPylon pyl = (TileEntityPylon)te;
 		
 		GL11.glEnable(GL11.GL_LIGHTING);

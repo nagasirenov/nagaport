@@ -53,7 +53,7 @@ public class ItemModRecord extends ItemRecord {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+	public void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> p_77624_3_, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		p_77624_3_.add(this.getRecordNameLocal());
 	}
 

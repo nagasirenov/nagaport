@@ -29,7 +29,7 @@ public class BlockGeysierDCM extends BlockContainer {
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 

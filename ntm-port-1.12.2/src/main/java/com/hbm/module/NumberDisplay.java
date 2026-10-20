@@ -13,6 +13,8 @@ import com.hbm.inventory.gui.GuiInfoContainer;
 import com.hbm.util.BobMathUtil;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.math.MathHelper;
 
@@ -312,16 +314,17 @@ public class NumberDisplay {
 	 */
 	private void renderSegment(int renX, int renY, int width, int height)
 	{
-		final Tessellator tess = Tessellator.instance;
+		final Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		final float z = gui.getZLevel();
 		
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		tess.startDrawingQuads();
-		tess.setColorOpaque_I(color);
-		tess.addVertex(renX, renY + height, z);
-		tess.addVertex(renX + width, renY + height, z);
-		tess.addVertex(renX + width, renY + 0, z);
-		tess.addVertex(renX, renY, z);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0 = color;
+		tessBuffer.pos(renX, renY + height, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(renX + width, renY + height, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(renX + width, renY + 0, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
+		tessBuffer.pos(renX, renY, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();
 		tess.draw();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 	}

@@ -17,7 +17,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderChemicalFactory extends TileEntitySpecialRenderer implements IItemRendererProvider {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {
+	public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y, z + 0.5);
 		GL11.glRotated(90, 0, 1, 0);

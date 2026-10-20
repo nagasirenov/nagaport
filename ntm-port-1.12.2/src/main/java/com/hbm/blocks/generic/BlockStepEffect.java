@@ -126,7 +126,7 @@ public class BlockStepEffect extends Block {
 	public void onEntityWalking(World p_149724_1_, int p_149724_2_, int p_149724_3_, int p_149724_4_, Entity entity) {
 		if(entity instanceof EntityLivingBase) {
 			if(this == ModBlocks.frozen_dirt) {
-				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 60 * 20, 2));
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));
 			}
 			if(this == ModBlocks.block_trinitite) {
 				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 2));
@@ -166,7 +166,8 @@ public class BlockStepEffect extends Block {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		if(this == ModBlocks.block_meteor_molten) {
 			if(!world.isRemote)
 				world.setBlock(x, y, z, ModBlocks.block_meteor_cobble);

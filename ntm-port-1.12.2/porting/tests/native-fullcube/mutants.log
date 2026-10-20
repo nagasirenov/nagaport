@@ -1,0 +1,3 @@
+PASS old-signature compiled and runtime rejected: Caused by: java.lang.AssertionError: null argument remains ignored
+PASS true-body compiled and runtime rejected: Caused by: java.lang.AssertionError: null argument remains ignored
+PASS state-dependent compiled and runtime rejected: Caused by: java.lang.NullPointerException

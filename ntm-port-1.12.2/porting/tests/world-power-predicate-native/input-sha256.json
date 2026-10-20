@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "/tmp/nagaport-ae2-native-classpath.txt": "fc0f467afcb7b98f4c107a469bd760c624616f45cc5b518704db0dde241e23dc",
+    "/workspace/shared/nagaport-toolchain/java8/bin/java": "1a081a2c18367e5d966d716a6091d5fe2eec26b19e471980d0d8fd550174e21c",
+    "/workspace/shared/nagaport-toolchain/java8/bin/javac": "a7067cb35a7f16dbf1182e1a84d72d5c5e9dd3272a0c519d87a3e65bfad2bdff",
+    "/workspace/shared/nagaport-toolchain/java8/bin/javap": "744f218ad6eb098a11811041c91b80fd4ea2597cf85466be9e89f08d3308779c"
+  },
+  "complete_coordinate_collaborators": {
+    "com/hbm/util/fauxpointtwelve/BlockPos.java": "ab64bee132a0c36099c38007669ece0a0cdd93ef1ec31a25dbf750030591e26d",
+    "com/hbm/util/fauxpointtwelve/DirPos.java": "e69a9d63ab2e7ab9a228c31eb2900a1dc552b02bb2254d46641897b29ddd6bae",
+    "com/hbm/util/fauxpointtwelve/Rotation.java": "03dd92b41e1a535480faebea6bf0ed171d909465c782cdb4e6cd534fbeb28f4f",
+    "com/hbm/lib/ForgeDirection.java": "424b121b6866dddb538c9fd36717283a4366f4f9e14ef2b0a49b8f445318917b",
+    "com/hbm/interfaces/Spaghetti.java": "f11391e29a883df547fcdf022572ab9ce04c25a6500a299d7ed540d051394a70"
+  }
+}

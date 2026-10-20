@@ -15,7 +15,7 @@ import net.minecraft.util.math.Vec3d;
 public class RenderICFController extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+	public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		
 		TileEntityICFController controller = (TileEntityICFController) tile;
 		

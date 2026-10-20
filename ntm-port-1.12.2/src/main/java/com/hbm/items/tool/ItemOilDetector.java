@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 public class ItemOilDetector extends Item {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(I18nUtil.format(this.getTranslationKey() + ".desc1"));
 		list.add(I18nUtil.format(this.getTranslationKey() + ".desc2"));
 	}

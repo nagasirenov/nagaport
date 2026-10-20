@@ -1,0 +1,25 @@
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import java.util.jar.*;import org.objectweb.asm.*;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;import net.minecraft.world.World;import net.minecraft.world.WorldServer;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                                                      ^
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import java.util.jar.*;import org.objectweb.asm.*;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;import net.minecraft.world.World;import net.minecraft.world.WorldServer;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                                                      ^
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.lang.reflect.*;import java.util.*;import java.util.jar.*;import org.objectweb.asm.*;import net.minecraft.entity.Entity;import net.minecraft.entity.item.EntityItem;import net.minecraft.world.World;import net.minecraft.world.WorldServer;import sun.misc.Unsafe;
+                                                                                                                                                                                                                                                                      ^
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:3: warning: Unsafe is internal proprietary API and may be removed in a future release
+ static Unsafe unsafe;static int checks;static Field riding,passengers;static World world;
+        ^
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);world=(World)unsafe.allocateInstance(WorldServer.class);
+         ^
+/workspace/shared/nagaport-mounts-cp73/ntm-port-1.12.2/porting/tests/native-mount-queries/Probe.java:10: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field u=Unsafe.class.getDeclaredField("theUnsafe");u.setAccessible(true);unsafe=(Unsafe)u.get(null);world=(World)unsafe.allocateInstance(WorldServer.class);
+                                                                                  ^
+6 warnings
+PASS 21 actual native getter, mount/capacity/forced-multipassenger/dismount/query and null/evaluation checks
+PASS 17 whole-file exact inverses; 57 receiver-attributed selections; 114 changed-token mutation controls
+PASS runtime predicate mutant: being a passenger does not mean having passengers
+PASS independent exact CP73 Git-blob replay and reversal: 17 files
+PASS production patch git apply --check against main
+PASS isolated semantic attribution census: 13595 -> 13538 (FAIL, not Gradle build)

@@ -125,6 +125,6 @@ public abstract class ItemInventory implements IInventory {
 	@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return true; }
 	@Override public int getInventoryStackLimit() { return 64; }
 
-	@Override public void openInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateOpen", 1.0F, 0.8F); }
-	@Override public void closeInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateClose", 1.0F, 0.8F); }
+	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateOpen", 1.0F, 0.8F); }
+	@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, "hbm:block.crateClose", 1.0F, 0.8F); }
 }

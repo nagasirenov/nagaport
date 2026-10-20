@@ -68,13 +68,13 @@ public class WeaponSpecial extends ItemSword {
 			if(!world.isRemote) {
 				int i = rand.nextInt(7);
 				if(i == 0)
-					entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 5 * 60 * 20, 0));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 60 * 20, 0));
 				if(i == 1)
-					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 5 * 60 * 20, 2));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 60 * 20, 2));
 				if(i == 2)
 					entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 5 * 60 * 20, 2));
 				if(i == 3)
-					entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 1 * 60 * 20, 0));
+					entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 1 * 60 * 20, 0));
 			}
 			world.playSoundAtEntity(entity, "random.anvil_land", 3.0F, 1.F);
 		}
@@ -243,7 +243,7 @@ public class WeaponSpecial extends ItemSword {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(this == ModItems.schrabidium_hammer) {
 			list.add("Even though it says \"+1000000000");
 			list.add("damage\", it's actually \"onehit anything\"");

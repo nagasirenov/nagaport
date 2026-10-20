@@ -78,7 +78,7 @@ public class CelestialTeleporter extends Teleporter {
 
 		if(entity instanceof EntityPlayerMP) {
 			EntityPlayerMP playerMP = (EntityPlayerMP) entity;
-			Entity ridingEntity = entity.ridingEntity;
+			Entity ridingEntity = entity.getRidingEntity();
 
 			manager.transferPlayerToDimension(playerMP, targetServer.provider.getDimension(), this);
 

@@ -31,8 +31,8 @@ public class TileEntityBroadcaster extends TileEntityLoadedBase implements net.m
 				double d = Math.sqrt(Math.pow(e.posX - (this.pos.getX() + 0.5), 2) + Math.pow(e.posY - (this.pos.getY() + 0.5), 2) + Math.pow(e.posZ - (this.pos.getZ() + 0.5), 2));
 
 				if(d <= 25) {
-					if(e.getActivePotionEffect(Potion.confusion) == null || e.getActivePotionEffect(Potion.confusion).getDuration() < 100)
-						e.addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 0));
+					if(e.getActivePotionEffect(net.minecraft.init.MobEffects.NAUSEA) == null || e.getActivePotionEffect(net.minecraft.init.MobEffects.NAUSEA).getDuration() < 100)
+						e.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 300, 0));
 				}
 
 				if(d <= 15) {

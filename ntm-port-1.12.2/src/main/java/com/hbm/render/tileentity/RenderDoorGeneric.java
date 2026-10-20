@@ -29,7 +29,7 @@ public class RenderDoorGeneric extends TileEntitySpecialRenderer {
 	private static final float[] rot = new float[3];
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float partialTicks){
+	public void render(TileEntity tile, double x, double y, double z, float partialTicks, int nativeDestroyStage, float nativeAlpha){
 		
 		TileEntityDoorGeneric te = (TileEntityDoorGeneric) tile;
 		

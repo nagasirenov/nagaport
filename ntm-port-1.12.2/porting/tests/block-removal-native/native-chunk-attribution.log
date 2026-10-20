@@ -1,0 +1,71 @@
+     171: iload         4
+     173: iconst_4
+     174: ishr
+     175: aload         12
+     177: aastore
+     178: iload         4
+     180: iload         7
+     182: if_icmplt     189
+     185: iconst_1
+     186: goto          190
+     189: iconst_0
+     190: istore        13
+     192: aload         12
+     194: iload_3
+     195: iload         4
+     197: bipush        15
+     199: iand
+     200: iload         5
+     202: aload_2
+     203: invokevirtual #204                // Method net/minecraft/world/chunk/storage/ExtendedBlockStorage.set:(IIILnet/minecraft/block/state/IBlockState;)V
+     206: aload_0
+     207: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     210: getfield      #481                // Field net/minecraft/world/World.isRemote:Z
+     213: ifne          277
+     216: aload         10
+     218: aload         9
+     220: if_acmpeq     235
+     223: aload         10
+     225: aload_0
+     226: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     229: aload_1
+     230: aload         8
+     232: invokevirtual #485                // Method net/minecraft/block/Block.breakBlock:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;)V
+     235: aload_0
+     236: aload_1
+     237: getstatic     #489                // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+     240: invokevirtual #493                // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+     243: astore        14
+     245: aload         14
+     247: ifnull        274
+     250: aload         14
+     252: aload_0
+     253: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     256: aload_1
+     257: aload         8
+     259: aload_2
+     260: invokevirtual #499                // Method net/minecraft/tileentity/TileEntity.shouldRefresh:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)Z
+     263: ifeq          274
+     266: aload_0
+     267: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     270: aload_1
+     271: invokevirtual #502                // Method net/minecraft/world/World.removeTileEntity:(Lnet/minecraft/util/math/BlockPos;)V
+     274: goto          326
+     277: aload         10
+     279: aload         8
+     281: invokevirtual #506                // Method net/minecraft/block/Block.hasTileEntity:(Lnet/minecraft/block/state/IBlockState;)Z
+     284: ifeq          326
+     287: aload_0
+     288: aload_1
+     289: getstatic     #489                // Field net/minecraft/world/chunk/Chunk$EnumCreateEntityType.CHECK:Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;
+     292: invokevirtual #493                // Method getTileEntity:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/chunk/Chunk$EnumCreateEntityType;)Lnet/minecraft/tileentity/TileEntity;
+     295: astore        14
+     297: aload         14
+     299: ifnull        326
+     302: aload         14
+     304: aload_0
+     305: getfield      #128                // Field world:Lnet/minecraft/world/World;
+     308: aload_1
+     309: aload         8
+     311: aload_2
+     312: invokevirtual #499                // Method net/minecraft/tileentity/TileEntity.shouldRefresh:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/block/state/IBlockState;)Z

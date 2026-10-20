@@ -1,0 +1,37 @@
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.inventory.EntityEquipmentSlot;import sun.misc.Unsafe;
+                                                                                                                                  ^
+porting/tests/native-translation-names/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                       ^
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.inventory.EntityEquipmentSlot;import sun.misc.Unsafe;
+                                                                                                                                  ^
+porting/tests/native-translation-names/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                       ^
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:2: warning: Unsafe is internal proprietary API and may be removed in a future release
+import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.inventory.EntityEquipmentSlot;import sun.misc.Unsafe;
+                                                                                                                                  ^
+porting/tests/native-translation-names/NameOracle.java:1: warning: Unsafe is internal proprietary API and may be removed in a future release
+import java.net.*;import java.io.*;import java.lang.reflect.*;import net.minecraft.init.Bootstrap;import net.minecraft.item.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;import sun.misc.Unsafe;
+                                                                                                                                                                                                                       ^
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);Object original=unsafe.allocateInstance(armor);
+          ^
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);Object original=unsafe.allocateInstance(armor);
+                                                                            ^
+porting/tests/native-translation-subtype-chains/ArmorNameOracle.java:11: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe unsafe=(Unsafe)uf.get(null);Object original=unsafe.allocateInstance(armor);
+                                                                                           ^
+porting/tests/native-translation-names/NameOracle.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+          ^
+porting/tests/native-translation-names/NameOracle.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+                                                                            ^
+porting/tests/native-translation-names/NameOracle.java:8: warning: Unsafe is internal proprietary API and may be removed in a future release
+ Field uf=Unsafe.class.getDeclaredField("theUnsafe");uf.setAccessible(true);Unsafe u=(Unsafe)uf.get(null);Object oldItem=u.allocateInstance(it),oldBlock=u.allocateInstance(bi),oldIB=u.allocateInstance(ib);Field bf=ib.getDeclaredField("a");bf.setAccessible(true);bf.set(oldIB,oldBlock);
+                                                                                      ^
+12 warnings

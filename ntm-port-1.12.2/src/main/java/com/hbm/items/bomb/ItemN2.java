@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class ItemN2 extends Item {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(I18nUtil.resolveKey("item.bomb_part.used_in"));
 		list.add(ModBlocks.nuke_n2.getLocalizedName());
 	}

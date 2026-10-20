@@ -1,0 +1,1 @@
+PASS pinned real old/native engine methods: old opacity called twice versus native once during constructor; fullBlock/lightOpacity cached; state opacity dispatched virtually on every query; native leaves remain a distinct dynamic parent.

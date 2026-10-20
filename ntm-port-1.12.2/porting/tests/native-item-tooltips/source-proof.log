@@ -1,0 +1,2 @@
+ERRORS=13875 (incomplete attribution, not successful mod compilation)
+PASS 91 exact Git-base file inverses and round trips; 91 entire bodies unchanged; 273 signature/body/flag mutants rejected; full-source ancestry, descendants, owner overloads and all direct-call targets audited; exactly 91 native override errors removed, zero added.

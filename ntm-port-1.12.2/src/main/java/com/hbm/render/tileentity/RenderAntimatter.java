@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 public class RenderAntimatter extends TileEntitySpecialRenderer {
 
     @Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)
+	public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)
     {
     	TileEntityAntimatter amat = (TileEntityAntimatter) te;
         GL11.glPushMatrix();

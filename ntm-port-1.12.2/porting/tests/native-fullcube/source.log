@@ -1,0 +1,1 @@
+PASS 85 signature-only exact inverses/original false bodies, 104-owner fully resolved descendant closure, 552 anonymous-class exclusions, all full-cube declarations/calls preserved except intended native overrides, unchanged full source hashes and exactly 80 override diagnostics removed (14742 -> 14662).

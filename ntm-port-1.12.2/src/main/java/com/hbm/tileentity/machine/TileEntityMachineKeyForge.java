@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -93,9 +94,9 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 	}
 	
 	@Override
-	public void openInventory() {}
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 	@Override
-	public void closeInventory() {}
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack stack) {
@@ -137,7 +138,7 @@ public class TileEntityMachineKeyForge extends TileEntity implements ISidedInven
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				slots[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 

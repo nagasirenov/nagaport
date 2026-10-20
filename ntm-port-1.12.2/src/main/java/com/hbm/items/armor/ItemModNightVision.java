@@ -38,7 +38,7 @@ public class ItemModNightVision extends ItemArmorMod {
 		if(!entity.world.isRemote && entity instanceof EntityPlayer && armor.getItem() instanceof ArmorFSBPowered && ArmorFSBPowered.hasFSBArmor((EntityPlayer) entity)) {
 			if(HbmPlayerProps.getData(((EntityPlayer) entity)).enableHUD) {
 				// 15 seconds to make less flickering if the client lags
-				entity.addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0));
 				if(!armor.hasTagCompound()) {
 					armor.setTagCompound(new NBTTagCompound());
 				}
@@ -50,7 +50,7 @@ public class ItemModNightVision extends ItemArmorMod {
 					armor.damageItem(1, entity);
 				}
 			} else if(armor.hasTagCompound() && armor.getTagCompound().hasKey(NIGHT_VISION_ACTIVE_NBT_KEY)) { // Disable night vision if it was the armor mod that applied it to avoid removing other night vision sources.
-				entity.removePotionEffect(Potion.nightVision.id);
+				entity.removePotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION);
 				armor.getTagCompound().removeTag(NIGHT_VISION_ACTIVE_NBT_KEY);
 			}
 		}

@@ -52,7 +52,7 @@ public class ItemCustomRocket extends Item implements ISatChip {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		RocketStruct rocket = get(stack);
 
 		if(rocket == null) return;

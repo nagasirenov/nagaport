@@ -67,7 +67,7 @@ public class ItemToolBox extends Item implements IGUIProvider {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Click with the toolbox to swap hotbars in/out of the toolbox.");
 		list.add("Shift-click with the toolbox to open the toolbox.");
 	}
@@ -293,8 +293,8 @@ public class ItemToolBox extends Item implements IGUIProvider {
 		}
 
 		@Override
-		public void closeInventory() {
-			super.closeInventory();
+		public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
+			super.closeInventory(viewer);
 
 			this.target.getTagCompound().removeTag("isOpen");
 			this.target.getTagCompound().setInteger("rand", player.world.rand.nextInt()); // a boolean changing isn't sufficient to detect the change

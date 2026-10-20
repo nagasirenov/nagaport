@@ -18,12 +18,12 @@ public class ItemPolaroid extends Item {
 	public void onUpdate(ItemStack stack, World world, Entity entity, int i, boolean b) {
     	if(entity instanceof EntityPlayer)
     		if(((EntityPlayer)entity).getHealth() < 10F) {
-    			((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 10, 2));
+    			((EntityPlayer) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 10, 2));
     		}
     }
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		list.add("Fate chosen");
 		list.add("");

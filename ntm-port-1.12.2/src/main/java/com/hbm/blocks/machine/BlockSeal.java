@@ -53,7 +53,8 @@ public class BlockSeal extends Block implements IBomb {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {
@@ -236,7 +237,7 @@ public class BlockSeal extends Block implements IBomb {
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			int meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );
 			if(meta < 4) {
 				world.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);

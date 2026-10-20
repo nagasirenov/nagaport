@@ -1,0 +1,2306 @@
+{
+  "baseline": "175b014cbb5c5990107fced236f7131f234998b6",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockGeysierDCM.java": {
+      "before_sha256": "97c638cb254a576ac6473abb160e8db9d7af7b49e4b7d72489d658f1017cdafa",
+      "after_sha256": "f7c558daa0e7969684c3f509ba26a63b37a666fce1291599bac9e9920ec43bb4",
+      "edits": [
+        {
+          "before_offset": 833,
+          "after_offset": 833,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockKelp.java": {
+      "before_sha256": "36d5219921ad74d3411f1356f3f301017d2f97cfd186acbad80227d79e5ee957",
+      "after_sha256": "40a56046c5600cd9d4444020d1797811ec3933546819fb4b183066b3756e30d3",
+      "edits": [
+        {
+          "before_offset": 927,
+          "after_offset": 927,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockRubberLeaves.java": {
+      "before_sha256": "7181bb29411111bba041070f5c7d767474807e7b4fc3f45ed24f1385a8012cc7",
+      "after_sha256": "c1b3140f6c6ef8249ac8a3d4f54f7f644025d86c8f5d642e9c82350b25e6f1b8",
+      "edits": [
+        {
+          "before_offset": 744,
+          "after_offset": 744,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockVolcanoV2.java": {
+      "before_sha256": "1502b3d4b818bfba3497e83a933bb85dac19cf240b49ad63775aa9f34edb1cf4",
+      "after_sha256": "2b49877568e8e69655f229a50e26b2c495ade1184fdeaa5f8ff478f6d7533e58",
+      "edits": [
+        {
+          "before_offset": 1156,
+          "after_offset": 1156,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/BlockWaterPlant.java": {
+      "before_sha256": "80dd45577ed8d2d8c1a3e046dbd4596c7c6f3d53188364005bd14c177c4d0bd7",
+      "after_sha256": "cc21db532e9592be4550c56596bbc17409ed167913727179433832ac1b8ba16f",
+      "edits": [
+        {
+          "before_offset": 554,
+          "after_offset": 554,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "5d738fd62471c2c68047a39303397e30857c862cadcbfe0fc61c27eeb121d03b",
+      "after_sha256": "c6abb832cc8fbf3e38584da1c2d8ff96c293be7356ba5feaba743c77140f94c6",
+      "edits": [
+        {
+          "before_offset": 2707,
+          "after_offset": 2707,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java": {
+      "before_sha256": "5c270659c7e252664bbe7e4872a41b440d9305d1ded91cdb1ef0647de1fc3097",
+      "after_sha256": "7da9083c25cec857f821d245c56454860afb5019a71aa68e07e1f826a3267695",
+      "edits": [
+        {
+          "before_offset": 1705,
+          "after_offset": 1705,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "d1f1b58837c81666fa4141b9532f621d8f7e6130eb8b10c7adfe6d95085e8089",
+      "after_sha256": "e9785e0426271459b4bf844e82218e856f01ed7bfbbc44744b191d7a87a31e2a",
+      "edits": [
+        {
+          "before_offset": 3564,
+          "after_offset": 3564,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 6500,
+          "after_offset": 6728,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java": {
+      "before_sha256": "2c45813075633a2df4f56806b2439ad1aa0351fa7b0e57b869762fc827e7e2b8",
+      "after_sha256": "beb4cd09bcce71b9c48d7b812110100eb986edc90cb8182e6024d1cb426c7023",
+      "edits": [
+        {
+          "before_offset": 1327,
+          "after_offset": 1327,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1659,
+          "after_offset": 1702,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java": {
+      "before_sha256": "bf4ead6f4b275b9fb0a728e98d73f438ccd8cc416ec73772bcc84ad52742f012",
+      "after_sha256": "2ea861816a4f3d128f611424547862c0ab0c6dcd743847fad9ef48c87631b249",
+      "edits": [
+        {
+          "before_offset": 1011,
+          "after_offset": 1011,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java": {
+      "before_sha256": "0393a015896302cb776cd5b7c0ec563b350b77a2f7a5d609040a051f82a0943c",
+      "after_sha256": "28a33f23132a597613a1b2979d0f657392ca909b5de652774805391c46acdf71",
+      "edits": [
+        {
+          "before_offset": 606,
+          "after_offset": 606,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "25d02c550d833c77a36e6ee24413c6ecad8ed0ad5c05a617cf0766d1b3597b06",
+      "after_sha256": "3007da42891364f045ec91040560fbe142293cae9646727d0f20d54b79e1b384",
+      "edits": [
+        {
+          "before_offset": 1770,
+          "after_offset": 1770,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchPad.java": {
+      "before_sha256": "d59161a174d1b48d71cac34ea5324a6da3bad181e97553393667afd88ccba27d",
+      "after_sha256": "0e96954d6a0af52c9662852cfbf6d56d602cb97ecaca7a6dac230eea1dcdcebf",
+      "edits": [
+        {
+          "before_offset": 1293,
+          "after_offset": 1293,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchPadLarge.java": {
+      "before_sha256": "09e0fb19fa78295e24c033b439252b8f7d8484e88e04a37385ec10a1e7dec68d",
+      "after_sha256": "36c9a427b2878281200a16926bfcd6305809b46a01d9efc7aa53354cb487ccdd",
+      "edits": [
+        {
+          "before_offset": 1125,
+          "after_offset": 1125,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchPadRusted.java": {
+      "before_sha256": "32328958ca487642c9ccf42e741e0539a3846631bc5fc448b1e35dbbc4c0b8f4",
+      "after_sha256": "019695b13dd553af16f08c591f7b70b6ad4612ae5d47a297328d86a8d4475e7d",
+      "edits": [
+        {
+          "before_offset": 1334,
+          "after_offset": 1334,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "19c966e2fe25ec6c7437c437a6166ebf6ba3d683f46d6224e834be070f0b3946",
+      "after_sha256": "c84a19c3e98db44b26b8817826b837e4e992b6684a59c406a8092366b144efbc",
+      "edits": [
+        {
+          "before_offset": 1300,
+          "after_offset": 1300,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1638,
+          "after_offset": 1681,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java": {
+      "before_sha256": "16f344a7c80a4b5d44d9ff8960fbb5c44945e8640d52f8cabbc5295fe90bf7d8",
+      "after_sha256": "5ac5be8b5b8d6bf7accbcf40b6b5a00e776f6b0a4eae57a44abe2c55ae0d2aa9",
+      "edits": [
+        {
+          "before_offset": 911,
+          "after_offset": 911,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java": {
+      "before_sha256": "9a3af86b6bd9cb1035e0210ace2970b5a568d7b6204324af99fbd20dcf09fe0e",
+      "after_sha256": "0436806b7b16a728b064946577ecece25693574cc7e6b4167f1693d62fdf22ce",
+      "edits": [
+        {
+          "before_offset": 858,
+          "after_offset": 858,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "da508dbe424841d127e24f851955cb69bd36fc0fb8b79f84431f5d65199c016e",
+      "after_sha256": "3956de57723d6cb685c1245b5b3a3cb76b0aaf0311b60d20f1a9c7a93629d86e",
+      "edits": [
+        {
+          "before_offset": 3457,
+          "after_offset": 3457,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5306,
+          "after_offset": 5534,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "472ab5193d60031c6bdec85e5d11a2624b6154bc6a677e5fa563ca630b25bba7",
+      "after_sha256": "63550b384bd7c114bb7a0c39992408df2443fec6b2113a3ce360030569ba86bd",
+      "edits": [
+        {
+          "before_offset": 3757,
+          "after_offset": 3757,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 7814,
+          "after_offset": 8042,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "e26971cf36711844978a927892eb56d47b509f5a67a5d219af0a2c295a31a862",
+      "after_sha256": "a23e484fafc09b31db49eac5244c2174f2f5b5d4293c2dc345f79545660f3533",
+      "edits": [
+        {
+          "before_offset": 3425,
+          "after_offset": 3425,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5145,
+          "after_offset": 5373,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "ddc15abbf9782c163761559bfea1aa6ce849c9209d363c42dec4bfd26a23f86b",
+      "after_sha256": "eb96f6c1ee3224cc55410e698ffbabf226aa481c9aebaba1a7f9ed4e37e310e1",
+      "edits": [
+        {
+          "before_offset": 3468,
+          "after_offset": 3468,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX,\n\t\t\tfloat hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5079,
+          "after_offset": 5304,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "1192097f35a04069d3cd9cfb15b98afcd1406c240a4205dbcaf6646cce249111",
+      "after_sha256": "4eec03498cdad87e0e6ce2bb6c75223d7a3d1c7d23f99cd388db32a3109f0247",
+      "edits": [
+        {
+          "before_offset": 3397,
+          "after_offset": 3397,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 4977,
+          "after_offset": 5205,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "602f374411f543a195f2e4c0d99059675e6bb366a8298e65e4281edebaf55d18",
+      "after_sha256": "2a135de08f6ed7b92ca0851bc8a553bee16547697bf0e20161c9b83967dc4199",
+      "edits": [
+        {
+          "before_offset": 3405,
+          "after_offset": 3405,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5351,
+          "after_offset": 5579,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "c5c39c71ddd6c03e2bc36e34de359d7cf87b0786dcfa027551ecc967c43eb11e",
+      "after_sha256": "58bac418535fa0a572d6a706001f56bd2983b2aedb08398c548678e7c2ecc941",
+      "edits": [
+        {
+          "before_offset": 3330,
+          "after_offset": 3330,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 4879,
+          "after_offset": 5107,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "1555dde633e006b297c3d7d90121cdbb3b9c52f445fb43fb1d319b214871654e",
+      "after_sha256": "4104ab00b468bab82f1393b4e2c3a64434989ee84b44d35856a2d94e2f132784",
+      "edits": [
+        {
+          "before_offset": 5762,
+          "after_offset": 5762,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "a2ac3a7c18a0c658e813e18aabeba4db002238f9649e02b1bd5bd29cdd16be79",
+      "after_sha256": "9467022893d5099cb2bda4864bebc3eda66ff934983543a75fa3c2c9789c57e0",
+      "edits": [
+        {
+          "before_offset": 3376,
+          "after_offset": 3376,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5120,
+          "after_offset": 5348,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "e5ea74a014f4d5b5b6656f57ebfaa65a7fbe80ab74b3a77372159154cd61e512",
+      "after_sha256": "23c1fac71dfcf334c3fd5878acc3888227972324cfdee4441cf5cca2320ce683",
+      "edits": [
+        {
+          "before_offset": 3405,
+          "after_offset": 3405,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 5248,
+          "after_offset": 5476,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java": {
+      "before_sha256": "bf8d3ed50f126b983c71c4e22015de0a6c4992852fb6339bb629a8864015e1c1",
+      "after_sha256": "39acc2e1e822b3e474f40b1787355e6387a8b0900a5982481db03aed604db32d",
+      "edits": [
+        {
+          "before_offset": 705,
+          "after_offset": 705,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasBase.java": {
+      "before_sha256": "3c0ecd0d7c20ebd7d80fed49e79e28ee2cad7d6930896a4955cfc67b80083019",
+      "after_sha256": "93431b2640bf80e3dada1ae2598a20b1227add3c84fda6d68a325efbed49767f",
+      "edits": [
+        {
+          "before_offset": 950,
+          "after_offset": 950,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockVacuum.java": {
+      "before_sha256": "e5118f618d8a555eb179a9c46cbcfd188d9654153f44ef9049c6e4e689fbadf0",
+      "after_sha256": "26fa85d78208edb7502a8fe6d68d191b468a7ab77a3e38d3986783cb161e4a0e",
+      "edits": [
+        {
+          "before_offset": 732,
+          "after_offset": 732,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before_sha256": "2afdab9773fa8fe9864e26d227ca04363cc73da07dcdf07f6d557dfe83c77519",
+      "after_sha256": "f353c70b0a4dd33806cc3c3d760589ad0116d51d35b29f49a43ca0633f493b01",
+      "edits": [
+        {
+          "before_offset": 1680,
+          "after_offset": 1680,
+          "old": "\tpublic boolean isOpaqueCube() {\r\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java": {
+      "before_sha256": "ceab99f5cbdc40d309f51cbb61f5ece25ecd50c024f089c6be1a74e4f53a87fd",
+      "after_sha256": "d7df25b2aa8760f34e508b1ad1f5984c324fb846949c6bc645f0edeb4ae12511",
+      "edits": [
+        {
+          "before_offset": 1787,
+          "after_offset": 1787,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java": {
+      "before_sha256": "607b60440c0c5c29828ce7376bf83ed2e72b2344eb74f1350067182566715bb9",
+      "after_sha256": "758a46686696c6389f1b13e1bd9a2effdbe9f546f25da9be0b5903232d27aee9",
+      "edits": [
+        {
+          "before_offset": 3504,
+          "after_offset": 3504,
+          "old": "\tpublic boolean isOpaqueCube() {\r\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": {
+      "before_sha256": "5379facc1ed5c594363df6dbf7642b987900da3b308c13feb1d937a6162dee1e",
+      "after_sha256": "a454c0c96a7eb8d7b1623f8b34ee58f8164f0199a8169fadd6d1d89c625c5e86",
+      "edits": [
+        {
+          "before_offset": 1511,
+          "after_offset": 1511,
+          "old": "\tpublic boolean isOpaqueCube() {\r\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockFallout.java": {
+      "before_sha256": "695262ea1919ffb12efeb964739cbd3633eab4357d12903821997f0976ef120f",
+      "after_sha256": "115b7cda7d8fa37a4cdd70e1ee0d808a9af2893ab92054378b9a6fefafde8b62",
+      "edits": [
+        {
+          "before_offset": 972,
+          "after_offset": 972,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLayering.java": {
+      "before_sha256": "a32183619b6c2e258f99260c0a58b8fcf39ca43b58d215914a73bf4a99274934",
+      "after_sha256": "819c87f6309749b272e959985de1f9760b3e5cec1fe751a45d10baaa34eabac9",
+      "edits": [
+        {
+          "before_offset": 1338,
+          "after_offset": 1338,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockLoot.java": {
+      "before_sha256": "2711d45399aaa7242a149ce8fbf6a83a48e5ec51a67094508db05934219450ac",
+      "after_sha256": "f98f06e9543176a3c5d67fe106df8bee8dabbcd686cd38199a6964f82942f65e",
+      "edits": [
+        {
+          "before_offset": 952,
+          "after_offset": 952,
+          "old": "\tpublic boolean isOpaqueCube() {\r\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockModDoor.java": {
+      "before_sha256": "d7f65bd09d50db183cf3aa13b011208a357b72de747308b261c4cbb420384b2e",
+      "after_sha256": "668106bf134e7f13af81e73f132ef7f3ebedcbf751e45eea692bd5605450cc6c",
+      "edits": [
+        {
+          "before_offset": 3288,
+          "after_offset": 3288,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockMush.java": {
+      "before_sha256": "40ee2108052f43364e9ddd9646166520299d4ee9730990b8ca7f40950c2961f9",
+      "after_sha256": "3d7b3d8bfc72b73f77932a04bcfd391b5429283ed477202fec4e3fdbafe7c613",
+      "edits": [
+        {
+          "before_offset": 3358,
+          "after_offset": 3358,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java": {
+      "before_sha256": "c565040c4b50780dfdfbacdda99370e87a6d9d939afc7a979a620e16fbe126fd",
+      "after_sha256": "6ec01a0eb28bf018f37dc93ad99bb21ee8a5e6fbc57cc92580dad86fa7cc22a9",
+      "edits": [
+        {
+          "before_offset": 3940,
+          "after_offset": 3940,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOrrery.java": {
+      "before_sha256": "a02d5fc84b7c22fd42ee1cbdb602a72ca5b954a167d408cfdf1fd380d58166da",
+      "after_sha256": "7c2c679af1df3ab7ee9246dfd785acccd72374a1eb255cf99ee1212d7802ec54",
+      "edits": [
+        {
+          "before_offset": 615,
+          "after_offset": 615,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlasma.java": {
+      "before_sha256": "8d4271d2c9e8c2dea6ad13748721c1cdb645cd2a7a247c4943374aadb92d8602",
+      "after_sha256": "158300c0c6ccf26367fd276e240047cac2669db15dce9b08508e7cd66e860ac5",
+      "edits": [
+        {
+          "before_offset": 1704,
+          "after_offset": 1704,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before_sha256": "b755464d4c6182df1149008d8e67d8a4abd6a70640dfbca2e532358dcf684f8a",
+      "after_sha256": "c7cff2317618319a0441ac9fb496946c3c578712a5db1b0fd44d51c414c9e10b",
+      "edits": [
+        {
+          "before_offset": 1404,
+          "after_offset": 1404,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\r\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java": {
+      "before_sha256": "32917b0d6b5b4dad18aa434789d32475f23d4d74778c03952d2ad5c672a126aa",
+      "after_sha256": "17f262bf2734b3a5487b2cde0303cb9b413e160d5e57828c712c081e87fdd8a2",
+      "edits": [
+        {
+          "before_offset": 1692,
+          "after_offset": 1692,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "be674f0f8d7e320a4c7789301ef44f645375b7fe2cee5a11b4a287de04af82fd",
+      "after_sha256": "9af406d089f347cbc21b4c5e9a28c0df98650eb9e9cfaf47bd93196549a5d081",
+      "edits": [
+        {
+          "before_offset": 926,
+          "after_offset": 926,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\r\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before_sha256": "7d19587f4c475fbba61b0ace7ba3719bf1e214cb2ec0e8e76544f734c13f231d",
+      "after_sha256": "2b8ecb77eaff49b33d6dea5b3b0a78412283934618048856bb6d4648623729e7",
+      "edits": [
+        {
+          "before_offset": 1495,
+          "after_offset": 1495,
+          "old": "\tpublic boolean isOpaqueCube() {\r\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java": {
+      "before_sha256": "e9cacad3deb46e4d4aaaa091f9ca07abfd21e4b5fc870861a4d1d85205bae463",
+      "after_sha256": "ddbd2c5dc4d4ec3fbdaa23b8eefd17bf44f94c28ea3688af371f581c1ebcbe1b",
+      "edits": [
+        {
+          "before_offset": 660,
+          "after_offset": 660,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "755d196caadda131ea41b960b850d360e133176c06f66c3ea470cbf4916800a3",
+      "after_sha256": "a27923a209a1e296cf4d8f21a6a9f0158f1d42ed5e2aeb86fedf787851f9a793",
+      "edits": [
+        {
+          "before_offset": 3070,
+          "after_offset": 3070,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before_sha256": "2a74f8e4000ae8f933e374cdef2169591e48b71bfcd6064962d47a49c3399ab1",
+      "after_sha256": "37b3bc72eb0083532fb96ba11df63335b998f49b487a45d70013c9d180dbcd20",
+      "edits": [
+        {
+          "before_offset": 2321,
+          "after_offset": 2321,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": {
+      "before_sha256": "9ac41e3a5b378666b8cfcef6479d8ccd1894a7832fa60c812e37fe77c9b99a21",
+      "after_sha256": "a9e5df6113efcf59d4c8c2cb0ef61ee237bb2fd6ad5faec7baabc4a091b9a8c5",
+      "edits": [
+        {
+          "before_offset": 3043,
+          "after_offset": 3043,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java": {
+      "before_sha256": "6ddbd6ea38fb5c05eba19b64876384e3475dfe8af75a4ff1d092dbb8a5ead9e4",
+      "after_sha256": "7a5f0436dbb80ba6f25c99f2c0b4a95cfaf04630f616c10b3545c1fb1a2993e0",
+      "edits": [
+        {
+          "before_offset": 1307,
+          "after_offset": 1307,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java": {
+      "before_sha256": "5caa76b984c3a14e50b78a538205508224f934084ec1eb4eda833d497e59c79b",
+      "after_sha256": "d4a4c91db5db5a667a7d458e263c4857a6dcca09bc98cee13f3b2b0917647142",
+      "edits": [
+        {
+          "before_offset": 844,
+          "after_offset": 844,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteLeaves.java": {
+      "before_sha256": "d2a80c8299ad3dda33b41daa8fd18b31aadfdc702b985985b372cdb957498b9e",
+      "after_sha256": "5e12d5c08bd9c98ee72fbf8b8c4413e8c71e67dab35d3f233f851146e08858e1",
+      "edits": [
+        {
+          "before_offset": 2222,
+          "after_offset": 2222,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlastDoor.java": {
+      "before_sha256": "1205dcdbc8643ffde097a8f0992ad210a623358c4014204a472b8c7477cc6790",
+      "after_sha256": "e60bf9e037041f027b471742cd6384440f5c22c8bc912436c7b454d8e4ce8909",
+      "edits": [
+        {
+          "before_offset": 916,
+          "after_offset": 916,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockArmorTable.java": {
+      "before_sha256": "ddcfe191d60904df98c1db42ecfab5035d143a1eff0ad7f12d89d82130fdf1d2",
+      "after_sha256": "f65a386202939aacbb70b49b713edfb8d6dd4edfdf69b4b0a6191889fb6808bc",
+      "edits": [
+        {
+          "before_offset": 1480,
+          "after_offset": 1480,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCMGlass.java": {
+      "before_sha256": "59b8403ba9e9bd62f40c7ff6bfe40c747bd87598d43c1fb18e66e678d9f3efb1",
+      "after_sha256": "3031bec5846e75ab903ab56587a836327afada6f759829f468debe13c374811d",
+      "edits": [
+        {
+          "before_offset": 471,
+          "after_offset": 471,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockFF.java": {
+      "before_sha256": "67cdd7471b7b3458ff6b8a8097eaec6608f8b21a1c36b93f95eb73d45c732638",
+      "after_sha256": "83188ae669ad27e1037a627ecd5871bdb52b280e06555f8db79a046c7b8004de",
+      "edits": [
+        {
+          "before_offset": 554,
+          "after_offset": 554,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockFusionTorusStruct.java": {
+      "before_sha256": "240f6cbc54d5200e7c07f2e9686f3ecd878c58ee89e45f14ecefff26103f7d59",
+      "after_sha256": "b931a92484892017114167f31dfef56445fcdfbc8866f7f52c5781e72031c42f",
+      "edits": [
+        {
+          "before_offset": 507,
+          "after_offset": 507,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICFStruct.java": {
+      "before_sha256": "3fc6c881b48fed12a01e545005c6c2b1e32e4ebc94e6351ac9b5651148415618",
+      "after_sha256": "05c501e7f4680027c67d751259811732abb390b3e928d4288e002430054d6161",
+      "edits": [
+        {
+          "before_offset": 600,
+          "after_offset": 600,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockRefueler.java": {
+      "before_sha256": "c94fac73d5e4bdb17344cf226c91e4feae006644e96740ea8ae6df062209c38d",
+      "after_sha256": "22f0c9a7c5110f4411dd9bd7d052e20542d2c0eb3ca9dd4016eda766baf12e7d",
+      "edits": [
+        {
+          "before_offset": 1099,
+          "after_offset": 1099,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockSoyuzStruct.java": {
+      "before_sha256": "f452c0f9c4a44d3a0dc80c61244ad8d00ca4a335f633e95aef4c023ea3fef0fb",
+      "after_sha256": "61378091ed6a72118f6d8cdea743af1fea3921de998b3f556d2320eb542f4095",
+      "edits": [
+        {
+          "before_offset": 492,
+          "after_offset": 492,
+          "old": "    public boolean isOpaqueCube() {\n",
+          "new": "    public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockStruct.java": {
+      "before_sha256": "120d16bada36cdb077cf851d50192beca101642b51cee0f9fda617ca5f677080",
+      "after_sha256": "3b841fc42a9d6b8705d3d1b9c8d31530cfb708ae3eba6d8510290ddb86aa58ee",
+      "edits": [
+        {
+          "before_offset": 509,
+          "after_offset": 509,
+          "old": "    public boolean isOpaqueCube() {\n",
+          "new": "    public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockWatzStruct.java": {
+      "before_sha256": "f5d06db10a833b930ab2bcbf78ec06ce30bbe33834302ba0043171f0e17e277b",
+      "after_sha256": "c43904c6a72c6ef4c525b0a2434d05fec3e1bf80cad42421dde0f18340fbfdbf",
+      "edits": [
+        {
+          "before_offset": 498,
+          "after_offset": 498,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockWeaponTable.java": {
+      "before_sha256": "f9002c40a5e4ccee11b0c9527d66169a3639b1870ee73c65213d4ef9ed836ee3",
+      "after_sha256": "263d414ca37a3a37b0499b6036ba9b434e8028be266f3a67fc096906d3f3d78a",
+      "edits": [
+        {
+          "before_offset": 1457,
+          "after_offset": 1457,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Charger.java": {
+      "before_sha256": "5c104de61b5857e7594264e18e63f708be6113cfb6e653296a38919916d81e1c",
+      "after_sha256": "9899549d549f8eb986459d975856d76f8d7962b808e838293f90a55e7cc52a27",
+      "edits": [
+        {
+          "before_offset": 833,
+          "after_offset": 833,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/CombatDropPod.java": {
+      "before_sha256": "e93984a948d70de996fe026bc9c8b75288e963f71be6d5e841d3de546783248f",
+      "after_sha256": "ac160df1587e71840ae71dfb6e5c84046b7d6fdaad0f7a68c9027407f4b4df18",
+      "edits": [
+        {
+          "before_offset": 1044,
+          "after_offset": 1044,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/CoreComponent.java": {
+      "before_sha256": "00498b62432a4f295d904320d8cc4422d312db3dd39812c31d870331ff98cc3e",
+      "after_sha256": "bd576bc3cc7f5f2340dae25399bc6664f3afe77e82b8c8cf618d893cbeccb813",
+      "edits": [
+        {
+          "before_offset": 1367,
+          "after_offset": 1367,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1763,
+          "after_offset": 1806,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/CoreCore.java": {
+      "before_sha256": "252f02911cf1779f468a0ba1a06068280366023fc5994a000cd364ace6c51fd7",
+      "after_sha256": "6ea427299d078e007ac52b95a4ad708ddec55c29d75ca7bc8171566f9e45745f",
+      "edits": [
+        {
+          "before_offset": 899,
+          "after_offset": 899,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1036,
+          "after_offset": 1079,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DemonLamp.java": {
+      "before_sha256": "e3123c98a43a9cd57a8b9408c23c31b063f077636d64c9dab4af89c2fb39783c",
+      "after_sha256": "f86c88a27210be35560e5fb062b71d843930ef699314994240557e3a7780fd44",
+      "edits": [
+        {
+          "before_offset": 555,
+          "after_offset": 555,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java": {
+      "before_sha256": "22fa40cde72cfe7c384457b887242a9a52b4dff61d89e9aff822c349a4e3ce71",
+      "after_sha256": "e759ec2c992e8c554c51ac2849295c05b63cbe555700f8f99fbc0bc39baf19a4",
+      "edits": [
+        {
+          "before_offset": 1646,
+          "after_offset": 1646,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/DummyOldBase.java": {
+      "before_sha256": "3083519e4dc4b2401efd670f83147323553b66cde6a37c01eb89b466aefdc748",
+      "after_sha256": "4e0da0c532c8f5979c88ef1f9c9ebde47a90897d017067d87a24f0d265448217",
+      "edits": [
+        {
+          "before_offset": 1691,
+          "after_offset": 1691,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": {
+      "before_sha256": "011e6c31cebe6094ca692f99bd41b6a8676c56569f591d13abb10921d7e0b269",
+      "after_sha256": "dc0d98e584c781b7c1a0b884d779bf6777f61f3db55b48e4eb2ce2263404ddbe",
+      "edits": [
+        {
+          "before_offset": 1479,
+          "after_offset": 1479,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\r\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceCombination.java": {
+      "before_sha256": "e455f4918f641c79a82a9578cb2f68ca4b3fabb0671df5cf7f87cf21d4bddf5c",
+      "after_sha256": "a6476a45da293c50c30620bb191433b8aac6bbeb5a02fbd2311b9060e3215a51",
+      "edits": [
+        {
+          "before_offset": 810,
+          "after_offset": 810,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceIron.java": {
+      "before_sha256": "cf75fa5a8aac5ba4b7d2f86812fe8125e0d8796fada6afb4c8e95d8cf895d039",
+      "after_sha256": "c96308ca1178fa8f9d7c65cd84bd8fcf1a11e022a036c7d3d8298eac7d50c7cb",
+      "edits": [
+        {
+          "before_offset": 782,
+          "after_offset": 782,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FurnaceSteel.java": {
+      "before_sha256": "7ee58a74d28d0c40fdd7eeb9c66a8b710cd6ca5cfd08f0476025ffc84af60b2f",
+      "after_sha256": "24ba8ab0946d49249c8d7672f0a591ad704e0e0743f281c55d8383c91bd7dd37",
+      "edits": [
+        {
+          "before_offset": 786,
+          "after_offset": 786,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/GeigerCounter.java": {
+      "before_sha256": "1b3fa44a3383a086c8fd32ccea7e0fc4b890cda9a9b419f7bb7194ec2e77fb40",
+      "after_sha256": "1935c9eeb27f1ab5e6a5b507c0d31dd269166f0bf376bc7c44de1a6b49b084c9",
+      "edits": [
+        {
+          "before_offset": 873,
+          "after_offset": 873,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterFirebox.java": {
+      "before_sha256": "cfa4036fc6f71fb5bc4384dc4f926e89ffc991faba95936067074f6054dd1043",
+      "after_sha256": "b771b219c32173890f07ef3dde209bf6f9839a5ee70b43e3b3cc035c8de6f54d",
+      "edits": [
+        {
+          "before_offset": 1064,
+          "after_offset": 1064,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterOilburner.java": {
+      "before_sha256": "4ac0ace48b1e9a55620943882b6915d1a18f2e2910a81d53d2bffe6b80f28e82",
+      "after_sha256": "272ca3620be4e4d966068076b834de541b8df11e349bbb912c14c41734717ca1",
+      "edits": [
+        {
+          "before_offset": 1355,
+          "after_offset": 1355,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/HeaterOven.java": {
+      "before_sha256": "6a8b99ce049c702a562e1376cc2e83bf1f0f643bcc230ed5317ab85d8afb5e53",
+      "after_sha256": "6874cd211e3c12a04e126a0d54f4573f2f805790026f7714c8f17045568db698",
+      "edits": [
+        {
+          "before_offset": 783,
+          "after_offset": 783,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAmmoPress.java": {
+      "before_sha256": "7b99707eae02056668359afedd2b686ceb698f560c826809410775a68220b2a9",
+      "after_sha256": "dc1e7f9d66a2dc725400d8f681b140537348c73d0aea3858efd2c29a495481bb",
+      "edits": [
+        {
+          "before_offset": 657,
+          "after_offset": 657,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAnnihilator.java": {
+      "before_sha256": "3c62e575900d05c0d220a4aad93df77f88fc12af21fb3bd554b6bae0fe41c8c8",
+      "after_sha256": "a98acc3abb5ccf28a53bb83b413533ebcf2c5ae1af42fab653149e03ed2c39f1",
+      "edits": [
+        {
+          "before_offset": 791,
+          "after_offset": 791,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineArcWelder.java": {
+      "before_sha256": "8209cb38868b81c9827be0ff3ad9d5ada8d91a0d8c00c656fed7b5b6f092cfef",
+      "after_sha256": "0d909e4af8db88bebbc4829be25944c198d92de79282baa9356a008e54dbe473",
+      "edits": [
+        {
+          "before_offset": 685,
+          "after_offset": 685,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAshpit.java": {
+      "before_sha256": "09f2209eaf7509bc76abc09a4edf078b78808bd067e1b2ec40e3698105c97116",
+      "after_sha256": "34fade8115807cdd7410065b2cb89f3226de4e43ca54a6dbf93ef6557de578d8",
+      "edits": [
+        {
+          "before_offset": 770,
+          "after_offset": 770,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAssemblyFactory.java": {
+      "before_sha256": "3c688a9d3d16072f46f0f3dea2b8f61aba7df3323d19edb672db486d1332020c",
+      "after_sha256": "1378150585e9d05446de45fce740595ab9419611163f22f78d4e817216fa2f20",
+      "edits": [
+        {
+          "before_offset": 1169,
+          "after_offset": 1169,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAssemblyMachine.java": {
+      "before_sha256": "72184f41f93aecd5868a482baeac2b39a2efba035160ff88968f69d0698eec97",
+      "after_sha256": "36d8e1d9bd7c9f85a8d2ae977d88b658700f49a0788ee72199cc77bc6f022b86",
+      "edits": [
+        {
+          "before_offset": 773,
+          "after_offset": 773,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java": {
+      "before_sha256": "9175f8f453238c34db82fbd9cb104b77f87d2d785c3ca6eb2fdd2ff82195cc30",
+      "after_sha256": "09df55389773710ce9abfb79adfa942886c9a3534a20f7f0a938ab0d3c7a284e",
+      "edits": [
+        {
+          "before_offset": 1248,
+          "after_offset": 1248,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBattery.java": {
+      "before_sha256": "e2baa91ed9ca4df58ab1f37a329a8331b1afaa85cc04860b9b413ffe97e27cdf",
+      "after_sha256": "990d9285630edf245d9fcda2028c42c2daf3d4f101948c06fee4850316c6bdf6",
+      "edits": [
+        {
+          "before_offset": 5853,
+          "after_offset": 5853,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCatalyticReformer.java": {
+      "before_sha256": "24b5afddf4561c88ca3edac5faaf91bd7e144efaec5f0201c7a68fc5d3e8d59f",
+      "after_sha256": "a81e1ad57fa74d405f69741ca582374b19796c393a7dcca3977df9e1f4cde68c",
+      "edits": [
+        {
+          "before_offset": 1132,
+          "after_offset": 1132,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCentrifuge.java": {
+      "before_sha256": "d83272617dbda912b7b8355f1093abaf96faf0ef7fd9f0a8dc68199f399706ef",
+      "after_sha256": "6b024a3ea216b43ec67e7aafc29809832e0c7cd6497a524a74e67c5ba971b622",
+      "edits": [
+        {
+          "before_offset": 1107,
+          "after_offset": 1107,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineChemicalFactory.java": {
+      "before_sha256": "730e1e1087bc789aeef305e28cb49f45a8d7867de8648898e905e9925354a8a1",
+      "after_sha256": "e1fe05845ad7d0bee0bb761dd6ddba992822f1a6556064156f570320212e9484",
+      "edits": [
+        {
+          "before_offset": 1169,
+          "after_offset": 1169,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineChemicalPlant.java": {
+      "before_sha256": "e52bb4af8ba18cfaa53a8d05b4c18098d4f0b949a2cf1a92424265134f94c1fd",
+      "after_sha256": "e7dece868057e11e2807647c3c7558e4efb1ae54194bf68d9de7978c782544c5",
+      "edits": [
+        {
+          "before_offset": 765,
+          "after_offset": 765,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCoker.java": {
+      "before_sha256": "0d524e398f38c18421dabefc4c7770d721278abe4c22b037bf25a7e2608a66b6",
+      "after_sha256": "f32f3069821acf75d0946421e95f8650defd0ef32613f72174454e2609b80bac",
+      "edits": [
+        {
+          "before_offset": 909,
+          "after_offset": 909,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCombustionEngine.java": {
+      "before_sha256": "99e7431d8b0bb7165b89e77aa2cbec65a0789a3a2d642c8c9eabf43c04b86dd7",
+      "after_sha256": "a9074587bf293049e1ed1aaaf96b58c8671e5b65ece5df6815d42804e9c1fb72",
+      "edits": [
+        {
+          "before_offset": 911,
+          "after_offset": 911,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCompressor.java": {
+      "before_sha256": "81d4a0f2ce9218ccb9e04104761955d78973e76ab2cd38f73640397b68186030",
+      "after_sha256": "96633fb3fcb49fe05e21049822c85d69669c081f5dd685ee9fa542023fb9d536",
+      "edits": [
+        {
+          "before_offset": 929,
+          "after_offset": 929,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCompressorCompact.java": {
+      "before_sha256": "8e9fa4ec446d9a22091a452deedb73e410e9e165600b62c9d29b65c62e1a83c6",
+      "after_sha256": "9b619ac5680b87c4bb6dd0986d607958f0c42818bde1d71865b3738a4a1b88f4",
+      "edits": [
+        {
+          "before_offset": 903,
+          "after_offset": 903,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCryoDistill.java": {
+      "before_sha256": "8c8b2d8e0aa2768e975b8a937dfe466732bb109e47996b1a80c83e5b0f350525",
+      "after_sha256": "103473b113215e0d3826c05d3f014a33889d5066072c76a4f7e60f65f6d0110e",
+      "edits": [
+        {
+          "before_offset": 1202,
+          "after_offset": 1202,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCrystallizer.java": {
+      "before_sha256": "45d4660c48fcd2e81de5afd8128a586650a711336212088ea1ea480e8805fac7",
+      "after_sha256": "7ecb7ec206004c556bac6ece78f083a9072a947a24293e22209508f571f1a7ca",
+      "edits": [
+        {
+          "before_offset": 1047,
+          "after_offset": 1047,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDiesel.java": {
+      "before_sha256": "a676a5ad8cad95226a1038762727b348e457d3e334f94abadc3894d5bbda94f6",
+      "after_sha256": "93cbda04c0dddd968ce4e5f4ef6859ae7773cf7abd65f7ca000238a5d7ce6f5b",
+      "edits": [
+        {
+          "before_offset": 1039,
+          "after_offset": 1039,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineDriveProcessor.java": {
+      "before_sha256": "302989c7f665376e25d80a5e6ce707e8a75dad0e756284e35174ac2f4598aada",
+      "after_sha256": "ced7859c366d1a0f45cfb5fca1bd1d120547d58c8f9f807350139a1d5d9a836c",
+      "edits": [
+        {
+          "before_offset": 881,
+          "after_offset": 881,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineEPress.java": {
+      "before_sha256": "cc97604f5f7e0f5622bda73e4fc73a2a99107f2b346faea9a30d921930f697ad",
+      "after_sha256": "372010791c1c50ab243ae22b95bbc1d7eaa83f08b1e20485a318e9fb954df9ef",
+      "edits": [
+        {
+          "before_offset": 1732,
+          "after_offset": 1732,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineElectrolyser.java": {
+      "before_sha256": "64ed08991164a2c8c5b700c8dcefc07a8ef63da739a08055aac553776b9be1e3",
+      "after_sha256": "5ae8c2f124c93381648588d72a2252a0fab25fe4a38d4a18529dd721f38c13d3",
+      "edits": [
+        {
+          "before_offset": 926,
+          "after_offset": 926,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineExcavator.java": {
+      "before_sha256": "0bce9958a7a570219272df5f9da4afe18e3020c7fb1d940b7444773c22ca63d5",
+      "after_sha256": "86f40b15657b744991d6d4713dc9f9304efe162a21f84a32cb781b500d74a064",
+      "edits": [
+        {
+          "before_offset": 780,
+          "after_offset": 780,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineExposureChamber.java": {
+      "before_sha256": "a9fd903bcfc1f49782e764a025f6045f5dc075aad4ee77abe215ca99b0051404",
+      "after_sha256": "83a9cc702981ce62579987ecfa5df30f0a293ea1357a5e4c78f4212d359896f9",
+      "edits": [
+        {
+          "before_offset": 3206,
+          "after_offset": 3206,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFEL.java": {
+      "before_sha256": "75402e20d149a2a14fbc1aaadce1ff3d8164c2ee4262422cc1c2e0f3496a1f30",
+      "after_sha256": "4a2839c0113962ff5108af17ba08de7bcf34f33f7e1ab6b0611ea8ca51cad7d0",
+      "edits": [
+        {
+          "before_offset": 950,
+          "after_offset": 950,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFENSU.java": {
+      "before_sha256": "91f38f5c4979b90a40c8914463333556794e020fc3fa1468c8cc772f9dde6256",
+      "after_sha256": "25d147f41b1e6d3a4120370ad560f30900e5b64d24a48b59a7bd7070c39a682c",
+      "edits": [
+        {
+          "before_offset": 1263,
+          "after_offset": 1263,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "d8a065bd4a315ff5a65684be555b8767edff9ada7386a5551e57b577e286972c",
+      "after_sha256": "23cc45e589bb2e0c2bccd4d8115c6de912506333828ed217baf71cfa6a99f091",
+      "edits": [
+        {
+          "before_offset": 2227,
+          "after_offset": 2227,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineForceField.java": {
+      "before_sha256": "0cdc18dfb9e2c943ff22685b625fd064b180e258c91d928dd999e9affa2fc6d7",
+      "after_sha256": "6541d6140205a733cfa22d3af8701ad1981a573e1df7313368e2e5cafd667bd6",
+      "edits": [
+        {
+          "before_offset": 1167,
+          "after_offset": 1167,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFrackingTower.java": {
+      "before_sha256": "dc8cc1e5779223fdf90fd2a4b47c47e3db40efd3687f412b17a637f881f0d17d",
+      "after_sha256": "6551ed6a2285fd36db0ee1522c3e7e7705ea44acda8cd8e49c75624b3d50fc7e",
+      "edits": [
+        {
+          "before_offset": 3722,
+          "after_offset": 3722,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineGasCent.java": {
+      "before_sha256": "72e2e95cd91ee658de47061b035fb986f52dadd03f68f025c60ece153ba28203",
+      "after_sha256": "3b2d54069c1cb048b1d800b9cff90d67890cc7126d4e5abe37c945a8e27cbb3c",
+      "edits": [
+        {
+          "before_offset": 1160,
+          "after_offset": 1160,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineGasFlare.java": {
+      "before_sha256": "32b48fa0e9e90a30518f679d8ba886b226694a22248769474047cf3f371789d1",
+      "after_sha256": "c6e83e15d24a7243c263f0ea814220215f6363bd5f2a4e3d468adda443057cd4",
+      "edits": [
+        {
+          "before_offset": 1330,
+          "after_offset": 1330,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHydroponic.java": {
+      "before_sha256": "f0e9fae6620ece85c95d8bdda0c9859a46d637fb8c5b4894d789457d35717f1c",
+      "after_sha256": "8fe343bb560b56f108dd670fa1dc762fe01b03b7f1013ff5cd6cd9476b1e3241",
+      "edits": [
+        {
+          "before_offset": 5818,
+          "after_offset": 5818,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineHydrotreater.java": {
+      "before_sha256": "66ef046d8a1d94e1b1ebd3f3d8e844e0e095f969101688044aec7db1240fcaf7",
+      "after_sha256": "b52a899793b8778b0fd87147a2fad4a10d815dc69ae0cdb2841843d9a4b04927",
+      "edits": [
+        {
+          "before_offset": 1068,
+          "after_offset": 1068,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICF.java": {
+      "before_sha256": "bdf599ddf49324e1cc87f4b3f80474e60d1b1110142050723a221e88d17ab5cc",
+      "after_sha256": "681e119925a62aca737d762d5230b3bd13a3ff55ea667dcf6b204880b50cfe06",
+      "edits": [
+        {
+          "before_offset": 2394,
+          "after_offset": 2394,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICFPress.java": {
+      "before_sha256": "d3021ee8da80deabf7ecb6be037f340422e72cfd89c24880ac03ba5424900782",
+      "after_sha256": "d4e1df40b61dbdf2aaa001a7ca2fdb518aa811365785c5271cdf01ed017f71d3",
+      "edits": [
+        {
+          "before_offset": 1732,
+          "after_offset": 1732,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineITER.java": {
+      "before_sha256": "55b65e68febcc7a4c55abe05e5bbc2c4daead9db1a2dfb81c39e8c1c1699babe",
+      "after_sha256": "6c2ec042e17d73ce7c076d93e6e3035723686f9f1724647d960ada68a5fa65e7",
+      "edits": [
+        {
+          "before_offset": 1230,
+          "after_offset": 1230,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineKeyForge.java": {
+      "before_sha256": "6bba49f5a0ab02c59f27f91b88e1b280f12d69b156f2f325753c62116c838cab",
+      "after_sha256": "2ff1299e5fa549750b0cf033191a6b6817de4ff56799f1bc471b128bd009d16c",
+      "edits": [
+        {
+          "before_offset": 1872,
+          "after_offset": 1872,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineLargeTurbine.java": {
+      "before_sha256": "ff485460b982cfc0546c41b8744771005453feacaff850fdf59ca063a33c7ba3",
+      "after_sha256": "f3ac74ee9166d12722bd6c1f8f5a7a120d005f76cef0fcb2882253cc689b041e",
+      "edits": [
+        {
+          "before_offset": 1235,
+          "after_offset": 1235,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineLiquefactor.java": {
+      "before_sha256": "3ae9c7386e31543230758ed6ab11908a692af913e3e4a529fb989468cfaa41e4",
+      "after_sha256": "6f95ed383b96b5495a3006a6a2d988e1c008b01d86ee52b90197e80c496fea86",
+      "edits": [
+        {
+          "before_offset": 973,
+          "after_offset": 973,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java": {
+      "before_sha256": "ca270a184c64ab18aeda351a086c366d9256d47364cffbb5e2e5d75fe051f7ae",
+      "after_sha256": "f7c009ca5bb444793de1fa481d32042796cc9520013ca85fa140fca21a7ccd01",
+      "edits": [
+        {
+          "before_offset": 557,
+          "after_offset": 557,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMilkReformer.java": {
+      "before_sha256": "0e3bc234bc7dfe3e4a0e34c9f146c56f17e3f024a3428bf44eb89ae9902bf9a5",
+      "after_sha256": "107c63548afdcbdb9c06a4ca6a4d126dc51153f8a033f16a1b5e2738fe17cec4",
+      "edits": [
+        {
+          "before_offset": 847,
+          "after_offset": 847,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMiningLaser.java": {
+      "before_sha256": "23e42a735607d2a9478e053f47544189c9f1258a051a90dd02d9fc89696b4b99",
+      "after_sha256": "d67ea142851782399d7353dd89dfb89bf022520a3b5a6891ce4755c3a9a123f9",
+      "edits": [
+        {
+          "before_offset": 1285,
+          "after_offset": 1285,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java": {
+      "before_sha256": "b667bbdbfa4197c16a6f5d35123bfc7ec140cf07314de5e22085eee7a328da7c",
+      "after_sha256": "0ded0901afce6cd2badc6ffcce86fd6404a1d8826d4a5d45c220cb37ceb55803",
+      "edits": [
+        {
+          "before_offset": 1139,
+          "after_offset": 1139,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMixer.java": {
+      "before_sha256": "15596eeb57bf3811a57a6310b280589be32ca34db62318c39c6207cdccd38751",
+      "after_sha256": "c946ccfaafd117913da39da70b651ab94cceca2bdec2456ccf3dcb1a1798a934",
+      "edits": [
+        {
+          "before_offset": 719,
+          "after_offset": 719,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineOilWell.java": {
+      "before_sha256": "cde129d65dbb555a5b8323f0ee6b549a7b4b524c588d0bf4535bda49c139e36e",
+      "after_sha256": "6974b8bfb01d9acb94da47f32a89ff085c5f4db84bf0e042d2fdf91c9df62bcd",
+      "edits": [
+        {
+          "before_offset": 3196,
+          "after_offset": 3196,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineOreSlopper.java": {
+      "before_sha256": "0b962ea6b6e72fc86984a4cc1c1d6a2d88af207c9596713562f1dd95e633ec7a",
+      "after_sha256": "aad2f29817aa7874657f1f05379f7bfc4ca354ffb4ff7d71193bad1f9bd339e3",
+      "edits": [
+        {
+          "before_offset": 1547,
+          "after_offset": 1547,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePUREX.java": {
+      "before_sha256": "91244a170ed8793190d4286cf6e6e472128d6974c7089b1dc2a4b93437c06576",
+      "after_sha256": "2fda96d0a8c81eb089d1707958fa387db9182dbc90d459b753d315b43c467ef1",
+      "edits": [
+        {
+          "before_offset": 862,
+          "after_offset": 862,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePlasmaHeater.java": {
+      "before_sha256": "efad1074e6d8fdf74f2105b6cb23bce99aebfda0942af7e3c9e64c58b43d36d8",
+      "after_sha256": "5f6c2f3ce17e4307e4fc3b3981d803fc185b9d357aa0855cced3f3d2163a39be",
+      "edits": [
+        {
+          "before_offset": 993,
+          "after_offset": 993,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePress.java": {
+      "before_sha256": "ae23420846924183359ba9bf128b3a99b1e2a7016875e380a752225cb23d580d",
+      "after_sha256": "94d9b4506c58b955e1929a664a720bf46198eb1e61351adf0c6e1d885d7f4e60",
+      "edits": [
+        {
+          "before_offset": 1115,
+          "after_offset": 1115,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java": {
+      "before_sha256": "0983eda80eb9500e8596bb79ac0011f75b89670e63f187954d3574ee26cf00d4",
+      "after_sha256": "8a2c208d9868f99f8894bc71c902cc3d4a458f6930bcd53c2a532236d1d5e6ac",
+      "edits": [
+        {
+          "before_offset": 824,
+          "after_offset": 824,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePumpjack.java": {
+      "before_sha256": "367981828a155f408bf02eaa4b630c15cb746aada49fb32345b147c1581be532",
+      "after_sha256": "62b0fd86a6b99656691345a83792424b1e8f85cfe7fee341eb619f96f6887596",
+      "edits": [
+        {
+          "before_offset": 2705,
+          "after_offset": 2705,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePyroOven.java": {
+      "before_sha256": "c4e2e027d1d80fa8d3821baa49c1a8b0290ad01244dd9d031e9747abac7804e0",
+      "after_sha256": "6d32414ca8785eb8f86d9d838475eaab2a8a404f2019902de0c014d060f5ca9e",
+      "edits": [
+        {
+          "before_offset": 749,
+          "after_offset": 749,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRadGen.java": {
+      "before_sha256": "ff18534eeaa262da118141ffdf12dce71eef137d723ff0898140f44a4807905d",
+      "after_sha256": "59bcd325707a9a6836163be45a59adec3788e6c3fcd790a90408e151d2aa214d",
+      "edits": [
+        {
+          "before_offset": 1003,
+          "after_offset": 1003,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRadar.java": {
+      "before_sha256": "5c3a077e99cb71684e452efeeec22b12bc4b62c93c3b26fa69e78861a3ccfb9e",
+      "after_sha256": "2cc3245aedbe40854428d044f891a2ebbddd5cc8efc14b802ecc0cf150431fe9",
+      "edits": [
+        {
+          "before_offset": 922,
+          "after_offset": 922,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorBreeding.java": {
+      "before_sha256": "aeab2bb25f23f78f1c24eace4eca6450ce3a99dc337dd85845a7d39a11a94a5e",
+      "after_sha256": "826dd15d55daa4d28c7d2adff6d860c057285deae4660260ee4e25b89be3f16d",
+      "edits": [
+        {
+          "before_offset": 799,
+          "after_offset": 799,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java": {
+      "before_sha256": "e7d424c2339f5014b3ab3d957688bfa14933cbe1ac5c5726ff7ade96293d92cc",
+      "after_sha256": "3199391f48e488e835b008fa4119a9eaed87e28678b4e8eeebc0b3d87e32a356",
+      "edits": [
+        {
+          "before_offset": 5942,
+          "after_offset": 5942,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineRotaryFurnace.java": {
+      "before_sha256": "f42c64771f0f690f750ae175e3e19cb2e48d20f76a7b4f36458467262a2e838c",
+      "after_sha256": "60f92a21f151fb01d38bc5cd45b99b1bf365b17da4a686fae6f1585846d18f46",
+      "edits": [
+        {
+          "before_offset": 1013,
+          "after_offset": 1013,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSILEX.java": {
+      "before_sha256": "541e729268e62b6f881bd5e40ba81c7c4891f0a413123b1b66dad66edbe77855",
+      "after_sha256": "9a1186f540ae70769920b93021e4350e79c76231a06a3e0213a10ec85e3cb9e0",
+      "edits": [
+        {
+          "before_offset": 963,
+          "after_offset": 963,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": {
+      "before_sha256": "61d35128a7efa2418054888d3194fa80c21a5feeb4cc1c460809932579596d87",
+      "after_sha256": "edfbdc57ef22f4ab7531b3f1f16775a05f54be2f42baed0e4c701aaa4fe976e1",
+      "edits": [
+        {
+          "before_offset": 1309,
+          "after_offset": 1309,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 2007,
+          "after_offset": 2050,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatLinker.java": {
+      "before_sha256": "7a2cfd6ea7c79541b4833cd03251e8ca16cdb760341ad4206e68ccf2c4502d44",
+      "after_sha256": "2eea2918e662c15048770fd9e9417cd9a3e59d448b8b312bb96e5955cbe74d71",
+      "edits": [
+        {
+          "before_offset": 1734,
+          "after_offset": 1734,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineShredder.java": {
+      "before_sha256": "908b709713176304bee1df0b6358ef1283980b1e9defa51ec89714f3ac576265",
+      "after_sha256": "2bf0bd6be81d05fe801bc800b1d2590aa784695278f024f89b19a0725b88fbf0",
+      "edits": [
+        {
+          "before_offset": 2312,
+          "after_offset": 2312,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSiren.java": {
+      "before_sha256": "71e343dd5ff07c740ffd44d02e9e31edfd7b9d4cef134a7f6973854a832f159e",
+      "after_sha256": "eaea9d7fbf2139270beb595092b6c70a54d966f21fbd55bf40f60cfec9325080",
+      "edits": [
+        {
+          "before_offset": 1603,
+          "after_offset": 1603,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSolderingStation.java": {
+      "before_sha256": "c36376682377f5d00c031fca1816ae1db3e2cbe39ea1201b34f98413c21d2b00",
+      "after_sha256": "c1e550182df7fc95f09fdd89f80b37a8e57a77306e417f919916583c41b56f6e",
+      "edits": [
+        {
+          "before_offset": 711,
+          "after_offset": 711,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSolidifier.java": {
+      "before_sha256": "c3d8671cdf10b74a1d3967e05376266165100039255fe1b3b2f521fd41ec6581",
+      "after_sha256": "88f6a00b3a32bed862b8dff46ef216b1d08a4e5e4a707c0f3c5f877d50870f2d",
+      "edits": [
+        {
+          "before_offset": 977,
+          "after_offset": 977,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineTesla.java": {
+      "before_sha256": "da8ef19d7066bcfb18c94e0a976508aa37bb30203ac39cd544ee11ed7f280161",
+      "after_sha256": "bd669cc28fe82b73a69b69e9c1fd5372a5fd46854e9146b441f93046de12a6bb",
+      "edits": [
+        {
+          "before_offset": 570,
+          "after_offset": 570,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java": {
+      "before_sha256": "d4586ed4fa179644f46d796eccecc340bfcacc85c4e1df4fadda27876c11586c",
+      "after_sha256": "7cae4259a29d770d4a06a98170b10843230c013d15deb5ad4b9cb7941174eec0",
+      "edits": [
+        {
+          "before_offset": 821,
+          "after_offset": 821,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineVacuumCircuit.java": {
+      "before_sha256": "afb30c9695f5b36ccf0ec9807c4f395d4eb35cc2452b645b7fe6d7935aed0083",
+      "after_sha256": "92f69636c1bddae6c8e2d6ba68de065bb78d1f1bcbf537190fadb86abf4b4df5",
+      "edits": [
+        {
+          "before_offset": 947,
+          "after_offset": 947,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineVacuumDistill.java": {
+      "before_sha256": "f6b60dce7b19135aeeeb6d678083457f7a2453ba83b8123ccb76691a7e89fa29",
+      "after_sha256": "f7ac5f72d1fbdd38fae118097a745174ee24da53963ce396c2d87db2e40635e2",
+      "edits": [
+        {
+          "before_offset": 755,
+          "after_offset": 755,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineWoodBurner.java": {
+      "before_sha256": "a61969ce7625cf2588e8965b147d39f446dd37e5ea4e0646be4af5798b2df977",
+      "after_sha256": "23cf19f32f3c98d0c5f2016fd68ae151c0deb0ecfade8d905046969763ad4434",
+      "edits": [
+        {
+          "before_offset": 1055,
+          "after_offset": 1055,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java": {
+      "before_sha256": "e0bb5452d0c49a887797b5b3fa44effc39260021c2b97630f4989d05a8d00950",
+      "after_sha256": "b1b2421b5db6406608e10d08cbf80efe27d1f9a65710289db629eeef48b02384",
+      "edits": [
+        {
+          "before_offset": 808,
+          "after_offset": 808,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "76062c9b36da36bc1b0cb7e94357fab6ff9cb3e09e2b06fcb2c63dbf2a77f132",
+      "after_sha256": "783c42329a8bac39db7d23845900a62884b508ad2f2ca77ee1e9c4e26960e132",
+      "edits": [
+        {
+          "before_offset": 6067,
+          "after_offset": 6067,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/RadioRec.java": {
+      "before_sha256": "20584eb9b3df0339fcfa3b93bcf7fd44f7151b641767080b8cb8c7012e0b1b29",
+      "after_sha256": "36a59a61c6c055989376764fc159ba145d2989a114cbb972f3620ccce7f1d4d5",
+      "edits": [
+        {
+          "before_offset": 1153,
+          "after_offset": 1153,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+      "before_sha256": "84504670396775e5849eb7f2766539734821fff9bce8a415cb85bf130af0e227",
+      "after_sha256": "9da97749035316a4ab0b5656dca5e0c73b1589dac92398a1f06f303271090af6",
+      "edits": [
+        {
+          "before_offset": 907,
+          "after_offset": 907,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java": {
+      "before_sha256": "f37362bf6f4f6dd11b6bd0d76ad56f1d2a25efb576f5ecd3389b85f29440e836",
+      "after_sha256": "d49dd9ff2d151ae46cd4154135b46c28e7863eddaf1be6e56633bd1939b5b849",
+      "edits": [
+        {
+          "before_offset": 974,
+          "after_offset": 974,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        },
+        {
+          "before_offset": 1111,
+          "after_offset": 1154,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/StorageDrum.java": {
+      "before_sha256": "464d2f7a073d3b048f5d7a9048c1cd5bf3933ccbacc45689f31a2dd01488b5a8",
+      "after_sha256": "befff83c3eabc7d04fff673ecfeab1db2cd5443ad5ffbfb1af79051b2fc2c13c",
+      "edits": [
+        {
+          "before_offset": 599,
+          "after_offset": 599,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/WasteDrum.java": {
+      "before_sha256": "acdccf4919ab5f7381585c519d053aee76583a6d6743e97f6ca7a1095e7143b3",
+      "after_sha256": "15baefd91876a772487fd6ff8a29df2a48bcf112e0fe2f9555c056ef0a28d54c",
+      "edits": [
+        {
+          "before_offset": 2718,
+          "after_offset": 2718,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Watz.java": {
+      "before_sha256": "4bd4acdb628002ecf0a8f21007f70eac129327d103a13392b95794d5339646ef",
+      "after_sha256": "7da7746bfd5fcd9b754989f86cc530bb67747bbc98940590e8694600cbcd0d4b",
+      "edits": [
+        {
+          "before_offset": 1137,
+          "after_offset": 1137,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/ZirnoxDestroyed.java": {
+      "before_sha256": "19e5ff54b982d05a39e91e794ab6c566ec5f3ea3c59e3b7c0fb611d19bd78e99",
+      "after_sha256": "b8c2f52f244dc59b0fde2e35fe259bf6347aea89ad1b518c2d8a92d0a42e4f4b",
+      "edits": [
+        {
+          "before_offset": 1287,
+          "after_offset": 1287,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPADetector.java": {
+      "before_sha256": "dcd897934439b3351e756cf571607c7727efdd1b7787ea8a150f9ce8a0816864",
+      "after_sha256": "64d61684af62aabf74221afd108fbcec0d0c1fcea23ddd0e6c60b96367e8ed9c",
+      "edits": [
+        {
+          "before_offset": 1051,
+          "after_offset": 1051,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPADipole.java": {
+      "before_sha256": "6b30f1a3d0b6cd4af8fe4962dea8a8df06c2f8632295fd96ed0738d292676c51",
+      "after_sha256": "65b47b5be69e1f05dcf5fa4d7c15a9b2b603788a97fcaa673bbf43dc0c222458",
+      "edits": [
+        {
+          "before_offset": 1031,
+          "after_offset": 1031,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPAQuadrupole.java": {
+      "before_sha256": "adbecaee384b0fc00fc51b6ffb75902e0672c571e3a3f2be3ca2b2c88e1da78f",
+      "after_sha256": "4d577dd322769581b149ac7f6b1cfd3685c990f173b2c59925260d8d2d411f38",
+      "edits": [
+        {
+          "before_offset": 1047,
+          "after_offset": 1047,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPARFC.java": {
+      "before_sha256": "98d5e8d6005d8012400a70d941579328ae5fc64d53949baac89952736d07f65f",
+      "after_sha256": "dec2721b0b5d956a82f68557a5b3116b0dc181219835f4f09eab6775ea719f25",
+      "edits": [
+        {
+          "before_offset": 1019,
+          "after_offset": 1019,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/albion/BlockPASource.java": {
+      "before_sha256": "983787a1bf81f361883299e5b96f2756e14014a703f255292b7bafc7f49ccca2",
+      "after_sha256": "95f78fee752d4101babf1c959671e00aa0f2622fba73bc1f8d4bec65294109e0",
+      "edits": [
+        {
+          "before_offset": 1043,
+          "after_offset": 1043,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionBreeder.java": {
+      "before_sha256": "3543a668a55abcf6d27e57c2ae5eea31dfb814b30104130f7a3643634450e6b2",
+      "after_sha256": "dc8ed35085c34574e2317968f6791fbb7b3dd890fe2d7ef3ffce016ba5677932",
+      "edits": [
+        {
+          "before_offset": 1025,
+          "after_offset": 1025,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionKlystron.java": {
+      "before_sha256": "00270f194f3fe8dd15935358bfc747f066bc39170387efed2ca201b5e713bc5d",
+      "after_sha256": "69716a8e601c40f7e68200483e5d62efd563cef2a2affee9d3aad0cb06300bd5",
+      "edits": [
+        {
+          "before_offset": 928,
+          "after_offset": 928,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/fusion/MachineFusionTorus.java": {
+      "before_sha256": "5c05d27401f1c770230a833d6ab2376871bb27e3a9c331b343b4bc33d627cfa6",
+      "after_sha256": "40fd4a0b63f61024a0d2c7f9dc4f54516fd0210c9ed112b98e4bd10cccf4b51f",
+      "edits": [
+        {
+          "before_offset": 3082,
+          "after_offset": 3082,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAutoloader.java": {
+      "before_sha256": "ccabac153be7e2f11dd68e340f58b1015185386e3a89ad0f8ebcd1d3ae9580c9",
+      "after_sha256": "89b175f49f255fd615182847b6856c50de5496d54975faade7330946e4692eb2",
+      "edits": [
+        {
+          "before_offset": 1000,
+          "after_offset": 1000,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneDock.java": {
+      "before_sha256": "06be95da0f38445312af50fd064b18a5f8e4957c7c5171d805e8123f3730e0cd",
+      "after_sha256": "9e4446fa8f1cfa6fdeda61f9128ab3dfd09a9d8426f9c33e2b7fc97887b0db02",
+      "edits": [
+        {
+          "before_offset": 2059,
+          "after_offset": 2059,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypoint.java": {
+      "before_sha256": "15f2d0ff77ff14f21929dc2e202e6dac98fac57106f8e06f06daa700a2c388ec",
+      "after_sha256": "63b47a7c568cb76877ca6e29787e76f3e4523fc8c7a47b3aa947a33d7ce34202",
+      "edits": [
+        {
+          "before_offset": 1396,
+          "after_offset": 1396,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java": {
+      "before_sha256": "50f574aefea759f496891bb6748afa12056cafac6a99592a0a6296726c4ce16f",
+      "after_sha256": "b6c946b8c04e6e59defd82e03e7407a196f2c0ba97f41523ab3d2c832f3ea770",
+      "edits": [
+        {
+          "before_offset": 1034,
+          "after_offset": 1034,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java": {
+      "before_sha256": "bf1a01ba7d8254bbb518f1dbfa2b0b15288625598096126d84423b9c97321a1d",
+      "after_sha256": "14cf154882640b6eccc53721d09090dd157ecc72c5b19cf15ea0e06666599c9b",
+      "edits": [
+        {
+          "before_offset": 1181,
+          "after_offset": 1181,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidPump.java": {
+      "before_sha256": "320e5da6bb5cbd7775006a72f277a893ce184d7b61f6d9fcd164e5445ac58b47",
+      "after_sha256": "7386578b828c9bff6d34e31cdf4928dd2df26c785b8c979c70798f330b67b15a",
+      "edits": [
+        {
+          "before_offset": 2279,
+          "after_offset": 2279,
+          "old": "\t@Override public boolean isOpaqueCube() { return false; }\n",
+          "new": "\t@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/MachineBatteryREDD.java": {
+      "before_sha256": "90df561e53a2b31a87fa55e575efd0cbe2915e4b56b6f88665572635db7f576f",
+      "after_sha256": "642231dd1843b701a7bdc47736b002bd46b144fec8d3aa723c38256603c358a8",
+      "edits": [
+        {
+          "before_offset": 1140,
+          "after_offset": 1140,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/MachineBatterySocket.java": {
+      "before_sha256": "6464c60432237d6306b19b3015a324acb501a8988b66387f21ec74e48654c9b5",
+      "after_sha256": "8877b2b58b5bb52408c7233f36189dd6ecba641200f7fe21a6ed4fe58675dd2e",
+      "edits": [
+        {
+          "before_offset": 1067,
+          "after_offset": 1067,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ(); int side = nativeFacing.getIndex();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/PylonBase.java": {
+      "before_sha256": "c9f574386af9da0fabab9e9395cf5308520b65cdd08f9083320921117b0f111c",
+      "after_sha256": "8de056ca45a66ddf315d053f350c5de0934769c199844a8cc1ed74855cfb0f5b",
+      "edits": [
+        {
+          "before_offset": 919,
+          "after_offset": 919,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestObjTester.java": {
+      "before_sha256": "8f42964486cc97534ed9da809d1f4a13a845423eb6d6098d74cc5dfe31bc4195",
+      "after_sha256": "f6588f2f5b36d477b02b652d4ac558367208d75f1ee525c6b5b9f39a6d333c30",
+      "edits": [
+        {
+          "before_offset": 742,
+          "after_offset": 742,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretArty.java": {
+      "before_sha256": "42df5087ae2cdcdcea2089842ac735a5eb11ebd9b8b1a3bc54979a08552710de",
+      "after_sha256": "b26c26b67abc75a8139afcf152504244b7bdca8680f0028a382dbf1b391c2973",
+      "edits": [
+        {
+          "before_offset": 795,
+          "after_offset": 795,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretBase.java": {
+      "before_sha256": "2418f9a2268cfd22bf95edd2e2b58f84237793eb6e7e69dbcd296513c802a82e",
+      "after_sha256": "924577140039c85e27d9bcfc797fab8db0ad14ea4bfa10769605b50b97340330",
+      "edits": [
+        {
+          "before_offset": 395,
+          "after_offset": 395,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretBaseNT.java": {
+      "before_sha256": "3344b56fd79e3cf196d666c623a123dfcee375feb4beae936707608070f71df9",
+      "after_sha256": "691f9e8e9ed563e321144700bf2958fb26420efaf7e9d0c1df42e79b391772ac",
+      "edits": [
+        {
+          "before_offset": 1042,
+          "after_offset": 1042,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretHIMARS.java": {
+      "before_sha256": "d90b2412d4f2d586f1d4be1c79a25d2335c0bef6196cbb708efcbde1a9fb2971",
+      "after_sha256": "74864e12a7505bc33d04fb8c839e987fc0f9e37a6f6f6a0be6806d4ed28bbb2c",
+      "edits": [
+        {
+          "before_offset": 803,
+          "after_offset": 803,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretHowardDamaged.java": {
+      "before_sha256": "0657b53719af8aac273dcf9b5881b2227e57bf4756ef4d73bbceb863069727bf",
+      "after_sha256": "616b970af6ee2ddec60e8b64c1245ee579c4298b23e3d7198bbc624834758f69",
+      "edits": [
+        {
+          "before_offset": 619,
+          "after_offset": 619,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float fX, float fY, float fZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float fX, float fY, float fZ) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretSentry.java": {
+      "before_sha256": "663f5b0311aa8e57075841a1a4482b361fae07d24e329e5598a5cbe2c3ff15f1",
+      "after_sha256": "695d4ce33aad4d3b4d94bc5c91a50903dccf80394610182d4f9c88b749507565",
+      "edits": [
+        {
+          "before_offset": 831,
+          "after_offset": 831,
+          "old": "\tpublic boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {\n",
+          "new": "\tpublic boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 1246,
+          "after_offset": 1474,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java": {
+      "before_sha256": "1fc366932eb18744914a8d9916a9ef08bd5eefb479237f48c011aaf3fb492d1d",
+      "after_sha256": "4c36a203a2fc6a43b681f81d8b1c84387109990ebf2be0c91f17a578d1bebafc",
+      "edits": [
+        {
+          "before_offset": 636,
+          "after_offset": 636,
+          "old": "\tpublic boolean isOpaqueCube() {\n",
+          "new": "\tpublic boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

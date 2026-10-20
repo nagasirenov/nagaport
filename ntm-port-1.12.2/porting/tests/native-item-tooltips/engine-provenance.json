@@ -1,0 +1,35 @@
+{
+  "adb": {
+    "archive": "/tmp/nagaport-legacy-client.jar",
+    "archive_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "class_entry": "adb.class",
+    "class_sha256": "855ce9ab7bc473abf443315d28ec8d02b4d0a4ed56d80e5ac31d6dc0813fce4b"
+  },
+  "net.minecraft.item.Item": {
+    "archive": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "archive_sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "class_entry": "net/minecraft/item/Item.class",
+    "class_sha256": "8df5600a57d72dd08c7f7c45153e2fd265d42ce0760cc5a0579ae08197a90b5b"
+  },
+  "add": {
+    "archive": "/tmp/nagaport-legacy-client.jar",
+    "archive_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+    "class_entry": "add.class",
+    "class_sha256": "64d2e44b4f07561c143cce29f5f570ce8abfb857cc4d6dc0c8f9cfd6c31ad37d"
+  },
+  "net.minecraft.item.ItemStack": {
+    "archive": "/workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar",
+    "archive_sha256": "8c75037188f87bc62939eefa03c2480551509034f069728de012c09276f8f49e",
+    "class_entry": "net/minecraft/item/ItemStack.class",
+    "class_sha256": "c7773c57f5fa221476c1c1a6e30fc379a0b725ea4380933ecf93be1278840a7c"
+  },
+  "mapping": {
+    "archive_sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2",
+    "joined_srg_sha256": "43d4376110b2638213d3096f80f8395c076eb05b58d6c0dbd22c0d999b37a357",
+    "exact_lines": [
+      "CL: adb net/minecraft/item/Item",
+      "MD: adb/a (Ladd;Lyz;Ljava/util/List;Z)V net/minecraft/item/Item/func_77624_a (Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Ljava/util/List;Z)V",
+      "MD: add/a (Lyz;Z)Ljava/util/List; net/minecraft/item/ItemStack/func_82840_a (Lnet/minecraft/entity/player/EntityPlayer;Z)Ljava/util/List;"
+    ]
+  }
+}

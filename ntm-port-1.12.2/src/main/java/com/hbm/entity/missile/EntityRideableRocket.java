@@ -591,7 +591,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 
 		if(super.interactFirst(player)) {
 			return true;
-		} else if(!this.world.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {
+		} else if(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {
 			player.mountEntity(this);
 			return true;
 		} else {
@@ -626,7 +626,7 @@ public class EntityRideableRocket extends EntityMissileBaseNT implements ILookOv
 
 	@Override
 	public void updateRiderPosition() {
-		if(this.riddenByEntity == null) return;
+		if(!this.isBeingRidden()) return;
 
 		double length = getMountedYOffset() + riddenByEntity.getYOffset();
 		Vec3d target = BobMathUtil.getDirectionFromAxisAngle(rotationPitch - 90.0F, 180.0F - rotationYaw, length);

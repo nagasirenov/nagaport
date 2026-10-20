@@ -57,8 +57,9 @@ public class DetMiner extends BlockPillar implements IBomb, IFuckingExplode {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+	public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			this.explode(world, x, y, z);
 		}
 	}

@@ -73,7 +73,7 @@ public class LogicBlockConditions {
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
 
-		return world.isBlockIndirectlyGettingPowered(x,y,z);
+		return world.isBlockPowered(new net.minecraft.util.math.BlockPos(x,y,z));
 	};
 
 	public static Function<LogicBlock.TileEntityLogicBlock, Boolean> PUZZLE_TEST = (tile) -> {
@@ -82,7 +82,7 @@ public class LogicBlockConditions {
 		int y = tile.getPos().getY();
 		int z = tile.getPos().getZ();
 
-		if(tile.phase == 0 &&  world.isBlockIndirectlyGettingPowered(x,y,z)){
+		if(tile.phase == 0 &&  world.isBlockPowered(new net.minecraft.util.math.BlockPos(x,y,z))){
 			world.getClosestPlayer(x,y,z, 25).sendMessage(new TextComponentString("Find a " + TextFormatting.GOLD + "great" + TextFormatting.RESET + " ancient weapon, of questionable use in the modern age"));
 			world.setBlock(x,y + 1,z, ModBlocks.pedestal);
 			return true;

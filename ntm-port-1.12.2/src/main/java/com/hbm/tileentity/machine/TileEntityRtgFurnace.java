@@ -13,6 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -107,9 +108,9 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 	
 	//You scrubs aren't needed for anything (right now)
 	@Override
-	public void openInventory() {}
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 	@Override
-	public void closeInventory() {}
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemStack) {
@@ -156,7 +157,7 @@ public class TileEntityRtgFurnace extends TileEntity implements ISidedInventory,
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				slots[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 

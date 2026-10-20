@@ -14,6 +14,8 @@ import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class GUIScreenBobble extends GuiScreen {
@@ -44,13 +46,17 @@ public class GUIScreenBobble extends GuiScreen {
 		double left = (this.width - sizeX) / 2;
 		double top = (this.height - sizeY) / 2;
 		
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(0F, 0.2F, 0F, 0.8F);
-		tess.addVertex(left + sizeX, top, this.zLevel);
-		tess.addVertex(left, top, this.zLevel);
-		tess.addVertex(left, top + sizeY, this.zLevel);
-		tess.addVertex(left + sizeX, top + sizeY, this.zLevel);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+		int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));
+		int tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.8F) * 255.0F)));
+		tessBuffer.pos(left + sizeX, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(left, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(left, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(left + sizeX, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 		tess.draw();
 
 		GL11.glEnable(GL11.GL_TEXTURE_2D);

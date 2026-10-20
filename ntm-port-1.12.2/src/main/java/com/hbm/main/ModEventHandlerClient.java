@@ -576,7 +576,7 @@ public class ModEventHandlerClient {
 		RenderPlayer renderer = event.renderer;
 		AbstractClientPlayer player = (AbstractClientPlayer)event.entityPlayer;
 
-		PotionEffect invis = player.getActivePotionEffect(Potion.invisibility);
+		PotionEffect invis = player.getActivePotionEffect(net.minecraft.init.MobEffects.INVISIBILITY);
 
 		if(invis != null && invis.getAmplifier() > 0)
 			event.setCanceled(true);
@@ -655,7 +655,7 @@ public class ModEventHandlerClient {
 			}
 		}
 
-		if(player.getCurrentArmor(2) == null && !player.isPotionActive(Potion.invisibility)) {
+		if(player.getCurrentArmor(2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {
 			if(player.getUniqueID().toString().equals(ShadyUtil.HbMinecraft) ||		player.getDisplayName().equals("HbMinecraft"))		RenderAccessoryUtility.renderWings(event, 2);
 			if(player.getUniqueID().toString().equals(ShadyUtil.the_NCR) ||			player.getDisplayName().equals("the_NCR"))			RenderAccessoryUtility.renderWings(event, 3);
 			if(player.getUniqueID().toString().equals(ShadyUtil.Barnaby99_x) ||		player.getDisplayName().equals("pheo7"))			RenderAccessoryUtility.renderAxePack(event);

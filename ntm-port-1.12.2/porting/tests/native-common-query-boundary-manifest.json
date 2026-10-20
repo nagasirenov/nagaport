@@ -1,0 +1,2006 @@
+{
+  "baseline": "a4739afa41966b75e2012bccd7df919e51d5c3a0",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/CheaterVirus.java": {
+      "before_sha256": "00058f156f2decf0cd2903befe7147c28e4337eb6b28e28fc29eb2ae0b3cc355",
+      "after_sha256": "b75c45bddd76afa45c3217cb3e6c2104911a3abdfec4a699a557e413ac5fba35",
+      "edits": [
+        {
+          "before_offset": 6979,
+          "after_offset": 6979,
+          "old": "    \t\t((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 60 * 60 * 60, 9));\n",
+          "new": "    \t\t((EntityLivingBase)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 60 * 60 * 60, 9));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java": {
+      "before_sha256": "133cfb8ccc3a2198571adaa5ac34c44b0769264fa0d77c9d98091920368897f8",
+      "after_sha256": "e0fafc90087f82e503c0e15b007d44e81eab0cb1b6a25bd35e4a4932939858a9",
+      "edits": [
+        {
+          "before_offset": 1181,
+          "after_offset": 1181,
+          "old": "\t\t\tentityLiving.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 5 * 20, 0));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(Potion.poison.getId(), 20 * 20, 2));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(Potion.wither.getId(), 1 * 20, 1));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 30 * 20, 1));\n",
+          "new": "\t\t\tentityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 20, 0));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 20 * 20, 2));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 1 * 20, 1));\n\t\t\tentityLiving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 30 * 20, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockStepEffect.java": {
+      "before_sha256": "20bc5b773ac7d40e38c4fcc99929a3e8c89964d6a22dd9e695d12ed27f84c56c",
+      "after_sha256": "d5554e91d90a3f345f6036cc3d2327672294a3b0d364c4d55e29262d473da9a8",
+      "edits": [
+        {
+          "before_offset": 3487,
+          "after_offset": 3487,
+          "old": "\t\t\t\t((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 60 * 20, 2));\n",
+          "new": "\t\t\t\t((EntityLivingBase) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/TrappedBrick.java": {
+      "before_sha256": "f12e6d5b955896f479aa87652fbf276396d56b9253b83ebc99f6983524893877",
+      "after_sha256": "d0f8c79c64eb4da3666e9f44c3c1c884ffa19dc77c593ebc7f95a08c1d08b513",
+      "edits": [
+        {
+          "before_offset": 5173,
+          "after_offset": 5173,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300, 2));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 300, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/WasteEarth.java": {
+      "before_sha256": "92f2d0a7abda3a30e0232e502068fae85561e178db0616b7860f9292965eb4e7",
+      "after_sha256": "980d2af122d2462006348723b25b640f036c2509cc6e0cbdda0db9dd6b9f2d67",
+      "edits": [
+        {
+          "before_offset": 3272,
+          "after_offset": 3272,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 60 * 20, 2));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/CelestialTeleporter.java": {
+      "before_sha256": "4b9432e5f1276c98087d78ff620bddb22296975d5f33155f825a6d93a20736bf",
+      "after_sha256": "7e1c3b98b4eae73d56cd6032acd643329812895503c43c2307145bb8366f2fa6",
+      "edits": [
+        {
+          "before_offset": 2272,
+          "after_offset": 2272,
+          "old": "\t\t\tEntity ridingEntity = entity.ridingEntity;\n",
+          "new": "\t\t\tEntity ridingEntity = entity.getRidingEntity();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/OrbitalStation.java": {
+      "before_sha256": "ca112cc6ba8d0b63dfd4952b8fa0f139c6020dc0220cc719b67bcb4db853f09f",
+      "after_sha256": "cce45087f7f5c261f88d9b6f47dd280e455203ca9e6fd39876ba62aaca1653f2",
+      "edits": [
+        {
+          "before_offset": 6491,
+          "after_offset": 6491,
+          "old": "\t\t\tif(rocket.riddenByEntity != null) continue;\n",
+          "new": "\t\t\tif(rocket.isBeingRidden()) continue;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/effect/EntityMist.java": {
+      "before_sha256": "ab4289cf1ccc4309338d9272ac19c32e0430d8ee79e8d88e84b557cc1cb09d23",
+      "after_sha256": "a4e44cd69e0c7743498c49acb952b5ec98d47caf066396501033941a311b79ae",
+      "edits": [
+        {
+          "before_offset": 5745,
+          "after_offset": 5745,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 2));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 100, 2));\n"
+        },
+        {
+          "before_offset": 7045,
+          "after_offset": 7061,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(trait.isWithering() ? Potion.wither.id : Potion.poison.id, (int) (5 * 20 * intensity)));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(trait.isWithering() ? net.minecraft.init.MobEffects.WITHER : net.minecraft.init.MobEffects.POISON, (int) (5 * 20 * intensity)));\n"
+        },
+        {
+          "before_offset": 7744,
+          "after_offset": 7800,
+          "old": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,  mult * 60 * 20, 1));\n",
+          "new": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED,  mult * 60 * 20, 1));\n"
+        },
+        {
+          "before_offset": 7918,
+          "after_offset": 7990,
+          "old": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.regeneration.id,  mult * 2 * 20, 0));\n\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.resistance.id,  mult * 60 * 20, 0));\n",
+          "new": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION,  mult * 2 * 20, 0));\n\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE,  mult * 60 * 20, 0));\n"
+        },
+        {
+          "before_offset": 8187,
+          "after_offset": 8299,
+          "old": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.fireResistance.id,  mult * 60 * 20, 0));\n",
+          "new": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE,  mult * 60 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "4f34ec3bb6a12500a073d2748313eafc2ba8485c213b8bf941d34d374a568599",
+      "after_sha256": "641855732ff0b4c21d06d636f985dc0cd6f002e91e41121626dd98ea71de77f5",
+      "edits": [
+        {
+          "before_offset": 3578,
+          "after_offset": 3578,
+          "old": "\t\t\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\t\t\tif(this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 7476,
+          "after_offset": 7469,
+          "old": "\t\t\tif(this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase) {\n",
+          "new": "\t\t\tif(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {\n"
+        },
+        {
+          "before_offset": 11740,
+          "after_offset": 11726,
+          "old": "\t\t\t\tif(this.riddenByEntity != null && this.riddenByEntity.isDead) {\n",
+          "new": "\t\t\t\tif(this.isBeingRidden() && this.riddenByEntity.isDead) {\n"
+        },
+        {
+          "before_offset": 13043,
+          "after_offset": 13022,
+          "old": "\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\tif(this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 13896,
+          "after_offset": 13868,
+          "old": "\t\tif(this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {\n",
+          "new": "\t\tif(this.isBeingRidden() && this.riddenByEntity instanceof EntityPlayer && this.riddenByEntity != player) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "06d357bc72319ff742f4492c3a4a5952881cb8686b94ac5db653ede382e03e7e",
+      "after_sha256": "8d26f03aa6f274e17248c3da616345d8ee2afc465d6b0dba52a0e8c01b8bfc26",
+      "edits": [
+        {
+          "before_offset": 6940,
+          "after_offset": 6940,
+          "old": "\t\t\t\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\t\t\t\tif(this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 8686,
+          "after_offset": 8679,
+          "old": "\t\t\t\t\tif(this.ridingEntity == null && this.portalCounter++ >= portalTime) {\n",
+          "new": "\t\t\t\t\tif(this.getRidingEntity() == null && this.portalCounter++ >= portalTime) {\n"
+        },
+        {
+          "before_offset": 12932,
+          "after_offset": 12930,
+          "old": "\t\t\tif(this.riddenByEntity != null && this.riddenByEntity.isDead) {\n",
+          "new": "\t\t\tif(this.isBeingRidden() && this.riddenByEntity.isDead) {\n"
+        },
+        {
+          "before_offset": 15780,
+          "after_offset": 15771,
+          "old": "\t\tif(this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase) {\n",
+          "new": "\t\tif(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {\n"
+        },
+        {
+          "before_offset": 19850,
+          "after_offset": 19834,
+          "old": "\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\tif(this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 25072,
+          "after_offset": 25049,
+          "old": "\t\t\t\t\t\t&& this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && this.riddenByEntity == null && entity.ridingEntity == null) {\n",
+          "new": "\t\t\t\t\t\t&& this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && entity.getRidingEntity() == null) {\n"
+        },
+        {
+          "before_offset": 32491,
+          "after_offset": 32467,
+          "old": "\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\tif(this.isBeingRidden()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "c9721fe73f07511902de78b5f945319e3ca21ae254df7ae4659fe31837bbf3ee",
+      "after_sha256": "3777a076452c46f46459416e88a947752643409732d5dad3e3a240fb4e6ada21",
+      "edits": [
+        {
+          "before_offset": 8043,
+          "after_offset": 8043,
+          "old": "                    if (this.riddenByEntity != null)\n",
+          "new": "                    if (this.isBeingRidden())\n"
+        },
+        {
+          "before_offset": 11010,
+          "after_offset": 11003,
+          "old": "                    if (this.ridingEntity == null && this.portalCounter++ >= i)\n",
+          "new": "                    if (this.getRidingEntity() == null && this.portalCounter++ >= i)\n"
+        },
+        {
+          "before_offset": 16162,
+          "after_offset": 16160,
+          "old": "            if (this.riddenByEntity != null && this.riddenByEntity.isDead)\n",
+          "new": "            if (this.isBeingRidden() && this.riddenByEntity.isDead)\n"
+        },
+        {
+          "before_offset": 19810,
+          "after_offset": 19801,
+          "old": "        if (this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase)\n",
+          "new": "        if (this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase)\n"
+        },
+        {
+          "before_offset": 24959,
+          "after_offset": 24943,
+          "old": "        if (this.riddenByEntity != null)\n",
+          "new": "        if (this.isBeingRidden())\n"
+        },
+        {
+          "before_offset": 31266,
+          "after_offset": 31243,
+          "old": "                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && this.riddenByEntity == null && p_70108_1_.ridingEntity == null)\n",
+          "new": "                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && p_70108_1_.getRidingEntity() == null)\n"
+        },
+        {
+          "before_offset": 40783,
+          "after_offset": 40759,
+          "old": "        if (this.riddenByEntity != null)\n",
+          "new": "        if (this.isBeingRidden())\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "e76dd90efd0b7ebabfde8dbf1b5b80f2f379699bb30b9490453c766ca257a7ef",
+      "after_sha256": "a9657a7b94582d9ccdd794c3614e4047f3ea5786755f1798e86b88237e61c00b",
+      "edits": [
+        {
+          "before_offset": 21115,
+          "after_offset": 21115,
+          "old": "\t\t} else if(!this.world.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {\n",
+          "new": "\t\t} else if(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {\n"
+        },
+        {
+          "before_offset": 21899,
+          "after_offset": 21893,
+          "old": "\t\tif(this.riddenByEntity == null) return;\n",
+          "new": "\t\tif(!this.isBeingRidden()) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityBFAngel.java": {
+      "before_sha256": "a2aa4a6d407d3702b9bdf48c18820076c3a668d3f93a0ebeb7abee398915bd9c",
+      "after_sha256": "b93ab61736cd671a43b047b137e84afe06674eb277091c9e30a0979fd964b8ea",
+      "edits": [
+        {
+          "before_offset": 4433,
+          "after_offset": 4433,
+          "old": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(Potion.invisibility.id))\n",
+          "new": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityQuackos.java": {
+      "before_sha256": "cf19f69b341276c2d271312d464844a97bb4c8f87f35207746716b818b285cc5",
+      "after_sha256": "b55de49143db85271df36ca6915ee0a1393e4af825f215f47c077a1ec236fd68",
+      "edits": [
+        {
+          "before_offset": 2120,
+          "after_offset": 2120,
+          "old": "\t\t\tif(!this.world.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player)) {\n",
+          "new": "\t\t\tif(!this.world.isRemote && (!this.isBeingRidden() || this.riddenByEntity == player)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityTankbot.java": {
+      "before_sha256": "ff12313c4ee06ad70ba3912a51dd5d813436e0ec0cacd64e9719d7273b1ed087",
+      "after_sha256": "c5c094c73a0197407e9a6c935e25183e1f7578daf50582f5aef6f549ddbc1953",
+      "edits": [
+        {
+          "before_offset": 3523,
+          "after_offset": 3523,
+          "old": "\t\tif(this.isPotionActive(Potion.blindness)) return null;\n",
+          "new": "\t\tif(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFO.java": {
+      "before_sha256": "41a489f9bd9d03078560cdef33bdeac0b462651b8db2052603f3b85a9c3b0b5a",
+      "after_sha256": "d256ec3dade2660f0e81dbd6bd887f033aad8414a0a584237b5f0127b3b52c00",
+      "edits": [
+        {
+          "before_offset": 3480,
+          "after_offset": 3480,
+          "old": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(Potion.invisibility.id))\n",
+          "new": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/EntityUFOBase.java": {
+      "before_sha256": "4864cae59246254ef013b8dd56fabdf2f2b21d1c57be9ef0ee607526ee0aa087",
+      "after_sha256": "89daba58b83842806c3bd9bd0a6390f363f5dff19b6e831e2f30f7ba8efb8b2a",
+      "edits": [
+        {
+          "before_offset": 2196,
+          "after_offset": 2196,
+          "old": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(Potion.invisibility.id))\n",
+          "new": "\t\t\t\t\tif(((EntityPlayer)entity).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphid.java": {
+      "before_sha256": "cfa7ba97d39a75e9edd67eb729f09f2238a704ab2ed33cb96af07679ac876888",
+      "after_sha256": "fb20225f15c45ea6aa9e584e1b31dfe0bb967f53c846c9e4cbfd5e4d7556dbcf",
+      "edits": [
+        {
+          "before_offset": 6835,
+          "after_offset": 6835,
+          "old": "\t\t\tif(this.isPotionActive(Potion.blindness)) {\n",
+          "new": "\t\t\tif(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {\n"
+        },
+        {
+          "before_offset": 8171,
+          "after_offset": 8194,
+          "old": "\t\tif(this.isPotionActive(Potion.blindness)) return null;\n",
+          "new": "\t\tif(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;\n"
+        },
+        {
+          "before_offset": 8546,
+          "after_offset": 8592,
+          "old": "\t\tif(!this.isPotionActive(Potion.blindness)) {\n",
+          "new": "\t\tif(!this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) {\n"
+        },
+        {
+          "before_offset": 15766,
+          "after_offset": 15835,
+          "old": "\t\t\t((EntityLivingBase) victim).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 2));\n\t\t\t((EntityLivingBase) victim).addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));\n",
+          "new": "\t\t\t((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 2));\n\t\t\t((EntityLivingBase) victim).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidBehemoth.java": {
+      "before_sha256": "8cca606b9c6bcb79f21062b1ff781f811fe56fc8fa9176b2ab710a37805a7c5a",
+      "after_sha256": "9d43b8ae5067ee512d39f68aaf33cb8b013d6e60c358fad5a2685788a6f5655c",
+      "edits": [
+        {
+          "before_offset": 2448,
+          "after_offset": 2448,
+          "old": "\t\t\tthis.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 20, 6));\n",
+          "new": "\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 20, 6));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidNuclear.java": {
+      "before_sha256": "157b5e75729e4294d63e508c8ce7f206e73bc8204ad8f6317de321014cacffc7",
+      "after_sha256": "8c36c31dd00cb0b2bbba7114ea063a7b6e647850d55c094816392d5d19cd6edf",
+      "edits": [
+        {
+          "before_offset": 2409,
+          "after_offset": 2409,
+          "old": "\t\t\t\tthis.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 10 * 20, 3));\n",
+          "new": "\t\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 10 * 20, 3));\n"
+        },
+        {
+          "before_offset": 4102,
+          "after_offset": 4118,
+          "old": "\t\t\t\t\taddPotionEffect(new PotionEffect(Potion.field_76434_w.id, 20, 6));\n\t\t\t\t\taddPotionEffect(new PotionEffect(Potion.fireResistance.id, 15 * 20, 1));\n",
+          "new": "\t\t\t\t\taddPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 20, 6));\n\t\t\t\t\taddPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 15 * 20, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/mob/glyphid/EntityGlyphidScout.java": {
+      "before_sha256": "4d7e7452c3710d9abe1a0179bb0c5386e3645ac9f4a96aa30a755e2714c035b5",
+      "after_sha256": "5139774dbbf38da5f7bb046d731714946728ddd524588ef2d2872574ca935c08",
+      "edits": [
+        {
+          "before_offset": 1362,
+          "after_offset": 1362,
+          "old": "\t\t\t((EntityLivingBase)victum).addPotionEffect(new PotionEffect(Potion.poison.id, 10 * 20, 3));\n",
+          "new": "\t\t\t((EntityLivingBase)victum).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 10 * 20, 3));\n"
+        },
+        {
+          "before_offset": 3812,
+          "after_offset": 3832,
+          "old": "\t\t\t\t\tthis.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 180 * 20, 1));\n",
+          "new": "\t\t\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 180 * 20, 1));\n"
+        },
+        {
+          "before_offset": 4943,
+          "after_offset": 4984,
+          "old": "\t\t\t\t\t\tthis.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40 * 20, 10));\n",
+          "new": "\t\t\t\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 40 * 20, 10));\n"
+        },
+        {
+          "before_offset": 7678,
+          "after_offset": 7735,
+          "old": "\t\t\t\tthis.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));\n",
+          "new": "\t\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));\n"
+        },
+        {
+          "before_offset": 8439,
+          "after_offset": 8512,
+          "old": "\t\t\t\t\tthis.removePotionEffect(Potion.moveSlowdown.id);\n\t\t\t\t\tthis.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20 * 20, 4));\n",
+          "new": "\t\t\t\t\tthis.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);\n\t\t\t\t\tthis.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20 * 20, 4));\n"
+        },
+        {
+          "before_offset": 9470,
+          "after_offset": 9575,
+          "old": "\t\tif(this.isPotionActive(Potion.blindness)) return null;\n",
+          "new": "\t\tif(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityBullet.java": {
+      "before_sha256": "baf914e3397ed36e8c197560d5bc75928f2bf51ef7bd600f3707eaf0edcacbb5",
+      "after_sha256": "8a676c92c28ae87bf1eb8d03369f8e2f90860fd4ad183c98c7058646a7e8ac84",
+      "edits": [
+        {
+          "before_offset": 21351,
+          "after_offset": 21351,
+          "old": "\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(Potion.poison.getId(), 2 * 60 * 20, 2));\n\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 4));\n\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 1 * 60 * 20, 1));\n",
+          "new": "\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 2 * 60 * 20, 2));\n\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 20, 4));\n\t\t\t\t\t\t\t\t\t\tentitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 1 * 60 * 20, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/projectile/EntityChemical.java": {
+      "before_sha256": "ba22aa412d230e884fff65c3cbb5aa24d078be1108255d4b1c16ca567535987d",
+      "after_sha256": "1848c1d15c5d1f17ac5c9d9830695ec1bd2df4892b912ccd6338a050c0883546",
+      "edits": [
+        {
+          "before_offset": 5756,
+          "after_offset": 5756,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 9));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));\n"
+        },
+        {
+          "before_offset": 8888,
+          "after_offset": 8904,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(trait.isWithering() ? Potion.wither.id : Potion.poison.id, (int) (5 * 20 * intensity)));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(trait.isWithering() ? net.minecraft.init.MobEffects.WITHER : net.minecraft.init.MobEffects.POISON, (int) (5 * 20 * intensity)));\n"
+        },
+        {
+          "before_offset": 9322,
+          "after_offset": 9378,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 2));\n\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5 * 60 * 20, 1));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 2));\n\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 5 * 60 * 20, 1));\n"
+        },
+        {
+          "before_offset": 9729,
+          "after_offset": 9821,
+          "old": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.fireResistance.id,  60 * 20, 0));\n\t\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.field_76444_x.id,  60 * 20, 19));\n",
+          "new": "\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE,  60 * 20, 0));\n\t\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION,  60 * 20, 19));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/train/EntityRailCarRidable.java": {
+      "before_sha256": "3a5bf759da722d211533cb15bdec94d3c581c97a0097e5bfab48baf643ac1d0f",
+      "after_sha256": "b160ba028cf08f31adb1a9ccc80ed7765759c410e712781278122e1e0c619ed4",
+      "edits": [
+        {
+          "before_offset": 4240,
+          "after_offset": 4240,
+          "old": "\t\tif(this.riddenByEntity == null) {\n",
+          "new": "\t\tif(!this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 4994,
+          "after_offset": 4988,
+          "old": "\t\t\t\t\tif(seat.riddenByEntity == null) {\n",
+          "new": "\t\t\t\t\tif(!seat.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 5759,
+          "after_offset": 5747,
+          "old": "\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\tif(this.isBeingRidden()) {\n"
+        },
+        {
+          "before_offset": 8062,
+          "after_offset": 8043,
+          "old": "\t\t\tif(this.riddenByEntity != null) {\n",
+          "new": "\t\t\tif(this.isBeingRidden()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionChaos.java": {
+      "before_sha256": "8ba1c8aa11adbe2d371144f1fd595e2b84fb59cb2a4f6b21bab9eb9a3031092f",
+      "after_sha256": "b60d93b1cf2206c73005675c973065fdf7a270592b1b9caf02fe91c37bf0058d",
+      "edits": [
+        {
+          "before_offset": 11859,
+          "after_offset": 11859,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 5 * 20, 0));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.poison.getId(), 20 * 20, 2));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.wither.getId(), 1 * 20, 1));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 30 * 20, 1));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 20, 0));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 20 * 20, 2));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 1 * 20, 1));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 30 * 20, 1));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/explosion/ExplosionThermo.java": {
+      "before_sha256": "63d2d161bf5b600d793c1cf9b7eef11d55d1c6003682b8d54a02f532f26a3711",
+      "after_sha256": "e8cbe7c7a5f4c954f3dd1ff1b4337084747a67cf3a638ad8138d0a5a2d020637",
+      "edits": [
+        {
+          "before_offset": 37620,
+          "after_offset": 37620,
+          "old": "\t                    \t((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 90 * 20, 2));\n",
+          "new": "\t                    \t((EntityLivingBase) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 90 * 20, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/DispenserBehaviorHandler.java": {
+      "before_sha256": "cff016a29fde24463cd2b68f9d5fa21d2302d7cc1d7cffe56c3c7d373ed9639d",
+      "after_sha256": "59031be99f308515687febafb88c1d0617fbd70d54a38d1134ae6ef84d196536",
+      "edits": [
+        {
+          "before_offset": 3063,
+          "after_offset": 3063,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_generic, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_generic, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 3362,
+          "after_offset": 3364,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_strong, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_strong, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 3659,
+          "after_offset": 3663,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_frag, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_frag, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 3952,
+          "after_offset": 3958,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_fire, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_fire, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 4245,
+          "after_offset": 4253,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_cluster, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_cluster, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 4544,
+          "after_offset": 4554,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_flare, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_flare, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 4839,
+          "after_offset": 4851,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_electric, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_electric, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 5140,
+          "after_offset": 5154,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_poison, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_poison, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 5437,
+          "after_offset": 5453,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_gas, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_gas, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 5728,
+          "after_offset": 5746,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_schrabidium, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_schrabidium, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 6035,
+          "after_offset": 6055,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_nuke, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_nuke, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 6328,
+          "after_offset": 6350,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_nuclear, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_nuclear, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 6627,
+          "after_offset": 6651,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_pulse, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_pulse, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 6922,
+          "after_offset": 6948,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_plasma, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_plasma, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 7219,
+          "after_offset": 7247,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_tau, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_tau, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 7510,
+          "after_offset": 7540,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_lemon, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_lemon, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 7805,
+          "after_offset": 7837,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_mk2, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_mk2, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 8096,
+          "after_offset": 8130,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_aschrab, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_aschrab, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 8395,
+          "after_offset": 8431,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_zomg, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_zomg, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 8688,
+          "after_offset": 8726,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_shrapnel, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_shrapnel, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 8989,
+          "after_offset": 9029,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_black_hole, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_black_hole, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 9293,
+          "after_offset": 9335,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_gascan, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_gascan, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 9590,
+          "after_offset": 9634,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_cloud, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_cloud, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 9885,
+          "after_offset": 9931,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_pink_cloud, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_pink_cloud, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 10182,
+          "after_offset": 10230,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_smart, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_smart, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 10477,
+          "after_offset": 10527,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_mirv, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_mirv, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 10770,
+          "after_offset": 10822,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_breach, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_breach, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 11067,
+          "after_offset": 11121,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_burst, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_burst, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 11362,
+          "after_offset": 11418,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_generic, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_generic, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 11666,
+          "after_offset": 11724,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_he, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_he, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 11960,
+          "after_offset": 12020,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_bouncy, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_bouncy, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 12262,
+          "after_offset": 12324,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_sticky, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_sticky, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 12564,
+          "after_offset": 12628,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_impact, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_impact, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 12866,
+          "after_offset": 12932,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_incendiary, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_incendiary, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 13176,
+          "after_offset": 13244,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_toxic, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_toxic, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 13476,
+          "after_offset": 13546,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_concussion, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_concussion, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 13786,
+          "after_offset": 13858,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_brimstone, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_brimstone, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 14094,
+          "after_offset": 14168,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_mystery, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_mystery, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 14398,
+          "after_offset": 14474,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_spark, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_spark, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 14698,
+          "after_offset": 14776,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_hopwire, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_hopwire, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 15002,
+          "after_offset": 15082,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_if_null, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_if_null, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 15300,
+          "after_offset": 15382,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.nuclear_waste_pearl, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.nuclear_waste_pearl, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 15599,
+          "after_offset": 15683,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.stick_dynamite, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.stick_dynamite, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 15898,
+          "after_offset": 15984,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.grenade_kyiv, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.grenade_kyiv, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 16252,
+          "after_offset": 16340,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.stick_dynamite_fishing, new BehaviorProjectileDispense() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.stick_dynamite_fishing, new BehaviorProjectileDispense() {\n"
+        },
+        {
+          "before_offset": 16627,
+          "after_offset": 16717,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(ModItems.powder_fertilizer, new BehaviorDefaultDispenseItem() {\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ModItems.powder_fertilizer, new BehaviorDefaultDispenseItem() {\n"
+        },
+        {
+          "before_offset": 17648,
+          "after_offset": 17740,
+          "old": "\t\tBehaviorDefaultDispenseItem bucketDispense = (BehaviorDefaultDispenseItem)BlockDispenser.dispenseBehaviorRegistry.getObject(Items.WATER_BUCKET);\n",
+          "new": "\t\tBehaviorDefaultDispenseItem bucketDispense = (BehaviorDefaultDispenseItem)BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.getObject(Items.WATER_BUCKET);\n"
+        },
+        {
+          "before_offset": 18602,
+          "after_offset": 18696,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(Items.WATER_BUCKET, newBucketDispense);\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Items.WATER_BUCKET, newBucketDispense);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "88b1848fd074556a93459a06839b1643070a4a186246749e9b2cfc251e737d1a",
+      "after_sha256": "0c4c8058d9b05f988fa520ffddc0823fbd7a681cf849df8b4ad3e354ef46a007",
+      "edits": [
+        {
+          "before_offset": 10464,
+          "after_offset": 10464,
+          "old": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 2));\n",
+          "new": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));\n"
+        },
+        {
+          "before_offset": 10798,
+          "after_offset": 10831,
+          "old": "\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 2));\n\t\t\tif(world.rand.nextInt(700) == 0) entity.addPotionEffect(new PotionEffect(Potion.wither.id, 3 * 20, 1));\n",
+          "new": "\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 2));\n\t\t\tif(world.rand.nextInt(700) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 3 * 20, 1));\n"
+        },
+        {
+          "before_offset": 11040,
+          "after_offset": 11113,
+          "old": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 2));\n",
+          "new": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 2));\n"
+        },
+        {
+          "before_offset": 11374,
+          "after_offset": 11480,
+          "old": "\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.poison.id, 3 * 20, 1));\n",
+          "new": "\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 3 * 20, 1));\n"
+        },
+        {
+          "before_offset": 11509,
+          "after_offset": 11635,
+          "old": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 5 * 20, 0));\n",
+          "new": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 30, 0));\n\t\t\tif(world.rand.nextInt(500) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 20, 0));\n"
+        },
+        {
+          "before_offset": 11869,
+          "after_offset": 12028,
+          "old": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));\n",
+          "new": "\t\t\tif(world.rand.nextInt(300) == 0) entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));\n"
+        },
+        {
+          "before_offset": 16794,
+          "after_offset": 16970,
+          "old": "\t\tif(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return; // breathe easy in your ship\n",
+          "new": "\t\tif(entity.getRidingEntity() != null && entity.getRidingEntity() instanceof EntityRideableRocket) return; // breathe easy in your ship\n"
+        },
+        {
+          "before_offset": 17427,
+          "after_offset": 17613,
+          "old": "\t\tif(entity.ridingEntity != null && entity.ridingEntity instanceof EntityRideableRocket) return;\n",
+          "new": "\t\tif(entity.getRidingEntity() != null && entity.getRidingEntity() instanceof EntityRideableRocket) return;\n"
+        },
+        {
+          "before_offset": 21085,
+          "after_offset": 21281,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 20, 0));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 20, 0));\n"
+        },
+        {
+          "before_offset": 21268,
+          "after_offset": 21481,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 60, 0));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 60, 0));\n"
+        },
+        {
+          "before_offset": 24440,
+          "after_offset": 24670,
+          "old": "\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));\n",
+          "new": "\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0));\n"
+        },
+        {
+          "before_offset": 27015,
+          "after_offset": 27262,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.poison.id, 100, 0));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 0));\n"
+        },
+        {
+          "before_offset": 27117,
+          "after_offset": 27384,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 100, 1));\n"
+        },
+        {
+          "before_offset": 27203,
+          "after_offset": 27490,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.wither.id, 100, 2));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 100, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/handler/ability/IWeaponAbility.java": {
+      "before_sha256": "d27e03305732fa369864a57c0610b96a7bb490873fa49a283fedf574e551135b",
+      "after_sha256": "2d14dbb98eb95a05e789f53071e02227577e2763b2567e21525419a9ff1b8b03",
+      "edits": [
+        {
+          "before_offset": 4126,
+          "after_offset": 4126,
+          "old": "\t\t\t\tliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 4));\n",
+          "new": "\t\t\t\tliving.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, duration * 20, 4));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeAutism.java": {
+      "before_sha256": "304274b71a2e85d1c8107d1cf10470af77c35309211ee587b6334dace916de76",
+      "after_sha256": "57a89b70305822a5e0c2d6c18669ca3adad7b8b8807b4a02fdcc2b7b6598e4ee",
+      "edits": [
+        {
+          "before_offset": 825,
+          "after_offset": 825,
+          "old": "\t\t\ttarget.addPotionEffect(new PotionEffect(Potion.confusion.id, (int)Math.ceil(level), 0));\n",
+          "new": "\t\t\ttarget.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, (int)Math.ceil(level), 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeBlinding.java": {
+      "before_sha256": "ebb68e0e6e09126a99f35e7bb5ac7c831b5054b259656ba48485571b489b5127",
+      "after_sha256": "7809928a3e50624a5fd6938d38f418a2321b43d6b511624e64d53c10ceab9ea6",
+      "edits": [
+        {
+          "before_offset": 829,
+          "after_offset": 829,
+          "old": "\t\t\ttarget.addPotionEffect(new PotionEffect(Potion.blindness.id, (int)Math.ceil(level), 0));\n",
+          "new": "\t\t\ttarget.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, (int)Math.ceil(level), 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/hazard/type/HazardTypeGlitch.java": {
+      "before_sha256": "f7bb7fa4b9aae77f09744c48df35f5028e1714d26d7cec1d6cff9df7464ef1e7",
+      "after_sha256": "0f7dafebfe89375ec283fd50ba8f7a233ef57c28c2c6caa8d2e6a25f5e89c0b6",
+      "edits": [
+        {
+          "before_offset": 882,
+          "after_offset": 882,
+          "old": "\t\t\ttarget.addPotionEffect(new PotionEffect(Potion.confusion.id, (int)Math.ceil(level), 0));\n",
+          "new": "\t\t\ttarget.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, (int)Math.ceil(level), 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/fluid/Fluids.java": {
+      "before_sha256": "11bd1035cc0fdd3cccda8609effdf143be80da6faf907106099da9998325d716",
+      "after_sha256": "4edd922106257f40dba766327bed483cab83f39e698a44bf6de67671b9b1c0d4",
+      "edits": [
+        {
+          "before_offset": 55425,
+          "after_offset": 55425,
+          "old": "\t\t\t\t.addEntry(new ToxinEffects(HazardClass.GAS_BLISTERING, true).add(new PotionEffect(Potion.wither.id, 100, 1), new PotionEffect(Potion.confusion.id, 100, 0))));\n",
+          "new": "\t\t\t\t.addEntry(new ToxinEffects(HazardClass.GAS_BLISTERING, true).add(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 100, 1), new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 100, 0))));\n"
+        },
+        {
+          "before_offset": 55747,
+          "after_offset": 55784,
+          "old": "\t\tREDMUD.addTraits(new FT_Toxin().addEntry(new ToxinEffects(HazardClass.GAS_BLISTERING, false).add(new PotionEffect(Potion.wither.id, 30 * 20, 2))));\n",
+          "new": "\t\tREDMUD.addTraits(new FT_Toxin().addEntry(new ToxinEffects(HazardClass.GAS_BLISTERING, false).add(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 30 * 20, 2))));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "before_sha256": "ba9c222b3765ec08591854a01e57807a49641e8b9f1beb787aae48e3b78fb1ae",
+      "after_sha256": "052e4289d404d14a79de89d06ee851cd267033f1794abd8a6931f852406f9a56",
+      "edits": [
+        {
+          "before_offset": 8658,
+          "after_offset": 8658,
+          "old": "\t\tif(isProcessed && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {\n\t\t\tEntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;\n",
+          "new": "\t\tif(isProcessed && player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket) {\n\t\t\tEntityRideableRocket rocket = (EntityRideableRocket) player.getRidingEntity();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ModItemsArmor.java": {
+      "before_sha256": "fc3b04aa6a3bb013c94cb488d34b43cfb24e169bc81b64ced3722d76096a5c6f",
+      "after_sha256": "8236f48616870559678917207cef871f941b718a087ce1492587e0c1c140a5b1",
+      "edits": [
+        {
+          "before_offset": 3291,
+          "after_offset": 3291,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 2))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))\n"
+        },
+        {
+          "before_offset": 4399,
+          "after_offset": 4415,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 6))\n\t\t\t\t.addEffect(new PotionEffect(Potion.regeneration.id, 20, 1))\n\t\t\t\t.addEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 6))\n\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20, 1))\n\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0))\n"
+        },
+        {
+          "before_offset": 4709,
+          "after_offset": 4782,
+          "old": "\t\tbismuth_plate = new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) bismuth_helmet).setUnlocalizedName(\"bismuth_plate\").setTextureName(RefStrings.MODID + \":bismuth_plate\");\n\t\tbismuth_legs = new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setUnlocalizedName(\"bismuth_legs\").setTextureName(RefStrings.MODID + \":bismuth_legs\");\n\t\tbismuth_boots = new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setUnlocalizedName(\"bismuth_boots\").setTextureName(RefStrings.MODID + \":bismuth_boots\");\n",
+          "new": "\t\tbismuth_plate = new ArmorBismuth(MainRegistry.aMatBismuth, 1, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_plate\").setTextureName(RefStrings.MODID + \":bismuth_plate\");\n\t\tbismuth_legs = new ArmorBismuth(MainRegistry.aMatBismuth, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_legs\").setTextureName(RefStrings.MODID + \":bismuth_legs\");\n\t\tbismuth_boots = new ArmorBismuth(MainRegistry.aMatBismuth, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) bismuth_helmet).setTranslationKey(\"bismuth_boots\").setTextureName(RefStrings.MODID + \":bismuth_boots\");\n"
+        },
+        {
+          "before_offset": 8260,
+          "after_offset": 8330,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 2))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))\n"
+        },
+        {
+          "before_offset": 16462,
+          "after_offset": 16548,
+          "old": "\t\tt51_plate = new ArmorT51(aMatT51, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setUnlocalizedName(\"t51_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_legs = new ArmorT51(aMatT51, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setUnlocalizedName(\"t51_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_boots = new ArmorT51(aMatT51, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setUnlocalizedName(\"t51_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n",
+          "new": "\t\tt51_plate = new ArmorT51(aMatT51, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_legs = new ArmorT51(aMatT51, 2, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n\t\tt51_boots = new ArmorT51(aMatT51, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 1000, 5).cloneStats((ArmorFSB) t51_helmet).setTranslationKey(\"t51_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":armor\");\n"
+        },
+        {
+          "before_offset": 17831,
+          "after_offset": 17914,
+          "old": "\t\tsteamsuit_plate = new ArmorDesh(aMatDesh, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setUnlocalizedName(\"steamsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_plate\");\n\t\tsteamsuit_legs = new ArmorDesh(aMatDesh, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setUnlocalizedName(\"steamsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_legs\");\n\t\tsteamsuit_boots = new ArmorDesh(aMatDesh, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setUnlocalizedName(\"steamsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_boots\");\n",
+          "new": "\t\tsteamsuit_plate = new ArmorDesh(aMatDesh, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_plate\");\n\t\tsteamsuit_legs = new ArmorDesh(aMatDesh, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_legs\");\n\t\tsteamsuit_boots = new ArmorDesh(aMatDesh, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.STEAM, 64_000, 500, 50, 1).cloneStats((ArmorFSB) steamsuit_helmet).setTranslationKey(\"steamsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":steamsuit_boots\");\n"
+        },
+        {
+          "before_offset": 18998,
+          "after_offset": 19078,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 2))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 2))\n"
+        },
+        {
+          "before_offset": 19288,
+          "after_offset": 19384,
+          "old": "\t\tdieselsuit_plate = new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setUnlocalizedName(\"dieselsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_plate\");\n\t\tdieselsuit_legs = new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setUnlocalizedName(\"dieselsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_legs\");\n\t\tdieselsuit_boots = new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setUnlocalizedName(\"dieselsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_boots\");\n",
+          "new": "\t\tdieselsuit_plate = new ArmorDiesel(aMatDiesel, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_plate\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_plate\");\n\t\tdieselsuit_legs = new ArmorDiesel(aMatDiesel, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_legs\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_legs\");\n\t\tdieselsuit_boots = new ArmorDiesel(aMatDiesel, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", Fluids.DIESEL, 64_000, 500, 50, 1).cloneStats((ArmorFSB) dieselsuit_helmet).setTranslationKey(\"dieselsuit_boots\").setMaxStackSize(1).setTextureName(RefStrings.MODID + \":dieselsuit_boots\");\n"
+        },
+        {
+          "before_offset": 20959,
+          "after_offset": 21052,
+          "old": "\t\tajr_plate = new ArmorAJR(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setUnlocalizedName(\"ajr_plate\").setTextureName(RefStrings.MODID + \":ajr_plate\");\n\t\tajr_legs = new ArmorAJR(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setUnlocalizedName(\"ajr_legs\").setTextureName(RefStrings.MODID + \":ajr_legs\");\n\t\tajr_boots = new ArmorAJR(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setUnlocalizedName(\"ajr_boots\").setTextureName(RefStrings.MODID + \":ajr_boots\");\n",
+          "new": "\t\tajr_plate = new ArmorAJR(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_plate\").setTextureName(RefStrings.MODID + \":ajr_plate\");\n\t\tajr_legs = new ArmorAJR(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_legs\").setTextureName(RefStrings.MODID + \":ajr_legs\");\n\t\tajr_boots = new ArmorAJR(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajr_helmet).setTranslationKey(\"ajr_boots\").setTextureName(RefStrings.MODID + \":ajr_boots\");\n"
+        },
+        {
+          "before_offset": 22284,
+          "after_offset": 22374,
+          "old": "\t\tajro_plate = new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setUnlocalizedName(\"ajro_plate\").setTextureName(RefStrings.MODID + \":ajro_plate\");\n\t\tajro_legs = new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setUnlocalizedName(\"ajro_legs\").setTextureName(RefStrings.MODID + \":ajro_legs\");\n\t\tajro_boots = new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setUnlocalizedName(\"ajro_boots\").setTextureName(RefStrings.MODID + \":ajro_boots\");\n",
+          "new": "\t\tajro_plate = new ArmorAJRO(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_plate\").setTextureName(RefStrings.MODID + \":ajro_plate\");\n\t\tajro_legs = new ArmorAJRO(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_legs\").setTextureName(RefStrings.MODID + \":ajro_legs\");\n\t\tajro_boots = new ArmorAJRO(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ajro_helmet).setTranslationKey(\"ajro_boots\").setTextureName(RefStrings.MODID + \":ajro_boots\");\n"
+        },
+        {
+          "before_offset": 23570,
+          "after_offset": 23657,
+          "old": "\t\trpa_plate = new ArmorRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setUnlocalizedName(\"rpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\trpa_legs = new ArmorRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setUnlocalizedName(\"rpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\trpa_boots = new ArmorRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setUnlocalizedName(\"rpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n",
+          "new": "\t\trpa_plate = new ArmorRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\trpa_legs = new ArmorRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\trpa_boots = new ArmorRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) rpa_helmet).setTranslationKey(\"rpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n"
+        },
+        {
+          "before_offset": 24849,
+          "after_offset": 24933,
+          "old": "\t\tncrpa_plate = new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setUnlocalizedName(\"ncrpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\tncrpa_legs = new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setUnlocalizedName(\"ncrpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\tncrpa_boots = new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setUnlocalizedName(\"ncrpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n",
+          "new": "\t\tncrpa_plate = new ArmorNCRPA(aMatAJR, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_plate\").setTextureName(RefStrings.MODID + \":rpa_plate\");\n\t\tncrpa_legs = new ArmorNCRPA(aMatAJR, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_legs\").setTextureName(RefStrings.MODID + \":rpa_legs\");\n\t\tncrpa_boots = new ArmorNCRPA(aMatAJR, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 2500000, 10000, 2000, 25).cloneStats((ArmorFSB) ncrpa_helmet).setTranslationKey(\"ncrpa_boots\").setTextureName(RefStrings.MODID + \":rpa_boots\");\n"
+        },
+        {
+          "before_offset": 25969,
+          "after_offset": 26050,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 1))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))\n"
+        },
+        {
+          "before_offset": 26086,
+          "after_offset": 26183,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.field_76443_y.id, 20, 0))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 20, 0))\n"
+        },
+        {
+          "before_offset": 26427,
+          "after_offset": 26541,
+          "old": "\t\tbj_plate = new ArmorBJ(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setUnlocalizedName(\"bj_plate\").setTextureName(RefStrings.MODID + \":bj_plate\");\n\t\tbj_plate_jetpack = new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setUnlocalizedName(\"bj_plate_jetpack\").setTextureName(RefStrings.MODID + \":bj_plate_jetpack\");\n\t\tbj_legs = new ArmorBJ(aMatBJ, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setUnlocalizedName(\"bj_legs\").setTextureName(RefStrings.MODID + \":bj_legs\");\n\t\tbj_boots = new ArmorBJ(aMatBJ, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setUnlocalizedName(\"bj_boots\").setTextureName(RefStrings.MODID + \":bj_boots\");\n",
+          "new": "\t\tbj_plate = new ArmorBJ(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate\").setTextureName(RefStrings.MODID + \":bj_plate\");\n\t\tbj_plate_jetpack = new ArmorBJJetpack(aMatBJ, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_plate_jetpack\").setTextureName(RefStrings.MODID + \":bj_plate_jetpack\");\n\t\tbj_legs = new ArmorBJ(aMatBJ, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_legs\").setTextureName(RefStrings.MODID + \":bj_legs\");\n\t\tbj_boots = new ArmorBJ(aMatBJ, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 1000, 100).cloneStats((ArmorFSB) bj_helmet).setTranslationKey(\"bj_boots\").setTextureName(RefStrings.MODID + \":bj_boots\");\n"
+        },
+        {
+          "before_offset": 27664,
+          "after_offset": 27774,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 1))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))\n"
+        },
+        {
+          "before_offset": 28000,
+          "after_offset": 28126,
+          "old": "\t\tenvsuit_plate = new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setUnlocalizedName(\"envsuit_plate\").setTextureName(RefStrings.MODID + \":envsuit_plate\");\n\t\tenvsuit_legs = new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setUnlocalizedName(\"envsuit_legs\").setTextureName(RefStrings.MODID + \":envsuit_legs\");\n\t\tenvsuit_boots = new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setUnlocalizedName(\"envsuit_boots\").setTextureName(RefStrings.MODID + \":envsuit_boots\");\n",
+          "new": "\t\tenvsuit_plate = new ArmorEnvsuit(aMatEnv, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_plate\").setTextureName(RefStrings.MODID + \":envsuit_plate\");\n\t\tenvsuit_legs = new ArmorEnvsuit(aMatEnv, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_legs\").setTextureName(RefStrings.MODID + \":envsuit_legs\");\n\t\tenvsuit_boots = new ArmorEnvsuit(aMatEnv, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 100_000, 1_000, 250, 0).cloneStats((ArmorFSB) envsuit_helmet).setTranslationKey(\"envsuit_boots\").setTextureName(RefStrings.MODID + \":envsuit_boots\");\n"
+        },
+        {
+          "before_offset": 29034,
+          "after_offset": 29157,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 1))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 1))\n"
+        },
+        {
+          "before_offset": 29423,
+          "after_offset": 29562,
+          "old": "\t\thev_plate = new ArmorHEV(aMatHEV, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setUnlocalizedName(\"hev_plate\").setTextureName(RefStrings.MODID + \":hev_plate\");\n\t\thev_legs = new ArmorHEV(aMatHEV, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setUnlocalizedName(\"hev_legs\").setTextureName(RefStrings.MODID + \":hev_legs\");\n\t\thev_boots = new ArmorHEV(aMatHEV, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setUnlocalizedName(\"hev_boots\").setTextureName(RefStrings.MODID + \":hev_boots\");\n",
+          "new": "\t\thev_plate = new ArmorHEV(aMatHEV, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_plate\").setTextureName(RefStrings.MODID + \":hev_plate\");\n\t\thev_legs = new ArmorHEV(aMatHEV, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_legs\").setTextureName(RefStrings.MODID + \":hev_legs\");\n\t\thev_boots = new ArmorHEV(aMatHEV, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000, 10000, 2500, 0).cloneStats((ArmorFSB) hev_helmet).setTranslationKey(\"hev_boots\").setTextureName(RefStrings.MODID + \":hev_boots\");\n"
+        },
+        {
+          "before_offset": 31684,
+          "after_offset": 31820,
+          "old": "\t\tfau_boots = new ArmorDigamma(aMatFau, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setUnlocalizedName(\"fau_boots\").setTextureName(RefStrings.MODID + \":fau_boots\");\n",
+          "new": "\t\tfau_boots = new ArmorDigamma(aMatFau, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 10000000, 10000, 2500, 0).cloneStats((ArmorFSB) fau_helmet).setTranslationKey(\"fau_boots\").setTextureName(RefStrings.MODID + \":fau_boots\");\n"
+        },
+        {
+          "before_offset": 32820,
+          "after_offset": 32955,
+          "old": "\t\tdns_plate = new ArmorDNT(aMatDNS, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setUnlocalizedName(\"dns_plate\").setTextureName(RefStrings.MODID + \":dns_plate\");\n\t\tdns_legs = new ArmorDNT(aMatDNS, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setUnlocalizedName(\"dns_legs\").setTextureName(RefStrings.MODID + \":dns_legs\");\n\t\tdns_boots = new ArmorDNT(aMatDNS, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setUnlocalizedName(\"dns_boots\").setTextureName(RefStrings.MODID + \":dns_boots\");\n",
+          "new": "\t\tdns_plate = new ArmorDNT(aMatDNS, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_plate\").setTextureName(RefStrings.MODID + \":dns_plate\");\n\t\tdns_legs = new ArmorDNT(aMatDNS, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_legs\").setTextureName(RefStrings.MODID + \":dns_legs\");\n\t\tdns_boots = new ArmorDNT(aMatDNS, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\", 1000000000, 1000000, 100000, 115).cloneStats((ArmorFSB) dns_helmet).setTranslationKey(\"dns_boots\").setTextureName(RefStrings.MODID + \":dns_boots\");\n"
+        },
+        {
+          "before_offset": 34115,
+          "after_offset": 34247,
+          "old": "\t\ttaurun_plate = new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setUnlocalizedName(\"taurun_plate\").setTextureName(RefStrings.MODID + \":taurun_plate\");\n\t\ttaurun_legs = new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) taurun_helmet).setUnlocalizedName(\"taurun_legs\").setTextureName(RefStrings.MODID + \":taurun_legs\");\n\t\ttaurun_boots = new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setUnlocalizedName(\"taurun_boots\").setTextureName(RefStrings.MODID + \":taurun_boots\");\n",
+          "new": "\t\ttaurun_plate = new ArmorTaurun(aMatTaurun, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_plate\").setTextureName(RefStrings.MODID + \":taurun_plate\");\n\t\ttaurun_legs = new ArmorTaurun(aMatTaurun, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_legs\").setTextureName(RefStrings.MODID + \":taurun_legs\");\n\t\ttaurun_boots = new ArmorTaurun(aMatTaurun, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) taurun_helmet).setTranslationKey(\"taurun_boots\").setTextureName(RefStrings.MODID + \":taurun_boots\");\n"
+        },
+        {
+          "before_offset": 35249,
+          "after_offset": 35378,
+          "old": "\t\t\t\t.addEffect(new PotionEffect(Potion.moveSpeed.id, 20, 0))\n",
+          "new": "\t\t\t\t.addEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20, 0))\n"
+        },
+        {
+          "before_offset": 35579,
+          "after_offset": 35724,
+          "old": "\t\ttrenchmaster_plate = new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setUnlocalizedName(\"trenchmaster_plate\").setTextureName(RefStrings.MODID + \":trenchmaster_plate\");\n\t\ttrenchmaster_legs = new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setUnlocalizedName(\"trenchmaster_legs\").setTextureName(RefStrings.MODID + \":trenchmaster_legs\");\n\t\ttrenchmaster_boots = new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setUnlocalizedName(\"trenchmaster_boots\").setTextureName(RefStrings.MODID + \":trenchmaster_boots\");\n",
+          "new": "\t\ttrenchmaster_plate = new ArmorTrenchmaster(aMatTrench, 1, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_plate\").setTextureName(RefStrings.MODID + \":trenchmaster_plate\");\n\t\ttrenchmaster_legs = new ArmorTrenchmaster(aMatTrench, 2, RefStrings.MODID + \":textures/armor/starmetal_2.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_legs\").setTextureName(RefStrings.MODID + \":trenchmaster_legs\");\n\t\ttrenchmaster_boots = new ArmorTrenchmaster(aMatTrench, 3, RefStrings.MODID + \":textures/armor/starmetal_1.png\").cloneStats((ArmorFSB) trenchmaster_helmet).setTranslationKey(\"trenchmaster_boots\").setTextureName(RefStrings.MODID + \":trenchmaster_boots\");\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ArmorEnvsuit.java": {
+      "before_sha256": "36ba070cdce042edcb22a65bb000b96174fe3597ab2a436262e609b1154e0254",
+      "after_sha256": "83943b9deb13d5b635827e71700b7d8a7938bdf8e5b6cfcf245dbaac663fc3c9",
+      "edits": [
+        {
+          "before_offset": 2418,
+          "after_offset": 2418,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0));\n"
+        },
+        {
+          "before_offset": 3082,
+          "after_offset": 3103,
+          "old": "\t\t\t\t\tplayer.removePotionEffect(Potion.nightVision.id);\n",
+          "new": "\t\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModBathwater.java": {
+      "before_sha256": "23e86b445596795049136c71e815c965f5f4c0b150ecd627da2c972ff32532f7",
+      "after_sha256": "16c765c0d8f08a5fbd92a5047f2c7f60e6950f69bc6713fe5c8175ab95446ca5",
+      "edits": [
+        {
+          "before_offset": 1959,
+          "after_offset": 1959,
+          "old": "\t\t\t\t\t\t((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(Potion.poison.id, 200, 2));\n",
+          "new": "\t\t\t\t\t\t((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 200, 2));\n"
+        },
+        {
+          "before_offset": 2101,
+          "after_offset": 2121,
+          "old": "\t\t\t\t\t\t((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(Potion.wither.id, 200, 4));\n",
+          "new": "\t\t\t\t\t\t((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 200, 4));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModMorningGlory.java": {
+      "before_sha256": "8c9439b17c1e224cfc9ed3867396caeee5d6612987d1352dab9686494f2ea19c",
+      "after_sha256": "a7c83c6e5d1cab5fffb04f2a079109cfe242e90828b27a17c178f60b97a30ff7",
+      "edits": [
+        {
+          "before_offset": 1220,
+          "after_offset": 1220,
+          "old": "\t\t\tevent.getEntityLiving().addPotionEffect(new PotionEffect(Potion.resistance.id, 100, 4));\n",
+          "new": "\t\t\tevent.getEntityLiving().addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 100, 4));\n"
+        },
+        {
+          "before_offset": 1402,
+          "after_offset": 1422,
+          "old": "\t\tif(!entity.world.isRemote && entity.isPotionActive(Potion.wither.id)) {\n\t\t\tentity.removePotionEffect(Potion.wither.id);\n",
+          "new": "\t\tif(!entity.world.isRemote && entity.isPotionActive(net.minecraft.init.MobEffects.WITHER)) {\n\t\t\tentity.removePotionEffect(net.minecraft.init.MobEffects.WITHER);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModNightVision.java": {
+      "before_sha256": "f198d8f6073c2fd4373f16d4ae14078c509f9e4868afb94d4353d31bfbde12f6",
+      "after_sha256": "c42eb80d381471838acae25831388ef0cadcf4d35ff919f0bd2c95807c417111",
+      "edits": [
+        {
+          "before_offset": 1550,
+          "after_offset": 1550,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0));\n"
+        },
+        {
+          "before_offset": 2211,
+          "after_offset": 2232,
+          "old": "\t\t\t\tentity.removePotionEffect(Potion.nightVision.id);\n",
+          "new": "\t\t\t\tentity.removePotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/armor/ItemModSerum.java": {
+      "before_sha256": "af7c1294a918f0d14c1356249c96210cc43cad1065a1a7c7816a20ae68a34dca",
+      "after_sha256": "14444604cce4f90c5f4c5025916078144f67e002953dbc4966beaf616db1ff6a",
+      "edits": [
+        {
+          "before_offset": 1013,
+          "after_offset": 1013,
+          "old": "\t\tif(!entity.world.isRemote && entity.isPotionActive(Potion.poison.id)) {\n\t\t\tentity.removePotionEffect(Potion.poison.id);\n",
+          "new": "\t\tif(!entity.world.isRemote && entity.isPotionActive(net.minecraft.init.MobEffects.POISON)) {\n\t\t\tentity.removePotionEffect(net.minecraft.init.MobEffects.POISON);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemAppleEuphemium.java": {
+      "before_sha256": "85814be24c724d5761822c72c91f3939c2dda320445a8afcf550d4d0987573fe",
+      "after_sha256": "677d6d3f577ca9a9596d2e1c6a80e14f51a501951cf35737beb8578746dd7090",
+      "edits": [
+        {
+          "before_offset": 937,
+          "after_offset": 937,
+          "old": "            p_77849_3_.addPotionEffect(new PotionEffect(Potion.resistance.id, 2147483647, 120));\n            p_77849_3_.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 2147483647, 0));\n            p_77849_3_.addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 2147483647, 120));\n",
+          "new": "            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2147483647, 120));\n            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 2147483647, 0));\n            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 2147483647, 120));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemAppleSchrabidium.java": {
+      "before_sha256": "2726b1c7c500a12e91a031ef814d2410be7d85599b2e020f3ae35206712d1c9f",
+      "after_sha256": "da526c656d509efb32044a854479966ee5c31d27c63f3db2abeec898a3917667",
+      "edits": [
+        {
+          "before_offset": 1238,
+          "after_offset": 1238,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 600, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 6000, 0));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 6000, 0));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 600, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 6000, 0));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 6000, 0));\n"
+        },
+        {
+          "before_offset": 1529,
+          "after_offset": 1590,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 1200, 0));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 1200, 0));\n"
+        },
+        {
+          "before_offset": 1924,
+          "after_offset": 2046,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 1200, 2));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 1200, 2));\n"
+        },
+        {
+          "before_offset": 2073,
+          "after_offset": 2211,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 1200, 9));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 1200, 9));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 1200, 9));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 1200, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 1200, 9));\n"
+        },
+        {
+          "before_offset": 2368,
+          "after_offset": 2559,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2147483647, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 2147483647, 1));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 2147483647, 0));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 2147483647, 4));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2147483647, 1));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 2147483647, 0));\n"
+        },
+        {
+          "before_offset": 2793,
+          "after_offset": 3045,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2147483647, 3));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 2147483647, 3));\n"
+        },
+        {
+          "before_offset": 2954,
+          "after_offset": 3222,
+          "old": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 2147483647, 24));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 2147483647, 14));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 2147483647, 99));\n",
+          "new": "\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 2147483647, 24));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 2147483647, 14));\n\t\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 2147483647, 99));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemCanteen.java": {
+      "before_sha256": "350e4482f7d060c8dcfb0f1e2b40daa8b6f6e48ea6220bc293f8cd275f590b9e",
+      "after_sha256": "b663a2f83d3e8eb4f5270571442653e0a95295e463d198ba50f7a1e225229d1c",
+      "edits": [
+        {
+          "before_offset": 1068,
+          "after_offset": 1068,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemCottonCandy.java": {
+      "before_sha256": "65bb3e0e89925ef3de2651c368ceb161a82fad3a72bb1fcead48142da13b6dc7",
+      "after_sha256": "52ad606a4eb3231157293ba55855c6af73a655304988006b22ae985078b1bdee",
+      "edits": [
+        {
+          "before_offset": 605,
+          "after_offset": 605,
+          "old": "            p_77849_3_.addPotionEffect(new PotionEffect(Potion.poison.id, 15 * 20, 0));\n            p_77849_3_.addPotionEffect(new PotionEffect(Potion.wither.id, 5 * 20, 0));\n",
+          "new": "            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 15 * 20, 0));\n            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 5 * 20, 0));\n"
+        },
+        {
+          "before_offset": 870,
+          "after_offset": 910,
+          "old": "            p_77849_3_.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 25 * 20, 2));\n            p_77849_3_.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 4));\n",
+          "new": "            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 25 * 20, 2));\n            p_77849_3_.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 4));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemEnergy.java": {
+      "before_sha256": "b211a8ac8418cc8a541053d9989bbbc0e9ff44148a9426c538aa6d70abf65b79",
+      "after_sha256": "03a5aea8872c00752d02c084e28d7bc3dcdd1cbe64c38e0e52aefcad04c1686b",
+      "edits": [
+        {
+          "before_offset": 2103,
+          "after_offset": 2103,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 2387,
+          "after_offset": 2423,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30 * 20, 1));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 30 * 20, 1));\n"
+        },
+        {
+          "before_offset": 2671,
+          "after_offset": 2763,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 2950,
+          "after_offset": 3075,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));\n"
+        },
+        {
+          "before_offset": 3227,
+          "after_offset": 3368,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 3507,
+          "after_offset": 3684,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 3747,
+          "after_offset": 3960,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 3911,
+          "after_offset": 4144,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 3));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 3));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 3));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 3));\n"
+        },
+        {
+          "before_offset": 4111,
+          "after_offset": 4380,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 30 * 20, 0));\n"
+        },
+        {
+          "before_offset": 4229,
+          "after_offset": 4515,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 3 * 60 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 60 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 3 * 60 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 60 * 20, 2));\n"
+        },
+        {
+          "before_offset": 4603,
+          "after_offset": 4929,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n"
+        },
+        {
+          "before_offset": 4927,
+          "after_offset": 5269,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));\n"
+        },
+        {
+          "before_offset": 5470,
+          "after_offset": 5828,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 4));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 4));\n"
+        },
+        {
+          "before_offset": 6011,
+          "after_offset": 6389,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 6417,
+          "after_offset": 6831,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n"
+        },
+        {
+          "before_offset": 6720,
+          "after_offset": 7150,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n"
+        },
+        {
+          "before_offset": 7021,
+          "after_offset": 7487,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 120 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 120 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));\n"
+        },
+        {
+          "before_offset": 7508,
+          "after_offset": 8010,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 120 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 120 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 120 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));\n\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 120 * 20, 0));\n"
+        },
+        {
+          "before_offset": 8076,
+          "after_offset": 8635,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 2));\n"
+        },
+        {
+          "before_offset": 8351,
+          "after_offset": 8926,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemFlask.java": {
+      "before_sha256": "6c76bd96c48cce63f4c1c61fa9718160d863e7cca6ffdd9233f2d40f9b7a0bf3",
+      "after_sha256": "d40f49dbb538f36d5033915638b021af81219d257e28018ec738b9692819fece",
+      "edits": [
+        {
+          "before_offset": 1823,
+          "after_offset": 1823,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20 * 3, 3));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20 * 3, 3));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemLemon.java": {
+      "before_sha256": "057aebf6530da1c089c9f1a1dd2d6e8854086df69ced708a2eb5d7b3d35aaaa8",
+      "after_sha256": "30a9a15c75a1570d9e89dc7f3287a68cc8cdb406c8ff790277c8c236441ccee1",
+      "edits": [
+        {
+          "before_offset": 3515,
+          "after_offset": 3515,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 20 * 20, 1));\n\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20, 2));\n\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 1));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 1));\n\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20, 2));\n\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 1));\n"
+        },
+        {
+          "before_offset": 3870,
+          "after_offset": 3926,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 20 * 20, 2));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20 * 20, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemMuchoMango.java": {
+      "before_sha256": "1d382e1f8db5ac4462528e30877946a78e4a7e801c361e468e7a3d78f248cd21",
+      "after_sha256": "4a18da77eae4d5c0872c3924fb988c947b79858fc1ccc60bd6e3f92ceeb3a82c",
+      "edits": [
+        {
+          "before_offset": 667,
+          "after_offset": 667,
+          "old": "\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 200));\n",
+          "new": "\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 200));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "954f76d7103310485bb148c60a1d2bdcadefa5c61ed3b5d68c63409c91100612",
+      "after_sha256": "bbae33f00337e2ca1131a8d0d4a65df9fd2708c23f8e18f340cbecbb36cb1c2e",
+      "edits": [
+        {
+          "before_offset": 1410,
+          "after_offset": 1410,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.blindness.id);\n\t\t\t\tplayer.removePotionEffect(Potion.confusion.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);\n"
+        },
+        {
+          "before_offset": 1617,
+          "after_offset": 1654,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.moveSlowdown.id);\n\t\t\t\tplayer.removePotionEffect(Potion.poison.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.POISON);\n"
+        },
+        {
+          "before_offset": 1772,
+          "after_offset": 1845,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.wither.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.WITHER);\n"
+        },
+        {
+          "before_offset": 2786,
+          "after_offset": 2879,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));\n"
+        },
+        {
+          "before_offset": 3034,
+          "after_offset": 3144,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.poison.id, 5 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 5 * 20, 2));\n"
+        },
+        {
+          "before_offset": 4521,
+          "after_offset": 4651,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));\n"
+        },
+        {
+          "before_offset": 4827,
+          "after_offset": 4973,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 60, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemSchnitzelVegan.java": {
+      "before_sha256": "45ada53ba56429626d8d3501bdb65c3c14e896d10d7141cefc7452598c4331c7",
+      "after_sha256": "f1180b5ad35fc4bd624a32640bdfec533608522ebd502808bee41c387e396fc7",
+      "edits": [
+        {
+          "before_offset": 546,
+          "after_offset": 546,
+          "old": "        \tplayer.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 0));\n        \tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 0));\n",
+          "new": "        \tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 10 * 20, 0));\n        \tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 30 * 20, 0));\n"
+        },
+        {
+          "before_offset": 799,
+          "after_offset": 836,
+          "old": "        \tplayer.addPotionEffect(new PotionEffect(Potion.wither.id, 3 * 20, 0));\n",
+          "new": "        \tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 3 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "before_sha256": "de9162451b4ffb92ef8825c8c5ce447fa447d31a47a6b9f307cf27e2f6acc342",
+      "after_sha256": "a0b7e7e9ad9f3c184bfd08140e6985d66502fde2815b06fb7bb2e352d57e2413",
+      "edits": [
+        {
+          "before_offset": 1819,
+          "after_offset": 1819,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 200, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemGlitch.java": {
+      "before_sha256": "114eed0fab91a91c66fadaeff118804ffa5422891074ec9b0b3d277893b51903",
+      "after_sha256": "857f96fe84932f5b52747c5fc1106100100189831a0dd0e192eebc091cbe17c3",
+      "edits": [
+        {
+          "before_offset": 5188,
+          "after_offset": 5188,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20, 9));\r\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20, 9));\r\n"
+        },
+        {
+          "before_offset": 5551,
+          "after_offset": 5571,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60 * 20, 9));\r\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60 * 20, 9));\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemPolaroid.java": {
+      "before_sha256": "5ea246ceb2411a81dd5b07d174e1d04e2b4380aa2b18829ae2b475e9ae326fb1",
+      "after_sha256": "072f3a71d92c326704def8c80edd87668ec6010ccc8845ad0bb3e18a2d22b740",
+      "edits": [
+        {
+          "before_offset": 595,
+          "after_offset": 595,
+          "old": "    \t\t\t((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.resistance.id, 10, 2));\n",
+          "new": "    \t\t\t((EntityPlayer) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 10, 2));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSimpleConsumable.java": {
+      "before_sha256": "5e49643fd48e461ea4f80d2d8cd6a2a9d18737c4aeed0a546e341fd0c44d447a",
+      "after_sha256": "111eb266690a7658cb1c351a05dabb384cc83b1172b791eb19798cc49f296267",
+      "edits": [
+        {
+          "before_offset": 8027,
+          "after_offset": 8027,
+          "old": "\t\taffected.addPotionEffect(new PotionEffect(Potion.regeneration.id, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(Potion.resistance.id, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 50 * 20, 0));\n",
+          "new": "\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 50 * 20, 0));\n"
+        },
+        {
+          "before_offset": 8433,
+          "after_offset": 8494,
+          "old": "\t\taffected.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 50 * 20, 6));\n",
+          "new": "\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 50 * 20, 6));\n"
+        },
+        {
+          "before_offset": 8586,
+          "after_offset": 8663,
+          "old": "\t\taffected.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 50 * 20, 4));\n\t\taffected.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 4));\n",
+          "new": "\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 50 * 20, 9));\n\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 50 * 20, 4));\n\t\taffected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 4));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "before_sha256": "54b386405f07ad1eab526bb63792228f5323f4efb4fe6eb9ecf55fe073625565",
+      "after_sha256": "f40bd2e8b2e2f7213a80dcb9095b10a9d78289daf60a542f30b05a024a3fd0b5",
+      "edits": [
+        {
+          "before_offset": 1751,
+          "after_offset": 1751,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 4 * 60 * 20, 2));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 4 * 60 * 20, 2));\n"
+        },
+        {
+          "before_offset": 2409,
+          "after_offset": 2429,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 0));\n"
+        },
+        {
+          "before_offset": 3172,
+          "after_offset": 3212,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 0));\n"
+        },
+        {
+          "before_offset": 3862,
+          "after_offset": 3918,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.blindness.id);\n\t\t\t\tplayer.removePotionEffect(Potion.confusion.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);\n"
+        },
+        {
+          "before_offset": 4069,
+          "after_offset": 4162,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.moveSlowdown.id);\n\t\t\t\tplayer.removePotionEffect(Potion.poison.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);\n\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.POISON);\n"
+        },
+        {
+          "before_offset": 4224,
+          "after_offset": 4353,
+          "old": "\t\t\t\tplayer.removePotionEffect(Potion.wither.id);\n",
+          "new": "\t\t\t\tplayer.removePotionEffect(net.minecraft.init.MobEffects.WITHER);\n"
+        },
+        {
+          "before_offset": 5572,
+          "after_offset": 5721,
+          "old": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));\n",
+          "new": "\t\t\t\tplayer.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));\n"
+        },
+        {
+          "before_offset": 9470,
+          "after_offset": 9636,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.resistance.id, 4 * 60 * 20, 2));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 4 * 60 * 20, 2));\n"
+        },
+        {
+          "before_offset": 10144,
+          "after_offset": 10330,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 0));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 0));\n"
+        },
+        {
+          "before_offset": 10923,
+          "after_offset": 11129,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 0));\n"
+        },
+        {
+          "before_offset": 11621,
+          "after_offset": 11843,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemModMinecart.java": {
+      "before_sha256": "c8105f6866eb4a9ab57112319671f15ab13ed831b5d7a3bbefb93a139cdb389f",
+      "after_sha256": "896a50b99fc41d7c59bf22f9d5c8f4a7001f6ac44b61123de405ca6bce601273",
+      "edits": [
+        {
+          "before_offset": 2447,
+          "after_offset": 2447,
+          "old": "\t\tBlockDispenser.dispenseBehaviorRegistry.putObject(this, dispenseBehavior);\n",
+          "new": "\t\tBlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, dispenseBehavior);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "ab7f0934351072c06b6d0c574be3ad2800eb1e9065e93146bfccb50833374bee",
+      "after_sha256": "37e7920278dba3336572c77dcae00f306b332d97bdf473ab56594b8041b72a07",
+      "edits": [
+        {
+          "before_offset": 2095,
+          "after_offset": 2095,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.blindness.id, 5 * 60 * 20, 0));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 5 * 60 * 20, 0));\n"
+        },
+        {
+          "before_offset": 2194,
+          "after_offset": 2214,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 5 * 60 * 20, 2));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 5 * 60 * 20, 2));\n"
+        },
+        {
+          "before_offset": 2397,
+          "after_offset": 2433,
+          "old": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 1 * 60 * 20, 0));\n",
+          "new": "\t\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 1 * 60 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/Orchestras.java": {
+      "before_sha256": "70cb94556de618b85ca9627a682b9bf514c1a6188d99ed0cf05a49b99e229229",
+      "after_sha256": "1d86ff9205d655b4c2a212970c30d0400f7221186f45ea918da8fd12b2194506",
+      "edits": [
+        {
+          "before_offset": 63800,
+          "after_offset": 63800,
+          "old": "\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));\n",
+          "new": "\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));\n\t\t\t\tentity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/sedna/factory/XFactoryEnergy.java": {
+      "before_sha256": "90ea4a9270811da209b1ace9749325539db0ffd3d6a98238417b7b295a4e39db",
+      "after_sha256": "d640b1de5a371eb9825bc05751010ceed3cfdcfeac34dc7a5076957e8dcc5cb7",
+      "edits": [
+        {
+          "before_offset": 4313,
+          "after_offset": 4313,
+          "old": "\t\t\t\t((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 9));\n",
+          "new": "\t\t\t\t((EntityLivingBase) mop.entityHit).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "1b794ab6dd62f9a1190d588cb7ffeae4bf3f6e2d4da61b6c0dd0c006a19c3569",
+      "after_sha256": "60fd0822fd8ce5c25d927ab2028cb1cdb8127b77f26aa3fdc8ba9368c33e30b2",
+      "edits": [
+        {
+          "before_offset": 13967,
+          "after_offset": 13967,
+          "old": "\t\t\t\t\t\tevent.getEntityLiving().addPotionEffect(new PotionEffect(Potion.resistance.id, 60, 99));\n",
+          "new": "\t\t\t\t\t\tevent.getEntityLiving().addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60, 99));\n"
+        },
+        {
+          "before_offset": 34045,
+          "after_offset": 34065,
+          "old": "\t\t\t\t\tif(((EntityPlayer) player).ridingEntity != null && event.world.getTotalWorldTime() % (1 * 60 * 20) == 0) {\n",
+          "new": "\t\t\t\t\tif(((EntityPlayer) player).getRidingEntity() != null && event.world.getTotalWorldTime() % (1 * 60 * 20) == 0) {\n"
+        },
+        {
+          "before_offset": 34868,
+          "after_offset": 34893,
+          "old": "\t\t\t\t\tif(player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket && player.isSneaking()) {\n\t\t\t\t\t\tEntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;\n",
+          "new": "\t\t\t\t\tif(player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket && player.isSneaking()) {\n\t\t\t\t\t\tEntityRideableRocket rocket = (EntityRideableRocket) player.getRidingEntity();\n"
+        },
+        {
+          "before_offset": 35301,
+          "after_offset": 35341,
+          "old": "\t\t\t\t\t\t\t\tEntity ridingEntity = player.ridingEntity;\n",
+          "new": "\t\t\t\t\t\t\t\tEntity ridingEntity = player.getRidingEntity();\n"
+        },
+        {
+          "before_offset": 51886,
+          "after_offset": 51931,
+          "old": "\t\t\tif(player.world.provider instanceof WorldProviderOrbit && !(player.ridingEntity instanceof EntityRideableRocket)) {\n",
+          "new": "\t\t\tif(player.world.provider instanceof WorldProviderOrbit && !(player.getRidingEntity() instanceof EntityRideableRocket)) {\n"
+        },
+        {
+          "before_offset": 53497,
+          "after_offset": 53547,
+          "old": "\t\t\t\tif(minecraftserver.getAllowNether() && player.ridingEntity == null && player.portalCounter + 1 >= maxTime) {\n",
+          "new": "\t\t\t\tif(minecraftserver.getAllowNether() && player.getRidingEntity() == null && player.portalCounter + 1 >= maxTime) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerClient.java": {
+      "before_sha256": "7f46d0af338c93107676b19cf6ac6b6ec7fffacd4ad28e7df4f9e3fd28f5455e",
+      "after_sha256": "9f8815739a68aa10e7630ef9e59ab09627a8e04269461992f54151e428828364",
+      "edits": [
+        {
+          "before_offset": 21289,
+          "after_offset": 21289,
+          "old": "\t\tPotionEffect invis = player.getActivePotionEffect(Potion.invisibility);\n",
+          "new": "\t\tPotionEffect invis = player.getActivePotionEffect(net.minecraft.init.MobEffects.INVISIBILITY);\n"
+        },
+        {
+          "before_offset": 24233,
+          "after_offset": 24256,
+          "old": "\t\tif(player.getCurrentArmor(2) == null && !player.isPotionActive(Potion.invisibility)) {\n",
+          "new": "\t\tif(player.getCurrentArmor(2) == null && !player.isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY)) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/main/ModEventHandlerRenderer.java": {
+      "before_sha256": "d9d6f3aeea87919f63cda1bc0daed0ffeec8781fcbe863c3d1c0a243318e6af9",
+      "after_sha256": "2bd773b2bdacd766b29f41c6f873c3708ba99a5709324e3863e8df42190181ff",
+      "edits": [
+        {
+          "before_offset": 2479,
+          "after_offset": 2479,
+          "old": "\t\t\tif(player != null && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {\n",
+          "new": "\t\t\tif(player != null && player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket) {\n"
+        },
+        {
+          "before_offset": 2948,
+          "after_offset": 2958,
+          "old": "\t\twasRiding = event.entityPlayer.ridingEntity instanceof EntityRideableRocket;\n",
+          "new": "\t\twasRiding = event.entityPlayer.getRidingEntity() instanceof EntityRideableRocket;\n"
+        },
+        {
+          "before_offset": 3077,
+          "after_offset": 3092,
+          "old": "\t\tGL11.glRotated(-event.entityPlayer.ridingEntity.rotationPitch, 0, 0, 1);\n",
+          "new": "\t\tGL11.glRotated(-event.entityPlayer.getRidingEntity().rotationPitch, 0, 0, 1);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/packet/PermaSyncHandler.java": {
+      "before_sha256": "592289ed2e765e1df770a5c4be0f4da22cb8ebeab0b98cc43cf10731c57da162",
+      "after_sha256": "529a61d7157c206586925e93bcaf60bf03d64ace3fe495b50f285601b7b627b2",
+      "edits": [
+        {
+          "before_offset": 4652,
+          "after_offset": 4652,
+          "old": "\t\tif(player.ridingEntity != null) {\n\t\t\tbuf.writeInt(player.ridingEntity.getEntityId());\n",
+          "new": "\t\tif(player.getRidingEntity() != null) {\n\t\t\tbuf.writeInt(player.getRidingEntity().getEntityId());\n"
+        },
+        {
+          "before_offset": 8376,
+          "after_offset": 8386,
+          "old": "\t\tif(ridingId >= 0 && player.ridingEntity == null) {\n",
+          "new": "\t\tif(ridingId >= 0 && player.getRidingEntity() == null) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/model/ModelArmorWings.java": {
+      "before_sha256": "f161dfe745a31c0c73dce90c1c227b1d154b12fc3603b832dad1f0b59eebddfa",
+      "after_sha256": "c5b08f84a521b6cdb6f8fd53ddbb4846b6f635dfb8b0266ec922c0047667c8b7",
+      "edits": [
+        {
+          "before_offset": 2264,
+          "after_offset": 2264,
+          "old": "\t\tboolean relaxWings = entity.onGround || entity.ridingEntity != null;\n",
+          "new": "\t\tboolean relaxWings = entity.onGround || entity.getRidingEntity() != null;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityDecoBlockAltF.java": {
+      "before_sha256": "beed3f88d81996a26e88d4300f920d81550157a5c493905354c9d7b2e1e13071",
+      "after_sha256": "85d5cd3e335376bff2e85143bcc2b178cf63ab73693d3367554680a2a69503ca",
+      "edits": [
+        {
+          "before_offset": 2047,
+          "after_offset": 2047,
+          "old": "                \t\t((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.heal.id, 5, 99));\n                \t\t((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 5, 99));\n",
+          "new": "                \t\t((EntityPlayer)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.INSTANT_HEALTH, 5, 99));\n                \t\t((EntityPlayer)entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SATURATION, 5, 99));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityGeysir.java": {
+      "before_sha256": "6ca36852e40380fdf083ea16bffd59ba2a17f77f105878287226322838b01122",
+      "after_sha256": "265f0616e2efee6b39bcc1d3941efc2dab06bc6396e411f981d346b83e9fe83b",
+      "edits": [
+        {
+          "before_offset": 2731,
+          "after_offset": 2731,
+          "old": "\t\t\t\t((EntityLivingBase)e).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20, 0));\n",
+          "new": "\t\t\t\t((EntityLivingBase)e).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 20, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/deco/TileEntityLantern.java": {
+      "before_sha256": "241c1d4911ad0cac13f49f62ab38d5937dd2e91353eb4b4267e92fd70f864595",
+      "after_sha256": "8edf90766d5ae44e3a720a0edc59ac6f18e3fc98385ceabae29ebfdcc938c877",
+      "edits": [
+        {
+          "before_offset": 910,
+          "after_offset": 910,
+          "old": "\t\t\t\tglyphid.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0));\n",
+          "new": "\t\t\t\tglyphid.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 100, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityBroadcaster.java": {
+      "before_sha256": "05b75f2e102581b739554d903eff188da89c1d2fedfe3c6b89a04365b6c649b9",
+      "after_sha256": "1c441287b0fbd60889543c1a26731125b9b767a6ec6756ff80ec940d03bdef84",
+      "edits": [
+        {
+          "before_offset": 1328,
+          "after_offset": 1328,
+          "old": "\t\t\t\t\tif(e.getActivePotionEffect(Potion.confusion) == null || e.getActivePotionEffect(Potion.confusion).getDuration() < 100)\n\t\t\t\t\t\te.addPotionEffect(new PotionEffect(Potion.confusion.id, 300, 0));\n",
+          "new": "\t\t\t\t\tif(e.getActivePotionEffect(net.minecraft.init.MobEffects.NAUSEA) == null || e.getActivePotionEffect(net.minecraft.init.MobEffects.NAUSEA).getDuration() < 100)\n\t\t\t\t\t\te.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 300, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityFEL.java": {
+      "before_sha256": "4b5227d454af9eadd57174f1cfd7e3a79f8faf04e7585dad9b475fcf1cfb9ac1",
+      "after_sha256": "e3a8e5e121177a1bc1f9398fbc0310a37dc847b4a902ef3b0fe0d716d63f3028",
+      "edits": [
+        {
+          "before_offset": 4192,
+          "after_offset": 4192,
+          "old": "\t\t\t\t\tcase VISIBLE: entity.addPotionEffect(new PotionEffect(Potion.blindness.id, 60 * 60 * 65536, 0));\n",
+          "new": "\t\t\t\t\tcase VISIBLE: entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 60 * 60 * 65536, 0));\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java": {
+      "before_sha256": "149efbf48ad89b4aa2f322e336d6a43e9622b1fd2dc707a7cea27c2f39317d44",
+      "after_sha256": "4f2e10d672329ad8faefc96d4d464e2b830dc1f14dc3bbcbb3cd5b8c74422606",
+      "edits": [
+        {
+          "before_offset": 3711,
+          "after_offset": 3711,
+          "old": "\t\t\thasRider = hasDocked && docked.riddenByEntity != null;\n",
+          "new": "\t\t\thasRider = hasDocked && docked.isBeingRidden();\n"
+        },
+        {
+          "before_offset": 5812,
+          "after_offset": 5805,
+          "old": "\t\tif(docked == null || docked.riddenByEntity != null) return;\n",
+          "new": "\t\tif(docked == null || docked.isBeingRidden()) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java": {
+      "before_sha256": "28be9cf15be7a8f450e7180252f855708c55c0743326a52b45a17567423d6fb9",
+      "after_sha256": "7f34e25f69b1cf77c2bea9bbf957d5abf6cfbfd54e977850b8397d3503254554",
+      "edits": [
+        {
+          "before_offset": 4958,
+          "after_offset": 4958,
+          "old": "\t\t\thasRider = hasDocked && docked.riddenByEntity != null;\n",
+          "new": "\t\t\thasRider = hasDocked && docked.isBeingRidden();\n"
+        },
+        {
+          "before_offset": 5250,
+          "after_offset": 5243,
+          "old": "\t\tif(docked == null || docked.riddenByEntity != null) return;\n",
+          "new": "\t\tif(docked == null || docked.isBeingRidden()) return;\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/turret/TileEntityTurretBaseNT.java": {
+      "before_sha256": "57c17f9de2655d626e9e26c8bf8c5ea70a8e05f30605c92a9bb3e469fb56dcb2",
+      "after_sha256": "3a14a96198ac6dee7da8f7c8d7bcf5378c2003eaec2395b74ee49bacd92af1c6",
+      "edits": [
+        {
+          "before_offset": 16499,
+          "after_offset": 16499,
+          "old": "\t\tif(!hasThermalVision() && e instanceof EntityLivingBase && ((EntityLivingBase)e).isPotionActive(Potion.invisibility))\n",
+          "new": "\t\tif(!hasThermalVision() && e instanceof EntityLivingBase && ((EntityLivingBase)e).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "eada4ca3d2b311a39e127bf3b4293f25d559254f5a4c9b5323828997892e7469",
+      "after_sha256": "7a2a92b7bbfae144b7dc09bb9259db593c9ce8829c9ff4be189ec8b566d4ada9",
+      "edits": [
+        {
+          "before_offset": 5783,
+          "after_offset": 5783,
+          "old": "\t\tif(source.isFireDamage() && living.isPotionActive(Potion.fireResistance)) return false;\n",
+          "new": "\t\tif(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) return false;\n"
+        },
+        {
+          "before_offset": 10557,
+          "after_offset": 10581,
+          "old": "\t\t\t} else if(source.isFireDamage() && living.isPotionActive(Potion.fireResistance)) {\n",
+          "new": "\t\t\t} else if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) {\n"
+        },
+        {
+          "before_offset": 15696,
+          "after_offset": 15744,
+          "old": "\t\t\tif(living.isPotionActive(Potion.resistance) && source != DamageSource.outOfWorld) {\n\t\t\t\tresistance = (living.getActivePotionEffect(Potion.resistance).getAmplifier() + 1) * 5;\n",
+          "new": "\t\t\tif(living.isPotionActive(net.minecraft.init.MobEffects.RESISTANCE) && source != DamageSource.outOfWorld) {\n\t\t\t\tresistance = (living.getActivePotionEffect(net.minecraft.init.MobEffects.RESISTANCE).getAmplifier() + 1) * 5;\n"
+        },
+        {
+          "before_offset": 18129,
+          "after_offset": 18223,
+          "old": "\t\t\t\t\t\tif(entity == attacker.ridingEntity && !entity.canRiderInteract()) {\n",
+          "new": "\t\t\t\t\t\tif(entity == attacker.getRidingEntity() && !entity.canRiderInteract()) {\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

@@ -1,0 +1,1 @@
+PASS exact cloneStats: 13 assignments, one ignored-result setRadResist invocation, terminal return this, no alternate return or control flow

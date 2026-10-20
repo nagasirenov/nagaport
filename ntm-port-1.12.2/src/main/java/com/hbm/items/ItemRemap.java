@@ -43,7 +43,7 @@ public class ItemRemap extends Item {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(TextFormatting.RED + "Compatibility item, hold in inventory to convert!");
 	}
 }

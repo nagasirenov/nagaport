@@ -1,0 +1,7 @@
+PASS 2518 actual-native assertions: 58 exact selected expressions, seven complete selected methods and one complete lambda; five complete production coordinate collaborators. World/Chunk/redstone paths are native; domain effect sinks and owner shells are bounded fixtures, not full machine gameplay.
+PASS 58 exact call-expression replacements in 47 files; 53 exact whole-file inverses/closure files; prior native/original dispatcher proof hashes verified
+PASS runtime mutant rejected: inverted mode
+PASS runtime mutant rejected: swapped coordinates
+PASS runtime mutant rejected: changed short circuit
+PASS runtime mutant rejected: inverted multi-port predicate
+PASS compiler mutant rejected: no old scalar World API

@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderCompactLauncher extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float p_147500_8_) {
+	public void render(TileEntity tileentity, double x, double y, double z, float p_147500_8_, int nativeDestroyStage, float nativeAlpha) {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y, (float) z + 0.5F);

@@ -25,7 +25,7 @@ public class HazardTypeBlinding extends HazardTypeBase {
 			return;
 
 		if(!ArmorRegistry.hasProtection(target, 3, HazardClass.LIGHT)) {
-			target.addPotionEffect(new PotionEffect(Potion.blindness.id, (int)Math.ceil(level), 0));
+			target.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, (int)Math.ceil(level), 0));
 		}
 	}
 

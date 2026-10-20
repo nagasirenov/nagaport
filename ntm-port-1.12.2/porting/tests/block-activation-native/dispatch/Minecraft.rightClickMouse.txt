@@ -1,0 +1,169 @@
+  private void rightClickMouse();
+    Code:
+       0: aload_0
+       1: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+       4: invokevirtual #2388               // Method net/minecraft/client/multiplayer/PlayerControllerMP.getIsHittingBlock:()Z
+       7: ifne          394
+      10: aload_0
+      11: iconst_4
+      12: putfield      #2390               // Field rightClickDelayTimer:I
+      15: aload_0
+      16: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+      19: invokevirtual #2359               // Method net/minecraft/client/entity/EntityPlayerSP.isRowingBoat:()Z
+      22: ifne          394
+      25: aload_0
+      26: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+      29: ifnonnull     43
+      32: getstatic     #492                // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      35: ldc_w         #2353               // String Null returned as 'hitResult', this shouldn't happen!
+      38: invokeinterface #2393,  2         // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;)V
+      43: invokestatic  #2397               // Method net/minecraft/util/EnumHand.values:()[Lnet/minecraft/util/EnumHand;
+      46: astore_1
+      47: aload_1
+      48: arraylength
+      49: istore_2
+      50: iconst_0
+      51: istore_3
+      52: iload_3
+      53: iload_2
+      54: if_icmpge     394
+      57: aload_1
+      58: iload_3
+      59: aaload
+      60: astore        4
+      62: aload_0
+      63: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+      66: aload         4
+      68: invokevirtual #2403               // Method net/minecraft/client/entity/EntityPlayerSP.getHeldItem:(Lnet/minecraft/util/EnumHand;)Lnet/minecraft/item/ItemStack;
+      71: astore        5
+      73: aload_0
+      74: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+      77: ifnull        307
+      80: getstatic     #2362               // Field net/minecraft/client/Minecraft$16.$SwitchMap$net$minecraft$util$math$RayTraceResult$Type:[I
+      83: aload_0
+      84: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+      87: getfield      #2307               // Field net/minecraft/util/math/RayTraceResult.typeOfHit:Lnet/minecraft/util/math/RayTraceResult$Type;
+      90: invokevirtual #2365               // Method net/minecraft/util/math/RayTraceResult$Type.ordinal:()I
+      93: iaload
+      94: lookupswitch  { // 2
+                     1: 120
+                     2: 178
+               default: 307
+          }
+     120: aload_0
+     121: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+     124: aload_0
+     125: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     128: aload_0
+     129: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     132: getfield      #2368               // Field net/minecraft/util/math/RayTraceResult.entityHit:Lnet/minecraft/entity/Entity;
+     135: aload_0
+     136: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     139: aload         4
+     141: invokevirtual #2409               // Method net/minecraft/client/multiplayer/PlayerControllerMP.interactWithEntity:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/RayTraceResult;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+     144: getstatic     #2415               // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     147: if_acmpne     151
+     150: return
+     151: aload_0
+     152: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+     155: aload_0
+     156: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     159: aload_0
+     160: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     163: getfield      #2368               // Field net/minecraft/util/math/RayTraceResult.entityHit:Lnet/minecraft/entity/Entity;
+     166: aload         4
+     168: invokevirtual #2418               // Method net/minecraft/client/multiplayer/PlayerControllerMP.interactWithEntity:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+     171: getstatic     #2415               // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     174: if_acmpne     307
+     177: return
+     178: aload_0
+     179: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     182: invokevirtual #2314               // Method net/minecraft/util/math/RayTraceResult.getBlockPos:()Lnet/minecraft/util/math/BlockPos;
+     185: astore        6
+     187: aload_0
+     188: getfield      #1064               // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+     191: aload         6
+     193: invokevirtual #2422               // Method net/minecraft/client/multiplayer/WorldClient.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     196: invokeinterface #2428,  1         // InterfaceMethod net/minecraft/block/state/IBlockState.getMaterial:()Lnet/minecraft/block/material/Material;
+     201: getstatic     #2434               // Field net/minecraft/block/material/Material.AIR:Lnet/minecraft/block/material/Material;
+     204: if_acmpeq     307
+     207: aload         5
+     209: invokevirtual #2437               // Method net/minecraft/item/ItemStack.getCount:()I
+     212: istore        7
+     214: aload_0
+     215: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+     218: aload_0
+     219: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     222: aload_0
+     223: getfield      #1064               // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+     226: aload         6
+     228: aload_0
+     229: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     232: getfield      #2324               // Field net/minecraft/util/math/RayTraceResult.sideHit:Lnet/minecraft/util/EnumFacing;
+     235: aload_0
+     236: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     239: getfield      #2441               // Field net/minecraft/util/math/RayTraceResult.hitVec:Lnet/minecraft/util/math/Vec3d;
+     242: aload         4
+     244: invokevirtual #2445               // Method net/minecraft/client/multiplayer/PlayerControllerMP.processRightClickBlock:(Lnet/minecraft/client/entity/EntityPlayerSP;Lnet/minecraft/client/multiplayer/WorldClient;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+     247: astore        8
+     249: aload         8
+     251: getstatic     #2415               // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     254: if_acmpne     307
+     257: aload_0
+     258: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     261: aload         4
+     263: invokevirtual #2344               // Method net/minecraft/client/entity/EntityPlayerSP.swingArm:(Lnet/minecraft/util/EnumHand;)V
+     266: aload         5
+     268: invokevirtual #2446               // Method net/minecraft/item/ItemStack.isEmpty:()Z
+     271: ifne          306
+     274: aload         5
+     276: invokevirtual #2437               // Method net/minecraft/item/ItemStack.getCount:()I
+     279: iload         7
+     281: if_icmpne     294
+     284: aload_0
+     285: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+     288: invokevirtual #2449               // Method net/minecraft/client/multiplayer/PlayerControllerMP.isInCreativeMode:()Z
+     291: ifeq          306
+     294: aload_0
+     295: getfield      #1037               // Field entityRenderer:Lnet/minecraft/client/renderer/EntityRenderer;
+     298: getfield      #2452               // Field net/minecraft/client/renderer/EntityRenderer.itemRenderer:Lnet/minecraft/client/renderer/ItemRenderer;
+     301: aload         4
+     303: invokevirtual #2455               // Method net/minecraft/client/renderer/ItemRenderer.resetEquippedProgress:(Lnet/minecraft/util/EnumHand;)V
+     306: return
+     307: aload         5
+     309: invokevirtual #2446               // Method net/minecraft/item/ItemStack.isEmpty:()Z
+     312: ifeq          344
+     315: aload_0
+     316: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     319: ifnull        335
+     322: aload_0
+     323: getfield      #2303               // Field objectMouseOver:Lnet/minecraft/util/math/RayTraceResult;
+     326: getfield      #2307               // Field net/minecraft/util/math/RayTraceResult.typeOfHit:Lnet/minecraft/util/math/RayTraceResult$Type;
+     329: getstatic     #2458               // Field net/minecraft/util/math/RayTraceResult$Type.MISS:Lnet/minecraft/util/math/RayTraceResult$Type;
+     332: if_acmpne     344
+     335: aload_0
+     336: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     339: aload         4
+     341: invokestatic  #2462               // Method net/minecraftforge/common/ForgeHooks.onEmptyClick:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/util/EnumHand;)V
+     344: aload         5
+     346: invokevirtual #2446               // Method net/minecraft/item/ItemStack.isEmpty:()Z
+     349: ifne          388
+     352: aload_0
+     353: getfield      #2320               // Field playerController:Lnet/minecraft/client/multiplayer/PlayerControllerMP;
+     356: aload_0
+     357: getfield      #1770               // Field player:Lnet/minecraft/client/entity/EntityPlayerSP;
+     360: aload_0
+     361: getfield      #1064               // Field world:Lnet/minecraft/client/multiplayer/WorldClient;
+     364: aload         4
+     366: invokevirtual #2466               // Method net/minecraft/client/multiplayer/PlayerControllerMP.processRightClick:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/EnumHand;)Lnet/minecraft/util/EnumActionResult;
+     369: getstatic     #2415               // Field net/minecraft/util/EnumActionResult.SUCCESS:Lnet/minecraft/util/EnumActionResult;
+     372: if_acmpne     388
+     375: aload_0
+     376: getfield      #1037               // Field entityRenderer:Lnet/minecraft/client/renderer/EntityRenderer;
+     379: getfield      #2452               // Field net/minecraft/client/renderer/EntityRenderer.itemRenderer:Lnet/minecraft/client/renderer/ItemRenderer;
+     382: aload         4
+     384: invokevirtual #2455               // Method net/minecraft/client/renderer/ItemRenderer.resetEquippedProgress:(Lnet/minecraft/util/EnumHand;)V
+     387: return
+     388: iinc          3, 1
+     391: goto          52
+     394: return

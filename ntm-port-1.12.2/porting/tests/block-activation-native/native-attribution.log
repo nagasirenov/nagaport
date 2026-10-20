@@ -1,0 +1,4309 @@
+Compiled from "NativeCase0.java"
+public class NativeCase0 extends ExactHelperFixture {
+  public NativeCase0();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeMan
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase1.java"
+public class NativeCase1 extends ExactHelperFixture {
+  public NativeCase1();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityLaunchTable
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase2.java"
+public class NativeCase2 extends ExactHelperFixture {
+  public NativeCase2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeMike
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase3.java"
+public class NativeCase3 extends ExactHelperFixture {
+  public NativeCase3();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeBoy
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase4.java"
+public class NativeCase4 extends ExactHelperFixture {
+  public NativeCase4();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase5.java"
+public class NativeCase5 extends ExactHelperFixture {
+  public NativeCase5();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityBombMulti
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase6.java"
+public class NativeCase6 extends ExactHelperFixture {
+  public NativeCase6();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeN2
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase7.java"
+public class NativeCase7 extends ExactHelperFixture {
+  public NativeCase7();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeFleija
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase8.java"
+public class NativeCase8 extends ExactHelperFixture {
+  public NativeCase8();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase9.java"
+public class NativeCase9 extends ExactHelperFixture {
+  public NativeCase9();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeTsar
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase10.java"
+public class NativeCase10 extends ExactHelperFixture {
+  public NativeCase10();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeSolinium
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase11.java"
+public class NativeCase11 extends ExactHelperFixture {
+  public NativeCase11();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityCompactLauncher
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase12.java"
+public class NativeCase12 extends ExactHelperFixture {
+  public NativeCase12();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase13.java"
+public class NativeCase13 extends ExactHelperFixture {
+  public NativeCase13();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeGadget
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase14.java"
+public class NativeCase14 extends ExactHelperFixture {
+  public NativeCase14();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityNukeCustom
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase15.java"
+public class NativeCase15 extends ExactHelperFixture {
+  public NativeCase15();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase16.java"
+public class NativeCase16 extends ExactHelperFixture {
+  public NativeCase16();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase17.java"
+public class NativeCase17 extends ExactHelperFixture {
+  public NativeCase17();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase18.java"
+public class NativeCase18 extends ExactHelperFixture {
+  public NativeCase18();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase19.java"
+public class NativeCase19 extends ExactHelperFixture {
+  public NativeCase19();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineSatLinker
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase20.java"
+public class NativeCase20 extends ExactHelperFixture {
+  public NativeCase20();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityReactorControl
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase21.java"
+public class NativeCase21 extends ExactHelperFixture {
+  public NativeCase21();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_0
+      80: ireturn
+}
+Compiled from "NativeCase22.java"
+public class NativeCase22 extends ExactHelperFixture {
+  public NativeCase22();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase23.java"
+public class NativeCase23 extends ExactHelperFixture {
+  public NativeCase23();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase24.java"
+public class NativeCase24 extends ExactHelperFixture {
+  public NativeCase24();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase25.java"
+public class NativeCase25 extends ExactHelperFixture {
+  public NativeCase25();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase26.java"
+public class NativeCase26 extends ExactHelperFixture {
+  public NativeCase26();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_1
+      80: ireturn
+}
+Compiled from "NativeCase27.java"
+public class NativeCase27 extends ExactHelperFixture {
+  public NativeCase27();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineShredder
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase28.java"
+public class NativeCase28 extends ExactHelperFixture {
+  public NativeCase28();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase29.java"
+public class NativeCase29 extends ExactHelperFixture {
+  public NativeCase29();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_1
+      80: ireturn
+}
+Compiled from "NativeCase30.java"
+public class NativeCase30 extends ExactHelperFixture {
+  public NativeCase30();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase31.java"
+public class NativeCase31 extends ExactHelperFixture {
+  public NativeCase31();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase32.java"
+public class NativeCase32 extends ExactHelperFixture {
+  public NativeCase32();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase33.java"
+public class NativeCase33 extends ExactHelperFixture {
+  public NativeCase33();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase34.java"
+public class NativeCase34 extends ExactHelperFixture {
+  public NativeCase34();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase35.java"
+public class NativeCase35 extends ExactHelperFixture {
+  public NativeCase35();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase36.java"
+public class NativeCase36 extends ExactHelperFixture {
+  public NativeCase36();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase37.java"
+public class NativeCase37 extends ExactHelperFixture {
+  public NativeCase37();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase38.java"
+public class NativeCase38 extends ExactHelperFixture {
+  public NativeCase38();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase39.java"
+public class NativeCase39 extends ExactHelperFixture {
+  public NativeCase39();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_0
+      80: ireturn
+}
+Compiled from "NativeCase40.java"
+public class NativeCase40 extends ExactHelperFixture {
+  public NativeCase40();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase41.java"
+public class NativeCase41 extends ExactHelperFixture {
+  public NativeCase41();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityWasteDrum
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase42.java"
+public class NativeCase42 extends ExactHelperFixture {
+  public NativeCase42();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase43.java"
+public class NativeCase43 extends ExactHelperFixture {
+  public NativeCase43();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase44.java"
+public class NativeCase44 extends ExactHelperFixture {
+  public NativeCase44();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          112
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload_1
+      56: new           #8                  // class net/minecraft/util/math/BlockPos
+      59: dup
+      60: aload         13
+      62: iconst_0
+      63: iaload
+      64: aload         13
+      66: iconst_1
+      67: iaload
+      68: aload         13
+      70: iconst_2
+      71: iaload
+      72: invokespecial #9                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      75: invokevirtual #10                 // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      78: checkcast     #11                 // class TileEntityMachineCrystallizer
+      81: astore        14
+      83: aload         14
+      85: ifnull        110
+      88: aload         4
+      90: getstatic     #12                 // Field MainRegistry.instance:Ljava/lang/Object;
+      93: iconst_0
+      94: aload_1
+      95: aload         13
+      97: iconst_0
+      98: iaload
+      99: aload         13
+     101: iconst_1
+     102: iaload
+     103: aload         13
+     105: iconst_2
+     106: iaload
+     107: invokestatic  #13                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+     110: iconst_1
+     111: ireturn
+     112: iconst_0
+     113: ireturn
+}
+Compiled from "NativeCase45.java"
+public class NativeCase45 extends ExactHelperFixture {
+  public NativeCase45();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase46.java"
+public class NativeCase46 extends ExactHelperFixture {
+  public NativeCase46();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase47.java"
+public class NativeCase47 extends ExactHelperFixture {
+  public NativeCase47();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase48.java"
+public class NativeCase48 extends ExactHelperFixture {
+  public NativeCase48();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase49.java"
+public class NativeCase49 extends ExactHelperFixture {
+  public NativeCase49();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_0
+      80: ireturn
+}
+Compiled from "NativeCase50.java"
+public class NativeCase50 extends ExactHelperFixture {
+  public NativeCase50();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineKeyForge
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase51.java"
+public class NativeCase51 extends ExactHelperFixture {
+  public NativeCase51();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase52.java"
+public class NativeCase52 extends ExactHelperFixture {
+  public NativeCase52();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase53.java"
+public class NativeCase53 extends ExactHelperFixture {
+  public NativeCase53();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_1
+      80: ireturn
+}
+Compiled from "NativeCase54.java"
+public class NativeCase54 extends ExactHelperFixture {
+  public NativeCase54();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase55.java"
+public class NativeCase55 extends ExactHelperFixture {
+  public NativeCase55();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineBattery
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase56.java"
+public class NativeCase56 extends ExactHelperFixture {
+  public NativeCase56();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase57.java"
+public class NativeCase57 extends ExactHelperFixture {
+  public NativeCase57();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          112
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload_1
+      56: new           #8                  // class net/minecraft/util/math/BlockPos
+      59: dup
+      60: aload         13
+      62: iconst_0
+      63: iaload
+      64: aload         13
+      66: iconst_1
+      67: iaload
+      68: aload         13
+      70: iconst_2
+      71: iaload
+      72: invokespecial #9                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      75: invokevirtual #10                 // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      78: checkcast     #11                 // class TileEntityMachineReactorBreeding
+      81: astore        14
+      83: aload         14
+      85: ifnull        110
+      88: aload         4
+      90: getstatic     #12                 // Field MainRegistry.instance:Ljava/lang/Object;
+      93: iconst_0
+      94: aload_1
+      95: aload         13
+      97: iconst_0
+      98: iaload
+      99: aload         13
+     101: iconst_1
+     102: iaload
+     103: aload         13
+     105: iconst_2
+     106: iaload
+     107: invokestatic  #13                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+     110: iconst_1
+     111: ireturn
+     112: iconst_0
+     113: ireturn
+}
+Compiled from "NativeCase58.java"
+public class NativeCase58 extends ExactHelperFixture {
+  public NativeCase58();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          112
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload_1
+      56: new           #8                  // class net/minecraft/util/math/BlockPos
+      59: dup
+      60: aload         13
+      62: iconst_0
+      63: iaload
+      64: aload         13
+      66: iconst_1
+      67: iaload
+      68: aload         13
+      70: iconst_2
+      71: iaload
+      72: invokespecial #9                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      75: invokevirtual #10                 // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      78: checkcast     #11                 // class TileEntityMachinePlasmaHeater
+      81: astore        14
+      83: aload         14
+      85: ifnull        110
+      88: aload         4
+      90: getstatic     #12                 // Field MainRegistry.instance:Ljava/lang/Object;
+      93: iconst_0
+      94: aload_1
+      95: aload         13
+      97: iconst_0
+      98: iaload
+      99: aload         13
+     101: iconst_1
+     102: iaload
+     103: aload         13
+     105: iconst_2
+     106: iaload
+     107: invokestatic  #13                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+     110: iconst_1
+     111: ireturn
+     112: iconst_0
+     113: ireturn
+}
+Compiled from "NativeCase59.java"
+public class NativeCase59 extends ExactHelperFixture {
+  public NativeCase59();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase60.java"
+public class NativeCase60 extends ExactHelperFixture {
+  public NativeCase60();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase61.java"
+public class NativeCase61 extends ExactHelperFixture {
+  public NativeCase61();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_0
+      80: ireturn
+}
+Compiled from "NativeCase62.java"
+public class NativeCase62 extends ExactHelperFixture {
+  public NativeCase62();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase63.java"
+public class NativeCase63 extends ExactHelperFixture {
+  public NativeCase63();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase64.java"
+public class NativeCase64 extends ExactHelperFixture {
+  public NativeCase64();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase65.java"
+public class NativeCase65 extends ExactHelperFixture {
+  public NativeCase65();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase66.java"
+public class NativeCase66 extends ExactHelperFixture {
+  public NativeCase66();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase67.java"
+public class NativeCase67 extends ExactHelperFixture {
+  public NativeCase67();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase68.java"
+public class NativeCase68 extends ExactHelperFixture {
+  public NativeCase68();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_0
+      80: ireturn
+}
+Compiled from "NativeCase69.java"
+public class NativeCase69 extends ExactHelperFixture {
+  public NativeCase69();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase70.java"
+public class NativeCase70 extends ExactHelperFixture {
+  public NativeCase70();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase71.java"
+public class NativeCase71 extends ExactHelperFixture {
+  public NativeCase71();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase72.java"
+public class NativeCase72 extends ExactHelperFixture {
+  public NativeCase72();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase73.java"
+public class NativeCase73 extends ExactHelperFixture {
+  public NativeCase73();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_1
+      80: ireturn
+}
+Compiled from "NativeCase74.java"
+public class NativeCase74 extends ExactHelperFixture {
+  public NativeCase74();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase75.java"
+public class NativeCase75 extends ExactHelperFixture {
+  public NativeCase75();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase76.java"
+public class NativeCase76 extends ExactHelperFixture {
+  public NativeCase76();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase77.java"
+public class NativeCase77 extends ExactHelperFixture {
+  public NativeCase77();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          112
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload_1
+      56: new           #8                  // class net/minecraft/util/math/BlockPos
+      59: dup
+      60: aload         13
+      62: iconst_0
+      63: iaload
+      64: aload         13
+      66: iconst_1
+      67: iaload
+      68: aload         13
+      70: iconst_2
+      71: iaload
+      72: invokespecial #9                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      75: invokevirtual #10                 // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      78: checkcast     #11                 // class TileEntityITER
+      81: astore        14
+      83: aload         14
+      85: ifnull        110
+      88: aload         4
+      90: getstatic     #12                 // Field MainRegistry.instance:Ljava/lang/Object;
+      93: iconst_0
+      94: aload_1
+      95: aload         13
+      97: iconst_0
+      98: iaload
+      99: aload         13
+     101: iconst_1
+     102: iaload
+     103: aload         13
+     105: iconst_2
+     106: iaload
+     107: invokestatic  #13                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+     110: iconst_1
+     111: ireturn
+     112: iconst_0
+     113: ireturn
+}
+Compiled from "NativeCase78.java"
+public class NativeCase78 extends ExactHelperFixture {
+  public NativeCase78();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase79.java"
+public class NativeCase79 extends ExactHelperFixture {
+  public NativeCase79();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineSiren
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase80.java"
+public class NativeCase80 extends ExactHelperFixture {
+  public NativeCase80();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_m1
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase81.java"
+public class NativeCase81 extends ExactHelperFixture {
+  public NativeCase81();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase82.java"
+public class NativeCase82 extends ExactHelperFixture {
+  public NativeCase82();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          80
+      35: aload_1
+      36: new           #7                  // class net/minecraft/util/math/BlockPos
+      39: dup
+      40: iload         10
+      42: iload         11
+      44: iload         12
+      46: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      49: invokevirtual #9                  // Method net/minecraft/world/World.getTileEntity:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      52: checkcast     #10                 // class TileEntityMachineSatDock
+      55: astore        13
+      57: aload         13
+      59: ifnull        78
+      62: aload         4
+      64: getstatic     #11                 // Field MainRegistry.instance:Ljava/lang/Object;
+      67: iconst_0
+      68: aload_1
+      69: iload         10
+      71: iload         11
+      73: iload         12
+      75: invokestatic  #12                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      78: iconst_1
+      79: ireturn
+      80: iconst_0
+      81: ireturn
+}
+Compiled from "NativeCase83.java"
+public class NativeCase83 extends ExactHelperFixture {
+  public NativeCase83();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          79
+      35: aload_0
+      36: aload_1
+      37: iload         10
+      39: iload         11
+      41: iload         12
+      43: invokevirtual #7                  // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      46: astore        13
+      48: aload         13
+      50: ifnonnull     55
+      53: iconst_0
+      54: ireturn
+      55: aload         4
+      57: getstatic     #8                  // Field MainRegistry.instance:Ljava/lang/Object;
+      60: iconst_0
+      61: aload_1
+      62: aload         13
+      64: iconst_0
+      65: iaload
+      66: aload         13
+      68: iconst_1
+      69: iaload
+      70: aload         13
+      72: iconst_2
+      73: iaload
+      74: invokestatic  #9                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      77: iconst_1
+      78: ireturn
+      79: iconst_1
+      80: ireturn
+}
+Compiled from "NativeCase84.java"
+public class NativeCase84 extends ExactHelperFixture {
+  public NativeCase84();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase85.java"
+public class NativeCase85 extends ExactHelperFixture {
+  public NativeCase85();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: iconst_0
+       1: ireturn
+}
+Compiled from "NativeCase86.java"
+public class NativeCase86 extends ExactHelperFixture {
+  public NativeCase86();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase87.java"
+public class NativeCase87 extends ExactHelperFixture {
+  public NativeCase87();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase88.java"
+public class NativeCase88 extends ExactHelperFixture {
+  public NativeCase88();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase89.java"
+public class NativeCase89 extends ExactHelperFixture {
+  public NativeCase89();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase90.java"
+public class NativeCase90 extends ExactHelperFixture {
+  public NativeCase90();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase91.java"
+public class NativeCase91 extends NativeCase92 {
+  public NativeCase91();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NativeCase92."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: iconst_0
+       1: ireturn
+}
+Compiled from "NativeCase92.java"
+public class NativeCase92 extends ExactHelperFixture {
+  public NativeCase92();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase93.java"
+public class NativeCase93 extends ExactHelperFixture {
+  public NativeCase93();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase94.java"
+public class NativeCase94 extends ExactHelperFixture {
+  public NativeCase94();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase95.java"
+public class NativeCase95 extends ExactHelperFixture {
+  public NativeCase95();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_1
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifeq          27
+      25: iconst_1
+      26: ireturn
+      27: aload         4
+      29: invokevirtual #6                  // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      32: ifne          53
+      35: aload         4
+      37: getstatic     #7                  // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iconst_0
+      41: aload_1
+      42: iload         10
+      44: iload         11
+      46: iload         12
+      48: invokestatic  #8                  // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      51: iconst_1
+      52: ireturn
+      53: iconst_0
+      54: ireturn
+}
+Compiled from "NativeCase96.java"
+public class NativeCase96 extends ExactHelperFixture {
+  public NativeCase96();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase97.java"
+public class NativeCase97 extends ExactHelperFixture {
+  public NativeCase97();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase98.java"
+public class NativeCase98 extends ExactHelperFixture {
+  public NativeCase98();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokespecial #5                  // Method ExactHelperFixture.standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase99.java"
+public class NativeCase99 extends ExactHelperFixture {
+  public NativeCase99();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload_0
+      19: aload_1
+      20: iload         10
+      22: iload         11
+      24: iload         12
+      26: aload         4
+      28: iconst_0
+      29: invokevirtual #5                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      32: ireturn
+}
+Compiled from "NativeCase100.java"
+public class NativeCase100 extends ExactHelperFixture {
+  public NativeCase100();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase101.java"
+public class NativeCase101 extends ExactHelperFixture {
+  public NativeCase101();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase102.java"
+public class NativeCase102 extends ExactHelperFixture {
+  public NativeCase102();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase103.java"
+public class NativeCase103 extends ExactHelperFixture {
+  public NativeCase103();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "NativeCase104.java"
+public class NativeCase104 extends ExactHelperFixture {
+  public NativeCase104();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ExactHelperFixture."<init>":()V
+       4: return
+
+  public boolean onBlockActivated(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float);
+    Code:
+       0: aload_2
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        10
+       6: aload_2
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        11
+      12: aload_2
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        12
+      18: aload         6
+      20: invokevirtual #5                  // Method net/minecraft/util/EnumFacing.getIndex:()I
+      23: istore        13
+      25: aload_0
+      26: aload_1
+      27: iload         10
+      29: iload         11
+      31: iload         12
+      33: aload         4
+      35: iload         13
+      37: invokevirtual #6                  // Method standardOpenBehavior:(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;I)Z
+      40: ireturn
+}
+Compiled from "ExactHelperFixture.java"
+public class ExactHelperFixture extends net.minecraft.block.Block {
+  public static final net.minecraft.block.properties.PropertyInteger METADATA;
+
+  public static final int offset;
+
+  public static final int extra;
+
+  java.util.List<com.hbm.handler.ThreeInts> positions;
+
+  public ExactHelperFixture();
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field net/minecraft/block/material/Material.ROCK:Lnet/minecraft/block/material/Material;
+       4: invokespecial #2                  // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/material/Material;)V
+       7: aload_0
+       8: new           #3                  // class java/util/ArrayList
+      11: dup
+      12: invokespecial #4                  // Method java/util/ArrayList."<init>":()V
+      15: putfield      #5                  // Field positions:Ljava/util/List;
+      18: return
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: new           #6                  // class net/minecraft/block/state/BlockStateContainer
+       3: dup
+       4: aload_0
+       5: iconst_1
+       6: anewarray     #7                  // class net/minecraft/block/properties/IProperty
+       9: dup
+      10: iconst_0
+      11: getstatic     #8                  // Field METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+      14: aastore
+      15: invokespecial #9                  // Method net/minecraft/block/state/BlockStateContainer."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;)V
+      18: areturn
+
+  public net.minecraft.block.state.IBlockState getStateFromMeta(int);
+    Code:
+       0: aload_0
+       1: invokevirtual #10                 // Method getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+       4: getstatic     #8                  // Field METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+       7: iload_1
+       8: bipush        15
+      10: iand
+      11: invokestatic  #11                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      14: invokeinterface #12,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      19: areturn
+
+  public int getMetaFromState(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_1
+       1: getstatic     #8                  // Field METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+       4: invokeinterface #13,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+       9: checkcast     #14                 // class java/lang/Integer
+      12: invokevirtual #15                 // Method java/lang/Integer.intValue:()I
+      15: ireturn
+
+  private static int metadata(net.minecraft.world.IBlockAccess, int, int, int);
+    Code:
+       0: aload_0
+       1: new           #16                 // class net/minecraft/util/math/BlockPos
+       4: dup
+       5: iload_1
+       6: iload_2
+       7: iload_3
+       8: invokespecial #17                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      11: invokeinterface #18,  2           // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      16: astore        4
+      18: aload         4
+      20: invokeinterface #19,  1           // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      25: aload         4
+      27: invokevirtual #20                 // Method net/minecraft/block/Block.getMetaFromState:(Lnet/minecraft/block/state/IBlockState;)I
+      30: ireturn
+
+  public int[] findCore(net.minecraft.world.IBlockAccess, int, int, int);
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field positions:Ljava/util/List;
+       4: invokeinterface #21,  1           // InterfaceMethod java/util/List.clear:()V
+       9: aload_0
+      10: aload_1
+      11: iload_2
+      12: iload_3
+      13: iload         4
+      15: invokevirtual #22                 // Method findCoreRec:(Lnet/minecraft/world/IBlockAccess;III)[I
+      18: areturn
+
+  public int[] findCoreRec(net.minecraft.world.IBlockAccess, int, int, int);
+    Code:
+       0: new           #23                 // class com/hbm/handler/ThreeInts
+       3: dup
+       4: iload_2
+       5: iload_3
+       6: iload         4
+       8: invokespecial #24                 // Method com/hbm/handler/ThreeInts."<init>":(III)V
+      11: astore        5
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: invokestatic  #25                 // Method metadata:(Lnet/minecraft/world/IBlockAccess;III)I
+      21: istore        6
+      23: iload         6
+      25: bipush        6
+      27: if_icmplt     33
+      30: iinc          6, -6
+      33: aload_1
+      34: new           #16                 // class net/minecraft/util/math/BlockPos
+      37: dup
+      38: iload_2
+      39: iload_3
+      40: iload         4
+      42: invokespecial #17                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      45: invokeinterface #18,  2           // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+      50: invokeinterface #19,  1           // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      55: aload_0
+      56: if_acmpne     87
+      59: iload         6
+      61: invokestatic  #27                 // Method com/hbm/lib/ForgeDirection.getOrientation:(I)Lcom/hbm/lib/ForgeDirection;
+      64: getstatic     #28                 // Field com/hbm/lib/ForgeDirection.UNKNOWN:Lcom/hbm/lib/ForgeDirection;
+      67: if_acmpne     87
+      70: iconst_3
+      71: newarray       int
+      73: dup
+      74: iconst_0
+      75: iload_2
+      76: iastore
+      77: dup
+      78: iconst_1
+      79: iload_3
+      80: iastore
+      81: dup
+      82: iconst_2
+      83: iload         4
+      85: iastore
+      86: areturn
+      87: aload_0
+      88: getfield      #5                  // Field positions:Ljava/util/List;
+      91: aload         5
+      93: invokeinterface #29,  2           // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+      98: ifeq          103
+     101: aconst_null
+     102: areturn
+     103: iload         6
+     105: invokestatic  #27                 // Method com/hbm/lib/ForgeDirection.getOrientation:(I)Lcom/hbm/lib/ForgeDirection;
+     108: invokevirtual #30                 // Method com/hbm/lib/ForgeDirection.getOpposite:()Lcom/hbm/lib/ForgeDirection;
+     111: astore        7
+     113: aload_1
+     114: new           #16                 // class net/minecraft/util/math/BlockPos
+     117: dup
+     118: iload_2
+     119: aload         7
+     121: getfield      #31                 // Field com/hbm/lib/ForgeDirection.offsetX:I
+     124: iadd
+     125: iload_3
+     126: aload         7
+     128: getfield      #32                 // Field com/hbm/lib/ForgeDirection.offsetY:I
+     131: iadd
+     132: iload         4
+     134: aload         7
+     136: getfield      #33                 // Field com/hbm/lib/ForgeDirection.offsetZ:I
+     139: iadd
+     140: invokespecial #17                 // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+     143: invokeinterface #18,  2           // InterfaceMethod net/minecraft/world/IBlockAccess.getBlockState:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+     148: invokeinterface #19,  1           // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     153: astore        8
+     155: aload         8
+     157: aload_0
+     158: if_acmpeq     163
+     161: aconst_null
+     162: areturn
+     163: aload_0
+     164: getfield      #5                  // Field positions:Ljava/util/List;
+     167: aload         5
+     169: invokeinterface #34,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     174: pop
+     175: aload_0
+     176: aload_1
+     177: iload_2
+     178: aload         7
+     180: getfield      #31                 // Field com/hbm/lib/ForgeDirection.offsetX:I
+     183: iadd
+     184: iload_3
+     185: aload         7
+     187: getfield      #32                 // Field com/hbm/lib/ForgeDirection.offsetY:I
+     190: iadd
+     191: iload         4
+     193: aload         7
+     195: getfield      #33                 // Field com/hbm/lib/ForgeDirection.offsetZ:I
+     198: iadd
+     199: invokevirtual #22                 // Method findCoreRec:(Lnet/minecraft/world/IBlockAccess;III)[I
+     202: areturn
+
+  protected boolean standardOpenBehavior(net.minecraft.world.World, int, int, int, net.minecraft.entity.player.EntityPlayer, int);
+    Code:
+       0: aload_1
+       1: getfield      #35                 // Field net/minecraft/world/World.isRemote:Z
+       4: ifeq          9
+       7: iconst_1
+       8: ireturn
+       9: aload         5
+      11: invokevirtual #36                 // Method net/minecraft/entity/player/EntityPlayer.isSneaking:()Z
+      14: ifne          60
+      17: aload_0
+      18: aload_1
+      19: iload_2
+      20: iload_3
+      21: iload         4
+      23: invokevirtual #37                 // Method findCore:(Lnet/minecraft/world/IBlockAccess;III)[I
+      26: astore        7
+      28: aload         7
+      30: ifnonnull     35
+      33: iconst_0
+      34: ireturn
+      35: aload         5
+      37: getstatic     #38                 // Field MainRegistry.instance:Ljava/lang/Object;
+      40: iload         6
+      42: aload_1
+      43: aload         7
+      45: iconst_0
+      46: iaload
+      47: aload         7
+      49: iconst_1
+      50: iaload
+      51: aload         7
+      53: iconst_2
+      54: iaload
+      55: invokestatic  #39                 // Method net/minecraftforge/fml/common/network/internal/FMLNetworkHandler.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/world/World;III)V
+      58: iconst_1
+      59: ireturn
+      60: iconst_1
+      61: ireturn
+
+  static {};
+    Code:
+       0: ldc           #40                 // String metadata
+       2: iconst_0
+       3: bipush        15
+       5: invokestatic  #41                 // Method net/minecraft/block/properties/PropertyInteger.create:(Ljava/lang/String;II)Lnet/minecraft/block/properties/PropertyInteger;
+       8: putstatic     #8                  // Field METADATA:Lnet/minecraft/block/properties/PropertyInteger;
+      11: return
+}

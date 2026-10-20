@@ -58,7 +58,7 @@ public class ItemCigarette extends Item  {
 
 			if(this == ModItems.crackpipe) {
 				HbmLivingProps.incrementBlackLung(player, 500);
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 200, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 200, 0));
 				player.heal(10F);
 			}
 
@@ -77,7 +77,7 @@ public class ItemCigarette extends Item  {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		if(this == ModItems.cigarette) {
 			list.add(TextFormatting.RED + "✓ Asbestos filter");

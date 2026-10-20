@@ -60,7 +60,7 @@ public class ItemFlask extends ItemEnumMulti {
 		if(stack.getItemDamage() == EnumInfusion.NITAN.ordinal()) {
 			props.nitanCount = props.nitanCount + 1;
 			player.addPotionEffect(new PotionEffect(HbmPotion.nitan.id, 60 * 20 * 3, 0));
-			player.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20 * 3, 3));
+			player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20 * 3, 3));
 			
 		}
 		

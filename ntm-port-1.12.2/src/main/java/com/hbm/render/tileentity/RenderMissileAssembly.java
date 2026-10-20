@@ -17,7 +17,7 @@ public class RenderMissileAssembly extends TileEntitySpecialRenderer {
 	public RenderMissileAssembly() { }
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
+	public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		
 		if(!(tileentity instanceof TileEntityMachineMissileAssembly))
 			return;

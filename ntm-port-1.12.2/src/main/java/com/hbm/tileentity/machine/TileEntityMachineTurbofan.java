@@ -167,7 +167,7 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 			boolean redstone = false;
 
 			for(DirPos pos : getConPos()) {
-				if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) {
+				if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))) {
 					redstone = true;
 					break;
 				}

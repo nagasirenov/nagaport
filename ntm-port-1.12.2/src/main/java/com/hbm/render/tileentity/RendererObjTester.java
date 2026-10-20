@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public class RendererObjTester extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
+	public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y + 0.2, z + 0.5);
 		GL11.glDisable(GL11.GL_CULL_FACE);

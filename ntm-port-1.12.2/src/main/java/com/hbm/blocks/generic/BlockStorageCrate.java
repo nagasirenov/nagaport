@@ -169,8 +169,8 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 			if(inv instanceof TileEntityCrateBase) {
 				TileEntityCrateBase crate = (TileEntityCrateBase) inv;
-				if (crate.hasCustomInventoryName()) {
-					drop.setStackDisplayName(crate.getInventoryName());
+				if (crate.hasCustomName()) {
+					drop.setStackDisplayName(crate.getName());
 				}
 			}
 
@@ -392,9 +392,9 @@ public class BlockStorageCrate extends BlockContainer implements IBlockMulti, IL
 
 		IInventory inv = (IInventory) te;
 
-		if (!inv.hasCustomInventoryName())
+		if (!inv.hasCustomName())
 			return;
 		
-		ILookOverlay.printGeneric(event, inv.getInventoryName(), 0xffff00, 0x404000, new ArrayList<String>(0));
+		ILookOverlay.printGeneric(event, inv.getName(), 0xffff00, 0x404000, new ArrayList<String>(0));
 	}
 }

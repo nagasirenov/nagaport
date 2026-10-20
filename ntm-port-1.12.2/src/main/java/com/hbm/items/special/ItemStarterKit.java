@@ -436,7 +436,7 @@ public class ItemStarterKit extends Item {
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean b) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		if(this == ModItems.nuke_starter_kit ||
 				this == ModItems.nuke_advanced_kit ||

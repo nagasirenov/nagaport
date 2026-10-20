@@ -1,0 +1,20 @@
+import java.io.*;import java.net.*;import java.lang.reflect.*;import net.minecraft.block.*;import net.minecraft.block.material.Material;
+public class SoundSetterTest {
+ static void check(boolean c,String m){if(!c)throw new AssertionError(m);}
+ static class Receiver extends Block {Receiver(){super(Material.ROCK);} Block apply(SoundType s){return setSoundType(s);} void crop(){CROP} void graphite(){GRAPHITE}}
+ static class Override extends Receiver {int calls;Block returned;public Block setSoundType(SoundType s){calls++;super.setSoundType(s);return returned==null?this:returned;}}
+ static int evaluated;static SoundType arg(SoundType s){evaluated++;return s;}
+ public static void main(String[] a)throws Exception{
+  net.minecraft.init.Bootstrap.register();
+  Receiver r=new Receiver();SoundType metal=com.hbm.blocks.ModSoundTypes.legacyMetal;
+  check(metal.getBreakSound()==SoundType.STONE.getBreakSound()&&metal.getStepSound()==SoundType.STONE.getStepSound()&&metal.getPlaceSound()==SoundType.STONE.getPlaceSound(),"original metal stone event family");
+  for(SoundType sound:new SoundType[]{SoundType.PLANT,metal,SoundType.GLASS,null}){check(r.apply(arg(sound))==r,"native return identity");check(r.getSoundType()==sound,"native sound identity");}
+  r.crop();check(r.getSoundType()==SoundType.PLANT,"production crop setter");r.graphite();check(r.getSoundType()==com.hbm.blocks.ModSoundTypes.legacyMetal,"production graphite setter");
+  check(evaluated==4,"argument exactly once");Override custom=new Override();Receiver other=new Receiver();custom.returned=other;check(custom.setSoundType(metal)==other&&custom.calls==1&&custom.getSoundType()==metal,"virtual override/result preserved");
+  URLClassLoader legacy=new URLClassLoader(new URL[]{new File(a[0]).toURI().toURL()},SoundSetterTest.class.getClassLoader());Class<?> block=Class.forName("aji",true,legacy),mat=Class.forName("awt",true,legacy),sound=Class.forName("ajm",true,legacy);Constructor<?> ctor=block.getDeclaredConstructor(mat);ctor.setAccessible(true);Object old=ctor.newInstance(mat.getField("e").get(null));Method setter=block.getDeclaredMethod("a",sound);setter.setAccessible(true);Field field=block.getDeclaredField("H");field.setAccessible(true);
+  Object grass=null,oldMetal=null;for(Field f:block.getFields())if(f.getType()==sound&&Modifier.isStatic(f.getModifiers())){Object v=f.get(null);String name=(String)sound.getMethod("a").invoke(v);float pitch=(Float)sound.getMethod("d").invoke(v);if(name.equals("dig.grass"))grass=v;if(name.equals("dig.stone")&&pitch==1.5F)oldMetal=v;}
+  check(grass!=null&&oldMetal!=null,"legacy sound categories");for(Object v:new Object[]{grass,oldMetal,null})check(setter.invoke(old,v)==old&&field.get(old)==v,"unmodified original setter identity/null");
+  check((Float)sound.getMethod("c").invoke(grass)==SoundType.PLANT.getVolume()&&(Float)sound.getMethod("d").invoke(grass)==SoundType.PLANT.getPitch(),"plant parameters");check((Float)sound.getMethod("c").invoke(oldMetal)==metal.getVolume()&&(Float)sound.getMethod("d").invoke(oldMetal)==metal.getPitch(),"legacy metal parameters");
+  System.out.println("PASS native protected subclass invocation, stored/reference/return/null semantics, argument-once, virtual override return; unmodified original 1.7 Block setter and original grass/metal parameters.");
+ }
+}

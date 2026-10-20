@@ -132,7 +132,7 @@ public class EntityDamageUtil {
 
 		living.entityAge = 0;
 		if(living.getHealth() <= 0.0F) return false;
-		if(source.isFireDamage() && living.isPotionActive(Potion.fireResistance)) return false;
+		if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) return false;
 
 		living.limbSwingAmount = 1.5F;
 		boolean didAttackRegister = true;
@@ -271,7 +271,7 @@ public class EntityDamageUtil {
 
 			if(living.getHealth() <= 0.0F) {
 				return false;
-			} else if(source.isFireDamage() && living.isPotionActive(Potion.fireResistance)) {
+			} else if(source.isFireDamage() && living.isPotionActive(net.minecraft.init.MobEffects.FIRE_RESISTANCE)) {
 				return false;
 			} else {
 				if((source == DamageSource.anvil || source == DamageSource.fallingBlock) && living.getEquipmentInSlot(4) != null) {
@@ -425,8 +425,8 @@ public class EntityDamageUtil {
 			int j;
 			float f1;
 
-			if(living.isPotionActive(Potion.resistance) && source != DamageSource.outOfWorld) {
-				resistance = (living.getActivePotionEffect(Potion.resistance).getAmplifier() + 1) * 5;
+			if(living.isPotionActive(net.minecraft.init.MobEffects.RESISTANCE) && source != DamageSource.outOfWorld) {
+				resistance = (living.getActivePotionEffect(net.minecraft.init.MobEffects.RESISTANCE).getAmplifier() + 1) * 5;
 				j = 25 - resistance;
 				f1 = amount * (float) j;
 				amount = f1 / 25.0F;
@@ -498,7 +498,7 @@ public class EntityDamageUtil {
 					double dist = pos.distanceTo(movingobjectposition.hitVec);
 
 					if(dist < closest || closest == 0.0D) {
-						if(entity == attacker.ridingEntity && !entity.canRiderInteract()) {
+						if(entity == attacker.getRidingEntity() && !entity.canRiderInteract()) {
 							if(closest == 0.0D) {
 								pointedEntity = entity;
 								hitvec = movingobjectposition.hitVec;

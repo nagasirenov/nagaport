@@ -55,7 +55,7 @@ public class ItemSyringe extends Item {
 
 		if(this == ModItems.syringe_metal_medx && !VersatileConfig.hasPotionSickness(player)) {
 			if(!world.isRemote) {
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 4 * 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 4 * 60 * 20, 2));
 
 				stack.stackSize--;
 				world.playSoundAtEntity(player, "hbm:item.syringe", 1.0F, 1.0F);
@@ -74,7 +74,7 @@ public class ItemSyringe extends Item {
 
 		if(this == ModItems.syringe_metal_psycho && !VersatileConfig.hasPotionSickness(player)) {
 			if(!world.isRemote) {
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 0));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2 * 60 * 20, 0));
 
 				stack.stackSize--;
@@ -95,7 +95,7 @@ public class ItemSyringe extends Item {
 		if(this == ModItems.syringe_metal_super && !VersatileConfig.hasPotionSickness(player)) {
 			if(!world.isRemote) {
 				player.heal(25);
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 0));
 
 				stack.stackSize--;
 				world.playSoundAtEntity(player, "hbm:item.syringe", 1.0F, 1.0F);
@@ -116,14 +116,14 @@ public class ItemSyringe extends Item {
 			if(!world.isRemote) {
 				player.setHealth(player.getMaxHealth());
 
-				player.removePotionEffect(Potion.blindness.id);
-				player.removePotionEffect(Potion.confusion.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);
+				player.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);
 				player.removePotionEffect(Potion.digSlowdown.id);
 				player.removePotionEffect(Potion.hunger.id);
-				player.removePotionEffect(Potion.moveSlowdown.id);
-				player.removePotionEffect(Potion.poison.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);
+				player.removePotionEffect(net.minecraft.init.MobEffects.POISON);
 				player.removePotionEffect(Potion.weakness.id);
-				player.removePotionEffect(Potion.wither.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.WITHER);
 				player.removePotionEffect(HbmPotion.radiation.id);
 
 				VersatileConfig.applyPotionSickness(player, 15);
@@ -171,7 +171,7 @@ public class ItemSyringe extends Item {
 		if(this == ModItems.syringe_taint) {
 			if(!world.isRemote) {
 				player.addPotionEffect(new PotionEffect(HbmPotion.taint.id, 60 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));
 
 				stack.stackSize--;
 				world.playSoundAtEntity(player, "hbm:item.syringe", 1.0F, 1.0F);
@@ -288,7 +288,7 @@ public class ItemSyringe extends Item {
 
 		if(this == ModItems.syringe_metal_medx && !VersatileConfig.hasPotionSickness(entity)) {
 			if(!world.isRemote) {
-				entity.addPotionEffect(new PotionEffect(Potion.resistance.id, 4 * 60 * 20, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 4 * 60 * 20, 2));
 				VersatileConfig.applyPotionSickness(entity, 5);
 
 				stack.stackSize--;
@@ -305,7 +305,7 @@ public class ItemSyringe extends Item {
 
 		if(this == ModItems.syringe_metal_psycho && !VersatileConfig.hasPotionSickness(entity)) {
 			if(!world.isRemote) {
-				entity.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 0));
 				entity.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2 * 60 * 20, 0));
 				VersatileConfig.applyPotionSickness(entity, 5);
 
@@ -324,7 +324,7 @@ public class ItemSyringe extends Item {
 		if(this == ModItems.syringe_metal_super && !VersatileConfig.hasPotionSickness(entity)) {
 			if(!world.isRemote) {
 				entity.heal(25);
-				entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 10 * 20, 0));
 				VersatileConfig.applyPotionSickness(entity, 15);
 
 				stack.stackSize--;
@@ -342,7 +342,7 @@ public class ItemSyringe extends Item {
 		if(this == ModItems.syringe_taint) {
 			if(!world.isRemote) {
 				entity.addPotionEffect(new PotionEffect(HbmPotion.taint.id, 60 * 20, 0));
-				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 0));
 
 				stack.stackSize--;
 				world.playSoundAtEntity(entity, "hbm:item.syringe", 1.0F, 1.0F);
@@ -374,7 +374,7 @@ public class ItemSyringe extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(this == ModItems.syringe_antidote) {
 			list.add("Removes all potion effects");
 		}

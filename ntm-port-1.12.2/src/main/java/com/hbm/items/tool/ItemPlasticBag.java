@@ -119,8 +119,8 @@ public class ItemPlasticBag extends Item implements IGUIProvider {
 		@Override public boolean hasCustomInventoryName() { return bag.hasDisplayName(); }
 		@Override public int getInventoryStackLimit() { return 1; }
 		@Override public boolean isUseableByPlayer(EntityPlayer player) { return true; }
-		@Override public void openInventory() { }
-		@Override public void closeInventory() { }
+		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
+		@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return true; }
 	}
 }

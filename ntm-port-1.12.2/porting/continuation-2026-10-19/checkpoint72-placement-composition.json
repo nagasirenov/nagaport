@@ -1,0 +1,438 @@
+{
+  "original_baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "integrated_baseline": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockNTSapling.java",
+      "before": "16d85630e413334798ee7db01c8a175d1d20022da26473edffa972105c6db404",
+      "after": "a4d0aa30f6335584eacc27c034310b54a3b0d6e80da3db3d77a2c06c2d086bdc",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "before": "0e4dcddf0e4b0031bde2aec96badaf583c9e87434e8d6b3f280df797bec0613a",
+      "after": "f1b243434fd1b0ee723e7bba820d929503e42cca5859815eb209eb6174763f51",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockDynamite.java",
+      "before": "ebc588ca2edfcbeeef9ef0b70ebe3d06b390502811f1989cd3b06962f16dd201",
+      "after": "6909f9bf8490fa751f49b9e3ddc8a75eb5b6b237c92683c028f97f139a263fad",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+      "before": "9e9c51cbdfead4354dcfd070ba94b1d51e8c1d84c9199e640d2e212919429b91",
+      "after": "761e5c4a25f670fe1c8535b0810a01a3ee6726cb5d40059e942343d4e7f68462",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFissureBomb.java",
+      "before": "100d51b88e6964db7465a8e0eea00b53e2767cbc95328ea4ccc9f23780e86ac4",
+      "after": "e4f667f16b7ff34db5a530d402a5d2aa895b6702a5ec3ebbfe707591832f543e",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "before": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+      "after": "bf8bfc68911e700b59f0f4db8e3bc900d6ea8656347e03a35d00e6746c3c4d0c",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockSemtex.java",
+      "before": "df986c90043b9e349f5c0752c9a835319712138c8bf0af42bf77c6875d9c20e6",
+      "after": "02700abd491bd7a454a605204ebd4804aee3d4d657aff76951a8d3e9f0272aca",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTNT.java",
+      "before": "5f3289e342eba896d5a951639cce9c6b9e61d379cbc21c44445522ad6f25aaab",
+      "after": "96f56c0f587e03f32da492dba15ae24a99a73a330145e083a15c8e744a79a979",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "before": "94e0b471a688c278f290855fd7d0c23f540c9c2f8f31e051b107c0e65693f901",
+      "after": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFlameWar.java",
+      "before": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+      "after": "af65199c7aaa71f00320e67fb5fdeb85f5aaf77fb1e0d9fc89dc6645620df699",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "before": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+      "after": "79cd42e7941d743596440567aa7d9b70e5534cedad10edab31f0e43851bf0654",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+      "before": "f07185a3afa5a0fa506ff8a10b64619c1532f3b72938cddd04197951eaf11c28",
+      "after": "ed4c40e9b2b34956b4b81a6bdff86d5ee672e8d497856e357e8dce334e43946c",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombThermo.java",
+      "before": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+      "after": "301b8a3615058240cf5f11e3ac11695c88fd4f3db82cd77e9bd4731d1c082365",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "before": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+      "after": "79fe4de14db028139ee83a51996c795160c3a94eecd0d0a4f55e2750b530d143",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "before": "254d6cb2985d1e6590c1e614fdca1a48bf732a475bf9c468aa7c3b45cd838ce3",
+      "after": "355315dd1e058da5a0989ccbc917d301d69731397288d26587d9360eb93af59d",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+      "before": "1136f3716f819629faf33525b24b28c9727c33e93fc10244eabff32fb54326bb",
+      "after": "8509d7b9acef1e894d90626cd272fd3a0b5aab78de4710637a14c515a154a8ad",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "before": "3985623ec5e9186a1066382a9a14b440154f68ecccb8155602e1452a03c9565f",
+      "after": "0fb99f85d8581df35a1e4a39f6305855a007ede1b398350c19dc44b63218e2ec",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "before": "3a2b4b8d8f6c55919057073976dace687ed7ea9763d6481d9e9d8cc625c42d22",
+      "after": "b2b80823d480fdeb8636c675174ccc67b769a8035b0214bf8bcfcddcb667a28e",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "before": "e10e7bd5c7f8cb6bbfc38f54b26e3380da95975637642fac65ecf120637aba11",
+      "after": "9afcdca9db741ef169c8b91cf5d0b8df18223292771209e33cad7c6a9e5f554f",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "before": "0a15b4ff8325e68077a46977471eab9523f92fc5c1d879c413f45f222c80f1c7",
+      "after": "1f5c755360069eec785bff8a63ff0bb6190866f2eeaadce2369093ceb01f0adb",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+      "before": "076e3126e3058139972dc5898d99d15ee9835c4cd1de136fbe4cd4b7ce566a84",
+      "after": "6c11878d36cb417c1c1bf6401900da4d27c5403b8e8bd05a12c2c2652779eb27",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+      "before": "499f85ea8063429266d692c3c97cd811b70ac261080d7373b4ceb49f2033e5c6",
+      "after": "abc5d6107541f0c6b79cdb48e8f2ffaa1a6f84651be8b2c1f892c41166ca6445",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+      "before": "3883d767bac3aa075c2c4de65c45459e60fd880686575058733a220073f5d187",
+      "after": "ccef7ac7cf6aba78ea4541dfb2442ec6a7eaaada9a82387437a0b288d483370d",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+      "before": "0de915c55d39ae45ee924aa56e3e076c1968f3ee8bb4ff858b711033ce521a0c",
+      "after": "778ff50a4444ebec01f604405516e0d05e7be4b0c9ff323b17bc4603d67428c0",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+      "before": "5acb3db82cdff0ecd042fb5b4fa686eadd0481d544db858a662da0c67d69449d",
+      "after": "684689acc219b33abc159f7bbb6e4bcfdd22cca4179383c0f2b959792c7ce073",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+      "before": "fb357078bf34e1a72b57ff89f167704bddde52ba9a41c8236af333bd2a68644d",
+      "after": "6d83d76e3305254cf06427bc3a6f1f10f4045ce4ccae82961ea883ae177d4342",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+      "before": "0243017e60e9dd0a6ba23aa04190bb7d0ad8d0e9934f48afebf1a26427355372",
+      "after": "c55dd160f2ff0e5303d7a4855393452d4ce795ada8dd2d84ca3473766dc97377",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+      "before": "f9a5bddf23f43c57c83fe0d8bd24f89a5452ee4e0845e336ac0667a76c22286c",
+      "after": "d832b529484fdb757f92c84e79c1c9b83f4add6a583dc50b100628a6d530f30f",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+      "before": "b3eb010b673acbc6359de0a58c58b5ce4a43218cbd34d0319c6cb1a5a3aa61c6",
+      "after": "88bb8d2d78a479afabcf3eee58806e56a60f2a4ea127a53b209e2e9329407ef6",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      "before": "a454c0c96a7eb8d7b1623f8b34ee58f8164f0199a8169fadd6d1d89c625c5e86",
+      "after": "4a75544b1aae775642c2aa4dd71541b766b77394bc376df420fc0362ca36d1af",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+      "before": "af9f3fe86f28ebf55b094a4d7e307414c3e5116126cb736e10ae045627f33814",
+      "after": "e28970a07930d8794efc01ea27e9f65eff519c1296869d8198f05b3388749eab",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockRedBrick.java",
+      "before": "a4e05b82b994e57c62b3baef856f0beac08b1847d054af14de6bf4431c436b1e",
+      "after": "1341d0ad7f47158c0e163ee1438f9316df85d7617a29067306284f77a96f863f",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+      "before": "04a4b0a57590bb6ecbf710458a7915fcf4bc653667b7fdbf7d89eb68b9c4f5e7",
+      "after": "d67a1cee20881b952fb887c2fb7fd9e4dc44392591b2085bb7f25320fd4a149f",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "before": "fb26682bff96c987b11f65eb987580ac4b274c175b8066ab103eac3e2b0d845e",
+      "after": "b1782b77162dbb46b62ebf632ad1f5c9b4d64b44cf3aacadd9298d7636e6a7e1",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+      "before": "6e2b0b2ee372b4c79de5824a7e8f97d8d3f63675261e3431fc553ba53d475765",
+      "after": "b713f5d51674404bee520550b761774164c01d110b057f2fee5a040ac48637e1",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "before": "1a100e30bead9aebbfa59655a267d9cb3be863d24c89103a9fc61ac5e9add206",
+      "after": "17176bd6c266a769e0bb02956f7b0ed5ff09f0184822892bd9a06945638124f3",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "before": "fc6d5258abec72184241c56f18f2461e70c469e08214124a916c5d0719fff631",
+      "after": "4a1c89e0ec2a08f2a74404f83836e4cf544464e73ec82712a8c0779aaef40a5e",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+      "before": "87b7105ecb7a71b01da1e9889606f9373834b42fc614b80d9353b556ac2e57d9",
+      "after": "454104cd9bb70c8dd49e33bdda72384d0ba03b264107ddc641a86765ff07c28a",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+      "before": "33f7d6f00ac5d0384ece6eeab64d616c450669ec645c9edec535770106b63983",
+      "after": "e9a1442f5921698f5618d34b1d8221ec21fdb53de28462e9ae38ad6d673cc7b9",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+      "before": "5d93296272bb20f6639708a2edacd6bd5fd82608163795ca31265943ca9bd449",
+      "after": "433bec3a714bf57c91ae18ec2453de49ba89ba856ed9f32fdf5a2a4699a94978",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/Guide.java",
+      "before": "546d2e46a71630199ccb32fe5ddf63299c81cb8186527ffa2ff92ebb0431ee60",
+      "after": "542d18c42153460c6343fc8712f1eb5aa0fba597cdacd389e794f28940b58a57",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+      "before": "6a90cfb9e545a584ef7d2b87dea052ea104951cf4d6d85b75b4cb9081a4deccb",
+      "after": "ceb5060b55e98b90270cbbe55a45875725570dc152be61325bf95d24e1448833",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java",
+      "before": "6199c6c582fb0f99bac5075f5c8a0bf2afb0cb83a3e743c4f6c86789920baea5",
+      "after": "8e06c0836541c1ec82fd97e1fa4070b29e8631e1f927221bc077313f32765702",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java",
+      "before": "8b688bbc56ebc67100a6092a2fe6bbc8d9bca8b0d74b6fb6a096a048c622878b",
+      "after": "a9c65869696b6edbe26d083612449ffcb4bc59ad9ecd1e7988d75f7b58a5b48d",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockICFStruct.java",
+      "before": "05c501e7f4680027c67d751259811732abb390b3e928d4288e002430054d6161",
+      "after": "ac058e0d3e5082151cc7f3d624a88a2fe5c225ff10349c7f1b4f22d1c725df80",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMachineBase.java",
+      "before": "ab913eb5fb52c45c1c597f66d6a78edbc1e142c9aa3c7efa0231c36970077a38",
+      "after": "82add068241ddbff2dfea55b7bf10d9aea2825a8371e983fce345fa4626478cf",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+      "before": "26f559246ef75bab29e1667cfbb94ed8bca5cc1ac710f67f0998287d63bc40e2",
+      "after": "c6577b9d4249c8d0fad3b28b1177d222557b9d9161fa53ee7330d79c0bc93919",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockSeal.java",
+      "before": "fd8288fa00505122a557496708524fe1a8acb55986341ae234e36a85ee243c7e",
+      "after": "062b04bd66876fc8c09183b109d4875d842ef9854ade01894f95d38e4e8883b4",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Charger.java",
+      "before": "dd4baec9a2943b7d1078b1109bc2142fc60473a34df0bba6582fef91444e1f04",
+      "after": "8e3280e8f47c5062a987ab59f6144b963c591ed59886361483b28db6ed9428a3",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+      "before": "2d059c1a2c866ecf2fe02dbcf0b4784973430687e2bd4b4d213257742ed3b2db",
+      "after": "0fd92d9382fb1704649f1930ad9d30949df8b600d4f299fa4eda1fc46430cdc1",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Floodlight.java",
+      "before": "d53e5b42399cbb598c7e3a4d88d30d170647ade506462107f4e2dd293eccb290",
+      "after": "92e4c937144729510aa7a8c378ea3b13d26106dadc066b55a60665fd3aac1b75",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/FusionHatch.java",
+      "before": "13562d4d55790fb4418b4b6d684d60147f31477e3f2825ed4b5c81ffd0a8d6e8",
+      "after": "92480de0cfe6f47afd53dc0fbeef774949c0a2d7c1203b7c620964158f96b260",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+      "before": "b739fc02e309f0c2484512d05436a90e0d680176de305e403402ff05427c9b65",
+      "after": "f4a30c9a8a643ca4a7078ece369c55836f42a5e96a814bf0f7137c31125d5a74",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineBattery.java",
+      "before": "990d9285630edf245d9fcda2028c42c2daf3d4f101948c06fee4850316c6bdf6",
+      "after": "696a4e35f1dadd1febec3763d303d58ef5af6d0c5ca605dff5585b1f52446445",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineBoiler.java",
+      "before": "4f4f70b69204131cf7adc9fd940af9de198d1ecdb9638969e33b048a4a9747c2",
+      "after": "58e0ecf89a942af345049353ef8f6a1603474cdbe0f359f5664d9e98ca5fd8c1",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCapacitorBus.java",
+      "before": "be09d63b6a1fbf42eb0a1b0aef224b4393bf0605629dba85c160a6f70a4b1fa6",
+      "after": "e6bdc8dcedde5d140757e6c73604793dd4cb3cfe92eb825bc587a2f7cfa2ae24",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "before": "287f3787f192bb838b61d5a452da8e5eef71205fa1a0a0aaca0299bf3e6e8881",
+      "after": "c6574e50f80c0357be0c8e5b2505c30e589adf761956e96ff481a2fa696ec040",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineICFController.java",
+      "before": "ba827c1e5f40b1400845f59788515f4a52a3ab3661fb99e8dd6e3632fd7a4cd1",
+      "after": "645819b58da19e591e592dc83565978688c6a5f0cb6bedf02f1ff8c5727052d8",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "before": "c39ebc35b215825230971ab131c62a1d4939e0daf54c21d4863df58dbe51f767",
+      "after": "050371f76a195eafbbb7bcf26d2dcb15f2194518fb498256c1d327e662cb2268",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachinePWRController.java",
+      "before": "3bd4390288d921aa13d0137eed5a826f73c0f04bd8ccb280fb01cfed2326da14",
+      "after": "43d9a386fb7582ddad91309f688e83bb2de3a904a3ef43b2b53ee5db419a71bb",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+      "before": "da3dfa28b4686d7d80f5e5f71739cc232c88782f4afe53a612e9dbdedd60c1a6",
+      "after": "c86079f2067e286a943c86ad7fa834f75943c3d7756f592f57f5bdcfcc6a74ff",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineReactorControl.java",
+      "before": "3199391f48e488e835b008fa4119a9eaed87e28678b4e8eeebc0b3d87e32a356",
+      "after": "783c138280f4fa32daa658011b8623a5ae40b9f54ebddda8ef1341ad501dbb3d",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "before": "fa83db6ce254d7033096a8f28759c80caae01409bb1a2650e6331965f9ba8240",
+      "after": "396bfb15c91faedacdc7a71b7a55553868cfb680217d53439550af3ae6f5f349",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+      "before": "6f373d4afd4388e036058b159fca6e77835054068e83b05a8e61461759751ac9",
+      "after": "e1d8a649ecd3ce5dc5327e923db21df7e549bbd00a89de2697fe2872804d6446",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+      "before": "106a9dd565ab8f62682db4f614036fd80eaf5b48d59163d6af59a002c767bf0b",
+      "after": "90b28b27344aaa21789cfeb84d0778e9d73fef57e68916f5ec485ac174c43e56",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before": "cdc32ced98fb8cb29ea654dff0b4bdb47960b3851cfeeda0f7ebc3cac4bbbdc0",
+      "after": "6ef4943b45955b565512427b3b98de84a6cda4de6b04bb651778e097cfd47e8a",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/RadioRec.java",
+      "before": "1767f5017f2b162e52b93a31cf3f26cc8d73ffaa6945676d0518cc9a486bcc94",
+      "after": "792e19605865a43311a25f04f461511f1828aeebd8a5280d3744cd98dbc1ff37",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Radiobox.java",
+      "before": "4a7c39e2bb6637a2a3137e3383b1a6f435fd7647259025bf39499e84872c180f",
+      "after": "48bd8d4228cc17fee80fa72944b4aef25c4d50c167b52ba01273bc2c71cf01e6",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCableGauge.java",
+      "before": "ec25cf5cf904e194608e4e4326e9dbede8e018868c7d317450da6340c332fc04",
+      "after": "cebf783ff8ffbbbb981fbf085c4f7001bae552bdf012bdcc9b5c19cb6c6f24a0",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctGauge.java",
+      "before": "57bce90e7e946112598c76a2c79aed6f85f2bf39ac014c0c82ed2a55511a7f2d",
+      "after": "38d109ac86ef57a32f41f0728669e4fccfd3e7e5353b7ebdb84bf23bfeb390d0",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidPump.java",
+      "before": "3ccb10ce125c9e159423b24730ba8b41adac87743526bd2e4660dbb1e915bded",
+      "after": "1dcefdc983a7a0d771e02c879391580325a0a5fc87874bf0bc798711af3ab298",
+      "exact_fragment_inverse": true
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/test/TestObjTester.java",
+      "before": "be72cfb4d356269947904a27ab1f7f5ac05ae8265487ea1ba743ac5921ca6458",
+      "after": "91e82f62404220d726bac1876f5040860658b68cf66603c82c1218cb9df81eef",
+      "exact_fragment_inverse": true
+    }
+  ]
+}

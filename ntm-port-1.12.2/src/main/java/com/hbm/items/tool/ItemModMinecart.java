@@ -91,7 +91,7 @@ public class ItemModMinecart extends Item {
 	public ItemModMinecart() {
 		this.setMaxStackSize(4);
 		this.setCreativeTab(CreativeTabs.tabTransport);
-		BlockDispenser.dispenseBehaviorRegistry.putObject(this, dispenseBehavior);
+		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(this, dispenseBehavior);
 	}
 	
 	@Override

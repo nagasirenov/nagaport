@@ -180,7 +180,7 @@ public class GunB92 extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		if(MainRegistry.polaroidID == 11) {
 			list.add("A weapon that came from the stars.");

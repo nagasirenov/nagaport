@@ -1,0 +1,1 @@
+PASS: 62 exact baseline reversals/original constant-negative callbacks/native overrides; 4 inherited descendants; five direct consumers audited; all other production files unchanged.

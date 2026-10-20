@@ -162,16 +162,16 @@ public class ItemSimpleConsumable extends ItemCustomLore {
 	public static void effectAwesome(ItemStack stack, EntityLivingBase affected, EntityLivingBase source) {
 		if(VersatileConfig.hasPotionSickness(affected)) return;
 		giveSoundAndDecrement(stack, source, "hbm:item.syringe", new ItemStack(ModItems.syringe_empty));
-		affected.addPotionEffect(new PotionEffect(Potion.regeneration.id, 50 * 20, 9));
-		affected.addPotionEffect(new PotionEffect(Potion.resistance.id, 50 * 20, 9));
-		affected.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 50 * 20, 0));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 50 * 20, 9));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 50 * 20, 9));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 50 * 20, 0));
 		affected.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 50 * 20, 24));
 		affected.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 50 * 20, 9));
-		affected.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 50 * 20, 6));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 50 * 20, 6));
 		affected.addPotionEffect(new PotionEffect(Potion.jump.id, 50 * 20, 9));
-		affected.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 50 * 20, 9));
-		affected.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 50 * 20, 4));
-		affected.addPotionEffect(new PotionEffect(Potion.confusion.id, 5 * 20, 4));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.HEALTH_BOOST, 50 * 20, 9));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 50 * 20, 4));
+		affected.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 5 * 20, 4));
 		affected.addPotionEffect(new PotionEffect(HbmPotion.radx.id, 50 * 20, 9));
 		VersatileConfig.applyPotionSickness(affected, 5);
 	}

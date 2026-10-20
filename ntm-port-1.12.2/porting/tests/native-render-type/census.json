@@ -1,0 +1,590 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockCrop.java",
+    "owner": "com.hbm.blocks.BlockCrop",
+    "body": "{\\n\\t\\treturn 1; // Cross like flowers\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+    "owner": "com.hbm.blocks.BlockDummyable",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockDummyableBeam.java",
+    "owner": "com.hbm.blocks.BlockDummyableBeam",
+    "body": "{ return -1; }",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockKelp.java",
+    "owner": "com.hbm.blocks.BlockKelp",
+    "body": "{\\n\\t\\treturn 1; \\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "owner": "com.hbm.blocks.BlockWaterPlant",
+    "body": "{\\n\\t\\treturn 6;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Balefire.java",
+    "owner": "com.hbm.blocks.bomb.Balefire",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeMiner.java",
+    "owner": "com.hbm.blocks.bomb.BlockChargeMiner",
+    "body": "{\\n\\t\\treturn BlockChargeDynamite.renderID;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeSemtex.java",
+    "owner": "com.hbm.blocks.bomb.BlockChargeSemtex",
+    "body": "{\\n\\t\\treturn BlockChargeC4.renderID;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "owner": "com.hbm.blocks.bomb.BlockCrashedBomb",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "owner": "com.hbm.blocks.bomb.BombMulti",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "owner": "com.hbm.blocks.bomb.CompactLauncher",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "owner": "com.hbm.blocks.bomb.DigammaFlame",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "owner": "com.hbm.blocks.bomb.Landmine",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "owner": "com.hbm.blocks.bomb.LaunchTable",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "owner": "com.hbm.blocks.bomb.NukeAntimatter",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "owner": "com.hbm.blocks.bomb.NukeBalefire",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "owner": "com.hbm.blocks.bomb.NukeBoy",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "owner": "com.hbm.blocks.bomb.NukeCustom",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "owner": "com.hbm.blocks.bomb.NukeFleija",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "owner": "com.hbm.blocks.bomb.NukeGadget",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "owner": "com.hbm.blocks.bomb.NukeMan",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "owner": "com.hbm.blocks.bomb.NukeMike",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "owner": "com.hbm.blocks.bomb.NukeN2",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "owner": "com.hbm.blocks.bomb.NukePrototype",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "owner": "com.hbm.blocks.bomb.NukeSolinium",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "owner": "com.hbm.blocks.bomb.NukeTsar",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+    "owner": "com.hbm.blocks.gas.BlockGasBase",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Mixed gas descendants: BlockGasClorine returns 0; needs own model work"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasClorine.java",
+    "owner": "com.hbm.blocks.gas.BlockGasClorine",
+    "body": "{\\n\\t\\treturn 0;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "owner": "com.hbm.blocks.gas.BlockVacuum",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "owner": "com.hbm.blocks.generic.BlockBobble",
+    "body": "{\\r\\n\\t\\treturn -1;\\r\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "owner": "com.hbm.blocks.generic.BlockDeadPlant",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "owner": "com.hbm.blocks.generic.BlockLoot",
+    "body": "{\\r\\n\\t\\treturn -1;\\r\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+    "owner": "com.hbm.blocks.generic.BlockModDoor",
+    "body": "{\\n\\t\\treturn 7;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "owner": "com.hbm.blocks.generic.BlockMush",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+    "owner": "com.hbm.blocks.generic.BlockNTMFlower",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "owner": "com.hbm.blocks.generic.BlockOrrery",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "owner": "com.hbm.blocks.generic.BlockPlushie",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "owner": "com.hbm.blocks.generic.BlockRubberPlant",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "owner": "com.hbm.blocks.generic.BlockSkeletonHolder",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "owner": "com.hbm.blocks.generic.BlockSnowglobe",
+    "body": "{\\r\\n\\t\\treturn -1;\\r\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "owner": "com.hbm.blocks.generic.BlockStalagmite",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "owner": "com.hbm.blocks.generic.BlockTallPlant",
+    "body": "{\\n\\t\\treturn 1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "owner": "com.hbm.blocks.generic.BlockTallPlantWater",
+    "body": "{\\n\\t\\treturn 6;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+    "owner": "com.hbm.blocks.generic.DecoBlock",
+    "body": "{\\n\\t\\tif(this == ModBlocks.steel_wall) return renderIDWall;\\n\\t\\tif(this == ModBlocks.steel_corner) return renderIDCorner;\\n\\t\\tif(this == ModBlocks.steel_beam) return renderIDBeam;\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "owner": "com.hbm.blocks.generic.DecoBlockAlt",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "owner": "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "owner": "com.hbm.blocks.machine.BlastDoor",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "owner": "com.hbm.blocks.machine.BlockFF",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "owner": "com.hbm.blocks.machine.BlockRefueler",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+    "owner": "com.hbm.blocks.machine.Charger",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "owner": "com.hbm.blocks.machine.CombatDropPod",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "owner": "com.hbm.blocks.machine.CoreComponent",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "owner": "com.hbm.blocks.machine.CoreCore",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "owner": "com.hbm.blocks.machine.DemonLamp",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "owner": "com.hbm.blocks.machine.DummyBlockBlast",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "owner": "com.hbm.blocks.machine.DummyOldBase",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "owner": "com.hbm.blocks.machine.Floodlight",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "owner": "com.hbm.blocks.machine.GeigerCounter",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "owner": "com.hbm.blocks.machine.MachineAutosaw",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+    "owner": "com.hbm.blocks.machine.MachineCyclotron",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "owner": "com.hbm.blocks.machine.MachineDiesel",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "owner": "com.hbm.blocks.machine.MachineFan",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "owner": "com.hbm.blocks.machine.MachineForceField",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+    "owner": "com.hbm.blocks.machine.MachineGasDock",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+    "owner": "com.hbm.blocks.machine.MachineIGenerator",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "owner": "com.hbm.blocks.machine.MachineMicrowave",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "owner": "com.hbm.blocks.machine.MachineMissileAssembly",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "owner": "com.hbm.blocks.machine.MachinePuF6Tank",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "owner": "com.hbm.blocks.machine.MachineRadar",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+    "owner": "com.hbm.blocks.machine.MachineRocketAssembly",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "owner": "com.hbm.blocks.machine.MachineSatDock",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "owner": "com.hbm.blocks.machine.MachineTesla",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "owner": "com.hbm.blocks.machine.MachineUF6Tank",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "owner": "com.hbm.blocks.machine.PinkCloudBroadcaster",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "owner": "com.hbm.blocks.machine.PistonInserter",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "owner": "com.hbm.blocks.machine.RadioRec",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "owner": "com.hbm.blocks.machine.Radiobox",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "owner": "com.hbm.blocks.machine.SoyuzCapsule",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "owner": "com.hbm.blocks.machine.StorageDrum",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKAbsorber.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKAbsorber",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBlank.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKBlank",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKConsole",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKCooler.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKCooler",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKModerator.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKModerator",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKOutgasser.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKOutgasser",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKPipedBase.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKPipedBase",
+    "body": "{\\n\\t\\treturn this.renderIDControl;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKReflector.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKReflector",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKRod",
+    "body": "{\\n\\t\\treturn this.renderIDRods;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKStorage.java",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKStorage",
+    "body": "{\\n\\t\\treturn this.renderIDPassive;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "owner": "com.hbm.blocks.network.DroneWaypoint",
+    "body": "{\\n\\t\\treturn RadioTorchBase.renderID;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+    "owner": "com.hbm.blocks.network.DroneWaypointRequest",
+    "body": "{\\n\\t\\treturn RadioTorchBase.renderID;\\n\\t}",
+    "disposition": "Non-negative/custom geometry domain: requires independently migrated model/renderer; unchanged"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "owner": "com.hbm.blocks.network.FluidPipeAnchor",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "owner": "com.hbm.blocks.network.FluidPump",
+    "body": "{ return -1; }",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "owner": "com.hbm.blocks.network.PylonBase",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "owner": "com.hbm.blocks.test.TestObjTester",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "owner": "com.hbm.blocks.turret.TurretBase",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "owner": "com.hbm.blocks.turret.TurretSentry",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "owner": "com.hbm.blocks.turret.TurretSentryDamaged",
+    "body": "{\\n\\t\\treturn -1;\\n\\t}",
+    "disposition": "selected exact constant-negative native migration"
+  }
+]

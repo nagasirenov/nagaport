@@ -30,17 +30,17 @@ public class TileEntityFileCabinet extends TileEntityCrateBase implements IGUIPr
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 		return "container.fileCabinet";
 	}
 
 	@Override
-	public void openInventory() {
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		if(!this.world.isRemote) this.playersUsing++;
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		if(!this.world.isRemote) this.playersUsing--;
 	}
 

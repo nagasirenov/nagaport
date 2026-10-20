@@ -28,7 +28,7 @@ public class RenderBatterySocket extends TileEntitySpecialRenderer {
 	private static ResourceLocation blorbo = new ResourceLocation(RefStrings.MODID, "textures/models/horse/sunburst.png");
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y, z + 0.5);
 		GL11.glEnable(GL11.GL_LIGHTING);

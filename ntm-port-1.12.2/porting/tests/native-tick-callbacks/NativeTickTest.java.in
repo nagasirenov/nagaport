@@ -1,0 +1,78 @@
+import java.util.*;
+import java.lang.reflect.*;
+import sun.misc.Unsafe;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Bootstrap;
+import net.minecraft.world.*;
+import net.minecraft.world.storage.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.profiler.Profiler;
+/** Real native scheduler and randomTick delegation; bounded world/domain collaborators. */
+public class NativeTickTest {
+ static int checks,calls;static World seen;static int sx,sy,sz;static float radiation;static boolean immediate;
+ static void check(boolean c,String why){checks++;if(!c)throw new AssertionError(why);}
+ static void record(World w,int x,int y,int z){calls++;seen=w;sx=x;sy=y;sz=z;immediate=((FixtureServer)w).immediateFlag();}
+ static final class ModBlocks {static Block salted_fallout;}
+ static final class ChunkRadiationManager {static final Proxy proxy=new Proxy();static final class Proxy {void incrementRad(World w,int x,int y,int z,float amount){record(w,x,y,z);radiation=amount;}}}
+ static class SandProjection extends Block {
+  SandProjection(){super(Material.SAND);}
+  @Override @SAND@
+  public void fall(World w,int x,int y,int z){record(w,x,y,z);}
+ }
+ static class SandChild extends SandProjection { @Override public void fall(World w,int x,int y,int z){super.fall(w,x,y,z);check(true,"descendant domain dispatch");} }
+ static class FalloutProjection extends Block {
+  FalloutProjection(){super(Material.ROCK);}
+  @Override @FALLOUT@
+ }
+ static class RngBoundary extends Block {
+  Random seenRandom;IBlockState state;BlockPos pos;int first;float second;int calls;
+  RngBoundary(){super(Material.ROCK);}
+  @Override public void updateTick(World w,BlockPos p,IBlockState s,Random random){calls++;seenRandom=random;state=s;pos=p;first=random.nextInt(17);second=random.nextFloat();}
+ }
+ static class FixtureServer extends WorldServer {
+  boolean immediateFlag(){return scheduledUpdatesAreImmediate;}
+  IBlockState live;boolean loaded;int reads,rescheduled;BlockPos expected;WorldInfo info;
+  // Never invoked: allocate only the bounded scheduler fixture without server startup.
+  FixtureServer(){super(null,null,null,0,null);throw new AssertionError("constructor not used");}
+  @Override public boolean isAreaLoaded(BlockPos from,BlockPos to){check(from.equals(expected)&&to.equals(expected),"scheduler loaded-check coordinates");return loaded;}
+  @Override public IBlockState getBlockState(BlockPos p){reads++;check(p.equals(expected),"scheduler live-state coordinate");return live;}
+  @Override public void scheduleUpdate(BlockPos p,Block b,int delay){rescheduled++;check(p.equals(expected)&&delay==0,"unloaded scheduler reschedule boundary");}
+ }
+ static final Unsafe UNSAFE;
+ static {try{Field f=Unsafe.class.getDeclaredField("theUnsafe");f.setAccessible(true);UNSAFE=(Unsafe)f.get(null);}catch(Exception e){throw new ExceptionInInitializerError(e);}}
+ static void set(Object object,Class<?> owner,String field,Object value)throws Exception {Field f=owner.getDeclaredField(field);f.setAccessible(true);f.set(object,value);}
+ static FixtureServer world(Block block,BlockPos pos,long seed,boolean remote)throws Exception {
+  FixtureServer w=(FixtureServer)UNSAFE.allocateInstance(FixtureServer.class);w.loaded=true;w.live=block.getDefaultState();w.expected=pos;w.info=new WorldInfo(new NBTTagCompound());w.info.setWorldTotalTime(100);
+  set(w,World.class,"worldInfo",w.info);set(w,World.class,"profiler",new Profiler());set(w,World.class,"rand",new Random(seed));set(w,World.class,"isRemote",remote);
+  set(w,WorldServer.class,"pendingTickListEntriesHashSet",new HashSet<NextTickListEntry>());set(w,WorldServer.class,"pendingTickListEntriesTreeSet",new TreeSet<NextTickListEntry>());set(w,WorldServer.class,"pendingTickListEntriesThisTick",new ArrayList<NextTickListEntry>());return w;
+ }
+ @SuppressWarnings("unchecked") static void queue(FixtureServer w,Block b,long when)throws Exception {
+  NextTickListEntry e=new NextTickListEntry(w.expected,b);e.setScheduledTime(when);
+  for(String f:new String[]{"pendingTickListEntriesHashSet","pendingTickListEntriesTreeSet"}){Field field=WorldServer.class.getDeclaredField(f);field.setAccessible(true);((Collection<NextTickListEntry>)field.get(w)).add(e);}
+ }
+ public static void main(String[]args)throws Exception {
+  Bootstrap.register();
+  for(String name:new String[]{"Block","BlockContainer","BlockFarmland","BlockFire","BlockSapling"})check(Class.forName("net.minecraft.block."+name).getMethod("randomTick",World.class,BlockPos.class,IBlockState.class,Random.class).getDeclaringClass()==Block.class,"selected native ancestor inherits exact Block.randomTick: "+name);
+  for(Block block:new Block[]{new SandProjection(),new SandChild(),new FalloutProjection()})for(BlockPos p:new BlockPos[]{new BlockPos(-12,64,41),new BlockPos(29999999,255,-30000000)}) {
+   ModBlocks.salted_fallout=block;FixtureServer w=world(block,p,77,false);int before=calls;
+   queue(w,block,101);check(w.tickUpdates(false)&&calls==before,"future scheduled tick held");w.info.setWorldTotalTime(101);check(!w.tickUpdates(false),"due queue drained");check(calls==before+1&&seen==w&&sx==p.getX()&&sy==p.getY()&&sz==p.getZ()&&!immediate,"exact production callback through real scheduler");
+   if(block instanceof FalloutProjection)check(radiation==50,"original radiation amount");
+   before=calls;block.randomTick(w,p,Blocks.DIRT.getDefaultState(),w.rand);check(calls==before+1,"real inherited Block.randomTick forwards exact projection despite unrelated supplied state");
+   before=calls;w.immediateBlockTick(p,block.getDefaultState(),w.rand);check(calls==before+1&&immediate&&!w.immediateFlag(),"genuine World immediate dispatch and flag lifecycle");
+   w=world(block,p,77,true);before=calls;block.randomTick(w,p,null,w.rand);check(calls==before+(block instanceof SandProjection?0:1),"original client branch and unused state preserved");
+   w=world(block,p,77,false);queue(w,block,100);w.live=Blocks.STONE.getDefaultState();before=calls;check(!w.tickUpdates(false)&&calls==before,"scheduler skips replaced owner");
+   w=world(block,p,77,false);queue(w,block,100);w.live=Blocks.AIR.getDefaultState();check(!w.tickUpdates(false)&&calls==before,"scheduler skips air");
+   w=world(block,p,77,false);queue(w,block,100);w.loaded=false;check(!w.tickUpdates(false)&&calls==before&&w.rescheduled==1&&w.reads==0,"unloaded boundary rescheduled without callback");
+  }
+  for(int mode=0;mode<3;mode++)for(long seed:new long[]{0,1,777,Long.MIN_VALUE}) {
+   RngBoundary block=new RngBoundary();BlockPos p=new BlockPos(-9,70,22);FixtureServer w=world(block,p,seed,false);Random expected=new Random(seed);int first=expected.nextInt(17);float second=expected.nextFloat();
+   if(mode==0){queue(w,block,100);w.tickUpdates(false);}else if(mode==1)block.randomTick(w,p,block.getDefaultState(),w.rand);else w.immediateBlockTick(p,block.getDefaultState(),w.rand);
+   check(block.calls==1&&block.seenRandom==w.rand&&block.pos.equals(p)&&block.state==block.getDefaultState(),"scheduler/random/immediate identity");check(block.first==first&&Float.floatToIntBits(block.second)==Float.floatToIntBits(second)&&w.rand.nextLong()==expected.nextLong(),"same RNG object and exact draw order/remaining stream");
+  }
+  System.out.println("PASS "+checks+" native assertions: actual WorldServer.tickUpdates, Block.randomTick and World.immediateBlockTick; two exact production callback projections plus explicit RNG/domain/world fixtures. No chunk-selection, game timing or full-owner claim.");
+ }
+}

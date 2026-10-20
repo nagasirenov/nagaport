@@ -13,7 +13,7 @@ public class TileEntityDecoTapeRecorder extends TileEntity {
 	public int getRotation() {
 		if(com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock() instanceof DecoTapeRecorder)
 		{
-			if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()))
+			if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())))
 			{
 				rot += 3;
 				if(rot >= 360)

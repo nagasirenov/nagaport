@@ -1085,8 +1085,8 @@ public class Orchestras {
 			if(timer == 50) entity.world.playSoundAtEntity(entity, "hbm:player.groan", 1F, 1F);
 			if(timer == 60) {
 				entity.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
-				entity.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
-				entity.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
+				entity.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
 			}
 		}
 	};

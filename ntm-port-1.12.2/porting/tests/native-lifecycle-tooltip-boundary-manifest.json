@@ -1,0 +1,2714 @@
+{
+  "baseline": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "files": {
+    "src/main/java/com/hbm/blocks/BlockNTSapling.java": {
+      "before_sha256": "16d85630e413334798ee7db01c8a175d1d20022da26473edffa972105c6db404",
+      "after_sha256": "a4d0aa30f6335584eacc27c034310b54a3b0d6e80da3db3d77a2c06c2d086bdc",
+      "edits": [
+        {
+          "before_offset": 4111,
+          "after_offset": 4111,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "0e4dcddf0e4b0031bde2aec96badaf583c9e87434e8d6b3f280df797bec0613a",
+      "after_sha256": "f1b243434fd1b0ee723e7bba820d929503e42cca5859815eb209eb6174763f51",
+      "edits": [
+        {
+          "before_offset": 8176,
+          "after_offset": 8176,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockDynamite.java": {
+      "before_sha256": "ebc588ca2edfcbeeef9ef0b70ebe3d06b390502811f1989cd3b06962f16dd201",
+      "after_sha256": "6909f9bf8490fa751f49b9e3ddc8a75eb5b6b237c92683c028f97f139a263fad",
+      "edits": [
+        {
+          "before_offset": 536,
+          "after_offset": 536,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockFireworks.java": {
+      "before_sha256": "9e9c51cbdfead4354dcfd070ba94b1d51e8c1d84c9199e640d2e212919429b91",
+      "after_sha256": "761e5c4a25f670fe1c8535b0810a01a3ee6726cb5d40059e942343d4e7f68462",
+      "edits": [
+        {
+          "before_offset": 4050,
+          "after_offset": 4050,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockFissureBomb.java": {
+      "before_sha256": "100d51b88e6964db7465a8e0eea00b53e2767cbc95328ea4ccc9f23780e86ac4",
+      "after_sha256": "e4f667f16b7ff34db5a530d402a5d2aa895b6702a5ec3ebbfe707591832f543e",
+      "edits": [
+        {
+          "before_offset": 2201,
+          "after_offset": 2201,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java": {
+      "before_sha256": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+      "after_sha256": "bf8bfc68911e700b59f0f4db8e3bc900d6ea8656347e03a35d00e6746c3c4d0c",
+      "edits": [
+        {
+          "before_offset": 1433,
+          "after_offset": 1433,
+          "old": "\tpublic void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World p_149689_1_, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {\n\t\tint p_149689_2_ = nativePlacementPos.getX(), p_149689_3_ = nativePlacementPos.getY(), p_149689_4_ = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockSemtex.java": {
+      "before_sha256": "df986c90043b9e349f5c0752c9a835319712138c8bf0af42bf77c6875d9c20e6",
+      "after_sha256": "02700abd491bd7a454a605204ebd4804aee3d4d657aff76951a8d3e9f0272aca",
+      "edits": [
+        {
+          "before_offset": 535,
+          "after_offset": 535,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTNT.java": {
+      "before_sha256": "5f3289e342eba896d5a951639cce9c6b9e61d379cbc21c44445522ad6f25aaab",
+      "after_sha256": "96f56c0f587e03f32da492dba15ae24a99a73a330145e083a15c8e744a79a979",
+      "edits": [
+        {
+          "before_offset": 532,
+          "after_offset": 532,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockVolcano.java": {
+      "before_sha256": "94e0b471a688c278f290855fd7d0c23f540c9c2f8f31e051b107c0e65693f901",
+      "after_sha256": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+      "edits": [
+        {
+          "before_offset": 10680,
+          "after_offset": 10680,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFlameWar.java": {
+      "before_sha256": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+      "after_sha256": "af65199c7aaa71f00320e67fb5fdeb85f5aaf77fb1e0d9fc89dc6645620df699",
+      "edits": [
+        {
+          "before_offset": 2346,
+          "after_offset": 2346,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFloat.java": {
+      "before_sha256": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+      "after_sha256": "79cd42e7941d743596440567aa7d9b70e5534cedad10edab31f0e43851bf0654",
+      "edits": [
+        {
+          "before_offset": 1665,
+          "after_offset": 1665,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombMulti.java": {
+      "before_sha256": "f07185a3afa5a0fa506ff8a10b64619c1532f3b72938cddd04197951eaf11c28",
+      "after_sha256": "ed4c40e9b2b34956b4b81a6bdff86d5ee672e8d497856e357e8dce334e43946c",
+      "edits": [
+        {
+          "before_offset": 6961,
+          "after_offset": 6961,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombThermo.java": {
+      "before_sha256": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+      "after_sha256": "301b8a3615058240cf5f11e3ac11695c88fd4f3db82cd77e9bd4731d1c082365",
+      "edits": [
+        {
+          "before_offset": 4345,
+          "after_offset": 4345,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java": {
+      "before_sha256": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+      "after_sha256": "79fe4de14db028139ee83a51996c795160c3a94eecd0d0a4f55e2750b530d143",
+      "edits": [
+        {
+          "before_offset": 3973,
+          "after_offset": 3973,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/Landmine.java": {
+      "before_sha256": "254d6cb2985d1e6590c1e614fdca1a48bf732a475bf9c468aa7c3b45cd838ce3",
+      "after_sha256": "355315dd1e058da5a0989ccbc917d301d69731397288d26587d9360eb93af59d",
+      "edits": [
+        {
+          "before_offset": 8672,
+          "after_offset": 8672,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/LaunchTable.java": {
+      "before_sha256": "1136f3716f819629faf33525b24b28c9727c33e93fc10244eabff32fb54326bb",
+      "after_sha256": "8509d7b9acef1e894d90626cd272fd3a0b5aab78de4710637a14c515a154a8ad",
+      "edits": [
+        {
+          "before_offset": 2453,
+          "after_offset": 2453,
+          "old": "\tpublic void onBlockPlacedBy(World worldObj, int xCoord, int yCoord, int zCoord, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World worldObj, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint xCoord = nativePlacementPos.getX(), yCoord = nativePlacementPos.getY(), zCoord = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java": {
+      "before_sha256": "3985623ec5e9186a1066382a9a14b440154f68ecccb8155602e1452a03c9565f",
+      "after_sha256": "0fb99f85d8581df35a1e4a39f6305855a007ede1b398350c19dc44b63218e2ec",
+      "edits": [
+        {
+          "before_offset": 1518,
+          "after_offset": 1518,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java": {
+      "before_sha256": "3a2b4b8d8f6c55919057073976dace687ed7ea9763d6481d9e9d8cc625c42d22",
+      "after_sha256": "b2b80823d480fdeb8636c675174ccc67b769a8035b0214bf8bcfcddcb667a28e",
+      "edits": [
+        {
+          "before_offset": 1465,
+          "after_offset": 1465,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBoy.java": {
+      "before_sha256": "e10e7bd5c7f8cb6bbfc38f54b26e3380da95975637642fac65ecf120637aba11",
+      "after_sha256": "9afcdca9db741ef169c8b91cf5d0b8df18223292771209e33cad7c6a9e5f554f",
+      "edits": [
+        {
+          "before_offset": 5767,
+          "after_offset": 5767,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "0a15b4ff8325e68077a46977471eab9523f92fc5c1d879c413f45f222c80f1c7",
+      "after_sha256": "1f5c755360069eec785bff8a63ff0bb6190866f2eeaadce2369093ceb01f0adb",
+      "edits": [
+        {
+          "before_offset": 8465,
+          "after_offset": 8465,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeFleija.java": {
+      "before_sha256": "076e3126e3058139972dc5898d99d15ee9835c4cd1de136fbe4cd4b7ce566a84",
+      "after_sha256": "6c11878d36cb417c1c1bf6401900da4d27c5403b8e8bd05a12c2c2652779eb27",
+      "edits": [
+        {
+          "before_offset": 5606,
+          "after_offset": 5606,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeGadget.java": {
+      "before_sha256": "499f85ea8063429266d692c3c97cd811b70ac261080d7373b4ceb49f2033e5c6",
+      "after_sha256": "abc5d6107541f0c6b79cdb48e8f2ffaa1a6f84651be8b2c1f892c41166ca6445",
+      "edits": [
+        {
+          "before_offset": 5537,
+          "after_offset": 5537,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMan.java": {
+      "before_sha256": "3883d767bac3aa075c2c4de65c45459e60fd880686575058733a220073f5d187",
+      "after_sha256": "ccef7ac7cf6aba78ea4541dfb2442ec6a7eaaada9a82387437a0b288d483370d",
+      "edits": [
+        {
+          "before_offset": 5438,
+          "after_offset": 5438,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeMike.java": {
+      "before_sha256": "0de915c55d39ae45ee924aa56e3e076c1968f3ee8bb4ff858b711033ce521a0c",
+      "after_sha256": "778ff50a4444ebec01f604405516e0d05e7be4b0c9ff323b17bc4603d67428c0",
+      "edits": [
+        {
+          "before_offset": 5812,
+          "after_offset": 5812,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeN2.java": {
+      "before_sha256": "5acb3db82cdff0ecd042fb5b4fa686eadd0481d544db858a662da0c67d69449d",
+      "after_sha256": "684689acc219b33abc159f7bbb6e4bcfdd22cca4179383c0f2b959792c7ce073",
+      "edits": [
+        {
+          "before_offset": 5340,
+          "after_offset": 5340,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukePrototype.java": {
+      "before_sha256": "fb357078bf34e1a72b57ff89f167704bddde52ba9a41c8236af333bd2a68644d",
+      "after_sha256": "6d83d76e3305254cf06427bc3a6f1f10f4045ce4ccae82961ea883ae177d4342",
+      "edits": [
+        {
+          "before_offset": 5995,
+          "after_offset": 5995,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java": {
+      "before_sha256": "0243017e60e9dd0a6ba23aa04190bb7d0ad8d0e9934f48afebf1a26427355372",
+      "after_sha256": "c55dd160f2ff0e5303d7a4855393452d4ce795ada8dd2d84ca3473766dc97377",
+      "edits": [
+        {
+          "before_offset": 5581,
+          "after_offset": 5581,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeTsar.java": {
+      "before_sha256": "f9a5bddf23f43c57c83fe0d8bd24f89a5452ee4e0845e336ac0667a76c22286c",
+      "after_sha256": "d832b529484fdb757f92c84e79c1c9b83f4add6a583dc50b100628a6d530f30f",
+      "edits": [
+        {
+          "before_offset": 5709,
+          "after_offset": 5709,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockBobble.java": {
+      "before_sha256": "b3eb010b673acbc6359de0a58c58b5ce4a43218cbd34d0319c6cb1a5a3aa61c6",
+      "after_sha256": "88bb8d2d78a479afabcf3eee58806e56a60f2a4ea127a53b209e2e9329407ef6",
+      "edits": [
+        {
+          "before_offset": 3848,
+          "after_offset": 3848,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockEmitter.java": {
+      "before_sha256": "a454c0c96a7eb8d7b1623f8b34ee58f8164f0199a8169fadd6d1d89c625c5e86",
+      "after_sha256": "4a75544b1aae775642c2aa4dd71541b766b77394bc376df420fc0362ca36d1af",
+      "edits": [
+        {
+          "before_offset": 1623,
+          "after_offset": 1623,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockPlushie.java": {
+      "before_sha256": "af9f3fe86f28ebf55b094a4d7e307414c3e5116126cb736e10ae045627f33814",
+      "after_sha256": "e28970a07930d8794efc01ea27e9f65eff519c1296869d8198f05b3388749eab",
+      "edits": [
+        {
+          "before_offset": 3226,
+          "after_offset": 3226,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrick.java": {
+      "before_sha256": "a4e05b82b994e57c62b3baef856f0beac08b1847d054af14de6bf4431c436b1e",
+      "after_sha256": "1341d0ad7f47158c0e163ee1438f9316df85d7617a29067306284f77a96f863f",
+      "edits": [
+        {
+          "before_offset": 1361,
+          "after_offset": 1361,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java": {
+      "before_sha256": "04a4b0a57590bb6ecbf710458a7915fcf4bc653667b7fdbf7d89eb68b9c4f5e7",
+      "after_sha256": "d67a1cee20881b952fb887c2fb7fd9e4dc44392591b2085bb7f25320fd4a149f",
+      "edits": [
+        {
+          "before_offset": 2220,
+          "after_offset": 2220,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java": {
+      "before_sha256": "fb26682bff96c987b11f65eb987580ac4b274c175b8066ab103eac3e2b0d845e",
+      "after_sha256": "b1782b77162dbb46b62ebf632ad1f5c9b4d64b44cf3aacadd9298d7636e6a7e1",
+      "edits": [
+        {
+          "before_offset": 1144,
+          "after_offset": 1144,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java": {
+      "before_sha256": "6e2b0b2ee372b4c79de5824a7e8f97d8d3f63675261e3431fc553ba53d475765",
+      "after_sha256": "b713f5d51674404bee520550b761774164c01d110b057f2fee5a040ac48637e1",
+      "edits": [
+        {
+          "before_offset": 3664,
+          "after_offset": 3664,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java": {
+      "before_sha256": "1a100e30bead9aebbfa59655a267d9cb3be863d24c89103a9fc61ac5e9add206",
+      "after_sha256": "17176bd6c266a769e0bb02956f7b0ed5ff09f0184822892bd9a06945638124f3",
+      "edits": [
+        {
+          "before_offset": 7674,
+          "after_offset": 7674,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java": {
+      "before_sha256": "fc6d5258abec72184241c56f18f2461e70c469e08214124a916c5d0719fff631",
+      "after_sha256": "4a1c89e0ec2a08f2a74404f83836e4cf544464e73ec82712a8c0779aaef40a5e",
+      "edits": [
+        {
+          "before_offset": 8158,
+          "after_offset": 8158,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlock.java": {
+      "before_sha256": "87b7105ecb7a71b01da1e9889606f9373834b42fc614b80d9353b556ac2e57d9",
+      "after_sha256": "454104cd9bb70c8dd49e33bdda72384d0ba03b264107ddc641a86765ff07c28a",
+      "edits": [
+        {
+          "before_offset": 3426,
+          "after_offset": 3426,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java": {
+      "before_sha256": "33f7d6f00ac5d0384ece6eeab64d616c450669ec645c9edec535770106b63983",
+      "after_sha256": "e9a1442f5921698f5618d34b1d8221ec21fdb53de28462e9ae38ad6d673cc7b9",
+      "edits": [
+        {
+          "before_offset": 1521,
+          "after_offset": 1521,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java": {
+      "before_sha256": "5d93296272bb20f6639708a2edacd6bd5fd82608163795ca31265943ca9bd449",
+      "after_sha256": "433bec3a714bf57c91ae18ec2453de49ba89ba856ed9f32fdf5a2a4699a94978",
+      "edits": [
+        {
+          "before_offset": 1056,
+          "after_offset": 1056,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/Guide.java": {
+      "before_sha256": "546d2e46a71630199ccb32fe5ddf63299c81cb8186527ffa2ff92ebb0431ee60",
+      "after_sha256": "542d18c42153460c6343fc8712f1eb5aa0fba597cdacd389e794f28940b58a57",
+      "edits": [
+        {
+          "before_offset": 2913,
+          "after_offset": 2913,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlastDoor.java": {
+      "before_sha256": "6a90cfb9e545a584ef7d2b87dea052ea104951cf4d6d85b75b4cb9081a4deccb",
+      "after_sha256": "ceb5060b55e98b90270cbbe55a45875725570dc152be61325bf95d24e1448833",
+      "edits": [
+        {
+          "before_offset": 2423,
+          "after_offset": 2423,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java": {
+      "before_sha256": "6199c6c582fb0f99bac5075f5c8a0bf2afb0cb83a3e743c4f6c86789920baea5",
+      "after_sha256": "8e06c0836541c1ec82fd97e1fa4070b29e8631e1f927221bc077313f32765702",
+      "edits": [
+        {
+          "before_offset": 1112,
+          "after_offset": 1112,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java": {
+      "before_sha256": "8b688bbc56ebc67100a6092a2fe6bbc8d9bca8b0d74b6fb6a096a048c622878b",
+      "after_sha256": "a9c65869696b6edbe26d083612449ffcb4bc59ad9ecd1e7988d75f7b58a5b48d",
+      "edits": [
+        {
+          "before_offset": 2872,
+          "after_offset": 2872,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockICFStruct.java": {
+      "before_sha256": "05c501e7f4680027c67d751259811732abb390b3e928d4288e002430054d6161",
+      "after_sha256": "ac058e0d3e5082151cc7f3d624a88a2fe5c225ff10349c7f1b4f22d1c725df80",
+      "edits": [
+        {
+          "before_offset": 715,
+          "after_offset": 715,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockMachineBase.java": {
+      "before_sha256": "ab913eb5fb52c45c1c597f66d6a78edbc1e142c9aa3c7efa0231c36970077a38",
+      "after_sha256": "82add068241ddbff2dfea55b7bf10d9aea2825a8371e983fce345fa4626478cf",
+      "edits": [
+        {
+          "before_offset": 3158,
+          "after_offset": 3158,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockRefueler.java": {
+      "before_sha256": "26f559246ef75bab29e1667cfbb94ed8bca5cc1ac710f67f0998287d63bc40e2",
+      "after_sha256": "c6577b9d4249c8d0fad3b28b1177d222557b9d9161fa53ee7330d79c0bc93919",
+      "edits": [
+        {
+          "before_offset": 2477,
+          "after_offset": 2477,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/BlockSeal.java": {
+      "before_sha256": "fd8288fa00505122a557496708524fe1a8acb55986341ae234e36a85ee243c7e",
+      "after_sha256": "062b04bd66876fc8c09183b109d4875d842ef9854ade01894f95d38e4e8883b4",
+      "edits": [
+        {
+          "before_offset": 1736,
+          "after_offset": 1736,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Charger.java": {
+      "before_sha256": "dd4baec9a2943b7d1078b1109bc2142fc60473a34df0bba6582fef91444e1f04",
+      "after_sha256": "8e3280e8f47c5062a987ab59f6144b963c591ed59886361483b28db6ed9428a3",
+      "edits": [
+        {
+          "before_offset": 1045,
+          "after_offset": 1045,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/CoreComponent.java": {
+      "before_sha256": "2d059c1a2c866ecf2fe02dbcf0b4784973430687e2bd4b4d213257742ed3b2db",
+      "after_sha256": "0fd92d9382fb1704649f1930ad9d30949df8b600d4f299fa4eda1fc46430cdc1",
+      "edits": [
+        {
+          "before_offset": 1570,
+          "after_offset": 1570,
+          "old": "    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "    public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Floodlight.java": {
+      "before_sha256": "d53e5b42399cbb598c7e3a4d88d30d170647ade506462107f4e2dd293eccb290",
+      "after_sha256": "92e4c937144729510aa7a8c378ea3b13d26106dadc066b55a60665fd3aac1b75",
+      "edits": [
+        {
+          "before_offset": 1981,
+          "after_offset": 1981,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\r\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/FusionHatch.java": {
+      "before_sha256": "13562d4d55790fb4418b4b6d684d60147f31477e3f2825ed4b5c81ffd0a8d6e8",
+      "after_sha256": "92480de0cfe6f47afd53dc0fbeef774949c0a2d7c1203b7c620964158f96b260",
+      "edits": [
+        {
+          "before_offset": 1289,
+          "after_offset": 1289,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/GeigerCounter.java": {
+      "before_sha256": "b739fc02e309f0c2484512d05436a90e0d680176de305e403402ff05427c9b65",
+      "after_sha256": "f4a30c9a8a643ca4a7078ece369c55836f42a5e96a814bf0f7137c31125d5a74",
+      "edits": [
+        {
+          "before_offset": 1085,
+          "after_offset": 1085,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBattery.java": {
+      "before_sha256": "990d9285630edf245d9fcda2028c42c2daf3d4f101948c06fee4850316c6bdf6",
+      "after_sha256": "696a4e35f1dadd1febec3763d303d58ef5af6d0c5ca605dff5585b1f52446445",
+      "edits": [
+        {
+          "before_offset": 4994,
+          "after_offset": 4994,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineBoiler.java": {
+      "before_sha256": "4f4f70b69204131cf7adc9fd940af9de198d1ecdb9638969e33b048a4a9747c2",
+      "after_sha256": "58e0ecf89a942af345049353ef8f6a1603474cdbe0f359f5664d9e98ca5fd8c1",
+      "edits": [
+        {
+          "before_offset": 2873,
+          "after_offset": 2873,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineCapacitorBus.java": {
+      "before_sha256": "be09d63b6a1fbf42eb0a1b0aef224b4393bf0605629dba85c160a6f70a4b1fa6",
+      "after_sha256": "e6bdc8dcedde5d140757e6c73604793dd4cb3cfe92eb825bc587a2f7cfa2ae24",
+      "edits": [
+        {
+          "before_offset": 1316,
+          "after_offset": 1316,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineFan.java": {
+      "before_sha256": "287f3787f192bb838b61d5a452da8e5eef71205fa1a0a0aaca0299bf3e6e8881",
+      "after_sha256": "c6574e50f80c0357be0c8e5b2505c30e589adf761956e96ff481a2fa696ec040",
+      "edits": [
+        {
+          "before_offset": 1925,
+          "after_offset": 1925,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineICFController.java": {
+      "before_sha256": "ba827c1e5f40b1400845f59788515f4a52a3ab3661fb99e8dd6e3632fd7a4cd1",
+      "after_sha256": "645819b58da19e591e592dc83565978688c6a5f0cb6bedf02f1ff8c5727052d8",
+      "edits": [
+        {
+          "before_offset": 2160,
+          "after_offset": 2160,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java": {
+      "before_sha256": "c39ebc35b215825230971ab131c62a1d4939e0daf54c21d4863df58dbe51f767",
+      "after_sha256": "050371f76a195eafbbb7bcf26d2dcb15f2194518fb498256c1d327e662cb2268",
+      "edits": [
+        {
+          "before_offset": 3926,
+          "after_offset": 3926,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePWRController.java": {
+      "before_sha256": "3bd4390288d921aa13d0137eed5a826f73c0f04bd8ccb280fb01cfed2326da14",
+      "after_sha256": "43d9a386fb7582ddad91309f688e83bb2de3a904a3ef43b2b53ee5db419a71bb",
+      "edits": [
+        {
+          "before_offset": 2052,
+          "after_offset": 2052,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java": {
+      "before_sha256": "da3dfa28b4686d7d80f5e5f71739cc232c88782f4afe53a612e9dbdedd60c1a6",
+      "after_sha256": "c86079f2067e286a943c86ad7fa834f75943c3d7756f592f57f5bdcfcc6a74ff",
+      "edits": [
+        {
+          "before_offset": 1506,
+          "after_offset": 1506,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineReactorControl.java": {
+      "before_sha256": "3199391f48e488e835b008fa4119a9eaed87e28678b4e8eeebc0b3d87e32a356",
+      "after_sha256": "783c138280f4fa32daa658011b8623a5ae40b9f54ebddda8ef1341ad501dbb3d",
+      "edits": [
+        {
+          "before_offset": 2230,
+          "after_offset": 2230,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineSatDock.java": {
+      "before_sha256": "fa83db6ce254d7033096a8f28759c80caae01409bb1a2650e6331965f9ba8240",
+      "after_sha256": "396bfb15c91faedacdc7a71b7a55553868cfb680217d53439550af3ae6f5f349",
+      "edits": [
+        {
+          "before_offset": 4773,
+          "after_offset": 4773,
+          "old": "\tpublic void onBlockPlacedBy(World worldObj, int xCoord, int yCoord, int zCoord, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World worldObj, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint xCoord = nativePlacementPos.getX(), yCoord = nativePlacementPos.getY(), zCoord = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java": {
+      "before_sha256": "6f373d4afd4388e036058b159fca6e77835054068e83b05a8e61461759751ac9",
+      "after_sha256": "e1d8a649ecd3ce5dc5327e923db21df7e549bbd00a89de2697fe2872804d6446",
+      "edits": [
+        {
+          "before_offset": 1501,
+          "after_offset": 1501,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java": {
+      "before_sha256": "106a9dd565ab8f62682db4f614036fd80eaf5b48d59163d6af59a002c767bf0b",
+      "after_sha256": "90b28b27344aaa21789cfeb84d0778e9d73fef57e68916f5ec485ac174c43e56",
+      "edits": [
+        {
+          "before_offset": 1020,
+          "after_offset": 1020,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "cdc32ced98fb8cb29ea654dff0b4bdb47960b3851cfeeda0f7ebc3cac4bbbdc0",
+      "after_sha256": "69e2d494b9746543c041b6e022acf6478f716f88d2f73dde4d48df7c578387c0",
+      "edits": [
+        {
+          "before_offset": 4170,
+          "after_offset": 4170,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        },
+        {
+          "before_offset": 12744,
+          "after_offset": 12935,
+          "old": "\t\t@Override public void openInventory() {}\n",
+          "new": "\t\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 12788,
+          "after_offset": 13026,
+          "old": "\t\t@Override public void closeInventory() {}\n",
+          "new": "\t\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/RadioRec.java": {
+      "before_sha256": "1767f5017f2b162e52b93a31cf3f26cc8d73ffaa6945676d0518cc9a486bcc94",
+      "after_sha256": "792e19605865a43311a25f04f461511f1828aeebd8a5280d3744cd98dbc1ff37",
+      "edits": [
+        {
+          "before_offset": 1365,
+          "after_offset": 1365,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/Radiobox.java": {
+      "before_sha256": "4a7c39e2bb6637a2a3137e3383b1a6f435fd7647259025bf39499e84872c180f",
+      "after_sha256": "48bd8d4228cc17fee80fa72944b4aef25c4d50c167b52ba01273bc2c71cf01e6",
+      "edits": [
+        {
+          "before_offset": 1120,
+          "after_offset": 1120,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/BlockCableGauge.java": {
+      "before_sha256": "ec25cf5cf904e194608e4e4326e9dbede8e018868c7d317450da6340c332fc04",
+      "after_sha256": "cebf783ff8ffbbbb981fbf085c4f7001bae552bdf012bdcc9b5c19cb6c6f24a0",
+      "edits": [
+        {
+          "before_offset": 2834,
+          "after_offset": 2834,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidDuctGauge.java": {
+      "before_sha256": "57bce90e7e946112598c76a2c79aed6f85f2bf39ac014c0c82ed2a55511a7f2d",
+      "after_sha256": "38d109ac86ef57a32f41f0728669e4fccfd3e7e5353b7ebdb84bf23bfeb390d0",
+      "edits": [
+        {
+          "before_offset": 2816,
+          "after_offset": 2816,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/network/FluidPump.java": {
+      "before_sha256": "3ccb10ce125c9e159423b24730ba8b41adac87743526bd2e4660dbb1e915bded",
+      "after_sha256": "1dcefdc983a7a0d771e02c879391580325a0a5fc87874bf0bc798711af3ab298",
+      "edits": [
+        {
+          "before_offset": 2493,
+          "after_offset": 2493,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/test/TestObjTester.java": {
+      "before_sha256": "be72cfb4d356269947904a27ab1f7f5ac05ae8265487ea1ba743ac5921ca6458",
+      "after_sha256": "91e82f62404220d726bac1876f5040860658b68cf66603c82c1218cb9df81eef",
+      "edits": [
+        {
+          "before_offset": 1481,
+          "after_offset": 1481,
+          "old": "\tpublic void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {\n",
+          "new": "\tpublic void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/cart/EntityMinecartContainerBase.java": {
+      "before_sha256": "3a39cca4989e818aeb22c507fb724efd9cde5dee60a5f672afeb9623c2c0ab09",
+      "after_sha256": "db03e4a572246dabdfa64c0e236ce0753db483105a6689b692646f6a9cf0e670",
+      "edits": [
+        {
+          "before_offset": 2535,
+          "after_offset": 2535,
+          "old": "\tpublic void openInventory() { }\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        },
+        {
+          "before_offset": 2580,
+          "after_offset": 2627,
+          "old": "\tpublic void closeInventory() { }\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/entity/item/EntityDeliveryDrone.java": {
+      "before_sha256": "fd20ec9b47e015f7bb91fe2351ac4b527ce9e5e6a7848ed2de95f6df173f5fd9",
+      "after_sha256": "ce57f631148badc5c80a85803de1afc20110d4217bd70cc90a1161ab87668e1c",
+      "edits": [
+        {
+          "before_offset": 5927,
+          "after_offset": 5927,
+          "old": "\t@Override public void openInventory() { }\r\n\t@Override public void closeInventory() { }\r\n",
+          "new": "\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\r\n\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerAmmoBag.java": {
+      "before_sha256": "36e734284dbe234ccfa1ef69e0c0632e00f3cf124be37fdfa5d2674c618a773e",
+      "after_sha256": "f608dc90d29f25a4f324368bc70a3c43c8f82e13cc844612a0450338486b05a6",
+      "edits": [
+        {
+          "before_offset": 569,
+          "after_offset": 569,
+          "old": "\t\tthis.bag.openInventory();\n",
+          "new": "\t\tthis.bag.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2395,
+          "after_offset": 2411,
+          "old": "\t\tthis.bag.closeInventory();\n",
+          "new": "\t\tthis.bag.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCasingBag.java": {
+      "before_sha256": "423229f7dda82bc5c99c2dc08b08a424587088fbd90a8b717c3a143c4cde8d90",
+      "after_sha256": "f5cc55233cf78cd2fbf660d493869a33497306eace02dfc872255dd33405488a",
+      "edits": [
+        {
+          "before_offset": 581,
+          "after_offset": 581,
+          "old": "\t\tthis.bag.openInventory();\n",
+          "new": "\t\tthis.bag.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2408,
+          "after_offset": 2424,
+          "old": "\t\tthis.bag.closeInventory();\n",
+          "new": "\t\tthis.bag.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerCrateBase.java": {
+      "before_sha256": "a9af6f9d86c82cd42bd72979561b5758fcb07d71f72c4428ee66ddf70cc05a9b",
+      "after_sha256": "da017502e3cbbcb470540f6644b15be9504f3d72f53553e132ddb0abcbcd3a84",
+      "edits": [
+        {
+          "before_offset": 512,
+          "after_offset": 512,
+          "old": "\t\ttile.openInventory();\n",
+          "new": "\t\ttile.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 1920,
+          "after_offset": 1936,
+          "old": "\t\ttile.closeInventory();\n",
+          "new": "\t\ttile.closeInventory(p_75134_1_);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerFileCabinet.java": {
+      "before_sha256": "1b5d665658493bf41ba133e960ea4b4505650087add305d78a35badbab31068c",
+      "after_sha256": "fbdb5d3f2d12be2c2d0c6d64a1df792bf960c2bbadc9f6edf44a32781a7da419",
+      "edits": [
+        {
+          "before_offset": 531,
+          "after_offset": 531,
+          "old": "\t\tthis.cabinet.openInventory();\n",
+          "new": "\t\tthis.cabinet.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 1933,
+          "after_offset": 1949,
+          "old": "\t\tthis.cabinet.closeInventory();\n",
+          "new": "\t\tthis.cabinet.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerLeadBox.java": {
+      "before_sha256": "083f9c7772bf8fa218139248e2dc4f482373eeae78001e8d6c3c28810dd6d103",
+      "after_sha256": "670faed187ee7c63054d6862bd3813d4e75de72fd76f04cd4877778f3b2ebbb3",
+      "edits": [
+        {
+          "before_offset": 569,
+          "after_offset": 569,
+          "old": "\t\tthis.box.openInventory();\n",
+          "new": "\t\tthis.box.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2371,
+          "after_offset": 2387,
+          "old": "\t\tthis.box.closeInventory();\n",
+          "new": "\t\tthis.box.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerMassStorage.java": {
+      "before_sha256": "0ce0828156006de9bd5800e774c0a4c542d9a2f5e1a0cc5a47c2b60360697005",
+      "after_sha256": "dcff671d98ae230e2f94220ad9579a8a2c85fb6c35ff5282058b79426face582",
+      "edits": [
+        {
+          "before_offset": 587,
+          "after_offset": 587,
+          "old": "\t\tthis.storage.openInventory();\n",
+          "new": "\t\tthis.storage.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2610,
+          "after_offset": 2626,
+          "old": "\t\tthis.storage.closeInventory();\n",
+          "new": "\t\tthis.storage.closeInventory(p_75134_1_);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerPlasticBag.java": {
+      "before_sha256": "090e1b13641021a8de0fb32103ab246e386dcd2223b5bb0a997dfef12abdb5fb",
+      "after_sha256": "5ff4504dad32df3a06a8906f15446b759df3e3c24f6d8d2cb9014a716c50f4cc",
+      "edits": [
+        {
+          "before_offset": 545,
+          "after_offset": 545,
+          "old": "\t\tthis.bag.openInventory();\n",
+          "new": "\t\tthis.bag.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2234,
+          "after_offset": 2250,
+          "old": "\t\tthis.bag.closeInventory();\n",
+          "new": "\t\tthis.bag.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/container/ContainerToolBox.java": {
+      "before_sha256": "558519274bf175ccaeebc9e0b9f06d716ad7f8e533814b8512dddd6d823b55ca",
+      "after_sha256": "2cd2fabae7a28b6641d84f71bb77c6ea95e26a19c49dcd57a3f494e90fe91197",
+      "edits": [
+        {
+          "before_offset": 565,
+          "after_offset": 565,
+          "old": "\t\tthis.box.openInventory();\n",
+          "new": "\t\tthis.box.openInventory(invPlayer.player);\n"
+        },
+        {
+          "before_offset": 2363,
+          "after_offset": 2379,
+          "old": "\t\tthis.box.closeInventory();\n",
+          "new": "\t\tthis.box.closeInventory(player);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ItemInventory.java": {
+      "before_sha256": "0d3abb31adc6532d798def02fad85f94de5b5edf31928c4ea8d2ca808cfbee3e",
+      "after_sha256": "b41934e72e7728f2c1b45566e34e752c7e8207ec3ae4502fb7346b4367934e4c",
+      "edits": [
+        {
+          "before_offset": 4029,
+          "after_offset": 4029,
+          "old": "\t@Override public void openInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F); }\r\n\t@Override public void closeInventory() { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F); }\r\n",
+          "new": "\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateOpen\", 1.0F, 0.8F); }\r\n\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { com.hbm.sound.WorldSoundEffects.play(player.world, player.posX, player.posY, player.posZ, \"hbm:block.crateClose\", 1.0F, 0.8F); }\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/ItemRemap.java": {
+      "before_sha256": "d491b7f65a23ac174f1e2309b233ebcce0d6c0e322eb15c3a0d04f65ab8fc5ba",
+      "after_sha256": "303f5b59694fd6ed3b9f9a9f51dea58c212be4c40cfd6c950a51095270e912ed",
+      "edits": [
+        {
+          "before_offset": 1168,
+          "after_offset": 1168,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemBlockStorageCrate.java": {
+      "before_sha256": "53ffa382ce52112d8424e72b06a1148518dd732c4277152e3b6751a70cdae50e",
+      "after_sha256": "709957c4a7f984bddcbae19e9bfa73e4ab6ff98451e970c9444e8582a152482e",
+      "edits": [
+        {
+          "before_offset": 7696,
+          "after_offset": 7696,
+          "old": "\t\tpublic void closeInventory() {\n\t\t\tsuper.closeInventory();\n",
+          "new": "\t\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n\t\t\tsuper.closeInventory(viewer);\n"
+        },
+        {
+          "before_offset": 8004,
+          "after_offset": 8057,
+          "old": "\t\t\t\tif(target.getTagCompound().hasNoTags()) {\n",
+          "new": "\t\t\t\tif(target.getTagCompound().isEmpty()) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemGlyphBlock.java": {
+      "before_sha256": "d87b7b61a25237dcb93681131d458aebfc991475ec0ec802c4a60096ebeae29e",
+      "after_sha256": "53a1dbc7a53d76b7624858f860b519d84b4bcd2ba2c21fddee65797de6e3738b",
+      "edits": [
+        {
+          "before_offset": 396,
+          "after_offset": 396,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/block/ItemTrapBlock.java": {
+      "before_sha256": "c07340d9cd1289985e0cee487f34b6ab5dc37717851ce70fd973a671f22f8e23",
+      "after_sha256": "563fb3cc9e34afc69c83b55aabf7ef7c2e5b7da959c973edfad4ea70929d6e7f",
+      "edits": [
+        {
+          "before_offset": 431,
+          "after_offset": 431,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemMissileShuttle.java": {
+      "before_sha256": "28f97d74394c51fdeb56e0427c34ca430ce835f76b0b0a984701a5063bf002be",
+      "after_sha256": "8dc109005296b0fb349dd970620e3b34c8cddf42f3fdc40939ea03bb8ab72547",
+      "edits": [
+        {
+          "before_offset": 231,
+          "after_offset": 231,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemN2.java": {
+      "before_sha256": "12b366c296dba7906a21f41da24e2e0d6fcc49534102acddbdd3de9c10d2faab",
+      "after_sha256": "b8b411ed513efec24b12319f50400a108f6e4b996c54cf9f5cac9e031f2a9120",
+      "edits": [
+        {
+          "before_offset": 288,
+          "after_offset": 288,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/bomb/ItemPrototypeBlock.java": {
+      "before_sha256": "dc755cb71715a1136409bccce6741294ac8e423bc5b5124908cc6463cd074639",
+      "after_sha256": "9b89b80c84bb4cb452f65ceadb75460e94857ec0f816a18c176a4507f1968485",
+      "edits": [
+        {
+          "before_offset": 350,
+          "after_offset": 350,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemCanteen.java": {
+      "before_sha256": "9fb581842fd20e78ab70a9dd8cbb8e0fce824ba16fc0ab6e86d51c48cd8ed5e7",
+      "after_sha256": "350e4482f7d060c8dcfb0f1e2b40daa8b6f6e48ea6220bc293f8cd275f590b9e",
+      "edits": [
+        {
+          "before_offset": 1790,
+          "after_offset": 1790,
+          "old": "\tpublic void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_) {\n",
+          "new": "\tpublic void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemEnergy.java": {
+      "before_sha256": "0fcead9733129649f889d08d83b31c6b859dcdb7da044b7989a55dc72e2885bc",
+      "after_sha256": "b211a8ac8418cc8a541053d9989bbbc0e9ff44148a9426c538aa6d70abf65b79",
+      "edits": [
+        {
+          "before_offset": 9597,
+          "after_offset": 9597,
+          "old": "\tpublic void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_) {\n",
+          "new": "\tpublic void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemLemon.java": {
+      "before_sha256": "93b0348b37aa605b72a882a3b7a9ce19f8aa62ed51473c8fb45597e833e09f3c",
+      "after_sha256": "057aebf6530da1c089c9f1a1dd2d6e8854086df69ced708a2eb5d7b3d35aaaa8",
+      "edits": [
+        {
+          "before_offset": 957,
+          "after_offset": 957,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemMuchoMango.java": {
+      "before_sha256": "58160e5a830c222f6612b4e12c4018d8f8ecff595c832168b6cb7c5a24bf932a",
+      "after_sha256": "1d382e1f8db5ac4462528e30877946a78e4a7e801c361e468e7a3d78f248cd21",
+      "edits": [
+        {
+          "before_offset": 757,
+          "after_offset": 757,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPancake.java": {
+      "before_sha256": "3e85ba73a79fba4aad08da35474e2e1033539638bc7765d30800f3cc6fd3e0ec",
+      "after_sha256": "0de4339a7b31e1174515dc61cb9231b43ad693c53811830f9373fb9a2f29151f",
+      "edits": [
+        {
+          "before_offset": 1542,
+          "after_offset": 1542,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemPill.java": {
+      "before_sha256": "5071f8f5144b47de42512c5d38a276898e7a3fc49738688ac59f7181638b5acf",
+      "after_sha256": "954f76d7103310485bb148c60a1d2bdcadefa5c61ed3b5d68c63409c91100612",
+      "edits": [
+        {
+          "before_offset": 5099,
+          "after_offset": 5099,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/food/ItemTemFlakes.java": {
+      "before_sha256": "fd9d7b234769caa2d146a5949b4dd691f643066c94b87d50007f18a32243a4dc",
+      "after_sha256": "2625c5d7564b609648b7168193c6958a2ba4279b23e167ff67bba0eae9ed736e",
+      "edits": [
+        {
+          "before_offset": 1114,
+          "after_offset": 1114,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemBlueprints.java": {
+      "before_sha256": "b2ec77bcaa7d725a65bcc9253c5b88edf7d2ce85ed5eea43514e69131751ef43",
+      "after_sha256": "93c59800ce04ed975455d213b6ef9560590c21e8097de02b328970283184e9e7",
+      "edits": [
+        {
+          "before_offset": 3234,
+          "after_offset": 3234,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCassette.java": {
+      "before_sha256": "41a7366bb90ddb9a9fa246600e7d9bda6bbcf37ced1450242e8f317263468908",
+      "after_sha256": "12bc180bf18a3be75f6ca5b1686e26f3d7b92294767d68b624d6014d7bbd8f0a",
+      "edits": [
+        {
+          "before_offset": 4593,
+          "after_offset": 4593,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCatalyst.java": {
+      "before_sha256": "82245fb78be42a830fef6112127a704bdc75dd308454f538b23164433d210ce5",
+      "after_sha256": "33262104c437e4d6da45a40cf197ae12dbb3cc9273c44c655bb8488b71984dd4",
+      "edits": [
+        {
+          "before_offset": 740,
+          "after_offset": 740,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemCrucibleTemplate.java": {
+      "before_sha256": "ec85a7781a59c13d45537adbc8c88e29488c0475d11cdcc37042467c71206bd0",
+      "after_sha256": "e0684167f4d972050126bec6bfa5402c7055eac6befc9f0b453c5aff60f2eee2",
+      "edits": [
+        {
+          "before_offset": 1484,
+          "after_offset": 1484,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFELCrystal.java": {
+      "before_sha256": "f2fee6dd6a3b6d7d1299975134491dcf12662edc01cb79f31390365e01fe09ed",
+      "after_sha256": "7f2dfbcb42a7f6fdcb2805ce4e1d34c103b4d4ee5d62d75338ca06e554e5ab54",
+      "edits": [
+        {
+          "before_offset": 643,
+          "after_offset": 643,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidIDMulti.java": {
+      "before_sha256": "b50abfd4f8aad2e2b2f5ab50b9c11afce6f29903b524892fa2ce55317c142cf2",
+      "after_sha256": "ba5f3829184791ca6d500d16de24660c64c3d8b2ffb786a6bcf7a2dcf0ccb68d",
+      "edits": [
+        {
+          "before_offset": 2668,
+          "after_offset": 2668,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemFluidIcon.java": {
+      "before_sha256": "95b5a7c295297ca3438d94d22a4ee0e0ec029b67fab918e8236d9d085a32ac7d",
+      "after_sha256": "579dccdc0b0cd77db465183d6fce20d3e675c76d63732c70942439f034d25dc4",
+      "edits": [
+        {
+          "before_offset": 1073,
+          "after_offset": 1073,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemICFPellet.java": {
+      "before_sha256": "f7f0e3308ea136499fe9f3aa0792bc4ea0f6100260b9ff6f1b4924e61616b88d",
+      "after_sha256": "e034df2e80c3fbec9d63bd03dedaf40f6852556831552ecfaac65f9611fa655c",
+      "edits": [
+        {
+          "before_offset": 6462,
+          "after_offset": 6462,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemInfiniteFluid.java": {
+      "before_sha256": "b4845d54d7f08062a20a3753f90911fdf3f73ed64ded4978713fa9aef5543ad0",
+      "after_sha256": "1f78f35c30a36a01153870141b68ddb14a0117855e4fa1fa095d100e304ce254",
+      "edits": [
+        {
+          "before_offset": 2045,
+          "after_offset": 2045,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemLens.java": {
+      "before_sha256": "05c62f77bb811e76529432a05184a89d40db8d877b7af31315f35b9d645c0fc9",
+      "after_sha256": "64509f1e5b6638822b2283f96e6aeee2a08dc4f6d2d33790a285078042b57f36",
+      "edits": [
+        {
+          "before_offset": 574,
+          "after_offset": 574,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemMold.java": {
+      "before_sha256": "a7d3f5020b4688321e838ff0a95b7402a3369be9c6c1ebcbb60b167ae59da066",
+      "after_sha256": "3127af78404157fc0f05233b6f6d4035e5af21d4b034ec8017ad25a9c0d6b41d",
+      "edits": [
+        {
+          "before_offset": 5438,
+          "after_offset": 5438,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemPWRPrinter.java": {
+      "before_sha256": "0f15f716a03fb37e9af35eedb5a62b28a936a26e50a2c708bc351b5d2f06b4a9",
+      "after_sha256": "174cdb7cc8d39398d8284ec3eacfc48884bf9cec17392d05020c21f37e6cbd94",
+      "edits": [
+        {
+          "before_offset": 5429,
+          "after_offset": 5429,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemPileRod.java": {
+      "before_sha256": "b517d25855739171e95bc8497af08ba883424dff9c3cccd8ba6f32269159c5db",
+      "after_sha256": "4f6a9502eda58555b2d6676575fffdce63717a0c4c7985ed6ec61a27f1725068",
+      "edits": [
+        {
+          "before_offset": 264,
+          "after_offset": 264,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemReactorSensor.java": {
+      "before_sha256": "401becced7e57c04eba4cba1816b594b71cadd799f3c74b7069ba92c293cc6d9",
+      "after_sha256": "6abafd5de7e53ed8e32df872552b5db8f1a1c9ec350016610f4a795ad351601e",
+      "edits": [
+        {
+          "before_offset": 2568,
+          "after_offset": 2568,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemSelfcharger.java": {
+      "before_sha256": "8d5e741247265ebd916be1b558b26be9bf008f8269506c8346e1e608630b0c46",
+      "after_sha256": "5b89c270f31735acb4c6925ebd9066213738921df5369cf76a889bdd51f0522f",
+      "edits": [
+        {
+          "before_offset": 459,
+          "after_offset": 459,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/machine/ItemTemplateFolder.java": {
+      "before_sha256": "753e55d1f99299f45968b9f8ebb3f2352a6fb26befcd518d5c2c93f87691d3b5",
+      "after_sha256": "1c2cb19f5ce8f43ec065444f5f35039abdf8f1522d293fedda351a09a237d662",
+      "edits": [
+        {
+          "before_offset": 915,
+          "after_offset": 915,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemAMSCore.java": {
+      "before_sha256": "4062281f4899a218bc8b9a3565a3507a7bd351c09631d2815804891f13ba0509",
+      "after_sha256": "fff96c8bdbd69be67fca71198844c51c8a1007f69acb94c6f95eefa3b083a27a",
+      "edits": [
+        {
+          "before_offset": 634,
+          "after_offset": 634,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBedrockOreBase.java": {
+      "before_sha256": "028c92d93bb3905343b8f93582ed804409f591919eced263b0f663c492916dcf",
+      "after_sha256": "6c8cdd68807fad2f96f4c2b6850bc6ec96ba95919410d171e93f303a5256f050",
+      "edits": [
+        {
+          "before_offset": 2005,
+          "after_offset": 2005,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBedrockOreNew.java": {
+      "before_sha256": "34e673a21527f465497d5de8ace3128569be11fac0e63161fefc9da3aff50f11",
+      "after_sha256": "51226cb0fdbf34bc1a90a44e4129d95766fd4ac0fc93d5be50c6e83c3eb8d9db",
+      "edits": [
+        {
+          "before_offset": 4288,
+          "after_offset": 4288,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBook.java": {
+      "before_sha256": "6c5255ff9e5e329e1c9a65c355ffe8e6e923fd919b3dbe6c1e34b6aaacbdfb76",
+      "after_sha256": "2cb437d441c90ada7d0c1220e1743e99ab11245ada56b097bc83030792d704df",
+      "edits": [
+        {
+          "before_offset": 586,
+          "after_offset": 586,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemBookLore.java": {
+      "before_sha256": "f03b384f38713f7ffaeb2805855c98aba71dbd0e90fb6e59940d36dfde3cbe3f",
+      "after_sha256": "4e4f7554c9e5803194057d95ece5c138291684eebcafb2ac5f4b225f8faa4272",
+      "edits": [
+        {
+          "before_offset": 1392,
+          "after_offset": 1392,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemCigarette.java": {
+      "before_sha256": "cc2dc9bd4a873d0c639cd184c7fe8e9cbf0f68638c99f48e2eb466e7d373a44d",
+      "after_sha256": "de9162451b4ffb92ef8825c8c5ce447fa447d31a47a6b9f307cf27e2f6acc342",
+      "edits": [
+        {
+          "before_offset": 2469,
+          "after_offset": 2469,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemDrop.java": {
+      "before_sha256": "7a89d8b0b712fbbd1a9fbb43a9f378f11a3b9a6645122968e098e892ac1189a1",
+      "after_sha256": "7ba674a958f13ea1675daed0b1f77b3f244367cf13500d48c34ab28d3a47e4e5",
+      "edits": [
+        {
+          "before_offset": 7123,
+          "after_offset": 7123,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemFusionShield.java": {
+      "before_sha256": "b2e6be4bbf91fb632f2e488b159100524b7a6b844e3f9096b08ae19e4b85fda4",
+      "after_sha256": "d1ad96599b11d39979118245400a63b73e464f019374171c07b2dd2846757cde",
+      "edits": [
+        {
+          "before_offset": 699,
+          "after_offset": 699,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemGlitch.java": {
+      "before_sha256": "909307ef7350e5bc6aa94a391841b1ce651507f5d65e0ad3de64282fa358958b",
+      "after_sha256": "114eed0fab91a91c66fadaeff118804ffa5422891074ec9b0b3d277893b51903",
+      "edits": [
+        {
+          "before_offset": 6676,
+          "after_offset": 6676,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemMineralOre.java": {
+      "before_sha256": "1cec1c02bf371f93f5542e5ad913961b572b06b641a96b375ec4bfa980f80d48",
+      "after_sha256": "45f8a2a0537d6938721164f51ebbc40b04c0507ea597d091d89c652889a6d759",
+      "edits": [
+        {
+          "before_offset": 1526,
+          "after_offset": 1526,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemModRecord.java": {
+      "before_sha256": "a7e7cb30a958bb62ce8a8f383782f9a06b47672e63b2e41bf612f818eecd3d6e",
+      "after_sha256": "eaf6425a021e1afd32f4ad7015728f3da762b66366f7962be6134d4db7e94a62",
+      "edits": [
+        {
+          "before_offset": 1806,
+          "after_offset": 1806,
+          "old": "\tpublic void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {\n",
+          "new": "\tpublic void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> p_77624_3_, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemPolaroid.java": {
+      "before_sha256": "062bc2abca9941879c891efa8f4c63b740bc244e37698146363d2acfb720d8b1",
+      "after_sha256": "5ea246ceb2411a81dd5b07d174e1d04e2b4380aa2b18829ae2b475e9ae326fb1",
+      "edits": [
+        {
+          "before_offset": 717,
+          "after_offset": 717,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemRag.java": {
+      "before_sha256": "da2c5d440b8e1a9b09f12eda7d8f63f8b2109e1dfe39e087a2374c6133f23e0f",
+      "after_sha256": "d6a7c0d03452469ca85ab56cac5f84c516e655b51d2cc5b8ff15f8f27febb7fa",
+      "edits": [
+        {
+          "before_offset": 1387,
+          "after_offset": 1387,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSoyuz.java": {
+      "before_sha256": "3bc65cc7cd8f667d0320a4a4b5feff5ed3e710cac895d960c7573ec6c6aae08f",
+      "after_sha256": "fedaf62d121a5731516231847f6b0424ea6cdae027a021220f0b1e62f3af30a6",
+      "edits": [
+        {
+          "before_offset": 1239,
+          "after_offset": 1239,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarmetal.java": {
+      "before_sha256": "9e39802ad47d4a29de8e74f14d6e4c604b951fcc1f58e66b33c0b619d04ef0d8",
+      "after_sha256": "573e833c43229ddb10ff0d269baabc977647daf8745502a62ef885aba0ad5e4c",
+      "edits": [
+        {
+          "before_offset": 1432,
+          "after_offset": 1432,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemStarterKit.java": {
+      "before_sha256": "160f15be4e08ba8a6d3243d4cb068cb22c1717c5ae6c8cd6e175ef09dc65535b",
+      "after_sha256": "f1075dea4875f1be41d53567103c1f319d8045835fd57116151fb163c0dd4a61",
+      "edits": [
+        {
+          "before_offset": 27328,
+          "after_offset": 27328,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean b) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemSyringe.java": {
+      "before_sha256": "f1abbb0187bc03ff9042e1affecfc7ba5d1ecd3d74d3388794f4ab48c24aa710",
+      "after_sha256": "54b386405f07ad1eab526bb63792228f5323f4efb4fe6eb9ecf55fe073625565",
+      "edits": [
+        {
+          "before_offset": 12741,
+          "after_offset": 12741,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemTeleLink.java": {
+      "before_sha256": "6151234ceb0705e0d7315f6a728a4be3b0380330679dbdc2208f6ed95c68bbee",
+      "after_sha256": "695c56f4967bc6682a61b5fb8ced5eb1623647b01510479a89d6e904bef8a318",
+      "edits": [
+        {
+          "before_offset": 2441,
+          "after_offset": 2441,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/special/ItemUnstable.java": {
+      "before_sha256": "693dbf4385493b706523170425f9950aebfedae426566e1fa1580b79695fbec2",
+      "after_sha256": "b3b42451dbafc58465a53521f174e8c4e9666a520b8529228b7ee954e41db3c7",
+      "edits": [
+        {
+          "before_offset": 856,
+          "after_offset": 856,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAmmoBag.java": {
+      "before_sha256": "8af49ceafd08c0fc9c419094cd48611e0c70b684d96364bd9580ac8184e5e59d",
+      "after_sha256": "43018a444df344841f11c9bf93e8d0eff55ba71bad667bcb5d9eef04ba38d04b",
+      "edits": [
+        {
+          "before_offset": 4294,
+          "after_offset": 4294,
+          "old": "\t\t@Override public void openInventory() { }\n\t\t@Override public void closeInventory() { }\n",
+          "new": "\t\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n\t\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemAmmoContainer.java": {
+      "before_sha256": "2733a2e6aaf0334e1cb42fc50802b437189954cad7ac4276b52cf8cd19057c55",
+      "after_sha256": "be0a5fa60f95c3e3ed39360ca72330df128cae63b94c9d30801068bf12a0a513",
+      "edits": [
+        {
+          "before_offset": 2628,
+          "after_offset": 2628,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBlowtorch.java": {
+      "before_sha256": "64466cc76e59e05d4e683b4cf8b51c92a6a17ffa419de1b72e21d04492f77302",
+      "after_sha256": "f470f9da2a45fc02c899c31e655e97bae06565c36cb0e8616ad62237f2cdce5b",
+      "edits": [
+        {
+          "before_offset": 5679,
+          "after_offset": 5679,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemBombCaller.java": {
+      "before_sha256": "402f784da7ec8a71437a1aa8225f1139f63beddde201f7ae485b394c92aaff04",
+      "after_sha256": "b21bb5b0914299180228c513b833d1cdbdc4bd29fa1e382db9eee84718e44f49",
+      "edits": [
+        {
+          "before_offset": 703,
+          "after_offset": 703,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool)\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCasingBag.java": {
+      "before_sha256": "3363e45304ce5bba628690dd4820d9457d93469b5fa6227782b00e4fd6ee989c",
+      "after_sha256": "738626280db16261d3913f227e9fe386c0c93ba3e0716dcee5827d22b199c229",
+      "edits": [
+        {
+          "before_offset": 5528,
+          "after_offset": 5528,
+          "old": "\t\t@Override public void openInventory() { }\n\t\t@Override public void closeInventory() { }\n",
+          "new": "\t\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n\t\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCatalog.java": {
+      "before_sha256": "f6a96a38c34143f00f9d79bd1d45e532e59f1b2bc6d865efbfe1260d9b14a3a0",
+      "after_sha256": "ffe7e898622928f8f4dff48565ded6bae1abc6efcd2c1395f181920b59a9f952",
+      "edits": [
+        {
+          "before_offset": 819,
+          "after_offset": 819,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemColtanCompass.java": {
+      "before_sha256": "986e8a64ac9eb8419965f5721a7181bb52f4abab60f763b2b28529546e529548",
+      "after_sha256": "4199469cd525a1aa8414ef58a699486c09b8dc4482530375d3ebbba07221c4cb",
+      "edits": [
+        {
+          "before_offset": 998,
+          "after_offset": 998,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemCounterfitKeys.java": {
+      "before_sha256": "474c8ba35f290ed7ba46113f81bd2d76ce6db595c1581ce0e31c9ef576abc8df",
+      "after_sha256": "cc0bb6fe9f194ddd0f01181c52a5cfa57d0e87960b404d6c945a131bee8fd0e5",
+      "edits": [
+        {
+          "before_offset": 1262,
+          "after_offset": 1262,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesignatorArtyRange.java": {
+      "before_sha256": "19cf24a4930f4faed21b8be7a1b0c3a836104258d58814eb460af1e50b671307",
+      "after_sha256": "e915c00e756ee9d929a1b18975928055d22b7bf40a7efa291c8ef4984cce6aeb",
+      "edits": [
+        {
+          "before_offset": 701,
+          "after_offset": 701,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingator.java": {
+      "before_sha256": "5bf52e3aa13ecac0c045f78c177e13dac58071aab127b211e3d98aaeb9177ed3",
+      "after_sha256": "ef2626874478779cc7c986404fa07d5ac3ada8fef10debcb2440290808714e65",
+      "edits": [
+        {
+          "before_offset": 512,
+          "after_offset": 512,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingatorManual.java": {
+      "before_sha256": "88ae15de6ccafef81917b2f5de7cc2f2798d6833d869af0fc9f7aaf6940599e2",
+      "after_sha256": "e4bade1a9fdc722c273380770d4c106edaa3fc23aa6e769ff95f799534778f1e",
+      "edits": [
+        {
+          "before_offset": 851,
+          "after_offset": 851,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDesingatorRange.java": {
+      "before_sha256": "8542d188b3bd1c38c1e0b88f2beac7a088723cca83913e87ce679b69249d5deb",
+      "after_sha256": "501dfbc06cef80eda32ba8fb1e2697a7d2f0e04921cf4a6ec7e92adc642205c2",
+      "edits": [
+        {
+          "before_offset": 593,
+          "after_offset": 593,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDetonator.java": {
+      "before_sha256": "76ebefe738a217c98b65715464040c25bbc266b7574b9ffb17fb766bc9d90938",
+      "after_sha256": "2a35adedba0152162e433c946afa0659f8cfbf476066e9c2b5faed404b8a9819",
+      "edits": [
+        {
+          "before_offset": 596,
+          "after_offset": 596,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemDiscord.java": {
+      "before_sha256": "0e8e1213324275f1e88b66eddc960944d1373a60f37e2b0ec28cc8a947a7b087",
+      "after_sha256": "34b89f6214b33ba8f97006c39c2bdde33023eeb41b8d6c7f17bfe37f1b957e75",
+      "edits": [
+        {
+          "before_offset": 1437,
+          "after_offset": 1437,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemFusionCore.java": {
+      "before_sha256": "df7924c3c8a88a28457368416f2fc6d0bd1fcd8c885260e084e1e18a93c3f7c3",
+      "after_sha256": "23b0b1d0cdf392ddc8b0270d84dd0e709b83eb58f1a6866a1a65d3a51a1a87b2",
+      "edits": [
+        {
+          "before_offset": 1306,
+          "after_offset": 1306,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemGuideBook.java": {
+      "before_sha256": "e8324ff053da7c8ac1bc683d26fb9e540c9399c3dc4761c1624651813b5a6544",
+      "after_sha256": "8d12060d6ff5ebd2c6bf312ba9b140742454bcea6bab09eb7c1e7b39c6ab0c63",
+      "edits": [
+        {
+          "before_offset": 1225,
+          "after_offset": 1225,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemLaserDetonator.java": {
+      "before_sha256": "e73a83423a5de6d657f8f4e51cea89ac1bff5003d86d108afb611ca0b3e57d11",
+      "after_sha256": "5e682ce56cba0ff7a8ee0626002dd0dfd37dd34634c333f332499a647217de12",
+      "edits": [
+        {
+          "before_offset": 908,
+          "after_offset": 908,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMS.java": {
+      "before_sha256": "dc16731220d1890c23a211ad7605341fc264903344d66c013f5982aba6718c4d",
+      "after_sha256": "44aa9f006f81476eb74c775cc61ded21b02679094d43e4331fe4e4be55c7e0ce",
+      "edits": [
+        {
+          "before_offset": 417,
+          "after_offset": 417,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMeteorRemote.java": {
+      "before_sha256": "297ac2ecdd050c45e4c95586691cf967f0d6ed738903b9c28694619542370298",
+      "after_sha256": "f281c2b2aa762af20367f64f9ccf509b02a5630a242971853b8fe72644efbe00",
+      "edits": [
+        {
+          "before_offset": 517,
+          "after_offset": 517,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMirrorTool.java": {
+      "before_sha256": "6797c46714895fb260a15a3ab49410a3383d3c9ebcb331328c18f3b844f4f0a8",
+      "after_sha256": "7615e3113f46c71b3799258a3ff13e933c0a9f1c12c35dfdc058f60964462290",
+      "edits": [
+        {
+          "before_offset": 2704,
+          "after_offset": 2704,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemMultiDetonator.java": {
+      "before_sha256": "387b926201ccd23fcd70f4e82bfbbc2664248391c996bbba4dab17c5a9c20ae9",
+      "after_sha256": "6f60b4da9ae587e846026b9dbff7e7fef5823f4aaeba61875b89b3fb717f971f",
+      "edits": [
+        {
+          "before_offset": 646,
+          "after_offset": 646,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemOilDetector.java": {
+      "before_sha256": "6810e9f5b179d5672ba889c8f4fabda97ac02d9a56498d957f922254d5c80e2a",
+      "after_sha256": "70f81a4fdd3c8f5dbfcdd200c794d23a3af02b8fa33fc62a6784bda491c9131a",
+      "edits": [
+        {
+          "before_offset": 708,
+          "after_offset": 708,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPipette.java": {
+      "before_sha256": "5965189c71d74e90a730471b70e62df12f6d3764b4f620bd70cb85985e45263e",
+      "after_sha256": "a02dd0778404b1326c5088ef28557837abe84a65cb0307f8e4c13d9eda5ca1e4",
+      "edits": [
+        {
+          "before_offset": 2953,
+          "after_offset": 2953,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPlasticBag.java": {
+      "before_sha256": "8173fddfbc1d0155d63896b436995417d80d957973b8dc9e5ddcbc47061c1698",
+      "after_sha256": "e8f55fd28fc2b36e6dbf3b3938a7d4515f0142590cf9b176ca71dcef0f346f7c",
+      "edits": [
+        {
+          "before_offset": 3711,
+          "after_offset": 3711,
+          "old": "\t\t@Override public void openInventory() { }\n\t\t@Override public void closeInventory() { }\n",
+          "new": "\t\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n\t\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemPowerNetTool.java": {
+      "before_sha256": "8eaf355cf40e5b53de12459fe469759e04d5a93bb9ec7c7e2df41716e1b4ea8c",
+      "after_sha256": "6d4245e1e3baf57c4567f889f39457e141e0bc7fa0776008b51c60a4f48ef644",
+      "edits": [
+        {
+          "before_offset": 2975,
+          "after_offset": 2975,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRBMKTool.java": {
+      "before_sha256": "8ddd00d07e986e879b30d7e42f26c87579916049423acbe5a99cb04de5a2a845",
+      "after_sha256": "fecdba2c1e2332d86ca99eec87d965b99273a6d76884c3e25c77a536a149c2f8",
+      "edits": [
+        {
+          "before_offset": 3930,
+          "after_offset": 3930,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemRebarPlacer.java": {
+      "before_sha256": "74f1b80bcc526e0507bdc697129ec08191bb9d447836c38defcfd967cc0710c1",
+      "after_sha256": "11716fbc6d7d9b4f9464a95e9bb3dabe47467a38f99d0725b4b2753b7f08cb39",
+      "edits": [
+        {
+          "before_offset": 3252,
+          "after_offset": 3252,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemSettingsTool.java": {
+      "before_sha256": "dcb1a3760565997efcac9c7e414290c2a83c855c243c55568596bff6bc310715",
+      "after_sha256": "08e8dcc1f49ef75ebccca2d2546235fc22434cf0b98728429244a05ca427ea8e",
+      "edits": [
+        {
+          "before_offset": 2335,
+          "after_offset": 2335,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemToolBox.java": {
+      "before_sha256": "1fe7d39d008f8de9855b11a7e8c2a22deef9238541cf84193ac54507bd4eb0e5",
+      "after_sha256": "5c63e6639e458f5bdcd8c21b3a80027cb874346ef3e15b467ab726594b060d18",
+      "edits": [
+        {
+          "before_offset": 2156,
+          "after_offset": 2156,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        },
+        {
+          "before_offset": 9886,
+          "after_offset": 9951,
+          "old": "\t\tpublic void closeInventory() {\n\t\t\tsuper.closeInventory();\n",
+          "new": "\t\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n\t\t\tsuper.closeInventory(viewer);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTransporterLinker.java": {
+      "before_sha256": "b83634e13d28fd1791e7dc7d57ac4ea5e3c31e52cf9079a4f931796347436fd6",
+      "after_sha256": "dae196f1449a1c2c9783298339a8ef280c18207b2324221abc6115d653097e9a",
+      "edits": [
+        {
+          "before_offset": 1505,
+          "after_offset": 1505,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemTurretControl.java": {
+      "before_sha256": "39a911e469d4b2c749ce5e0d49add426913faa66fe921a3326e07bb57e63a297",
+      "after_sha256": "b0299288e84322be99e56741ab1b00c54d9c6b2b5cc45488c52f7ff3f8e80bf2",
+      "edits": [
+        {
+          "before_offset": 3276,
+          "after_offset": 3276,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWand.java": {
+      "before_sha256": "65803a237b43fb9e92e6d336029ffbde0fab788207ec42265b1f68e3ab46c80e",
+      "after_sha256": "a993beedfa9a45c7fe37961c86bd266bea9865786b6b150b1cf3d71767db8b17",
+      "edits": [
+        {
+          "before_offset": 516,
+          "after_offset": 516,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandD.java": {
+      "before_sha256": "ac46f4f7cbfd9a863d9b115683920a4694f6845cba1f412b7ebe5da87b33db0f",
+      "after_sha256": "cc70312322190d0d5a53a2037ca760b1fe9def7f5976d18f6b16c4dd285062bc",
+      "edits": [
+        {
+          "before_offset": 4365,
+          "after_offset": 4365,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandS.java": {
+      "before_sha256": "52f0bc6242cd6a6c8b3c7efc9e0882fc65f3faff3153ae4462fb05c11ac54052",
+      "after_sha256": "f8135f9f8b30d5f50dc81206e10d22da3a19d4c188a72b4e22027765c99ad4ff",
+      "edits": [
+        {
+          "before_offset": 718,
+          "after_offset": 718,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWandTime.java": {
+      "before_sha256": "c0458969f01e70cc11516af0599fd45378e9e8ec1e0965b5b9296ae844ad8bdb",
+      "after_sha256": "e73653e65f7249fb17b445b862e80be894699a4671b01d6b9dee091ad3b66f50",
+      "edits": [
+        {
+          "before_offset": 410,
+          "after_offset": 410,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWiring.java": {
+      "before_sha256": "739e382a2e4166549a64469b6e7e0a644e78d76d93e55588d0cb5a88fa646641",
+      "after_sha256": "a3286d1271696069cb221e189e05f53375377fb7c631461e3045b9b0d6f0f760",
+      "edits": [
+        {
+          "before_offset": 3109,
+          "after_offset": 3109,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ItemWrench.java": {
+      "before_sha256": "016629e72ec65c601e521595dc6667d0bf869f2220477244e8bd57106643b632",
+      "after_sha256": "714490c64f11861af5bc106a05c109651f58c2f76d98f2426c0ab701cd7a5bc9",
+      "edits": [
+        {
+          "before_offset": 3738,
+          "after_offset": 3738,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\r\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/ModSword.java": {
+      "before_sha256": "ffca520743e6effdebc4b148b19fbd9431003800efd48773d153f60b8f076da5",
+      "after_sha256": "e54b71f704c6a5109fb4f881f2463b3634d700861dbb2e395a6d4e63dad9aa01",
+      "edits": [
+        {
+          "before_offset": 335,
+          "after_offset": 335,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/tool/WeaponSpecial.java": {
+      "before_sha256": "705a5b704c29cdc92e49c98af8f80ea909f837da5379d92431a5eef980013baf",
+      "after_sha256": "ab7f0934351072c06b6d0c574be3ad2800eb1e9065e93146bfccb50833374bee",
+      "edits": [
+        {
+          "before_offset": 8308,
+          "after_offset": 8308,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92.java": {
+      "before_sha256": "a28afd13de3bb5de515097ae3b209bd64069a11b6cdcefb3004bd5b2024d37b2",
+      "after_sha256": "73fde70705188c9ad2849f4ba363563ecf08af11383d8f77033542c2882230c2",
+      "edits": [
+        {
+          "before_offset": 4856,
+          "after_offset": 4856,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/GunB92Cell.java": {
+      "before_sha256": "fad774dff240e8a249e6c0d5aa71797263d59280c15dffa5b4a25158798728f9",
+      "after_sha256": "802c92a2bb7b810afc5aaf4f53a9c558fa9c702c50ef4132bfe1c99e7f1c9beb",
+      "edits": [
+        {
+          "before_offset": 1048,
+          "after_offset": 1048,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoArty.java": {
+      "before_sha256": "ccfe1c2acccb4d0825927cfd9546d374355da094242253b432f15358fb8f5926",
+      "after_sha256": "135aa7d7a3bf4803f5d1af6b68e6aaf276ba8f13ce7741959eb9b5bff9acf4c1",
+      "edits": [
+        {
+          "before_offset": 3559,
+          "after_offset": 3559,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemAmmoHIMARS.java": {
+      "before_sha256": "a2277924dfe89965534b9c4f3a92cb7e0d045ba8261a9ce15eca3655bde0d65e",
+      "after_sha256": "c5c1c25049b7a57926e998072328ec9e67e12d268a8e501d7f6f4baeec4b0f9c",
+      "edits": [
+        {
+          "before_offset": 2812,
+          "after_offset": 2812,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCustomMissile.java": {
+      "before_sha256": "e39faaae9837573647c69f827991752ab9c81a57a11909098b8e9d19d7d0207a",
+      "after_sha256": "9a737886fd1d985f8de16bb68d25dea6bbe0b34bdb4232b19f0b5cffc56d9869",
+      "edits": [
+        {
+          "before_offset": 1863,
+          "after_offset": 1863,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/ItemCustomRocket.java": {
+      "before_sha256": "da42af009e49efa7359fec582fd3b6fb751a5a2608a35c8d28530af32b352c40",
+      "after_sha256": "f01a5fed9e22674234d5f04f63532e0951784d89a90ecb40df361302ddcccf78",
+      "edits": [
+        {
+          "before_offset": 1549,
+          "after_offset": 1549,
+          "old": "\tpublic void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/items/weapon/WeaponizedCell.java": {
+      "before_sha256": "52c67ab755f84c3d01a00e59ea8e9def7ce0dec8b0480d95880946ef64792748",
+      "after_sha256": "c746bf3948fc2454daa49b8c191423ff18a37dbc9512a49b86769d71428e7e19",
+      "edits": [
+        {
+          "before_offset": 2091,
+          "after_offset": 2091,
+          "old": "\tpublic void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {\n",
+          "new": "\tpublic void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityBombMulti.java": {
+      "before_sha256": "dbdd64866d0ac3c4533a3fde09ea152301e774e203d2132d9b763fd8161774be",
+      "after_sha256": "a9bb266c397c583a9fca5566ba6e84e0f5bec767930a507de7acf34b488dca29",
+      "edits": [
+        {
+          "before_offset": 2916,
+          "after_offset": 2916,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2965,
+          "after_offset": 3012,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityCompactLauncher.java": {
+      "before_sha256": "cfae9e6e77269592dfa7a6f128034857d305c0c8c99159ac1759e24393852e97",
+      "after_sha256": "3b79f7a924558c9585b0dc6733f13f718f0ec459859a5d79b867dcc6ab3e3265",
+      "edits": [
+        {
+          "before_offset": 4199,
+          "after_offset": 4199,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 4245,
+          "after_offset": 4292,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityLaunchTable.java": {
+      "before_sha256": "78aa832603d9607a1dcac3e4f446f04c27cfc7e4503eb243012ad9323a39c8b6",
+      "after_sha256": "fd12a3a1785f00e87e76027db6418f2991b3886d7a990d12af140d9ac9c86b29",
+      "edits": [
+        {
+          "before_offset": 4580,
+          "after_offset": 4580,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 4626,
+          "after_offset": 4673,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeBoy.java": {
+      "before_sha256": "32e98c687569d6ebca43f8d4400a14205007ec9bb547f5272f1e7e9b8cd3de9a",
+      "after_sha256": "d9b08967210cb9d0adb857860dceced3c3d8d91c9bcd0106483bf5bfa0c3322c",
+      "edits": [
+        {
+          "before_offset": 2844,
+          "after_offset": 2844,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2893,
+          "after_offset": 2940,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeCustom.java": {
+      "before_sha256": "6fe524b30dab13b1f280d1145d2fbbeaa3e403aea1be1b6b2d03c06d503fd166",
+      "after_sha256": "1e535c2d7c71f1eaa8439cfbfd11e16aa0c53eb37b709e0873bfd607d719deda",
+      "edits": [
+        {
+          "before_offset": 3078,
+          "after_offset": 3078,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 3127,
+          "after_offset": 3174,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeFleija.java": {
+      "before_sha256": "0adb301f3285bed2b4722f334cba9409ce9f846d2f8c0a42c1f30538e762b5ab",
+      "after_sha256": "fb23bd9fd3258fcf475d3b300630dfb08401598e6a37b1370ed39f85db060285",
+      "edits": [
+        {
+          "before_offset": 2859,
+          "after_offset": 2859,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2908,
+          "after_offset": 2955,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeGadget.java": {
+      "before_sha256": "31ff18104354b38d438fd8235168c0bb733ee31ce03ed8bb62372471b052e583",
+      "after_sha256": "32395f917a0fe40841b8c5d0281a430e6d0d36bd2cbdea8a790c937861a9f2df",
+      "edits": [
+        {
+          "before_offset": 2858,
+          "after_offset": 2858,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2907,
+          "after_offset": 2954,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMan.java": {
+      "before_sha256": "67d5fc41341e000da91e8d0983cb2389879241446d951c71b47ae9881f7d3eb8",
+      "after_sha256": "bbc895801fd4eefde056ea1a972b26d16e8fa30acd9b96c718b96d61ae6ed49f",
+      "edits": [
+        {
+          "before_offset": 2843,
+          "after_offset": 2843,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2892,
+          "after_offset": 2939,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeMike.java": {
+      "before_sha256": "507b9b81fc47255499261203314fe9670a3444820ba4904a006ec3b6ed997665",
+      "after_sha256": "67295f31ca7acba1ed95627f974a601d337fb950f1b81951fca08cb2fdaccfeb",
+      "edits": [
+        {
+          "before_offset": 2848,
+          "after_offset": 2848,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2897,
+          "after_offset": 2944,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeN2.java": {
+      "before_sha256": "3afeec62b3b63a6d0dedcde8124919c836ee2704ade81f717212bf27f6ea41b8",
+      "after_sha256": "7e79788a758b8b29444e3dd017a854fb546c38997057e16bed89ffe453c4ca8b",
+      "edits": [
+        {
+          "before_offset": 2839,
+          "after_offset": 2839,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2888,
+          "after_offset": 2935,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukePrototype.java": {
+      "before_sha256": "b906a7c73d58a3f5b109883dc3a88cc43127be378afdf4a9a7c530877cfdde46",
+      "after_sha256": "3579fc2bffb0451948b74108cfb10cee2a1b7e7b4b885caf23ff582bee3cab0d",
+      "edits": [
+        {
+          "before_offset": 2936,
+          "after_offset": 2936,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2985,
+          "after_offset": 3032,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeSolinium.java": {
+      "before_sha256": "0db9fb0b3377f77f3dec9fa056ad5061b3fe6308573fbbf67526e7245673c413",
+      "after_sha256": "a7d5e1a67aaf6349699cecedf7cf63449ed076a53711cb5cbb0a73d8f3684f41",
+      "edits": [
+        {
+          "before_offset": 2868,
+          "after_offset": 2868,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2917,
+          "after_offset": 2964,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/bomb/TileEntityNukeTsar.java": {
+      "before_sha256": "bfecb56b6a0c817f61272bafb2dd9d99ce594e64f21da21602f450f615329d86",
+      "after_sha256": "d95205a554b4cdc6f63be17e77ba4d606efd55c4a45f1e659c42425dbe9a618a",
+      "edits": [
+        {
+          "before_offset": 2848,
+          "after_offset": 2848,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2897,
+          "after_offset": 2944,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityForceField.java": {
+      "before_sha256": "089c6da11f71ec18b3cd12b94f148d8551661d2ceb7c46989edcd401441d0a17",
+      "after_sha256": "3eb5eb07347729d8a123a0e3ffd5229168519bd400906bd813394cb004e8f03d",
+      "edits": [
+        {
+          "before_offset": 5362,
+          "after_offset": 5362,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 5405,
+          "after_offset": 5452,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineKeyForge.java": {
+      "before_sha256": "35255a3a5397ccfd262edd048ef239c9e736c8eb8fd97682c80c0951d651d6a6",
+      "after_sha256": "6d108ab33ba18790f8ff525f8fa29959af575fbc4dedc39ff7171f9ff190efc3",
+      "edits": [
+        {
+          "before_offset": 2630,
+          "after_offset": 2630,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 2673,
+          "after_offset": 2720,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineMissileAssembly.java": {
+      "before_sha256": "09063909e45027251364caa1cbdf561d8c9fe1eab90c487c84b6a78b554b3a0d",
+      "after_sha256": "9ac55d65335da9738fc7f811704304790f415fddbb2458bd576fe6fb4b5ed25d",
+      "edits": [
+        {
+          "before_offset": 3064,
+          "after_offset": 3064,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 3110,
+          "after_offset": 3157,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatDock.java": {
+      "before_sha256": "ab3248aa1eb4281c21d468733debfb610e9508958f7ab3a0e6670965ee1748ff",
+      "after_sha256": "5a11110c06f03c5e34c51ff07823bec60587cbe761e949f649c3adcbdb380c79",
+      "edits": [
+        {
+          "before_offset": 2890,
+          "after_offset": 2890,
+          "old": "\t@Override public void openInventory() { }\n\t@Override public void closeInventory() { }\n",
+          "new": "\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSatLinker.java": {
+      "before_sha256": "75f3236a8d1e289e34a0827957fd6fec334016dfcada1dec6efb649e54984569",
+      "after_sha256": "8a6443d94f61157a360c66e34ec54f697c0ad0bca446099f0986dd669b4e63c1",
+      "edits": [
+        {
+          "before_offset": 2712,
+          "after_offset": 2712,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 2755,
+          "after_offset": 2802,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineShredder.java": {
+      "before_sha256": "484b876eb8704d0709896565f449fc8538f6142b9fc8a3bc96838fb90afac835",
+      "after_sha256": "e9aaac928f7f64bdc04df56bbe91424070c4b8c6e1c5c6c03aa6043765d724fc",
+      "edits": [
+        {
+          "before_offset": 3302,
+          "after_offset": 3302,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 3348,
+          "after_offset": 3395,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineSiren.java": {
+      "before_sha256": "9bd06a8af7232987d3c871142a97e07a861aee93bbdfc059573daf45657a59b9",
+      "after_sha256": "06bc18abdf7cbaf364e6376894cc117dbf96060005aefec81fb929a90840c7b5",
+      "edits": [
+        {
+          "before_offset": 3004,
+          "after_offset": 3004,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 3047,
+          "after_offset": 3094,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityMachineTurbine.java": {
+      "before_sha256": "aeefb034c07f31a20ebd1914910824a851f0fae0c4e8b61e9e20c8807c1027c3",
+      "after_sha256": "1a0798e6595de2226c04f3a427f6f59ab51341c08ed826c0e1bcd09a5f6456b2",
+      "edits": [
+        {
+          "before_offset": 5359,
+          "after_offset": 5359,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 5402,
+          "after_offset": 5449,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityRtgFurnace.java": {
+      "before_sha256": "a83d7517cf80116f70accfdab10f198f039eb20146e3ffa422e92206b483050c",
+      "after_sha256": "8e97def617706a7ee23ddd27932ef19e1a4c5f9a3d2e21007386d554245f35bc",
+      "edits": [
+        {
+          "before_offset": 3258,
+          "after_offset": 3258,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 3301,
+          "after_offset": 3348,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/TileEntityWasteDrum.java": {
+      "before_sha256": "294b3ff2492ec5f88081a77be83e64252be5ebe63ab1009870279e2f3d1d0090",
+      "after_sha256": "95e8bbb30e6a2b20529270ae8151a5c167c711a5ad0c55dd29712b1a6b5c4d03",
+      "edits": [
+        {
+          "before_offset": 2763,
+          "after_offset": 2763,
+          "old": "\tpublic void openInventory() {}\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        },
+        {
+          "before_offset": 2806,
+          "after_offset": 2853,
+          "old": "\tpublic void closeInventory() {}\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {}\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/rbmk/TileEntityRBMKSlottedBase.java": {
+      "before_sha256": "7a8d02361a13ad08539f5509c67c2be65cf00565f6dccc9e4016af0c3a99a803",
+      "after_sha256": "cd18cb95cd573e655dbce4640a1926ea3ffbd2d5f4297bc9bf3444070ffb90a1",
+      "edits": [
+        {
+          "before_offset": 1961,
+          "after_offset": 1961,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 2007,
+          "after_offset": 2054,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityCrateBase.java": {
+      "before_sha256": "cbb092b2ffc3659d1d81c6df74100b6a3377f5b33e50e0beeb6f9a7b8fed1337",
+      "after_sha256": "01d859f0d8b5b23018f7835ad866ba213eeae036e70b3c2950a028392ee1ab76",
+      "edits": [
+        {
+          "before_offset": 2276,
+          "after_offset": 2276,
+          "old": "\tpublic void openInventory() {\r\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\r\n"
+        },
+        {
+          "before_offset": 2483,
+          "after_offset": 2530,
+          "old": "\tpublic void closeInventory() {\r\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\r\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityFileCabinet.java": {
+      "before_sha256": "adb7b55d4529bfb9e4223226c1a7f6e9099edfa85765bee5f605205c4b8396ed",
+      "after_sha256": "2d4c21d0a2bb402e94c8d236e964872e6098282034f24c7bc4b6f44dff468b99",
+      "edits": [
+        {
+          "before_offset": 1188,
+          "after_offset": 1188,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 1282,
+          "after_offset": 1329,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/machine/storage/TileEntityMassStorage.java": {
+      "before_sha256": "118fb6838d4829e68bd2de01438965b5e0d4a26861ec5f003cf9695eacd1b2ba",
+      "after_sha256": "681bb1cf08b657fbcab6ec787ba72408dc6fe6acc8856428cbe7e3292389b211",
+      "edits": [
+        {
+          "before_offset": 7357,
+          "after_offset": 7357,
+          "old": "\tpublic void openInventory() {\n",
+          "new": "\tpublic void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        },
+        {
+          "before_offset": 7561,
+          "after_offset": 7608,
+          "old": "\tpublic void closeInventory() {\n",
+          "new": "\tpublic void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/tileentity/network/TileEntityRequestNetworkContainer.java": {
+      "before_sha256": "19c3f6ac634bab41ba0320e829c8ff5b08617230c416a2e9d5cf16e047b01ed4",
+      "after_sha256": "7c4974ebcf6c29428a524bdb6e57fc10e710f3c4e9ef45e8f446a6df2007cd8d",
+      "edits": [
+        {
+          "before_offset": 1563,
+          "after_offset": 1563,
+          "old": "\t@Override public void openInventory() { }\n\t@Override public void closeInventory() { }\n",
+          "new": "\t@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n\t@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

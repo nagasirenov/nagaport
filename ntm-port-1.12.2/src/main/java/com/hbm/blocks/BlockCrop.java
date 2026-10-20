@@ -40,7 +40,7 @@ public class BlockCrop extends BlockBush implements IGrowable, IPlantableBreathi
 		float f = 0.5F;
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
 		setHardness(0.0F);
-		setStepSound(soundTypeGrass);
+		setSoundType(net.minecraft.block.SoundType.PLANT);
 		disableStats();
 
 		this.soilBlock = block;

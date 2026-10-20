@@ -8,6 +8,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -152,7 +154,8 @@ public abstract class Satellite {
 	public static void renderDefault(float partialTicks, WorldClient world, Minecraft mc, float solarAngle, long seed, float[] color) {
 		if(color[3] <= 0.0F) return;
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
 		double ticks = (double)(System.currentTimeMillis() % (600 * 50)) / 50;
 
@@ -171,11 +174,11 @@ public abstract class Satellite {
 
 			float size = 0.5F;
 
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(-size, 100.0, -size, 0.0D, 0.0D);
-			tessellator.addVertexWithUV(size, 100.0, -size, 0.0D, 1.0D);
-			tessellator.addVertexWithUV(size, 100.0, size, 1.0D, 1.0D);
-			tessellator.addVertexWithUV(-size, 100.0, size, 1.0D, 0.0D);
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessellatorBuffer.pos(-size, 100.0, -size).tex(0.0D, 0.0D).endVertex();
+			tessellatorBuffer.pos(size, 100.0, -size).tex(0.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(size, 100.0, size).tex(1.0D, 1.0D).endVertex();
+			tessellatorBuffer.pos(-size, 100.0, size).tex(1.0D, 0.0D).endVertex();
 			tessellator.draw();
 
 		}

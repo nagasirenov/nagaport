@@ -1,0 +1,817 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "owner": "NukeTsar",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5440,
+    "before_sha256": "f9a5bddf23f43c57c83fe0d8bd24f89a5452ee4e0845e336ac0667a76c22286c",
+    "after_sha256": "5dacf9e86c4d9e5b500f6c51a839b86120a6edb8d1107724d42df424f6ca4f8e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "owner": "NukeSolinium",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5312,
+    "before_sha256": "0243017e60e9dd0a6ba23aa04190bb7d0ad8d0e9934f48afebf1a26427355372",
+    "after_sha256": "0b7c1b155559cb3fdd02fc7e502cb51da53647f9a7a91efe5207790483649c7a"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "owner": "NukePrototype",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5726,
+    "before_sha256": "fb357078bf34e1a72b57ff89f167704bddde52ba9a41c8236af333bd2a68644d",
+    "after_sha256": "f9aeeffcab3bcd6225fb9649f329c3a3f2932815f148d2c5363d487c17208f06"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "owner": "NukeN2",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5071,
+    "before_sha256": "5acb3db82cdff0ecd042fb5b4fa686eadd0481d544db858a662da0c67d69449d",
+    "after_sha256": "8eaf65b9fce1f0332e0a8583ae1b2bab8f3d0167a2a6cd9a282c340d71cf036a"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "owner": "NukeMike",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5543,
+    "before_sha256": "0de915c55d39ae45ee924aa56e3e076c1968f3ee8bb4ff858b711033ce521a0c",
+    "after_sha256": "d88404c1912c141e501f779ad996834712b455f92334fc061448f47e3a0a9752"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "owner": "NukeMan",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5169,
+    "before_sha256": "3883d767bac3aa075c2c4de65c45459e60fd880686575058733a220073f5d187",
+    "after_sha256": "f5aa9a38457c165d9a24232cebe3e5d11f0efb2f55fb925c58bd9ce952047a75"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "owner": "NukeGadget",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5268,
+    "before_sha256": "499f85ea8063429266d692c3c97cd811b70ac261080d7373b4ceb49f2033e5c6",
+    "after_sha256": "75b1b76a34494d644c8f927cc6091a1a27fa16229d8bb81a69dc7b15bc551418"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "owner": "NukeFleija",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5337,
+    "before_sha256": "076e3126e3058139972dc5898d99d15ee9835c4cd1de136fbe4cd4b7ce566a84",
+    "after_sha256": "af9abd7812ff7b9716db395e0205a0399ac7d1b69307321d2425461809da0de9"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "owner": "NukeCustom",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 8196,
+    "before_sha256": "0a15b4ff8325e68077a46977471eab9523f92fc5c1d879c413f45f222c80f1c7",
+    "after_sha256": "e50a6d146395dec771ace32866f85598845caa8388e87fc1c98fa9cbe43eca64"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "owner": "NukeBoy",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 5498,
+    "before_sha256": "e10e7bd5c7f8cb6bbfc38f54b26e3380da95975637642fac65ecf120637aba11",
+    "after_sha256": "80f012b58d1c356feea8448f782f9c9bdc9bdb259e3cffff2d3aff3c3fc1294c"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "owner": "LaunchTable",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1243,
+    "before_sha256": "1136f3716f819629faf33525b24b28c9727c33e93fc10244eabff32fb54326bb",
+    "after_sha256": "6d765073e491971d1c3035b0f170f81930afe66b52b0ff9bb141a9cc4e50df42"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "owner": "Landmine",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1728,
+    "before_sha256": "254d6cb2985d1e6590c1e614fdca1a48bf732a475bf9c468aa7c3b45cd838ce3",
+    "after_sha256": "37b7559575452410950b15df08995303e648bcdb7a9a3b5f022ca3e96df5bddb"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "owner": "CompactLauncher",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1270,
+    "before_sha256": "d909da408caea92d4640fd52dede87c6ad787cb6f064bb2585124a5fc2d7ec59",
+    "after_sha256": "61e8ff34ff1510c61afb733a619ba4c989927f10f2928fb89710ad0807328df4"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "owner": "BombMulti",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 6692,
+    "before_sha256": "f07185a3afa5a0fa506ff8a10b64619c1532f3b72938cddd04197951eaf11c28",
+    "after_sha256": "8d8f752080fba80c771d95d111939c40a4942f66c21ef63ce8a6b7cd5d1cc0b4"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "owner": "TurretSentryDamaged",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 579,
+    "before_sha256": "6759bace005fb81058585541cda36a072d22f3a2d3bb897ac61f28b02c32a182",
+    "after_sha256": "e0d627c38ef47f5d4e2f1ab3629fc84118bf318b3a58c0340d0ec2fa4417c80d",
+    "chain": [
+      "TurretSentryDamaged",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "owner": "TurretSentry",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1417,
+    "before_sha256": "a6ddd2be8cc4026370c7e6955e49c6ad54958e8e8a12fa59b5c2abeac24ee498",
+    "after_sha256": "b7be7d163ad57261d2c688d409de60aa404c9ab72afde7065dc688a88e12d443",
+    "chain": [
+      "TurretSentry",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "owner": "TurretBase",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 338,
+    "before_sha256": "8700fab0b19324ba20aa8485f651d416553c5d88101cff63e83b91d7d23feeab",
+    "after_sha256": "f79b6138e17d6d74c184a47eaf731aa3f8a0d4dfa00e6e5d91caac0040b437c1",
+    "chain": [
+      "TurretBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "owner": "TestObjTester",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 685,
+    "before_sha256": "be72cfb4d356269947904a27ab1f7f5ac05ae8265487ea1ba743ac5921ca6458",
+    "after_sha256": "0b397e860642d13174dd2e0d0c465f0751f1f21f2ec674286756d5864857d427",
+    "chain": [
+      "TestObjTester",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "owner": "PylonBase",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 862,
+    "before_sha256": "0a7c68b481af7438c1a29c79409c373b54a2268c4f025e3dd278673741a7ba67",
+    "after_sha256": "66a9691d6605d9c7a8720c57d2c936b16a3211befaf97f08967d2d14a2ebe387",
+    "chain": [
+      "PylonBase",
+      "BlockContainer"
+    ],
+    "descendants": [
+      "PylonRedWire",
+      "ConnectorRedWireSuper",
+      "ConnectorRedWire"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "owner": "FluidPump",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 2237,
+    "before_sha256": "3ccb10ce125c9e159423b24730ba8b41adac87743526bd2e4660dbb1e915bded",
+    "after_sha256": "22fffb2639a46501f6268ea0a02d3bd30a299feb011e2690560b6156b97dea3b",
+    "chain": [
+      "FluidPump",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "owner": "FluidPipeAnchor",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1139,
+    "before_sha256": "20d7985e0295437f86fe04bd956fd06e3d07b43e7ac50988ded784d3732df8ef",
+    "after_sha256": "c33087d384c889e93db2b65110a58f1569dea09002b84ee3ab888b88c4f8f0d6",
+    "chain": [
+      "FluidPipeAnchor",
+      "FluidDuctBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "owner": "StorageDrum",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 542,
+    "before_sha256": "b0473e85e328d1a62e16ce86ab04e6d50e67d2003a10cd4f7b4f7ca8ad2928bd",
+    "after_sha256": "2421fedf29f72fa651a3dc4ecee5f903f00202b473d63d360e65cd047c9c84b2",
+    "chain": [
+      "StorageDrum",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "owner": "SoyuzCapsule",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 917,
+    "before_sha256": "f4c558a4eea1611aaead260f3c7f78ac893ab846cf39312998e7f093431f960e",
+    "after_sha256": "b59082335ef5b03c003b9957453375d7d6c58fc67d8d0aaa4970acb326ff02e6",
+    "chain": [
+      "SoyuzCapsule",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "owner": "Radiobox",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 850,
+    "before_sha256": "4a7c39e2bb6637a2a3137e3383b1a6f435fd7647259025bf39499e84872c180f",
+    "after_sha256": "63560191ef454b52ecd17e62d7a1473ed5ec2f5cf853a10fa3cdfee630cfa144",
+    "chain": [
+      "Radiobox",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "owner": "RadioRec",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1096,
+    "before_sha256": "1767f5017f2b162e52b93a31cf3f26cc8d73ffaa6945676d0518cc9a486bcc94",
+    "after_sha256": "a0b82500a6530c79176f780ef5616cde663489b020113dbc2ed7e84928c1239a",
+    "chain": [
+      "RadioRec",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "owner": "PistonInserter",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 6201,
+    "before_sha256": "cdc32ced98fb8cb29ea654dff0b4bdb47960b3851cfeeda0f7ebc3cac4bbbdc0",
+    "after_sha256": "a83cdf7530ccbee563a7021d778d8772e1a2ba72790eb1ce7f5c425667fdeb54",
+    "chain": [
+      "PistonInserter",
+      "BlockContainerBase",
+      "BlockBase",
+      "Block"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "owner": "PinkCloudBroadcaster",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 752,
+    "before_sha256": "106a9dd565ab8f62682db4f614036fd80eaf5b48d59163d6af59a002c767bf0b",
+    "after_sha256": "f06a810d689b38e12632c1a82c7397d6b8bc6b5a6a35caff62b384747a373198",
+    "chain": [
+      "PinkCloudBroadcaster",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "owner": "MachineUF6Tank",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 764,
+    "before_sha256": "6f373d4afd4388e036058b159fca6e77835054068e83b05a8e61461759751ac9",
+    "after_sha256": "4f218e7cc53963166f79682be351c0ae77bf5a73a96a053c1d96c58a41558883",
+    "chain": [
+      "MachineUF6Tank",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "owner": "MachineTesla",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 513,
+    "before_sha256": "e80e92d6483635495df83483f1e1eda47450601cb6a03adf6a707c68146a2c5f",
+    "after_sha256": "b8aaa44d9d204a81340cc4104cc548c99f9f9a0f66059bfb73bf2c0ba091cfa9",
+    "chain": [
+      "MachineTesla",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "owner": "MachineSatDock",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1252,
+    "before_sha256": "fa83db6ce254d7033096a8f28759c80caae01409bb1a2650e6331965f9ba8240",
+    "after_sha256": "efad4b5b03d258f7c49ada0f561fab2d0e261b227974631e2ccc1231f659b83d",
+    "chain": [
+      "MachineSatDock",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "owner": "MachineRadar",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 865,
+    "before_sha256": "09c913cad1d635ca1827922fbaf11b0515e1b25998093aa40733b501407a75ad",
+    "after_sha256": "366767082787150404cea809ecb33a604c704e489b740a490d31e1b4789d12e7",
+    "chain": [
+      "MachineRadar",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "owner": "MachinePuF6Tank",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 767,
+    "before_sha256": "da3dfa28b4686d7d80f5e5f71739cc232c88782f4afe53a612e9dbdedd60c1a6",
+    "after_sha256": "746a94478c307f3e62d93512fb4fcca21ddb7e456ff60fb9a246863d9620a83e",
+    "chain": [
+      "MachinePuF6Tank",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "owner": "MachineMissileAssembly",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1082,
+    "before_sha256": "c39ebc35b215825230971ab131c62a1d4939e0daf54c21d4863df58dbe51f767",
+    "after_sha256": "74d16ba96771a8f1a282e26794c856367a5659d50befea5af90c3b28ea7f65c0",
+    "chain": [
+      "MachineMissileAssembly",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "owner": "MachineMicrowave",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 500,
+    "before_sha256": "808248bbc371cdeb5d089ce8c2c46507ff5585987cfcf3595e013573ada0c84b",
+    "after_sha256": "53498ef57596dffdc25e376ca7ce0e1c5262d37cbea51f3bd5e49656a131f391",
+    "chain": [
+      "MachineMicrowave",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "owner": "MachineForceField",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1110,
+    "before_sha256": "ec7367cf7d8ff2ef698de5d8c98cf2283a79158f21fba29e8790a40528355766",
+    "after_sha256": "ee9a82ced2bca01888d40d199b123b5226693915abe1b68f387440eb4dbbf716",
+    "chain": [
+      "MachineForceField",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "owner": "MachineFan",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 2171,
+    "before_sha256": "287f3787f192bb838b61d5a452da8e5eef71205fa1a0a0aaca0299bf3e6e8881",
+    "after_sha256": "e714ae348331925574e2e1b9a1b41935ef2c139cbe63b99c43567c51cd8e0419",
+    "chain": [
+      "MachineFan",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "owner": "MachineDiesel",
+    "before": "public int getRenderType(){ return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 998,
+    "before_sha256": "fb3879994fb7094cd41cac381b1d15b66362f98ced354a042070ea20ba4626e5",
+    "after_sha256": "dd489d513debb36460887762c804f72b97720aae61130196bf4efa3795d8c7e4",
+    "chain": [
+      "MachineDiesel",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "owner": "MachineAutosaw",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1191,
+    "before_sha256": "6e2e7c2cc0bde61b559184cc7f568ce8e0e94dd1e87024bc78ba18f674d4d7f7",
+    "after_sha256": "db9000ee461bbd80f2cefbde1a09b6945b782327b658c6a940eb24139c4af6fc",
+    "chain": [
+      "MachineAutosaw",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "owner": "GeigerCounter",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 817,
+    "before_sha256": "b739fc02e309f0c2484512d05436a90e0d680176de305e403402ff05427c9b65",
+    "after_sha256": "fc19c140b13f34ef600d14f670ed7ed7c54c6a0068af9d07eda513227af45f4c",
+    "chain": [
+      "GeigerCounter",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "owner": "Floodlight",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 1436,
+    "before_sha256": "d53e5b42399cbb598c7e3a4d88d30d170647ade506462107f4e2dd293eccb290",
+    "after_sha256": "a6180045b12785fe055fa884a82f79a79c0bb086949030ba0490642b2cb8af3c",
+    "chain": [
+      "Floodlight",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "owner": "DummyOldBase",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1634,
+    "before_sha256": "9098abceb227db4b802becd9eb98cd9ed449a2e717f74fcbc4fd9a45eff570e9",
+    "after_sha256": "1a7bbad264f461c0ed81c9f8cf726bf3f8f5e75517942e10d1c9651b86824caf",
+    "chain": [
+      "DummyOldBase",
+      "BlockContainer"
+    ],
+    "descendants": [
+      "DummyBlockMachine"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "owner": "DummyBlockBlast",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1589,
+    "before_sha256": "6dda1c7552686184774413d9c94587b4f80132d82f99a8a84114e406dedec213",
+    "after_sha256": "da65d161623932a4d18307ad4deeab55ea95704ba5618f54c576bbf7d8171112",
+    "chain": [
+      "DummyBlockBlast",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "owner": "DemonLamp",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 498,
+    "before_sha256": "874aa94e4145469a25187a70a4b8569dd56fa9e1fd6c17e3121c142f4d5269db",
+    "after_sha256": "b7c4d4083dbfb01914fdb8df85f42feb1b654f092c0d2531d98f59fc2d9b54d0",
+    "chain": [
+      "DemonLamp",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "owner": "CoreCore",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 842,
+    "before_sha256": "0bc2e6031e2b0568ab47664629b0c2325a5dbebe04932d1d6736204521b79b75",
+    "after_sha256": "eb9a62aff25216305680e5d7f62f0a5acc3089bdfe3d0f9b2cb77b42b1a5ccb6",
+    "chain": [
+      "CoreCore",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "owner": "CoreComponent",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1310,
+    "before_sha256": "2d059c1a2c866ecf2fe02dbcf0b4784973430687e2bd4b4d213257742ed3b2db",
+    "after_sha256": "2eabdeead742a3b71e3fd1135e74375981e0f2fcc8e78e57cdd7c5a5414c9fdc",
+    "chain": [
+      "CoreComponent",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "owner": "CombatDropPod",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 987,
+    "before_sha256": "cd62bcb5ab894c08e5d3ae678a85ad63ae93c7ca981fd65c2756cc21da7f854e",
+    "after_sha256": "1b988970c23dbd676516be4f9f198d52259e503e9beafc51e0588aa5ea0c9b14",
+    "chain": [
+      "CombatDropPod",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+    "owner": "Charger",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 777,
+    "before_sha256": "dd4baec9a2943b7d1078b1109bc2142fc60473a34df0bba6582fef91444e1f04",
+    "after_sha256": "34ed5ffd1d35cb504da6e1092777308bacbda942b6544233c1e0db520cef4445",
+    "chain": [
+      "Charger",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "owner": "BlockRefueler",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1041,
+    "before_sha256": "26f559246ef75bab29e1667cfbb94ed8bca5cc1ac710f67f0998287d63bc40e2",
+    "after_sha256": "0e777dd72a5bf4e9bc2199d12c8f4e0d7b48c57ecb35d1631644eeb43b02d593",
+    "chain": [
+      "BlockRefueler",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "owner": "BlockFF",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 497,
+    "before_sha256": "15651c9955a1c9fb959a7cfa2c11d8f84be490688a8fb451afe023ebaedd3138",
+    "after_sha256": "86c22fdfcdc3ce29f0585120ccb02453b13c14c034b081d158a9337f0de659fe",
+    "chain": [
+      "BlockFF",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "owner": "BlastDoor",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 859,
+    "before_sha256": "6a90cfb9e545a584ef7d2b87dea052ea104951cf4d6d85b75b4cb9081a4deccb",
+    "after_sha256": "14a534eafa7cc5fa940c85e93f54d0a70ce6f8f15fb829d21f667173a4c6b35e",
+    "chain": [
+      "BlastDoor",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "owner": "DecoPoleSatelliteReceiver",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 788,
+    "before_sha256": "5d93296272bb20f6639708a2edacd6bd5fd82608163795ca31265943ca9bd449",
+    "after_sha256": "d0b315e0963a1c4eeaee4863fdc0c305451ada70c0fb43788169a786c36e11f0",
+    "chain": [
+      "DecoPoleSatelliteReceiver",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "owner": "DecoBlockAlt",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1250,
+    "before_sha256": "33f7d6f00ac5d0384ece6eeab64d616c450669ec645c9edec535770106b63983",
+    "after_sha256": "c90a49c2ffb7b978bd5694b1e1dbb533803c046d74457c2c2087300fda7a8e1a",
+    "chain": [
+      "DecoBlockAlt",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "owner": "BlockSnowglobe",
+    "before": "public int getRenderType() {\r\n\t\treturn -1;\r\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 1433,
+    "before_sha256": "6e2b0b2ee372b4c79de5824a7e8f97d8d3f63675261e3431fc553ba53d475765",
+    "after_sha256": "d0726f46b9dc15cd8024619b38482a768d47c54827420acc54c94f61b7d3848f",
+    "chain": [
+      "BlockSnowglobe",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "owner": "BlockSkeletonHolder",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 883,
+    "before_sha256": "fb26682bff96c987b11f65eb987580ac4b274c175b8066ab103eac3e2b0d845e",
+    "after_sha256": "3b7daaa8ed321b6dd00435424e0b436ec0ed722cd174664fcab4ddac5b576ce8",
+    "chain": [
+      "BlockSkeletonHolder",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "owner": "BlockPlushie",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 1361,
+    "before_sha256": "af9f3fe86f28ebf55b094a4d7e307414c3e5116126cb736e10ae045627f33814",
+    "after_sha256": "c4102638306fa0be156baa5a45aca375955a1467ab2dbcafe7f33d0d81d1d6ab",
+    "chain": [
+      "BlockPlushie",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "owner": "BlockOrrery",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 573,
+    "before_sha256": "8877847bc7845cd4242e5014c6a0ae95df31a79f62f494ab9ffc1bdad64edaec",
+    "after_sha256": "c1863cecb31474ec83b427d9632cc397511266db74601032a58e8c3d3aaa5031",
+    "chain": [
+      "BlockOrrery",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "owner": "BlockLoot",
+    "before": "public int getRenderType() {\r\n\t\treturn -1;\r\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 890,
+    "before_sha256": "97fdf0c0200962235630d53d2cfc88516f76604490696b7e98478a5a7ade2237",
+    "after_sha256": "95f4e275f16d9ab270df23e468db6056742c4786a595a6db139ecc88e6add50a",
+    "chain": [
+      "BlockLoot",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "owner": "BlockBobble",
+    "before": "public int getRenderType() {\r\n\t\treturn -1;\r\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\r\n\t}",
+    "offset": 1618,
+    "before_sha256": "b3eb010b673acbc6359de0a58c58b5ce4a43218cbd34d0319c6cb1a5a3aa61c6",
+    "after_sha256": "c41ae2812f1cfbc325398999e7725fd557c22ba478d86e0756ad96edb4bfe23b",
+    "chain": [
+      "BlockBobble",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "owner": "BlockVacuum",
+    "before": "public int getRenderType() {\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 841,
+    "before_sha256": "22d3c1102a5d010c6777116495ec9d0c0530f2fac962f58c440a9a7295fa1f22",
+    "after_sha256": "fd8be1c77f4ff75c71c55c63b7ea9e869de7a3c053fde507a769cce19242634a",
+    "chain": [
+      "BlockVacuum",
+      "Block"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "owner": "NukeBalefire",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 801,
+    "before_sha256": "3a2b4b8d8f6c55919057073976dace687ed7ea9763d6481d9e9d8cc625c42d22",
+    "after_sha256": "acd966eb8b87276838a311f1cb724b84a73c8b952af6216355756af48ac27c90",
+    "chain": [
+      "NukeBalefire",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "owner": "NukeAntimatter",
+    "before": "public int getRenderType(){\n\t\treturn -1;\n\t}",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 854,
+    "before_sha256": "3985623ec5e9186a1066382a9a14b440154f68ecccb8155602e1452a03c9565f",
+    "after_sha256": "0b9da1f62439f6523e96e33fc186a0ee8bb4cf0ccaef392caded321393a01963",
+    "chain": [
+      "NukeAntimatter",
+      "BlockMachineBase",
+      "BlockContainer"
+    ],
+    "descendants": []
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "owner": "BlockCrashedBomb",
+    "before": "public int getRenderType() { return -1; }",
+    "after": "public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {\n\t\treturn net.minecraft.util.EnumBlockRenderType.INVISIBLE;\n\t}",
+    "offset": 1663,
+    "before_sha256": "3ca95120cdfb3c13758bc3150e4decf979d7bc52ad0aacaca28294a214f3e17e",
+    "after_sha256": "a57ce94ffe721e300f1ebada16e895b8af331dc992b05613d5a4b094e4f01dc7",
+    "chain": [
+      "BlockCrashedBomb",
+      "BlockEnumMulti",
+      "BlockMulti",
+      "BlockBase",
+      "Block"
+    ],
+    "descendants": []
+  }
+]

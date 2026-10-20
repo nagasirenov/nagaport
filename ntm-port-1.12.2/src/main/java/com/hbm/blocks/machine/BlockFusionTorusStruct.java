@@ -12,5 +12,5 @@ public class BlockFusionTorusStruct extends BlockContainer {
 	public BlockFusionTorusStruct(Material mat) { super(mat); }
 
 	@Override public TileEntity createNewTileEntity(World world, int meta) { return new TileEntityFusionTorusStruct(); }
-	@Override public boolean isOpaqueCube() { return false; }
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
 }

@@ -87,7 +87,7 @@ public class WasteEarth extends Block {
 			EntityLivingBase living = (EntityLivingBase) entity;
 			
 			if(this == ModBlocks.frozen_grass) {
-				living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 2 * 60 * 20, 2));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 2 * 60 * 20, 2));
 			}
 			if(this == ModBlocks.waste_mycelium) {
 				living.addPotionEffect(new PotionEffect(HbmPotion.radiation.id, 30 * 20, 3));
@@ -113,7 +113,8 @@ public class WasteEarth extends Block {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		
 		if(this == ModBlocks.waste_mycelium && GeneralConfig.enableMycelium) {
 			for(int i = -1; i < 2; i++) {

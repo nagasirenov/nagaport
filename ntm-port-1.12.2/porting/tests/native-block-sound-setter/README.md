@@ -1,0 +1,9 @@
+# Constructor-owned native sound setters
+
+Base: CP69 `91da806c9ad17b279ef5142d83d4fe60365d563f`.
+
+Production scope is exactly two statements: BlockCrop's grass sound becomes native SoundType.PLANT; BlockGraphiteDrilledBase's historical metal sound becomes the existing ModSoundTypes.legacyMetal (stone events, pitch 1.5), not modern SoundType.METAL. Receiver is the existing `this` in both constructors. The protected native setter is legally accessible from those subclasses. No constructor arguments, other statements, ordering, engine visibility, builders, or resource files change.
+
+`run.py --java-home JAVA8 --classpath-file NATIVE_CP_FILE --legacy-jar ORIGINAL_1710_CLIENT` performs byte-exact reversal of both full source files, compiles and executes the exact two edited statements inside native Block subclass test slices, and executes the unmodified original vanilla Block setter reflectively. Native setter data identity, return identity, null, argument-once, virtual overriding, and original grass/metal volume/pitch are checked. The original vanilla setter is protected too. The metal initializer and its native-event constructor are extracted verbatim from production; no Minecraft classes are stubbed. Unrelated unported owning-class methods/constructors are not claimed runnable; unchanged complete-file reversal is the constructor-order proof.
+
+113 external ModBlocks calls across 54 receiver classes remain unchanged. None inherit the existing public BlockBase setter. A separately parked exact-method Forge AT proposal is not part of this production patch. Its cached direct Forge transformer proof cannot establish successful ForgeGradle dependency regeneration or packaged runtime discovery. `deobfMcMCP --offline` was denied because ForgeGradle attempted piston-meta.mojang.com. No retry was made; the broad proposal must not be merged until that build wiring is verified with authorization.

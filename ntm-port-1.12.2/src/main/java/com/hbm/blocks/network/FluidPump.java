@@ -59,12 +59,15 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 		return new TileEntityFluidPump();
 	}
 
-	@Override public int getRenderType() { return -1; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
@@ -148,7 +151,7 @@ public class FluidPump extends BlockContainer implements INBTBlockTransformable,
 					this.tank[0].changeTankSize(nextBuffer);
 				}
 
-				this.redstone = this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+				this.redstone = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 
 				ForgeDirection dir = ForgeDirection.getOrientation(this.getBlockMetadata());
 				ForgeDirection in = dir.getRotation(ForgeDirection.UP);

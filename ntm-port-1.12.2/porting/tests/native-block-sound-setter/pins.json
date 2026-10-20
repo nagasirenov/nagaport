@@ -1,0 +1,10 @@
+{
+  "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockCrop.java": {
+    "before": "b85bf3ccbf7bba434c76d1b278f6fa1da0277865309f8b33cecf3abf8eef4c65",
+    "after": "f0d22b8765e7baf5b48ceff74494976d0d022b85dc43a01d0787a17e3dde0abc"
+  },
+  "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/pile/BlockGraphiteDrilledBase.java": {
+    "before": "269200ca7c9cd5f3e2af085c367954aee4d3aacd74e3691f0577e0b6df3bbb7e",
+    "after": "4ff830b39892da714bc7cc1705318cd2fad26e575fdb4e51ecaeabc845a21d34"
+  }
+}

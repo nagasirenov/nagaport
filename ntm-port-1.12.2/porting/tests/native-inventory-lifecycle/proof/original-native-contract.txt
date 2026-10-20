@@ -1,0 +1,41 @@
+Original SRG mappings:
+MD: dh/d ()Z net/minecraft/nbt/NBTTagCompound/func_82582_d ()Z
+MD: rb/f ()V net/minecraft/inventory/IInventory/func_70295_k_ ()V
+MD: rb/l_ ()V net/minecraft/inventory/IInventory/func_70305_f ()V
+Original IInventory:
+Compiled from "SourceFile"
+public interface rb {
+  public abstract int a();
+  public abstract add a(int);
+  public abstract add a(int, int);
+  public abstract add a_(int);
+  public abstract void a(int, add);
+  public abstract java.lang.String b();
+  public abstract boolean k_();
+  public abstract int d();
+  public abstract void e();
+  public abstract boolean a(yz);
+  public abstract void f();
+  public abstract void l_();
+  public abstract boolean b(int, add);
+}
+Original NBT empty:
+  public boolean d();
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field c:Ljava/util/Map;
+       4: invokeinterface #117,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+       9: ireturn
+
+  public dy b();
+    Code:
+Native NBT empty:
+  public boolean isEmpty();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field tagMap:Ljava/util/Map;
+       4: invokeinterface #431,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+       9: ireturn
+
+  public net.minecraft.nbt.NBTTagCompound copy();
+    Code:

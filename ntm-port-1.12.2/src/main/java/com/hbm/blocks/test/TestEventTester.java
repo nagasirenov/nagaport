@@ -36,7 +36,7 @@ public class TestEventTester extends Block {
     	this.worldObj = p_149695_1_;
     	//Levers and buttons for some reason set meta and notify, and *then* notify again, meaning they will always fire this twice.
     	//Pressure plates, torches, redstone, etc. do not have this issue.
-        if (p_149695_1_.isBlockIndirectlyGettingPowered(x1, y1, z1))
+        if (p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x1, y1, z1)))
         {
         	/*Component comp = new SiloComponent(this.worldObj.rand, x1, z1);
         	StructureBoundingBox box = comp.getBoundingBox();

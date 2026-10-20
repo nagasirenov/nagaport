@@ -21,7 +21,8 @@ public class CrystalVirus extends Block {
 	}
 
     @Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
     	
     	if(GeneralConfig.enableVirus) {
     		if(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_virus && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != Blocks.AIR && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_hardened && com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() != ModBlocks.crystal_pulsar) {

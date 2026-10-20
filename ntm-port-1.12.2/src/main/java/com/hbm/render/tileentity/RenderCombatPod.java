@@ -15,7 +15,7 @@ public class RenderCombatPod extends TileEntitySpecialRenderer {
 	public static Random rand = new Random();
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i) {
+	public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha) {
 	TileEntityCombatDropPod pod = (TileEntityCombatDropPod) te;	
         GL11.glPushMatrix();
         GL11.glTranslated(x + 0.5, y+1.5, z + 0.5);

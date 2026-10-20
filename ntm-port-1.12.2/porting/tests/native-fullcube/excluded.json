@@ -1,0 +1,90 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+    "line": "496",
+    "owner": "com.hbm.blocks.BlockDummyable",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "public boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+    "line": "77",
+    "owner": "com.hbm.blocks.machine.MachineCyclotron",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "@Override\\n\\tpublic boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+    "line": "42",
+    "owner": "com.hbm.blocks.machine.MachineGasDock",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "@Override\\n\\tpublic boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+    "line": "46",
+    "owner": "com.hbm.blocks.machine.MachineIGenerator",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "@Override\\n\\tpublic boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+    "line": "47",
+    "owner": "com.hbm.blocks.machine.MachineRocketAssembly",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "@Override\\n\\tpublic boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKBase.java",
+    "line": "90",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKBase",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{ return true; }",
+    "source": "@Override public boolean renderAsNormalBlock() { return true; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+    "line": "48",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKConsole",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{\\n\\t\\treturn false;\\n\\t}",
+    "source": "@Override\\n\\tpublic boolean renderAsNormalBlock() {\\n\\t\\treturn false;\\n\\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKRod.java",
+    "line": "34",
+    "owner": "com.hbm.blocks.machine.rbmk.RBMKRod",
+    "signature": "renderAsNormalBlock()",
+    "native_override": "false",
+    "parameters": "",
+    "parameter_kinds": "",
+    "body": "{ return false; }",
+    "source": "@Override public boolean renderAsNormalBlock() { return false; }"
+  }
+]

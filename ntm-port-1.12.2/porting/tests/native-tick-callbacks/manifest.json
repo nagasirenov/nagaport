@@ -1,0 +1,719 @@
+{
+  "baseline": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockNTSapling.java",
+      "owner": "com.hbm.blocks.BlockNTSapling",
+      "ancestry": [
+        "com.hbm.blocks.BlockNTSapling",
+        "net.minecraft.block.BlockSapling"
+      ],
+      "before_sha256": "16d85630e413334798ee7db01c8a175d1d20022da26473edffa972105c6db404",
+      "after_sha256": "f9ec00e0c7749a60aa3cddc65a4b454ab114b9807d54ddd71c53e4b270c7f760",
+      "edits": [
+        {
+          "start": 2864,
+          "end": 2937,
+          "old": "public void updateTick(World world, int x, int y, int z, Random random) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random random) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockRemap.java",
+      "owner": "com.hbm.blocks.BlockRemap",
+      "ancestry": [
+        "com.hbm.blocks.BlockRemap",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "576acf87c2e800476e4549fa3d4577c822a0b7043b5fa9b97d13a47cba3e037b",
+      "after_sha256": "a7784eaa17c6aa40a970107c46f9583a33edcf6a55babfcb924d2b80f7e183cb",
+      "edits": [
+        {
+          "start": 980,
+          "end": 1051,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockRubberFarm.java",
+      "owner": "com.hbm.blocks.BlockRubberFarm",
+      "ancestry": [
+        "com.hbm.blocks.BlockRubberFarm",
+        "net.minecraft.block.BlockFarmland"
+      ],
+      "before_sha256": "29451c64b74e7d5128b69ee144f45f64f410b97052559a468d6f36a48c4216cd",
+      "after_sha256": "95632e2fcddb53800e1101c1c528595c11ac6501bc03fbfd1566dcb6126d7a19",
+      "edits": [
+        {
+          "start": 1342,
+          "end": 1415,
+          "old": "public void updateTick(World world, int x, int y, int z, Random random) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random random) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Balefire.java",
+      "owner": "com.hbm.blocks.bomb.Balefire",
+      "ancestry": [
+        "com.hbm.blocks.bomb.Balefire",
+        "net.minecraft.block.BlockFire"
+      ],
+      "before_sha256": "2945645ee566b0ed03196fbb129d17a65eb1ed81e80932ba40c5784e0863f36e",
+      "after_sha256": "0b388ed99269658b37eb152ef4374fd96c8d283835083ec36e9e8d9675a335c5",
+      "edits": [
+        {
+          "start": 1408,
+          "end": 1479,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTaint.java",
+      "owner": "com.hbm.blocks.bomb.BlockTaint",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockTaint",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "56f76edc27bf4683b5ae8d9362011a29b19a2c708b299dce8dd24da6d271e63e",
+      "after_sha256": "da4e35f9b290d433cf39134006a1616cb09a56a7401b973b94b9a74c994b357e",
+      "edits": [
+        {
+          "start": 1339,
+          "end": 1410,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CheaterVirus.java",
+      "owner": "com.hbm.blocks.bomb.CheaterVirus",
+      "ancestry": [
+        "com.hbm.blocks.bomb.CheaterVirus",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "ecf0c7cecd830534def6f680ece32cd8b6deccf9cea8dc307505c4c63eb8b5c4",
+      "after_sha256": "00058f156f2decf0cd2903befe7147c28e4337eb6b28e28fc29eb2ae0b3cc355",
+      "edits": [
+        {
+          "start": 881,
+          "end": 952,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CheaterVirusSeed.java",
+      "owner": "com.hbm.blocks.bomb.CheaterVirusSeed",
+      "ancestry": [
+        "com.hbm.blocks.bomb.CheaterVirusSeed",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "290564fc1095433d560ee2de6a2276004f8031992e73beff339c5d2a16ebed04",
+      "after_sha256": "fdfd805792b357ed96b7e0b135c9ca411012d35a21a2f72852bc26cc03f91f20",
+      "edits": [
+        {
+          "start": 3198,
+          "end": 3269,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CrystalVirus.java",
+      "owner": "com.hbm.blocks.bomb.CrystalVirus",
+      "ancestry": [
+        "com.hbm.blocks.bomb.CrystalVirus",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "d2ed1d824b53387bd2a424d76a82b3d41c8f036bb7568a05d6ca950fea4882f8",
+      "after_sha256": "e0ad83c4e700898baa76b89f30b8842b7c4e3624168c78dd282ee2ef1661d4d7",
+      "edits": [
+        {
+          "start": 558,
+          "end": 629,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+      "owner": "com.hbm.blocks.bomb.DigammaMatter",
+      "ancestry": [
+        "com.hbm.blocks.bomb.DigammaMatter",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "a3f6d5ba2e5ca3ed7a0ba7fb09c7e351236edada8ec39333ec4b265aec100537",
+      "after_sha256": "00a1f3d3d0a226029ee553f45db8ae95b0e31372b663cc10ddbf12a52e37004e",
+      "edits": [
+        {
+          "start": 1308,
+          "end": 1379,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+      "owner": "com.hbm.blocks.fluid.MeltedFlesh",
+      "ancestry": [
+        "com.hbm.blocks.fluid.MeltedFlesh",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "506735caec71860ff93aced91016ab5fdb05f2f6a4d0e0595dfa7f65683339f9",
+      "after_sha256": "95ae44edc9b92e5ef939b7ee721afc9924b750ccc332cddd780d76a353509e6e",
+      "edits": [
+        {
+          "start": 2979,
+          "end": 3050,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+      "owner": "com.hbm.blocks.gas.BlockVacuum",
+      "ancestry": [
+        "com.hbm.blocks.gas.BlockVacuum",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "22d3c1102a5d010c6777116495ec9d0c0530f2fac962f58c440a9a7295fa1f22",
+      "after_sha256": "f2b6a67a65efb68afeada205aba2e6d16554617445602f247921e6c1523b027e",
+      "edits": [
+        {
+          "start": 1970,
+          "end": 2041,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockAbsorber.java",
+      "owner": "com.hbm.blocks.generic.BlockAbsorber",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockAbsorber",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "70c0dbc0610c9b24b3ebb4ee33ef9985c490b2b3b69fa3350a3b625bd26eabd8",
+      "after_sha256": "e66713a6e5f5704ad70fc057ff651f354148f0c59cbbdb55f2eb2a059b215987",
+      "edits": [
+        {
+          "start": 1993,
+          "end": 2064,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDirt.java",
+      "owner": "com.hbm.blocks.generic.BlockDirt",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockDirt",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "43044900fb7a7bd2d0ca51be7f09848280806e256af458e7f3b09d70bfafa9e0",
+      "after_sha256": "125979aeac612653aafe5f75609b5218c144cf8e294183a356e34bbeea347420",
+      "edits": [
+        {
+          "start": 1283,
+          "end": 1354,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockDynamicSlag.java",
+      "owner": "com.hbm.blocks.generic.BlockDynamicSlag",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockDynamicSlag",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "758a46686696c6389f1b13e1bd9a2effdbe9f546f25da9be0b5903232d27aee9",
+      "after_sha256": "d4b19d465ab94d2b5a140b375be010936c5200087c73722828009274df36b530",
+      "edits": [
+        {
+          "start": 4396,
+          "end": 4467,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\r\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+      "owner": "com.hbm.blocks.generic.BlockFallout",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockFallout",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "a98438be1ae853674cd0aa650b85ab92e52c6d42cf7675d8b4563eb43d6434ab",
+      "after_sha256": "f45a8c9b86975844b2ccacddb7230196c8d409e61321d75154e95bb56dc28afa",
+      "edits": [
+        {
+          "start": 3058,
+          "end": 3129,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+      "owner": "com.hbm.blocks.generic.BlockLayering",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockLayering",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "0a2467cc4104c3b37577715a1cac40ea0ab625695819c4ce05031d5550223ba1",
+      "after_sha256": "7917beeb8f4038ca7d2c23853cf62da7a4dd1bf8dcceb0725b36fe95de4ff868",
+      "edits": [
+        {
+          "start": 3581,
+          "end": 3695,
+          "old": "public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {",
+          "new": "public void updateTick(World p_149674_1_, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {\n\t\tint p_149674_2_ = nativeTickPos.getX(), p_149674_3_ = nativeTickPos.getY(), p_149674_4_ = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockMush.java",
+      "owner": "com.hbm.blocks.generic.BlockMush",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockMush",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "8e5ba395a5fff43c69d2a601f58661679f240c702ec466d95d173d0e7e4ecf05",
+      "after_sha256": "18ac6110dfc119ac53f83c3c00608950bf7245b76830e2b48285b3abe285bbc1",
+      "edits": [
+        {
+          "start": 4398,
+          "end": 4469,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+      "owner": "com.hbm.blocks.generic.BlockNTMFlower",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockNTMFlower",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "ab90cf5974df2559c9669a45f09bc1a5e876b3c91afdefcebc185dd644ac13db",
+      "after_sha256": "dd79da3b73895f793cb35451f56d4c02e081fe69a523741249b9cb1d59db4f97",
+      "edits": [
+        {
+          "start": 4371,
+          "end": 4442,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockNTMSand.java",
+      "owner": "com.hbm.blocks.generic.BlockNTMSand",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockNTMSand",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "7132bca58e9fc919848f4ae2fe052f93cddc3db52723553a0fae1f4e29c850d3",
+      "after_sha256": "3c9d2a691f10d4ec41e5e5e175f13e40282f9ec2dfa7bbbd84f524d14ab196e2",
+      "edits": [
+        {
+          "start": 818,
+          "end": 889,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreOutgas.java",
+      "owner": "com.hbm.blocks.generic.BlockOreOutgas",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockOreOutgas",
+        "com.hbm.blocks.generic.BlockOre",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "62758a60256de58d13657ba4ea031980028d9dcbcd21e5a0f60e111aa3ebad6b",
+      "after_sha256": "374e5e400b0b179c1f7f915d2251d8437724d13f4d422a981952225184a7a168",
+      "edits": [
+        {
+          "start": 1661,
+          "end": 1732,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOutgas.java",
+      "owner": "com.hbm.blocks.generic.BlockOutgas",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockOutgas",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "2ac423a447e452271a1c56b179ac982a3e9c14216fe136052aff108430491800",
+      "after_sha256": "8eab570cfb82fc4cb9a68e923deb23ab1907fe657297d282dae114aadff19c50",
+      "edits": [
+        {
+          "start": 2959,
+          "end": 3030,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockPlasma.java",
+      "owner": "com.hbm.blocks.generic.BlockPlasma",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockPlasma",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "66853f7a613095741a0d9a75b1b53ace9d983b996f4a65951b382476dee32c73",
+      "after_sha256": "e2ddf83f4a33c85e9c63d92fc904e9f6eceb0dd2500de318a340140aff634684",
+      "edits": [
+        {
+          "start": 488,
+          "end": 559,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSellafield.java",
+      "owner": "com.hbm.blocks.generic.BlockSellafield",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockSellafield",
+        "com.hbm.blocks.generic.BlockHazard",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "646a3fc758126b75aa0b2749c3d3abc1557f76d9dbe8eaa477e1a939d9ff79df",
+      "after_sha256": "762313c3ca7742087b8385d493e7122b724e587d83944cedadf8bbcabbea5bb0",
+      "edits": [
+        {
+          "start": 1716,
+          "end": 1787,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockStepEffect.java",
+      "owner": "com.hbm.blocks.generic.BlockStepEffect",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockStepEffect",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "0f521e43c816518cec3a98fc0fd233fe2d77ab544e74ef1dbde3943301f142c2",
+      "after_sha256": "20bc5b773ac7d40e38c4fcc99929a3e8c89964d6a22dd9e695d12ed27f84c56c",
+      "edits": [
+        {
+          "start": 5234,
+          "end": 5305,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlant",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockTallPlant",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "1a100e30bead9aebbfa59655a267d9cb3be863d24c89103a9fc61ac5e9add206",
+      "after_sha256": "38ffd968b365c649aaf6b3476905414ca34450b283b9b339b8f9b2d126023a4e",
+      "edits": [
+        {
+          "start": 7864,
+          "end": 7935,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlantWater",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockTallPlantWater",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "fc6d5258abec72184241c56f18f2461e70c469e08214124a916c5d0719fff631",
+      "after_sha256": "19c336b985c2728c78c0993bf26e27752d16821dbb94d872fa23355a2b6a7289",
+      "edits": [
+        {
+          "start": 8348,
+          "end": 8419,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockUberConcrete.java",
+      "owner": "com.hbm.blocks.generic.BlockUberConcrete",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockUberConcrete",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "691718ba138262427ba20d6a2afcebd769f6966d60a1581ef748c1889ae179c6",
+      "after_sha256": "85588a777a1779ac5d6a0d117ad77bcdeef85b6c2f9ae3acec948e1393656849",
+      "edits": [
+        {
+          "start": 1418,
+          "end": 1489,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/FragileBrick.java",
+      "owner": "com.hbm.blocks.generic.FragileBrick",
+      "ancestry": [
+        "com.hbm.blocks.generic.FragileBrick",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "43d362860e5d334c89291354fb61fdb66feeaa5db207dc6e5bf8825e0a1be72b",
+      "after_sha256": "34f1bba654fa855fd99b2c9206364a2668b02c445f9b48bd58e24ce863003146",
+      "edits": [
+        {
+          "start": 508,
+          "end": 579,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/ReinforcedLamp.java",
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "ancestry": [
+        "com.hbm.blocks.generic.ReinforcedLamp",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "d4cd5643f0389f5589baa98e557fdec88178c70a199c0e91585af10d2791232b",
+      "after_sha256": "1d8c615cf5d0cae69543bd76beb73cf1b85b368bdb9e7a586282eb96e5ba8e72",
+      "edits": [
+        {
+          "start": 1426,
+          "end": 1504,
+          "old": "public void updateTick(World world, int x, int y, int z, Random p_149674_5_) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/TritiumLamp.java",
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "ancestry": [
+        "com.hbm.blocks.generic.TritiumLamp",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "1f41d1194081dfb3a50da4c9b38222bcdc9a5faefacd4685f3c51a8d0d2203ff",
+      "after_sha256": "c859a45d557ff1642c6585fec0737d655166a01463a4f51ec947e13ad333bfc9",
+      "edits": [
+        {
+          "start": 1619,
+          "end": 1697,
+          "old": "public void updateTick(World world, int x, int y, int z, Random p_149674_5_) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random p_149674_5_) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/WasteEarth.java",
+      "owner": "com.hbm.blocks.generic.WasteEarth",
+      "ancestry": [
+        "com.hbm.blocks.generic.WasteEarth",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "e5d01c7f71ffc446df08d0fac7f80fecf709787d8abbca7a15b80176b332836f",
+      "after_sha256": "92f2d0a7abda3a30e0232e502068fae85561e178db0616b7860f9292965eb4e7",
+      "edits": [
+        {
+          "start": 4159,
+          "end": 4230,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFieldDisturber.java",
+      "owner": "com.hbm.blocks.machine.MachineFieldDisturber",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineFieldDisturber",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "6b7e97237e0c3730a0edd1297c4282d2559b05bad17eae26827fcc29bfd2084d",
+      "after_sha256": "2da6b590abff72d211d97392bd2698e24a792ee32c1e6e7947a93d675640c46a",
+      "edits": [
+        {
+          "start": 639,
+          "end": 710,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineTrollDisturber.java",
+      "owner": "com.hbm.blocks.machine.MachineTrollDisturber",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineTrollDisturber",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "b4ecf9937bf8deba0bf2a8df4c39e5d9825cf723facf9171ae1ea204b918dd7f",
+      "after_sha256": "d21a3ac16df98cee53b7712fbcdb62dfdf914d9b45718d0cac93820916f0f16f",
+      "edits": [
+        {
+          "start": 933,
+          "end": 1004,
+          "old": "public void updateTick(World world, int x, int y, int z, Random rand) {",
+          "new": "public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {\n\t\tint x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "owner": "com.hbm.blocks.BlockCrop",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.BlockDummyable",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.BlockDummyableBeam",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.AcidBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.CoriumBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.CoriumFinite",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.MudBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.SchrabidicBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.fluid.VolcanicBlock",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasAsbestos",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasClorine",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasCoal",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasFlammable",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasMeltdown",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasMonoxide",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadon",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadonDense",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasRadonTomb",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockFallingRad",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockHazardFalling",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockNuclearWaste",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.WasteLeaves",
+      "reason": "Explicit super delegation requires separate state/body migration."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.ZirnoxDestroyed",
+      "reason": "Existing BlockDummyable native/domain bridge, including old-shaped overrides."
+    },
+    {
+      "owner": "com.hbm.blocks.gas.BlockGasBase",
+      "reason": "Unconverted descendant family includes old-shaped super calls; migrate family together."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockHazard",
+      "reason": "Unconverted descendant family includes old-shaped super calls; migrate family together."
+    }
+  ]
+}

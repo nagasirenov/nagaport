@@ -9,6 +9,8 @@ import com.hbm.util.i18n.I18nUtil;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.text.TextFormatting;
@@ -101,12 +103,13 @@ public class GUIMachineGasCent extends GuiInfoContainer {
 		double minU = 0D;
 		double maxU = width / 16D;
 		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(minX, maxY, z, minU, maxV);
-		tessellator.addVertexWithUV(maxX, maxY, z, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, minY, z, maxU, minV);
-		tessellator.addVertexWithUV(minX, minY, z, minU, minV);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(minX, maxY, z).tex(minU, maxV).endVertex();
+		tessellatorBuffer.pos(maxX, maxY, z).tex(maxU, maxV).endVertex();
+		tessellatorBuffer.pos(maxX, minY, z).tex(maxU, minV).endVertex();
+		tessellatorBuffer.pos(minX, minY, z).tex(minU, minV).endVertex();
 		tessellator.draw();
 
 		GL11.glDisable(GL11.GL_BLEND);

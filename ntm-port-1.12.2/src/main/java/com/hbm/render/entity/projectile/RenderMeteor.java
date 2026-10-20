@@ -4,6 +4,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.hbm.lib.RefStrings;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -37,39 +39,40 @@ public class RenderMeteor extends Render {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
 		GL11.glRotatef(180, 0F, 0F, 1F);
-		Tessellator tesseract = Tessellator.instance;
+		Tessellator tesseract = Tessellator.getInstance();
+		BufferBuilder tesseractBuffer = tesseract.getBuffer();
 		this.bindTexture(loc1);
 		
-		tesseract.startDrawingQuads();
-			tesseract.addVertexWithUV(-0.5, -0.5, -0.5, 1, 0);
-			tesseract.addVertexWithUV(+0.5, -0.5, -0.5, 0, 0);
-			tesseract.addVertexWithUV(+0.5, +0.5, -0.5, 0, 1);
-			tesseract.addVertexWithUV(-0.5, +0.5, -0.5, 1, 1);
+		tesseractBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tesseractBuffer.pos(-0.5, -0.5, -0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(+0.5, -0.5, -0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(+0.5, +0.5, -0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, -0.5).tex(1, 1).endVertex();
 
-			tesseract.addVertexWithUV(-0.5, -0.5, +0.5, 1, 0);
-			tesseract.addVertexWithUV(-0.5, -0.5, -0.5, 0, 0);
-			tesseract.addVertexWithUV(-0.5, +0.5, -0.5, 0, 1);
-			tesseract.addVertexWithUV(-0.5, +0.5, +0.5, 1, 1);
+			tesseractBuffer.pos(-0.5, -0.5, +0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(-0.5, -0.5, -0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, -0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, +0.5).tex(1, 1).endVertex();
 
-			tesseract.addVertexWithUV(+0.5, -0.5, +0.5, 1, 0);
-			tesseract.addVertexWithUV(-0.5, -0.5, +0.5, 0, 0);
-			tesseract.addVertexWithUV(-0.5, +0.5, +0.5, 0, 1);
-			tesseract.addVertexWithUV(+0.5, +0.5, +0.5, 1, 1);
+			tesseractBuffer.pos(+0.5, -0.5, +0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(-0.5, -0.5, +0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, +0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(+0.5, +0.5, +0.5).tex(1, 1).endVertex();
 
-			tesseract.addVertexWithUV(+0.5, -0.5, -0.5, 1, 0);
-			tesseract.addVertexWithUV(+0.5, -0.5, +0.5, 0, 0);
-			tesseract.addVertexWithUV(+0.5, +0.5, +0.5, 0, 1);
-			tesseract.addVertexWithUV(+0.5, +0.5, -0.5, 1, 1);
+			tesseractBuffer.pos(+0.5, -0.5, -0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(+0.5, -0.5, +0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(+0.5, +0.5, +0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(+0.5, +0.5, -0.5).tex(1, 1).endVertex();
 
-			tesseract.addVertexWithUV(-0.5, -0.5, +0.5, 1, 0);
-			tesseract.addVertexWithUV(+0.5, -0.5, +0.5, 0, 0);
-			tesseract.addVertexWithUV(+0.5, -0.5, -0.5, 0, 1);
-			tesseract.addVertexWithUV(-0.5, -0.5, -0.5, 1, 1);
+			tesseractBuffer.pos(-0.5, -0.5, +0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(+0.5, -0.5, +0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(+0.5, -0.5, -0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(-0.5, -0.5, -0.5).tex(1, 1).endVertex();
 
-			tesseract.addVertexWithUV(+0.5, +0.5, +0.5, 1, 0);
-			tesseract.addVertexWithUV(-0.5, +0.5, +0.5, 0, 0);
-			tesseract.addVertexWithUV(-0.5, +0.5, -0.5, 0, 1);
-			tesseract.addVertexWithUV(+0.5, +0.5, -0.5, 1, 1);
+			tesseractBuffer.pos(+0.5, +0.5, +0.5).tex(1, 0).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, +0.5).tex(0, 0).endVertex();
+			tesseractBuffer.pos(-0.5, +0.5, -0.5).tex(0, 1).endVertex();
+			tesseractBuffer.pos(+0.5, +0.5, -0.5).tex(1, 1).endVertex();
 		tesseract.draw();
 		
 		GL11.glPopMatrix();

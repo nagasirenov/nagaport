@@ -110,7 +110,7 @@ public class TileEntityMachineMiningLaser extends TileEntityMachineBase implemen
 	private boolean isMultiblockRedstonePowered() {
 		for (DirPos conPos : getConPos()) {
 			BlockPos pos = conPos.offset(conPos.getDir().getOpposite());
-			if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) {
+			if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))) {
 				return true;
 			}
 		}

@@ -1,0 +1,1131 @@
+Compiled from "Potion.java"
+public class net.minecraft.potion.Potion extends net.minecraftforge.registries.IForgeRegistryEntry$Impl<net.minecraft.potion.Potion> {
+  public static final net.minecraft.util.registry.RegistryNamespaced<net.minecraft.util.ResourceLocation, net.minecraft.potion.Potion> REGISTRY;
+
+  private final java.util.Map<net.minecraft.entity.ai.attributes.IAttribute, net.minecraft.entity.ai.attributes.AttributeModifier> attributeModifierMap;
+
+  private final boolean isBadEffect;
+
+  private final int liquidColor;
+
+  private java.lang.String name;
+
+  private int statusIconIndex;
+
+  private double effectiveness;
+
+  private boolean beneficial;
+
+  public static net.minecraft.potion.Potion getPotionById(int);
+    Code:
+       0: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: iload_0
+       4: invokevirtual #41                 // Method net/minecraft/util/registry/RegistryNamespaced.getObjectById:(I)Ljava/lang/Object;
+       7: checkcast     #2                  // class net/minecraft/potion/Potion
+      10: areturn
+
+  public static int getIdFromPotion(net.minecraft.potion.Potion);
+    Code:
+       0: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: aload_0
+       4: invokevirtual #48                 // Method net/minecraft/util/registry/RegistryNamespaced.getIDForObject:(Ljava/lang/Object;)I
+       7: ireturn
+
+  public static net.minecraft.potion.Potion getPotionFromResourceLocation(java.lang.String);
+    Code:
+       0: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: new           #54                 // class net/minecraft/util/ResourceLocation
+       6: dup
+       7: aload_0
+       8: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      11: invokevirtual #62                 // Method net/minecraft/util/registry/RegistryNamespaced.getObject:(Ljava/lang/Object;)Ljava/lang/Object;
+      14: checkcast     #2                  // class net/minecraft/potion/Potion
+      17: areturn
+
+  protected net.minecraft.potion.Potion(boolean, int);
+    Code:
+       0: aload_0
+       1: invokespecial #67                 // Method net/minecraftforge/registries/IForgeRegistryEntry$Impl."<init>":()V
+       4: aload_0
+       5: invokestatic  #73                 // Method com/google/common/collect/Maps.newHashMap:()Ljava/util/HashMap;
+       8: putfield      #75                 // Field attributeModifierMap:Ljava/util/Map;
+      11: aload_0
+      12: ldc           #77                 // String
+      14: putfield      #79                 // Field name:Ljava/lang/String;
+      17: aload_0
+      18: iconst_m1
+      19: putfield      #81                 // Field statusIconIndex:I
+      22: aload_0
+      23: iload_1
+      24: putfield      #83                 // Field isBadEffect:Z
+      27: iload_1
+      28: ifeq          41
+      31: aload_0
+      32: ldc2_w        #84                 // double 0.5d
+      35: putfield      #87                 // Field effectiveness:D
+      38: goto          46
+      41: aload_0
+      42: dconst_1
+      43: putfield      #87                 // Field effectiveness:D
+      46: aload_0
+      47: iload_2
+      48: putfield      #89                 // Field liquidColor:I
+      51: return
+
+  protected net.minecraft.potion.Potion setIconIndex(int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: bipush        8
+       5: imul
+       6: iadd
+       7: putfield      #81                 // Field statusIconIndex:I
+      10: aload_0
+      11: areturn
+
+  public void performEffect(net.minecraft.entity.EntityLivingBase, int);
+    Code:
+       0: aload_0
+       1: getstatic     #103                // Field net/minecraft/init/MobEffects.REGENERATION:Lnet/minecraft/potion/Potion;
+       4: if_acmpne     27
+       7: aload_1
+       8: invokevirtual #109                // Method net/minecraft/entity/EntityLivingBase.getHealth:()F
+      11: aload_1
+      12: invokevirtual #112                // Method net/minecraft/entity/EntityLivingBase.getMaxHealth:()F
+      15: fcmpg
+      16: ifge          230
+      19: aload_1
+      20: fconst_1
+      21: invokevirtual #116                // Method net/minecraft/entity/EntityLivingBase.heal:(F)V
+      24: goto          230
+      27: aload_0
+      28: getstatic     #119                // Field net/minecraft/init/MobEffects.POISON:Lnet/minecraft/potion/Potion;
+      31: if_acmpne     55
+      34: aload_1
+      35: invokevirtual #109                // Method net/minecraft/entity/EntityLivingBase.getHealth:()F
+      38: fconst_1
+      39: fcmpl
+      40: ifle          230
+      43: aload_1
+      44: getstatic     #125                // Field net/minecraft/util/DamageSource.MAGIC:Lnet/minecraft/util/DamageSource;
+      47: fconst_1
+      48: invokevirtual #129                // Method net/minecraft/entity/EntityLivingBase.attackEntityFrom:(Lnet/minecraft/util/DamageSource;F)Z
+      51: pop
+      52: goto          230
+      55: aload_0
+      56: getstatic     #132                // Field net/minecraft/init/MobEffects.WITHER:Lnet/minecraft/potion/Potion;
+      59: if_acmpne     74
+      62: aload_1
+      63: getstatic     #134                // Field net/minecraft/util/DamageSource.WITHER:Lnet/minecraft/util/DamageSource;
+      66: fconst_1
+      67: invokevirtual #129                // Method net/minecraft/entity/EntityLivingBase.attackEntityFrom:(Lnet/minecraft/util/DamageSource;F)Z
+      70: pop
+      71: goto          230
+      74: aload_0
+      75: getstatic     #137                // Field net/minecraft/init/MobEffects.HUNGER:Lnet/minecraft/potion/Potion;
+      78: if_acmpne     105
+      81: aload_1
+      82: instanceof    #139                // class net/minecraft/entity/player/EntityPlayer
+      85: ifeq          105
+      88: aload_1
+      89: checkcast     #139                // class net/minecraft/entity/player/EntityPlayer
+      92: ldc           #140                // float 0.005f
+      94: iload_2
+      95: iconst_1
+      96: iadd
+      97: i2f
+      98: fmul
+      99: invokevirtual #143                // Method net/minecraft/entity/player/EntityPlayer.addExhaustion:(F)V
+     102: goto          230
+     105: aload_0
+     106: getstatic     #146                // Field net/minecraft/init/MobEffects.SATURATION:Lnet/minecraft/potion/Potion;
+     109: if_acmpne     146
+     112: aload_1
+     113: instanceof    #139                // class net/minecraft/entity/player/EntityPlayer
+     116: ifeq          146
+     119: aload_1
+     120: getfield      #150                // Field net/minecraft/entity/EntityLivingBase.world:Lnet/minecraft/world/World;
+     123: getfield      #155                // Field net/minecraft/world/World.isRemote:Z
+     126: ifne          230
+     129: aload_1
+     130: checkcast     #139                // class net/minecraft/entity/player/EntityPlayer
+     133: invokevirtual #159                // Method net/minecraft/entity/player/EntityPlayer.getFoodStats:()Lnet/minecraft/util/FoodStats;
+     136: iload_2
+     137: iconst_1
+     138: iadd
+     139: fconst_1
+     140: invokevirtual #165                // Method net/minecraft/util/FoodStats.addStats:(IF)V
+     143: goto          230
+     146: aload_0
+     147: getstatic     #168                // Field net/minecraft/init/MobEffects.INSTANT_HEALTH:Lnet/minecraft/potion/Potion;
+     150: if_acmpne     160
+     153: aload_1
+     154: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+     157: ifeq          218
+     160: aload_0
+     161: getstatic     #175                // Field net/minecraft/init/MobEffects.INSTANT_DAMAGE:Lnet/minecraft/potion/Potion;
+     164: if_acmpne     174
+     167: aload_1
+     168: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+     171: ifne          218
+     174: aload_0
+     175: getstatic     #175                // Field net/minecraft/init/MobEffects.INSTANT_DAMAGE:Lnet/minecraft/potion/Potion;
+     178: if_acmpne     188
+     181: aload_1
+     182: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+     185: ifeq          202
+     188: aload_0
+     189: getstatic     #168                // Field net/minecraft/init/MobEffects.INSTANT_HEALTH:Lnet/minecraft/potion/Potion;
+     192: if_acmpne     230
+     195: aload_1
+     196: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+     199: ifeq          230
+     202: aload_1
+     203: getstatic     #125                // Field net/minecraft/util/DamageSource.MAGIC:Lnet/minecraft/util/DamageSource;
+     206: bipush        6
+     208: iload_2
+     209: ishl
+     210: i2f
+     211: invokevirtual #129                // Method net/minecraft/entity/EntityLivingBase.attackEntityFrom:(Lnet/minecraft/util/DamageSource;F)Z
+     214: pop
+     215: goto          230
+     218: aload_1
+     219: iconst_4
+     220: iload_2
+     221: ishl
+     222: iconst_0
+     223: invokestatic  #181                // Method java/lang/Math.max:(II)I
+     226: i2f
+     227: invokevirtual #116                // Method net/minecraft/entity/EntityLivingBase.heal:(F)V
+     230: return
+
+  public void affectEntity(net.minecraft.entity.Entity, net.minecraft.entity.Entity, net.minecraft.entity.EntityLivingBase, int, double);
+    Code:
+       0: aload_0
+       1: getstatic     #168                // Field net/minecraft/init/MobEffects.INSTANT_HEALTH:Lnet/minecraft/potion/Potion;
+       4: if_acmpne     14
+       7: aload_3
+       8: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+      11: ifeq          106
+      14: aload_0
+      15: getstatic     #175                // Field net/minecraft/init/MobEffects.INSTANT_DAMAGE:Lnet/minecraft/potion/Potion;
+      18: if_acmpne     28
+      21: aload_3
+      22: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+      25: ifne          106
+      28: aload_0
+      29: getstatic     #175                // Field net/minecraft/init/MobEffects.INSTANT_DAMAGE:Lnet/minecraft/potion/Potion;
+      32: if_acmpne     42
+      35: aload_3
+      36: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+      39: ifeq          56
+      42: aload_0
+      43: getstatic     #168                // Field net/minecraft/init/MobEffects.INSTANT_HEALTH:Lnet/minecraft/potion/Potion;
+      46: if_acmpne     128
+      49: aload_3
+      50: invokevirtual #172                // Method net/minecraft/entity/EntityLivingBase.isEntityUndead:()Z
+      53: ifeq          128
+      56: dload         5
+      58: bipush        6
+      60: iload         4
+      62: ishl
+      63: i2d
+      64: dmul
+      65: ldc2_w        #84                 // double 0.5d
+      68: dadd
+      69: d2i
+      70: istore        7
+      72: aload_1
+      73: ifnonnull     90
+      76: aload_3
+      77: getstatic     #125                // Field net/minecraft/util/DamageSource.MAGIC:Lnet/minecraft/util/DamageSource;
+      80: iload         7
+      82: i2f
+      83: invokevirtual #129                // Method net/minecraft/entity/EntityLivingBase.attackEntityFrom:(Lnet/minecraft/util/DamageSource;F)Z
+      86: pop
+      87: goto          103
+      90: aload_3
+      91: aload_1
+      92: aload_2
+      93: invokestatic  #190                // Method net/minecraft/util/DamageSource.causeIndirectMagicDamage:(Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/DamageSource;
+      96: iload         7
+      98: i2f
+      99: invokevirtual #129                // Method net/minecraft/entity/EntityLivingBase.attackEntityFrom:(Lnet/minecraft/util/DamageSource;F)Z
+     102: pop
+     103: goto          128
+     106: dload         5
+     108: iconst_4
+     109: iload         4
+     111: ishl
+     112: i2d
+     113: dmul
+     114: ldc2_w        #84                 // double 0.5d
+     117: dadd
+     118: d2i
+     119: istore        7
+     121: aload_3
+     122: iload         7
+     124: i2f
+     125: invokevirtual #116                // Method net/minecraft/entity/EntityLivingBase.heal:(F)V
+     128: return
+
+  public boolean isReady(int, int);
+    Code:
+       0: aload_0
+       1: getstatic     #103                // Field net/minecraft/init/MobEffects.REGENERATION:Lnet/minecraft/potion/Potion;
+       4: if_acmpne     30
+       7: bipush        50
+       9: iload_2
+      10: ishr
+      11: istore_3
+      12: iload_3
+      13: ifle          28
+      16: iload_1
+      17: iload_3
+      18: irem
+      19: ifne          26
+      22: iconst_1
+      23: goto          27
+      26: iconst_0
+      27: ireturn
+      28: iconst_1
+      29: ireturn
+      30: aload_0
+      31: getstatic     #119                // Field net/minecraft/init/MobEffects.POISON:Lnet/minecraft/potion/Potion;
+      34: if_acmpne     60
+      37: bipush        25
+      39: iload_2
+      40: ishr
+      41: istore_3
+      42: iload_3
+      43: ifle          58
+      46: iload_1
+      47: iload_3
+      48: irem
+      49: ifne          56
+      52: iconst_1
+      53: goto          57
+      56: iconst_0
+      57: ireturn
+      58: iconst_1
+      59: ireturn
+      60: aload_0
+      61: getstatic     #132                // Field net/minecraft/init/MobEffects.WITHER:Lnet/minecraft/potion/Potion;
+      64: if_acmpne     90
+      67: bipush        40
+      69: iload_2
+      70: ishr
+      71: istore_3
+      72: iload_3
+      73: ifle          88
+      76: iload_1
+      77: iload_3
+      78: irem
+      79: ifne          86
+      82: iconst_1
+      83: goto          87
+      86: iconst_0
+      87: ireturn
+      88: iconst_1
+      89: ireturn
+      90: aload_0
+      91: getstatic     #137                // Field net/minecraft/init/MobEffects.HUNGER:Lnet/minecraft/potion/Potion;
+      94: if_acmpne     101
+      97: iconst_1
+      98: goto          102
+     101: iconst_0
+     102: ireturn
+
+  public boolean isInstant();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.potion.Potion setPotionName(java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #79                 // Field name:Ljava/lang/String;
+       5: aload_0
+       6: areturn
+
+  public java.lang.String getName();
+    Code:
+       0: aload_0
+       1: getfield      #79                 // Field name:Ljava/lang/String;
+       4: areturn
+
+  protected net.minecraft.potion.Potion setEffectiveness(double);
+    Code:
+       0: aload_0
+       1: dload_1
+       2: putfield      #87                 // Field effectiveness:D
+       5: aload_0
+       6: areturn
+
+  public boolean hasStatusIcon();
+    Code:
+       0: aload_0
+       1: getfield      #81                 // Field statusIconIndex:I
+       4: iflt          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public int getStatusIconIndex();
+    Code:
+       0: aload_0
+       1: getfield      #81                 // Field statusIconIndex:I
+       4: ireturn
+
+  public boolean isBadEffect();
+    Code:
+       0: aload_0
+       1: getfield      #83                 // Field isBadEffect:Z
+       4: ireturn
+
+  public static java.lang.String getPotionDurationString(net.minecraft.potion.PotionEffect, float);
+    Code:
+       0: aload_0
+       1: invokevirtual #225                // Method net/minecraft/potion/PotionEffect.getIsPotionDurationMax:()Z
+       4: ifeq          10
+       7: ldc           #227                // String **:**
+       9: areturn
+      10: aload_0
+      11: invokevirtual #230                // Method net/minecraft/potion/PotionEffect.getDuration:()I
+      14: i2f
+      15: fload_1
+      16: fmul
+      17: invokestatic  #236                // Method net/minecraft/util/math/MathHelper.floor:(F)I
+      20: istore_2
+      21: iload_2
+      22: invokestatic  #242                // Method net/minecraft/util/StringUtils.ticksToElapsedTime:(I)Ljava/lang/String;
+      25: areturn
+
+  public int getLiquidColor();
+    Code:
+       0: aload_0
+       1: getfield      #89                 // Field liquidColor:I
+       4: ireturn
+
+  public net.minecraft.potion.Potion registerPotionAttributeModifier(net.minecraft.entity.ai.attributes.IAttribute, java.lang.String, double, int);
+    Code:
+       0: new           #251                // class net/minecraft/entity/ai/attributes/AttributeModifier
+       3: dup
+       4: aload_2
+       5: invokestatic  #257                // Method java/util/UUID.fromString:(Ljava/lang/String;)Ljava/util/UUID;
+       8: aload_0
+       9: invokevirtual #259                // Method getName:()Ljava/lang/String;
+      12: dload_3
+      13: iload         5
+      15: invokespecial #262                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+      18: astore        6
+      20: aload_0
+      21: getfield      #75                 // Field attributeModifierMap:Ljava/util/Map;
+      24: aload_1
+      25: aload         6
+      27: invokeinterface #266,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      32: pop
+      33: aload_0
+      34: areturn
+
+  public void removeAttributesModifiersFromEntity(net.minecraft.entity.EntityLivingBase, net.minecraft.entity.ai.attributes.AbstractAttributeMap, int);
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field attributeModifierMap:Ljava/util/Map;
+       4: invokeinterface #279,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #285,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore        4
+      16: aload         4
+      18: invokeinterface #290,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      23: ifeq          79
+      26: aload         4
+      28: invokeinterface #294,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #8                  // class java/util/Map$Entry
+      36: astore        5
+      38: aload_2
+      39: aload         5
+      41: invokeinterface #297,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      46: checkcast     #299                // class net/minecraft/entity/ai/attributes/IAttribute
+      49: invokevirtual #305                // Method net/minecraft/entity/ai/attributes/AbstractAttributeMap.getAttributeInstance:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+      52: astore        6
+      54: aload         6
+      56: ifnull        76
+      59: aload         6
+      61: aload         5
+      63: invokeinterface #308,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      68: checkcast     #251                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      71: invokeinterface #314,  2          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.removeModifier:(Lnet/minecraft/entity/ai/attributes/AttributeModifier;)V
+      76: goto          16
+      79: return
+
+  public java.util.Map<net.minecraft.entity.ai.attributes.IAttribute, net.minecraft.entity.ai.attributes.AttributeModifier> getAttributeModifierMap();
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field attributeModifierMap:Ljava/util/Map;
+       4: areturn
+
+  public void applyAttributesModifiersToEntity(net.minecraft.entity.EntityLivingBase, net.minecraft.entity.ai.attributes.AbstractAttributeMap, int);
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field attributeModifierMap:Ljava/util/Map;
+       4: invokeinterface #279,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #285,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore        4
+      16: aload         4
+      18: invokeinterface #290,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      23: ifeq          141
+      26: aload         4
+      28: invokeinterface #294,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #8                  // class java/util/Map$Entry
+      36: astore        5
+      38: aload_2
+      39: aload         5
+      41: invokeinterface #297,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      46: checkcast     #299                // class net/minecraft/entity/ai/attributes/IAttribute
+      49: invokevirtual #305                // Method net/minecraft/entity/ai/attributes/AbstractAttributeMap.getAttributeInstance:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+      52: astore        6
+      54: aload         6
+      56: ifnull        138
+      59: aload         5
+      61: invokeinterface #308,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      66: checkcast     #251                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      69: astore        7
+      71: aload         6
+      73: aload         7
+      75: invokeinterface #314,  2          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.removeModifier:(Lnet/minecraft/entity/ai/attributes/AttributeModifier;)V
+      80: aload         6
+      82: new           #251                // class net/minecraft/entity/ai/attributes/AttributeModifier
+      85: dup
+      86: aload         7
+      88: invokevirtual #330                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+      91: new           #332                // class java/lang/StringBuilder
+      94: dup
+      95: invokespecial #333                // Method java/lang/StringBuilder."<init>":()V
+      98: aload_0
+      99: invokevirtual #259                // Method getName:()Ljava/lang/String;
+     102: invokevirtual #337                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     105: ldc_w         #339                // String
+     108: invokevirtual #337                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     111: iload_3
+     112: invokevirtual #342                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     115: invokevirtual #345                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     118: aload_0
+     119: iload_3
+     120: aload         7
+     122: invokevirtual #349                // Method getAttributeModifierAmount:(ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D
+     125: aload         7
+     127: invokevirtual #352                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     130: invokespecial #262                // Method net/minecraft/entity/ai/attributes/AttributeModifier."<init>":(Ljava/util/UUID;Ljava/lang/String;DI)V
+     133: invokeinterface #355,  2          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.applyModifier:(Lnet/minecraft/entity/ai/attributes/AttributeModifier;)V
+     138: goto          16
+     141: return
+
+  public double getAttributeModifierAmount(int, net.minecraft.entity.ai.attributes.AttributeModifier);
+    Code:
+       0: aload_2
+       1: invokevirtual #362                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getAmount:()D
+       4: iload_1
+       5: iconst_1
+       6: iadd
+       7: i2d
+       8: dmul
+       9: dreturn
+
+  public boolean shouldRender(net.minecraft.potion.PotionEffect);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean shouldRenderInvText(net.minecraft.potion.PotionEffect);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean shouldRenderHUD(net.minecraft.potion.PotionEffect);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public void renderInventoryEffect(int, int, net.minecraft.potion.PotionEffect, net.minecraft.client.Minecraft);
+    Code:
+       0: return
+
+  public void renderHUDEffect(int, int, net.minecraft.potion.PotionEffect, net.minecraft.client.Minecraft, float);
+    Code:
+       0: return
+
+  public java.util.List<net.minecraft.item.ItemStack> getCurativeItems();
+    Code:
+       0: new           #389                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #390                // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: new           #392                // class net/minecraft/item/ItemStack
+      12: dup
+      13: getstatic     #398                // Field net/minecraft/init/Items.MILK_BUCKET:Lnet/minecraft/item/Item;
+      16: invokespecial #401                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;)V
+      19: invokevirtual #405                // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      22: pop
+      23: aload_1
+      24: areturn
+
+  public int getGuiSortColor(net.minecraft.potion.PotionEffect);
+    Code:
+       0: aload_0
+       1: invokevirtual #412                // Method getLiquidColor:()I
+       4: ireturn
+
+  public boolean isBeneficial();
+    Code:
+       0: aload_0
+       1: getfield      #416                // Field beneficial:Z
+       4: ireturn
+
+  public net.minecraft.potion.Potion setBeneficial();
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #416                // Field beneficial:Z
+       5: aload_0
+       6: areturn
+
+  public static void registerPotions();
+    Code:
+       0: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       3: iconst_1
+       4: new           #54                 // class net/minecraft/util/ResourceLocation
+       7: dup
+       8: ldc_w         #421                // String speed
+      11: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      14: new           #2                  // class net/minecraft/potion/Potion
+      17: dup
+      18: iconst_0
+      19: ldc_w         #422                // int 8171462
+      22: invokespecial #424                // Method "<init>":(ZI)V
+      25: ldc_w         #426                // String effect.moveSpeed
+      28: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+      31: iconst_0
+      32: iconst_0
+      33: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+      36: getstatic     #435                // Field net/minecraft/entity/SharedMonsterAttributes.MOVEMENT_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      39: ldc_w         #437                // String 91AEAA56-376B-4498-935B-2F7F68070635
+      42: ldc2_w        #438                // double 0.20000000298023224d
+      45: iconst_2
+      46: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+      49: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+      52: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+      55: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+      58: iconst_2
+      59: new           #54                 // class net/minecraft/util/ResourceLocation
+      62: dup
+      63: ldc_w         #449                // String slowness
+      66: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      69: new           #2                  // class net/minecraft/potion/Potion
+      72: dup
+      73: iconst_1
+      74: ldc_w         #450                // int 5926017
+      77: invokespecial #424                // Method "<init>":(ZI)V
+      80: ldc_w         #452                // String effect.moveSlowdown
+      83: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+      86: iconst_1
+      87: iconst_0
+      88: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+      91: getstatic     #435                // Field net/minecraft/entity/SharedMonsterAttributes.MOVEMENT_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+      94: ldc_w         #454                // String 7107DE5E-7CE8-4030-940E-514C1F160890
+      97: ldc2_w        #455                // double -0.15000000596046448d
+     100: iconst_2
+     101: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     104: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     107: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     110: iconst_3
+     111: new           #54                 // class net/minecraft/util/ResourceLocation
+     114: dup
+     115: ldc_w         #458                // String haste
+     118: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     121: new           #2                  // class net/minecraft/potion/Potion
+     124: dup
+     125: iconst_0
+     126: ldc_w         #459                // int 14270531
+     129: invokespecial #424                // Method "<init>":(ZI)V
+     132: ldc_w         #461                // String effect.digSpeed
+     135: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     138: iconst_2
+     139: iconst_0
+     140: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     143: ldc2_w        #462                // double 1.5d
+     146: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     149: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     152: getstatic     #468                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     155: ldc_w         #470                // String AF8B6E3F-3328-4C0A-AA36-5BA2BB9DBEF3
+     158: ldc2_w        #471                // double 0.10000000149011612d
+     161: iconst_2
+     162: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     165: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     168: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     171: iconst_4
+     172: new           #54                 // class net/minecraft/util/ResourceLocation
+     175: dup
+     176: ldc_w         #474                // String mining_fatigue
+     179: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     182: new           #2                  // class net/minecraft/potion/Potion
+     185: dup
+     186: iconst_1
+     187: ldc_w         #475                // int 4866583
+     190: invokespecial #424                // Method "<init>":(ZI)V
+     193: ldc_w         #477                // String effect.digSlowDown
+     196: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     199: iconst_3
+     200: iconst_0
+     201: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     204: getstatic     #468                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     207: ldc_w         #479                // String 55FCED67-E92A-486E-9800-B47F202C4386
+     210: ldc2_w        #480                // double -0.10000000149011612d
+     213: iconst_2
+     214: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     217: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     220: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     223: iconst_5
+     224: new           #54                 // class net/minecraft/util/ResourceLocation
+     227: dup
+     228: ldc_w         #483                // String strength
+     231: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     234: new           #485                // class net/minecraft/potion/PotionAttackDamage
+     237: dup
+     238: iconst_0
+     239: ldc_w         #486                // int 9643043
+     242: ldc2_w        #487                // double 3.0d
+     245: invokespecial #491                // Method net/minecraft/potion/PotionAttackDamage."<init>":(ZID)V
+     248: ldc_w         #493                // String effect.damageBoost
+     251: invokevirtual #494                // Method net/minecraft/potion/PotionAttackDamage.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     254: iconst_4
+     255: iconst_0
+     256: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     259: getstatic     #497                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     262: ldc_w         #499                // String 648D7064-6A60-4F59-8ABE-C2C23A6DD7A9
+     265: dconst_0
+     266: iconst_0
+     267: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     270: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     273: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     276: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     279: bipush        6
+     281: new           #54                 // class net/minecraft/util/ResourceLocation
+     284: dup
+     285: ldc_w         #501                // String instant_health
+     288: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     291: new           #503                // class net/minecraft/potion/PotionHealth
+     294: dup
+     295: iconst_0
+     296: ldc_w         #504                // int 16262179
+     299: invokespecial #505                // Method net/minecraft/potion/PotionHealth."<init>":(ZI)V
+     302: ldc_w         #507                // String effect.heal
+     305: invokevirtual #508                // Method net/minecraft/potion/PotionHealth.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     308: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     311: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     314: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     317: bipush        7
+     319: new           #54                 // class net/minecraft/util/ResourceLocation
+     322: dup
+     323: ldc_w         #510                // String instant_damage
+     326: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     329: new           #503                // class net/minecraft/potion/PotionHealth
+     332: dup
+     333: iconst_1
+     334: ldc_w         #511                // int 4393481
+     337: invokespecial #505                // Method net/minecraft/potion/PotionHealth."<init>":(ZI)V
+     340: ldc_w         #513                // String effect.harm
+     343: invokevirtual #508                // Method net/minecraft/potion/PotionHealth.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     346: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     349: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     352: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     355: bipush        8
+     357: new           #54                 // class net/minecraft/util/ResourceLocation
+     360: dup
+     361: ldc_w         #515                // String jump_boost
+     364: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     367: new           #2                  // class net/minecraft/potion/Potion
+     370: dup
+     371: iconst_0
+     372: ldc_w         #516                // int 2293580
+     375: invokespecial #424                // Method "<init>":(ZI)V
+     378: ldc_w         #518                // String effect.jump
+     381: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     384: iconst_2
+     385: iconst_1
+     386: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     389: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     392: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     395: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     398: bipush        9
+     400: new           #54                 // class net/minecraft/util/ResourceLocation
+     403: dup
+     404: ldc_w         #520                // String nausea
+     407: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     410: new           #2                  // class net/minecraft/potion/Potion
+     413: dup
+     414: iconst_1
+     415: ldc_w         #521                // int 5578058
+     418: invokespecial #424                // Method "<init>":(ZI)V
+     421: ldc_w         #523                // String effect.confusion
+     424: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     427: iconst_3
+     428: iconst_1
+     429: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     432: ldc2_w        #524                // double 0.25d
+     435: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     438: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     441: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     444: bipush        10
+     446: new           #54                 // class net/minecraft/util/ResourceLocation
+     449: dup
+     450: ldc_w         #527                // String regeneration
+     453: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     456: new           #2                  // class net/minecraft/potion/Potion
+     459: dup
+     460: iconst_0
+     461: ldc_w         #528                // int 13458603
+     464: invokespecial #424                // Method "<init>":(ZI)V
+     467: ldc_w         #530                // String effect.regeneration
+     470: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     473: bipush        7
+     475: iconst_0
+     476: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     479: ldc2_w        #524                // double 0.25d
+     482: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     485: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     488: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     491: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     494: bipush        11
+     496: new           #54                 // class net/minecraft/util/ResourceLocation
+     499: dup
+     500: ldc_w         #532                // String resistance
+     503: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     506: new           #2                  // class net/minecraft/potion/Potion
+     509: dup
+     510: iconst_0
+     511: ldc_w         #533                // int 10044730
+     514: invokespecial #424                // Method "<init>":(ZI)V
+     517: ldc_w         #535                // String effect.resistance
+     520: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     523: bipush        6
+     525: iconst_1
+     526: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     529: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     532: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     535: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     538: bipush        12
+     540: new           #54                 // class net/minecraft/util/ResourceLocation
+     543: dup
+     544: ldc_w         #537                // String fire_resistance
+     547: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     550: new           #2                  // class net/minecraft/potion/Potion
+     553: dup
+     554: iconst_0
+     555: ldc_w         #538                // int 14981690
+     558: invokespecial #424                // Method "<init>":(ZI)V
+     561: ldc_w         #540                // String effect.fireResistance
+     564: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     567: bipush        7
+     569: iconst_1
+     570: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     573: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     576: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     579: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     582: bipush        13
+     584: new           #54                 // class net/minecraft/util/ResourceLocation
+     587: dup
+     588: ldc_w         #542                // String water_breathing
+     591: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     594: new           #2                  // class net/minecraft/potion/Potion
+     597: dup
+     598: iconst_0
+     599: ldc_w         #543                // int 3035801
+     602: invokespecial #424                // Method "<init>":(ZI)V
+     605: ldc_w         #545                // String effect.waterBreathing
+     608: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     611: iconst_0
+     612: iconst_2
+     613: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     616: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     619: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     622: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     625: bipush        14
+     627: new           #54                 // class net/minecraft/util/ResourceLocation
+     630: dup
+     631: ldc_w         #547                // String invisibility
+     634: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     637: new           #2                  // class net/minecraft/potion/Potion
+     640: dup
+     641: iconst_0
+     642: ldc_w         #548                // int 8356754
+     645: invokespecial #424                // Method "<init>":(ZI)V
+     648: ldc_w         #550                // String effect.invisibility
+     651: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     654: iconst_0
+     655: iconst_1
+     656: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     659: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     662: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     665: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     668: bipush        15
+     670: new           #54                 // class net/minecraft/util/ResourceLocation
+     673: dup
+     674: ldc_w         #552                // String blindness
+     677: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     680: new           #2                  // class net/minecraft/potion/Potion
+     683: dup
+     684: iconst_1
+     685: ldc_w         #553                // int 2039587
+     688: invokespecial #424                // Method "<init>":(ZI)V
+     691: ldc_w         #555                // String effect.blindness
+     694: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     697: iconst_5
+     698: iconst_1
+     699: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     702: ldc2_w        #524                // double 0.25d
+     705: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     708: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     711: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     714: bipush        16
+     716: new           #54                 // class net/minecraft/util/ResourceLocation
+     719: dup
+     720: ldc_w         #557                // String night_vision
+     723: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     726: new           #2                  // class net/minecraft/potion/Potion
+     729: dup
+     730: iconst_0
+     731: ldc_w         #558                // int 2039713
+     734: invokespecial #424                // Method "<init>":(ZI)V
+     737: ldc_w         #560                // String effect.nightVision
+     740: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     743: iconst_4
+     744: iconst_1
+     745: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     748: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     751: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     754: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     757: bipush        17
+     759: new           #54                 // class net/minecraft/util/ResourceLocation
+     762: dup
+     763: ldc_w         #562                // String hunger
+     766: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     769: new           #2                  // class net/minecraft/potion/Potion
+     772: dup
+     773: iconst_1
+     774: ldc_w         #563                // int 5797459
+     777: invokespecial #424                // Method "<init>":(ZI)V
+     780: ldc_w         #565                // String effect.hunger
+     783: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     786: iconst_1
+     787: iconst_1
+     788: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     791: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     794: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     797: bipush        18
+     799: new           #54                 // class net/minecraft/util/ResourceLocation
+     802: dup
+     803: ldc_w         #567                // String weakness
+     806: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     809: new           #485                // class net/minecraft/potion/PotionAttackDamage
+     812: dup
+     813: iconst_1
+     814: ldc_w         #568                // int 4738376
+     817: ldc2_w        #569                // double -4.0d
+     820: invokespecial #491                // Method net/minecraft/potion/PotionAttackDamage."<init>":(ZID)V
+     823: ldc_w         #572                // String effect.weakness
+     826: invokevirtual #494                // Method net/minecraft/potion/PotionAttackDamage.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     829: iconst_5
+     830: iconst_0
+     831: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     834: getstatic     #497                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     837: ldc_w         #574                // String 22653B89-116E-49DC-9B6B-9971489B5BE5
+     840: dconst_0
+     841: iconst_0
+     842: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     845: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     848: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     851: bipush        19
+     853: new           #54                 // class net/minecraft/util/ResourceLocation
+     856: dup
+     857: ldc_w         #576                // String poison
+     860: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     863: new           #2                  // class net/minecraft/potion/Potion
+     866: dup
+     867: iconst_1
+     868: ldc_w         #577                // int 5149489
+     871: invokespecial #424                // Method "<init>":(ZI)V
+     874: ldc_w         #579                // String effect.poison
+     877: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     880: bipush        6
+     882: iconst_0
+     883: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     886: ldc2_w        #524                // double 0.25d
+     889: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     892: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     895: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     898: bipush        20
+     900: new           #54                 // class net/minecraft/util/ResourceLocation
+     903: dup
+     904: ldc_w         #581                // String wither
+     907: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     910: new           #2                  // class net/minecraft/potion/Potion
+     913: dup
+     914: iconst_1
+     915: ldc_w         #582                // int 3484199
+     918: invokespecial #424                // Method "<init>":(ZI)V
+     921: ldc_w         #584                // String effect.wither
+     924: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     927: iconst_1
+     928: iconst_2
+     929: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     932: ldc2_w        #524                // double 0.25d
+     935: invokevirtual #465                // Method setEffectiveness:(D)Lnet/minecraft/potion/Potion;
+     938: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     941: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+     944: bipush        21
+     946: new           #54                 // class net/minecraft/util/ResourceLocation
+     949: dup
+     950: ldc_w         #586                // String health_boost
+     953: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+     956: new           #588                // class net/minecraft/potion/PotionHealthBoost
+     959: dup
+     960: iconst_0
+     961: ldc_w         #589                // int 16284963
+     964: invokespecial #590                // Method net/minecraft/potion/PotionHealthBoost."<init>":(ZI)V
+     967: ldc_w         #592                // String effect.healthBoost
+     970: invokevirtual #593                // Method net/minecraft/potion/PotionHealthBoost.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+     973: bipush        7
+     975: iconst_2
+     976: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+     979: getstatic     #596                // Field net/minecraft/entity/SharedMonsterAttributes.MAX_HEALTH:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     982: ldc_w         #598                // String 5D6F0BA2-1186-46AC-B896-C61C5CEE99CC
+     985: ldc2_w        #599                // double 4.0d
+     988: iconst_0
+     989: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+     992: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+     995: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+     998: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1001: bipush        22
+    1003: new           #54                 // class net/minecraft/util/ResourceLocation
+    1006: dup
+    1007: ldc_w         #602                // String absorption
+    1010: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1013: new           #604                // class net/minecraft/potion/PotionAbsorption
+    1016: dup
+    1017: iconst_0
+    1018: ldc_w         #605                // int 2445989
+    1021: invokespecial #606                // Method net/minecraft/potion/PotionAbsorption."<init>":(ZI)V
+    1024: ldc_w         #608                // String effect.absorption
+    1027: invokevirtual #609                // Method net/minecraft/potion/PotionAbsorption.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1030: iconst_2
+    1031: iconst_2
+    1032: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+    1035: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+    1038: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1041: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1044: bipush        23
+    1046: new           #54                 // class net/minecraft/util/ResourceLocation
+    1049: dup
+    1050: ldc_w         #611                // String saturation
+    1053: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1056: new           #503                // class net/minecraft/potion/PotionHealth
+    1059: dup
+    1060: iconst_0
+    1061: ldc_w         #504                // int 16262179
+    1064: invokespecial #505                // Method net/minecraft/potion/PotionHealth."<init>":(ZI)V
+    1067: ldc_w         #613                // String effect.saturation
+    1070: invokevirtual #508                // Method net/minecraft/potion/PotionHealth.setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1073: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+    1076: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1079: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1082: bipush        24
+    1084: new           #54                 // class net/minecraft/util/ResourceLocation
+    1087: dup
+    1088: ldc_w         #615                // String glowing
+    1091: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1094: new           #2                  // class net/minecraft/potion/Potion
+    1097: dup
+    1098: iconst_0
+    1099: ldc_w         #616                // int 9740385
+    1102: invokespecial #424                // Method "<init>":(ZI)V
+    1105: ldc_w         #618                // String effect.glowing
+    1108: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1111: iconst_4
+    1112: iconst_2
+    1113: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+    1116: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1119: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1122: bipush        25
+    1124: new           #54                 // class net/minecraft/util/ResourceLocation
+    1127: dup
+    1128: ldc_w         #620                // String levitation
+    1131: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1134: new           #2                  // class net/minecraft/potion/Potion
+    1137: dup
+    1138: iconst_1
+    1139: ldc_w         #621                // int 13565951
+    1142: invokespecial #424                // Method "<init>":(ZI)V
+    1145: ldc_w         #623                // String effect.levitation
+    1148: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1151: iconst_3
+    1152: iconst_2
+    1153: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+    1156: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1159: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1162: bipush        26
+    1164: new           #54                 // class net/minecraft/util/ResourceLocation
+    1167: dup
+    1168: ldc_w         #625                // String luck
+    1171: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1174: new           #2                  // class net/minecraft/potion/Potion
+    1177: dup
+    1178: iconst_0
+    1179: ldc_w         #626                // int 3381504
+    1182: invokespecial #424                // Method "<init>":(ZI)V
+    1185: ldc_w         #628                // String effect.luck
+    1188: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1191: iconst_5
+    1192: iconst_2
+    1193: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+    1196: invokevirtual #443                // Method setBeneficial:()Lnet/minecraft/potion/Potion;
+    1199: getstatic     #631                // Field net/minecraft/entity/SharedMonsterAttributes.LUCK:Lnet/minecraft/entity/ai/attributes/IAttribute;
+    1202: ldc_w         #633                // String 03C3C89D-7037-4B42-869F-B146BCB64D2E
+    1205: dconst_1
+    1206: iconst_0
+    1207: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+    1210: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1213: getstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1216: bipush        27
+    1218: new           #54                 // class net/minecraft/util/ResourceLocation
+    1221: dup
+    1222: ldc_w         #635                // String unluck
+    1225: invokespecial #58                 // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+    1228: new           #2                  // class net/minecraft/potion/Potion
+    1231: dup
+    1232: iconst_1
+    1233: ldc_w         #636                // int 12624973
+    1236: invokespecial #424                // Method "<init>":(ZI)V
+    1239: ldc_w         #638                // String effect.unluck
+    1242: invokevirtual #428                // Method setPotionName:(Ljava/lang/String;)Lnet/minecraft/potion/Potion;
+    1245: bipush        6
+    1247: iconst_2
+    1248: invokevirtual #430                // Method setIconIndex:(II)Lnet/minecraft/potion/Potion;
+    1251: getstatic     #631                // Field net/minecraft/entity/SharedMonsterAttributes.LUCK:Lnet/minecraft/entity/ai/attributes/IAttribute;
+    1254: ldc_w         #640                // String CC5AF142-2BD2-4215-B636-2605AED11727
+    1257: ldc2_w        #641                // double -1.0d
+    1260: iconst_0
+    1261: invokevirtual #441                // Method registerPotionAttributeModifier:(Lnet/minecraft/entity/ai/attributes/IAttribute;Ljava/lang/String;DI)Lnet/minecraft/potion/Potion;
+    1264: invokevirtual #447                // Method net/minecraft/util/registry/RegistryNamespaced.register:(ILjava/lang/Object;Ljava/lang/Object;)V
+    1267: return
+
+  static {};
+    Code:
+       0: ldc           #2                  // class net/minecraft/potion/Potion
+       2: invokestatic  #649                // Method net/minecraftforge/registries/GameData.getWrapper:(Ljava/lang/Class;)Lnet/minecraft/util/registry/RegistryNamespaced;
+       5: putstatic     #35                 // Field REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+       8: return
+}

@@ -97,7 +97,7 @@ public class TileEntityPneumoTube extends TileEntityMachineBase implements IGUIP
 				}
 			}
 
-			if(this.isCompressor() && (!this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) ^ this.redstone)) {
+			if(this.isCompressor() && (!this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) ^ this.redstone)) {
 
 				int randTime = Math.abs((int) (this.world.getTotalWorldTime() + this.getIdentifier(this.pos.getX(), this.pos.getY(), this.pos.getZ())));
 

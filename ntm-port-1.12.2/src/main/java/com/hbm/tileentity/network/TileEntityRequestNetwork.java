@@ -41,7 +41,7 @@ public abstract class TileEntityRequestNetwork extends TileEntityLoadedBase impl
 				BlockPos pos = getCoord();
 
 				PathNode newNode = createNode(pos);
-				if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) newNode.active = false;
+				if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) newNode.active = false;
 				else newNode.active = true;
 				// push new node
 				push(this.world, newNode);

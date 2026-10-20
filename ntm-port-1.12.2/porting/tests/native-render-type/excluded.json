@@ -1,0 +1,72 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockDummyableBeam.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "BlockDummyableBeam",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockDummyable.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRocketAssembly.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "MachineRocketAssembly",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineIGenerator.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "MachineIGenerator",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineGasDock.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "MachineGasDock",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineCyclotron.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "MachineCyclotron",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+    "reason": "Mixed gas descendants: BlockGasClorine returns 0; needs own model work",
+    "chain": [
+      "BlockGasBase",
+      "Block"
+    ]
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/rbmk/RBMKConsole.java",
+    "reason": "Existing BlockDummyable native virtual bridge; preserve legacy hook dispatch",
+    "chain": [
+      "RBMKConsole",
+      "BlockDummyable",
+      "BlockContainer"
+    ]
+  }
+]

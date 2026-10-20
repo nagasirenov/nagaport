@@ -18,10 +18,10 @@ public class ItemSchnitzelVegan extends ItemFood {
     {
         if (!world.isRemote)
         {
-        	player.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 0));
-        	player.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 0));
+        	player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 10 * 20, 0));
+        	player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 30 * 20, 0));
         	player.addPotionEffect(new PotionEffect(Potion.hunger.id, 3 * 60 * 20, 4));
-        	player.addPotionEffect(new PotionEffect(Potion.wither.id, 3 * 20, 0));
+        	player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 3 * 20, 0));
         	
         	player.setFire(5 * 20);
         	player.motionY = 2;

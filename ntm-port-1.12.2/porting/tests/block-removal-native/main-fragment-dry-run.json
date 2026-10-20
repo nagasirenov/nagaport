@@ -1,0 +1,48 @@
+{
+  "base": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "write": false,
+  "files": [
+    {
+      "path": "com/hbm/blocks/machine/MachineICFPress.java",
+      "status": "ready",
+      "before_sha256": "d4e1df40b61dbdf2aaa001a7ca2fdb518aa811365785c5271cdf01ed017f71d3",
+      "after_sha256": "04d952f8843f4b03336c192c829ab4b49eca75c9a5609748bd3e55623049df56",
+      "all_unrelated_bytes_preserved": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatLinker.java",
+      "status": "ready",
+      "before_sha256": "2eea2918e662c15048770fd9e9417cd9a3e59d448b8b312bb96e5955cbe74d71",
+      "after_sha256": "0f825ba4096aba193b525e35fac3ced46d6116d42b741e772751eceb21386cf9",
+      "all_unrelated_bytes_preserved": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineReactorControl.java",
+      "status": "ready",
+      "before_sha256": "783c138280f4fa32daa658011b8623a5ae40b9f54ebddda8ef1341ad501dbb3d",
+      "after_sha256": "64ae31b5eaf3b1f284d426a6b3c19e89f6c4800f140fcbfe69071f3ffc4fafce",
+      "all_unrelated_bytes_preserved": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineTurbine.java",
+      "status": "ready",
+      "before_sha256": "337247b2855ac0f9c85b0c0bad75720e67b573851a4285c0a2073f509feecab7",
+      "after_sha256": "afe467b8f0936291d9610a6674957daa7f7c73fb28edd91d96af9a8b43d1f72c",
+      "all_unrelated_bytes_preserved": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSiren.java",
+      "status": "ready",
+      "before_sha256": "eaea9d7fbf2139270beb595092b6c70a54d966f21fbd55bf40f60cfec9325080",
+      "after_sha256": "4260cf7589c53e5f9fe8aabaabb08915dd5e5f0d63f43364a4565f210b1baf88",
+      "all_unrelated_bytes_preserved": true
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineSatDock.java",
+      "status": "ready",
+      "before_sha256": "396bfb15c91faedacdc7a71b7a55553868cfb680217d53439550af3ae6f5f349",
+      "after_sha256": "1b04e37768d54e9808fa4be7c2ae3ac17301465bdf73fa6901c5b6a582061e33",
+      "all_unrelated_bytes_preserved": true
+    }
+  ]
+}

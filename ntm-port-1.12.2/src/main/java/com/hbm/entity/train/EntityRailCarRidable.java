@@ -132,7 +132,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 			}
 		}
 
-		if(this.riddenByEntity == null) {
+		if(!this.isBeingRidden()) {
 			Vec3d seat = getRiderSeatPosition();
 			seat = seat.rotateYaw((float) (-this.rotationYaw * Math.PI / 180));
 			double x = renderX + seat.x;
@@ -164,7 +164,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 				SeatDummyEntity seat = passengerSeats[i];
 
 				if(seat != null) {
-					if(seat.riddenByEntity == null) {
+					if(!seat.isBeingRidden()) {
 						passengerSeats[i] = null;
 						seat.setDead();
 					} else {
@@ -188,7 +188,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 		offset.rotateAroundXRad((float) (this.rotationPitch * Math.PI / 180));
 		offset.rotateAroundYRad((float) (-this.rotationYaw * Math.PI / 180));
 		
-		if(this.riddenByEntity != null) {
+		if(this.isBeingRidden()) {
 			this.riddenByEntity.setPosition(this.renderX + offset.x, this.renderY + offset.y, this.renderZ + offset.z);
 		}
 	}
@@ -249,7 +249,7 @@ public abstract class EntityRailCarRidable extends EntityRailCarCargo {
 
 		@Override
 		public void updateRiderPosition() {
-			if(this.riddenByEntity != null) {
+			if(this.isBeingRidden()) {
 				
 				if(train == null) {
 					int eid = this.dataWatcher.getWatchableObjectInt(3);

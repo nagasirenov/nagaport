@@ -26,7 +26,7 @@ public class RenderCatalyticReformer extends TileEntitySpecialRenderer {
 	private static ResourceLocation extra = new ResourceLocation(RefStrings.MODID, "textures/models/horse/dyx.png");
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+	public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5, y, z + 0.5);

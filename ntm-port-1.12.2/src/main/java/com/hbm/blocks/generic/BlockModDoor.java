@@ -99,7 +99,7 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 	 * or not to render the shared face of two adjacent blocks and also whether
 	 * the player can attach torches, redstone wire, etc to this block.
 	 */
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -112,7 +112,7 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
 	 */
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -299,8 +299,8 @@ public class BlockModDoor extends Block implements INBTBlockTransformable {
 					this.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, l, 0);
 				}
 			} else {
-				boolean flag1 = p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_, p_149695_4_)
-						|| p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_ + 1, p_149695_4_);
+				boolean flag1 = p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_, p_149695_4_))
+						|| p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_ + 1, p_149695_4_));
 
 				if ((flag1 || p_149695_5_.canProvidePower()) && p_149695_5_ != this) {
 					this.func_150014_a(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, flag1);

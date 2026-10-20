@@ -174,8 +174,8 @@ public class ItemCasingBag extends Item implements IGUIProvider {
 		}
 
 		@Override public boolean isUseableByPlayer(EntityPlayer player) { return true; }
-		@Override public void openInventory() { }
-		@Override public void closeInventory() { }
+		@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
+		@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 		@Override public boolean isItemValidForSlot(int slot, ItemStack stack) { return false; }
 	}
 }

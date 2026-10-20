@@ -21,7 +21,7 @@ public class TileEntityLantern extends TileEntity implements net.minecraft.util.
 			List<EntityGlyphid> glyphids = this.world.getEntitiesWithinAABB(EntityGlyphid.class, AxisAlignedBB.getBoundingBox(this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5, this.pos.getX() + 0.5, this.pos.getY() + 5.5, this.pos.getZ() + 0.5).expand(7.5, 7.5, 7.5));
 			
 			for(EntityGlyphid glyphid : glyphids) {
-				glyphid.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0));
+				glyphid.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 100, 0));
 			}
 		}
 	}

@@ -1,0 +1,794 @@
+{
+  "baseline": "91da806c9ad17b279ef5142d83d4fe60365d563f",
+  "files": {
+    "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": {
+      "before_sha256": "c6abb832cc8fbf3e38584da1c2d8ff96c293be7356ba5feaba743c77140f94c6",
+      "after_sha256": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46",
+      "edits": [
+        {
+          "before_offset": 3865,
+          "after_offset": 3865,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java": {
+      "before_sha256": "480e7207b5aa4b7c74009c43403c6afda247932a9651db6a95aacdd20c5a5fac",
+      "after_sha256": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+      "edits": [
+        {
+          "before_offset": 2351,
+          "after_offset": 2351,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": {
+      "before_sha256": "2a979a6c7cc8990379fdb89e19bf98b3c6ef97cfd71e6c6dec8a4604c63dbae1",
+      "after_sha256": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce",
+      "edits": [
+        {
+          "before_offset": 1495,
+          "after_offset": 1495,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFlameWar.java": {
+      "before_sha256": "1a9fec6a948036c6778a4814f29a9c0089077a4efce4b6ed667ccb41436b44e3",
+      "after_sha256": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+      "edits": [
+        {
+          "before_offset": 955,
+          "after_offset": 955,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 1040,
+          "after_offset": 1230,
+          "old": "\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombFloat.java": {
+      "before_sha256": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f",
+      "after_sha256": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+      "edits": [
+        {
+          "before_offset": 2035,
+          "after_offset": 2035,
+          "old": "\tpublic void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 2162,
+          "after_offset": 2352,
+          "old": "\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\t\tif(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/BombThermo.java": {
+      "before_sha256": "e3f60cd2003a12e3a5413d5c63d6f963bfb48031e82161af1360e195b5aa7856",
+      "after_sha256": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+      "edits": [
+        {
+          "before_offset": 1688,
+          "after_offset": 1688,
+          "old": "\tpublic void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/CrystalPulsar.java": {
+      "before_sha256": "5d7691ed51625b7444198d7a219c29ea89589af6a2f3705ae5bfc96603e20509",
+      "after_sha256": "bf58bf1aa47413dfa62eb2a23ec71d6fead139a5d0e4ccf4c259e5a0cd6d9e64",
+      "edits": [
+        {
+          "before_offset": 354,
+          "after_offset": 354,
+          "old": "    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n",
+          "new": "    public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/DetMiner.java": {
+      "before_sha256": "f9eefbc59c42e5adb7132efec958fdea5e7d0075b04b0caffc2cce55e8d8b813",
+      "after_sha256": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d",
+      "edits": [
+        {
+          "before_offset": 1768,
+          "after_offset": 1768,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java": {
+      "before_sha256": "3b8ed10ede40c65ef0802087faf2a76311555d33f9482a4532be7e3503503f71",
+      "after_sha256": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+      "edits": [
+        {
+          "before_offset": 1841,
+          "after_offset": 1841,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java": {
+      "before_sha256": "5ac5be8b5b8d6bf7accbcf40b6b5a00e776f6b0a4eae57a44abe2c55ae0d2aa9",
+      "after_sha256": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb",
+      "edits": [
+        {
+          "before_offset": 1090,
+          "after_offset": 1090,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block b, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 1171,
+          "after_offset": 1361,
+          "old": "\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\t\tif (world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java": {
+      "before_sha256": "0436806b7b16a728b064946577ecece25693574cc7e6b4167f1693d62fdf22ce",
+      "after_sha256": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433",
+      "edits": [
+        {
+          "before_offset": 1037,
+          "after_offset": 1037,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block b, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 1118,
+          "after_offset": 1308,
+          "old": "\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\t\tif (world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": {
+      "before_sha256": "63550b384bd7c114bb7a0c39992408df2443fec6b2113a3ce360030569ba86bd",
+      "after_sha256": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81",
+      "edits": [
+        {
+          "before_offset": 4515,
+          "after_offset": 4515,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        },
+        {
+          "before_offset": 4608,
+          "after_offset": 4798,
+          "old": "\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n",
+          "new": "\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java": {
+      "before_sha256": "8ea535a639d4d2dd7226049b0b47ee2bc9aa88060a573f5b69e1e4f5a692a855",
+      "after_sha256": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271",
+      "edits": [
+        {
+          "before_offset": 2284,
+          "after_offset": 2284,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block block) { } //no more BUD outgassing for you, mister\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) { } //no more BUD outgassing for you, mister\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/blocks/machine/PistonInserter.java": {
+      "before_sha256": "783c42329a8bac39db7d23845900a62884b508ad2f2ca77ee1e9c4e26960e132",
+      "after_sha256": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395",
+      "edits": [
+        {
+          "before_offset": 1367,
+          "after_offset": 1367,
+          "old": "\tpublic void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {\n",
+          "new": "\tpublic void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block neighbor, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/Ike/WorldProviderIke.java": {
+      "before_sha256": "302847071ef660b11ea2d8ac7afba0c2045642b5b6e28e92782753a617d0761f",
+      "after_sha256": "222e9a029a9fd3f2990e3e8dff33072ddf9aa9036003c4dbbbc1d94bf0dd9d34",
+      "edits": [
+        {
+          "before_offset": 711,
+          "after_offset": 711,
+          "old": "\t\treturn new ChunkProviderIke(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderIke(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/WorldProviderCelestial.java": {
+      "before_sha256": "f546f1a8c2fe82c5e7aa4d4c0839a34b98b56c27fd19d3c6f1bf97f51f3a01ed",
+      "after_sha256": "8934dd1a871f7e773d6985e9d60bc7311922bbd6263879df5800c87766a037d2",
+      "edits": [
+        {
+          "before_offset": 2276,
+          "after_offset": 2276,
+          "old": "\t\treturn CelestialBody.getBody(worldObj).hasIce;\n",
+          "new": "\t\treturn CelestialBody.getBody(this.world).hasIce;\n"
+        },
+        {
+          "before_offset": 2467,
+          "after_offset": 2469,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 2742,
+          "after_offset": 2746,
+          "old": "\t\tisHellWorld = !worldObj.isRemote && pressure <= 0.2F && !Loader.isModLoaded(Compat.MOD_COFH);\n",
+          "new": "\t\tisHellWorld = !this.world.isRemote && pressure <= 0.2F && !Loader.isModLoaded(Compat.MOD_COFH);\n"
+        },
+        {
+          "before_offset": 2872,
+          "after_offset": 2878,
+          "old": "\t\tCBT_Invasion invasion = CelestialBody.getTrait(worldObj, CBT_Invasion.class);\n",
+          "new": "\t\tCBT_Invasion invasion = CelestialBody.getTrait(this.world, CBT_Invasion.class);\n"
+        },
+        {
+          "before_offset": 2953,
+          "after_offset": 2961,
+          "old": "\t\tif (worldObj.isRemote) {\n",
+          "new": "\t\tif (this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 3547,
+          "after_offset": 3557,
+          "old": "\t\tworldObj.prevRainingStrength = 0.0F;\n\t\tworldObj.rainingStrength = 0.0F;\n\t\tworldObj.prevThunderingStrength = 0.0F;\n\t\tworldObj.thunderingStrength = 0.0F;\n",
+          "new": "\t\tthis.world.prevRainingStrength = 0.0F;\n\t\tthis.world.rainingStrength = 0.0F;\n\t\tthis.world.prevThunderingStrength = 0.0F;\n\t\tthis.world.thunderingStrength = 0.0F;\n"
+        },
+        {
+          "before_offset": 3829,
+          "after_offset": 3847,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 5683,
+          "after_offset": 5703,
+          "old": "\t\tCelestialBody body = CelestialBody.getBody(worldObj);\n",
+          "new": "\t\tCelestialBody body = CelestialBody.getBody(this.world);\n"
+        },
+        {
+          "before_offset": 5831,
+          "after_offset": 5853,
+          "old": "\t\tfloat solarAngle = worldObj.getCelestialAngle(partialTicks);\n",
+          "new": "\t\tfloat solarAngle = this.world.getCelestialAngle(partialTicks);\n"
+        },
+        {
+          "before_offset": 5968,
+          "after_offset": 5992,
+          "old": "\t\tmetrics = SolarSystem.calculateMetricsFromBody(worldObj, partialTicks, body, solarAngle);\n",
+          "new": "\t\tmetrics = SolarSystem.calculateMetricsFromBody(this.world, partialTicks, body, solarAngle);\n"
+        },
+        {
+          "before_offset": 7258,
+          "after_offset": 7284,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 10161,
+          "after_offset": 10189,
+          "old": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(worldObj);\n\t\tfloat fire = ImpactWorldHandler.getFireForClient(worldObj);\n",
+          "new": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(this.world);\n\t\tfloat fire = ImpactWorldHandler.getFireForClient(this.world);\n"
+        },
+        {
+          "before_offset": 10834,
+          "after_offset": 10866,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 12479,
+          "after_offset": 12513,
+          "old": "\t\tif(CelestialBody.getBody(worldObj).hasTrait(CBT_War.class)) {\n\t\t\tCBT_War wardat = CelestialBody.getTrait(worldObj, CBT_War.class);\n",
+          "new": "\t\tif(CelestialBody.getBody(this.world).hasTrait(CBT_War.class)) {\n\t\t\tCBT_War wardat = CelestialBody.getTrait(this.world, CBT_War.class);\n"
+        },
+        {
+          "before_offset": 13719,
+          "after_offset": 13757,
+          "old": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(worldObj);\n\t\tfloat fire = ImpactWorldHandler.getFireForClient(worldObj);\n",
+          "new": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(this.world);\n\t\tfloat fire = ImpactWorldHandler.getFireForClient(this.world);\n"
+        },
+        {
+          "before_offset": 14577,
+          "after_offset": 14619,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 15852,
+          "after_offset": 15896,
+          "old": "\t\tfloat dustFactor = 1 - ImpactWorldHandler.getDustForClient(worldObj);\n",
+          "new": "\t\tfloat dustFactor = 1 - ImpactWorldHandler.getDustForClient(this.world);\n"
+        },
+        {
+          "before_offset": 16332,
+          "after_offset": 16378,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 16544,
+          "after_offset": 16592,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 17237,
+          "after_offset": 17287,
+          "old": "\t\tfloat semiMajorAxisKm = CelestialBody.getPlanet(worldObj).semiMajorAxisKm;\n",
+          "new": "\t\tfloat semiMajorAxisKm = CelestialBody.getPlanet(this.world).semiMajorAxisKm;\n"
+        },
+        {
+          "before_offset": 17490,
+          "after_offset": 17542,
+          "old": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(worldObj);\n",
+          "new": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(this.world);\n"
+        },
+        {
+          "before_offset": 17713,
+          "after_offset": 17767,
+          "old": "\t\tif(CelestialBody.getStar(worldObj).hasTrait(CBT_Destroyed.class))\n",
+          "new": "\t\tif(CelestialBody.getStar(this.world).hasTrait(CBT_Destroyed.class))\n"
+        },
+        {
+          "before_offset": 17795,
+          "after_offset": 17851,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 17982,
+          "after_offset": 18040,
+          "old": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(worldObj);\n",
+          "new": "\t\tfloat dust = ImpactWorldHandler.getDustForClient(this.world);\n"
+        },
+        {
+          "before_offset": 18512,
+          "after_offset": 18572,
+          "old": "\t\tif(CelestialBody.getBody(worldObj).hasTrait(CBT_War.class)) {\n\t\t\tCBT_War wardat = CelestialBody.getTrait(worldObj, CBT_War.class);\n",
+          "new": "\t\tif(CelestialBody.getBody(this.world).hasTrait(CBT_War.class)) {\n\t\t\tCBT_War wardat = CelestialBody.getTrait(this.world, CBT_War.class);\n"
+        },
+        {
+          "before_offset": 19158,
+          "after_offset": 19222,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 20183,
+          "after_offset": 20249,
+          "old": "\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, coords.getX(), coords.getY(), coords.getZ());\n"
+        },
+        {
+          "before_offset": 21098,
+          "after_offset": 21166,
+          "old": "\t\tif(!worldObj.getGameRules().getGameRuleBooleanValue(\"doDaylightCycle\")) return;\n",
+          "new": "\t\tif(!this.world.getGameRules().getGameRuleBooleanValue(\"doDaylightCycle\")) return;\n"
+        },
+        {
+          "before_offset": 21411,
+          "after_offset": 21481,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 21664,
+          "after_offset": 21736,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 21849,
+          "after_offset": 21923,
+          "old": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(worldObj, CBT_Atmosphere.class);\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = CelestialBody.getTrait(this.world, CBT_Atmosphere.class);\n"
+        },
+        {
+          "before_offset": 23474,
+          "after_offset": 23550,
+          "old": "\t\tCelestialBody body = CelestialBody.getBody(worldObj);\n",
+          "new": "\t\tCelestialBody body = CelestialBody.getBody(this.world);\n"
+        },
+        {
+          "before_offset": 24353,
+          "after_offset": 24431,
+          "old": "\t\tCelestialBody body = CelestialBody.getBody(worldObj);\n",
+          "new": "\t\tCelestialBody body = CelestialBody.getBody(this.world);\n"
+        },
+        {
+          "before_offset": 24555,
+          "after_offset": 24635,
+          "old": "\t\tint phase = Math.round(8 - ((float)SolarSystem.calculateSingleAngle(worldObj, body, body.satellites.get(0)) / 45 + 4));\n",
+          "new": "\t\tint phase = Math.round(8 - ((float)SolarSystem.calculateSingleAngle(this.world, body, body.satellites.get(0)) / 45 + 4));\n"
+        },
+        {
+          "before_offset": 24754,
+          "after_offset": 24836,
+          "old": "\t\tCelestialBody body = CelestialBody.getBody(worldObj);\n",
+          "new": "\t\tCelestialBody body = CelestialBody.getBody(this.world);\n"
+        },
+        {
+          "before_offset": 24902,
+          "after_offset": 24986,
+          "old": "\t\tfloat solarAngle = worldObj.getCelestialAngle(0);\n",
+          "new": "\t\tfloat solarAngle = this.world.getCelestialAngle(0);\n"
+        },
+        {
+          "before_offset": 25028,
+          "after_offset": 25114,
+          "old": "\t\tmetrics = SolarSystem.calculateMetricsFromBody(worldObj, 0, body, solarAngle);\n",
+          "new": "\t\tmetrics = SolarSystem.calculateMetricsFromBody(this.world, 0, body, solarAngle);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/dres/WorldProviderDres.java": {
+      "before_sha256": "d2dc5286c598e163cd917c48ff0addfd9ab37a4fe215ffca52b82dcb5d2290b3",
+      "after_sha256": "4491d7b7ad8799715bd913c74d22905ae0f36fe013b26ecafd26bd1edd500e36",
+      "edits": [
+        {
+          "before_offset": 966,
+          "after_offset": 966,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1196,
+          "after_offset": 1198,
+          "old": "\t\treturn new ChunkProviderDres(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderDres(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/duna/WorldProviderDuna.java": {
+      "before_sha256": "17da3f17e81501fda5186692b157274305d45d6bc72e0fdea710536997ffb398",
+      "after_sha256": "12dad418bbec514f4204e892b195ad23591b95d3bcfc37c339768905caa8160b",
+      "edits": [
+        {
+          "before_offset": 1371,
+          "after_offset": 1371,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1601,
+          "after_offset": 1603,
+          "old": "\t\treturn new ChunkProviderDuna(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderDuna(this.world, this.getSeed(), false);\n"
+        },
+        {
+          "before_offset": 1949,
+          "after_offset": 1948,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 2072,
+          "after_offset": 2073,
+          "old": "\t\t\t\t\tdustStormTimer = worldObj.rand.nextInt(168000) + 12000;\n",
+          "new": "\t\t\t\t\tdustStormTimer = this.world.rand.nextInt(168000) + 12000;\n"
+        },
+        {
+          "before_offset": 2146,
+          "after_offset": 2149,
+          "old": "\t\t\t\t\tdustStormIntensity = worldObj.rand.nextFloat() * 0.75F + 0.25F;\n\t\t\t\t\tdustStormTimer = worldObj.rand.nextInt(12000) + 12000;\n",
+          "new": "\t\t\t\t\tdustStormIntensity = this.world.rand.nextFloat() * 0.75F + 0.25F;\n\t\t\t\t\tdustStormTimer = this.world.rand.nextInt(12000) + 12000;\n"
+        },
+        {
+          "before_offset": 2319,
+          "after_offset": 2326,
+          "old": "\t\t\tif(dustStormSmoothed >= 0.05F && worldObj.rand.nextFloat() < dustStormSmoothed) {\n",
+          "new": "\t\t\tif(dustStormSmoothed >= 0.05F && this.world.rand.nextFloat() < dustStormSmoothed) {\n"
+        },
+        {
+          "before_offset": 2547,
+          "after_offset": 2556,
+          "old": "\t\t\t\tvec.rotateAroundZRad((float)(worldObj.rand.nextDouble() * Math.PI * 10));\n\t\t\t\tvec.rotateAroundYRad((float)(worldObj.rand.nextDouble() * Math.PI * 2 * 5));\n\t\t\t\tParticleUtil.spawnDustFlame(worldObj, viewEntity.posX + vec.x, viewEntity.posY, viewEntity.posZ + vec.z, -4, 0, 0);\n",
+          "new": "\t\t\t\tvec.rotateAroundZRad((float)(this.world.rand.nextDouble() * Math.PI * 10));\n\t\t\t\tvec.rotateAroundYRad((float)(this.world.rand.nextDouble() * Math.PI * 2 * 5));\n\t\t\t\tParticleUtil.spawnDustFlame(this.world, viewEntity.posX + vec.x, viewEntity.posY, viewEntity.posZ + vec.z, -4, 0, 0);\n"
+        },
+        {
+          "before_offset": 3907,
+          "after_offset": 3922,
+          "old": "\t\tdustStormTimer = worldObj.rand.nextInt(168000) + 12000;\n",
+          "new": "\t\tdustStormTimer = this.world.rand.nextInt(168000) + 12000;\n"
+        },
+        {
+          "before_offset": 4199,
+          "after_offset": 4216,
+          "old": "\t\tif(worldObj.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian)\n",
+          "new": "\t\tif(this.world.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian)\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/eve/WorldProviderEve.java": {
+      "before_sha256": "e0560d77800cab48630b5d441c05d45f64b2f2c1d37446dff6f1900e9312eb48",
+      "after_sha256": "db96bfe4fea2d6822d6c282a737e0672c87814480b1dd5a4337a13fa12acd960",
+      "edits": [
+        {
+          "before_offset": 1128,
+          "after_offset": 1128,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1357,
+          "after_offset": 1359,
+          "old": "\t\treturn new ChunkProviderEve(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderEve(this.world, this.getSeed(), false);\n"
+        },
+        {
+          "before_offset": 1547,
+          "after_offset": 1546,
+          "old": "\t\tif(!worldObj.isRemote) {\n",
+          "new": "\t\tif(!this.world.isRemote) {\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/laythe/WorldProviderLaythe.java": {
+      "before_sha256": "5159109f6aed29e58153e8f8b929f34c89ca3f59e2322dad6168a44d49c05a88",
+      "after_sha256": "67024e3c52ad74377c685ae0146e6fc6765dff0aea4375f86c8e372cbe6fdb72",
+      "edits": [
+        {
+          "before_offset": 1203,
+          "after_offset": 1203,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1435,
+          "after_offset": 1437,
+          "old": "\t\treturn new ChunkProviderLaythe(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderLaythe(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/minmus/WorldProviderMinmus.java": {
+      "before_sha256": "463312ed073f9986f0464eb899e43bfdc6a39f5c92f0069a934b0ba00179ceb8",
+      "after_sha256": "891c086b6316fc324300523dc6a3ad47a40306bbe63b5ff56c965b935b52fa33",
+      "edits": [
+        {
+          "before_offset": 940,
+          "after_offset": 940,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1172,
+          "after_offset": 1174,
+          "old": "\t\treturn new ChunkProviderMinmus(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderMinmus(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/moho/WorldProviderMoho.java": {
+      "before_sha256": "11a76b45cdb79ce8187b7e7ff413ca329da59ed7851e9cce05eaf0b56c2dabbf",
+      "after_sha256": "411ba47bbf71cf34253e87322daeb10cdc4be46d72e024551f2330237cd17ae4",
+      "edits": [
+        {
+          "before_offset": 981,
+          "after_offset": 981,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1211,
+          "after_offset": 1213,
+          "old": "\t\treturn new ChunkProviderMoho(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderMoho(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/moon/WorldProviderMoon.java": {
+      "before_sha256": "ecbd748f6ac5f2f7632f1ae45695928f5213f44a55004e1be4a72655e6c6b71e",
+      "after_sha256": "772b38593480c5f0599f7d0e5540f8d4d392856e8c58cfd34e18220013d4410c",
+      "edits": [
+        {
+          "before_offset": 554,
+          "after_offset": 554,
+          "old": "\t\treturn new ChunkProviderMoon(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderMoon(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java": {
+      "before_sha256": "ddffb95f3dd12bec28ec65a1f9a4bce50870b3d2fa42b98cb68f586b74be9296",
+      "after_sha256": "624e67c8fe837e3f225f8d531d9c1f52abb25659fd8b7b2f418c3703b87ed87f",
+      "edits": [
+        {
+          "before_offset": 2479,
+          "after_offset": 2479,
+          "old": "\t\treturn new ChunkProviderOrbit(this.worldObj);\r\n",
+          "new": "\t\treturn new ChunkProviderOrbit(this.world);\r\n"
+        },
+        {
+          "before_offset": 2578,
+          "after_offset": 2575,
+          "old": "\t\tisHellWorld = !worldObj.isRemote && !Loader.isModLoaded(Compat.MOD_COFH);\r\n",
+          "new": "\t\tisHellWorld = !this.world.isRemote && !Loader.isModLoaded(Compat.MOD_COFH);\r\n"
+        },
+        {
+          "before_offset": 2657,
+          "after_offset": 2656,
+          "old": "\t\tworldObj.prevRainingStrength = 0.0F;\r\n\t\tworldObj.rainingStrength = 0.0F;\r\n\t\tworldObj.prevThunderingStrength = 0.0F;\r\n\t\tworldObj.thunderingStrength = 0.0F;\r\n",
+          "new": "\t\tthis.world.prevRainingStrength = 0.0F;\r\n\t\tthis.world.rainingStrength = 0.0F;\r\n\t\tthis.world.prevThunderingStrength = 0.0F;\r\n\t\tthis.world.thunderingStrength = 0.0F;\r\n"
+        },
+        {
+          "before_offset": 3000,
+          "after_offset": 3007,
+          "old": "\t\tCelestialBody body = CelestialBody.getBody(worldObj);\r\n",
+          "new": "\t\tCelestialBody body = CelestialBody.getBody(this.world);\r\n"
+        },
+        {
+          "before_offset": 3457,
+          "after_offset": 3466,
+          "old": "\t\t\tmetrics = SolarSystem.calculateMetricsFromSatellite(worldObj, partialTicks, station.orbiting, altitude);\r\n",
+          "new": "\t\t\tmetrics = SolarSystem.calculateMetricsFromSatellite(this.world, partialTicks, station.orbiting, altitude);\r\n"
+        },
+        {
+          "before_offset": 3692,
+          "after_offset": 3703,
+          "old": "\t\t\tmetrics = SolarSystem.calculateMetricsBetweenSatelliteOrbits(worldObj, partialTicks, station.orbiting, station.target, fromAlt, toAlt, progress);\r\n",
+          "new": "\t\t\tmetrics = SolarSystem.calculateMetricsBetweenSatelliteOrbits(this.world, partialTicks, station.orbiting, station.target, fromAlt, toAlt, progress);\r\n"
+        },
+        {
+          "before_offset": 3873,
+          "after_offset": 3886,
+          "old": "\t\tfloat angle = (float)SolarSystem.calculateSingleAngle(worldObj, partialTicks, metrics, station.orbiting, getOrbitalAltitude(station.orbiting));\r\n",
+          "new": "\t\tfloat angle = (float)SolarSystem.calculateSingleAngle(this.world, partialTicks, metrics, station.orbiting, getOrbitalAltitude(station.orbiting));\r\n"
+        },
+        {
+          "before_offset": 4042,
+          "after_offset": 4057,
+          "old": "\t\t\tangle = (float)BobMathUtil.clerp(progress, angle, (float)SolarSystem.calculateSingleAngle(worldObj, partialTicks, metrics, station.target, getOrbitalAltitude(station.target)));\r\n",
+          "new": "\t\t\tangle = (float)BobMathUtil.clerp(progress, angle, (float)SolarSystem.calculateSingleAngle(this.world, partialTicks, metrics, station.target, getOrbitalAltitude(station.target)));\r\n"
+        },
+        {
+          "before_offset": 7004,
+          "after_offset": 7021,
+          "old": "\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(worldObj, coords.getX(), coords.getY(), coords.getZ());\n",
+          "new": "\t\tCBT_Atmosphere atmosphere = ChunkAtmosphereManager.proxy.getAtmosphere(this.world, coords.getX(), coords.getY(), coords.getZ());\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/tekto/WorldProviderTekto.java": {
+      "before_sha256": "60224e1a57d532b5e37c4cac3d0671d3acd0de6fc5da58e8d61ccd9c8103d212",
+      "after_sha256": "4dbc8a3b6ddd755a29a0f4cabacd3812838c22cda6d60e9b8fd02157705d9fcb",
+      "edits": [
+        {
+          "before_offset": 893,
+          "after_offset": 893,
+          "old": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));\n",
+          "new": "\t\tthis.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));\n"
+        },
+        {
+          "before_offset": 1124,
+          "after_offset": 1126,
+          "old": "\t\treturn new ChunkProviderTekto(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderTekto(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/dim/thatmo/WorldProviderThatmo.java": {
+      "before_sha256": "90ff43a4805079957e148c223f71a4947bd53da03f40050c7b5f276454359157",
+      "after_sha256": "ac6151248fad892ae1b9caa8151181a663e11f1737688f0cd58a9cacfb486ae9",
+      "edits": [
+        {
+          "before_offset": 1624,
+          "after_offset": 1624,
+          "old": "\t\tCBT_BATTLEFIELD war = CelestialBody.getTrait(worldObj, CBT_BATTLEFIELD.class);\n",
+          "new": "\t\tCBT_BATTLEFIELD war = CelestialBody.getTrait(this.world, CBT_BATTLEFIELD.class);\n"
+        },
+        {
+          "before_offset": 1885,
+          "after_offset": 1887,
+          "old": "\t\t\tif(!worldObj.isRemote) {\n\t\t\t\tfor(Object p : worldObj.playerEntities) {\n",
+          "new": "\t\t\tif(!this.world.isRemote) {\n\t\t\t\tfor(Object p : this.world.playerEntities) {\n"
+        },
+        {
+          "before_offset": 2187,
+          "after_offset": 2193,
+          "old": "\t\t\t\t\t\tRandom rand = worldObj.rand;\n",
+          "new": "\t\t\t\t\t\tRandom rand = this.world.rand;\n"
+        },
+        {
+          "before_offset": 2404,
+          "after_offset": 2412,
+          "old": "\t\t\t\t\t\tEntityBomber bomber = EntityBomber.statFacCarpetJet(worldObj, targetPos.getX(), targetPos.getY(), targetPos.getZ());\n",
+          "new": "\t\t\t\t\t\tEntityBomber bomber = EntityBomber.statFacCarpetJet(this.world, targetPos.getX(), targetPos.getY(), targetPos.getZ());\n"
+        },
+        {
+          "before_offset": 2672,
+          "after_offset": 2682,
+          "old": "\t\t\tif(worldObj.isRemote) {\n",
+          "new": "\t\t\tif(this.world.isRemote) {\n"
+        },
+        {
+          "before_offset": 3991,
+          "after_offset": 4003,
+          "old": "\t\t\t\t\trandPos = worldObj.rand.nextFloat();\n",
+          "new": "\t\t\t\t\trandPos = this.world.rand.nextFloat();\n"
+        },
+        {
+          "before_offset": 5606,
+          "after_offset": 5620,
+          "old": "\t\treturn new ChunkProviderThatmo(this.worldObj, this.getSeed(), false);\n",
+          "new": "\t\treturn new ChunkProviderThatmo(this.world, this.getSeed(), false);\n"
+        }
+      ]
+    },
+    "src/main/java/com/hbm/world/WorldProviderTom.java": {
+      "before_sha256": "0b701812646370eb8e91c36f7c425e76f32330be32bb16a076e3b0ab6ac8c071",
+      "after_sha256": "238f137b631863f1eb498c4f5a71f47d28349562a4b83c30e16f9ed41f6680ee",
+      "edits": [
+        {
+          "before_offset": 880,
+          "after_offset": 880,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n"
+        },
+        {
+          "before_offset": 1522,
+          "after_offset": 1524,
+          "old": "\t\tfloat starBr = worldObj.getStarBrightnessBody(par1);\n\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n\t\tfloat f1 = worldObj.getCelestialAngle(par1);\n",
+          "new": "\t\tfloat starBr = this.world.getStarBrightnessBody(par1);\n\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n\t\tfloat f1 = this.world.getCelestialAngle(par1);\n"
+        },
+        {
+          "before_offset": 2036,
+          "after_offset": 2044,
+          "old": "\t\tfloat sunBr = worldObj.getSunBrightnessFactor(par1);\n",
+          "new": "\t\tfloat sunBr = this.world.getSunBrightnessFactor(par1);\n"
+        },
+        {
+          "before_offset": 2181,
+          "after_offset": 2191,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n"
+        },
+        {
+          "before_offset": 2378,
+          "after_offset": 2390,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n\t\tfloat sunBr = worldObj.getSunBrightnessFactor(par1);\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n\t\tfloat sunBr = this.world.getSunBrightnessFactor(par1);\n"
+        },
+        {
+          "before_offset": 2763,
+          "after_offset": 2779,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n\t\tfloat fire = MainRegistry.proxy.getImpactFire(worldObj);\n\t\tboolean impact = MainRegistry.proxy.getImpact(worldObj);\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n\t\tfloat fire = MainRegistry.proxy.getImpactFire(this.world);\n\t\tboolean impact = MainRegistry.proxy.getImpact(this.world);\n"
+        },
+        {
+          "before_offset": 4103,
+          "after_offset": 4125,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);\n\t\tfloat fire = MainRegistry.proxy.getImpactFire(worldObj);\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);\n\t\tfloat fire = MainRegistry.proxy.getImpactFire(this.world);\n"
+        },
+        {
+          "before_offset": 4798,
+          "after_offset": 4824,
+          "old": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(worldObj);;\n",
+          "new": "\t\tfloat dust = MainRegistry.proxy.getImpactDust(this.world);;\n"
+        }
+      ]
+    }
+  },
+  "new_files": {},
+  "deleted_files": {},
+  "binary_files": {}
+}

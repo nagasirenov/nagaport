@@ -133,7 +133,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.sendMessage(new TextComponentString("oof"));
 				break;
 			case 24:
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 60 * 20, 9));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60 * 20, 9));
 				player.sendMessage(new TextComponentString("Tank!"));
 				break;
 			case 25:
@@ -141,7 +141,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.sendMessage(new TextComponentString("More devastating than a falling boxcar!"));
 				break;
 			case 26:
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60 * 20, 9));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60 * 20, 9));
 				player.sendMessage(new TextComponentString("Ha!"));
 				break;
 			case 27:
@@ -175,7 +175,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		list.add("It's a gamble!");
 		list.add("");

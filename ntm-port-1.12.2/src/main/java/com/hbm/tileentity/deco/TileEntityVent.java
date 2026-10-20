@@ -16,7 +16,7 @@ public class TileEntityVent extends TileEntity implements net.minecraft.util.ITi
 
 	public void update() {
 		
-		if(!this.world.isRemote && this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ())) {
+		if(!this.world.isRemote && this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))) {
 			Block b = com.hbm.world.WorldBlockState.read(this.world, this.pos.getX(), this.pos.getY(), this.pos.getZ()).getBlock();
 
 			if(b == ModBlocks.vent_chlorine) {

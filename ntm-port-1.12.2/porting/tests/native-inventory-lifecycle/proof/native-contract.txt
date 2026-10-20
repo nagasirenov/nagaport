@@ -1,0 +1,25 @@
+Compiled from "SourceFile"
+public interface net.minecraft.inventory.IInventory extends net.minecraft.world.IWorldNameable {
+  public abstract int getSizeInventory();
+  public abstract boolean isEmpty();
+  public abstract net.minecraft.item.ItemStack getStackInSlot(int);
+  public abstract net.minecraft.item.ItemStack decrStackSize(int, int);
+  public abstract net.minecraft.item.ItemStack removeStackFromSlot(int);
+  public abstract void setInventorySlotContents(int, net.minecraft.item.ItemStack);
+  public abstract int getInventoryStackLimit();
+  public abstract void markDirty();
+  public abstract boolean isUsableByPlayer(net.minecraft.entity.player.EntityPlayer);
+  public abstract void openInventory(net.minecraft.entity.player.EntityPlayer);
+  public abstract void closeInventory(net.minecraft.entity.player.EntityPlayer);
+  public abstract boolean isItemValidForSlot(int, net.minecraft.item.ItemStack);
+  public abstract int getField(int);
+  public abstract void setField(int, int);
+  public abstract int getFieldCount();
+  public abstract void clear();
+}
+Compiled from "SourceFile"
+public interface net.minecraft.world.IWorldNameable {
+  public abstract java.lang.String getName();
+  public abstract boolean hasCustomName();
+  public abstract net.minecraft.util.text.ITextComponent getDisplayName();
+}

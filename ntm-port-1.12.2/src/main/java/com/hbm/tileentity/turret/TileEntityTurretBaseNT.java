@@ -558,7 +558,7 @@ public abstract class TileEntityTurretBaseNT extends TileEntityMachineBase imple
 		if(e.isDead || !e.isEntityAlive())
 			return false;
 
-		if(!hasThermalVision() && e instanceof EntityLivingBase && ((EntityLivingBase)e).isPotionActive(Potion.invisibility))
+		if(!hasThermalVision() && e instanceof EntityLivingBase && ((EntityLivingBase)e).isPotionActive(net.minecraft.init.MobEffects.INVISIBILITY))
 			return false;
 
 		Vec3d pos = this.getTurretPos();

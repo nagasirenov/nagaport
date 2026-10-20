@@ -49,7 +49,9 @@ public class NukeTsar extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+	public void breakBlock(World p_149749_1_, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState) {
+		int p_149749_2_ = nativePos.getX(); int p_149749_3_ = nativePos.getY(); int p_149749_4_ = nativePos.getZ();
+		Block p_149749_5_ = nativeState.getBlock();
 		if(!keepInventory) {
 			TileEntityNukeTsar tileentityfurnace = (TileEntityNukeTsar) p_149749_1_.getTileEntity(new net.minecraft.util.math.BlockPos(p_149749_2_, p_149749_3_, p_149749_4_));
 
@@ -62,38 +64,43 @@ public class NukeTsar extends BlockContainer implements IBomb {
 						float f1 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 						float f2 = this.field_149933_a.nextFloat() * 0.8F + 0.1F;
 
-						while(itemstack.stackSize > 0) {
+						while(itemstack.getCount() > 0) {
 							int j1 = this.field_149933_a.nextInt(21) + 10;
 
-							if(j1 > itemstack.stackSize) {
-								j1 = itemstack.stackSize;
+							if(j1 > itemstack.getCount()) {
+								j1 = itemstack.getCount();
 							}
 
-							itemstack.stackSize -= j1;
-							EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+							// Capture identity before native depletion hides the item.
+							net.minecraft.item.Item spillItem = itemstack.getItem();
+							int spillMeta = itemstack.getItemDamage();
+							NBTTagCompound spillTag = itemstack.getTagCompound();
+							itemstack.shrink(j1);
+							EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(spillItem, j1, spillMeta));
 
-							if(itemstack.hasTagCompound()) {
-								entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
+							if(spillTag != null) {
+								entityitem.getItem().setTagCompound((NBTTagCompound) spillTag.copy());
 							}
 
 							float f3 = 0.05F;
 							entityitem.motionX = (float) this.field_149933_a.nextGaussian() * f3;
 							entityitem.motionY = (float) this.field_149933_a.nextGaussian() * f3 + 0.2F;
 							entityitem.motionZ = (float) this.field_149933_a.nextGaussian() * f3;
-							p_149749_1_.spawnEntityInWorld(entityitem);
+							p_149749_1_.spawnEntity(entityitem);
 						}
 					}
 				}
 
-				p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+				p_149749_1_.updateComparatorOutputLevel(nativePos, p_149749_5_);
 			}
 		}
 
-		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+		super.breakBlock(p_149749_1_, nativePos, nativeState);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
 		if(world.isRemote) {
 			return true;
 		} else if(!player.isSneaking()) {
@@ -110,7 +117,7 @@ public class NukeTsar extends BlockContainer implements IBomb {
 	@Override
 	public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {
 		TileEntityNukeTsar entity = (TileEntityNukeTsar) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-		if(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {
+		if(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z)) && !p_149695_1_.isRemote) {
 			if(entity.isReady() && !entity.isFilled()) {
 				this.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);
 				entity.clearSlots();
@@ -139,22 +146,23 @@ public class NukeTsar extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public int getRenderType() {
-		return -1;
+	public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
 		if(i == 0) {

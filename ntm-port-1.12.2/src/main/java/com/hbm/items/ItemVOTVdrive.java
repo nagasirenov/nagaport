@@ -248,8 +248,8 @@ public class ItemVOTVdrive extends ItemEnumMulti {
 
 		ItemStack newStack = stack;
 
-		if(isProcessed && player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket) {
-			EntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;
+		if(isProcessed && player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket) {
+			EntityRideableRocket rocket = (EntityRideableRocket) player.getRidingEntity();
 
 			if(rocket.getRocket().stages.size() > 0 || world.provider.getDimension() == SpaceConfig.orbitDimension || rocket.isReusable()) {
 				if(rocket.getState() == RocketState.LANDED || rocket.getState() == RocketState.AWAITING) {

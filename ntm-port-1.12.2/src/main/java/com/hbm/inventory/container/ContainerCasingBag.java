@@ -16,7 +16,7 @@ public class ContainerCasingBag extends Container {
 	
 	public ContainerCasingBag(InventoryPlayer invPlayer, InventoryCasingBag box) {
 		this.bag = box;
-		this.bag.openInventory();
+		this.bag.openInventory(invPlayer.player);
 		
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 5; j++) {
@@ -80,6 +80,6 @@ public class ContainerCasingBag extends Container {
 	@Override
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
-		this.bag.closeInventory();
+		this.bag.closeInventory(player);
 	}
 }

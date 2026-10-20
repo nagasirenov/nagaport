@@ -18,7 +18,7 @@ import com.hbm.render.mesh.MeshModel;
 public class RenderLaunchTable extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float p_147500_8_) {
+	public void render(TileEntity tileentity, double x, double y, double z, float p_147500_8_, int nativeDestroyStage, float nativeAlpha) {
 		
 		GL11.glPushMatrix();
 		

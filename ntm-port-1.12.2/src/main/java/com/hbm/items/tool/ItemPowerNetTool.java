@@ -82,7 +82,7 @@ public class ItemPowerNetTool extends Item {
 	private static final int radius = 20;
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add(TextFormatting.RED + "Right-click cable to analyze the power net.");
 		list.add(TextFormatting.RED + "Links (cables, poles, etc.) are YELLOW");
 		list.add(TextFormatting.RED + "Subscribers (any receiver) are BLUE");

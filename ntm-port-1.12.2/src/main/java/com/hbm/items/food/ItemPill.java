@@ -44,14 +44,14 @@ public class ItemPill extends ItemFood {
 			VersatileConfig.applyPotionSickness(player, 5);
 			
 			if(this == ModItems.pill_iodine) {
-				player.removePotionEffect(Potion.blindness.id);
-				player.removePotionEffect(Potion.confusion.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.BLINDNESS);
+				player.removePotionEffect(net.minecraft.init.MobEffects.NAUSEA);
 				player.removePotionEffect(Potion.digSlowdown.id);
 				player.removePotionEffect(Potion.hunger.id);
-				player.removePotionEffect(Potion.moveSlowdown.id);
-				player.removePotionEffect(Potion.poison.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);
+				player.removePotionEffect(net.minecraft.init.MobEffects.POISON);
 				player.removePotionEffect(Potion.weakness.id);
-				player.removePotionEffect(Potion.wither.id);
+				player.removePotionEffect(net.minecraft.init.MobEffects.WITHER);
 				player.removePotionEffect(HbmPotion.radiation.id);
 			}
 
@@ -78,10 +78,10 @@ public class ItemPill extends ItemFood {
 				HbmLivingProps.setBlackLung(player, Math.min(HbmLivingProps.getBlackLung(player), HbmLivingProps.maxBlacklung / 5));
 				HbmLivingProps.incrementRadiation(player, -100F);
 				
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 10 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 10 * 20, 0));
 				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 10 * 60 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10 * 60 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.poison.id, 5 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 5 * 20, 2));
 				
 				PotionEffect eff = new PotionEffect(HbmPotion.potionsickness.id, 10 * 60 * 20);
 				eff.setCurativeItems(new ArrayList());
@@ -116,14 +116,14 @@ public class ItemPill extends ItemFood {
 					player.attackEntityFrom(ModDamageSource.overdose, 1000);
 				}
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 60 * 20, 3));
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));
 				player.addPotionEffect(new PotionEffect(Potion.jump.id, 60 * 20, 3));
 			}
 
 			if(this == ModItems.fmn) {
 				float digamma = HbmLivingProps.getDigamma(player);
 				HbmLivingProps.setDigamma(player, Math.min(digamma, 2F));
-				player.addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.BLINDNESS, 60, 0));
 			}
 
 			if(this == ModItems.five_htp) {
@@ -136,7 +136,7 @@ public class ItemPill extends ItemFood {
 	
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		String unloc = this.getTranslationKey() + ".desc"; //this should really be an interface...
 		String loc = I18nUtil.resolveKey(unloc);
 		

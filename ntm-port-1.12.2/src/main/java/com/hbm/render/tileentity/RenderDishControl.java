@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderDishControl extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		if(!(te instanceof TileEntityDishControl)) return;
 		TileEntityDishControl control = (TileEntityDishControl) te;
 

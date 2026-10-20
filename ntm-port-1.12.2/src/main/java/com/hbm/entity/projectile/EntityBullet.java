@@ -516,9 +516,9 @@ public class EntityBullet extends Entity implements IProjectile {
 											&& !(entitylivingbase instanceof EntityCreeperNuclear)
 											&& !(entitylivingbase instanceof EntityMooshroom)
 											&& !(entitylivingbase instanceof EntityZombie)) {
-										entitylivingbase.addPotionEffect(new PotionEffect(Potion.poison.getId(), 2 * 60 * 20, 2));
-										entitylivingbase.addPotionEffect(new PotionEffect(Potion.wither.getId(), 20, 4));
-										entitylivingbase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 1 * 60 * 20, 1));
+										entitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 2 * 60 * 20, 2));
+										entitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 20, 4));
+										entitylivingbase.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 1 * 60 * 20, 1));
 									}
 								}
 								

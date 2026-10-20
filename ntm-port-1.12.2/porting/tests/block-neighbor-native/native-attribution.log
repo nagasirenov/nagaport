@@ -1,0 +1,781 @@
+Compiled from "NativeCase0.java"
+public class NativeCase0 extends NtmHookBoundary {
+  public NativeCase0();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: return
+}
+Compiled from "NativeCase1.java"
+public class NativeCase1 extends NtmHookBoundary {
+  public NativeCase1();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: iload         6
+      21: iconst_1
+      22: iadd
+      23: iload         7
+      25: iload         8
+      27: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+      30: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      35: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+      38: if_acmpeq     163
+      41: aload_2
+      42: iload         6
+      44: iconst_1
+      45: isub
+      46: iload         7
+      48: iload         8
+      50: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+      53: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      58: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+      61: if_acmpeq     163
+      64: aload_2
+      65: iload         6
+      67: iload         7
+      69: iconst_1
+      70: iadd
+      71: iload         8
+      73: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+      76: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+      81: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+      84: if_acmpeq     163
+      87: aload_2
+      88: iload         6
+      90: iload         7
+      92: iconst_1
+      93: isub
+      94: iload         8
+      96: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+      99: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     104: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+     107: if_acmpeq     163
+     110: aload_2
+     111: iload         6
+     113: iload         7
+     115: iload         8
+     117: iconst_1
+     118: iadd
+     119: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+     122: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     127: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+     130: if_acmpeq     163
+     133: aload_2
+     134: iload         6
+     136: iload         7
+     138: iload         8
+     140: iconst_1
+     141: isub
+     142: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+     145: invokeinterface #6,  1            // InterfaceMethod net/minecraft/block/state/IBlockState.getBlock:()Lnet/minecraft/block/Block;
+     150: getstatic     #7                  // Field ModBlocks.crystal_virus:Lnet/minecraft/block/Block;
+     153: if_acmpeq     163
+     156: aload_2
+     157: getfield      #8                  // Field net/minecraft/world/World.isRemote:Z
+     160: ifne          175
+     163: aload_2
+     164: iload         6
+     166: iload         7
+     168: iload         8
+     170: bipush        10
+     172: invokestatic  #9                  // Method ExplosionChaos.hardenVirus:(Lnet/minecraft/world/World;IIII)V
+     175: return
+}
+Compiled from "NativeCase2.java"
+public class NativeCase2 extends NtmHookBoundary {
+  public NativeCase2();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase3.java"
+public class NativeCase3 extends NtmHookBoundary {
+  public NativeCase3();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase4.java"
+public class NativeCase4 extends NtmHookBoundary {
+  public NativeCase4();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase5.java"
+public class NativeCase5 extends NativeDetonatableBoundary {
+  public NativeCase5();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NativeDetonatableBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase6.java"
+public class NativeCase6 extends NtmHookBoundary {
+  public NativeCase6();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase7.java"
+public class NativeCase7 extends NtmHookBoundary {
+  public NativeCase7();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          226
+      38: aload_2
+      39: astore        9
+      41: iload         6
+      43: istore        10
+      45: iload         7
+      47: istore        11
+      49: iload         8
+      51: istore        12
+      53: getstatic     #8                  // Field net/minecraft/init/Blocks.AIR:Lnet/minecraft/block/Block;
+      56: astore        13
+      58: iconst_0
+      59: istore        14
+      61: iconst_3
+      62: istore        15
+      64: aload         9
+      66: ifnonnull     77
+      69: new           #9                  // class java/lang/NullPointerException
+      72: dup
+      73: invokespecial #10                 // Method java/lang/NullPointerException."<init>":()V
+      76: athrow
+      77: iload         10
+      79: ldc           #11                 // int -30000000
+      81: if_icmplt     146
+      84: iload         10
+      86: ldc           #12                 // int 30000000
+      88: if_icmpge     146
+      91: iload         12
+      93: ldc           #11                 // int -30000000
+      95: if_icmplt     146
+      98: iload         12
+     100: ldc           #12                 // int 30000000
+     102: if_icmpge     146
+     105: iload         11
+     107: iflt          146
+     110: iload         11
+     112: sipush        256
+     115: if_icmpge     146
+     118: aload         9
+     120: new           #5                  // class net/minecraft/util/math/BlockPos
+     123: dup
+     124: iload         10
+     126: iload         11
+     128: iload         12
+     130: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+     133: aload         13
+     135: iload         14
+     137: invokevirtual #13                 // Method net/minecraft/block/Block.getStateFromMeta:(I)Lnet/minecraft/block/state/IBlockState;
+     140: iload         15
+     142: invokevirtual #14                 // Method net/minecraft/world/World.setBlockState:(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;I)Z
+     145: pop
+     146: aload_0
+     147: getstatic     #15                 // Field ModBlocks.therm_endo:Lnet/minecraft/block/Block;
+     150: if_acmpne     177
+     153: aload_2
+     154: iload         6
+     156: iload         7
+     158: iload         8
+     160: bipush        15
+     162: invokestatic  #16                 // Method ExplosionThermo.freeze:(Lnet/minecraft/world/World;IIII)V
+     165: aload_2
+     166: iload         6
+     168: iload         7
+     170: iload         8
+     172: bipush        20
+     174: invokestatic  #17                 // Method ExplosionThermo.freezer:(Lnet/minecraft/world/World;IIII)V
+     177: aload_0
+     178: getstatic     #18                 // Field ModBlocks.therm_exo:Lnet/minecraft/block/Block;
+     181: if_acmpne     208
+     184: aload_2
+     185: iload         6
+     187: iload         7
+     189: iload         8
+     191: bipush        15
+     193: invokestatic  #19                 // Method ExplosionThermo.scorch:(Lnet/minecraft/world/World;IIII)V
+     196: aload_2
+     197: iload         6
+     199: iload         7
+     201: iload         8
+     203: bipush        20
+     205: invokestatic  #20                 // Method ExplosionThermo.setEntitiesOnFire:(Lnet/minecraft/world/World;IIII)V
+     208: aload_2
+     209: aconst_null
+     210: iload         6
+     212: i2d
+     213: iload         7
+     215: i2d
+     216: iload         8
+     218: i2d
+     219: ldc           #21                 // float 5.0f
+     221: iconst_1
+     222: invokevirtual #22                 // Method net/minecraft/world/World.createExplosion:(Lnet/minecraft/entity/Entity;DDDFZ)Lnet/minecraft/world/Explosion;
+     225: pop
+     226: return
+}
+Compiled from "NativeCase8.java"
+public class NativeCase8 extends NtmHookBoundary {
+  public NativeCase8();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_0
+      19: aload_2
+      20: putfield      #5                  // Field worldObj:Lnet/minecraft/world/World;
+      23: aload_2
+      24: new           #6                  // class net/minecraft/util/math/BlockPos
+      27: dup
+      28: iload         6
+      30: iload         7
+      32: iload         8
+      34: invokespecial #7                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      37: invokevirtual #8                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      40: ifeq          55
+      43: aload_0
+      44: aload_2
+      45: iload         6
+      47: iload         7
+      49: iload         8
+      51: invokevirtual #9                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      54: pop
+      55: return
+}
+Compiled from "NativeCase9.java"
+public class NativeCase9 extends NtmHookBoundary {
+  public static final net.minecraft.block.properties.PropertyInteger ORIENTATION;
+
+  public NativeCase9();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: iload         6
+      21: iload         7
+      23: iload         8
+      25: invokestatic  #5                  // Method com/hbm/world/WorldBlockState.read:(Lnet/minecraft/world/World;III)Lnet/minecraft/block/state/IBlockState;
+      28: invokestatic  #6                  // Method com/hbm/world/WorldBlockState.metadata:(Lnet/minecraft/block/state/IBlockState;)I
+      31: invokestatic  #7                  // Method com/hbm/lib/ForgeDirection.getOrientation:(I)Lcom/hbm/lib/ForgeDirection;
+      34: astore        9
+      36: aload_2
+      37: iload         6
+      39: aload         9
+      41: getfield      #8                  // Field com/hbm/lib/ForgeDirection.offsetX:I
+      44: isub
+      45: iload         7
+      47: aload         9
+      49: getfield      #9                  // Field com/hbm/lib/ForgeDirection.offsetY:I
+      52: isub
+      53: iload         8
+      55: aload         9
+      57: getfield      #10                 // Field com/hbm/lib/ForgeDirection.offsetZ:I
+      60: isub
+      61: aload         9
+      63: invokestatic  #11                 // Method com/hbm/lib/FacingCompat.isWorldSideSolid:(Lnet/minecraft/world/World;IIILcom/hbm/lib/ForgeDirection;)Z
+      66: ifne          80
+      69: aload_2
+      70: iload         6
+      72: iload         7
+      74: iload         8
+      76: invokestatic  #12                 // Method com/hbm/world/WorldAirRemoval.remove:(Lnet/minecraft/world/World;III)Z
+      79: pop
+      80: return
+
+  protected net.minecraft.block.state.BlockStateContainer createBlockState();
+    Code:
+       0: new           #13                 // class net/minecraft/block/state/BlockStateContainer
+       3: dup
+       4: aload_0
+       5: iconst_1
+       6: anewarray     #14                 // class net/minecraft/block/properties/IProperty
+       9: dup
+      10: iconst_0
+      11: getstatic     #15                 // Field ORIENTATION:Lnet/minecraft/block/properties/PropertyInteger;
+      14: aastore
+      15: invokespecial #16                 // Method net/minecraft/block/state/BlockStateContainer."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;)V
+      18: areturn
+
+  public net.minecraft.block.state.IBlockState getStateFromMeta(int);
+    Code:
+       0: aload_0
+       1: invokevirtual #17                 // Method getDefaultState:()Lnet/minecraft/block/state/IBlockState;
+       4: getstatic     #15                 // Field ORIENTATION:Lnet/minecraft/block/properties/PropertyInteger;
+       7: iconst_0
+       8: bipush        15
+      10: iload_1
+      11: invokestatic  #18                 // Method java/lang/Math.min:(II)I
+      14: invokestatic  #19                 // Method java/lang/Math.max:(II)I
+      17: invokestatic  #20                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      20: invokeinterface #21,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.withProperty:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      25: areturn
+
+  public int getMetaFromState(net.minecraft.block.state.IBlockState);
+    Code:
+       0: aload_1
+       1: getstatic     #15                 // Field ORIENTATION:Lnet/minecraft/block/properties/PropertyInteger;
+       4: invokeinterface #22,  2           // InterfaceMethod net/minecraft/block/state/IBlockState.getValue:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+       9: checkcast     #23                 // class java/lang/Integer
+      12: invokevirtual #24                 // Method java/lang/Integer.intValue:()I
+      15: ireturn
+
+  static {};
+    Code:
+       0: ldc           #25                 // String orientation
+       2: iconst_0
+       3: bipush        15
+       5: invokestatic  #26                 // Method net/minecraft/block/properties/PropertyInteger.create:(Ljava/lang/String;II)Lnet/minecraft/block/properties/PropertyInteger;
+       8: putstatic     #15                 // Field ORIENTATION:Lnet/minecraft/block/properties/PropertyInteger;
+      11: return
+}
+Compiled from "NativeCase10.java"
+public class NativeCase10 extends NativeDetonatableBoundary {
+  public NativeCase10();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NativeDetonatableBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          64
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: iconst_1
+      47: invokevirtual #8                  // Method onBlockDestroyedByPlayer:(Lnet/minecraft/world/World;IIII)V
+      50: aload_2
+      51: iload         6
+      53: iload         7
+      55: iload         8
+      57: invokestatic  #9                  // Method com/hbm/world/WorldAirRemoval.remove:(Lnet/minecraft/world/World;III)Z
+      60: pop
+      61: goto          75
+      64: aload_0
+      65: aload_2
+      66: iload         6
+      68: iload         7
+      70: iload         8
+      72: invokevirtual #10                 // Method checkAndIgnite:(Lnet/minecraft/world/World;III)V
+      75: return
+
+  public void checkAndIgnite(net.minecraft.world.World, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: invokevirtual #11                 // Method shouldIgnite:(Lnet/minecraft/world/World;III)Z
+       9: ifeq          31
+      12: aload_0
+      13: aload_1
+      14: iload_2
+      15: iload_3
+      16: iload         4
+      18: iconst_1
+      19: invokevirtual #8                  // Method onBlockDestroyedByPlayer:(Lnet/minecraft/world/World;IIII)V
+      22: aload_1
+      23: iload_2
+      24: iload_3
+      25: iload         4
+      27: invokestatic  #9                  // Method com/hbm/world/WorldAirRemoval.remove:(Lnet/minecraft/world/World;III)Z
+      30: pop
+      31: return
+
+  public void onBlockDestroyedByPlayer(net.minecraft.world.World, int, int, int, int);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: iload         4
+       6: iload         5
+       8: aconst_null
+       9: checkcast     #12                 // class net/minecraft/entity/EntityLivingBase
+      12: invokevirtual #13                 // Method prime:(Lnet/minecraft/world/World;IIIILnet/minecraft/entity/EntityLivingBase;)V
+      15: return
+}
+Compiled from "NativeCase11.java"
+public class NativeCase11 extends NtmHookBoundary {
+  public NativeCase11();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase12.java"
+public class NativeCase12 extends NativeDetonatableBoundary {
+  public NativeCase12();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NativeDetonatableBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: new           #5                  // class net/minecraft/util/math/BlockPos
+      22: dup
+      23: iload         6
+      25: iload         7
+      27: iload         8
+      29: invokespecial #6                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      32: invokevirtual #7                  // Method net/minecraft/world/World.isBlockPowered:(Lnet/minecraft/util/math/BlockPos;)Z
+      35: ifeq          50
+      38: aload_0
+      39: aload_2
+      40: iload         6
+      42: iload         7
+      44: iload         8
+      46: invokevirtual #8                  // Method explode:(Lnet/minecraft/world/World;III)Lcom/hbm/interfaces/IBomb$BombReturnCode;
+      49: pop
+      50: return
+}
+Compiled from "NativeCase13.java"
+public class NativeCase13 extends NtmHookBoundary {
+  public NativeCase13();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_0
+      19: aload_2
+      20: iload         6
+      22: iload         7
+      24: iload         8
+      26: invokevirtual #5                  // Method updateState:(Lnet/minecraft/world/World;III)V
+      29: return
+}
+Compiled from "NativeDetonatableBoundary.java"
+public class NativeDetonatableBoundary extends NtmHookBoundary {
+  public NativeDetonatableBoundary();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method NtmHookBoundary."<init>":()V
+       4: return
+
+  public void neighborChanged(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    Code:
+       0: aload_3
+       1: invokevirtual #2                  // Method net/minecraft/util/math/BlockPos.getX:()I
+       4: istore        6
+       6: aload_3
+       7: invokevirtual #3                  // Method net/minecraft/util/math/BlockPos.getY:()I
+      10: istore        7
+      12: aload_3
+      13: invokevirtual #4                  // Method net/minecraft/util/math/BlockPos.getZ:()I
+      16: istore        8
+      18: aload_2
+      19: getfield      #5                  // Field net/minecraft/world/World.isRemote:Z
+      22: ifne          64
+      25: aload_0
+      26: aload_2
+      27: iload         6
+      29: iload         7
+      31: iload         8
+      33: invokevirtual #6                  // Method shouldIgnite:(Lnet/minecraft/world/World;III)Z
+      36: ifeq          64
+      39: aload_2
+      40: new           #7                  // class net/minecraft/util/math/BlockPos
+      43: dup
+      44: iload         6
+      46: iload         7
+      48: iload         8
+      50: invokespecial #8                  // Method net/minecraft/util/math/BlockPos."<init>":(III)V
+      53: invokevirtual #9                  // Method net/minecraft/world/World.setBlockToAir:(Lnet/minecraft/util/math/BlockPos;)Z
+      56: pop
+      57: aload_0
+      58: aload_2
+      59: aload_3
+      60: aconst_null
+      61: invokevirtual #10                 // Method onExplosionDestroy:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/Explosion;)V
+      64: return
+}

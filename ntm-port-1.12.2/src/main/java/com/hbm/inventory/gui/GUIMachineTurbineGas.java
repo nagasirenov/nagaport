@@ -19,6 +19,8 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -273,13 +275,14 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(xPos, yPos + height, this.zLevel, uMin, vMax);
-		tessellator.addVertexWithUV(xPos + width, yPos + height, this.zLevel, uMax, vMax);
-		tessellator.addVertexWithUV(xPos + width, yPos + 64 - (64 * temp / maxTemp), this.zLevel,uMax, vMin);
-		tessellator.addVertexWithUV(xPos, yPos + 64 - (64 * temp / maxTemp), this.zLevel, uMin, vMin);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(xPos, yPos + height, this.zLevel).tex(uMin, vMax).endVertex();
+		tessellatorBuffer.pos(xPos + width, yPos + height, this.zLevel).tex(uMax, vMax).endVertex();
+		tessellatorBuffer.pos(xPos + width, yPos + 64 - (64 * temp / maxTemp), this.zLevel).tex(uMax, vMin).endVertex();
+		tessellatorBuffer.pos(xPos, yPos + 64 - (64 * temp / maxTemp), this.zLevel).tex(uMin, vMin).endVertex();
 		tessellator.draw();
 
 		GL11.glDisable(GL11.GL_BLEND);
@@ -301,13 +304,14 @@ public class GUIMachineTurbineGas extends GuiInfoContainer {
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(gauge_tex); //long boi
 
-		Tessellator tessellator = Tessellator.instance;
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
 
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(xPos, yPos + squareSideLenght, this.zLevel, uMin, vMax);
-		tessellator.addVertexWithUV(xPos + squareSideLenght, yPos + squareSideLenght, this.zLevel, uMax, vMax);
-		tessellator.addVertexWithUV(xPos + squareSideLenght, yPos, this.zLevel,uMax, vMin);
-		tessellator.addVertexWithUV(xPos, yPos, this.zLevel, uMin, vMin);
+		tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessellatorBuffer.pos(xPos, yPos + squareSideLenght, this.zLevel).tex(uMin, vMax).endVertex();
+		tessellatorBuffer.pos(xPos + squareSideLenght, yPos + squareSideLenght, this.zLevel).tex(uMax, vMax).endVertex();
+		tessellatorBuffer.pos(xPos + squareSideLenght, yPos, this.zLevel).tex(uMax, vMin).endVertex();
+		tessellatorBuffer.pos(xPos, yPos, this.zLevel).tex(uMin, vMin).endVertex();
 		tessellator.draw();
 
 		GL11.glDisable(GL11.GL_BLEND);

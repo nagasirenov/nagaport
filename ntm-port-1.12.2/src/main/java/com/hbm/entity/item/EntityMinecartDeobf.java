@@ -188,7 +188,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 				boolean flag = source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode;
 
 				if(flag || this.getDamage() > 40.0F) {
-					if(this.riddenByEntity != null) {
+					if(this.isBeingRidden()) {
 						this.riddenByEntity.mountEntity(this);
 					}
 
@@ -266,7 +266,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 
 			if(this.inPortal) {
 				if(minecraftserver.getAllowNether()) {
-					if(this.ridingEntity == null && this.portalCounter++ >= portalTime) {
+					if(this.getRidingEntity() == null && this.portalCounter++ >= portalTime) {
 						this.portalCounter = portalTime;
 						this.timeUntilPortal = this.getPortalCooldown();
 						byte destination;
@@ -386,7 +386,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 				}
 			}
 
-			if(this.riddenByEntity != null && this.riddenByEntity.isDead) {
+			if(this.isBeingRidden() && this.riddenByEntity.isDead) {
 				if(this.riddenByEntity.ridingEntity == this) {
 					this.riddenByEntity.ridingEntity = null;
 				}
@@ -505,7 +505,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 		double d9;
 		double d10;
 
-		if(this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase) {
+		if(this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase) {
 			motion = (double) ((EntityLivingBase) this.riddenByEntity).moveForward;
 
 			if(motion > 0.0D) {
@@ -621,7 +621,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 	}
 
 	protected void applyDrag() {
-		if(this.riddenByEntity != null) {
+		if(this.isBeingRidden()) {
 			this.motionX *= 0.997D;
 			this.motionY *= 0.0D;
 			this.motionZ *= 0.997D;
@@ -780,7 +780,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 		if(!this.world.isRemote) {
 			if(entity != this.riddenByEntity) {
 				if(entity instanceof EntityLivingBase && !(entity instanceof EntityPlayer) && !(entity instanceof EntityIronGolem) && canBeRidden()
-						&& this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && this.riddenByEntity == null && entity.ridingEntity == null) {
+						&& this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && entity.getRidingEntity() == null) {
 					entity.mountEntity(this);
 				}
 
@@ -1024,7 +1024,7 @@ public abstract class EntityMinecartDeobf extends Entity {
 		double motionX = this.motionX;
 		double motionZ = this.motionZ;
 
-		if(this.riddenByEntity != null) {
+		if(this.isBeingRidden()) {
 			motionX *= 0.75D;
 			motionZ *= 0.75D;
 		}

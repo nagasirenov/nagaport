@@ -1,0 +1,2365 @@
+{
+  "calls": 58,
+  "files": 47,
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "receiver_kinds": {
+    "lexical_binding": 31,
+    "inherited_native_field": 27
+  },
+  "excluded_comments": 1,
+  "custom_declarations": 0,
+  "post_migration_attribution": [
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "line": 44,
+      "owner": "com.hbm.blocks.bomb.BlockTNTBase",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1190,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1190,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 1203,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 1210,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 1217,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "line": 119,
+      "owner": "com.hbm.blocks.bomb.BombMulti",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4333,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4333,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4352,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4359,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4366,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4373,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityBombMulti",
+          "source": "TileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4396,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/Landmine.java",
+      "line": 85,
+      "owner": "com.hbm.blocks.bomb.Landmine",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 3112,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 3112,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 3125,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 3132,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 3139,
+          "parent_kind": "METHOD"
+        },
+        "block": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block block",
+          "start": 3146,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "line": 115,
+      "owner": "com.hbm.blocks.bomb.NukeBoy",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4222,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4222,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4241,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4248,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4255,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4262,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeBoy",
+          "source": "TileEntityNukeBoy entity = (TileEntityNukeBoy) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4285,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "line": 114,
+      "owner": "com.hbm.blocks.bomb.NukeFleija",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4196,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4196,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4215,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4222,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4229,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4236,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeFleija",
+          "source": "TileEntityNukeFleija entity = (TileEntityNukeFleija) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4259,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "line": 120,
+      "owner": "com.hbm.blocks.bomb.NukeGadget",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4242,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4242,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4261,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4268,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4275,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4282,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeGadget",
+          "source": "TileEntityNukeGadget entity = (TileEntityNukeGadget) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4305,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "line": 115,
+      "owner": "com.hbm.blocks.bomb.NukeMan",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4162,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4162,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4181,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4188,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4195,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4202,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeMan",
+          "source": "TileEntityNukeMan entity = (TileEntityNukeMan) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4225,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "line": 114,
+      "owner": "com.hbm.blocks.bomb.NukeMike",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4172,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4172,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4191,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4198,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4205,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4212,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeMike",
+          "source": "TileEntityNukeMike entity = (TileEntityNukeMike) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4235,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "line": 112,
+      "owner": "com.hbm.blocks.bomb.NukeN2",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4093,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4093,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4112,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4119,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4126,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4133,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeN2",
+          "source": "TileEntityNukeN2 entity = (TileEntityNukeN2) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4156,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "line": 123,
+      "owner": "com.hbm.blocks.bomb.NukePrototype",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4554,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4554,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4573,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4580,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4587,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4594,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukePrototype",
+          "source": "TileEntityNukePrototype entity = (TileEntityNukePrototype) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4617,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "line": 112,
+      "owner": "com.hbm.blocks.bomb.NukeSolinium",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4151,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4151,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4170,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4177,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4184,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4191,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeSolinium",
+          "source": "TileEntityNukeSolinium entity = (TileEntityNukeSolinium) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4214,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "line": 114,
+      "owner": "com.hbm.blocks.bomb.NukeTsar",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4172,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 4172,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int x",
+          "start": 4191,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int y",
+          "start": 4198,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.bomb.int",
+          "source": "int z",
+          "start": 4205,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 4212,
+          "parent_kind": "METHOD"
+        },
+        "entity": {
+          "type": "com.hbm.tileentity.bomb.TileEntityNukeTsar",
+          "source": "TileEntityNukeTsar entity = (TileEntityNukeTsar) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 4235,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockModDoor.java",
+      "line": 302,
+      "owner": "com.hbm.blocks.generic.BlockModDoor",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_, p_149695_4_))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 9320,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 9320,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_2_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_2_",
+          "start": 9339,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_3_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_3_",
+          "start": 9356,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_4_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_4_",
+          "start": 9373,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 9393,
+          "parent_kind": "METHOD"
+        },
+        "l": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_) );",
+          "start": 9416,
+          "parent_kind": "BLOCK"
+        },
+        "flag": {
+          "type": "com.hbm.blocks.generic.boolean",
+          "source": "boolean flag = false;",
+          "start": 9579,
+          "parent_kind": "BLOCK"
+        },
+        "flag1": {
+          "type": "com.hbm.blocks.generic.boolean",
+          "source": "boolean flag1 = p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_, p_149695_4_))\n\t\t\t\t\t\t|| p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_ + 1, p_149695_4_));",
+          "start": 10440,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockModDoor.java",
+      "line": 303,
+      "owner": "com.hbm.blocks.generic.BlockModDoor",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_ + 1, p_149695_4_))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 9320,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 9320,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_2_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_2_",
+          "start": 9339,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_3_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_3_",
+          "start": 9356,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_4_": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int p_149695_4_",
+          "start": 9373,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 9393,
+          "parent_kind": "METHOD"
+        },
+        "l": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_) );",
+          "start": 9416,
+          "parent_kind": "BLOCK"
+        },
+        "flag": {
+          "type": "com.hbm.blocks.generic.boolean",
+          "source": "boolean flag = false;",
+          "start": 9579,
+          "parent_kind": "BLOCK"
+        },
+        "flag1": {
+          "type": "com.hbm.blocks.generic.boolean",
+          "source": "boolean flag1 = p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_, p_149695_4_))\n\t\t\t\t\t\t|| p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(p_149695_2_, p_149695_3_ + 1, p_149695_4_));",
+          "start": 10440,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": 33,
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 625,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 625,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 638,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 645,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 652,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": 36,
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 625,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 625,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 638,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 645,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 652,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": 47,
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1038,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1038,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1051,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1058,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1065,
+          "parent_kind": "METHOD"
+        },
+        "b": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block b",
+          "start": 1072,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": 50,
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1038,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1038,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1051,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1058,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1065,
+          "parent_kind": "METHOD"
+        },
+        "b": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block b",
+          "start": 1072,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "line": 59,
+      "owner": "com.hbm.blocks.generic.ReinforcedLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1449,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1449,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1462,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1469,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1476,
+          "parent_kind": "METHOD"
+        },
+        "p_149674_5_": {
+          "type": "java.util.Random",
+          "source": "Random p_149674_5_",
+          "start": 1483,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 36,
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 751,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 751,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 764,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 771,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 778,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 39,
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 751,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 751,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 764,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 771,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 778,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 52,
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1199,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1199,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1212,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1219,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1226,
+          "parent_kind": "METHOD"
+        },
+        "b": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block b",
+          "start": 1233,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 55,
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1199,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1199,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1212,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1219,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1226,
+          "parent_kind": "METHOD"
+        },
+        "b": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block b",
+          "start": 1233,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "line": 66,
+      "owner": "com.hbm.blocks.generic.TritiumLamp",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1642,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1642,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int x",
+          "start": 1655,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int y",
+          "start": 1662,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.generic.int",
+          "source": "int z",
+          "start": 1669,
+          "parent_kind": "METHOD"
+        },
+        "p_149674_5_": {
+          "type": "java.util.Random",
+          "source": "Random p_149674_5_",
+          "start": 1676,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockSeal.java",
+      "line": 239,
+      "owner": "com.hbm.blocks.machine.BlockSeal",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 9190,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 9190,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int x",
+          "start": 9203,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int y",
+          "start": 9210,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int z",
+          "start": 9217,
+          "parent_kind": "METHOD"
+        },
+        "block": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block block",
+          "start": 9224,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/machine/MachineFan.java",
+      "line": 100,
+      "owner": "com.hbm.blocks.machine.MachineFan.TileEntityFan",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.blocks.machine.MachineFan.TileEntityFan",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/blocks/machine/ReactorZirnox.java",
+      "line": 117,
+      "owner": "com.hbm.blocks.machine.ReactorZirnox",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(sx, sy, sz))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 3499,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 3499,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int x",
+          "start": 3512,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int y",
+          "start": 3519,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int z",
+          "start": 3526,
+          "parent_kind": "METHOD"
+        },
+        "neighbor": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block neighbor",
+          "start": 3533,
+          "parent_kind": "METHOD"
+        },
+        "core": {
+          "type": "com.hbm.blocks.machine.int[]",
+          "source": "int[] core = this.findCore(world, x, y, z);",
+          "start": 3640,
+          "parent_kind": "BLOCK"
+        },
+        "cx": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int cx = core[0];",
+          "start": 3714,
+          "parent_kind": "BLOCK"
+        },
+        "cy": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int cy = core[1];",
+          "start": 3734,
+          "parent_kind": "BLOCK"
+        },
+        "cz": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int cz = core[2];",
+          "start": 3754,
+          "parent_kind": "BLOCK"
+        },
+        "te": {
+          "type": "net.minecraft.tileentity.TileEntity",
+          "source": "TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(cx, cy, cz));",
+          "start": 3774,
+          "parent_kind": "BLOCK"
+        },
+        "reactor": {
+          "type": "com.hbm.tileentity.machine.TileEntityReactorZirnox",
+          "source": "TileEntityReactorZirnox reactor = (TileEntityReactorZirnox) te;",
+          "start": 3919,
+          "parent_kind": "BLOCK"
+        },
+        "powered": {
+          "type": "com.hbm.blocks.machine.boolean",
+          "source": "boolean powered = false;",
+          "start": 3985,
+          "parent_kind": "BLOCK"
+        },
+        "dx": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int dx = -2",
+          "start": 4041,
+          "parent_kind": "FOR_LOOP"
+        },
+        "dy": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int dy = 0",
+          "start": 4091,
+          "parent_kind": "FOR_LOOP"
+        },
+        "dz": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int dz = -2",
+          "start": 4141,
+          "parent_kind": "FOR_LOOP"
+        },
+        "sx": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int sx = cx + dx;",
+          "start": 4312,
+          "parent_kind": "BLOCK"
+        },
+        "sy": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int sy = cy + dy;",
+          "start": 4336,
+          "parent_kind": "BLOCK"
+        },
+        "sz": {
+          "type": "com.hbm.blocks.machine.int",
+          "source": "int sz = cz + dz;",
+          "start": 4360,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/network/CableDetector.java",
+      "line": 45,
+      "owner": "com.hbm.blocks.network.CableDetector",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1251,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1251,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int x",
+          "start": 1264,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int y",
+          "start": 1271,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int z",
+          "start": 1278,
+          "parent_kind": "METHOD"
+        },
+        "block": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block block",
+          "start": 1285,
+          "parent_kind": "METHOD"
+        },
+        "on": {
+          "type": "com.hbm.blocks.network.boolean",
+          "source": "boolean on = world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 1303,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/network/FluidPump.java",
+      "line": 151,
+      "owner": "com.hbm.blocks.network.FluidPump.TileEntityFluidPump",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.blocks.network.FluidPump.TileEntityFluidPump",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/blocks/network/FluidSwitch.java",
+      "line": 51,
+      "owner": "com.hbm.blocks.network.FluidSwitch",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1396,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world",
+          "start": 1396,
+          "parent_kind": "METHOD"
+        },
+        "x": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int x",
+          "start": 1409,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int y",
+          "start": 1416,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.blocks.network.int",
+          "source": "int z",
+          "start": 1423,
+          "parent_kind": "METHOD"
+        },
+        "block": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block block",
+          "start": 1430,
+          "parent_kind": "METHOD"
+        },
+        "on": {
+          "type": "com.hbm.blocks.network.boolean",
+          "source": "boolean on = world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 1448,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/blocks/test/TestEventTester.java",
+      "line": 39,
+      "owner": "com.hbm.blocks.test.TestEventTester",
+      "new": "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x1, y1, z1))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "p_149695_1_",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 991,
+          "parent_kind": "METHOD"
+        }
+      },
+      "locals": {
+        "p_149695_1_": {
+          "type": "net.minecraft.world.World",
+          "source": "World p_149695_1_",
+          "start": 991,
+          "parent_kind": "METHOD"
+        },
+        "x1": {
+          "type": "com.hbm.blocks.test.int",
+          "source": "int x1",
+          "start": 1010,
+          "parent_kind": "METHOD"
+        },
+        "y1": {
+          "type": "com.hbm.blocks.test.int",
+          "source": "int y1",
+          "start": 1018,
+          "parent_kind": "METHOD"
+        },
+        "z1": {
+          "type": "com.hbm.blocks.test.int",
+          "source": "int z1",
+          "start": 1026,
+          "parent_kind": "METHOD"
+        },
+        "p_149695_5_": {
+          "type": "net.minecraft.block.Block",
+          "source": "Block p_149695_5_",
+          "start": 1034,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/TileEntityDoorGeneric.java",
+      "line": 410,
+      "owner": "com.hbm.tileentity.TileEntityDoorGeneric",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.TileEntityDoorGeneric",
+          "com.hbm.tileentity.machine.TileEntityLockableBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "x": {
+          "type": "com.hbm.tileentity.int",
+          "source": "int x",
+          "start": 12064,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.tileentity.int",
+          "source": "int y",
+          "start": 12071,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.tileentity.int",
+          "source": "int z",
+          "start": 12078,
+          "parent_kind": "METHOD"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos = new BlockPos(x, y, z);",
+          "start": 12174,
+          "parent_kind": "BLOCK"
+        },
+        "powered": {
+          "type": "com.hbm.tileentity.boolean",
+          "source": "boolean powered = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 12214,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityCompactLauncher.java",
+      "line": 205,
+      "owner": "com.hbm.tileentity.bomb.TileEntityCompactLauncher",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX() + x, this.pos.getY(), this.pos.getZ() + z))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.bomb.TileEntityCompactLauncher",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "multipart": {
+          "type": "com.hbm.handler.MissileStruct",
+          "source": "MissileStruct multipart = getStruct(slots[0]);",
+          "start": 5327,
+          "parent_kind": "BLOCK"
+        },
+        "x": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int x = -1",
+          "start": 5930,
+          "parent_kind": "FOR_LOOP"
+        },
+        "z": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int z = -1",
+          "start": 5965,
+          "parent_kind": "FOR_LOOP"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityFireworks.java",
+      "line": 25,
+      "owner": "com.hbm.tileentity.bomb.TileEntityFireworks",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.bomb.TileEntityFireworks"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchPadBase.java",
+      "line": 254,
+      "owner": "com.hbm.tileentity.bomb.TileEntityLaunchPadBase",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.bomb.TileEntityLaunchPadBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "x": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int x",
+          "start": 9661,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int y",
+          "start": 9668,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int z",
+          "start": 9675,
+          "parent_kind": "METHOD"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos = new BlockPos(x, y, z);",
+          "start": 9686,
+          "parent_kind": "BLOCK"
+        },
+        "powered": {
+          "type": "com.hbm.tileentity.bomb.boolean",
+          "source": "boolean powered = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 9726,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchPadRusted.java",
+      "line": 167,
+      "owner": "com.hbm.tileentity.bomb.TileEntityLaunchPadRusted",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.bomb.TileEntityLaunchPadRusted",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "x": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int x",
+          "start": 5783,
+          "parent_kind": "METHOD"
+        },
+        "y": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int y",
+          "start": 5790,
+          "parent_kind": "METHOD"
+        },
+        "z": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int z",
+          "start": 5797,
+          "parent_kind": "METHOD"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos = new BlockPos(x, y, z);",
+          "start": 5808,
+          "parent_kind": "BLOCK"
+        },
+        "powered": {
+          "type": "com.hbm.tileentity.bomb.boolean",
+          "source": "boolean powered = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z));",
+          "start": 5848,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/bomb/TileEntityLaunchTable.java",
+      "line": 214,
+      "owner": "com.hbm.tileentity.bomb.TileEntityLaunchTable",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX() + x, this.pos.getY(), this.pos.getZ() + z))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.bomb.TileEntityLaunchTable",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "multipart": {
+          "type": "com.hbm.handler.MissileStruct",
+          "source": "MissileStruct multipart = getStruct(slots[0]);",
+          "start": 5708,
+          "parent_kind": "BLOCK"
+        },
+        "x": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int x = -4",
+          "start": 6311,
+          "parent_kind": "FOR_LOOP"
+        },
+        "z": {
+          "type": "com.hbm.tileentity.bomb.int",
+          "source": "int z = -4",
+          "start": 6346,
+          "parent_kind": "FOR_LOOP"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/deco/TileEntityDecoTapeRecorder.java",
+      "line": 16,
+      "owner": "com.hbm.tileentity.deco.TileEntityDecoTapeRecorder",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.deco.TileEntityDecoTapeRecorder"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/deco/TileEntityVent.java",
+      "line": 19,
+      "owner": "com.hbm.tileentity.deco.TileEntityVent",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.deco.TileEntityVent"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "line": 43,
+      "owner": "com.hbm.tileentity.machine.TileEntityBlastDoor",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityBlastDoor",
+          "com.hbm.tileentity.machine.TileEntityLockableBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityBlastDoor.java",
+      "line": 43,
+      "owner": "com.hbm.tileentity.machine.TileEntityBlastDoor",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + 6, this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityBlastDoor",
+          "com.hbm.tileentity.machine.TileEntityLockableBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityChlorineSeal.java",
+      "line": 12,
+      "owner": "com.hbm.tileentity.machine.TileEntityChlorineSeal",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityChlorineSeal"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineDiesel.java",
+      "line": 240,
+      "owner": "com.hbm.tileentity.machine.TileEntityMachineDiesel",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityMachineDiesel",
+          "com.hbm.tileentity.TileEntityMachinePolluting",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineMiningLaser.java",
+      "line": 113,
+      "owner": "com.hbm.tileentity.machine.TileEntityMachineMiningLaser",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityMachineMiningLaser",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "conPos": {
+          "type": "com.hbm.util.fauxpointtwelve.DirPos",
+          "source": "DirPos conPos",
+          "start": 3876,
+          "parent_kind": "ENHANCED_FOR_LOOP"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos = conPos.offset(conPos.getDir().getOpposite());",
+          "start": 3910,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineSiren.java",
+      "line": 212,
+      "owner": "com.hbm.tileentity.machine.TileEntityMachineSiren",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityMachineSiren"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "id": {
+          "type": "com.hbm.tileentity.machine.int",
+          "source": "int id = Arrays.asList(TrackType.values()).indexOf(getCurrentType());",
+          "start": 5246,
+          "parent_kind": "BLOCK"
+        },
+        "active": {
+          "type": "com.hbm.tileentity.machine.boolean",
+          "source": "boolean active = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));",
+          "start": 5644,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/machine/TileEntityMachineTurbofan.java",
+      "line": 170,
+      "owner": "com.hbm.tileentity.machine.TileEntityMachineTurbofan",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.TileEntityMachineTurbofan",
+          "com.hbm.tileentity.TileEntityMachinePolluting",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "burnValue": {
+          "type": "com.hbm.tileentity.machine.long",
+          "source": "long burnValue = 0;",
+          "start": 6455,
+          "parent_kind": "BLOCK"
+        },
+        "amount": {
+          "type": "com.hbm.tileentity.machine.int",
+          "source": "int amount = 1 + this.afterburner;",
+          "start": 6478,
+          "parent_kind": "BLOCK"
+        },
+        "redstone": {
+          "type": "com.hbm.tileentity.machine.boolean",
+          "source": "boolean redstone = false;",
+          "start": 6517,
+          "parent_kind": "BLOCK"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.DirPos",
+          "source": "DirPos pos",
+          "start": 6551,
+          "parent_kind": "ENHANCED_FOR_LOOP"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/machine/albion/TileEntityPADipole.java",
+      "line": 121,
+      "owner": "com.hbm.tileentity.machine.albion.TileEntityPADipole",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.albion.TileEntityPADipole",
+          "com.hbm.tileentity.machine.albion.TileEntityCooledBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.DirPos",
+          "source": "DirPos pos",
+          "start": 3906,
+          "parent_kind": "ENHANCED_FOR_LOOP"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/machine/storage/TileEntityBatteryBase.java",
+      "line": 171,
+      "owner": "com.hbm.tileentity.machine.storage.TileEntityBatteryBase",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.storage.TileEntityBatteryBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "useCache": {
+          "type": "com.hbm.tileentity.machine.storage.boolean",
+          "source": "boolean useCache",
+          "start": 5522,
+          "parent_kind": "METHOD"
+        },
+        "powered": {
+          "type": "com.hbm.tileentity.machine.storage.boolean",
+          "source": "boolean powered = false;",
+          "start": 5582,
+          "parent_kind": "BLOCK"
+        },
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos",
+          "start": 5613,
+          "parent_kind": "ENHANCED_FOR_LOOP"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/machine/storage/TileEntityMachineBattery.java",
+      "line": 303,
+      "owner": "com.hbm.tileentity.machine.storage.TileEntityMachineBattery",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.machine.storage.TileEntityMachineBattery",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "useCache": {
+          "type": "com.hbm.tileentity.machine.storage.boolean",
+          "source": "boolean useCache",
+          "start": 9249,
+          "parent_kind": "METHOD"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneBoxer.java",
+      "line": 46,
+      "owner": "com.hbm.tileentity.network.TileEntityCraneBoxer",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityCraneBoxer",
+          "com.hbm.tileentity.network.TileEntityCraneBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "redstone": {
+          "type": "com.hbm.tileentity.network.boolean",
+          "source": "boolean redstone = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));",
+          "start": 1308,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneExtractor.java",
+      "line": 74,
+      "owner": "com.hbm.tileentity.network.TileEntityCraneExtractor",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityCraneExtractor",
+          "com.hbm.tileentity.network.TileEntityCraneBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "delay": {
+          "type": "com.hbm.tileentity.network.int",
+          "source": "int delay = 20;",
+          "start": 2044,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneGrabber.java",
+      "line": 69,
+      "owner": "com.hbm.tileentity.network.TileEntityCraneGrabber",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityCraneGrabber",
+          "com.hbm.tileentity.network.TileEntityCraneBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "delay": {
+          "type": "com.hbm.tileentity.network.int",
+          "source": "int delay = 20;",
+          "start": 1739,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneInserter.java",
+      "line": 44,
+      "owner": "com.hbm.tileentity.network.TileEntityCraneInserter",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityCraneInserter",
+          "com.hbm.tileentity.network.TileEntityCraneBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityCraneUnboxer.java",
+      "line": 54,
+      "owner": "com.hbm.tileentity.network.TileEntityCraneUnboxer",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityCraneUnboxer",
+          "com.hbm.tileentity.network.TileEntityCraneBase",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "delay": {
+          "type": "com.hbm.tileentity.network.int",
+          "source": "int delay = 20;",
+          "start": 980,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityPneumoTube.java",
+      "line": 100,
+      "owner": "com.hbm.tileentity.network.TileEntityPneumoTube",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityPneumoTube",
+          "com.hbm.tileentity.TileEntityMachineBase",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {}
+    },
+    {
+      "path": "com/hbm/tileentity/network/TileEntityRequestNetwork.java",
+      "line": 44,
+      "owner": "com.hbm.tileentity.network.TileEntityRequestNetwork",
+      "new": "this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()))",
+      "resolution": {
+        "kind": "inherited_native_field",
+        "chain": [
+          "com.hbm.tileentity.network.TileEntityRequestNetwork",
+          "com.hbm.tileentity.TileEntityLoadedBase"
+        ],
+        "terminal": "net.minecraft.tileentity.TileEntity",
+        "field": "protected net.minecraft.world.World world"
+      },
+      "locals": {
+        "pos": {
+          "type": "com.hbm.util.fauxpointtwelve.BlockPos",
+          "source": "BlockPos pos = getCoord();",
+          "start": 1226,
+          "parent_kind": "BLOCK"
+        },
+        "newNode": {
+          "type": "com.hbm.tileentity.network.RequestNetwork.PathNode",
+          "source": "PathNode newNode = createNode(pos);",
+          "start": 1258,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/world/gen/util/LogicBlockConditions.java",
+      "line": 76,
+      "owner": "com.hbm.world.gen.util.LogicBlockConditions",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x,y,z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world = tile.getWorld();",
+          "start": 3075,
+          "parent_kind": "BLOCK"
+        }
+      },
+      "locals": {
+        "tile": {
+          "type": null,
+          "source": "tile",
+          "start": 3061,
+          "parent_kind": "LAMBDA_EXPRESSION"
+        },
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world = tile.getWorld();",
+          "start": 3075,
+          "parent_kind": "BLOCK"
+        },
+        "x": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int x = tile.getPos().getX();",
+          "start": 3109,
+          "parent_kind": "BLOCK"
+        },
+        "y": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int y = tile.getPos().getY();",
+          "start": 3142,
+          "parent_kind": "BLOCK"
+        },
+        "z": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int z = tile.getPos().getZ();",
+          "start": 3175,
+          "parent_kind": "BLOCK"
+        }
+      }
+    },
+    {
+      "path": "com/hbm/world/gen/util/LogicBlockConditions.java",
+      "line": 85,
+      "owner": "com.hbm.world.gen.util.LogicBlockConditions",
+      "new": "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x,y,z))",
+      "resolution": {
+        "kind": "lexical_binding",
+        "name": "world",
+        "declaration": {
+          "type": "net.minecraft.world.World",
+          "source": "World world = tile.getWorld();",
+          "start": 3387,
+          "parent_kind": "BLOCK"
+        }
+      },
+      "locals": {
+        "tile": {
+          "type": null,
+          "source": "tile",
+          "start": 3373,
+          "parent_kind": "LAMBDA_EXPRESSION"
+        },
+        "world": {
+          "type": "net.minecraft.world.World",
+          "source": "World world = tile.getWorld();",
+          "start": 3387,
+          "parent_kind": "BLOCK"
+        },
+        "x": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int x = tile.getPos().getX();",
+          "start": 3421,
+          "parent_kind": "BLOCK"
+        },
+        "y": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int y = tile.getPos().getY();",
+          "start": 3454,
+          "parent_kind": "BLOCK"
+        },
+        "z": {
+          "type": "com.hbm.world.gen.util.int",
+          "source": "int z = tile.getPos().getZ();",
+          "start": 3487,
+          "parent_kind": "BLOCK"
+        }
+      }
+    }
+  ]
+}

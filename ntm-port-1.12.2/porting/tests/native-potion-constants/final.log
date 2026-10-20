@@ -1,0 +1,9 @@
+PASS 217 exact UTF16-position edits and complete inverse preservation in 57 files; formulas/custom effects/nonselected sources untouched.
+
+PASS 8827 real original/native registry, attribute, readiness, constructor and native NBT assertions; strength and weakness mismatch guards.
+
+PASS 49 native effect update, duration decrement, poison floor, wither damage, regeneration cap and merge assertions; damage/heal boundary overridden, no gameplay claim.
+
+PASS 17 attributed owner/shadow/inheritance/custom/constructor/receiver/Unicode controls.
+PASS changed-source idempotence; unfinished-unit attribution errors are not compile success.
+PASS complete production owner re-attribution against exact pre-edit sources.

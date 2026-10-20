@@ -43,7 +43,7 @@ public class TileEntityCraneBoxer extends TileEntityCraneBase implements IGUIPro
 		super.update();
 		if(!this.world.isRemote) {
 			
-			boolean redstone = this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ());
+			boolean redstone = this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ()));
 			
 			if(mode == MODE_REDSTONE && redstone && !lastRedstone) {
 				

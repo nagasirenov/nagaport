@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderAirScrubber extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		if(!(te instanceof TileEntityAirScrubber)) return;
 		TileEntityAirScrubber scrubber = (TileEntityAirScrubber) te;
 

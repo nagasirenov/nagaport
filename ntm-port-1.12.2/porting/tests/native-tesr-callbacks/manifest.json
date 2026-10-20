@@ -1,0 +1,3003 @@
+{
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "selected": 230,
+  "excluded": 0,
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAirScrubber.java",
+      "before_sha256": "671b1b0b02636fb8984c34b9bee438b0f154c27ea62458db438562afad038b99",
+      "after_sha256": "8d196ebd1ba5c5a6b02d02aeab2ab75b24a807204191e6da075c39bbe71cc6d3",
+      "edits": [
+        {
+          "start": 465,
+          "end": 554,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAlkylation.java",
+      "before_sha256": "2c8ba6c7c3b2df320d18668bade3eb9ecfa1001d2a5b01224664afbdebdd9d68",
+      "after_sha256": "33543abffb4eec5e3f153c4fd27556597260ec79dec9e19c189014978945ffb6",
+      "edits": [
+        {
+          "start": 407,
+          "end": 493,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAmmoPress.java",
+      "before_sha256": "04a5e199879db5620e9aaef5e5c073f10b49e4ed953faeedd0798593b1b3f042",
+      "after_sha256": "9658f134e3118dafe845894f93b9adc0ecb0630dd25a36a1b470e3c68a56084d",
+      "edits": [
+        {
+          "start": 468,
+          "end": 560,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAnnihilator.java",
+      "before_sha256": "6e83c4f5c9c29c51c661895c5bd509e698d2cb05eb77e3d1822b7740fbe80ad5",
+      "after_sha256": "7343e33d38569dc79cc808d01e5c477875de5e79720360082cf84829a7582063",
+      "edits": [
+        {
+          "start": 522,
+          "end": 619,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAntimatter.java",
+      "before_sha256": "31eb62e157ce2a139325bbb15414420852afe1041c0718c07994271c4728c1ba",
+      "after_sha256": "64038eeace673b3b48e2d24026fd59f2c9a70a455347dc6897146b43a33860ab",
+      "edits": [
+        {
+          "start": 816,
+          "end": 900,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderArcFurnace.java",
+      "before_sha256": "6685808117a29f948f7b3b004aa29d02e6920dd65338d738ade13df5891083c7",
+      "after_sha256": "1a5dfea4169f25f7ad608bd351971a942bad6f110e73ed538ce00bba49dd9767",
+      "edits": [
+        {
+          "start": 527,
+          "end": 618,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAshpit.java",
+      "before_sha256": "72239a758391109a229f805d4c5ea2877cd0522c76055e542897a499a3370193",
+      "after_sha256": "c5f24062c8e80a54f6f8bf7dcbd88452999f77509272c8968d74eee4801017f8",
+      "edits": [
+        {
+          "start": 455,
+          "end": 546,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAtmoTower.java",
+      "before_sha256": "ace4375e0b2db1154a6c8ab1de09be61857daf4291acb075842070ca621d82a6",
+      "after_sha256": "8fc7dfb42cd511fd8bccfdb286449521baee9aee2cb6ac9f206c2695c80d5f16",
+      "edits": [
+        {
+          "start": 304,
+          "end": 396,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAtmosphericCompressor.java",
+      "before_sha256": "f13bc7ab1a648be7bc1670f53e90713372f27c92d31660e348d7cb4e12ee2cc6",
+      "after_sha256": "f233d03b8ff374a23e84fcf66c2ad1555f1345000a0e031576f2bd0b9a8c00ba",
+      "edits": [
+        {
+          "start": 382,
+          "end": 474,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAtmosphericEmitter.java",
+      "before_sha256": "5386c86b1b8cd1ddb81ed511162e567745ce2c0ee20ad3437985c9a7f6e93ea9",
+      "after_sha256": "5891bb8c4d864166ea9ac5b9bdf2e3d21d5262eea86683d8dd3017e570b0893a",
+      "edits": [
+        {
+          "start": 441,
+          "end": 533,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderAutosaw.java",
+      "before_sha256": "35bc6e333050b43d457308fa43d3b86a9aa9b5545a2737004e57a5ee9a6702bf",
+      "after_sha256": "339252439c12546bf9879e1c72b748c349641a1c9d8d8841051826b5c11dcd60",
+      "edits": [
+        {
+          "start": 540,
+          "end": 631,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBAT9000.java",
+      "before_sha256": "9debed63e44948f1e7903e6b62b2a2b2ab226b763d5933f2e2d9f478b19f0d40",
+      "after_sha256": "e87bb79a04b4b36e7c29a2ee00f57de684b84b48983c8530b81c6ff5b428e875",
+      "edits": [
+        {
+          "start": 633,
+          "end": 722,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBatteryREDD.java",
+      "before_sha256": "2d975ffba57c5a7fe65c4fc0f26be80bf851e0bd8254ae4da719ea91135693f8",
+      "after_sha256": "08d8e1a9a463ba2aa901dd7b880a01c8e757fc90217cee2d781fb7381d3a3063",
+      "edits": [
+        {
+          "start": 868,
+          "end": 959,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBatterySocket.java",
+      "before_sha256": "c3b3157fe8ac2e3d16d04e863a963c24a18f5e5422fd83d8b2ed444594a0eaa4",
+      "after_sha256": "7b483a7b0f065a60cab7a2d9c757e7621920d4f97de312e05b87119d35a58441",
+      "edits": [
+        {
+          "start": 1046,
+          "end": 1137,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBigTurbine.java",
+      "before_sha256": "998d33c131ccbf1686c456f86027c397789be7fe2fc75afa34342c7cb1116243",
+      "after_sha256": "4bcb2c635aa6199df29586ba956c2175888ee1cfaa46e9e024d795f1eeb50333",
+      "edits": [
+        {
+          "start": 407,
+          "end": 493,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBlastDoor.java",
+      "before_sha256": "781fa7f665446f549a8d2771de67e646d9552ba607a0c7c5bdda777c87ddba72",
+      "after_sha256": "71ed5386d8dd8458aa97cd0e53149b58380811d4b3a0c788183afd794fc189ce",
+      "edits": [
+        {
+          "start": 361,
+          "end": 453,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBobble.java",
+      "before_sha256": "ce2ab29ed911a69f430991b067d5007cc6cdcedff46efc77692d215dc472aab0",
+      "after_sha256": "1fb7bbd770ffdc64beb87e4db465211736112cf17ba28fb904a4c670e49838ee",
+      "edits": [
+        {
+          "start": 4848,
+          "end": 4939,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float intero)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float intero, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBoiler.java",
+      "before_sha256": "46cbac20d370ddfcaa5e003961a39cf3529971604bc4ae6f5b53b010962d473f",
+      "after_sha256": "b73cadc385f30b61b2215844f7338238bbe22a4ec2e63e3c419b95b46a4be934",
+      "edits": [
+        {
+          "start": 573,
+          "end": 664,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBombMulti.java",
+      "before_sha256": "4eb11e34efb616f0911e10890dd769448889950e64f6414528b6bd021e0be4a8",
+      "after_sha256": "31a30b2644dd695a3b42b08c4248bd415c3e6d4874cf0a70bcbaea7e2bf565fe",
+      "edits": [
+        {
+          "start": 306,
+          "end": 398,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBombMultiLarge.java",
+      "before_sha256": "17b002478a12061cadc5a7bb5958f574990871c3bf15d501268fc40cf8272130",
+      "after_sha256": "4ad4e0a67c96c6a9df6ee025ee27d8b05360bffb7cb49c7daef547a883dc8a78",
+      "edits": [
+        {
+          "start": 816,
+          "end": 908,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderBreeder.java",
+      "before_sha256": "b4215a50958c59a2f5a9fa8657c5fefa90fd91b42ecd14538357f94b2fef507a",
+      "after_sha256": "56f14f98b490b8130d3dd199fbaae324e66a61e9edfe4be378036b6af043f661",
+      "edits": [
+        {
+          "start": 448,
+          "end": 534,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCapsule.java",
+      "before_sha256": "ad5e33fab7b2686c74c8c0ce1b51f5ccb7bbf19e9ddea9460a5c447d7d3d3685",
+      "after_sha256": "7c4bac4138fb366b111517d0d367bafb6c336d267fcefb9e451d491198e2ace6",
+      "edits": [
+        {
+          "start": 300,
+          "end": 384,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCatalyticCracker.java",
+      "before_sha256": "e29c5daeea40bd3adddc2645de0d90a1e131dd63ab61d1378b9d99da4579c2de",
+      "after_sha256": "0688e1267de41922d1fb8c3f82db704980e363113f346cd3928a1b655cf2dfcc",
+      "edits": [
+        {
+          "start": 349,
+          "end": 435,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCatalyticReformer.java",
+      "before_sha256": "3c0035141fd02c29043f904ed4624ed8fd2d17d949d9cd44ae3de9e340cbde84",
+      "after_sha256": "3bee53e6e40ec59dd279db0e5478bd2fd76fe1e10869c55b80bff87035017393",
+      "edits": [
+        {
+          "start": 968,
+          "end": 1054,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCentrifuge.java",
+      "before_sha256": "a55855d34520ebf7ed58aae9037e39fbe4e7f65999d1b481bdfc2c7aafb33b51",
+      "after_sha256": "0ccaf49a14b6168debcc7434cc85ca789ddc9eb595aba28444922eba6fba5ae0",
+      "edits": [
+        {
+          "start": 606,
+          "end": 698,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCharger.java",
+      "before_sha256": "3f7cb6b9a4ad1d61257c2292112b9606c887df8a874fd7ad1ac7f3ab00e5cfb2",
+      "after_sha256": "5025c4ba04bd6a3c05393092c4f1e4ba0103ae236e565b08b979e6a32c47585b",
+      "edits": [
+        {
+          "start": 405,
+          "end": 496,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderChemicalFactory.java",
+      "before_sha256": "a05d9416e7eb911785f3ff7a2ce7575a043d8dbcc890a2ff4bf7b789a85e6b04",
+      "after_sha256": "f7441092457c3a745adf386e2735f490ead98f612ea97b77a69b0557d8d7d03d",
+      "edits": [
+        {
+          "start": 594,
+          "end": 691,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderChemicalPlant.java",
+      "before_sha256": "abbdecad4aa51516bdef5efe1b58497022c166418a0a4e5308915870daf40199",
+      "after_sha256": "40e46f45bb697d59eb559dc7d9373e65890c548020fd4841ba3b4cbd6291528f",
+      "edits": [
+        {
+          "start": 845,
+          "end": 942,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderChimneyBrick.java",
+      "before_sha256": "f8373918725335f25d38dc9686031fa66c4ed6d69affb6151afe75ecd47c9a75",
+      "after_sha256": "d594f1bd360a8937ddd93bc4917d1e75a6121135f975c4bb517c47ef0f600c98",
+      "edits": [
+        {
+          "start": 371,
+          "end": 463,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderChimneyIndustrial.java",
+      "before_sha256": "2dd4ab7c4f521d6e6facd3451b7fe17bd672dcc4f33fbd040a17b453839cc35b",
+      "after_sha256": "a311b134723109a38c08af25b83188aa769e07f2350c2b2a5615af8ee58933b2",
+      "edits": [
+        {
+          "start": 376,
+          "end": 468,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderChungus.java",
+      "before_sha256": "b27569acd5edaf88b5df39660a20e08cbfb2ccd48daa902fa3cd79395f1f5ba9",
+      "after_sha256": "fa12961948a6ad1bd5ce5eb9f2f633a70fa7128ac76261c3cfe301a56e87d8ce",
+      "edits": [
+        {
+          "start": 571,
+          "end": 657,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCoker.java",
+      "before_sha256": "93b0e17aa84451340139b22cfd3ccb2ba11206ce78ba06c92e85cce91990c3b7",
+      "after_sha256": "e1088d46ea2677fe3996459486a310396e586a2c38d9d011e3ff9f55879907f2",
+      "edits": [
+        {
+          "start": 364,
+          "end": 455,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCombatPod.java",
+      "before_sha256": "e470d0a6b635611606f088856f1e1c9a3373e835ccef10bd223f10d377fcfe5f",
+      "after_sha256": "129e7ba2c65cd5dc0db2301c74587aaa6d8cb3b2360ff00ede9e49ea46135ee7",
+      "edits": [
+        {
+          "start": 485,
+          "end": 569,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCombustionEngine.java",
+      "before_sha256": "0aabe0fd42e51d0df2879137bc9f959cee302610d157c8173dd1b8dce337c7e9",
+      "after_sha256": "7c55da7a1feeb7836ae2bda3af9cfb7f844daf111ed4f8938fa138bbf508f3ef",
+      "edits": [
+        {
+          "start": 533,
+          "end": 624,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCompactLauncher.java",
+      "before_sha256": "741bea670f8b9e9607b9ee4481db57619e29d42d16875d580066962ae67d4aa5",
+      "after_sha256": "79783f3f896b1e4e22b4d19f205e58c69d6fef6970faf3a78cf5f38cc134ccca",
+      "edits": [
+        {
+          "start": 494,
+          "end": 596,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float p_147500_8_)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float p_147500_8_, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCompressor.java",
+      "before_sha256": "aaf84d6a0d89950be61aad85ff2976fc9d02ba1d674a84198b0ec181f4b35bbe",
+      "after_sha256": "219d2f399f51c54221e161c1857a9d81443d888792eca1acd9f08af612ea9091",
+      "edits": [
+        {
+          "start": 547,
+          "end": 638,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCompressorCompact.java",
+      "before_sha256": "44e31ce6a152eba7ef575dbd11f8b423173368790264a4b49ff12e55b7a011b7",
+      "after_sha256": "ac02a06feb983ccc572d73c2542b9e7c8dc20f34dbacce88e8f6fb4ef6ceeae5",
+      "edits": [
+        {
+          "start": 446,
+          "end": 538,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCondenser.java",
+      "before_sha256": "0ecdd74fcb3fa618776e1ea200008fcd4db7a64ec947e0ff453dc6caff8adeb7",
+      "after_sha256": "c0f85ede6f4ff3d0d133e169f2eedf5124cc93df36effc27ed18ee2d9110f36f",
+      "edits": [
+        {
+          "start": 544,
+          "end": 636,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderConnector.java",
+      "before_sha256": "4a7662e922741ed287c764f9d52d1cb72a71bd6f84681b9ebb1d61d3169e0f78",
+      "after_sha256": "f8cb86564aba1cbfb2cda5d55a18422125807a459140c0265db2320b94490938",
+      "edits": [
+        {
+          "start": 415,
+          "end": 504,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderConnectorSuper.java",
+      "before_sha256": "a14530cefbd9ddef0619d3c6e93964819530c11898f39fec7d2678cb9305f87f",
+      "after_sha256": "5f710411e1c3b9b5b368d97cf663911e046d523fe1502222b576941f7298dafc",
+      "edits": [
+        {
+          "start": 425,
+          "end": 514,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderConveyorPress.java",
+      "before_sha256": "3ad6b586d207a6208c40543fe09c22e39df5e456f8e358e3c0358810e7617ea9",
+      "after_sha256": "6a06aa6be8e8d16c3ba90a81e608a1ee091cafe413371f4e7a0a40cfc02a64ac",
+      "edits": [
+        {
+          "start": 469,
+          "end": 560,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCore.java",
+      "before_sha256": "b36b4ef413ed472eb282c48465c40725482d28fadd0d264812afb123f8875070",
+      "after_sha256": "411a9940e853cd5559eed41cdeca6d84090a2940dc11475ab557d09a76250292",
+      "edits": [
+        {
+          "start": 1042,
+          "end": 1134,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCoreComponent.java",
+      "before_sha256": "899d6fa0e942c00ec9cd02814a891053111bc8d80c5784efa58496cf152b8895",
+      "after_sha256": "a80d149c611e671ccc5c677dbe9bdd8b4a2a6223ae6d3f7926e561b72cc974cb",
+      "edits": [
+        {
+          "start": 942,
+          "end": 1034,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCraneConsole.java",
+      "before_sha256": "c8994101903e4b4e841dce9f69bcc698b9ad2364c0a643af6fe7d8b28b952fef",
+      "after_sha256": "b0e0aa9abaaf165077d23d78efab33bd7d4341133cb6d99ae697e6f586021af1",
+      "edits": [
+        {
+          "start": 458,
+          "end": 547,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCrashedBomb.java",
+      "before_sha256": "fbb6c6b60e5cf0352950e1e0683daf8b1616198ded6a7e23194e76fe68dca849",
+      "after_sha256": "700cca5d6eec2fb7724a2f7ca1c28f72ce68d3bedf46862af55752afac51bfb6",
+      "edits": [
+        {
+          "start": 688,
+          "end": 774,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCrucible.java",
+      "before_sha256": "f97a71ae8f3b6d650bd9d025034006ff15456ef685c111da19413bee057c45b8",
+      "after_sha256": "804b99957f3de3e3f4f5aa2c0d92de75e07ac72f2b46dc3b5b03bae60e0ce2da",
+      "edits": [
+        {
+          "start": 964,
+          "end": 1055,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        },
+        {
+          "start": 2944,
+          "end": 3009,
+          "old": "renderTileEntityAt(world.getTileEntity(x, y, z), x, y, z, interp)",
+          "new": "render(world.getTileEntity(x, y, z), x, y, z, interp, -1, 1.0F)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCryoDistill.java",
+      "before_sha256": "ef2e59268cf43f8564fc50ba2d82c3074079254cc4109bbdd92810a1fe1499b1",
+      "after_sha256": "e70a07e45f0e7e3014911b12155df7ddc247e71c7f50d7518d41fe022cc2db0d",
+      "edits": [
+        {
+          "start": 411,
+          "end": 497,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCrystallizer.java",
+      "before_sha256": "706a355fb205e7f3bcfdfd093cd6055ccdccafc00af1239ea8e876fae462c7ac",
+      "after_sha256": "1a1b1d3e777b19db67adc7b651ae937325c81c19c9d2e3d5c9f9bed49f41df1a",
+      "edits": [
+        {
+          "start": 564,
+          "end": 652,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float inter)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float inter, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCustomMachine.java",
+      "before_sha256": "39e6bb1c4882f108a4f1a5c2f328053a341c780b501ecba6e1a216d7a555ad98",
+      "after_sha256": "16cb1abd6c7a211de9729c219445c00d15e72f94bb3e35cfd05abf4ade104dd3",
+      "edits": [
+        {
+          "start": 514,
+          "end": 605,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderCyclotron.java",
+      "before_sha256": "c467fa96dc3f551be420a1aba512e18d99d53f8754ebd20a1004c1720b8543fe",
+      "after_sha256": "86262e311b4ecf234b7224611e33e3cbab07812b7f7bfa7076fa12f837223367",
+      "edits": [
+        {
+          "start": 458,
+          "end": 550,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDecoBlock.java",
+      "before_sha256": "7ef688a9e3234e7ce033b292edaca8abed55b63faea3b85dd63b45fc533f8653",
+      "after_sha256": "5f82fef29fa93194d5b53a6968416c68892af716fac16726467cca919f510151",
+      "edits": [
+        {
+          "start": 1518,
+          "end": 1610,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDemonLamp.java",
+      "before_sha256": "7fd331c012daa6576e57b06f5bf587a704c940ee090ecc130e1c2928a71822c8",
+      "after_sha256": "f44a4a0e536cbb3125b33f6770fe92184f46ce85256221b35116f8c1907a9a28",
+      "edits": [
+        {
+          "start": 785,
+          "end": 877,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDerrick.java",
+      "before_sha256": "2cf523010d44520fc55ecd68076faf026d0aae9ba07350e5b43c64f62e959c49",
+      "after_sha256": "d9f5b7da4a9433dc74da6a22389348394203a2a4e8aecc72f65851c852a564b2",
+      "edits": [
+        {
+          "start": 404,
+          "end": 496,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDeuteriumTower.java",
+      "before_sha256": "a47368757d5f638e807a45e8fb62ba1b6032ee8f3fdef1b0cc09669cb00faf60",
+      "after_sha256": "9fc60fcb65f9611e83fecb268c2a69d19fe01e358ba14059c416197e0143b76b",
+      "edits": [
+        {
+          "start": 309,
+          "end": 401,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDieselGen.java",
+      "before_sha256": "38a595c7b792b0ecb99c51021a3ff079bcaa53f412be0833a8f2dd69b58604de",
+      "after_sha256": "97af7014c9fe77634eb1422edb9d54ff163d458d145b736135bcae0159ebd1d4",
+      "edits": [
+        {
+          "start": 504,
+          "end": 595,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDishControl.java",
+      "before_sha256": "45a965721a9ef040b43d9bde8fc906e6ef70c74a6805d5e34a513ed82fcca441",
+      "after_sha256": "8de945546c48d41002387fcf80205021e7558ce80455c842f9952d0c2f706e11",
+      "edits": [
+        {
+          "start": 463,
+          "end": 552,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDoorGeneric.java",
+      "before_sha256": "2c2f13c5594b57c2a2cad151374d29800acb78e403535e1e4288717feb14cbf6",
+      "after_sha256": "e585fc277d731b4640b32ea31fdd24ffb3f271ea7197830e320a381ae6168f0e",
+      "edits": [
+        {
+          "start": 1032,
+          "end": 1129,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float partialTicks)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float partialTicks, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDrain.java",
+      "before_sha256": "27c4b97983df99fcc359c19e919e1a3612f28ad8fb1c9caa7a3c862328168742",
+      "after_sha256": "9ebf949ca708e59aeef273fe962893706d807ab6c08538663a84de04503e1091",
+      "edits": [
+        {
+          "start": 402,
+          "end": 491,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDriveProcessor.java",
+      "before_sha256": "37488195562da2e9cb6134232581aa6e98ced2ed346778bcd1b09f2a760e95b6",
+      "after_sha256": "9128816a9116345c18f9b3401543b71bcadc4a7509c6a6b9ce44d44b2fa19ccd",
+      "edits": [
+        {
+          "start": 478,
+          "end": 567,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDysonConverterAnatmogenesis.java",
+      "before_sha256": "cfb033d7cfee8cbe98972f77f38093cc08f57890eefec036a84d27eeabd6d4d3",
+      "after_sha256": "78dd79b0bdb3576166dc279da592b229867b8cdd41d1095b03b46570eeeb2c40",
+      "edits": [
+        {
+          "start": 497,
+          "end": 589,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDysonConverterHE.java",
+      "before_sha256": "114657ce2c845be5e13b2f4dd1a202dec31b7916981f0700f4802837bdbad6b7",
+      "after_sha256": "be3136da2f203c629b8183b7fb8bdf2214223ffac9838a9870c109da6200af11",
+      "edits": [
+        {
+          "start": 475,
+          "end": 567,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDysonConverterTU.java",
+      "before_sha256": "527d91dfa1dfa2c099cc78a21ce4d8cc1d907c469bbbf618fcd5d29e6f66243f",
+      "after_sha256": "01c56b846dd7989c3e78da3eea5dd3aa46b0c85f1ba6da2fa4060cc5f27d88f1",
+      "edits": [
+        {
+          "start": 413,
+          "end": 505,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDysonLauncher.java",
+      "before_sha256": "f25887b172ae65b7bfee431f963be11c3b29eea988dbba6fa0f19c8979f9d3be",
+      "after_sha256": "500101a838f15022e7369db51f4bf2f2af5a726ef8f24b9f7ec09d3a64efd4d1",
+      "edits": [
+        {
+          "start": 469,
+          "end": 561,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderDysonReceiver.java",
+      "before_sha256": "952753fe28ca6fe90799cf4db215bc55dc15ee5f09d13b93db1def7d187c1ecd",
+      "after_sha256": "633bfdd1d67540d3b2f3e5bd02beb39f18cdcb17dbd6eb82f7b2c598f60ece2e",
+      "edits": [
+        {
+          "start": 704,
+          "end": 796,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderElectricHeater.java",
+      "before_sha256": "01936c8007d96df0f0261404573572c185daba2414aea35d38e2b02552ba08b4",
+      "after_sha256": "c51e7e28332aa56d5ef5139ea7e74c713ad4d1bdeeef00c4185b9bdb0337e381",
+      "edits": [
+        {
+          "start": 525,
+          "end": 616,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderElectrolyser.java",
+      "before_sha256": "321deaff5d787b3a003ce120ee46d49e1c8c37509f26bbf11eb5c4bbad4e9754",
+      "after_sha256": "659a35bb9bd0f45eedabf92a80c3489d6443dbc307ff6f3e2b2914631f58ae96",
+      "edits": [
+        {
+          "start": 409,
+          "end": 498,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderEmitter.java",
+      "before_sha256": "b7360b584353d8cf88d5ef9cad333d493822f2b099065c01cbb5e40266ff2ac6",
+      "after_sha256": "d72660f91e866a7b53e1a56461d0ca145d476579c730c3204f4897b9242edb60",
+      "edits": [
+        {
+          "start": 534,
+          "end": 626,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderExcavator.java",
+      "before_sha256": "eddde48995131f0a9928ce117dc64db819d7012ab8672971d4916c48a669a9b5",
+      "after_sha256": "1a370e5ec2e70b256a7cbd1c25ea75e82884b31fafbd5bffd5820c9bff6ae715",
+      "edits": [
+        {
+          "start": 852,
+          "end": 943,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderExplosiveCharge.java",
+      "before_sha256": "7af22f813428375ad2b275c90e87e1af9550adf0f7c17b3e538e8a85f59e7d47",
+      "after_sha256": "95bbfd3a1236d0d4e5140b6a8491175bf16d4447b8cb7f27706cb4158cd5cbe6",
+      "edits": [
+        {
+          "start": 436,
+          "end": 527,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderExposureChamber.java",
+      "before_sha256": "e55ddfae154298357e67141120fc4c76db94d513c6da67fc6e37c9bc4367b31f",
+      "after_sha256": "3c537c588bbaaf3cc900d285a0a85ffd547728705615372b7fffea127027a4f3",
+      "edits": [
+        {
+          "start": 741,
+          "end": 838,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFEL.java",
+      "before_sha256": "8653df897b59b507ff8e1cb3b2ed1c6e2fca29163b4333083f6a4b0c883adea0",
+      "after_sha256": "50f567565b42937dadee91fe4481b81c1d048bdcee6bb67e323e2e1eba38e3db",
+      "edits": [
+        {
+          "start": 653,
+          "end": 745,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFENSU.java",
+      "before_sha256": "ef23053c7439a9498cddb35c25412c1579df35e7e7f6bf6cf354613dc55cc6c0",
+      "after_sha256": "f4c1b46a01c631037638f265aa449df7ac6cff7f361f6ce8aab5d1a013eb4bac",
+      "edits": [
+        {
+          "start": 605,
+          "end": 689,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFan.java",
+      "before_sha256": "5d0e94c0af060015c6b489bfb070b75486fab7967d868b887c73496c3cd29172",
+      "after_sha256": "43edc5377001e692cb66e1de69cf88fff08487dcdb52c80b9e05d6c576835ce5",
+      "edits": [
+        {
+          "start": 495,
+          "end": 586,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFileCabinet.java",
+      "before_sha256": "5227d3e18e15b3a3da2421b0b0ddf7a7a8dbcdb97b6d06c7568f1e469a5a3788",
+      "after_sha256": "03a9eed7bd884255269d5f28467f278d377092850e4ec02186b91211d94da41c",
+      "edits": [
+        {
+          "start": 550,
+          "end": 641,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFirebox.java",
+      "before_sha256": "a05131f9562f758c547ff28470f663a7971548cf1fb8cb95c2173245c7291286",
+      "after_sha256": "d436d07115b9b4f444890afeab4a235dfd2f828e45aceb396e595db466a06ca6",
+      "edits": [
+        {
+          "start": 514,
+          "end": 605,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFloodlight.java",
+      "before_sha256": "8661a7869977197d49442ca51b401a8687f9ee8c2a3a4912a2ee5d94f6672f0b",
+      "after_sha256": "c9591662cab544c0cd0ce79acdc61dfb6d723c8bdae8324f907e4d2a1af3cb32",
+      "edits": [
+        {
+          "start": 903,
+          "end": 995,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFluidBarrel.java",
+      "before_sha256": "5ee04890cfa2eb23bbb987dba1782b468a6783d5fe03f2930b446218e59d645c",
+      "after_sha256": "69483e045d76e18fba823940ff150719e628be78c6952231d7f71b5528b70618",
+      "edits": [
+        {
+          "start": 542,
+          "end": 626,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFluidPump.java",
+      "before_sha256": "aa431a2822eec97c896d8bdcd594d8a7b21c2b52006ccbf89f4b5d7fe6abdc06",
+      "after_sha256": "b2ec124fc9ed11eb589e24db576f24356911866c079b8b627935259b28fbb7f0",
+      "edits": [
+        {
+          "start": 368,
+          "end": 459,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFluidTank.java",
+      "before_sha256": "35c1311a33bf78274ff929274390b9d99c995debfbcfdea84c99d909636d7b76",
+      "after_sha256": "398035bab4cded7eeb5602af3e02e55913c450a8a09352172eafc7652aeceb9a",
+      "edits": [
+        {
+          "start": 942,
+          "end": 1034,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderForceField.java",
+      "before_sha256": "01981a55923261342d7a43b1f9f1b0709da9f09fb7ba8895c69b1377e5e27a19",
+      "after_sha256": "d89a69499e79d90b6531d4c0bbb2daf916cd155aeb5888faae04b1ff712381a6",
+      "edits": [
+        {
+          "start": 392,
+          "end": 476,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFrackingTower.java",
+      "before_sha256": "84c0a3805ef833673c019c666b9d8f9be5bf993f1fb9d673ebc7bb9945483d3b",
+      "after_sha256": "9c87baccd6fa5af67077ba6d49a3546ccab2aab2887040b892e5bc2c62699f8d",
+      "edits": [
+        {
+          "start": 508,
+          "end": 600,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFractionTower.java",
+      "before_sha256": "35cfdb3d83c755b8f3bb0c5da8fcd9ffe9fb59e5d61c2176ea22202260c96002",
+      "after_sha256": "bf4ffbda9f26240eaa009775dbe921bae106f4cff9fd027b2b2103055d6d65d1",
+      "edits": [
+        {
+          "start": 307,
+          "end": 395,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float inter)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float inter, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFurnaceCombination.java",
+      "before_sha256": "ef84f422bd2b5b25d1316d23066b0bd857594572df512f4e2bcc9dbd896f7980",
+      "after_sha256": "2120902c5864bf9b19226a4ca5f6b096749195041697b3745422acad2ec536a5",
+      "edits": [
+        {
+          "start": 802,
+          "end": 894,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFurnaceIron.java",
+      "before_sha256": "d888b5cd0d6f15df80abffaf12a5005a609913976a4c5705359cd26fa71c90bc",
+      "after_sha256": "f05923664e9644619a50a8deee609898f67c4b4adbc0ddd387fa978c6b850da3",
+      "edits": [
+        {
+          "start": 451,
+          "end": 543,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFurnaceSteel.java",
+      "before_sha256": "62a29eb9b5ff29ac585c9f1cf5412462361eacb76a5e4d4fe9aa0be83a944448",
+      "after_sha256": "76dea2abbcac05bd8f5b0503e79d81e7c6f0527640a980bcd8230b7e4b5cf374",
+      "edits": [
+        {
+          "start": 517,
+          "end": 609,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionBoiler.java",
+      "before_sha256": "e06ef73a117c58f6d38044aa9801c4e5a7b5a7bd100e2522efc13c7bc1d09b29",
+      "after_sha256": "54b24478ed97008bec9e74e923c77d8a0741a4b116fc03ca1c009ae42f740b44",
+      "edits": [
+        {
+          "start": 409,
+          "end": 500,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionBreeder.java",
+      "before_sha256": "2bc94a8575a6fa4327c74f3c01e4e34af2e86239da46cdab93d3ed645523e647",
+      "after_sha256": "5b473fd09bf6d0dd2d1571bfcf55c6377429149a5db8d4bbb7abae1697715522",
+      "edits": [
+        {
+          "start": 410,
+          "end": 501,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionCollector.java",
+      "before_sha256": "c1d1acf52d85e4c2f37815528d243a7cc03e1d52afc1b5e8ac45598786108102",
+      "after_sha256": "da7971ef4658cb32fe76952c3c5441c68c13f413d30e00e9b2103f44d2733a22",
+      "edits": [
+        {
+          "start": 412,
+          "end": 503,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionCoupler.java",
+      "before_sha256": "33f86a348f6c19d51697b2e699bb9939ec6c51db8302dc14120081d253663fd7",
+      "after_sha256": "b2eacb54e1df1c9ccd9c004e9b9eeda8aa436ae7ecb7e52bb75629eda19c8f64",
+      "edits": [
+        {
+          "start": 410,
+          "end": 501,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionKlystron.java",
+      "before_sha256": "70f2f61b386a706a4fa22783cdce8b06dfe38dec7e6550c191d80e9d2d20e939",
+      "after_sha256": "3b8c1955a8baeb5a85301118ba00b812c959c234a8248e0650b6d4e7c6ea142a",
+      "edits": [
+        {
+          "start": 555,
+          "end": 646,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionKlystronCreative.java",
+      "before_sha256": "aba795da673019d52b131e1e7009cdacf5c7ed368093777c63d8baa494881320",
+      "after_sha256": "9d7832f7951d579c61fd7a41178bc3ef8bc62a56038c7d72b6c6a22e21787f49",
+      "edits": [
+        {
+          "start": 571,
+          "end": 662,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionMHDT.java",
+      "before_sha256": "6ba8f2fb92a034b72a03e82b1ad4afc81d0030ef6c3801d8020438e55e08201e",
+      "after_sha256": "ef95427f95bcd7f13f3195fdf4b3e77d309d2f29f0a93c63ca98a2ad75a031f3",
+      "edits": [
+        {
+          "start": 547,
+          "end": 638,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionTorus.java",
+      "before_sha256": "65349d13967711961bc4b546accab78d94340a51131d9bcaba67470b7662f262",
+      "after_sha256": "d541efd277789f5f44fa689354920ac3ce532d81198d62679cd6038e06ce1a3a",
+      "edits": [
+        {
+          "start": 703,
+          "end": 794,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderFusionTorusMultiblock.java",
+      "before_sha256": "459c66b95daa9043d5ce0e58adf4d6bb9f5617e322a5e8d2529c23eaed4d76f4",
+      "after_sha256": "a25646a544a04ca42ce953e2ab7525cc16665ece7a3b325a4c98a23b5ab037c8",
+      "edits": [
+        {
+          "start": 471,
+          "end": 562,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderGasFlare.java",
+      "before_sha256": "06fbee17a0fc5120c56f42d39f9c71ce20bc2562ad2ed80eb10939d4f67f7db9",
+      "after_sha256": "eb0553f418f5ca75ece795c618b83f4254db4e6d8632c29cb637fc9f0acc9362",
+      "edits": [
+        {
+          "start": 302,
+          "end": 394,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderGeiger.java",
+      "before_sha256": "d0749617cc49f90a7dd2f4360a455dbebcf65a59ed7248a622411d2c79273e8e",
+      "after_sha256": "810c3766b26b354affb60874800102a453cc7f542cb9673bde84778b8fda0e67",
+      "edits": [
+        {
+          "start": 364,
+          "end": 456,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHTR3.java",
+      "before_sha256": "0f4a9d150f536e405f47fb453c331695219b43dab696e43645dbb2b16f860a28",
+      "after_sha256": "eefd042006f60c91da872a9ea91560f748c886aa1ebb93df9bb28abc520f0cab",
+      "edits": [
+        {
+          "start": 491,
+          "end": 582,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHTRF4.java",
+      "before_sha256": "f116928d6f2c484997e6ea3b7c1fc4c5fe6d086195f68dd976b5f76fc3fac2c4",
+      "after_sha256": "7e0319d9fcc3253e2bcb3da4382e435f878be9a03b8c1ee2a6716532b1f0082b",
+      "edits": [
+        {
+          "start": 402,
+          "end": 493,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHTRNeo.java",
+      "before_sha256": "78ebd6c0b5fd8cf1f38b05d7ee58dd7030372fe3dc61c8f2aaf159713df4a908",
+      "after_sha256": "b032e2919abad98d5ddb1bc285c6757221ed362ee0c6920d141afcdb6c324681",
+      "edits": [
+        {
+          "start": 540,
+          "end": 631,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHeaterHeatex.java",
+      "before_sha256": "331f2b655011e5a8e035547c7e9c1493bb5e3d5f9e85f67e1f69e202239fcdc7",
+      "after_sha256": "26eddee4a9ad8cb9868425aab313a38e476ef39ec332899eb773dbe665968aff",
+      "edits": [
+        {
+          "start": 409,
+          "end": 500,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHeatingOven.java",
+      "before_sha256": "aa233d8e4c89f47fb36c164aa5535f3ac39165e5302b4131960f93e4771514be",
+      "after_sha256": "80276299e616eae085ea258c61c833c2f4a5451de178f895e724d1ea5b961f8a",
+      "edits": [
+        {
+          "start": 515,
+          "end": 606,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHephaestus.java",
+      "before_sha256": "dda71899cd401949dead18f90ccb1d0360ab23c43d65d01a7c1728e10cc14e7c",
+      "after_sha256": "0ad16788da4140c80f90641c72b29386fa5c7b898f2a0a9e39fe9f21f410c050",
+      "edits": [
+        {
+          "start": 560,
+          "end": 651,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHydroponic.java",
+      "before_sha256": "6da7a30c9c02604e12391e12ccf9b1c98cf9a2ce2f7886cef1f8095cda76c431",
+      "after_sha256": "c197ff265af44a9e23293fa60101c214f527dc889c357ed5b2f20daf89fbe5ba",
+      "edits": [
+        {
+          "start": 514,
+          "end": 605,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderHydrotreater.java",
+      "before_sha256": "b448c6a706c1fa0e4ad3db738cdfaec10c19c96a6cfdf6fb8b5c75b441b48658",
+      "after_sha256": "208544b86fa3f0933e8a267fc38e9950561f547654d346dedcfac7956707f119",
+      "edits": [
+        {
+          "start": 371,
+          "end": 457,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderICF.java",
+      "before_sha256": "ff838f064400273a06e1f7ac55f1d3448921f7d9bf5b45cb6d6765a7c101f3c4",
+      "after_sha256": "62d5cf274e6ac34be4cec5c37318b6e6d92a033aeaf8fd133b951b011e350acf",
+      "edits": [
+        {
+          "start": 477,
+          "end": 561,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderICFController.java",
+      "before_sha256": "e268cfbc579de9439effdc60f38f59c413f5db2a48a73e76c7f2e64c9cdb7d85",
+      "after_sha256": "34418f2346352e4c97a9fd81609b2c4e70de4cda6608eeaf32108eca06a77096",
+      "edits": [
+        {
+          "start": 564,
+          "end": 650,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderICFMultiblock.java",
+      "before_sha256": "02c7a6388147073c31ebe973545522493c275460991e0c7e2f0694adca46aea8",
+      "after_sha256": "86f19f4713f33b1c16e4645aed65b067ca35849fbe47793cc417ceb8d1e653db",
+      "edits": [
+        {
+          "start": 406,
+          "end": 497,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderIGenerator.java",
+      "before_sha256": "14683d5faefab614d5ab65a04c52eb9872db50f03d8d74d8ac082a80496ea18d",
+      "after_sha256": "bac561c27387aacc7d7b0ec6729425f44579fb62e2feacd19aaa6d936272ddef",
+      "edits": [
+        {
+          "start": 435,
+          "end": 519,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderITER.java",
+      "before_sha256": "2162a0e1dd42db517c06f8810e2631e1b3e63d06988bc00db0cecf93ae9b7e4f",
+      "after_sha256": "7af8c221164c11f1620210a60b647b570898a994ad6ab0f8e4dd7ffbb40ee0e9",
+      "edits": [
+        {
+          "start": 348,
+          "end": 432,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderIndustrialBoiler.java",
+      "before_sha256": "149617f9348f56f066904538ea3960000941b0b4fdea9dd4fc2455e1c0f7249d",
+      "after_sha256": "c0650910f75b6f83da1ad756c6eed790dd017cff4471f1173b8d956ea7335d96",
+      "edits": [
+        {
+          "start": 489,
+          "end": 580,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderIndustrialTurbine.java",
+      "before_sha256": "cf10a67dcb199c4d95837db79eb4a23b0f4c66807b45c6446dc6ebd5429d2c09",
+      "after_sha256": "595597d8ce6a476c4170317add33bd031022c106cc41e4e87ad34259281c1000",
+      "edits": [
+        {
+          "start": 562,
+          "end": 653,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderIntake.java",
+      "before_sha256": "a878204273a799f07e128bba564c10f29138548fac6a45f20d2b191eab6f3070",
+      "after_sha256": "2a12af57a7777499c467edd7daea9f42bff24dffa83ce9b5b3b01372f2f2ddfa",
+      "edits": [
+        {
+          "start": 424,
+          "end": 516,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLPW2.java",
+      "before_sha256": "8b51b938f7ffaa1c3fccd2e18257a26ac83ef1e3ca26e7a2ded9d6e688a525b8",
+      "after_sha256": "74f1fc28db7c5864ef5efbd0a422957a2e2045c1045d98bc7ce6ed610583e05b",
+      "edits": [
+        {
+          "start": 530,
+          "end": 619,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLandmine.java",
+      "before_sha256": "1d940baad1b1d123c562602d2b3e7a5f0a91c62f4778b3cc9aae383b73122e41",
+      "after_sha256": "47d8a24759830cb0865d82cfa8121805334641ddb9d5da98efb58a75cc020eb4",
+      "edits": [
+        {
+          "start": 480,
+          "end": 572,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLantern.java",
+      "before_sha256": "65a2f5ba9174c803ead91803f665cc7806046afae97b174bc03da78f5f0982dc",
+      "after_sha256": "0ebbc9c848bfe7244c10de8e0d67d53a35939a76ca5073df54d5f883961654c5",
+      "edits": [
+        {
+          "start": 494,
+          "end": 585,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLanternBehemoth.java",
+      "before_sha256": "fe0ec853079849558f1314c70dee91a28e589f84fb289b6e8c35f77c2c6db4da",
+      "after_sha256": "97de423402c4ed27412a6f07e83c5c83010f34fb272c632f0164a948bf0e5e56",
+      "edits": [
+        {
+          "start": 418,
+          "end": 509,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLargeTower.java",
+      "before_sha256": "ff5d2c64815ad570d211c0259a7f95807aec421d738736d5ce7dd28fcdf379a6",
+      "after_sha256": "760159685c285042b2107c69079b9f6bb0b7fd8a025c66f7dde07cb293a725c6",
+      "edits": [
+        {
+          "start": 304,
+          "end": 396,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaserMiner.java",
+      "before_sha256": "0e32869d662110e59e08ad74e4b02f351a7801274bbf6b5d09219276123b5724",
+      "after_sha256": "f206a84f0a65af7bbb0f3f219ff0be7d455fb970948e8953e91641afff03f9ff",
+      "edits": [
+        {
+          "start": 595,
+          "end": 691,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interpolation)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interpolation, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaunchPad.java",
+      "before_sha256": "d3fba2cb5107546a81e986caad44f482d9285b85f828884c5a5912ad5c579dd5",
+      "after_sha256": "c6600aaf283675094844a850e061bfff2fb485634304e98eb32dd7d800a80bce",
+      "edits": [
+        {
+          "start": 637,
+          "end": 729,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaunchPadLarge.java",
+      "before_sha256": "2dfe9f87b0e9dde56981f5082a1a27dde16b81ec0a79918635c0985c93f762d2",
+      "after_sha256": "606e2941363315ed5c4dba8cac3b52c76b6a340a17dcdf0a5037036234b8c60e",
+      "edits": [
+        {
+          "start": 889,
+          "end": 981,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaunchPadRocket.java",
+      "before_sha256": "d1625d657dae793a2b4cdbfcb93587d61222afd2bc9937e1e575073c4197ae5c",
+      "after_sha256": "bfea5f2f5038448a9faff09e9927eb994a584d07ee9e7c03968e1c542bfd6a71",
+      "edits": [
+        {
+          "start": 552,
+          "end": 644,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaunchPadRusted.java",
+      "before_sha256": "3e7e36a45feb5818eb3fa299f6f534f5f7957e1e1cb7766da3c56d17fe449314",
+      "after_sha256": "1d0ac88ba9e432ac43c4acb9cf899cad7223092730dd46b40669919a555c7a33",
+      "edits": [
+        {
+          "start": 708,
+          "end": 800,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLaunchTable.java",
+      "before_sha256": "ca3ffc1a8994f4e001da13a9ebd4f700da9bb8f9d015436e94bdfbe0df2e813d",
+      "after_sha256": "5e897390dbd253cdb10d93482bb7acf30dcc0e4f11b6e2496dba41873d91c3a8",
+      "edits": [
+        {
+          "start": 679,
+          "end": 781,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float p_147500_8_)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float p_147500_8_, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLiquefactor.java",
+      "before_sha256": "cf3b001ca06dbceb4809f14c6e7e1eb4043c1d69c5f3644df532399aa8053244",
+      "after_sha256": "8b724c35eccd00128816c9fc001b2ebf425a0e9f659008d0d8e67ef7ae2f4088",
+      "edits": [
+        {
+          "start": 424,
+          "end": 516,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderLoot.java",
+      "before_sha256": "8304334a4f5cb1d016348ec41757de41739484625f6e98afe25718298073b265",
+      "after_sha256": "1d3f0503fd3837db327f9b14dac2479afd7889351e9081e0883350b344fc8298",
+      "edits": [
+        {
+          "start": 965,
+          "end": 1054,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderMachineForceField.java",
+      "before_sha256": "339bbf6b1e896506a14ece89932658f0140ef25d476fdd21704ad902db8a8903",
+      "after_sha256": "25683501a70e79c8b0989254499f4140bbd982ecc05ec6657e191119b491117c",
+      "edits": [
+        {
+          "start": 455,
+          "end": 539,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderMicrowave.java",
+      "before_sha256": "d6e2c2a0435b1e55f99d8d76cdba52d098baf88f2d8da0deabf214828a7d5eff",
+      "after_sha256": "4c9ff22e53ff9f49cb900e80e907eccd2737636abb93eb41889dec0aaa83d692",
+      "edits": [
+        {
+          "start": 358,
+          "end": 450,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderMilkReformer.java",
+      "before_sha256": "b31e1f513f6e23a66a07e346d71a25b77a5e3f4dc6597ab9c6ff1de80da6dc61",
+      "after_sha256": "e683495aa61bf2e884da2304c219ce604aceff47a34b3a69ff3497bff20bba78",
+      "edits": [
+        {
+          "start": 423,
+          "end": 509,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderMissileAssembly.java",
+      "before_sha256": "5c6daf3d260ac8940af5dfffd5e76a896e2b9d02d6799bd0f2e32c7007a0dfb3",
+      "after_sha256": "6aa05f27a11a093afc78403710139ce53b96fa463904213a3301d224544b576f",
+      "edits": [
+        {
+          "start": 583,
+          "end": 675,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderMixer.java",
+      "before_sha256": "7935ca279e540d135bdb3521a852a157074b74f7625c8796ff1a80679971ecfd",
+      "after_sha256": "98c5e0711a02d224798795d41bc0193fee9b10364a50a002c72b0597a7836bdc",
+      "edits": [
+        {
+          "start": 583,
+          "end": 674,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeBoy.java",
+      "before_sha256": "e17c20bf28f5190d1812089ed1c87ef5a50f1f4a85ef9d0747becc7c2ffdafdc",
+      "after_sha256": "3f985b15492f75eb7b7030422682171721a8ed7e7e8668b8666af8129a91b4e6",
+      "edits": [
+        {
+          "start": 304,
+          "end": 396,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeCustom.java",
+      "before_sha256": "28b4ced63f748b10fbae85cf73eba901b771bc7c66186139c6a799a54d6d716a",
+      "after_sha256": "790814583d3a3488c593529566b0b54f75cc07e34273d0f10e01415452b4b6dd",
+      "edits": [
+        {
+          "start": 307,
+          "end": 399,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeFleija.java",
+      "before_sha256": "8c06d8a0bc637d747d9e8895e0d877b9d77de883b9811f72627356ac3fd1c718",
+      "after_sha256": "923f6298a1c57b222d1c1f7e459350e1c08f3bd832071d6d90b30ca17349bc32",
+      "edits": [
+        {
+          "start": 372,
+          "end": 464,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeFstbmb.java",
+      "before_sha256": "916324a8d334463c37d19bd8bc7c594806d5a79374b43319c8fb69bfa3f9c884",
+      "after_sha256": "1f9566adb3b1c898c0c63805279ddbd15e9a269d8687e817e64b4de8f0cee1a2",
+      "edits": [
+        {
+          "start": 565,
+          "end": 657,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeGadget.java",
+      "before_sha256": "f60e1978b1eb151ce85170c817c88c77503569a8f03b09bbd28d346f914c1192",
+      "after_sha256": "3658e40c972178e3bf90619b3caed5e9f1e83817e77ecfd915f2706f2e26f10a",
+      "edits": [
+        {
+          "start": 485,
+          "end": 577,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeMan.java",
+      "before_sha256": "52688ae83c5ed24a305ed059eeb306058957899a58a460452e3698cd66a0d498",
+      "after_sha256": "293010dcd3489574be0b512826c3555ef63d2333c4b6d49281ae0c8bca839641",
+      "edits": [
+        {
+          "start": 366,
+          "end": 458,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeMike.java",
+      "before_sha256": "99550afb4952c538ff26a706c31a3ee45b73ffce28dcc2532852d6a9c1f5a041",
+      "after_sha256": "92845373f0f8818dfae473b0a10b6aea8d90e53713a967ab7885230c05ccaecb",
+      "edits": [
+        {
+          "start": 367,
+          "end": 459,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeN2.java",
+      "before_sha256": "b695ac60e4f19020fb6fc24f8ef8726d1e081ec8dd9eab63eafc39016a24bf20",
+      "after_sha256": "e51e30dce850f73cc85522bea9ce3af63fcd7a63e8f9635e0c9c8ee1510f6b42",
+      "edits": [
+        {
+          "start": 365,
+          "end": 457,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukePrototype.java",
+      "before_sha256": "42833007605c5aec38932e9062c2791031b9b20dacabd9effecc04890cfa4e97",
+      "after_sha256": "67583ebeab8125099ab10f2d34eb8fda13afbe6cd2a01aa9e02a47ed551babc3",
+      "edits": [
+        {
+          "start": 375,
+          "end": 467,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeSolinium.java",
+      "before_sha256": "adea581deed428a2c268984662eb857f45cd0c075000a10b20c162de07b89f3a",
+      "after_sha256": "e21e26a847fda6efb52e21bd3d0955ad6806fe8ab62893408d8f4f12aa7dbad4",
+      "edits": [
+        {
+          "start": 408,
+          "end": 500,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderNukeTsar.java",
+      "before_sha256": "5d89c4c21cdf41690f51a00a955d02f009df874477f844339e123ebdd3438788",
+      "after_sha256": "d99de2ba092f5071e3e9876c2800706dc56d485502c4ae9befe2787ee7a1a35d",
+      "edits": [
+        {
+          "start": 367,
+          "end": 459,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderOilburner.java",
+      "before_sha256": "b223cd03086c07e55e5f9e8662579f638414ee071bd3d63caa890a4d4ced4724",
+      "after_sha256": "e69f0d5c07abeb25a078234e53d94651fd8ca1d45b3cfbe647801277b69c4209",
+      "edits": [
+        {
+          "start": 368,
+          "end": 459,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderOrbitalComputer.java",
+      "before_sha256": "1a66a7305d5e363bd1d3c8420adac055960a67829d1562db5aff4e9eefafe897",
+      "after_sha256": "3d3d419eeaed3ef302a7f89948223656d96f386247e09042ae5a827ec7a99e35",
+      "edits": [
+        {
+          "start": 480,
+          "end": 569,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderOrbitalStation.java",
+      "before_sha256": "21a29934bdb608eec28764d7113b0cef0e6c5109a394f4b9367509180d61ab30",
+      "after_sha256": "c379ae75d260e944ddc148c6187cedfd7777ead2e49a4a8048f7e33288d46d8e",
+      "edits": [
+        {
+          "start": 772,
+          "end": 861,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderOrbus.java",
+      "before_sha256": "d711497360e46c8b4247c22bfd01ce44b3fe0913427a2ea37f8a9657af246281",
+      "after_sha256": "098b18604cb0fad841b986dd21ff420ad94dcb48038104abd05d2c014ebb2539",
+      "edits": [
+        {
+          "start": 587,
+          "end": 676,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderOrrery.java",
+      "before_sha256": "cc37152da4425dd992b06d89fb31e81e7ec670baf457b9bead91323263249c1d",
+      "after_sha256": "facdd4c302c0532a82074d0714608d6da096aa216bd6f35b816a6ad9cc212eab",
+      "edits": [
+        {
+          "start": 600,
+          "end": 691,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPABeamline.java",
+      "before_sha256": "20c960162d29d62a7274cb6d988aa9498622cad7ca0c059db2feb0d6a9760e7b",
+      "after_sha256": "a6c6bf58cc15661d4d69d1079d5e738e57d53856340da6ca76fc5f054dc7c589",
+      "edits": [
+        {
+          "start": 547,
+          "end": 633,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPADetector.java",
+      "before_sha256": "06c0680457e9e4b7061d2f396016400c107376f1982025f24e4c150dc8c51938",
+      "after_sha256": "2d0a6d49be5d17c8fc285c5be75a3ecb7c4e8d5297112de6c7ca8daa05ae1c71",
+      "edits": [
+        {
+          "start": 484,
+          "end": 570,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPADipole.java",
+      "before_sha256": "ab92f7d1cdd857df88319c588145799c803a9d6950db42b963234d458a6ea7ec",
+      "after_sha256": "bc60f907a414354a77a1e5907b0b1abd1296244f5f547f012225d96139044f4a",
+      "edits": [
+        {
+          "start": 444,
+          "end": 530,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPAQuadrupole.java",
+      "before_sha256": "6d35d05328f259647f159414687fefcf5576e718ddd9941de821b5738f3e4d59",
+      "after_sha256": "acdaf9de936dc5c0630abc1e737daec84404a2997a3ab04707fe57e0a529ac7e",
+      "edits": [
+        {
+          "start": 486,
+          "end": 572,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPARFC.java",
+      "before_sha256": "bb66ae5b0588a46522569074acc6ddf6f7d9481518a4223417bfd420caf6f7cc",
+      "after_sha256": "b7d4ba8b6c93ad38e410db92cc8c910ca37b51ec28f49eda7e7a700b4e0ba21e",
+      "edits": [
+        {
+          "start": 479,
+          "end": 565,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPASource.java",
+      "before_sha256": "5918b78264a39903d21db9b3e98e13e08afb889a4b42ed174ed829c27c14f828",
+      "after_sha256": "7f466186650a99752b1d93c6aa64a54f7115b6a95f01daff14eed3e0d35bde67",
+      "edits": [
+        {
+          "start": 482,
+          "end": 568,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPUREX.java",
+      "before_sha256": "a88a6ff7ea19494451a5c802173368c4a0eae039fb7bca823a66796e9558e99f",
+      "after_sha256": "38ca46c6f1e888d563bad4c84cb22d23e8433ea167eee25cdb0653b9e9194bcf",
+      "edits": [
+        {
+          "start": 607,
+          "end": 704,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPipeAnchor.java",
+      "before_sha256": "0a71c2d2bd73b254ae99c3359bd5912d440697f3d2f05b88b700967ff5bbddca",
+      "after_sha256": "41f789e97c6715dfc8daedbd3852a9ecd8a937632a1b8a420ff96a643c5af8a4",
+      "edits": [
+        {
+          "start": 599,
+          "end": 688,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPlasmaHeater.java",
+      "before_sha256": "68d3f02a38a2b37dc8a7c6bf90e0ee1410885862158223fc6ba1d587c77c0477",
+      "after_sha256": "d03a99a6d71e2cb73bb140829e91f6f02a710cfaa9d1b362363e885278d96e3e",
+      "edits": [
+        {
+          "start": 344,
+          "end": 428,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPlushie.java",
+      "before_sha256": "a27093b2954bf8d81daf4e0f6e55539c556a34cdf70f3b01d46d99e90ffbe2c9",
+      "after_sha256": "3f04353fd93fee682370cb25aadd707164ac81283e928d118103a663b28d0423",
+      "edits": [
+        {
+          "start": 3352,
+          "end": 3443,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPoleSatelliteReceiver.java",
+      "before_sha256": "388c2d9066811e7e10145172b36af32612d17e83386b288ac59722b8e7605820",
+      "after_sha256": "bcbdbf83fad6e18cae277c7adc66fce87cab0ff4560afcb185a72abb0bf6098b",
+      "edits": [
+        {
+          "start": 679,
+          "end": 771,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPoleTop.java",
+      "before_sha256": "12b8b394936ad8d35aa91d1c6f1db5cb2b1e28dfe9ef8c102b4e0bd26145db2a",
+      "after_sha256": "d08b0c489bcb22098be4a9f276f4e3a08cfa2c87094a60d3289aad084b0a277e",
+      "edits": [
+        {
+          "start": 607,
+          "end": 699,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPuF6Tank.java",
+      "before_sha256": "9fe9860f5cf672b39b72e187e0f620b431860be1ba0451f2659fdee9ac84411c",
+      "after_sha256": "3a692f7c97c286da15100102d753e3ecfa93665755c06c8fdabed9dac557f115",
+      "edits": [
+        {
+          "start": 306,
+          "end": 398,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPump.java",
+      "before_sha256": "32eca63f74b2b30fdc22971510b50170360bc21e100c4f20372da7a5c1ecb547",
+      "after_sha256": "3902bd248429a7648f1f450d36dcd285346266cbf9956954bd51c19e86a572a4",
+      "edits": [
+        {
+          "start": 576,
+          "end": 667,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPumpjack.java",
+      "before_sha256": "a107467a3e309351bbe92281b96522590b2b6a7f13fc21af7ad90a8fa46c5cfe",
+      "after_sha256": "3b2b19966c1730639c38c1648ff9a1833b6024ae127d693e5b9e84d92b0116a6",
+      "edits": [
+        {
+          "start": 493,
+          "end": 585,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPylon.java",
+      "before_sha256": "267ae69ef227fc78341b2a22fb86d5023ccac0bb0be70ed22ce5139b0308caf1",
+      "after_sha256": "a2eca204a12fe527f82e5ce68edf93ef9d101c9612450fefa4c9ba251b8f0aab",
+      "edits": [
+        {
+          "start": 566,
+          "end": 650,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPylonLarge.java",
+      "before_sha256": "7cb36f77a3c573351d80d3eb9a3788591a5aeed305a7496da623857cdb2abf8d",
+      "after_sha256": "77a185dcd423bdb891da37d56d8a877b78602a4761daaedb15d8c881699912f5",
+      "edits": [
+        {
+          "start": 313,
+          "end": 404,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPylonMedium.java",
+      "before_sha256": "82100cb3f7eab53dc7ceb4a68706e5b061b261d28c3da32aaa2e088e282fb848",
+      "after_sha256": "4c6e1f2b9d0da1302d73b0af6d6f085b0d58ebe260bae031c3b864a5ce25245b",
+      "edits": [
+        {
+          "start": 494,
+          "end": 585,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderPyroOven.java",
+      "before_sha256": "bf1e29254053966062420bde6d47a8b13bf0e8cf6053e486ef4561f386545757",
+      "after_sha256": "35fea6f03895dd107c361eea3a2f23ae19c649c2174d51d2a8d14a01526a997c",
+      "edits": [
+        {
+          "start": 504,
+          "end": 590,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKAutoloader.java",
+      "before_sha256": "326e382799ad34a3dec11eaa7891917a03038922d39de6804c34466380e16fe1",
+      "after_sha256": "c958cff3428b4946d282f014394c41acafecf4264f90fdde13bdf47d4ce933d4",
+      "edits": [
+        {
+          "start": 438,
+          "end": 529,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKConsole.java",
+      "before_sha256": "dfc01547423e820ac665932b7fcae6a9445133ea494bf5e1a13fd32552d64675",
+      "after_sha256": "ecd5ef35093f06f88f6ca6a4068a4f61df58ea63c5a1074069b4d10db0dae999",
+      "edits": [
+        {
+          "start": 751,
+          "end": 840,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKControlRod.java",
+      "before_sha256": "0a75f150dcaeddd6a8210ae2d39a83447e95ed971360ea7f94a8f074b83a3cea",
+      "after_sha256": "b89a7fb830e88be1e23fcfea0415a8534767d77064b59b83b311b9991408b6f0",
+      "edits": [
+        {
+          "start": 1347,
+          "end": 1431,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKDisplay.java",
+      "before_sha256": "6c100c5d0da3b41ce051afe1beb4f54e0927c530798b0119be2d6935a8ef2625",
+      "after_sha256": "4e6f3e48dbe09bc7f9bfb2fd391274c1df585c1c91338c954f00a821158e4fa3",
+      "edits": [
+        {
+          "start": 453,
+          "end": 542,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKFuelChannel.java",
+      "before_sha256": "cf25d95b59274f0d24759bc4bee2ead7a0999cdf109e4519d560e85bb9314e7b",
+      "after_sha256": "9f60d70a3fff9563957826b72f52b5b0e156563d8e7b75bba29b8de8e9ad7541",
+      "edits": [
+        {
+          "start": 666,
+          "end": 750,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKGauge.java",
+      "before_sha256": "0ffc70a1aa51186c652a0e19ea27893d0883acddd861ca81cc6690c1ced7f6f7",
+      "after_sha256": "6cfab71443fcda3c95f9a4f18cdbc3ecc4444790622d424d0459d683db66ab6b",
+      "edits": [
+        {
+          "start": 592,
+          "end": 681,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRBMKKeyPad.java",
+      "before_sha256": "d9c75cce7482cacfaf0629f0c46dca0354b70f57245d7f25e5159c6b35bf4035",
+      "after_sha256": "fc67cc1d4340f02a8e15f7c5abe95fb05cd2d15bb933c71d81b534250a2339d1",
+      "edits": [
+        {
+          "start": 550,
+          "end": 639,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadGen.java",
+      "before_sha256": "e088cd3fe5cedf214f76aaa709002571bb0c7930b19c9122138d2da25b1d8df4",
+      "after_sha256": "3c3c3900bcfd7074ecd5c1b190dfe90f6ea60b052bab11c14075a4acb40bbf12",
+      "edits": [
+        {
+          "start": 491,
+          "end": 583,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadar.java",
+      "before_sha256": "664f67fc4111c8b4f803c5088744c77311c9b1e342d3befb4aa495d0aa04ddf6",
+      "after_sha256": "81d1cee1a2287f933c5bb9c752deed3be42b1ff9d8375e315424841eedefca8d",
+      "edits": [
+        {
+          "start": 359,
+          "end": 451,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadarLarge.java",
+      "before_sha256": "5a2053718990fb49c17e18c6787e6fa79067fdeea5f8ac7e1bbcc59593ceaa9a",
+      "after_sha256": "8b4f4a465b3ce0b5061b4eb7d0c72aa712e5bbcc7a02b0c8e9e5ba6959d4f28e",
+      "edits": [
+        {
+          "start": 543,
+          "end": 635,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadarScreen.java",
+      "before_sha256": "d3a398138196a7d0275f6a52eb8eb30564c8d8edf7045274039e63904f40ac81",
+      "after_sha256": "676284149d489c2ffc6933d348da9c5383e96d415193dee16f61a1edb5291f64",
+      "edits": [
+        {
+          "start": 718,
+          "end": 810,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadiator.java",
+      "before_sha256": "ffb7079ad49d564392ecc77c40c2e6a35521daa8603abdff530293fbb4711aa9",
+      "after_sha256": "e808a1711500535b4013edb40c70e3e08db345b963f666e485c4bfdc82e356cf",
+      "edits": [
+        {
+          "start": 405,
+          "end": 489,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRadiolysis.java",
+      "before_sha256": "410e47d5ddaaa32de140cc60012ee50f2ca2b6247fad8ced11edb97e1a83585b",
+      "after_sha256": "1071d3c802b39ad510db7c70effbfe6cf5f2ac8d6fad17ba2c2a37e11a942fb8",
+      "edits": [
+        {
+          "start": 342,
+          "end": 434,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRefinery.java",
+      "before_sha256": "49d487a4f9a252e3d543587f1c23b99afd37e512a70be72e920045453eec61bc",
+      "after_sha256": "93c610406103d9d4913ac3cd553fb0f6152e6d94892f836761d2fbcc3485c0bf",
+      "edits": [
+        {
+          "start": 367,
+          "end": 459,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRefueler.java",
+      "before_sha256": "217abd0db9e2aff7eea586404652113f3b83b88c0d1f5faf1d9e193ad2cf3985",
+      "after_sha256": "a526da3ddb0fd00b819010dcbf61d498021a63e5c045157848d21105e37b9ef6",
+      "edits": [
+        {
+          "start": 570,
+          "end": 661,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRocketAssembly.java",
+      "before_sha256": "78a44738db0bb98648e86e8629b644a0e505ba8f8056d53a6d0d90a2f329e72b",
+      "after_sha256": "6e9e97933b4508a1a8e76374c99c9c50273d5cb0cb780c87b1373d2f83abc7d9",
+      "edits": [
+        {
+          "start": 607,
+          "end": 699,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRotaryFurnace.java",
+      "before_sha256": "3896ae95057e0e108699411b4d074188521cde3ff98025ef3bb0298ec7d2af44",
+      "after_sha256": "73004b7b16c0c29deb9fde496f5fc9ac560b3244cdec7e698ddb12691925f414",
+      "edits": [
+        {
+          "start": 510,
+          "end": 596,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderRotationTester.java",
+      "before_sha256": "19edcfb7a456931d807ff00d34b4b2e7bffc3d85a394d716fe18594cc0a45878",
+      "after_sha256": "5a28ee5fb58e9c7630f7147a1b4200c1bf496b7bd3af9c4ac77bd83ca4dfc660",
+      "edits": [
+        {
+          "start": 648,
+          "end": 740,
+          "old": "public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileentity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSILEX.java",
+      "before_sha256": "9e6c49946c71c1cc03ed4f9f724e8bd948f7e3d70bec9876e2511aa51841a65d",
+      "after_sha256": "3a5a1f14daabe55a1d4b56af9c974308b4672f81e3ca8a232fe47ab8f261ce31",
+      "edits": [
+        {
+          "start": 337,
+          "end": 429,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSawmill.java",
+      "before_sha256": "d6d80315b6f424aa9001d3dc7a56cf4dc6d0806889d66a64ccdc642a28bd33d6",
+      "after_sha256": "b291b5e74077b90c7adc121fc170bba9beed3b8c5bffa8ace297ae6e3fbf1c23",
+      "edits": [
+        {
+          "start": 571,
+          "end": 662,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSmallReactor.java",
+      "before_sha256": "03751124c271da1197931c460d749780e870e399d44dcfe6ed6f74816e02b24f",
+      "after_sha256": "fc403ecc22adf067fb8a313791fe4cba538e448f944462bf97ea87568679e083",
+      "edits": [
+        {
+          "start": 417,
+          "end": 509,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSmallTower.java",
+      "before_sha256": "dbf02d9b95c4d87ce2bf3fba902b20a8aebdae9a55a0085d34187d2e6bbcdb7c",
+      "after_sha256": "8ff666b8768a85fc1c0f79ebd4fdf97d35d2adbd449345a3db11caaeb639e220",
+      "edits": [
+        {
+          "start": 304,
+          "end": 396,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSnowglobe.java",
+      "before_sha256": "fb359af36b50d20c576394d72a15313677460715e0d24869a2f846b06fac236f",
+      "after_sha256": "b9ea6ed9bcf20c9b6574a0e09fef3e0a6bb5d58165fedefb52de70dae4ffb98b",
+      "edits": [
+        {
+          "start": 1438,
+          "end": 1529,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSolarBoiler.java",
+      "before_sha256": "79c575a9a51bedd3f5d176f7c1bd69c7453f078f03415c5f84d48168372a33a1",
+      "after_sha256": "4414e9549a04ae33661ceae73f444ac5e10cee6b2431ce56199e239f76d78c84",
+      "edits": [
+        {
+          "start": 580,
+          "end": 669,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSolarPanel.java",
+      "before_sha256": "015de60606a864e00e5a193386015332e7fdf27f9654ff28526fc8429df4fcca",
+      "after_sha256": "a60204b9cec4de88f4e846168fa1d6437def67fa75e403ce65b085ddef3261fe",
+      "edits": [
+        {
+          "start": 581,
+          "end": 670,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSolidifier.java",
+      "before_sha256": "58ddf02b5b215c359ef1d38819341563d750cfd850698ff726a3ad57e32a2f84",
+      "after_sha256": "2e7cb9afc28abeed8bc24b09e34727aa8207819e4f2ac1dc9584d390ac2b7ca5",
+      "edits": [
+        {
+          "start": 460,
+          "end": 552,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSoyuzLauncher.java",
+      "before_sha256": "02192ccc0cf0dc1669acd87df8e2779741c969a89d321bd07bae17dbfc967d03",
+      "after_sha256": "8321d3d1fd1460ea1031548b1055060f4e5fa053cfae12366e120eb67869d578",
+      "edits": [
+        {
+          "start": 419,
+          "end": 507,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float inter)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float inter, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSpacer.java",
+      "before_sha256": "6162a8a7ef8415314ee1c2d17fedcfda34197b7396dac543fbbfd7c2413becce",
+      "after_sha256": "bb4ec8a78ee23a4868c00d3e627f3ba629e45e722270406c444e8428e3478259",
+      "edits": [
+        {
+          "start": 300,
+          "end": 388,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float inter)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float inter, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderStardar.java",
+      "before_sha256": "dbc4a2d3454987a2dc6ee084d4e964edcc4ab2c75f5467b3ca0ab990ef612704",
+      "after_sha256": "b85c7e1a7c9690bd6df7495266ed1797acd447ac30247be11ef15711752dec81",
+      "edits": [
+        {
+          "start": 464,
+          "end": 553,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSteamEngine.java",
+      "before_sha256": "be8b81b4f76815167afbb453981206860faa95ffc4e4c82a11920ffb7f50d863",
+      "after_sha256": "10fac6964a82247a8587b3a40252a3209a181bf27f65274415516f5ccef82088",
+      "edits": [
+        {
+          "start": 579,
+          "end": 670,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderStirling.java",
+      "before_sha256": "a9124b09e807908e79511a92a53bbeaa7c907714ac580e2ebd589c6297379178",
+      "after_sha256": "691ee23c05a5923e3b759312a194b5977dd101a3afe6db6ee4992c2711539273",
+      "edits": [
+        {
+          "start": 797,
+          "end": 888,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderStorageDrum.java",
+      "before_sha256": "9cf8896eeac28b6ada45de651d5ca822d0ed1210d914d613da6f46540163c1f2",
+      "after_sha256": "a9dbab3c7310504b8e68ea798a6ad4490d42ebca5c2a2cffa5b88a3181f295ef",
+      "edits": [
+        {
+          "start": 305,
+          "end": 397,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderStrandCaster.java",
+      "before_sha256": "88be633074d89cceeaadfeaed31e87a91aec63abdd76a635c0478158ebf51061",
+      "after_sha256": "613585626cf062e21abdc9832042a63505be7d56a9c0944e9435238137244825",
+      "edits": [
+        {
+          "start": 975,
+          "end": 1064,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderSubstation.java",
+      "before_sha256": "2bf9581bcc03bb19c37e4e112568670ea680b01fd15c7d2c75055c0624f4f64f",
+      "after_sha256": "7de424a0f491f7bd2766f3c61650c716b9f9226bc447c03f71235e506042b61f",
+      "edits": [
+        {
+          "start": 313,
+          "end": 404,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTelex.java",
+      "before_sha256": "c460f3c908aaa272bf21f0e4f2b40d0e0bc5eee84fb60e0e6b2c881c0f0eca57",
+      "after_sha256": "9ec3fab2858362a5371c7f569441afa600912e6035d2cafa769c857e1102a336",
+      "edits": [
+        {
+          "start": 402,
+          "end": 493,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTesla.java",
+      "before_sha256": "9658b1985f5a13f731be6b462df94050d3a8a20a12e4e5f6a036ed4e0bc48eac",
+      "after_sha256": "eb80df6c13b6ad5b16fa734a9575a4438335d5d2dc8eb250c2504c95014806c2",
+      "edits": [
+        {
+          "start": 537,
+          "end": 629,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTransporterRocket.java",
+      "before_sha256": "032c2af8eb43fdf7f558244b1cdebed1f0213a31b4df292e1a57a3dea6efcb65",
+      "after_sha256": "7619b1a6dd09af71fd5771899f92e6b0ba0b11ae7dfe2af40f22dfb969109518",
+      "edits": [
+        {
+          "start": 520,
+          "end": 609,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurbineGas.java",
+      "before_sha256": "adf58c86a0fdbdffd1d1148d3a077dfee4307b5d58f38a460518b9a6f6e5a5e1",
+      "after_sha256": "f4f63a67ffc9fb548d6f9b9bc396e603cb61388ac9d110dc23ecd1d6ee1341db",
+      "edits": [
+        {
+          "start": 471,
+          "end": 563,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurbofan.java",
+      "before_sha256": "690a2fcebc291c6104320605674f9c43dc048fe8ad6f366952d5d407be695ff3",
+      "after_sha256": "7bd2755c9823d428dd43f1395f490c6247169b1c6ce9d585526097a3f0241b7d",
+      "edits": [
+        {
+          "start": 459,
+          "end": 556,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretArty.java",
+      "before_sha256": "ab61d1c3698833c01000e0be3ea4cc7ea38ec0cec75f5cdfa42bbbfc396f9f8e",
+      "after_sha256": "772a508306b5b39c47581e8d45654474eb73721a4b37a600a00c686c8879f4da",
+      "edits": [
+        {
+          "start": 397,
+          "end": 486,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretBrandon.java",
+      "before_sha256": "f679752d705ccc80ffadccb36a86c3bb533407c4c22be6f8cbaa5da6986b6baa",
+      "after_sha256": "a614ef06b7f8e74aa31858b4c0c1931e4c669a24b4a9f16bd8bd069b3896ba62",
+      "edits": [
+        {
+          "start": 358,
+          "end": 447,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretChekhov.java",
+      "before_sha256": "fee4b59402de487e0652a154f316ff24bb1cf5c0d3d06c30188e367953d4e7d0",
+      "after_sha256": "b5b5e1f43466deef30ca674a7e2568d645b30dee4bb81f243a7f7b5877e78027",
+      "edits": [
+        {
+          "start": 358,
+          "end": 447,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretFriendly.java",
+      "before_sha256": "dfc1d59d8e6aad42151537b559c1efda7d878fc8aa28cf9b1652b7b96b1c35bc",
+      "after_sha256": "52198da74c663a8c928517f6ed6a5f4aa3dbbbc6cd963b401fff5599795f2f66",
+      "edits": [
+        {
+          "start": 359,
+          "end": 448,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretFritz.java",
+      "before_sha256": "e716207d9bf275770fdc29b404fbb18accaeb1f5bf84bf3b4f27509f805f2113",
+      "after_sha256": "9c1bf8aaf1b7cb1c642130e40e44062460686ec8b3fbe9daebdac18a31c3f3fa",
+      "edits": [
+        {
+          "start": 315,
+          "end": 404,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretHIMARS.java",
+      "before_sha256": "65188c800baa096228abd8968ac9ffd2ae06fe06f4aa48a2e8c9650cc5605c04",
+      "after_sha256": "685c6a795196f4447a1b85097f3d8fafb3a740815c1503c4f76ef93e45420393",
+      "edits": [
+        {
+          "start": 681,
+          "end": 770,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretHoward.java",
+      "before_sha256": "72ec24285c74a4940e29970f2c960618d5dcaadad009c324a4825377cf288636",
+      "after_sha256": "53117747722c43e68f8ba4b07b8db996ab78ecbb38e73ac49d94be4f6f7162bd",
+      "edits": [
+        {
+          "start": 356,
+          "end": 445,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretHowardDamaged.java",
+      "before_sha256": "7f2e0bedb23754beb2c76c6efebb820815c5ad9a11e15c28e642dae545429e27",
+      "after_sha256": "b31a0b767b01d42e09e3f6a50143965f76c0513305364ab2ce29d22520df0cfb",
+      "edits": [
+        {
+          "start": 331,
+          "end": 420,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretJeremy.java",
+      "before_sha256": "ab3654c10b8178a7b6a7ef2e9ae04957897dc7379cf363cb91bcbc29e31eb31b",
+      "after_sha256": "624b97c94f5056adca6fda018c360eab57b61581b8922a7bc28c8fe1c6f958b8",
+      "edits": [
+        {
+          "start": 356,
+          "end": 445,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretMaxwell.java",
+      "before_sha256": "18c841e0926b7436ffd2dd1a8b127694ec72160cc62fc298f2634dee370f8a32",
+      "after_sha256": "ef2b264c978440661d3a2636d711d1d278801501ce84f115fcedca229e2f0b91",
+      "edits": [
+        {
+          "start": 555,
+          "end": 644,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretRichard.java",
+      "before_sha256": "1467a87278beb1bb0a55eb1a07883051aac9dbb118fa91bc55bcc912b293b70a",
+      "after_sha256": "2be74139ee5d7fe0ef95e377b35892eb8eb2b2fa6fa90805ed04b670391dabc0",
+      "edits": [
+        {
+          "start": 358,
+          "end": 447,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretSentry.java",
+      "before_sha256": "87d54c98ce9a37049da7974fac3fefe5d2f01f5c63bb12cfa44c1d528444bbc5",
+      "after_sha256": "fa68a83e4808cd22f76e8844d0922a8720551f1be9898c6d18048e4e3071f5dd",
+      "edits": [
+        {
+          "start": 530,
+          "end": 619,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderTurretTauon.java",
+      "before_sha256": "f56b6fc81b3171705ced376ee7659414c4a2d1bab0c99e2a63888330681687de",
+      "after_sha256": "9381c1631e86142f49cd908e18b1fb47a1089bb579303c9a739aefb86f7cd216",
+      "edits": [
+        {
+          "start": 551,
+          "end": 640,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderUF6Tank.java",
+      "before_sha256": "3348501add86215dfb59998406c0ff33ae56139a9106a939eafeed88fa52a741",
+      "after_sha256": "f876f4daaadeaee82bed13ef0f7ce4c4eb326ce5efdc4c536a01fb214f9a9e7b",
+      "edits": [
+        {
+          "start": 304,
+          "end": 396,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderVacuumDistill.java",
+      "before_sha256": "a53c2638b82ed70e4d3c079bcdeef914838b8104e210c94076a1f20374442d5a",
+      "after_sha256": "30160db32506269bd2ebdbf8d04720a3d56a4eab906abeca233265cc02726f11",
+      "edits": [
+        {
+          "start": 372,
+          "end": 463,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderVaultDoor.java",
+      "before_sha256": "71b1169551e3be318e5d7d1aafbbf7704ca0186e2d8b87c569d8bbad14741022",
+      "after_sha256": "7de6e1525bca467e5d2c21c2be10fc098908eee314023cccba1c005449294ed4",
+      "edits": [
+        {
+          "start": 237,
+          "end": 329,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderVol2.java",
+      "before_sha256": "20367ed63b255bb5e14d1f651f49096b436b5368af6cb25df0d6ef2c723f54ee",
+      "after_sha256": "6e0f7fd5fca760f6e85eb224a37d91d3a4f161e947c6cdfc6fc264dabc2c01d8",
+      "edits": [
+        {
+          "start": 510,
+          "end": 602,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderWandStructure.java",
+      "before_sha256": "76dde374a223f90f5c1d6f87d9a2f0b514ab227934468d4589d3138af85ac2cb",
+      "after_sha256": "63bfaead754364c1097b48cdfd35d23dd26f7e07c951dbbca5ebfc7bdc8a0dea",
+      "edits": [
+        {
+          "start": 394,
+          "end": 485,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderWatz.java",
+      "before_sha256": "6e52de004b77ef06d991d063a05ac1f1877eb3d731d9de2e5a1a8517896a59e3",
+      "after_sha256": "b1d69406ce11f0d74b63f3ac1802920e82d5bc4990db6825c7de258ac9d3cbdb",
+      "edits": [
+        {
+          "start": 298,
+          "end": 382,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderWatzMultiblock.java",
+      "before_sha256": "cbc0c2766798bef2e0cdb2c8a8acbc9143386e63e0b0cd29f600a6b9a80775c8",
+      "after_sha256": "808161500d990bbd17d2e194005248e1322da137cc2fcdf50d96588b1d8fd653",
+      "edits": [
+        {
+          "start": 407,
+          "end": 498,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderWatzPump.java",
+      "before_sha256": "94d12df5d048f17a148163460e4c9b4abcd266b636acf07151685691f21c5737",
+      "after_sha256": "78007bdd386a6d6b42c81499afcd15552bc12826da4bed039979a5307439e2bf",
+      "edits": [
+        {
+          "start": 444,
+          "end": 528,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderWoodBurner.java",
+      "before_sha256": "4a63d44b25270a204560d6559465e43f8bcdf71f07303e49ce8734d966d0a38b",
+      "after_sha256": "502da7aa155c45b5a6b2392e5b637ae1adb12ff80e9855c3fed3797d9a4ad532",
+      "edits": [
+        {
+          "start": 407,
+          "end": 498,
+          "old": "public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderXenonThruster.java",
+      "before_sha256": "38db63f12a2ba63ca6d4fbe0599fc1ed1598e529db93a7eea9aa31a43595f979",
+      "after_sha256": "ef1c4e15714d27c868602de17650dbe711ce9040f875d188fe2ff4a83bb827a2",
+      "edits": [
+        {
+          "start": 520,
+          "end": 609,
+          "old": "public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp)",
+          "new": "public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderZirnox.java",
+      "before_sha256": "ad176c16c707f5a51a6b94b826327d4380c5a91bbf840730b64fcaecbf5011ed",
+      "after_sha256": "1482930f8d081d8d5dc3488ec37b9b8f2aeba554acfcc0f17107b98aa16b4411",
+      "edits": [
+        {
+          "start": 300,
+          "end": 392,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RenderZirnoxDestroyed.java",
+      "before_sha256": "5f240de7be343f0367bbcd0c7e37ab23dea762eda93eb75bed74a12728c0c481",
+      "after_sha256": "4543e193b453a615b47177d2cdb31704433f542d8419574010d57b721ea3e5ea",
+      "edits": [
+        {
+          "start": 308,
+          "end": 400,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/tileentity/RendererObjTester.java",
+      "before_sha256": "5d3bbb1751487ff5868398930e73e8e09e92ac76cab05e888d3636fe60b328f3",
+      "after_sha256": "f1477bc87d22a155dfa6043e02d9f4c61a9e560dccc84047e4590ad60cd8542e",
+      "edits": [
+        {
+          "start": 528,
+          "end": 620,
+          "old": "public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f)",
+          "new": "public void render(TileEntity tileEntity, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha)"
+        }
+      ]
+    }
+  ]
+}

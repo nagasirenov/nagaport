@@ -24,11 +24,11 @@ public class MeltedFlesh extends Block {
 		this.setTickRandomly(true);
 	}
 
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -86,7 +86,8 @@ public class MeltedFlesh extends Block {
 		}		
 	}
 	
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		CBT_Temperature temperature = CelestialBody.getTrait(world, CBT_Temperature.class);
 		if(temperature != null && temperature.degrees > 100) {
 			if(this == ModBlocks.flesh_block) {

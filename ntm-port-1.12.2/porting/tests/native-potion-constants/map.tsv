@@ -1,0 +1,15 @@
+net.minecraft.potion.Potion	moveSpeed	SPEED	1	c	potion.moveSpeed	minecraft:speed
+net.minecraft.potion.Potion	moveSlowdown	SLOWNESS	2	d	potion.moveSlowdown	minecraft:slowness
+net.minecraft.potion.Potion	heal	INSTANT_HEALTH	6	h	potion.heal	minecraft:instant_health
+net.minecraft.potion.Potion	confusion	NAUSEA	9	k	potion.confusion	minecraft:nausea
+net.minecraft.potion.Potion	regeneration	REGENERATION	10	l	potion.regeneration	minecraft:regeneration
+net.minecraft.potion.Potion	resistance	RESISTANCE	11	m	potion.resistance	minecraft:resistance
+net.minecraft.potion.Potion	fireResistance	FIRE_RESISTANCE	12	n	potion.fireResistance	minecraft:fire_resistance
+net.minecraft.potion.Potion	invisibility	INVISIBILITY	14	p	potion.invisibility	minecraft:invisibility
+net.minecraft.potion.Potion	blindness	BLINDNESS	15	q	potion.blindness	minecraft:blindness
+net.minecraft.potion.Potion	nightVision	NIGHT_VISION	16	r	potion.nightVision	minecraft:night_vision
+net.minecraft.potion.Potion	poison	POISON	19	u	potion.poison	minecraft:poison
+net.minecraft.potion.Potion	wither	WITHER	20	v	potion.wither	minecraft:wither
+net.minecraft.potion.Potion	field_76434_w	HEALTH_BOOST	21	w	potion.healthBoost	minecraft:health_boost
+net.minecraft.potion.Potion	field_76444_x	ABSORPTION	22	x	potion.absorption	minecraft:absorption
+net.minecraft.potion.Potion	field_76443_y	SATURATION	23	y	potion.saturation	minecraft:saturation

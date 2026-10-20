@@ -33,11 +33,11 @@ public class BlockFallout extends Block {
 		}
 	}
 
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
-	public boolean renderAsNormalBlock() {
+	public boolean isFullCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 
@@ -95,7 +95,8 @@ public class BlockFallout extends Block {
 	}
 	
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		if(this==ModBlocks.salted_fallout)
 		{
 			ChunkRadiationManager.proxy.incrementRad(world, x, y, z, 50);

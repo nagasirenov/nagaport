@@ -17,7 +17,7 @@ public class ItemWand extends Item {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Creative-only item");
 		list.add("\"Destruction brings creation\"");
 		list.add("(Set positions with right click,");

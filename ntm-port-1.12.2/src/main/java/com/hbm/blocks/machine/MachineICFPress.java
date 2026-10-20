@@ -52,7 +52,8 @@ public class MachineICFPress extends BlockContainer implements ITooltipProvider 
 	}
 	
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, net.minecraft.util.math.BlockPos nativePos, net.minecraft.block.state.IBlockState nativeState, EntityPlayer player, net.minecraft.util.EnumHand nativeHand, net.minecraft.util.EnumFacing nativeFacing, float hitX, float hitY, float hitZ) {
+		int x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();
 		
 		if(world.isRemote) {
 			return true;
@@ -65,7 +66,10 @@ public class MachineICFPress extends BlockContainer implements ITooltipProvider 
 	}
 	
 	@Override
-	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	public void breakBlock(World world, net.minecraft.util.math.BlockPos pos, net.minecraft.block.state.IBlockState state)
+    {
+        int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+        Block block = state.getBlock();
 
 		TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
 		if(!(te instanceof ISidedInventory)) return;
@@ -95,9 +99,9 @@ public class MachineICFPress extends BlockContainer implements ITooltipProvider 
 					}
 				}
 			}
-			world.func_147453_f(x, y, z, block);
+			world.updateComparatorOutputLevel(pos, block);
 		}
-		super.breakBlock(world, x, y, z, block, meta);
+		super.breakBlock(world, pos, state);
 	}
 
 	@Override

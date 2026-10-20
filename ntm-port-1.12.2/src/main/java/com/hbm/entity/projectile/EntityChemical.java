@@ -164,7 +164,7 @@ public class EntityChemical extends EntityThrowableNT {
 		if(style == ChemicalStyle.LIGHTNING) {
 			EntityDamageUtil.attackEntityFromIgnoreIFrame(e, ModDamageSource.electricity, 0.5F);
 			if(living != null) {
-				living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 9));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 60, 9));
 				living.addPotionEffect(new PotionEffect(Potion.weakness.id, 60, 9));
 				return;
 			}
@@ -250,7 +250,7 @@ public class EntityChemical extends EntityThrowableNT {
 			FT_Poison trait = type.getTrait(FT_Poison.class);
 
 			if(living != null) {
-				living.addPotionEffect(new PotionEffect(trait.isWithering() ? Potion.wither.id : Potion.poison.id, (int) (5 * 20 * intensity)));
+				living.addPotionEffect(new PotionEffect(trait.isWithering() ? net.minecraft.init.MobEffects.WITHER : net.minecraft.init.MobEffects.POISON, (int) (5 * 20 * intensity)));
 			}
 		}
 
@@ -267,14 +267,14 @@ public class EntityChemical extends EntityThrowableNT {
 			FT_Pheromone pheromone = type.getTrait(FT_Pheromone.class);
 
 			if(living != null) {
-				living.addPotionEffect(new PotionEffect(Potion.resistance.id, 2 * 60 * 20, 2));
-				living.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5 * 60 * 20, 1));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 2 * 60 * 20, 2));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 5 * 60 * 20, 1));
 				living.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 2 * 60 * 20, 4));
 
 				if (living instanceof EntityGlyphid && pheromone.getType() == 1) {
 					living.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 5 * 60 * 20, 4));
-					living.addPotionEffect(new PotionEffect(Potion.fireResistance.id,  60 * 20, 0));
-					living.addPotionEffect(new PotionEffect(Potion.field_76444_x.id,  60 * 20, 19));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE,  60 * 20, 0));
+					living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION,  60 * 20, 19));
 
 				} else if (living instanceof EntityPlayer && pheromone.getType() == 2) {
 					living.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2 * 60 * 20, 2));

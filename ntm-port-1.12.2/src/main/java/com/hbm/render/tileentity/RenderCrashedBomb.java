@@ -22,7 +22,7 @@ public class RenderCrashedBomb extends TileEntitySpecialRenderer implements IIte
 	public static Random rand = new Random();
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
+	public void render(TileEntity tile, double x, double y, double z, float f, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);

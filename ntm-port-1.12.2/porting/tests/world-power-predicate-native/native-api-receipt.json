@@ -1,0 +1,6 @@
+{
+  "native_api_javap_sha256": "3e2c1ef1feb881cc5f8758cbc72fc179a4a9a841c9dbc79fac15e7b007757c67",
+  "expression_and_complete_body_native_invocations": 67,
+  "native_TileEntity_fields_verified": true,
+  "World_scalar_method_absent": true
+}

@@ -33,7 +33,7 @@ public class ItemColtanCompass extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Points towards the coltan deposit.");
 		list.add("The deposit is a large area where coltan ore spawns like standard ore,");
 		list.add("it's not one large blob of ore on that exact location.");

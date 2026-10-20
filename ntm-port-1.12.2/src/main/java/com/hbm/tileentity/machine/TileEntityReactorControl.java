@@ -22,6 +22,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -61,7 +62,7 @@ public class TileEntityReactorControl extends TileEntityMachineBase implements I
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				slots[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 	}

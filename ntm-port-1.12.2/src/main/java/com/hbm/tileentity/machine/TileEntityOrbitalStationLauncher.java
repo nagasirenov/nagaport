@@ -143,7 +143,7 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 			}
 
 			hasDocked = docked != null;
-			hasRider = hasDocked && docked.riddenByEntity != null;
+			hasRider = hasDocked && docked.isBeingRidden();
 
 			networkPackNT(250);
 		} else {
@@ -159,7 +159,7 @@ public class TileEntityOrbitalStationLauncher extends TileEntityMachineBase impl
 	}
 
 	public void enterCapsule(EntityPlayer player) {
-		if(docked == null || docked.riddenByEntity != null) return;
+		if(docked == null || docked.isBeingRidden()) return;
 		docked.interactFirst(player);
 	}
 

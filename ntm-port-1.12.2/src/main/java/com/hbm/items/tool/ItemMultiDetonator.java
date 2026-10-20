@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 public class ItemMultiDetonator extends Item {
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Shift right-click block to add position,");
 		list.add("right-click to detonate!");
 		list.add("Shift right-click in the air to clear positions.");

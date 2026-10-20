@@ -114,7 +114,7 @@ public class ReactorZirnox extends BlockDummyable {
 						int sy = cy + dy;
 						int sz = cz + dz;
 
-						if (world.isBlockIndirectlyGettingPowered(sx, sy, sz) ||
+						if (world.isBlockPowered(new net.minecraft.util.math.BlockPos(sx, sy, sz)) ||
 							world.getBlockPowerInput(sx, sy, sz) > 0) {
 
 							powered = true;

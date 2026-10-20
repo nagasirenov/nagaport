@@ -25,7 +25,7 @@ public class RenderRBMKControlRod extends TileEntitySpecialRenderer {
 	private ResourceLocation textureAuto = new ResourceLocation(RefStrings.MODID + ":textures/blocks/rbmk/rbmk_control_auto.png");
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float i) {
+	public void render(TileEntity te, double x, double y, double z, float i, int nativeDestroyStage, float nativeAlpha) {
 
 		GL11.glPushMatrix();
 		

@@ -25,7 +25,7 @@ public class HazardTypeAutism extends HazardTypeBase {
 			return;
 
 		if(!ArmorRegistry.hasProtection(target, 3, HazardClass.LIGHT)) {
-			target.addPotionEffect(new PotionEffect(Potion.confusion.id, (int)Math.ceil(level), 0));
+			target.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, (int)Math.ceil(level), 0));
 		}
 	}
 

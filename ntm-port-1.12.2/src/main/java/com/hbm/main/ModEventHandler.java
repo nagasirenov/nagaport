@@ -326,7 +326,7 @@ public class ModEventHandler {
 						}
 
 						event.getEntityLiving().setHealth(event.getEntityLiving().getMaxHealth());
-						event.getEntityLiving().addPotionEffect(new PotionEffect(Potion.resistance.id, 60, 99));
+						event.getEntityLiving().addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 60, 99));
 						event.setCanceled(true);
 						return;
 					}
@@ -856,7 +856,7 @@ public class ModEventHandler {
 
 			if(reference != null) {
 				for(Object player : event.world.playerEntities) {
-					if(((EntityPlayer) player).ridingEntity != null && event.world.getTotalWorldTime() % (1 * 60 * 20) == 0) {
+					if(((EntityPlayer) player).getRidingEntity() != null && event.world.getTotalWorldTime() % (1 * 60 * 20) == 0) {
 						((EntityPlayer) player).mountEntity(null);
 						didSit = true;
 					}
@@ -877,14 +877,14 @@ public class ModEventHandler {
 					EntityPlayer player = (EntityPlayer) e;
 
 					// handle dismount events, or our players will splat upon leaving tall rockets
-					if(player.ridingEntity != null && player.ridingEntity instanceof EntityRideableRocket && player.isSneaking()) {
-						EntityRideableRocket rocket = (EntityRideableRocket) player.ridingEntity;
+					if(player.getRidingEntity() != null && player.getRidingEntity() instanceof EntityRideableRocket && player.isSneaking()) {
+						EntityRideableRocket rocket = (EntityRideableRocket) player.getRidingEntity();
 
 						if(player.isSneaking()) {
 							// Prevent leaving a rocket in motion, for safety
 							if(rocket.canExitCapsule() || rocket.forceExitTimer >= 60) {
 								boolean inOrbit = event.world.provider instanceof WorldProviderOrbit;
-								Entity ridingEntity = player.ridingEntity;
+								Entity ridingEntity = player.getRidingEntity();
 								float prevHeight = ridingEntity.height;
 
 								ridingEntity.height = inOrbit ? ridingEntity.height + 1.0F : 1.0F;
@@ -1371,7 +1371,7 @@ public class ModEventHandler {
 
 		if(!player.world.isRemote && event.phase == TickEvent.Phase.START) {
 			// Check for players attempting to cross over to another orbital grid
-			if(player.world.provider instanceof WorldProviderOrbit && !(player.ridingEntity instanceof EntityRideableRocket)) {
+			if(player.world.provider instanceof WorldProviderOrbit && !(player.getRidingEntity() instanceof EntityRideableRocket)) {
 				double rx = Math.abs(player.posX) % OrbitalStation.STATION_SIZE;
 				double rz = Math.abs(player.posZ) % OrbitalStation.STATION_SIZE;
 
@@ -1396,7 +1396,7 @@ public class ModEventHandler {
 			if(player.inPortal) {
 				MinecraftServer minecraftserver = ((WorldServer)player.world).func_73046_m();
 				int maxTime = player.getMaxInPortalTime();
-				if(minecraftserver.getAllowNether() && player.ridingEntity == null && player.portalCounter + 1 >= maxTime) {
+				if(minecraftserver.getAllowNether() && player.getRidingEntity() == null && player.portalCounter + 1 >= maxTime) {
 					player.portalCounter = maxTime;
 					player.timeUntilPortal = player.getPortalCooldown();
 

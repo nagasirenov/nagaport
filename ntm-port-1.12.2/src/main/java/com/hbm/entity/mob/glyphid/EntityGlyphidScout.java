@@ -41,7 +41,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 	@Override
 	public boolean attackEntityAsMob(Entity victum) {
 		if(super.attackEntityAsMob(victum) && victum instanceof EntityLivingBase){
-			((EntityLivingBase)victum).addPotionEffect(new PotionEffect(Potion.poison.id, 10 * 20, 3));
+			((EntityLivingBase)victum).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 10 * 20, 3));
 			return true;
 		}
 		return false;
@@ -118,7 +118,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 				}
 
 				if(expandHive()) {
-					this.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 180 * 20, 1));
+					this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 180 * 20, 1));
 					hasTarget = true;
 				}
 			}
@@ -152,7 +152,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 						this.world.spawnEntityInWorld(home);
 
 						this.taskWaypoint = home;
-						this.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 40 * 20, 10));
+						this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 40 * 20, 10));
 						communicate(TASK_RETREAT_FOR_REINFORCEMENTS, taskWaypoint);
 
 					} else if(timer >= 5) {
@@ -238,7 +238,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 			if(b == ModBlocks.basalt) {
 				useLargeHive = true;
 				largeHiveChance /= 2;
-				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 3));
+				this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 3));
 			}
 			
 			if(!this.world.isRemote) {
@@ -270,8 +270,8 @@ public class EntityGlyphidScout extends EntityGlyphid {
 		if (!this.world.isRemote && taskWaypoint == null) {
 			switch(getCurrentTask()){
 				case TASK_INITIATE_RETREAT:
-					this.removePotionEffect(Potion.moveSlowdown.id);
-					this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 20 * 20, 4));
+					this.removePotionEffect(net.minecraft.init.MobEffects.SLOWNESS);
+					this.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 20 * 20, 4));
 
 					//then, come back later
 					EntityWaypoint additional = new EntityWaypoint(this.world);
@@ -308,7 +308,7 @@ public class EntityGlyphidScout extends EntityGlyphid {
 
 	@Override
 	protected Entity findPlayerToAttack() {
-		if(this.isPotionActive(Potion.blindness)) return null;
+		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
 		//no extended targeting, and a low attack distance, ensures the scouts are focused in expanding, and not in chasing the player
 		return this.world.getClosestVulnerablePlayerToEntity(this, 10);
 	}

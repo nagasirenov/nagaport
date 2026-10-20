@@ -1,0 +1,4 @@
+PASS complete body ItemGlyphBlock: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+Exception in thread "main" java.lang.AssertionError: ItemMissileShuttle meta=0 nbt=false mode=0 actual=[prefix, WRONG ORDER/TEXT, James huffs leaded gasoline and, goes insane, Richard spends the, entire budget on a broken .PNG,, And I forget to set the infinite, Water tanks on our RBMK to flow, out, blowing up our entire base]
+	at ItemTooltipProbe.check(ItemTooltipProbe.java:9)
+	at ItemTooltipProbe.main(ItemTooltipProbe.java:37)

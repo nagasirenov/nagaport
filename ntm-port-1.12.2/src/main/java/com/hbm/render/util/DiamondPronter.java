@@ -7,6 +7,8 @@ import com.hbm.lib.RefStrings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
 public class DiamondPronter {
@@ -21,15 +23,16 @@ public class DiamondPronter {
 		
 		float p = 1F/256F;
 		float s = 1F/139F;
-		Tessellator tess = Tessellator.instance;
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
 		GL11.glEnable(GL11.GL_BLEND);
         OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 
-		tess.startDrawingQuads();
-		tess.addVertexWithUV(0.0, 0.5, -0.5, p * 144, p * 45);
-		tess.addVertexWithUV(0.0, 0.5, 0.5, p * 5, p * 45);
-		tess.addVertexWithUV(0.0, -0.5, 0.5, p * 5, p * 184);
-		tess.addVertexWithUV(0.0, -0.5, -0.5, p * 144, p * 184);
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+		tessBuffer.pos(0.0, 0.5, -0.5).tex(p * 144, p * 45).endVertex();
+		tessBuffer.pos(0.0, 0.5, 0.5).tex(p * 5, p * 45).endVertex();
+		tessBuffer.pos(0.0, -0.5, 0.5).tex(p * 5, p * 184).endVertex();
+		tessBuffer.pos(0.0, -0.5, -0.5).tex(p * 144, p * 184).endVertex();
 		tess.draw();
 		
 		float width = 10F * s;
@@ -45,11 +48,11 @@ public class DiamondPronter {
 			
 			if(poison == 0) x = 125;
 
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);
-			tess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);
-			tess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);
-			tess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();
+			tessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();
 			tess.draw();
 		}
 		
@@ -63,11 +66,11 @@ public class DiamondPronter {
 			
 			if(flammability == 0) x = 125;
 
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);
-			tess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);
-			tess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);
-			tess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();
+			tessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();
 			tess.draw();
 		}
 		
@@ -81,11 +84,11 @@ public class DiamondPronter {
 			
 			if(reactivity == 0) x = 125;
 
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.01, height + oY, -width + oZ, (x + 20) * p, y * p);
-			tess.addVertexWithUV(0.01, height + oY, width + oZ, x * p, y * p);
-			tess.addVertexWithUV(0.01, -height + oY, width + oZ, x * p, (y + 28) * p);
-			tess.addVertexWithUV(0.01, -height + oY, -width + oZ, (x + 20) * p, (y + 28) * p);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(0.01, height + oY, -width + oZ).tex((x + 20) * p, y * p).endVertex();
+			tessBuffer.pos(0.01, height + oY, width + oZ).tex(x * p, y * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, width + oZ).tex(x * p, (y + 28) * p).endVertex();
+			tessBuffer.pos(0.01, -height + oY, -width + oZ).tex((x + 20) * p, (y + 28) * p).endVertex();
 			tess.draw();
 		}
 		
@@ -100,11 +103,11 @@ public class DiamondPronter {
 			int x = symbol.x;
 			int y = symbol.y;
 
-			tess.startDrawingQuads();
-			tess.addVertexWithUV(0.01, symSize + oY, -symSize + oZ, (x + 59) * p, y * p);
-			tess.addVertexWithUV(0.01, symSize + oY, symSize + oZ, x * p, y * p);
-			tess.addVertexWithUV(0.01, -symSize + oY, symSize + oZ, x * p, (y + 59) * p);
-			tess.addVertexWithUV(0.01, -symSize + oY, -symSize + oZ, (x + 59) * p, (y + 59) * p);
+			tessBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
+			tessBuffer.pos(0.01, symSize + oY, -symSize + oZ).tex((x + 59) * p, y * p).endVertex();
+			tessBuffer.pos(0.01, symSize + oY, symSize + oZ).tex(x * p, y * p).endVertex();
+			tessBuffer.pos(0.01, -symSize + oY, symSize + oZ).tex(x * p, (y + 59) * p).endVertex();
+			tessBuffer.pos(0.01, -symSize + oY, -symSize + oZ).tex((x + 59) * p, (y + 59) * p).endVertex();
 			tess.draw();
 		}
 

@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderConnector extends RenderPylonBase implements IItemRendererProvider {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		TileEntityConnector con = (TileEntityConnector) te;
 		GL11.glEnable(GL11.GL_LIGHTING);
 		

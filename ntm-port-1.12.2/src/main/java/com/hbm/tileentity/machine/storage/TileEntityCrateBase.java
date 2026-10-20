@@ -7,6 +7,7 @@ import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
@@ -58,8 +59,14 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public boolean hasCustomInventoryName() {
+	public boolean hasCustomName() {
 		return this.customName != null && !this.customName.isEmpty();
+	}
+
+	/** Native inventory title retains the original GUI literal/translation choice. */
+	@Override
+	public net.minecraft.util.text.ITextComponent getDisplayName() {
+		return hasCustomName() ? new net.minecraft.util.text.TextComponentString(getName()) : new net.minecraft.util.text.TextComponentTranslation(getName());
 	}
 
 	public void setCustomName(String name) {
@@ -82,12 +89,12 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 	}
 
 	@Override
-	public void openInventory() {
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateOpen", 1.0F, 1.0F);
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.crateClose", 1.0F, 1.0F);
 	}
 
@@ -127,7 +134,7 @@ public abstract class TileEntityCrateBase extends TileEntityLockableBase impleme
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if (b0 >= 0 && b0 < slots.length) {
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				slots[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 		this.hasSpiders = nbt.getBoolean("spiders");

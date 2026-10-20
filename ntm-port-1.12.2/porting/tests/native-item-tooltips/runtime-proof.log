@@ -1,0 +1,10 @@
+PASS complete body ItemGlyphBlock: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemMissileShuttle: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemTemFlakes: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemStarmetal: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemReactorSensor: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemTeleLink: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemDetonator: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+PASS complete body ItemWiring: 108 native dispatch cases (metadata 0..17, absent/present NBT, null/normal/advanced flag)
+[04:09:30] [main/WARN]: Potentially Dangerous alternative prefix `tooltip_probe` for name `shuttle`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS 3461 assertions; 864 complete-body cases; actual original/native base callbacks; actual native ItemStack route. Not whole-item or full-game execution.

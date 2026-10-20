@@ -196,7 +196,7 @@ public class ItemBlowtorch extends Item implements IFillableItem {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		if(this == ModItems.blowtorch) {
 			list.add(TextFormatting.YELLOW + getFillGauge(stack, Fluids.GAS));

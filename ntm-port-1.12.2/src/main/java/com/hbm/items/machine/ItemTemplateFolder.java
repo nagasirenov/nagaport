@@ -30,7 +30,7 @@ public class ItemTemplateFolder extends Item implements IGUIProvider {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		
 		String[] lang = I18nUtil.resolveKeyArray(ModItems.template_folder.getTranslationKey() + ".desc");
 		TextFormatting color = BobMathUtil.getBlink() ? TextFormatting.RED : TextFormatting.YELLOW;

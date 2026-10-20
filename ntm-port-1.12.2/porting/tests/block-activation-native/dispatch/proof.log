@@ -1,0 +1,28 @@
+NATIVE BYTECODE DISPATCH PROOF
+classpath: /tmp/nagaport-ae2-native-classpath.txt
+javap: /workspace/shared/nagaport-toolchain/java8/bin/javap
+net.minecraft.client.Minecraft
+  source: /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+  class sha256: 17ff9365b796460b0102e9e803332488d9f10b8e0bfb3386232f235e90934aa8
+net.minecraft.client.multiplayer.PlayerControllerMP
+  source: /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+  class sha256: f8c29c8d00463151c8ff7b7071a9847bc6209f9356fd8dc3151abe3adaab0189
+net.minecraft.server.management.PlayerInteractionManager
+  source: /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+  class sha256: 861cdd96465565a7bed25f853f084da960f3df03f95b268483a629c56930bda9
+net.minecraft.network.NetHandlerPlayServer
+  source: /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+  class sha256: 717002d433835a5f07cb4fec4ec5662ad2541fb78aa3af5d99a315c491d06a1a
+net.minecraft.util.EnumHand
+  source: /workspace/shared/nagaport/ntm-port-1.12.2/.gradle/minecraft/forgeBin-1.12.2-14.23.5.2768-PROJECT(ntm-port-1.12.2).jar
+  class sha256: 722c39a15165a06416a478fc0f7a73f561b40f16fbb4b95b6f7c54ffb0e40524
+PASS 1: EnumHand.values() clones [MAIN_HAND, OFF_HAND], in that order.
+PASS 2: Minecraft visits hands by ascending array index; block SUCCESS reaches return@306 on every branch, before hand increment@388.
+PASS 3: Once client activation returns true and useItem != ALLOW, native controller sends one block packet and returns SUCCESS; it skips ItemStack.isEmpty.
+PASS 4: Exception preserved: useItem == ALLOW forces item handling; empty stack then returns PASS even after client activation=true.
+PASS 5: Server activation is before empty-stack test; empty stack yields PASS for both callback booleans, after the eligible callback has already run once.
+PASS 5b: Nonempty, no-cooldown, ordinary-item survival path retains callback SUCCESS when useItem != ALLOW; empty/cooldown PASS and item overrides prevent a universal true => SUCCESS claim.
+PASS 6: Each native client/server block-controller method has one onBlockActivated site and no backward CFG edges: at most one direct activation per invocation, zero when gated/skipped.
+PASS 7: Server packet handler uses packet hand, calls interaction manager at most once, discards its return value with pop, and does not enumerate/retry the other hand.
+ALL 7 NATIVE BYTECODE CLAIM GROUPS PASS
+Boundary: static native-bytecode/control-flow verification only; no client/server launch, no live GUI count, no arbitrary-event/coremod/re-entrant/multiple-packet guarantee.

@@ -27,7 +27,7 @@ public class ItemLens extends Item {
 
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		
 		long damage = getLensDamage(stack);
 		int percent = (int) ((maxDamage - damage) * 100 / maxDamage);

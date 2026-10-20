@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderStirling extends TileEntitySpecialRenderer implements IItemRendererProvider, ITileActorRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);
 		GL11.glEnable(GL11.GL_LIGHTING);

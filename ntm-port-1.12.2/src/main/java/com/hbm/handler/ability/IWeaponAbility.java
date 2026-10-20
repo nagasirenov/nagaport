@@ -150,7 +150,7 @@ public interface IWeaponAbility extends IBaseAbility {
 			if(victim instanceof EntityLivingBase) {
 				EntityLivingBase living = (EntityLivingBase) victim;
 
-				living.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 4));
+				living.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, duration * 20, 4));
 				living.addPotionEffect(new PotionEffect(Potion.weakness.id, duration * 20, 4));
 			}
 		}

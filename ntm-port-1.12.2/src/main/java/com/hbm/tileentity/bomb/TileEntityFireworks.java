@@ -22,7 +22,7 @@ public class TileEntityFireworks extends TileEntity implements net.minecraft.uti
 
 		if(!this.world.isRemote) {
 
-			if(this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) && !message.isEmpty() && charges > 0) {
+			if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) && !message.isEmpty() && charges > 0) {
 
 				delay--;
 

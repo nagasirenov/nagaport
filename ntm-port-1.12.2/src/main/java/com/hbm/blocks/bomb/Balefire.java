@@ -52,7 +52,8 @@ public class Balefire extends BlockFire {
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
+	public void updateTick(World world, net.minecraft.util.math.BlockPos nativeTickPos, net.minecraft.block.state.IBlockState nativeTickState, Random rand) {
+		int x = nativeTickPos.getX(), y = nativeTickPos.getY(), z = nativeTickPos.getZ();
 		if(world.getGameRules().getGameRuleBooleanValue("doFireTick")) {
 
 			if(!this.canPlaceBlockAt(world, x, y, z)) {

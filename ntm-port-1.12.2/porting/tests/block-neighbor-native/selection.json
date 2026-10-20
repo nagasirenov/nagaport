@@ -1,0 +1,939 @@
+{
+  "baseline": "175b014cbb5c5990107fced236f7131f234998b6",
+  "selected": [
+    {
+      "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) { }",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": " ",
+      "class": "BlockOreBasalt"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CrystalPulsar.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n    \t\n    \tif(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\t!world.isRemote) {\n\t\t\tExplosionChaos.hardenVirus(world, x, y, z, 10);\n    \t}\n    }",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": "\n    \t\n    \tif(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\t!world.isRemote) {\n\t\t\tExplosionChaos.hardenVirus(world, x, y, z, 10);\n    \t}\n    ",
+      "class": "CrystalPulsar"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeAntimatter.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "b"
+        ]
+      ],
+      "body": "\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t",
+      "class": "NukeAntimatter"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFlameWar.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": "\n\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t",
+      "class": "BombFlameWar"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBalefire.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "b"
+        ]
+      ],
+      "body": "\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t",
+      "class": "NukeBalefire"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "p_149695_5_"
+        ]
+      ],
+      "body": "\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t",
+      "class": "ExplosiveCharge"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "p_149695_5_"
+        ]
+      ],
+      "body": "\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t",
+      "class": "DetMiner"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tif(this == ModBlocks.therm_endo) {\n\t\t\t\tExplosionThermo.freeze(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.freezer(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tif(this == ModBlocks.therm_exo) {\n\t\t\t\tExplosionThermo.scorch(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.setEntitiesOnFire(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tp_149695_1_.createExplosion(null, x, y, z, 5.0F, true);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "p_149695_1_"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "p_149695_5_"
+        ]
+      ],
+      "body": "\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tif(this == ModBlocks.therm_endo) {\n\t\t\t\tExplosionThermo.freeze(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.freezer(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tif(this == ModBlocks.therm_exo) {\n\t\t\t\tExplosionThermo.scorch(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.setEntitiesOnFire(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tp_149695_1_.createExplosion(null, x, y, z, 5.0F, true);\n\t\t}\n\t",
+      "class": "BombThermo"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFloat.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tthis.worldObj = p_149695_1_;\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(p_149695_1_, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "p_149695_1_"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "p_149695_5_"
+        ]
+      ],
+      "body": "\n\t\tthis.worldObj = p_149695_1_;\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(p_149695_1_, x, y, z);\n\t\t}\n\t",
+      "class": "BombFloat"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n\t\t\n\t\tif(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t//this.explode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": "\n\t\t\n\t\tForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n\t\t\n\t\tif(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t//this.explode(world, x, y, z);\n\t\t}\n\t",
+      "class": "BlockChargeBase"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.onBlockDestroyedByPlayer(world, x, y, z, 1);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t} else {\n\t\t\tcheckAndIgnite(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": "\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.onBlockDestroyedByPlayer(world, x, y, z, 1);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t} else {\n\t\t\tcheckAndIgnite(world, x, y, z);\n\t\t}\n\t",
+      "class": "BlockTNTBase"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\t\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "p_149695_5_"
+        ]
+      ],
+      "body": "\n\t\t\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t",
+      "class": "NukeCustom"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "block"
+        ]
+      ],
+      "body": "\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t",
+      "class": "BlockPlasticExplosive"
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {\n\t\tthis.updateState(world, x, y, z);\n\t}",
+      "params": [
+        [
+          "World",
+          "world"
+        ],
+        [
+          "int",
+          "x"
+        ],
+        [
+          "int",
+          "y"
+        ],
+        [
+          "int",
+          "z"
+        ],
+        [
+          "Block",
+          "neighbor"
+        ]
+      ],
+      "body": "\n\t\tthis.updateState(world, x, y, z);\n\t",
+      "class": "PistonInserter"
+    }
+  ],
+  "operations": [
+    {
+      "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) { }",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) { }",
+      "used_locals": [],
+      "power_replacement": null,
+      "power_count": 0
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CrystalPulsar.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n    \t\n    \tif(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\t!world.isRemote) {\n\t\t\tExplosionChaos.hardenVirus(world, x, y, z, 10);\n    \t}\n    }",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n    \t\n    \tif(com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\tcom.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || \n    \t\t\t!world.isRemote) {\n\t\t\tExplosionChaos.hardenVirus(world, x, y, z, 10);\n    \t}\n    }",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": null,
+      "power_count": 0
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeAntimatter.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block b, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\n\t\tif (world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFlameWar.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBalefire.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\n\t\tif (world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block b, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\n\t\tif (world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "old": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tif(this == ModBlocks.therm_endo) {\n\t\t\t\tExplosionThermo.freeze(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.freezer(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tif(this == ModBlocks.therm_exo) {\n\t\t\t\tExplosionThermo.scorch(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.setEntitiesOnFire(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tp_149695_1_.createExplosion(null, x, y, z, 5.0F, true);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = p_149695_1_; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tif(this == ModBlocks.therm_endo) {\n\t\t\t\tExplosionThermo.freeze(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.freezer(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tif(this == ModBlocks.therm_exo) {\n\t\t\t\tExplosionThermo.scorch(p_149695_1_, x, y, z, 15);\n\t\t\t\tExplosionThermo.setEntitiesOnFire(p_149695_1_, x, y, z, 20);\n\t\t\t}\n\n\t\t\tp_149695_1_.createExplosion(null, x, y, z, 5.0F, true);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)",
+        "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFloat.java",
+      "old": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tthis.worldObj = p_149695_1_;\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(p_149695_1_, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World p_149695_1_, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tthis.worldObj = p_149695_1_;\n\t\tif(p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\texplode(p_149695_1_, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)",
+        "p_149695_1_.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n\t\t\n\t\tif(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t//this.explode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\t\n\t\tForgeDirection dir = ForgeDirection.getOrientation(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ));\n\t\t\n\t\tif(!com.hbm.lib.FacingCompat.isWorldSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t//this.explode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": null,
+      "power_count": 0
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.onBlockDestroyedByPlayer(world, x, y, z, 1);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t} else {\n\t\t\tcheckAndIgnite(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\tthis.onBlockDestroyedByPlayer(world, x, y, z, 1);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t} else {\n\t\t\tcheckAndIgnite(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block p_149695_5_) {\n\t\t\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block p_149695_5_, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\t\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block block, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tif(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {\n\t\t\tthis.explode(world, x, y, z);\n\t\t}\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": [
+        "world.isBlockIndirectlyGettingPowered(x, y, z)",
+        "world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))"
+      ],
+      "power_count": 1
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "old": "public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {\n\t\tthis.updateState(world, x, y, z);\n\t}",
+      "new": "public void neighborChanged(net.minecraft.block.state.IBlockState nativeState, World world, net.minecraft.util.math.BlockPos nativePos, Block neighbor, net.minecraft.util.math.BlockPos fromPos) {\n\t\tint x = nativePos.getX(); int y = nativePos.getY(); int z = nativePos.getZ();\n\t\tthis.updateState(world, x, y, z);\n\t}",
+      "used_locals": [
+        "int x = nativePos.getX();",
+        "int y = nativePos.getY();",
+        "int z = nativePos.getZ();"
+      ],
+      "power_replacement": null,
+      "power_count": 0
+    }
+  ],
+  "excluded": [
+    {
+      "path": "com/hbm/blocks/BlockRubberFarm.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block butt) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, butt);\n\t\tMaterial material = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial();\n\n\t\tif(material.isSolid()) {\n\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block butt",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, butt);\n\t\tMaterial material = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock().getDefaultState().getMaterial();\n\n\t\tif(material.isSolid()) {\n\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/BlockKelp.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif (!this.canBlockStay(world, x, y, z)) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WATER; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t} else {\n\t\t\tupdateBlockMeta(world, x, y, z); \n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif (!this.canBlockStay(world, x, y, z)) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.WATER; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t} else {\n\t\t\tupdateBlockMeta(world, x, y, z); \n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/BlockVinylVine.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlockId) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, neighborBlockId);\n\t}",
+      "params": "World world, int x, int y, int z, Block neighborBlockId",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, neighborBlockId);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyable.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\t// Native BlockContainer inherits the empty Block.neighborChanged implementation.\n\n\t\tif(safeRem)\n\t\t\treturn;\n\n\t\tdestroyIfOrphan(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\t// Native BlockContainer inherits the empty Block.neighborChanged implementation.\n\n\t\tif(safeRem)\n\t\t\treturn;\n\n\t\tdestroyIfOrphan(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/RubberGrass.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(this == ModBlocks.rubber_grass) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n\t\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(this == ModBlocks.rubber_grass) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n\t\t\t\tworld.setBlock(x, y, z, ModBlocks.rubber_silt);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/BlockDummyableBeam.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isRemote || safeRem) return;\n\n\t\tint metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\t// if it's an extra, remove the extra-ness\n\t\tif(metadata >= extra) metadata -= extra;\n\n\t\tForgeDirection dir = ForgeDirection.getOrientation(metadata).getOpposite();\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n\n\t\tif(!(b instanceof BlockDummyable)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(world.isRemote || safeRem) return;\n\n\t\tint metadata = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\t// if it's an extra, remove the extra-ness\n\t\tif(metadata >= extra) metadata -= extra;\n\n\t\tForgeDirection dir = ForgeDirection.getOrientation(metadata).getOpposite();\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n\n\t\tif(!(b instanceof BlockDummyable)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockGasFlammable.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n\t\t\t\n\t\t\tif(isFireSource(b)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\t\n\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock();\n\t\t\t\n\t\t\tif(isFireSource(b)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 2);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockVacuum.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(!world.isRemote) world.scheduleBlockUpdate(x, y, z, this, 1);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/gas/BlockGasBase.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 4);\n\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 10);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) ) != 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 4);\n\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 10);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDeadPlant.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLithium.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tif (touchesWater(world, x, y, z)) {\n\t\t\tworld.func_147480_a(x, y, z, false);\n\t\t\tworld.newExplosion(null, x + 0.5, y + 0.5, z + 0.5, 15, false, true);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tif (touchesWater(world, x, y, z)) {\n\t\t\tworld.func_147480_a(x, y, z, false);\n\t\t\tworld.newExplosion(null, x + 0.5, y + 0.5, z + 0.5, 15, false, true);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockFallout.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\tthis.func_150155_m(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\tthis.func_150155_m(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlant.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOutgas.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tif(onNeighbour && world.rand.nextInt(3) == 0) {\n\n\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\t\t\n\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {\n\t\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\t\n\t\tif(onNeighbour && world.rand.nextInt(3) == 0) {\n\n\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\t\t\n\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {\n\t\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockRubberPlant.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockModDoor.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_,\n\t\t\tBlock p_149695_5_) {\n\t\tint l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_) );\n\n\t\tif ((l & 8) == 0) {\n\t\t\tboolean flag = false;\n\n\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() != this) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t\tflag = true;\n\t\t\t}\n\n\t\t\tif (!World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t\tflag = true;\n\n\t\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() == this) {\n\t\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (flag) {\n\t\t\t\tif (!p_149695_1_.isRemote) {\n\t\t\t\t\tthis.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, l, 0);\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tboolean flag1 = p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_, p_149695_4_)\n\t\t\t\t\t\t|| p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_ + 1, p_149695_4_);\n\n\t\t\t\tif ((flag1 || p_149695_5_.canProvidePower()) && p_149695_5_ != this) {\n\t\t\t\t\tthis.func_150014_a(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, flag1);\n\t\t\t\t}\n\t\t\t}\n\t\t} else {\n\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_).getBlock() != this) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t}\n\n\t\t\tif (p_149695_5_ != this) {\n\t\t\t\tthis.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_, p_149695_5_);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_,\n\t\t\tBlock p_149695_5_",
+      "body": "\n\t\tint l = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_) );\n\n\t\tif ((l & 8) == 0) {\n\t\t\tboolean flag = false;\n\n\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() != this) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t\tflag = true;\n\t\t\t}\n\n\t\t\tif (!World.doesBlockHaveSolidTopSurface(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_)) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t\tflag = true;\n\n\t\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_).getBlock() == this) {\n\t\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_ + 1, p_149695_4_);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (flag) {\n\t\t\t\tif (!p_149695_1_.isRemote) {\n\t\t\t\t\tthis.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, l, 0);\n\t\t\t\t}\n\t\t\t} else {\n\t\t\t\tboolean flag1 = p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_, p_149695_4_)\n\t\t\t\t\t\t|| p_149695_1_.isBlockIndirectlyGettingPowered(p_149695_2_, p_149695_3_ + 1, p_149695_4_);\n\n\t\t\t\tif ((flag1 || p_149695_5_.canProvidePower()) && p_149695_5_ != this) {\n\t\t\t\t\tthis.func_150014_a(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, flag1);\n\t\t\t\t}\n\t\t\t}\n\t\t} else {\n\t\t\tif (com.hbm.world.WorldBlockState.read(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_).getBlock() != this) {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t\t\t}\n\n\t\t\tif (p_149695_5_ != this) {\n\t\t\t\tthis.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_ - 1, p_149695_4_, p_149695_5_);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockDoorGeneric.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block blockIn){\n\n\t\tif(!world.isRemote){\n\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityDoorGeneric){\n\t\t\t\t\tTileEntityDoorGeneric door = (TileEntityDoorGeneric)core;\n\t\t\t\t\tdoor.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t}",
+      "params": "World world, int x, int y, int z, Block blockIn",
+      "body": "\n\n\t\tif(!world.isRemote){\n\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityDoorGeneric){\n\t\t\t\t\tTileEntityDoorGeneric door = (TileEntityDoorGeneric)core;\n\t\t\t\t\tdoor.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockStalagmite.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(!canPlaceBlockAt(world, x, y, z)) {\n\t\t\tworld.func_147480_a(x, y, z, true);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(!canPlaceBlockAt(world, x, y, z)) {\n\t\t\tworld.func_147480_a(x, y, z, true);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOreOutgas.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tif(onNeighbour) {\n\n\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\t\t\n\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {\n\t\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\t\n\t\tif(onNeighbour) {\n\n\t\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\t\t\n\t\t\t\tif(com.hbm.world.WorldBlockState.read(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ).getBlock() == Blocks.AIR) {\n\t\t\t\t\tworld.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, getGas());\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/TritiumLamp.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\t\n\t\tif(!world.isRemote) {\n\t\t\t\n\t\t\tif(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n\t\t\t\t\n\t\t\t} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.setBlock(x, y, z, getOn(), 0, 2);\n\t\t\t}\n\n\t\t\tupdateBeam(world, x, y, z);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\t\n\t\tif(!world.isRemote) {\n\t\t\t\n\t\t\tif(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n\t\t\t\t\n\t\t\t} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.setBlock(x, y, z, getOn(), 0, 2);\n\t\t\t}\n\n\t\t\tupdateBeam(world, x, y, z);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/ReinforcedLamp.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\t\n\t\tif(!world.isRemote) {\n\t\t\t\n\t\t\tif(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n\t\t\t\t\n\t\t\t} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.setBlock(x, y, z, getOn(), 0, 2);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\t\n\t\tif(!world.isRemote) {\n\t\t\t\n\t\t\tif(this.isOn && !world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.scheduleBlockUpdate(x, y, z, this, 4);\n\t\t\t\t\n\t\t\t} else if(!this.isOn && world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\t\tworld.setBlock(x, y, z, getOn(), 0, 2);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockMush.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, b);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, b);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockLayering.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {\n\t\tthis.func_150155_m(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t}",
+      "params": "World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_",
+      "body": "\n\t\tthis.func_150155_m(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockNTMSand.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\tworld.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/WasteEarth.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\t\n\t\tif(this == ModBlocks.burning_earth) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n\t\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\t\n\t\tif(this == ModBlocks.burning_earth) {\n\t\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock();\n\t\t\tif(b instanceof BlockLiquid || b instanceof BlockFluidBase || b.isNormalCube()) {\n\t\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.DIRT; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\tthis.checkAndDropBlock(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/generic/BlockOreFluid.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(empty == null) return;\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == empty) {\n\t\t\tworld.setBlock(x, y, z, empty, meta, 3);\n\t\t\tworld.setBlock(x, y - 1, z, this, meta, 3);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(empty == null) return;\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tif(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == empty) {\n\t\t\tworld.setBlock(x, y, z, empty, meta, 3);\n\t\t\tworld.setBlock(x, y - 1, z, this, meta, 3);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/fluid/MudBlock.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block)\n    {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\treactToBlocks(world, x + 1, y, z);\n\t\treactToBlocks(world, x - 1, y, z);\n\t\treactToBlocks(world, x, y + 1, z);\n\t\treactToBlocks(world, x, y - 1, z);\n\t\treactToBlocks(world, x, y, z + 1);\n\t\treactToBlocks(world, x, y, z - 1);\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\treactToBlocks(world, x + 1, y, z);\n\t\treactToBlocks(world, x - 1, y, z);\n\t\treactToBlocks(world, x, y + 1, z);\n\t\treactToBlocks(world, x, y - 1, z);\n\t\treactToBlocks(world, x, y, z + 1);\n\t\treactToBlocks(world, x, y, z - 1);\n    "
+    },
+    {
+      "path": "com/hbm/blocks/fluid/MeltedFlesh.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block b) {\n\t\tthis.func_150155_m(world, x, y, z);\n\t}",
+      "params": "World world, int x, int y, int z, Block b",
+      "body": "\n\t\tthis.func_150155_m(world, x, y, z);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/fluid/VolcanicBlock.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\tBlock b = getReaction(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\t\n\t\t\tif(b != null) world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, b, b == ModBlocks.ore_basalt ? 3 : 0, 3);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\tfor(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {\n\t\t\tBlock b = getReaction(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);\n\t\t\t\n\t\t\tif(b != null) world.setBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ, b, b == ModBlocks.ore_basalt ? 3 : 0, 3);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/fluid/AcidBlock.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block)\n    {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\treactToBlocks(world, x + 1, y, z);\n\t\treactToBlocks(world, x - 1, y, z);\n\t\treactToBlocks(world, x, y + 1, z);\n\t\treactToBlocks(world, x, y - 1, z);\n\t\treactToBlocks(world, x, y, z + 1);\n\t\treactToBlocks(world, x, y, z - 1);\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\treactToBlocks(world, x + 1, y, z);\n\t\treactToBlocks(world, x - 1, y, z);\n\t\treactToBlocks(world, x, y + 1, z);\n\t\treactToBlocks(world, x, y - 1, z);\n\t\treactToBlocks(world, x, y, z + 1);\n\t\treactToBlocks(world, x, y, z - 1);\n    "
+    },
+    {
+      "path": "com/hbm/blocks/fluid/ToxicBlock.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block)\n    {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\tif(reactToBlocks(world, x + 1, y, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x - 1, y, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y + 1, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y - 1, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y, z + 1))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y, z - 1))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, block);\n\t\t\n\t\tif(reactToBlocks(world, x + 1, y, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x - 1, y, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y + 1, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y - 1, z))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y, z + 1))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n\t\tif(reactToBlocks(world, x, y, z - 1))\n\t\t\tworld.setBlock(x, y, z, ModBlocks.sellafield_slaked);\n    "
+    },
+    {
+      "path": "com/hbm/blocks/test/TestEventTester.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x1, int y1, int z1, Block p_149695_5_)\n    {\n    \tthis.worldObj = p_149695_1_;\n    \t//Levers and buttons for some reason set meta and notify, and *then* notify again, meaning they will always fire this twice.\n    \t//Pressure plates, torches, redstone, etc. do not have this issue.\n        if (p_149695_1_.isBlockIndirectlyGettingPowered(x1, y1, z1))\n        {\n        \t/*Component comp = new SiloComponent(this.worldObj.rand, x1, z1);\n        \tStructureBoundingBox box = comp.getBoundingBox();\n        \tbox.minY = 0;\n        \tbox.maxY = 512;\n        \tcomp.addComponentParts(p_149695_1_, this.worldObj.rand, box);*/\n        \t\n        \t//The laser thread is too dangerous to use right now\n        \t//ThreadLaser laser = new ThreadLaser(p_149695_1_, x, y, z, \"north\");\n        \t//laser.start();\n\t\t\t//ExplosionChaos.frag(p_149695_1_, x, y + 2, z, 10, false, null);\n        \t//EntitySmokeFX smoke = new EntitySmokeFX(p_149695_1_, x + 0.5, y + 1, z + 0.5, 0.0, 0.0, 0.0);\n        \t//p_149695_1_.spawnEntityInWorld(smoke);\n        \t//ExplosionParticle.spawnMush(p_149695_1_, x, y, z);\n\t\t\t//mirv(this.worldObj, x, y + 20, z);\n        \t//killEvent(p_149695_1_, x, y, z);\n        \t/*EntityNuclearCreeper e = new EntityNuclearCreeper(p_149695_1_);\n        \te.posX = x;\n        \te.posY = y + 1;\n        \te.posZ = z;\n        \tif(!p_149695_1_.isRemote)\n        \t{\n        \t\tp_149695_1_.spawnEntityInWorld(e);\n        \t}\n\t\t\t /*if(p_149695_1_.isRemote)\n\t\t\t {\n\t\t\t\t ExplosionNukeAdvanced.mush(p_149695_1_, x, y, z);\n\t\t\t }*/\n        \t/*EntityFalloutRain fallout = new EntityFalloutRain(p_149695_1_, 1000);\n        \tfallout.posX = x;\n        \tfallout.posY = y + 3;\n        \tfallout.posZ = z;\n        \tfallout.setScale(50);\n        \t\n        \tp_149695_1_.spawnEntityInWorld(fallout);*/\n        \t\n        \t//worldObj.setBlock(x, y, z, Blocks.air);\n        \t//ExplosionLarge.explode(worldObj, x + 0.5, y + 0.5, z + 0.5, MainRegistry.x, true, true, true);\n        \t\n        \t/*EntityBlackHole bl = new EntityBlackHole(worldObj, MainRegistry.x * 0.1F);\n        \tbl.posX = x + 0.5F;\n        \tbl.posY = y + 0.5F;\n        \tbl.posZ = z + 0.5F;\n        \tworldObj.spawnEntityInWorld(bl);*/\n        \t\n        \t\n        \t\n        \t\n        \t\n                /*if(!worldObj.isRemote)\n                {\n                    try {\n                        Chunk oldChunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\n                        if(worldObj instanceof WorldServer)\n                        {\n                            WorldServer worldServer = (WorldServer) worldObj;\n                            ChunkProviderServer chunkProviderServer = worldServer.theChunkProviderServer;\n                            IChunkProvider chunkProviderGenerate = chunkProviderServer.currentChunkProvider;\n\n                            Chunk newChunk = chunkProviderGenerate.provideChunk(oldChunk.xPosition, oldChunk.zPosition);\n\n                            for (int x = 0; x < 16; x++)\n                            {\n                                for (int z = 0; z < 16; z++)\n                                {\n                                    for (int y = 0; y < worldObj.getHeight(); y++)\n                                    {\n                                        Block block = newChunk.getBlock(x, y, z);\n                                        int metadata = newChunk.getBlockMetadata(x, y, z);\n\n                                        worldServer.setBlock(x + oldChunk.xPosition * 16, y, z + oldChunk.zPosition * 16, block, metadata, 2);\n\n                                        TileEntity tileEntity = newChunk.getTileEntityUnsafe(x, y, z);\n\n                                        if(tileEntity != null)\n                                        {\n                                            worldServer.setTileEntity(x + oldChunk.xPosition * 16, y, z + oldChunk.zPosition * 16, tileEntity);\n                                        }\n                                    }\n                                }\n                            }\n\n                            oldChunk.isTerrainPopulated = false;\n                            chunkProviderGenerate.populate(chunkProviderGenerate, oldChunk.xPosition, oldChunk.zPosition);\n                        }\n                    } catch(Exception e) {\n                        System.out.println(\"Rejuvenation Failed!\");\n                        e.printStackTrace();\n                    }\n                }*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tswitch(itemRand.nextInt(3)) {\n        \t\tcase 0:\n        \t\t\t(new Meteorite()).generateLarge(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\tcase 1:\n        \t\t\t(new Meteorite()).generateMedium(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\tcase 2:\n        \t\t\t(new Meteorite()).generateSmall(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\t}\n        \t}*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tEntityMeteor met = new EntityMeteor(worldObj);\n        \t\tmet.posX = x1;\n        \t\tmet.posY = 300;\n        \t\tmet.posZ = z1;\n        \t\tworldObj.spawnEntityInWorld(met);\n        \t\tworldObj.setBlockToAir(x1, y1, z1);\n        \t}*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tModEventHandler.meteorShower = 6000;\n        \t}*/\n        \t\n        \t/*EntityCloudFleija rainbow = new EntityCloudFleija(worldObj);\n        \trainbow.posX = x1;\n        \trainbow.posY = y1;\n        \trainbow.posZ = z1;\n        \trainbow.maxAge = 100;\n        \tif(!worldObj.isRemote)\n        \t\tworldObj.spawnEntityInWorld(rainbow);*/\n        \t\n        \t/*RadiationSavedData data = RadiationSavedData.getData(worldObj);\n        \t\n        \t//ALU SETS RAD TO 1000\n        \t//BER PRINTS RAD LEVEL\n        \t//COP INITIATES CYCLE\n        \t//RED FLUSHES ALL RAD\n        \t//STE PRINTS RAD CHUNKS\n        \t//URA PRINTS TOTAL RAD\n        \t//THO SETS RAD TO 1000000\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_aluminium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tdata.setRadForCoord(chunk.xPosition, chunk.zPosition, 1000);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_beryllium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_copper) {\n        \t\tdata.updateSystem();\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_red_copper) {\n\n\t\t\t\tdata.jettisonData();\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_steel) {\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.contamination.size());\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_uranium) {\n\t\t\t\t\n        \t\tfloat r = 0;\n\n            \tfor(Entry<ChunkCoordIntPair, Float> struct : data.contamination.entrySet()) {\n        \t\t\tr += struct.getValue();\n        \t\t}\n        \t\t\n\t\t\t\tSystem.out.println(r);\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_thorium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tdata.setRadForCoord(chunk.xPosition, chunk.zPosition, 1000000);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(!worldObj.isRemote) {\n        \t\t\n        \t\tworldObj.spawnEntityInWorld(EntityNukeCloudSmall.statFac(worldObj, x1, y1 + 5, z1, 100));\n        \t\tworldObj.setBlockToAir(x1, y1, z1);\n        \t}*/\n        \t\n        }\n    }",
+      "params": "World p_149695_1_, int x1, int y1, int z1, Block p_149695_5_",
+      "body": "\n    \tthis.worldObj = p_149695_1_;\n    \t//Levers and buttons for some reason set meta and notify, and *then* notify again, meaning they will always fire this twice.\n    \t//Pressure plates, torches, redstone, etc. do not have this issue.\n        if (p_149695_1_.isBlockIndirectlyGettingPowered(x1, y1, z1))\n        {\n        \t/*Component comp = new SiloComponent(this.worldObj.rand, x1, z1);\n        \tStructureBoundingBox box = comp.getBoundingBox();\n        \tbox.minY = 0;\n        \tbox.maxY = 512;\n        \tcomp.addComponentParts(p_149695_1_, this.worldObj.rand, box);*/\n        \t\n        \t//The laser thread is too dangerous to use right now\n        \t//ThreadLaser laser = new ThreadLaser(p_149695_1_, x, y, z, \"north\");\n        \t//laser.start();\n\t\t\t//ExplosionChaos.frag(p_149695_1_, x, y + 2, z, 10, false, null);\n        \t//EntitySmokeFX smoke = new EntitySmokeFX(p_149695_1_, x + 0.5, y + 1, z + 0.5, 0.0, 0.0, 0.0);\n        \t//p_149695_1_.spawnEntityInWorld(smoke);\n        \t//ExplosionParticle.spawnMush(p_149695_1_, x, y, z);\n\t\t\t//mirv(this.worldObj, x, y + 20, z);\n        \t//killEvent(p_149695_1_, x, y, z);\n        \t/*EntityNuclearCreeper e = new EntityNuclearCreeper(p_149695_1_);\n        \te.posX = x;\n        \te.posY = y + 1;\n        \te.posZ = z;\n        \tif(!p_149695_1_.isRemote)\n        \t{\n        \t\tp_149695_1_.spawnEntityInWorld(e);\n        \t}\n\t\t\t /*if(p_149695_1_.isRemote)\n\t\t\t {\n\t\t\t\t ExplosionNukeAdvanced.mush(p_149695_1_, x, y, z);\n\t\t\t }*/\n        \t/*EntityFalloutRain fallout = new EntityFalloutRain(p_149695_1_, 1000);\n        \tfallout.posX = x;\n        \tfallout.posY = y + 3;\n        \tfallout.posZ = z;\n        \tfallout.setScale(50);\n        \t\n        \tp_149695_1_.spawnEntityInWorld(fallout);*/\n        \t\n        \t//worldObj.setBlock(x, y, z, Blocks.air);\n        \t//ExplosionLarge.explode(worldObj, x + 0.5, y + 0.5, z + 0.5, MainRegistry.x, true, true, true);\n        \t\n        \t/*EntityBlackHole bl = new EntityBlackHole(worldObj, MainRegistry.x * 0.1F);\n        \tbl.posX = x + 0.5F;\n        \tbl.posY = y + 0.5F;\n        \tbl.posZ = z + 0.5F;\n        \tworldObj.spawnEntityInWorld(bl);*/\n        \t\n        \t\n        \t\n        \t\n        \t\n                /*if(!worldObj.isRemote)\n                {\n                    try {\n                        Chunk oldChunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\n                        if(worldObj instanceof WorldServer)\n                        {\n                            WorldServer worldServer = (WorldServer) worldObj;\n                            ChunkProviderServer chunkProviderServer = worldServer.theChunkProviderServer;\n                            IChunkProvider chunkProviderGenerate = chunkProviderServer.currentChunkProvider;\n\n                            Chunk newChunk = chunkProviderGenerate.provideChunk(oldChunk.xPosition, oldChunk.zPosition);\n\n                            for (int x = 0; x < 16; x++)\n                            {\n                                for (int z = 0; z < 16; z++)\n                                {\n                                    for (int y = 0; y < worldObj.getHeight(); y++)\n                                    {\n                                        Block block = newChunk.getBlock(x, y, z);\n                                        int metadata = newChunk.getBlockMetadata(x, y, z);\n\n                                        worldServer.setBlock(x + oldChunk.xPosition * 16, y, z + oldChunk.zPosition * 16, block, metadata, 2);\n\n                                        TileEntity tileEntity = newChunk.getTileEntityUnsafe(x, y, z);\n\n                                        if(tileEntity != null)\n                                        {\n                                            worldServer.setTileEntity(x + oldChunk.xPosition * 16, y, z + oldChunk.zPosition * 16, tileEntity);\n                                        }\n                                    }\n                                }\n                            }\n\n                            oldChunk.isTerrainPopulated = false;\n                            chunkProviderGenerate.populate(chunkProviderGenerate, oldChunk.xPosition, oldChunk.zPosition);\n                        }\n                    } catch(Exception e) {\n                        System.out.println(\"Rejuvenation Failed!\");\n                        e.printStackTrace();\n                    }\n                }*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tswitch(itemRand.nextInt(3)) {\n        \t\tcase 0:\n        \t\t\t(new Meteorite()).generateLarge(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\tcase 1:\n        \t\t\t(new Meteorite()).generateMedium(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\tcase 2:\n        \t\t\t(new Meteorite()).generateSmall(worldObj, itemRand, x1, y1, z1);\n        \t\t\tbreak;\n        \t\t}\n        \t}*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tEntityMeteor met = new EntityMeteor(worldObj);\n        \t\tmet.posX = x1;\n        \t\tmet.posY = 300;\n        \t\tmet.posZ = z1;\n        \t\tworldObj.spawnEntityInWorld(met);\n        \t\tworldObj.setBlockToAir(x1, y1, z1);\n        \t}*/\n        \t\n        \t\n        \t/*if(!worldObj.isRemote) {\n        \t\tModEventHandler.meteorShower = 6000;\n        \t}*/\n        \t\n        \t/*EntityCloudFleija rainbow = new EntityCloudFleija(worldObj);\n        \trainbow.posX = x1;\n        \trainbow.posY = y1;\n        \trainbow.posZ = z1;\n        \trainbow.maxAge = 100;\n        \tif(!worldObj.isRemote)\n        \t\tworldObj.spawnEntityInWorld(rainbow);*/\n        \t\n        \t/*RadiationSavedData data = RadiationSavedData.getData(worldObj);\n        \t\n        \t//ALU SETS RAD TO 1000\n        \t//BER PRINTS RAD LEVEL\n        \t//COP INITIATES CYCLE\n        \t//RED FLUSHES ALL RAD\n        \t//STE PRINTS RAD CHUNKS\n        \t//URA PRINTS TOTAL RAD\n        \t//THO SETS RAD TO 1000000\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_aluminium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tdata.setRadForCoord(chunk.xPosition, chunk.zPosition, 1000);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_beryllium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_copper) {\n        \t\tdata.updateSystem();\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_red_copper) {\n\n\t\t\t\tdata.jettisonData();\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_steel) {\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.contamination.size());\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_uranium) {\n\t\t\t\t\n        \t\tfloat r = 0;\n\n            \tfor(Entry<ChunkCoordIntPair, Float> struct : data.contamination.entrySet()) {\n        \t\t\tr += struct.getValue();\n        \t\t}\n        \t\t\n\t\t\t\tSystem.out.println(r);\n        \t}\n        \t\n        \tif(worldObj.getBlock(x1, y1 - 1, z1) == ModBlocks.block_thorium) {\n\n\t\t\t\tChunk chunk = worldObj.getChunkFromBlockCoords(x1, z1);\n\t\t\t\t\n\t\t\t\tdata.setRadForCoord(chunk.xPosition, chunk.zPosition, 1000000);\n\t\t\t\t\n\t\t\t\tSystem.out.println(data.getRadNumFromCoord(chunk.xPosition, chunk.zPosition));\n        \t}\n        \t\n        \tif(!worldObj.isRemote) {\n        \t\t\n        \t\tworldObj.spawnEntityInWorld(EntityNukeCloudSmall.statFac(worldObj, x1, y1 + 5, z1, 100));\n        \t\tworldObj.setBlockToAir(x1, y1, z1);\n        \t}*/\n        \t\n        }\n    "
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DigammaFlame.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(!canPlaceBlockAt(world, x, y, z)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(!canPlaceBlockAt(world, x, y, z)) {\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMan.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeMan entity = (TileEntityNukeMan) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeMan entity = (TileEntityNukeMan) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeMike.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeMike entity = (TileEntityNukeMike) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady() && !entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.manRadius);\n\t\t\t}\n\n\t\t\tif(entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.mikeRadius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeMike entity = (TileEntityNukeMike) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady() && !entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.manRadius);\n\t\t\t}\n\n\t\t\tif(entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.mikeRadius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukePrototype.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukePrototype entity = (TileEntityNukePrototype) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.prototypeRadius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukePrototype entity = (TileEntityNukePrototype) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.prototypeRadius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/Landmine.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\n\t\tif(!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock())) {\n\t\t\tif(!safeMode) {\n\t\t\t\texplode(world, x, y, z);\n\t\t\t} else {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\texplode(world, x, y, z);\n\t\t}\n\n\t\tif(!World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && !BlockFence.func_149825_a(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock())) {\n\t\t\tif(!safeMode) {\n\t\t\t\texplode(world, x, y, z);\n\t\t\t} else {\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBoy.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeBoy entity = (TileEntityNukeBoy) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tif(entity.isReady() && !p_149695_1_.isRemote) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeBoy entity = (TileEntityNukeBoy) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tif(entity.isReady() && !p_149695_1_.isRemote) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirusSeed.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t!world.isRemote) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n    \t}\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t!world.isRemote) {\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n    \t}\n    "
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadLarge.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block blockIn){\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPadLarge){\n\t\t\t\t\tTileEntityLaunchPadLarge launchpad = (TileEntityLaunchPadLarge)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t}",
+      "params": "World world, int x, int y, int z, Block blockIn",
+      "body": "\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPadLarge){\n\t\t\t\t\tTileEntityLaunchPadLarge launchpad = (TileEntityLaunchPadLarge)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CrystalVirus.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t!world.isRemote) {\n\t\t\tworld.setBlock(x, y, z, ModBlocks.crystal_hardened);\n    \t}\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_hardened || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.crystal_pulsar) && \n    \t\t\t!world.isRemote) {\n\t\t\tworld.setBlock(x, y, z, ModBlocks.crystal_hardened);\n    \t}\n    "
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombMulti.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tif(/* entity.getExplosionType() != 0 */entity.isLoaded()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityBombMulti entity = (TileEntityBombMulti) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tif(/* entity.getExplosionType() != 0 */entity.isLoaded()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeN2.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeN2 entity = (TileEntityNukeN2) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.n2Radius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeN2 entity = (TileEntityNukeN2) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.n2Radius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CheaterVirus.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t!world.isRemote) {\n\t\t\tprotect = false;\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tExplosionChaos.spreadVirus(world, x, y, z, 5);\n\t\t\tprotect = true;\n    \t}\n    }",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n    \t\n    \tif((com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x + 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x - 1, y, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y + 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y - 1, z).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z + 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t(com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == Blocks.AIR || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus || com.hbm.world.WorldBlockState.read(world, x, y, z - 1).getBlock() == ModBlocks.cheater_virus_seed) && \n    \t\t\t!world.isRemote) {\n\t\t\tprotect = false;\n\t\t\t{ net.minecraft.world.World nativePlacementWorld = world; int nativePlacementX = x; int nativePlacementY = y; int nativePlacementZ = z; net.minecraft.block.Block nativePlacementBlock = Blocks.AIR; int nativePlacementMeta = 0; int nativePlacementFlags = 3; if (nativePlacementWorld == null) throw new NullPointerException(); if (nativePlacementX >= -30000000 && nativePlacementX < 30000000 && nativePlacementZ >= -30000000 && nativePlacementZ < 30000000 && nativePlacementY >= 0 && nativePlacementY < 256) nativePlacementWorld.setBlockState(new net.minecraft.util.math.BlockPos(nativePlacementX, nativePlacementY, nativePlacementZ), nativePlacementBlock.getStateFromMeta(nativePlacementMeta), nativePlacementFlags); }\n\t\t\tExplosionChaos.spreadVirus(world, x, y, z, 5);\n\t\t\tprotect = true;\n    \t}\n    "
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeFleija.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeFleija entity = (TileEntityNukeFleija) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.fleijaRadius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeFleija entity = (TileEntityNukeFleija) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.fleijaRadius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPadRusted.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block blockIn){\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPadRusted){\n\t\t\t\t\tTileEntityLaunchPadRusted launchpad = (TileEntityLaunchPadRusted)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t}",
+      "params": "World world, int x, int y, int z, Block blockIn",
+      "body": "\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPadRusted){\n\t\t\t\t\tTileEntityLaunchPadRusted launchpad = (TileEntityLaunchPadRusted)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeTsar.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeTsar entity = (TileEntityNukeTsar) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady() && !entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.manRadius);\n\t\t\t}\n\n\t\t\tif(entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.tsarRadius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeTsar entity = (TileEntityNukeTsar) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady() && !entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.manRadius);\n\t\t\t}\n\n\t\t\tif(entity.isFilled()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.tsarRadius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeSolinium.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeSolinium entity = (TileEntityNukeSolinium) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.soliniumRadius);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeSolinium entity = (TileEntityNukeSolinium) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif(p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif(entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z, BombConfig.soliniumRadius);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/LaunchPad.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block blockIn){\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPad){\n\t\t\t\t\tTileEntityLaunchPad launchpad = (TileEntityLaunchPad)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t}",
+      "params": "World world, int x, int y, int z, Block blockIn",
+      "body": "\n\t\t\n\t\tif(!world.isRemote){\n\t\t\t\n\t\t\tint[] corePos = findCore(world, x, y, z);\n\t\t\tif(corePos != null){\n\t\t\t\tTileEntity core = world.getTileEntity(new net.minecraft.util.math.BlockPos(corePos[0], corePos[1], corePos[2]));\n\t\t\t\tif(core instanceof TileEntityLaunchPad){\n\t\t\t\t\tTileEntityLaunchPad launchpad = (TileEntityLaunchPad)core;\n\t\t\t\t\tlaunchpad.updateRedstonePower(x, y, z);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tsuper.onNeighborBlockChange( world, x, y, z, blockIn);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeGadget.java",
+      "method": "public void onNeighborBlockChange(World p_149695_1_, int x, int y, int z, Block p_149695_5_) {\n\t\tTileEntityNukeGadget entity = (TileEntityNukeGadget) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif (p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif (entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World p_149695_1_, int x, int y, int z, Block p_149695_5_",
+      "body": "\n\t\tTileEntityNukeGadget entity = (TileEntityNukeGadget) p_149695_1_.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\tif (p_149695_1_.isBlockIndirectlyGettingPowered(x, y, z) && !p_149695_1_.isRemote) {\n\t\t\tif (entity.isReady()) {\n\t\t\t\tthis.onBlockDestroyedByPlayer(p_149695_1_, x, y, z, 1);\n\t\t\t\tentity.clearSlots();\n\t\t\t\tcom.hbm.world.WorldAirRemoval.remove(p_149695_1_, x, y, z);\n\t\t\t\tigniteTestBomb(p_149695_1_, x, y, z);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/machine/ReactorZirnox.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {\n\t\tsuper.onNeighborBlockChange(world, x, y, z, neighbor);\n\t\tif (world.isRemote) return;\n\t\tint[] core = this.findCore(world, x, y, z);\n\t\tif (core == null) return;\n\t\tint cx = core[0];\n\t\tint cy = core[1];\n\t\tint cz = core[2];\n\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(cx, cy, cz));\n\t\tif (!(te instanceof TileEntityReactorZirnox)) return;\n\t\tTileEntityReactorZirnox reactor = (TileEntityReactorZirnox) te;\n\t\tboolean powered = false;\n\t\t// 2. Scan multiblock\n\t\tfor (int dx = -2; dx <= 2 && !powered; dx++) {\n\t\t\tfor (int dy = 0; dy <= 4 && !powered; dy++) {\n\t\t\t\tfor (int dz = -2; dz <= 2 && !powered; dz++) {\n\t\t\t\t\t// Get only surface blocks\n\t\t\t\t\tif (dx == -2 || dx == 2 ||\n\t\t\t\t\t\tdy == 0  || dy == 4 ||\n\t\t\t\t\t\tdz == -2 || dz == 2) {\n\n\t\t\t\t\t\tint sx = cx + dx;\n\t\t\t\t\t\tint sy = cy + dy;\n\t\t\t\t\t\tint sz = cz + dz;\n\n\t\t\t\t\t\tif (world.isBlockIndirectlyGettingPowered(sx, sy, sz) ||\n\t\t\t\t\t\t\tworld.getBlockPowerInput(sx, sy, sz) > 0) {\n\n\t\t\t\t\t\t\tpowered = true;\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treactor.setRedstonePowered(powered);\n\t}",
+      "params": "World world, int x, int y, int z, Block neighbor",
+      "body": "\n\t\tsuper.onNeighborBlockChange(world, x, y, z, neighbor);\n\t\tif (world.isRemote) return;\n\t\tint[] core = this.findCore(world, x, y, z);\n\t\tif (core == null) return;\n\t\tint cx = core[0];\n\t\tint cy = core[1];\n\t\tint cz = core[2];\n\t\tTileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(cx, cy, cz));\n\t\tif (!(te instanceof TileEntityReactorZirnox)) return;\n\t\tTileEntityReactorZirnox reactor = (TileEntityReactorZirnox) te;\n\t\tboolean powered = false;\n\t\t// 2. Scan multiblock\n\t\tfor (int dx = -2; dx <= 2 && !powered; dx++) {\n\t\t\tfor (int dy = 0; dy <= 4 && !powered; dy++) {\n\t\t\t\tfor (int dz = -2; dz <= 2 && !powered; dz++) {\n\t\t\t\t\t// Get only surface blocks\n\t\t\t\t\tif (dx == -2 || dx == 2 ||\n\t\t\t\t\t\tdy == 0  || dy == 4 ||\n\t\t\t\t\t\tdz == -2 || dz == 2) {\n\n\t\t\t\t\t\tint sx = cx + dx;\n\t\t\t\t\t\tint sy = cy + dy;\n\t\t\t\t\t\tint sz = cz + dz;\n\n\t\t\t\t\t\tif (world.isBlockIndirectlyGettingPowered(sx, sy, sz) ||\n\t\t\t\t\t\t\tworld.getBlockPowerInput(sx, sy, sz) > 0) {\n\n\t\t\t\t\t\t\tpowered = true;\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treactor.setRedstonePowered(powered);\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/machine/BlockSeal.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\t\tif(meta < 4) {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);\n\n\t\t\t\tint i = BlockSeal.getFrameSize(world, x, y, z);\n\n\t\t\t\tif(i != 0)\n\t\t\t\t\tif(BlockSeal.isSealClosed(world, x, y, z, i))\n\t\t\t\t\t\tBlockSeal.openSeal(world, x, y, z, i);\n\t\t\t\t\telse\n\t\t\t\t\t\tBlockSeal.closeSeal(world, x, y, z, i);\n\t\t\t}\n\t\t} else {\n\t\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\t\tif(meta >= 4) {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta % 4, 2);\n\t\t\t}\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\t\tif(world.isBlockIndirectlyGettingPowered(x, y, z)) {\n\t\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\t\tif(meta < 4) {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta + 4, 2);\n\n\t\t\t\tint i = BlockSeal.getFrameSize(world, x, y, z);\n\n\t\t\t\tif(i != 0)\n\t\t\t\t\tif(BlockSeal.isSealClosed(world, x, y, z, i))\n\t\t\t\t\t\tBlockSeal.openSeal(world, x, y, z, i);\n\t\t\t\t\telse\n\t\t\t\t\t\tBlockSeal.closeSeal(world, x, y, z, i);\n\t\t\t}\n\t\t} else {\n\t\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\t\tif(meta >= 4) {\n\t\t\t\tworld.setBlockMetadataWithNotify(x, y, z, meta % 4, 2);\n\t\t\t}\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneWaypoint.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/network/DroneWaypointRequest.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\t\tForgeDirection dir = ForgeDirection.getOrientation(meta);\n\t\tBlock b = com.hbm.world.WorldBlockState.read(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ).getBlock();\n\n\t\tif(!com.hbm.lib.FacingCompat.isBlockSideSolid(world, x - dir.offsetX, y - dir.offsetY, z - dir.offsetZ, dir) && (!b.renderAsNormalBlock() || b.isAir(world, x, y, z))) {\n\t\t\tthis.dropBlockAsItem(world, x, y, z, meta, 0);\n\t\t\tcom.hbm.world.WorldAirRemoval.remove(world, x, y, z);\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/network/FluidSwitch.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tboolean on = world.isBlockIndirectlyGettingPowered(x, y, z);\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tboolean update = false;\n\n\t\tif(on && meta == 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 1, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(!on && meta == 1) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(update) {\n\t\t\tTileEntityFluidValve te = (TileEntityFluidValve) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\t\tte.updateState();\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tboolean on = world.isBlockIndirectlyGettingPowered(x, y, z);\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tboolean update = false;\n\n\t\tif(on && meta == 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 1, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(!on && meta == 1) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(update) {\n\t\t\tTileEntityFluidValve te = (TileEntityFluidValve) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\t\tte.updateState();\n\t\t}\n\t"
+    },
+    {
+      "path": "com/hbm/blocks/network/CableDetector.java",
+      "method": "public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {\n\n\t\tboolean on = world.isBlockIndirectlyGettingPowered(x, y, z);\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tboolean update = false;\n\n\t\tif(on && meta == 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 1, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(!on && meta == 1) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(update) {\n\t\t\tTileEntityCableSwitch te = (TileEntityCableSwitch) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\t\tte.updateState();\n\t\t}\n\t}",
+      "params": "World world, int x, int y, int z, Block block",
+      "body": "\n\n\t\tboolean on = world.isBlockIndirectlyGettingPowered(x, y, z);\n\t\tint meta = com.hbm.world.WorldBlockState.metadata(com.hbm.world.WorldBlockState.read(world, x, y, z) );\n\n\t\tboolean update = false;\n\n\t\tif(on && meta == 0) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 1, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 1.0F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(!on && meta == 1) {\n\t\t\tworld.setBlockMetadataWithNotify(x, y, z, 0, 2);\n\t\t\tcom.hbm.sound.WorldSoundEffects.play(world, x, y, z, \"hbm:block.reactorStart\", 1.0F, 0.85F);\n\t\t\tupdate = true;\n\t\t}\n\n\t\tif(update) {\n\t\t\tTileEntityCableSwitch te = (TileEntityCableSwitch) world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));\n\t\t\tte.updateState();\n\t\t}\n\t"
+    }
+  ],
+  "baseline_zip_sha256": "1e5a7ebd93a753d639b5890aeba9cc366be2d978494c65412b0594b618b7cf75",
+  "original_methods_sha256": "fd2774ab6535526372cc414a8c6eed7b0e179bbdc93e85d1655dd565007dc548"
+}

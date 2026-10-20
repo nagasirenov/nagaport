@@ -1,0 +1,1276 @@
+CLASS adb
+  public void a(add, yz, java.util.List, boolean);
+    Code:
+       0: return
+
+
+CLASS net.minecraft.item.Item
+  public void addInformation(net.minecraft.item.ItemStack, net.minecraft.world.World, java.util.List<java.lang.String>, net.minecraft.client.util.ITooltipFlag);
+    Code:
+       0: return
+
+
+CLASS add
+  public java.util.List a(yz, boolean);
+    Code:
+       0: new           #61                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #211                // Method java/util/ArrayList."<init>":()V
+       7: astore_3
+       8: aload_0
+       9: invokevirtual #157                // Method s:()Ljava/lang/String;
+      12: astore        4
+      14: aload_0
+      15: invokevirtual #158                // Method u:()Z
+      18: ifeq          50
+      21: new           #59                 // class java/lang/StringBuilder
+      24: dup
+      25: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+      28: getstatic     #83                 // Field a.u:La;
+      31: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      34: aload         4
+      36: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      39: getstatic     #84                 // Field a.v:La;
+      42: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      45: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      48: astore        4
+      50: iload_2
+      51: ifeq          208
+      54: ldc           #1                  // String
+      56: astore        5
+      58: aload         4
+      60: invokevirtual #202                // Method java/lang/String.length:()I
+      63: ifle          92
+      66: new           #59                 // class java/lang/StringBuilder
+      69: dup
+      70: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+      73: aload         4
+      75: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      78: ldc           #3                  // String  (
+      80: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      83: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      86: astore        4
+      88: ldc           #8                  // String )
+      90: astore        5
+      92: aload_0
+      93: getfield      #90                 // Field e:Ladb;
+      96: invokestatic  #117                // Method adb.b:(Ladb;)I
+      99: istore        6
+     101: aload_0
+     102: invokevirtual #149                // Method h:()Z
+     105: ifeq          163
+     108: new           #59                 // class java/lang/StringBuilder
+     111: dup
+     112: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     115: aload         4
+     117: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     120: ldc           #6                  // String #%04d/%d%s
+     122: iconst_3
+     123: anewarray     #57                 // class java/lang/Object
+     126: dup
+     127: iconst_0
+     128: iload         6
+     130: invokestatic  #199                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     133: aastore
+     134: dup
+     135: iconst_1
+     136: aload_0
+     137: getfield      #91                 // Field f:I
+     140: invokestatic  #199                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     143: aastore
+     144: dup
+     145: iconst_2
+     146: aload         5
+     148: aastore
+     149: invokestatic  #201                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     152: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     155: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     158: astore        4
+     160: goto          205
+     163: new           #59                 // class java/lang/StringBuilder
+     166: dup
+     167: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     170: aload         4
+     172: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     175: ldc           #5                  // String #%04d%s
+     177: iconst_2
+     178: anewarray     #57                 // class java/lang/Object
+     181: dup
+     182: iconst_0
+     183: iload         6
+     185: invokestatic  #199                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     188: aastore
+     189: dup
+     190: iconst_1
+     191: aload         5
+     193: aastore
+     194: invokestatic  #201                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     197: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     200: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     203: astore        4
+     205: goto          254
+     208: aload_0
+     209: invokevirtual #158                // Method u:()Z
+     212: ifne          254
+     215: aload_0
+     216: getfield      #90                 // Field e:Ladb;
+     219: getstatic     #93                 // Field ade.aY:Ladh;
+     222: if_acmpne     254
+     225: new           #59                 // class java/lang/StringBuilder
+     228: dup
+     229: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     232: aload         4
+     234: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     237: ldc           #2                  // String  #
+     239: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     242: aload_0
+     243: getfield      #91                 // Field f:I
+     246: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     249: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     252: astore        4
+     254: aload_3
+     255: aload         4
+     257: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     262: pop
+     263: aload_0
+     264: getfield      #90                 // Field e:Ladb;
+     267: aload_0
+     268: aload_1
+     269: aload_3
+     270: iload_2
+     271: invokevirtual #114                // Method adb.a:(Ladd;Lyz;Ljava/util/List;Z)V
+     274: aload_0
+     275: invokevirtual #154                // Method p:()Z
+     278: ifeq          572
+     281: aload_0
+     282: invokevirtual #156                // Method r:()Ldq;
+     285: astore        5
+     287: aload         5
+     289: ifnull        366
+     292: iconst_0
+     293: istore        6
+     295: iload         6
+     297: aload         5
+     299: invokevirtual #191                // Method dq.c:()I
+     302: if_icmpge     366
+     305: aload         5
+     307: iload         6
+     309: invokevirtual #190                // Method dq.b:(I)Ldh;
+     312: ldc           #28                 // String id
+     314: invokevirtual #180                // Method dh.e:(Ljava/lang/String;)S
+     317: istore        7
+     319: aload         5
+     321: iload         6
+     323: invokevirtual #190                // Method dq.b:(I)Ldh;
+     326: ldc           #31                 // String lvl
+     328: invokevirtual #180                // Method dh.e:(Ljava/lang/String;)S
+     331: istore        8
+     333: getstatic     #96                 // Field aft.b:[Laft;
+     336: iload         7
+     338: aaload
+     339: ifnull        360
+     342: aload_3
+     343: getstatic     #96                 // Field aft.b:[Laft;
+     346: iload         7
+     348: aaload
+     349: iload         8
+     351: invokevirtual #162                // Method aft.c:(I)Ljava/lang/String;
+     354: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     359: pop
+     360: iinc          6, 1
+     363: goto          295
+     366: aload_0
+     367: getfield      #89                 // Field d:Ldh;
+     370: ldc           #26                 // String display
+     372: bipush        10
+     374: invokevirtual #176                // Method dh.b:(Ljava/lang/String;I)Z
+     377: ifeq          572
+     380: aload_0
+     381: getfield      #89                 // Field d:Ldh;
+     384: ldc           #26                 // String display
+     386: invokevirtual #184                // Method dh.m:(Ljava/lang/String;)Ldh;
+     389: astore        6
+     391: aload         6
+     393: ldc           #25                 // String color
+     395: iconst_3
+     396: invokevirtual #176                // Method dh.b:(Ljava/lang/String;I)Z
+     399: ifeq          478
+     402: iload_2
+     403: ifeq          447
+     406: aload_3
+     407: new           #59                 // class java/lang/StringBuilder
+     410: dup
+     411: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     414: ldc           #12                 // String Color: #
+     416: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     419: aload         6
+     421: ldc           #25                 // String color
+     423: invokevirtual #182                // Method dh.f:(Ljava/lang/String;)I
+     426: invokestatic  #198                // Method java/lang/Integer.toHexString:(I)Ljava/lang/String;
+     429: invokevirtual #203                // Method java/lang/String.toUpperCase:()Ljava/lang/String;
+     432: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     435: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     438: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     443: pop
+     444: goto          478
+     447: aload_3
+     448: new           #59                 // class java/lang/StringBuilder
+     451: dup
+     452: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     455: getstatic     #83                 // Field a.u:La;
+     458: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     461: ldc           #29                 // String item.dyed
+     463: invokestatic  #166                // Method dd.a:(Ljava/lang/String;)Ljava/lang/String;
+     466: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     469: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     472: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     477: pop
+     478: aload         6
+     480: ldc           #16                 // String Lore
+     482: invokevirtual #175                // Method dh.b:(Ljava/lang/String;)B
+     485: bipush        9
+     487: if_icmpne     572
+     490: aload         6
+     492: ldc           #16                 // String Lore
+     494: bipush        8
+     496: invokevirtual #177                // Method dh.c:(Ljava/lang/String;I)Ldq;
+     499: astore        7
+     501: aload         7
+     503: invokevirtual #191                // Method dq.c:()I
+     506: ifle          572
+     509: iconst_0
+     510: istore        8
+     512: iload         8
+     514: aload         7
+     516: invokevirtual #191                // Method dq.c:()I
+     519: if_icmpge     572
+     522: aload_3
+     523: new           #59                 // class java/lang/StringBuilder
+     526: dup
+     527: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     530: getstatic     #80                 // Field a.f:La;
+     533: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     536: ldc           #1                  // String
+     538: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     541: getstatic     #83                 // Field a.u:La;
+     544: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     547: aload         7
+     549: iload         8
+     551: invokevirtual #192                // Method dq.f:(I)Ljava/lang/String;
+     554: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     557: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     560: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     565: pop
+     566: iinc          8, 1
+     569: goto          512
+     572: aload_0
+     573: invokevirtual #140                // Method D:()Lcom/google/common/collect/Multimap;
+     576: astore        5
+     578: aload         5
+     580: invokeinterface #223,  1          // InterfaceMethod com/google/common/collect/Multimap.isEmpty:()Z
+     585: ifne          939
+     588: aload_3
+     589: ldc           #1                  // String
+     591: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     596: pop
+     597: aload         5
+     599: invokeinterface #222,  1          // InterfaceMethod com/google/common/collect/Multimap.entries:()Ljava/util/Collection;
+     604: invokeinterface #227,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     609: astore        6
+     611: aload         6
+     613: invokeinterface #228,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     618: ifeq          939
+     621: aload         6
+     623: invokeinterface #229,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     628: checkcast     #65                 // class java/util/Map$Entry
+     631: astore        7
+     633: aload         7
+     635: invokeinterface #232,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     640: checkcast     #72                 // class tj
+     643: astore        8
+     645: aload         8
+     647: invokevirtual #218                // Method tj.d:()D
+     650: dstore        9
+     652: aload         8
+     654: invokevirtual #216                // Method tj.a:()Ljava/util/UUID;
+     657: getstatic     #85                 // Field adb.f:Ljava/util/UUID;
+     660: if_acmpne     676
+     663: dload         9
+     665: aload_0
+     666: getstatic     #102                // Field sz.a:Lsz;
+     669: invokestatic  #164                // Method afv.a:(Ladd;Lsz;)F
+     672: f2d
+     673: dadd
+     674: dstore        9
+     676: aload         8
+     678: invokevirtual #217                // Method tj.c:()I
+     681: iconst_1
+     682: if_icmpeq     694
+     685: aload         8
+     687: invokevirtual #217                // Method tj.c:()I
+     690: iconst_2
+     691: if_icmpne     705
+     694: dload         9
+     696: ldc2_w        #78                 // double 100.0d
+     699: dmul
+     700: dstore        11
+     702: goto          709
+     705: dload         9
+     707: dstore        11
+     709: dload         9
+     711: dconst_0
+     712: dcmpl
+     713: ifle          820
+     716: aload_3
+     717: new           #59                 // class java/lang/StringBuilder
+     720: dup
+     721: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     724: getstatic     #81                 // Field a.j:La;
+     727: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     730: new           #59                 // class java/lang/StringBuilder
+     733: dup
+     734: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     737: ldc           #22                 // String attribute.modifier.plus.
+     739: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     742: aload         8
+     744: invokevirtual #217                // Method tj.c:()I
+     747: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     750: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     753: iconst_2
+     754: anewarray     #57                 // class java/lang/Object
+     757: dup
+     758: iconst_0
+     759: getstatic     #86                 // Field a:Ljava/text/DecimalFormat;
+     762: dload         11
+     764: invokevirtual #210                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+     767: aastore
+     768: dup
+     769: iconst_1
+     770: new           #59                 // class java/lang/StringBuilder
+     773: dup
+     774: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     777: ldc           #24                 // String attribute.name.
+     779: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     782: aload         7
+     784: invokeinterface #231,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     789: checkcast     #58                 // class java/lang/String
+     792: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     795: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     798: invokestatic  #166                // Method dd.a:(Ljava/lang/String;)Ljava/lang/String;
+     801: aastore
+     802: invokestatic  #167                // Method dd.a:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     805: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     808: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     811: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     816: pop
+     817: goto          936
+     820: dload         9
+     822: dconst_0
+     823: dcmpg
+     824: ifge          936
+     827: dload         11
+     829: ldc2_w        #76                 // double -1.0d
+     832: dmul
+     833: dstore        11
+     835: aload_3
+     836: new           #59                 // class java/lang/StringBuilder
+     839: dup
+     840: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     843: getstatic     #82                 // Field a.m:La;
+     846: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     849: new           #59                 // class java/lang/StringBuilder
+     852: dup
+     853: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     856: ldc           #23                 // String attribute.modifier.take.
+     858: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     861: aload         8
+     863: invokevirtual #217                // Method tj.c:()I
+     866: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     869: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     872: iconst_2
+     873: anewarray     #57                 // class java/lang/Object
+     876: dup
+     877: iconst_0
+     878: getstatic     #86                 // Field a:Ljava/text/DecimalFormat;
+     881: dload         11
+     883: invokevirtual #210                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+     886: aastore
+     887: dup
+     888: iconst_1
+     889: new           #59                 // class java/lang/StringBuilder
+     892: dup
+     893: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     896: ldc           #24                 // String attribute.name.
+     898: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     901: aload         7
+     903: invokeinterface #231,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     908: checkcast     #58                 // class java/lang/String
+     911: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     914: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     917: invokestatic  #166                // Method dd.a:(Ljava/lang/String;)Ljava/lang/String;
+     920: aastore
+     921: invokestatic  #167                // Method dd.a:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     924: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     927: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     930: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     935: pop
+     936: goto          611
+     939: aload_0
+     940: invokevirtual #154                // Method p:()Z
+     943: ifeq          989
+     946: aload_0
+     947: invokevirtual #155                // Method q:()Ldh;
+     950: ldc           #19                 // String Unbreakable
+     952: invokevirtual #185                // Method dh.n:(Ljava/lang/String;)Z
+     955: ifeq          989
+     958: aload_3
+     959: new           #59                 // class java/lang/StringBuilder
+     962: dup
+     963: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+     966: getstatic     #81                 // Field a.j:La;
+     969: invokevirtual #206                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     972: ldc           #30                 // String item.unbreakable
+     974: invokestatic  #166                // Method dd.a:(Ljava/lang/String;)Ljava/lang/String;
+     977: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     980: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     983: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     988: pop
+     989: iload_2
+     990: ifeq          1046
+     993: aload_0
+     994: invokevirtual #150                // Method i:()Z
+     997: ifeq          1046
+    1000: aload_3
+    1001: new           #59                 // class java/lang/StringBuilder
+    1004: dup
+    1005: invokespecial #204                // Method java/lang/StringBuilder."<init>":()V
+    1008: ldc           #15                 // String Durability:
+    1010: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1013: aload_0
+    1014: invokevirtual #152                // Method l:()I
+    1017: aload_0
+    1018: invokevirtual #151                // Method j:()I
+    1021: isub
+    1022: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1025: ldc           #4                  // String  /
+    1027: invokevirtual #207                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1030: aload_0
+    1031: invokevirtual #152                // Method l:()I
+    1034: invokevirtual #205                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1037: invokevirtual #208                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1040: invokeinterface #230,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1045: pop
+    1046: aload_3
+    1047: areturn
+
+
+CLASS net.minecraft.item.ItemStack
+  public java.util.List<java.lang.String> getTooltip(net.minecraft.entity.player.EntityPlayer, net.minecraft.client.util.ITooltipFlag);
+    Code:
+       0: invokestatic  #692                // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+       3: astore_3
+       4: aload_0
+       5: invokevirtual #694                // Method getDisplayName:()Ljava/lang/String;
+       8: astore        4
+      10: aload_0
+      11: invokevirtual #696                // Method hasDisplayName:()Z
+      14: ifeq          40
+      17: new           #564                // class java/lang/StringBuilder
+      20: dup
+      21: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      24: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+      27: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      30: aload         4
+      32: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      35: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      38: astore        4
+      40: new           #564                // class java/lang/StringBuilder
+      43: dup
+      44: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      47: aload         4
+      49: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: getstatic     #710                // Field net/minecraft/util/text/TextFormatting.RESET:Lnet/minecraft/util/text/TextFormatting;
+      55: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      58: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      61: astore        4
+      63: aload_2
+      64: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+      69: ifeq          231
+      72: ldc_w         #717                // String
+      75: astore        5
+      77: aload         4
+      79: invokevirtual #718                // Method java/lang/String.isEmpty:()Z
+      82: ifne          113
+      85: new           #564                // class java/lang/StringBuilder
+      88: dup
+      89: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+      92: aload         4
+      94: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      97: ldc_w         #720                // String  (
+     100: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     103: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     106: astore        4
+     108: ldc_w         #722                // String )
+     111: astore        5
+     113: aload_0
+     114: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     117: invokestatic  #726                // Method net/minecraft/item/Item.getIdFromItem:(Lnet/minecraft/item/Item;)I
+     120: istore        6
+     122: aload_0
+     123: invokevirtual #727                // Method getHasSubtypes:()Z
+     126: ifeq          185
+     129: new           #564                // class java/lang/StringBuilder
+     132: dup
+     133: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     136: aload         4
+     138: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     141: ldc_w         #729                // String #%04d/%d%s
+     144: iconst_3
+     145: anewarray     #5                  // class java/lang/Object
+     148: dup
+     149: iconst_0
+     150: iload         6
+     152: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     155: aastore
+     156: dup
+     157: iconst_1
+     158: aload_0
+     159: getfield      #92                 // Field itemDamage:I
+     162: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     165: aastore
+     166: dup
+     167: iconst_2
+     168: aload         5
+     170: aastore
+     171: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     174: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     177: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     180: astore        4
+     182: goto          228
+     185: new           #564                // class java/lang/StringBuilder
+     188: dup
+     189: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     192: aload         4
+     194: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     197: ldc_w         #741                // String #%04d%s
+     200: iconst_2
+     201: anewarray     #5                  // class java/lang/Object
+     204: dup
+     205: iconst_0
+     206: iload         6
+     208: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     211: aastore
+     212: dup
+     213: iconst_1
+     214: aload         5
+     216: aastore
+     217: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     220: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     223: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     226: astore        4
+     228: goto          278
+     231: aload_0
+     232: invokevirtual #696                // Method hasDisplayName:()Z
+     235: ifne          278
+     238: aload_0
+     239: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     242: getstatic     #745                // Field net/minecraft/init/Items.FILLED_MAP:Lnet/minecraft/item/ItemMap;
+     245: if_acmpne     278
+     248: new           #564                // class java/lang/StringBuilder
+     251: dup
+     252: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     255: aload         4
+     257: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     260: ldc_w         #747                // String  #
+     263: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     266: aload_0
+     267: getfield      #92                 // Field itemDamage:I
+     270: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     273: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     276: astore        4
+     278: aload_3
+     279: aload         4
+     281: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     286: pop
+     287: iconst_0
+     288: istore        5
+     290: aload_0
+     291: invokevirtual #381                // Method hasTagCompound:()Z
+     294: ifeq          324
+     297: aload_0
+     298: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     301: ldc_w         #752                // String HideFlags
+     304: bipush        99
+     306: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     309: ifeq          324
+     312: aload_0
+     313: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     316: ldc_w         #752                // String HideFlags
+     319: invokevirtual #756                // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+     322: istore        5
+     324: iload         5
+     326: bipush        32
+     328: iand
+     329: ifne          354
+     332: aload_0
+     333: invokevirtual #239                // Method getItem:()Lnet/minecraft/item/Item;
+     336: aload_0
+     337: aload_1
+     338: ifnonnull     345
+     341: aconst_null
+     342: goto          349
+     345: aload_1
+     346: getfield      #759                // Field net/minecraft/entity/player/EntityPlayer.world:Lnet/minecraft/world/World;
+     349: aload_3
+     350: aload_2
+     351: invokevirtual #763                // Method net/minecraft/item/Item.addInformation:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+     354: aload_0
+     355: invokevirtual #381                // Method hasTagCompound:()Z
+     358: ifeq          671
+     361: iload         5
+     363: iconst_1
+     364: iand
+     365: ifne          447
+     368: aload_0
+     369: invokevirtual #765                // Method getEnchantmentTagList:()Lnet/minecraft/nbt/NBTTagList;
+     372: astore        6
+     374: iconst_0
+     375: istore        7
+     377: iload         7
+     379: aload         6
+     381: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+     384: if_icmpge     447
+     387: aload         6
+     389: iload         7
+     391: invokevirtual #772                // Method net/minecraft/nbt/NBTTagList.getCompoundTagAt:(I)Lnet/minecraft/nbt/NBTTagCompound;
+     394: astore        8
+     396: aload         8
+     398: ldc           #124                // String id
+     400: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+     403: istore        9
+     405: aload         8
+     407: ldc_w         #774                // String lvl
+     410: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+     413: istore        10
+     415: iload         9
+     417: invokestatic  #780                // Method net/minecraft/enchantment/Enchantment.getEnchantmentByID:(I)Lnet/minecraft/enchantment/Enchantment;
+     420: astore        11
+     422: aload         11
+     424: ifnull        441
+     427: aload_3
+     428: aload         11
+     430: iload         10
+     432: invokevirtual #784                // Method net/minecraft/enchantment/Enchantment.getTranslatedName:(I)Ljava/lang/String;
+     435: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     440: pop
+     441: iinc          7, 1
+     444: goto          377
+     447: aload_0
+     448: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     451: ldc_w         #655                // String display
+     454: bipush        10
+     456: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     459: ifeq          671
+     462: aload_0
+     463: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     466: ldc_w         #655                // String display
+     469: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+     472: astore        6
+     474: aload         6
+     476: ldc_w         #786                // String color
+     479: iconst_3
+     480: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+     483: ifeq          574
+     486: aload_2
+     487: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+     492: ifeq          542
+     495: aload_3
+     496: ldc_w         #788                // String item.color
+     499: iconst_1
+     500: anewarray     #5                  // class java/lang/Object
+     503: dup
+     504: iconst_0
+     505: ldc_w         #790                // String #%06X
+     508: iconst_1
+     509: anewarray     #5                  // class java/lang/Object
+     512: dup
+     513: iconst_0
+     514: aload         6
+     516: ldc_w         #786                // String color
+     519: invokevirtual #756                // Method net/minecraft/nbt/NBTTagCompound.getInteger:(Ljava/lang/String;)I
+     522: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     525: aastore
+     526: invokestatic  #739                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     529: aastore
+     530: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     533: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     538: pop
+     539: goto          574
+     542: aload_3
+     543: new           #564                // class java/lang/StringBuilder
+     546: dup
+     547: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     550: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+     553: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     556: ldc_w         #795                // String item.dyed
+     559: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+     562: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     565: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     568: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     573: pop
+     574: aload         6
+     576: ldc_w         #797                // String Lore
+     579: invokevirtual #800                // Method net/minecraft/nbt/NBTTagCompound.getTagId:(Ljava/lang/String;)B
+     582: bipush        9
+     584: if_icmpne     671
+     587: aload         6
+     589: ldc_w         #797                // String Lore
+     592: bipush        8
+     594: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+     597: astore        7
+     599: aload         7
+     601: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+     604: ifne          671
+     607: iconst_0
+     608: istore        8
+     610: iload         8
+     612: aload         7
+     614: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+     617: if_icmpge     671
+     620: aload_3
+     621: new           #564                // class java/lang/StringBuilder
+     624: dup
+     625: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     628: getstatic     #804                // Field net/minecraft/util/text/TextFormatting.DARK_PURPLE:Lnet/minecraft/util/text/TextFormatting;
+     631: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     634: ldc_w         #717                // String
+     637: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     640: getstatic     #702                // Field net/minecraft/util/text/TextFormatting.ITALIC:Lnet/minecraft/util/text/TextFormatting;
+     643: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     646: aload         7
+     648: iload         8
+     650: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+     653: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     656: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     659: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     664: pop
+     665: iinc          8, 1
+     668: goto          610
+     671: invokestatic  #813                // Method net/minecraft/inventory/EntityEquipmentSlot.values:()[Lnet/minecraft/inventory/EntityEquipmentSlot;
+     674: astore        6
+     676: aload         6
+     678: arraylength
+     679: istore        7
+     681: iconst_0
+     682: istore        8
+     684: iload         8
+     686: iload         7
+     688: if_icmpge     1303
+     691: aload         6
+     693: iload         8
+     695: aaload
+     696: astore        9
+     698: aload_0
+     699: aload         9
+     701: invokevirtual #819                // Method getAttributeModifiers:(Lnet/minecraft/inventory/EntityEquipmentSlot;)Lcom/google/common/collect/Multimap;
+     704: astore        10
+     706: aload         10
+     708: invokeinterface #822,  1          // InterfaceMethod com/google/common/collect/Multimap.isEmpty:()Z
+     713: ifne          1297
+     716: iload         5
+     718: iconst_2
+     719: iand
+     720: ifne          1297
+     723: aload_3
+     724: ldc_w         #717                // String
+     727: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     732: pop
+     733: aload_3
+     734: new           #564                // class java/lang/StringBuilder
+     737: dup
+     738: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     741: ldc_w         #824                // String item.modifiers.
+     744: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     747: aload         9
+     749: invokevirtual #827                // Method net/minecraft/inventory/EntityEquipmentSlot.getName:()Ljava/lang/String;
+     752: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     755: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     758: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+     761: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     766: pop
+     767: aload         10
+     769: invokeinterface #831,  1          // InterfaceMethod com/google/common/collect/Multimap.entries:()Ljava/util/Collection;
+     774: invokeinterface #837,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     779: astore        11
+     781: aload         11
+     783: invokeinterface #842,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     788: ifeq          1297
+     791: aload         11
+     793: invokeinterface #845,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     798: checkcast     #10                 // class java/util/Map$Entry
+     801: astore        12
+     803: aload         12
+     805: invokeinterface #848,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     810: checkcast     #850                // class net/minecraft/entity/ai/attributes/AttributeModifier
+     813: astore        13
+     815: aload         13
+     817: invokevirtual #854                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getAmount:()D
+     820: dstore        14
+     822: iconst_0
+     823: istore        16
+     825: aload_1
+     826: ifnull        907
+     829: aload         13
+     831: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     834: getstatic     #862                // Field net/minecraft/item/Item.ATTACK_DAMAGE_MODIFIER:Ljava/util/UUID;
+     837: if_acmpne     876
+     840: dload         14
+     842: aload_1
+     843: getstatic     #868                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_DAMAGE:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     846: invokevirtual #872                // Method net/minecraft/entity/player/EntityPlayer.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     849: invokeinterface #877,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getBaseValue:()D
+     854: dadd
+     855: dstore        14
+     857: dload         14
+     859: aload_0
+     860: getstatic     #883                // Field net/minecraft/entity/EnumCreatureAttribute.UNDEFINED:Lnet/minecraft/entity/EnumCreatureAttribute;
+     863: invokestatic  #887                // Method net/minecraft/enchantment/EnchantmentHelper.getModifierForCreature:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F
+     866: f2d
+     867: dadd
+     868: dstore        14
+     870: iconst_1
+     871: istore        16
+     873: goto          907
+     876: aload         13
+     878: invokevirtual #858                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getID:()Ljava/util/UUID;
+     881: getstatic     #890                // Field net/minecraft/item/Item.ATTACK_SPEED_MODIFIER:Ljava/util/UUID;
+     884: if_acmpne     907
+     887: dload         14
+     889: aload_1
+     890: getstatic     #893                // Field net/minecraft/entity/SharedMonsterAttributes.ATTACK_SPEED:Lnet/minecraft/entity/ai/attributes/IAttribute;
+     893: invokevirtual #872                // Method net/minecraft/entity/player/EntityPlayer.getEntityAttribute:(Lnet/minecraft/entity/ai/attributes/IAttribute;)Lnet/minecraft/entity/ai/attributes/IAttributeInstance;
+     896: invokeinterface #877,  1          // InterfaceMethod net/minecraft/entity/ai/attributes/IAttributeInstance.getBaseValue:()D
+     901: dadd
+     902: dstore        14
+     904: iconst_1
+     905: istore        16
+     907: aload         13
+     909: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     912: iconst_1
+     913: if_icmpeq     932
+     916: aload         13
+     918: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     921: iconst_2
+     922: if_icmpeq     932
+     925: dload         14
+     927: dstore        17
+     929: goto          940
+     932: dload         14
+     934: ldc2_w        #897                // double 100.0d
+     937: dmul
+     938: dstore        17
+     940: iload         16
+     942: ifeq          1051
+     945: aload_3
+     946: new           #564                // class java/lang/StringBuilder
+     949: dup
+     950: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     953: ldc_w         #900                // String
+     956: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     959: new           #564                // class java/lang/StringBuilder
+     962: dup
+     963: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+     966: ldc_w         #902                // String attribute.modifier.equals.
+     969: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     972: aload         13
+     974: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+     977: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     980: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     983: iconst_2
+     984: anewarray     #5                  // class java/lang/Object
+     987: dup
+     988: iconst_0
+     989: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+     992: dload         17
+     994: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+     997: aastore
+     998: dup
+     999: iconst_1
+    1000: new           #564                // class java/lang/StringBuilder
+    1003: dup
+    1004: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1007: ldc_w         #911                // String attribute.name.
+    1010: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1013: aload         12
+    1015: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1020: checkcast     #327                // class java/lang/String
+    1023: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1026: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1029: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1032: aastore
+    1033: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1036: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1039: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1042: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1047: pop
+    1048: goto          1294
+    1051: dload         14
+    1053: dconst_0
+    1054: dcmpl
+    1055: ifle          1170
+    1058: aload_3
+    1059: new           #564                // class java/lang/StringBuilder
+    1062: dup
+    1063: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1066: getstatic     #917                // Field net/minecraft/util/text/TextFormatting.BLUE:Lnet/minecraft/util/text/TextFormatting;
+    1069: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1072: ldc_w         #900                // String
+    1075: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1078: new           #564                // class java/lang/StringBuilder
+    1081: dup
+    1082: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1085: ldc_w         #919                // String attribute.modifier.plus.
+    1088: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1091: aload         13
+    1093: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+    1096: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1099: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1102: iconst_2
+    1103: anewarray     #5                  // class java/lang/Object
+    1106: dup
+    1107: iconst_0
+    1108: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+    1111: dload         17
+    1113: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+    1116: aastore
+    1117: dup
+    1118: iconst_1
+    1119: new           #564                // class java/lang/StringBuilder
+    1122: dup
+    1123: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1126: ldc_w         #911                // String attribute.name.
+    1129: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1132: aload         12
+    1134: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1139: checkcast     #327                // class java/lang/String
+    1142: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1145: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1148: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1151: aastore
+    1152: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1155: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1158: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1161: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1166: pop
+    1167: goto          1294
+    1170: dload         14
+    1172: dconst_0
+    1173: dcmpg
+    1174: ifge          1294
+    1177: dload         17
+    1179: ldc2_w        #920                // double -1.0d
+    1182: dmul
+    1183: dstore        17
+    1185: aload_3
+    1186: new           #564                // class java/lang/StringBuilder
+    1189: dup
+    1190: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1193: getstatic     #924                // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+    1196: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1199: ldc_w         #900                // String
+    1202: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1205: new           #564                // class java/lang/StringBuilder
+    1208: dup
+    1209: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1212: ldc_w         #926                // String attribute.modifier.take.
+    1215: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1218: aload         13
+    1220: invokevirtual #896                // Method net/minecraft/entity/ai/attributes/AttributeModifier.getOperation:()I
+    1223: invokevirtual #569                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+    1226: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1229: iconst_2
+    1230: anewarray     #5                  // class java/lang/Object
+    1233: dup
+    1234: iconst_0
+    1235: getstatic     #904                // Field DECIMALFORMAT:Ljava/text/DecimalFormat;
+    1238: dload         17
+    1240: invokevirtual #909                // Method java/text/DecimalFormat.format:(D)Ljava/lang/String;
+    1243: aastore
+    1244: dup
+    1245: iconst_1
+    1246: new           #564                // class java/lang/StringBuilder
+    1249: dup
+    1250: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1253: ldc_w         #911                // String attribute.name.
+    1256: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1259: aload         12
+    1261: invokeinterface #914,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+    1266: checkcast     #327                // class java/lang/String
+    1269: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1272: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1275: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1278: aastore
+    1279: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1282: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1285: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1288: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1293: pop
+    1294: goto          781
+    1297: iinc          8, 1
+    1300: goto          684
+    1303: aload_0
+    1304: invokevirtual #381                // Method hasTagCompound:()Z
+    1307: ifeq          1362
+    1310: aload_0
+    1311: invokevirtual #384                // Method getTagCompound:()Lnet/minecraft/nbt/NBTTagCompound;
+    1314: ldc_w         #386                // String Unbreakable
+    1317: invokevirtual #389                // Method net/minecraft/nbt/NBTTagCompound.getBoolean:(Ljava/lang/String;)Z
+    1320: ifeq          1362
+    1323: iload         5
+    1325: iconst_4
+    1326: iand
+    1327: ifne          1362
+    1330: aload_3
+    1331: new           #564                // class java/lang/StringBuilder
+    1334: dup
+    1335: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1338: getstatic     #917                // Field net/minecraft/util/text/TextFormatting.BLUE:Lnet/minecraft/util/text/TextFormatting;
+    1341: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1344: ldc_w         #928                // String item.unbreakable
+    1347: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1350: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1353: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1356: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1361: pop
+    1362: aload_0
+    1363: invokevirtual #381                // Method hasTagCompound:()Z
+    1366: ifeq          1555
+    1369: aload_0
+    1370: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1373: ldc_w         #930                // String CanDestroy
+    1376: bipush        9
+    1378: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+    1381: ifeq          1555
+    1384: iload         5
+    1386: bipush        8
+    1388: iand
+    1389: ifne          1555
+    1392: aload_0
+    1393: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1396: ldc_w         #930                // String CanDestroy
+    1399: bipush        8
+    1401: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+    1404: astore        6
+    1406: aload         6
+    1408: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+    1411: ifne          1555
+    1414: aload_3
+    1415: ldc_w         #717                // String
+    1418: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1423: pop
+    1424: aload_3
+    1425: new           #564                // class java/lang/StringBuilder
+    1428: dup
+    1429: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1432: getstatic     #933                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1435: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1438: ldc_w         #935                // String item.canBreak
+    1441: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1444: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1447: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1450: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1455: pop
+    1456: iconst_0
+    1457: istore        7
+    1459: iload         7
+    1461: aload         6
+    1463: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+    1466: if_icmpge     1555
+    1469: aload         6
+    1471: iload         7
+    1473: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+    1476: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+    1479: astore        8
+    1481: aload         8
+    1483: ifnull        1520
+    1486: aload_3
+    1487: new           #564                // class java/lang/StringBuilder
+    1490: dup
+    1491: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1494: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1497: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1500: aload         8
+    1502: invokevirtual #947                // Method net/minecraft/block/Block.getLocalizedName:()Ljava/lang/String;
+    1505: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1508: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1511: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1516: pop
+    1517: goto          1549
+    1520: aload_3
+    1521: new           #564                // class java/lang/StringBuilder
+    1524: dup
+    1525: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1528: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1531: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1534: ldc_w         #949                // String missingno
+    1537: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1540: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1543: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1548: pop
+    1549: iinc          7, 1
+    1552: goto          1459
+    1555: aload_0
+    1556: invokevirtual #381                // Method hasTagCompound:()Z
+    1559: ifeq          1748
+    1562: aload_0
+    1563: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1566: ldc_w         #951                // String CanPlaceOn
+    1569: bipush        9
+    1571: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+    1574: ifeq          1748
+    1577: iload         5
+    1579: bipush        16
+    1581: iand
+    1582: ifne          1748
+    1585: aload_0
+    1586: getfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+    1589: ldc_w         #951                // String CanPlaceOn
+    1592: bipush        8
+    1594: invokevirtual #647                // Method net/minecraft/nbt/NBTTagCompound.getTagList:(Ljava/lang/String;I)Lnet/minecraft/nbt/NBTTagList;
+    1597: astore        6
+    1599: aload         6
+    1601: invokevirtual #801                // Method net/minecraft/nbt/NBTTagList.isEmpty:()Z
+    1604: ifne          1748
+    1607: aload_3
+    1608: ldc_w         #717                // String
+    1611: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1616: pop
+    1617: aload_3
+    1618: new           #564                // class java/lang/StringBuilder
+    1621: dup
+    1622: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1625: getstatic     #933                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1628: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1631: ldc_w         #953                // String item.canPlace
+    1634: invokestatic  #666                // Method net/minecraft/util/text/translation/I18n.translateToLocal:(Ljava/lang/String;)Ljava/lang/String;
+    1637: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1640: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1643: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1648: pop
+    1649: iconst_0
+    1650: istore        7
+    1652: iload         7
+    1654: aload         6
+    1656: invokevirtual #768                // Method net/minecraft/nbt/NBTTagList.tagCount:()I
+    1659: if_icmpge     1748
+    1662: aload         6
+    1664: iload         7
+    1666: invokevirtual #807                // Method net/minecraft/nbt/NBTTagList.getStringTagAt:(I)Ljava/lang/String;
+    1669: invokestatic  #941                // Method net/minecraft/block/Block.getBlockFromName:(Ljava/lang/String;)Lnet/minecraft/block/Block;
+    1672: astore        8
+    1674: aload         8
+    1676: ifnull        1713
+    1679: aload_3
+    1680: new           #564                // class java/lang/StringBuilder
+    1683: dup
+    1684: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1687: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1690: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1693: aload         8
+    1695: invokevirtual #947                // Method net/minecraft/block/Block.getLocalizedName:()Ljava/lang/String;
+    1698: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1701: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1704: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1709: pop
+    1710: goto          1742
+    1713: aload_3
+    1714: new           #564                // class java/lang/StringBuilder
+    1717: dup
+    1718: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1721: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1724: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1727: ldc_w         #949                // String missingno
+    1730: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1733: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1736: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1741: pop
+    1742: iinc          7, 1
+    1745: goto          1652
+    1748: aload_2
+    1749: invokeinterface #715,  1          // InterfaceMethod net/minecraft/client/util/ITooltipFlag.isAdvanced:()Z
+    1754: ifeq          1909
+    1757: aload_0
+    1758: invokevirtual #375                // Method isItemDamaged:()Z
+    1761: ifeq          1806
+    1764: aload_3
+    1765: ldc_w         #955                // String item.durability
+    1768: iconst_2
+    1769: anewarray     #5                  // class java/lang/Object
+    1772: dup
+    1773: iconst_0
+    1774: aload_0
+    1775: invokevirtual #447                // Method getMaxDamage:()I
+    1778: aload_0
+    1779: invokevirtual #443                // Method getItemDamage:()I
+    1782: isub
+    1783: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1786: aastore
+    1787: dup
+    1788: iconst_1
+    1789: aload_0
+    1790: invokevirtual #447                // Method getMaxDamage:()I
+    1793: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1796: aastore
+    1797: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1800: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1805: pop
+    1806: aload_3
+    1807: new           #564                // class java/lang/StringBuilder
+    1810: dup
+    1811: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1814: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1817: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1820: getstatic     #315                // Field net/minecraft/item/Item.REGISTRY:Lnet/minecraft/util/registry/RegistryNamespaced;
+    1823: aload_0
+    1824: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+    1827: invokevirtual #321                // Method net/minecraft/util/registry/RegistryNamespaced.getNameForObject:(Ljava/lang/Object;)Ljava/lang/Object;
+    1830: checkcast     #323                // class net/minecraft/util/ResourceLocation
+    1833: invokevirtual #331                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+    1836: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1839: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1842: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1847: pop
+    1848: aload_0
+    1849: invokevirtual #381                // Method hasTagCompound:()Z
+    1852: ifeq          1909
+    1855: aload_3
+    1856: new           #564                // class java/lang/StringBuilder
+    1859: dup
+    1860: invokespecial #565                // Method java/lang/StringBuilder."<init>":()V
+    1863: getstatic     #944                // Field net/minecraft/util/text/TextFormatting.DARK_GRAY:Lnet/minecraft/util/text/TextFormatting;
+    1866: invokevirtual #705                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    1869: ldc_w         #957                // String item.nbt_tags
+    1872: iconst_1
+    1873: anewarray     #5                  // class java/lang/Object
+    1876: dup
+    1877: iconst_0
+    1878: aload_0
+    1879: invokevirtual #384                // Method getTagCompound:()Lnet/minecraft/nbt/NBTTagCompound;
+    1882: invokevirtual #961                // Method net/minecraft/nbt/NBTTagCompound.getKeySet:()Ljava/util/Set;
+    1885: invokeinterface #966,  1          // InterfaceMethod java/util/Set.size:()I
+    1890: invokestatic  #735                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+    1893: aastore
+    1894: invokestatic  #793                // Method net/minecraft/util/text/translation/I18n.translateToLocalFormatted:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    1897: invokevirtual #574                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    1900: invokevirtual #579                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+    1903: invokeinterface #750,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1908: pop
+    1909: aload_0
+    1910: aload_1
+    1911: aload_3
+    1912: aload_2
+    1913: invokestatic  #972                // Method net/minecraftforge/event/ForgeEventFactory.onItemTooltip:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/EntityPlayer;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)Lnet/minecraftforge/event/entity/player/ItemTooltipEvent;
+    1916: pop
+    1917: aload_3
+    1918: areturn
+

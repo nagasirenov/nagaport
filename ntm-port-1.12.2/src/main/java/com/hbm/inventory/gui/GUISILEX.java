@@ -18,6 +18,8 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -127,12 +129,13 @@ public class GUISILEX extends GuiInfoContainer {
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glLineWidth(width);
 		
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawing(1);
-		tessellator.setColorOpaque_I(color);
+		Tessellator tessellator = Tessellator.getInstance();
+		BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+		tessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);
+		int tessellatorColor0 = color;
 		
-		tessellator.addVertex(guiLeft + x1, guiTop + y1, this.zLevel);
-		tessellator.addVertex(guiLeft + x2, guiTop + y2, this.zLevel);
+		tessellatorBuffer.pos(guiLeft + x1, guiTop + y1, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();
+		tessellatorBuffer.pos(guiLeft + x2, guiTop + y2, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();
 		tessellator.draw();
 		
 		GL11.glEnable(GL11.GL_TEXTURE_2D);

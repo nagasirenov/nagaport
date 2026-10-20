@@ -16,6 +16,8 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 
@@ -88,13 +90,17 @@ public class RenderInfoSystem {
 		int z = 0;
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		Tessellator tess = Tessellator.instance;
-		tess.startDrawingQuads();
-		tess.setColorRGBA_F(0.25F, 0.25F, 0.25F, 0.5F);
-		tess.addVertex(pX - 5, pZ - 5, z);
-		tess.addVertex(pX - 5, height, z);
-		tess.addVertex(side, height, z);
-		tess.addVertex(side, pZ - 5, z);
+		Tessellator tess = Tessellator.getInstance();
+		BufferBuilder tessBuffer = tess.getBuffer();
+		tessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);
+		int tessColor0Red = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+		int tessColor0Green = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+		int tessColor0Blue = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));
+		int tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));
+		tessBuffer.pos(pX - 5, pZ - 5, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(pX - 5, height, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(side, height, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
+		tessBuffer.pos(side, pZ - 5, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();
 		tess.draw();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		

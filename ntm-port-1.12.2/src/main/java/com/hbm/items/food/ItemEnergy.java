@@ -75,61 +75,61 @@ public class ItemEnergy extends Item {
 			VersatileConfig.applyPotionSickness(player, 5);
 
 			if(this == ModItems.can_smart) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 0));
 			}
 			if(this == ModItems.can_creature) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 30 * 20, 1));
 			}
 			if(this == ModItems.can_redbomb) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));
-				player.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.ABSORPTION, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 1));
 			}
 			if(this == ModItems.can_mrsugar) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
 			}
 			if(this == ModItems.can_overcharge) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 0));
 			}
 			if(this == ModItems.can_luna) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 30 * 20, 2));
 				System.out.println(this.container);
 
 			}
 			if(this == ModItems.can_bepis) {
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 3));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 3));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 3));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 3));
 			}
 			if(this == ModItems.can_breen) {
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NAUSEA, 30 * 20, 0));
 			}
 			if(this == ModItems.can_mug) {
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 3 * 60 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 3 * 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.REGENERATION, 60 * 20, 2));
 			}
 			if(this == ModItems.chocolate_milk) {
 				ExplosionLarge.explode(world, player.posX, player.posY, player.posZ, 50, true, false, false);
 			}
 			if(this == ModItems.bottle_nuka) {
 				player.heal(4F);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
 			if(this == ModItems.bottle_cherry) {
 				player.heal(6F);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 0));
 				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
@@ -141,7 +141,7 @@ public class ItemEnergy extends Item {
 			}
 			if(this == ModItems.teacup) {
 				player.heal(3F); 				
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 4));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 4));
 
 				this.setContainerItem(ModItems.teacup_empty);
 				this.container = ModItems.teacup_empty;
@@ -156,50 +156,50 @@ public class ItemEnergy extends Item {
 			}
 			if(this == ModItems.bottle_quantum) {
 				player.heal(10F);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 15.0F);
 			}
 			if(this == ModItems.bottle2_korl) {
 				player.heal(6);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 30 * 20, 2));
 			}
 			if(this == ModItems.bottle2_fritz) {
 				player.heal(6);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 30 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 30 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 30 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 30 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.jump.id, 30 * 20, 2));
 			}
 			if(this == ModItems.bottle_sparkle) {
 				player.heal(10F);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 120 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 120 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 120 * 20, 2));
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 120 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 5.0F);
 			}
 			if(this == ModItems.bottle_rad) {
 				player.heal(10F);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 120 * 20, 1));
-				player.addPotionEffect(new PotionEffect(Potion.resistance.id, 120 * 20, 2));
-				player.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 120 * 20, 0));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 120 * 20, 1));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.RESISTANCE, 120 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.FIRE_RESISTANCE, 120 * 20, 0));
 				player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 120 * 20, 4));
 				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 120 * 20, 1));
 				ContaminationUtil.contaminate(player, HazardType.RADIATION, ContaminationType.RAD_BYPASS, 15.0F);
 			}
 			if(this == ModItems.coffee) {
 				player.heal(10);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 2));
 				this.setContainerItem(ModItems.cmug_empty);
 				this.container = ModItems.cmug_empty;
 				System.out.println(this.container);
 			}
 			if(this == ModItems.coffee_radium) {
 				player.heal(10);
-				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 60 * 20, 2));
+				player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SPEED, 60 * 20, 2));
 				HbmLivingProps.incrementRadiation(player, 500F);
 				com.hbm.advancement.NtmAdvancements.award(player, MainRegistry.achRadium);
 			}
@@ -246,7 +246,7 @@ public class ItemEnergy extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List list, boolean p_77624_4_) {
+	public void addInformation(ItemStack p_77624_1_, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(this == ModItems.can_smart) {
 			list.add("Cheap and full of bubbles");
 		}

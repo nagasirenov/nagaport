@@ -456,7 +456,7 @@ public class ExplosionThermo {
 		                    }
 
 	                    	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.weakness.getId(), 2 * 60 * 20, 4));
-	                    	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 90 * 20, 2));
+	                    	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.SLOWNESS, 90 * 20, 2));
 	                    	((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 3 * 60 * 20, 2));
 		                }
 		            }

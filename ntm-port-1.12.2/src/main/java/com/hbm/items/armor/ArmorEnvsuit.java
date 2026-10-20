@@ -74,7 +74,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 
 				if(!world.isRemote) {
 					player.setAir(300);
-					player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 15 * 20, 0));
+					player.addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION, 15 * 20, 0));
 				}
 
 				double mo = 0.1 * player.moveForward;
@@ -92,7 +92,7 @@ public class ArmorEnvsuit extends ArmorFSBPowered implements IItemRendererProvid
 				}
 
 				if(!world.isRemote && canRemoveNightVision) {
-					player.removePotionEffect(Potion.nightVision.id);
+					player.removePotionEffect(net.minecraft.init.MobEffects.NIGHT_VISION);
 				}
 			}
 		}

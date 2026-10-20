@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 public class RenderExposureChamber extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float interp) {
+	public void render(TileEntity tileEntity, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslated(x + 0.5D, y, z + 0.5D);

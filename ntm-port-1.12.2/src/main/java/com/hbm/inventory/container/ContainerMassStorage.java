@@ -17,7 +17,7 @@ public class ContainerMassStorage extends ContainerBase {
 		super(invPlayer,te);
 
 		this.storage = te;
-		this.storage.openInventory();
+		this.storage.openInventory(invPlayer.player);
 
 		this.addSlotToContainer(new Slot(storage, 0, 61, 17));
 		this.addSlotToContainer(new SlotPattern(storage, 1, 61, 53));
@@ -100,6 +100,6 @@ public class ContainerMassStorage extends ContainerBase {
 	@Override
 	public void onContainerClosed(EntityPlayer p_75134_1_) {
 		super.onContainerClosed(p_75134_1_);
-		this.storage.closeInventory();
+		this.storage.closeInventory(p_75134_1_);
 	}
 }

@@ -1,0 +1,4 @@
+PASS 10 exact reversals, 14 constant-per-batch POSITION_COLOR sites, 62 vertex expressions, 70 mutation rejections
+Actual OpenGL: 4.5 (Compatibility Profile) Mesa 25.0.7-2+deb13u1
+[03:58:13] [main/INFO]: Setting user: AtlasProbe
+PASS actual original/native POSITION_COLOR bytes and actual offscreen driver draws: 232 batches, 1144 vertices, 464 draws; packed signed RGB, per-channel float truncation/clamping/nonfinite boundaries and matching post-draw GL/current-color state. No in-game pixel claim.

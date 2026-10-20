@@ -1,0 +1,531 @@
+{
+  "base": "a4739afa41966b75e2012bccd7df919e51d5c3a0",
+  "files": {
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java": {
+      "before_sha256": "1b794ab6dd62f9a1190d588cb7ffeae4bf3f6e2d4da61b6c0dd0c006a19c3569",
+      "after_sha256": "e8966b51a8f17be64b78c275093620017aa7f24007dae31ff1032175483e8495"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java": {
+      "before_sha256": "d9d6f3aeea87919f63cda1bc0daed0ffeec8781fcbe863c3d1c0a243318e6af9",
+      "after_sha256": "2bd773b2bdacd766b29f41c6f873c3708ba99a5709324e3863e8df42190181ff"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemVOTVdrive.java": {
+      "before_sha256": "ba9c222b3765ec08591854a01e57807a49641e8b9f1beb787aae48e3b78fb1ae",
+      "after_sha256": "052e4289d404d14a79de89d06ee851cd267033f1794abd8a6931f852406f9a56"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/packet/PermaSyncHandler.java": {
+      "before_sha256": "592289ed2e765e1df770a5c4be0f4da22cb8ebeab0b98cc43cf10731c57da162",
+      "after_sha256": "529a61d7157c206586925e93bcaf60bf03d64ace3fe495b50f285601b7b627b2"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java": {
+      "before_sha256": "88b1848fd074556a93459a06839b1643070a4a186246749e9b2cfc251e737d1a",
+      "after_sha256": "4b480684c6f61c642d44fcd8518bb85c935de1b947002130bd9c57f02909a9df"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/dim/CelestialTeleporter.java": {
+      "before_sha256": "4b9432e5f1276c98087d78ff620bddb22296975d5f33155f825a6d93a20736bf",
+      "after_sha256": "7e1c3b98b4eae73d56cd6032acd643329812895503c43c2307145bb8366f2fa6"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/util/EntityDamageUtil.java": {
+      "before_sha256": "eada4ca3d2b311a39e127bf3b4293f25d559254f5a4c9b5323828997892e7469",
+      "after_sha256": "784e564d363d2a09fb9c9c52faff165b2b2b4b0252839f8a7cf0ae32ce7ff557"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java": {
+      "before_sha256": "e76dd90efd0b7ebabfde8dbf1b5b80f2f379699bb30b9490453c766ca257a7ef",
+      "after_sha256": "a9657a7b94582d9ccdd794c3614e4047f3ea5786755f1798e86b88237e61c00b"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java": {
+      "before_sha256": "c9721fe73f07511902de78b5f945319e3ca21ae254df7ae4659fe31837bbf3ee",
+      "after_sha256": "3777a076452c46f46459416e88a947752643409732d5dad3e3a240fb4e6ada21"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java": {
+      "before_sha256": "06d357bc72319ff742f4492c3a4a5952881cb8686b94ac5db653ede382e03e7e",
+      "after_sha256": "8d26f03aa6f274e17248c3da616345d8ee2afc465d6b0dba52a0e8c01b8bfc26"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java": {
+      "before_sha256": "4f34ec3bb6a12500a073d2748313eafc2ba8485c213b8bf941d34d374a568599",
+      "after_sha256": "641855732ff0b4c21d06d636f985dc0cd6f002e91e41121626dd98ea71de77f5"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java": {
+      "before_sha256": "3a5bf759da722d211533cb15bdec94d3c581c97a0097e5bfab48baf643ac1d0f",
+      "after_sha256": "b160ba028cf08f31adb1a9ccc80ed7765759c410e712781278122e1e0c619ed4"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityQuackos.java": {
+      "before_sha256": "cf19f69b341276c2d271312d464844a97bb4c8f87f35207746716b818b285cc5",
+      "after_sha256": "b55de49143db85271df36ca6915ee0a1393e4af825f215f47c077a1ec236fd68"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/dim/orbit/OrbitalStation.java": {
+      "before_sha256": "ca112cc6ba8d0b63dfd4952b8fa0f139c6020dc0220cc719b67bcb4db853f09f",
+      "after_sha256": "cce45087f7f5c261f88d9b6f47dd280e455203ca9e6fd39876ba62aaca1653f2"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/render/model/ModelArmorWings.java": {
+      "before_sha256": "f161dfe745a31c0c73dce90c1c227b1d154b12fc3603b832dad1f0b59eebddfa",
+      "after_sha256": "c5b08f84a521b6cdb6f8fd53ddbb4846b6f635dfb8b0266ec922c0047667c8b7"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java": {
+      "before_sha256": "28be9cf15be7a8f450e7180252f855708c55c0743326a52b45a17567423d6fb9",
+      "after_sha256": "7f34e25f69b1cf77c2bea9bbf957d5abf6cfbfd54e977850b8397d3503254554"
+    },
+    "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java": {
+      "before_sha256": "149efbf48ad89b4aa2f322e336d6a43e9622b1fd2dc707a7cea27c2f39317d44",
+      "after_sha256": "4f2e10d672329ad8faefc96d4d464e2b830dc1f14dc3bbcbb3cd5b8c74422606"
+    }
+  },
+  "edits": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/CelestialTeleporter.java",
+      "start": 2304,
+      "end": 2316,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/orbit/OrbitalStation.java",
+      "start": 6497,
+      "end": 6526,
+      "before": "rocket.riddenByEntity != null",
+      "after": "rocket.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "start": 3585,
+      "end": 3612,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "start": 7482,
+      "end": 7509,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "start": 11747,
+      "end": 11774,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "start": 13048,
+      "end": 13075,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityBoatRubber.java",
+      "start": 13901,
+      "end": 13928,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 6948,
+      "end": 6975,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 8699,
+      "end": 8711,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 12938,
+      "end": 12965,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 15785,
+      "end": 15812,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 19855,
+      "end": 19882,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 25150,
+      "end": 25177,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 25188,
+      "end": 25200,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartDeobf.java",
+      "start": 32496,
+      "end": 32523,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 8067,
+      "end": 8094,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 11039,
+      "end": 11051,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 16178,
+      "end": 16205,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 19822,
+      "end": 19849,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 24971,
+      "end": 24998,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 31513,
+      "end": 31540,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 31555,
+      "end": 31567,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/item/EntityMinecartModBase.java",
+      "start": 40795,
+      "end": 40822,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "start": 21152,
+      "end": 21179,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/missile/EntityRideableRocket.java",
+      "start": 21904,
+      "end": 21931,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/mob/EntityQuackos.java",
+      "start": 2151,
+      "end": 2178,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+      "start": 4245,
+      "end": 4272,
+      "before": "this.riddenByEntity == null",
+      "after": "!this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+      "start": 5002,
+      "end": 5029,
+      "before": "seat.riddenByEntity == null",
+      "after": "!seat.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+      "start": 5764,
+      "end": 5791,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/entity/train/EntityRailCarRidable.java",
+      "start": 8068,
+      "end": 8095,
+      "before": "this.riddenByEntity != null",
+      "after": "this.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "start": 16806,
+      "end": 16818,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "start": 16837,
+      "end": 16849,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "start": 17439,
+      "end": 17451,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/handler/EntityEffectHandler.java",
+      "start": 17470,
+      "end": 17482,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "start": 8685,
+      "end": 8697,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "start": 8716,
+      "end": 8728,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/items/ItemVOTVdrive.java",
+      "start": 8827,
+      "end": 8839,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 34077,
+      "end": 34089,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 34883,
+      "end": 34895,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 34914,
+      "end": 34926,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 35051,
+      "end": 35063,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 35338,
+      "end": 35350,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 51956,
+      "end": 51968,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandler.java",
+      "start": 53547,
+      "end": 53559,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+      "start": 2510,
+      "end": 2522,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+      "start": 2541,
+      "end": 2553,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+      "start": 2981,
+      "end": 2993,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/main/ModEventHandlerRenderer.java",
+      "start": 3114,
+      "end": 3126,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/PermaSyncHandler.java",
+      "start": 4664,
+      "end": 4676,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/PermaSyncHandler.java",
+      "start": 4711,
+      "end": 4723,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/packet/PermaSyncHandler.java",
+      "start": 8405,
+      "end": 8417,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/render/model/ModelArmorWings.java",
+      "start": 2313,
+      "end": 2325,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java",
+      "start": 3738,
+      "end": 3767,
+      "before": "docked.riddenByEntity != null",
+      "after": "docked.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStation.java",
+      "start": 5835,
+      "end": 5864,
+      "before": "docked.riddenByEntity != null",
+      "after": "docked.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+      "start": 4985,
+      "end": 5014,
+      "before": "docked.riddenByEntity != null",
+      "after": "docked.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/tileentity/machine/TileEntityOrbitalStationLauncher.java",
+      "start": 5273,
+      "end": 5302,
+      "before": "docked.riddenByEntity != null",
+      "after": "docked.isBeingRidden()",
+      "kind": "passenger-presence"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/util/EntityDamageUtil.java",
+      "start": 18157,
+      "end": 18169,
+      "before": "ridingEntity",
+      "after": "getRidingEntity()",
+      "kind": "riding-field-read"
+    }
+  ]
+}

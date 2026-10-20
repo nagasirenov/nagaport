@@ -15,7 +15,7 @@ public class ModSword extends ItemSword {
 	}
 	
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool)
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag)
 	{
 		if(this == ModItems.saw)
 			list.add("Prepare for your examination!");

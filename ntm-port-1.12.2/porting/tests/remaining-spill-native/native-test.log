@@ -1,0 +1,21 @@
+PASS twelve whole-file inverses, original method parity, preserved non-callback bytes
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_0`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_1`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_2`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_3`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_4`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_5`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_6`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_7`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_8`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_9`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_10`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+[04:30:44] [main/WARN]: Potentially Dangerous alternative prefix `probe` for name `removal_11`, expected `minecraft`. This could be a intended override, but in most cases indicates a broken mod.
+PASS RemovalNativeTest 26640 assertions; twelve full callback slices; genuine World.setBlockState -> Chunk -> virtual Block.breakBlock; independent original-formula reference comparator; no complete owner/tile/gameplay claim
+
+
+PASS rejected runtime mutant: identity read after depletion
+PASS rejected runtime mutant: NBT alias instead of deep copy
+PASS rejected runtime mutant: lost empty-stack RNG draws
+PASS rejected runtime mutant: lost real super removal
+PASS rejected runtime mutant: duplicate drop

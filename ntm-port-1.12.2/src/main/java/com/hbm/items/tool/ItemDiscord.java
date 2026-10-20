@@ -43,7 +43,7 @@ public class ItemDiscord extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack itemstack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 
 		list.add(TextFormatting.YELLOW + "" + TextFormatting.ITALIC + "I've seen the Rod of Discord and honestly");
 		list.add(TextFormatting.YELLOW + "" + TextFormatting.ITALIC + "it's not as amazing as people say.");

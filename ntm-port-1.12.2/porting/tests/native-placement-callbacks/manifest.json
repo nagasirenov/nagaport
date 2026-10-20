@@ -1,0 +1,1394 @@
+{
+  "baseline": "ea933e28fe3a1a9a60e9d438411a02182b2ab22a",
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/BlockNTSapling.java",
+      "owner": "com.hbm.blocks.BlockNTSapling",
+      "ancestry": [
+        "com.hbm.blocks.BlockNTSapling",
+        "net.minecraft.block.BlockSapling"
+      ],
+      "before_sha256": "16d85630e413334798ee7db01c8a175d1d20022da26473edffa972105c6db404",
+      "after_sha256": "a4d0aa30f6335584eacc27c034310b54a3b0d6e80da3db3d77a2c06c2d086bdc",
+      "edits": [
+        {
+          "start": 4112,
+          "end": 4217,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "owner": "com.hbm.blocks.bomb.BlockChargeBase",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockChargeBase",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46",
+      "after_sha256": "191ae87e91e727386e8ff43ce0213597fb935caef0c1ce60eb6cb57a0bd6ab90",
+      "edits": [
+        {
+          "start": 8143,
+          "end": 8252,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockDynamite.java",
+      "owner": "com.hbm.blocks.bomb.BlockDynamite",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockDynamite",
+        "com.hbm.blocks.bomb.BlockTNTBase",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "ebc588ca2edfcbeeef9ef0b70ebe3d06b390502811f1989cd3b06962f16dd201",
+      "after_sha256": "6909f9bf8490fa751f49b9e3ddc8a75eb5b6b237c92683c028f97f139a263fad",
+      "edits": [
+        {
+          "start": 537,
+          "end": 646,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFireworks.java",
+      "owner": "com.hbm.blocks.bomb.BlockFireworks",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockFireworks",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "9e9c51cbdfead4354dcfd070ba94b1d51e8c1d84c9199e640d2e212919429b91",
+      "after_sha256": "761e5c4a25f670fe1c8535b0810a01a3ee6726cb5d40059e942343d4e7f68462",
+      "edits": [
+        {
+          "start": 4051,
+          "end": 4160,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockFissureBomb.java",
+      "owner": "com.hbm.blocks.bomb.BlockFissureBomb",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockFissureBomb",
+        "com.hbm.blocks.bomb.BlockTNTBase",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "100d51b88e6964db7465a8e0eea00b53e2767cbc95328ea4ccc9f23780e86ac4",
+      "after_sha256": "e4f667f16b7ff34db5a530d402a5d2aa895b6702a5ec3ebbfe707591832f543e",
+      "edits": [
+        {
+          "start": 2202,
+          "end": 2311,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "owner": "com.hbm.blocks.bomb.BlockPlasticExplosive",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockPlasticExplosive",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+      "after_sha256": "bf8bfc68911e700b59f0f4db8e3bc900d6ea8656347e03a35d00e6746c3c4d0c",
+      "edits": [
+        {
+          "start": 1434,
+          "end": 1586,
+          "old": "public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {",
+          "new": "public void onBlockPlacedBy(World p_149689_1_, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {\n\t\tint p_149689_2_ = nativePlacementPos.getX(), p_149689_3_ = nativePlacementPos.getY(), p_149689_4_ = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockSemtex.java",
+      "owner": "com.hbm.blocks.bomb.BlockSemtex",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockSemtex",
+        "com.hbm.blocks.bomb.BlockTNTBase",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "df986c90043b9e349f5c0752c9a835319712138c8bf0af42bf77c6875d9c20e6",
+      "after_sha256": "02700abd491bd7a454a605204ebd4804aee3d4d657aff76951a8d3e9f0272aca",
+      "edits": [
+        {
+          "start": 536,
+          "end": 645,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTNT.java",
+      "owner": "com.hbm.blocks.bomb.BlockTNT",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockTNT",
+        "com.hbm.blocks.bomb.BlockTNTBase",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "5f3289e342eba896d5a951639cce9c6b9e61d379cbc21c44445522ad6f25aaab",
+      "after_sha256": "96f56c0f587e03f32da492dba15ae24a99a73a330145e083a15c8e744a79a979",
+      "edits": [
+        {
+          "start": 533,
+          "end": 642,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockVolcano.java",
+      "owner": "com.hbm.blocks.bomb.BlockVolcano",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BlockVolcano",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "94e0b471a688c278f290855fd7d0c23f540c9c2f8f31e051b107c0e65693f901",
+      "after_sha256": "c3d931415af5617835d5b18943fc1b144b76b3b0542f3ef6372f0a3166b757a1",
+      "edits": [
+        {
+          "start": 10681,
+          "end": 10790,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFlameWar.java",
+      "owner": "com.hbm.blocks.bomb.BombFlameWar",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BombFlameWar",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+      "after_sha256": "af65199c7aaa71f00320e67fb5fdeb85f5aaf77fb1e0d9fc89dc6645620df699",
+      "edits": [
+        {
+          "start": 2347,
+          "end": 2456,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "owner": "com.hbm.blocks.bomb.BombFloat",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BombFloat",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+      "after_sha256": "79cd42e7941d743596440567aa7d9b70e5534cedad10edab31f0e43851bf0654",
+      "edits": [
+        {
+          "start": 1666,
+          "end": 1775,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+      "owner": "com.hbm.blocks.bomb.BombMulti",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BombMulti",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "e9785e0426271459b4bf844e82218e856f01ed7bfbbc44744b191d7a87a31e2a",
+      "after_sha256": "ef88060891e3aa02258d92694471479d4147fd948ae9e4357394b864e51fc313",
+      "edits": [
+        {
+          "start": 6907,
+          "end": 7016,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombThermo.java",
+      "owner": "com.hbm.blocks.bomb.BombThermo",
+      "ancestry": [
+        "com.hbm.blocks.bomb.BombThermo",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+      "after_sha256": "301b8a3615058240cf5f11e3ac11695c88fd4f3db82cd77e9bd4731d1c082365",
+      "edits": [
+        {
+          "start": 4346,
+          "end": 4455,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "owner": "com.hbm.blocks.bomb.ExplosiveCharge",
+      "ancestry": [
+        "com.hbm.blocks.bomb.ExplosiveCharge",
+        "com.hbm.blocks.bomb.BlockDetonatable",
+        "com.hbm.blocks.generic.BlockFlammable",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+      "after_sha256": "79fe4de14db028139ee83a51996c795160c3a94eecd0d0a4f55e2750b530d143",
+      "edits": [
+        {
+          "start": 3974,
+          "end": 4083,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/Landmine.java",
+      "owner": "com.hbm.blocks.bomb.Landmine",
+      "ancestry": [
+        "com.hbm.blocks.bomb.Landmine",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "3007da42891364f045ec91040560fbe142293cae9646727d0f20d54b79e1b384",
+      "after_sha256": "4bff3efd50010517480886c414bf634f033c6a10571fb7258f48ad23512b1ef9",
+      "edits": [
+        {
+          "start": 8618,
+          "end": 8727,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+      "owner": "com.hbm.blocks.bomb.LaunchTable",
+      "ancestry": [
+        "com.hbm.blocks.bomb.LaunchTable",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "c84a19c3e98db44b26b8817826b837e4e992b6684a59c406a8092366b144efbc",
+      "after_sha256": "f0d70251456c9d61c8316db4b86db95244e61875cc2a8a3e1b0aad3d369f0460",
+      "edits": [
+        {
+          "start": 2420,
+          "end": 2547,
+          "old": "public void onBlockPlacedBy(World worldObj, int xCoord, int yCoord, int zCoord, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World worldObj, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint xCoord = nativePlacementPos.getX(), yCoord = nativePlacementPos.getY(), zCoord = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "owner": "com.hbm.blocks.bomb.NukeAntimatter",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeAntimatter",
+        "com.hbm.blocks.machine.BlockMachineBase",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb",
+      "after_sha256": "a71bcc22d976188ee8f4c68ecc86280dc067c1b74b8d831205ad2b0351d300e9",
+      "edits": [
+        {
+          "start": 1485,
+          "end": 1594,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "owner": "com.hbm.blocks.bomb.NukeBalefire",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeBalefire",
+        "com.hbm.blocks.machine.BlockMachineBase",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433",
+      "after_sha256": "c355d8540d3becf0f9ab8a8ca6aad4031c96a8461af0c76fe84709b7e3efbcdc",
+      "edits": [
+        {
+          "start": 1432,
+          "end": 1541,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+      "owner": "com.hbm.blocks.bomb.NukeBoy",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeBoy",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "3956de57723d6cb685c1245b5b3a3cb76b0aaf0311b60d20f1a9c7a93629d86e",
+      "after_sha256": "128dd46e6cbd0d3d74ffaa280b376bb3ae12e403dcdb19e615f01ee837720237",
+      "edits": [
+        {
+          "start": 5713,
+          "end": 5822,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "owner": "com.hbm.blocks.bomb.NukeCustom",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeCustom",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81",
+      "after_sha256": "3315dcf20a87530bfffa2833e2a50ea295579908771f1ac9fcbe34258ff0081c",
+      "edits": [
+        {
+          "start": 8432,
+          "end": 8541,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+      "owner": "com.hbm.blocks.bomb.NukeFleija",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeFleija",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "a23e484fafc09b31db49eac5244c2174f2f5b5d4293c2dc345f79545660f3533",
+      "after_sha256": "8e2db003a61d9b52c2625baadfc14250fbf3632f0e7a7ff3dd3e337f59a30644",
+      "edits": [
+        {
+          "start": 5552,
+          "end": 5661,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+      "owner": "com.hbm.blocks.bomb.NukeGadget",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeGadget",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "eb96f6c1ee3224cc55410e698ffbabf226aa481c9aebaba1a7f9ed4e37e310e1",
+      "after_sha256": "2fe7c15a0e61d01b60773015ae883951686a92cbc623c61eaac6405561b6ea4e",
+      "edits": [
+        {
+          "start": 5483,
+          "end": 5592,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+      "owner": "com.hbm.blocks.bomb.NukeMan",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeMan",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "4eec03498cdad87e0e6ce2bb6c75223d7a3d1c7d23f99cd388db32a3109f0247",
+      "after_sha256": "badd026bc40efff1b523e131e89bdf347747da3ed205ca34c68ec3b95cd7905d",
+      "edits": [
+        {
+          "start": 5384,
+          "end": 5493,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+      "owner": "com.hbm.blocks.bomb.NukeMike",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeMike",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "2a135de08f6ed7b92ca0851bc8a553bee16547697bf0e20161c9b83967dc4199",
+      "after_sha256": "98a6ba70906d77748761032517b397256c6748d99bb9ced11a34d6cd26d06c94",
+      "edits": [
+        {
+          "start": 5758,
+          "end": 5867,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+      "owner": "com.hbm.blocks.bomb.NukeN2",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeN2",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "58bac418535fa0a572d6a706001f56bd2983b2aedb08398c548678e7c2ecc941",
+      "after_sha256": "a67cbe5972ca6637054f25f1e07efd776accd42f575d5ea30672fe80893931ab",
+      "edits": [
+        {
+          "start": 5286,
+          "end": 5395,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+      "owner": "com.hbm.blocks.bomb.NukePrototype",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukePrototype",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "4104ab00b468bab82f1393b4e2c3a64434989ee84b44d35856a2d94e2f132784",
+      "after_sha256": "ef0905b259bc7cc9b6260bdd439bf014c7f20e36f1c4b31cbb820c4341fbb0a9",
+      "edits": [
+        {
+          "start": 5941,
+          "end": 6050,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+      "owner": "com.hbm.blocks.bomb.NukeSolinium",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeSolinium",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "9467022893d5099cb2bda4864bebc3eda66ff934983543a75fa3c2c9789c57e0",
+      "after_sha256": "4a0b2e6447ab70e58c2949abf85e07e4ac99cf4ca2e130f396884b96ce5dca85",
+      "edits": [
+        {
+          "start": 5527,
+          "end": 5636,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+      "owner": "com.hbm.blocks.bomb.NukeTsar",
+      "ancestry": [
+        "com.hbm.blocks.bomb.NukeTsar",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "23c1fac71dfcf334c3fd5878acc3888227972324cfdee4441cf5cca2320ce683",
+      "after_sha256": "bd806f978588dff68ca6d09777b79ee616457232389d7441bde001c18796f58b",
+      "edits": [
+        {
+          "start": 5655,
+          "end": 5764,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+      "owner": "com.hbm.blocks.generic.BlockBobble",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockBobble",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "f353c70b0a4dd33806cc3c3d760589ad0116d51d35b29f49a43ca0633f493b01",
+      "after_sha256": "8be8a14dabad6a779e4e53289d81d050c4e54b5a3d7bd6c8ea55a86a8a9a81ed",
+      "edits": [
+        {
+          "start": 3815,
+          "end": 3920,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockEmitter.java",
+      "owner": "com.hbm.blocks.generic.BlockEmitter",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockEmitter",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "a454c0c96a7eb8d7b1623f8b34ee58f8164f0199a8169fadd6d1d89c625c5e86",
+      "after_sha256": "4a75544b1aae775642c2aa4dd71541b766b77394bc376df420fc0362ca36d1af",
+      "edits": [
+        {
+          "start": 1624,
+          "end": 1729,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+      "owner": "com.hbm.blocks.generic.BlockPlushie",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockPlushie",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "c7cff2317618319a0441ac9fb496946c3c578712a5db1b0fd44d51c414c9e10b",
+      "after_sha256": "c082160d94a4ba13aa5993c5340c4695a926f58a15203d58ba467d47339ce46b",
+      "edits": [
+        {
+          "start": 3193,
+          "end": 3298,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockRedBrick.java",
+      "owner": "com.hbm.blocks.generic.BlockRedBrick",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockRedBrick",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "a4e05b82b994e57c62b3baef856f0beac08b1847d054af14de6bf4431c436b1e",
+      "after_sha256": "1341d0ad7f47158c0e163ee1438f9316df85d7617a29067306284f77a96f863f",
+      "edits": [
+        {
+          "start": 1362,
+          "end": 1467,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockRedBrickKeyhole.java",
+      "owner": "com.hbm.blocks.generic.BlockRedBrickKeyhole",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockRedBrickKeyhole",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "04a4b0a57590bb6ecbf710458a7915fcf4bc653667b7fdbf7d89eb68b9c4f5e7",
+      "after_sha256": "d67a1cee20881b952fb887c2fb7fd9e4dc44392591b2085bb7f25320fd4a149f",
+      "edits": [
+        {
+          "start": 2221,
+          "end": 2326,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+      "owner": "com.hbm.blocks.generic.BlockSkeletonHolder",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockSkeletonHolder",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "9af406d089f347cbc21b4c5e9a28c0df98650eb9e9cfaf47bd93196549a5d081",
+      "after_sha256": "8d524e67b6d084e6abe89b87a5561f6ce41086fc5a7c7961b45794d1e2d77c32",
+      "edits": [
+        {
+          "start": 1111,
+          "end": 1220,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+      "owner": "com.hbm.blocks.generic.BlockSnowglobe",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockSnowglobe",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "2b8ecb77eaff49b33d6dea5b3b0a78412283934618048856bb6d4648623729e7",
+      "after_sha256": "be14adba2bba590025430e5cd8637c9b3387b91802edd3a1149472fa22083b87",
+      "edits": [
+        {
+          "start": 3631,
+          "end": 3736,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlant",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockTallPlant",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "a27923a209a1e296cf4d8f21a6a9f0158f1d42ed5e2aeb86fedf787851f9a793",
+      "after_sha256": "33c4cee239d96c2967d00ed04b6f5ad0f68e91b6db8996d381dc5ff928553cdd",
+      "edits": [
+        {
+          "start": 7641,
+          "end": 7746,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+      "owner": "com.hbm.blocks.generic.BlockTallPlantWater",
+      "ancestry": [
+        "com.hbm.blocks.generic.BlockTallPlantWater",
+        "com.hbm.blocks.BlockEnumMulti",
+        "com.hbm.blocks.BlockMulti",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "37b3bc72eb0083532fb96ba11df63335b998f49b487a45d70013c9d180dbcd20",
+      "after_sha256": "f529bcf4ef3048d78d2ac12260890abfeeb213ba6d383bc87dd098bb8a324e0b",
+      "edits": [
+        {
+          "start": 8125,
+          "end": 8230,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase entity, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+      "owner": "com.hbm.blocks.generic.DecoBlock",
+      "ancestry": [
+        "com.hbm.blocks.generic.DecoBlock",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "a9e5df6113efcf59d4c8c2cb0ef61ee237bb2fd6ad5faec7baabc4a091b9a8c5",
+      "after_sha256": "51aa2b00375b16ce1df86376225e3383921553c939fbeaad6b141e65a0ce58a8",
+      "edits": [
+        {
+          "start": 3393,
+          "end": 3502,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+      "owner": "com.hbm.blocks.generic.DecoBlockAlt",
+      "ancestry": [
+        "com.hbm.blocks.generic.DecoBlockAlt",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "7a5f0436dbb80ba6f25c99f2c0b4a95cfaf04630f616c10b3545c1fb1a2993e0",
+      "after_sha256": "e1cc7635d310aece5e54b3c1fc06713fe40ee5670a64fb7441110d868388c3a8",
+      "edits": [
+        {
+          "start": 1488,
+          "end": 1597,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+      "owner": "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+      "ancestry": [
+        "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "d4a4c91db5db5a667a7d458e263c4857a6dcca09bc98cee13f3b2b0917647142",
+      "after_sha256": "e232925feaa9de080b271923f0792bf6c59444244357ddbd357ed8829c35276e",
+      "edits": [
+        {
+          "start": 1023,
+          "end": 1132,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/Guide.java",
+      "owner": "com.hbm.blocks.generic.Guide",
+      "ancestry": [
+        "com.hbm.blocks.generic.Guide",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "546d2e46a71630199ccb32fe5ddf63299c81cb8186527ffa2ff92ebb0431ee60",
+      "after_sha256": "542d18c42153460c6343fc8712f1eb5aa0fba597cdacd389e794f28940b58a57",
+      "edits": [
+        {
+          "start": 2914,
+          "end": 3023,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+      "owner": "com.hbm.blocks.machine.BlastDoor",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlastDoor",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "e60bf9e037041f027b471742cd6384440f5c22c8bc912436c7b454d8e4ce8909",
+      "after_sha256": "7a85aca760fd28608dea1ffd9667bfb9f1503b1ef9e5e6d24199f48256c3c834",
+      "edits": [
+        {
+          "start": 2390,
+          "end": 2499,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockCMAnchor.java",
+      "owner": "com.hbm.blocks.machine.BlockCMAnchor",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockCMAnchor",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "6199c6c582fb0f99bac5075f5c8a0bf2afb0cb83a3e743c4f6c86789920baea5",
+      "after_sha256": "8e06c0836541c1ec82fd97e1fa4070b29e8631e1f927221bc077313f32765702",
+      "edits": [
+        {
+          "start": 1113,
+          "end": 1222,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockCustomMachine.java",
+      "owner": "com.hbm.blocks.machine.BlockCustomMachine",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockCustomMachine",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "8b688bbc56ebc67100a6092a2fe6bbc8d9bca8b0d74b6fb6a096a048c622878b",
+      "after_sha256": "a9c65869696b6edbe26d083612449ffcb4bc59ad9ecd1e7988d75f7b58a5b48d",
+      "edits": [
+        {
+          "start": 2873,
+          "end": 2978,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockICFStruct.java",
+      "owner": "com.hbm.blocks.machine.BlockICFStruct",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockICFStruct",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "05c501e7f4680027c67d751259811732abb390b3e928d4288e002430054d6161",
+      "after_sha256": "ac058e0d3e5082151cc7f3d624a88a2fe5c225ff10349c7f1b4f22d1c725df80",
+      "edits": [
+        {
+          "start": 716,
+          "end": 825,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockMachineBase.java",
+      "owner": "com.hbm.blocks.machine.BlockMachineBase",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockMachineBase",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "ab913eb5fb52c45c1c597f66d6a78edbc1e142c9aa3c7efa0231c36970077a38",
+      "after_sha256": "82add068241ddbff2dfea55b7bf10d9aea2825a8371e983fce345fa4626478cf",
+      "edits": [
+        {
+          "start": 3159,
+          "end": 3268,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+      "owner": "com.hbm.blocks.machine.BlockRefueler",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockRefueler",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "22f0c9a7c5110f4411dd9bd7d052e20542d2c0eb3ca9dd4016eda766baf12e7d",
+      "after_sha256": "c6481ebcbbafc27dc0e28b66bba667fee14a033bda307d4c4b72d0373a4ca7b1",
+      "edits": [
+        {
+          "start": 2444,
+          "end": 2549,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/BlockSeal.java",
+      "owner": "com.hbm.blocks.machine.BlockSeal",
+      "ancestry": [
+        "com.hbm.blocks.machine.BlockSeal",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "6eeae9485f99fa55749f9e167cf1b078028816e0374011a4031dfa772aa77ee3",
+      "after_sha256": "b870a32953a19f43039359793a86f87cec0aad0ce9299a1e5c23e431f040b91a",
+      "edits": [
+        {
+          "start": 1737,
+          "end": 1846,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Charger.java",
+      "owner": "com.hbm.blocks.machine.Charger",
+      "ancestry": [
+        "com.hbm.blocks.machine.Charger",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "9899549d549f8eb986459d975856d76f8d7962b808e838293f90a55e7cc52a27",
+      "after_sha256": "3810b9fc98eacf58d63181bbd7ef8ceeb0aedc5770f7fcdcc5fad5a585944846",
+      "edits": [
+        {
+          "start": 1012,
+          "end": 1121,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+      "owner": "com.hbm.blocks.machine.CoreComponent",
+      "ancestry": [
+        "com.hbm.blocks.machine.CoreComponent",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "bd576bc3cc7f5f2340dae25399bc6664f3afe77e82b8c8cf618d893cbeccb813",
+      "after_sha256": "6b8d215fee8467b7ced8ead6d444db997703be0bfa6ac1a205445bd0da485834",
+      "edits": [
+        {
+          "start": 1540,
+          "end": 1645,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Floodlight.java",
+      "owner": "com.hbm.blocks.machine.Floodlight",
+      "ancestry": [
+        "com.hbm.blocks.machine.Floodlight",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "dc0d98e584c781b7c1a0b884d779bf6777f61f3db55b48e4eb2ce2263404ddbe",
+      "after_sha256": "45047a4fc1af3ca0599884d6b28870979d4a2a2262e8a415a3dd8a2c96ef85ee",
+      "edits": [
+        {
+          "start": 1948,
+          "end": 2053,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\r\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/FusionHatch.java",
+      "owner": "com.hbm.blocks.machine.FusionHatch",
+      "ancestry": [
+        "com.hbm.blocks.machine.FusionHatch",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "13562d4d55790fb4418b4b6d684d60147f31477e3f2825ed4b5c81ffd0a8d6e8",
+      "after_sha256": "92480de0cfe6f47afd53dc0fbeef774949c0a2d7c1203b7c620964158f96b260",
+      "edits": [
+        {
+          "start": 1290,
+          "end": 1399,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+      "owner": "com.hbm.blocks.machine.GeigerCounter",
+      "ancestry": [
+        "com.hbm.blocks.machine.GeigerCounter",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "1935c9eeb27f1ab5e6a5b507c0d31dd269166f0bf376bc7c44de1a6b49b084c9",
+      "after_sha256": "0bd28282d385d10396509cb27c4722d1fd7dec51301f485473b2b344af664d77",
+      "edits": [
+        {
+          "start": 1052,
+          "end": 1161,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineBattery.java",
+      "owner": "com.hbm.blocks.machine.MachineBattery",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineBattery",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "990d9285630edf245d9fcda2028c42c2daf3d4f101948c06fee4850316c6bdf6",
+      "after_sha256": "696a4e35f1dadd1febec3763d303d58ef5af6d0c5ca605dff5585b1f52446445",
+      "edits": [
+        {
+          "start": 4995,
+          "end": 5104,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineBoiler.java",
+      "owner": "com.hbm.blocks.machine.MachineBoiler",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineBoiler",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "4f4f70b69204131cf7adc9fd940af9de198d1ecdb9638969e33b048a4a9747c2",
+      "after_sha256": "58e0ecf89a942af345049353ef8f6a1603474cdbe0f359f5664d9e98ca5fd8c1",
+      "edits": [
+        {
+          "start": 2874,
+          "end": 2983,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineCapacitorBus.java",
+      "owner": "com.hbm.blocks.machine.MachineCapacitorBus",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineCapacitorBus",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "be09d63b6a1fbf42eb0a1b0aef224b4393bf0605629dba85c160a6f70a4b1fa6",
+      "after_sha256": "e6bdc8dcedde5d140757e6c73604793dd4cb3cfe92eb825bc587a2f7cfa2ae24",
+      "edits": [
+        {
+          "start": 1317,
+          "end": 1422,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineFan.java",
+      "owner": "com.hbm.blocks.machine.MachineFan",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineFan",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "23cc45e589bb2e0c2bccd4d8115c6de912506333828ed217baf71cfa6a99f091",
+      "after_sha256": "bb2f55fc291dc9a84c3e565d46302a1da6f602b7fc8f5727d88e3bc9c5313c51",
+      "edits": [
+        {
+          "start": 1926,
+          "end": 2031,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineICFController.java",
+      "owner": "com.hbm.blocks.machine.MachineICFController",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineICFController",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "ba827c1e5f40b1400845f59788515f4a52a3ab3661fb99e8dd6e3632fd7a4cd1",
+      "after_sha256": "645819b58da19e591e592dc83565978688c6a5f0cb6bedf02f1ff8c5727052d8",
+      "edits": [
+        {
+          "start": 2161,
+          "end": 2270,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+      "owner": "com.hbm.blocks.machine.MachineMissileAssembly",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineMissileAssembly",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "0ded0901afce6cd2badc6ffcce86fd6404a1d8826d4a5d45c220cb37ceb55803",
+      "after_sha256": "64d3dbbbbfee36e1a37cd2c31ebe7d767d227a40a0d116db5a18123f0e9685f3",
+      "edits": [
+        {
+          "start": 3893,
+          "end": 4002,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachinePWRController.java",
+      "owner": "com.hbm.blocks.machine.MachinePWRController",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachinePWRController",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "3bd4390288d921aa13d0137eed5a826f73c0f04bd8ccb280fb01cfed2326da14",
+      "after_sha256": "43d9a386fb7582ddad91309f688e83bb2de3a904a3ef43b2b53ee5db419a71bb",
+      "edits": [
+        {
+          "start": 2053,
+          "end": 2162,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+      "owner": "com.hbm.blocks.machine.MachinePuF6Tank",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachinePuF6Tank",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "8a2c208d9868f99f8894bc71c902cc3d4a458f6930bcd53c2a532236d1d5e6ac",
+      "after_sha256": "3809a3d9c642e538368dd34003581e9aacba9469059c6f08c88c92b9721dda48",
+      "edits": [
+        {
+          "start": 1473,
+          "end": 1582,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineReactorControl.java",
+      "owner": "com.hbm.blocks.machine.MachineReactorControl",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineReactorControl",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "3199391f48e488e835b008fa4119a9eaed87e28678b4e8eeebc0b3d87e32a356",
+      "after_sha256": "783c138280f4fa32daa658011b8623a5ae40b9f54ebddda8ef1341ad501dbb3d",
+      "edits": [
+        {
+          "start": 2231,
+          "end": 2340,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "owner": "com.hbm.blocks.machine.MachineSatDock",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineSatDock",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "edfbdc57ef22f4ab7531b3f1f16775a05f54be2f42baed0e4c701aaa4fe976e1",
+      "after_sha256": "320ace581103198139ccbba7701534d9a155a5fa6b379e49c0b879cfe2d0ae6c",
+      "edits": [
+        {
+          "start": 4740,
+          "end": 4867,
+          "old": "public void onBlockPlacedBy(World worldObj, int xCoord, int yCoord, int zCoord, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World worldObj, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint xCoord = nativePlacementPos.getX(), yCoord = nativePlacementPos.getY(), zCoord = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+      "owner": "com.hbm.blocks.machine.MachineUF6Tank",
+      "ancestry": [
+        "com.hbm.blocks.machine.MachineUF6Tank",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "7cae4259a29d770d4a06a98170b10843230c013d15deb5ad4b9cb7941174eec0",
+      "after_sha256": "ae3f4f02ffab309ffc5972c3e543fb2706945755161cb487141aab53760d88e5",
+      "edits": [
+        {
+          "start": 1468,
+          "end": 1577,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+      "owner": "com.hbm.blocks.machine.PinkCloudBroadcaster",
+      "ancestry": [
+        "com.hbm.blocks.machine.PinkCloudBroadcaster",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "b1b2421b5db6406608e10d08cbf80efe27d1f9a65710289db629eeef48b02384",
+      "after_sha256": "51f87e1ac048cca0906d26e97f837a25a19e5941b12a05128800aecafda5d75e",
+      "edits": [
+        {
+          "start": 987,
+          "end": 1096,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "owner": "com.hbm.blocks.machine.PistonInserter",
+      "ancestry": [
+        "com.hbm.blocks.machine.PistonInserter",
+        "com.hbm.blocks.BlockContainerBase",
+        "com.hbm.blocks.BlockBase",
+        "net.minecraft.block.Block"
+      ],
+      "before_sha256": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395",
+      "after_sha256": "cef1c1c381dabb5c153436495260d8e688db9d1a07eebb6aebd3e27dc773a754",
+      "edits": [
+        {
+          "start": 4171,
+          "end": 4276,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/RadioRec.java",
+      "owner": "com.hbm.blocks.machine.RadioRec",
+      "ancestry": [
+        "com.hbm.blocks.machine.RadioRec",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "36a59a61c6c055989376764fc159ba145d2989a114cbb972f3620ccce7f1d4d5",
+      "after_sha256": "b67de984e686b496c8d208985d215d25383a65a13922495b087a41b967cb729d",
+      "edits": [
+        {
+          "start": 1332,
+          "end": 1441,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/Radiobox.java",
+      "owner": "com.hbm.blocks.machine.Radiobox",
+      "ancestry": [
+        "com.hbm.blocks.machine.Radiobox",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "9da97749035316a4ab0b5656dca5e0c73b1589dac92398a1f06f303271090af6",
+      "after_sha256": "d44ed0036284f86761bd98f5881cb2cecb308e377f9127040da42e37498df994",
+      "edits": [
+        {
+          "start": 1087,
+          "end": 1196,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/BlockCableGauge.java",
+      "owner": "com.hbm.blocks.network.BlockCableGauge",
+      "ancestry": [
+        "com.hbm.blocks.network.BlockCableGauge",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "ec25cf5cf904e194608e4e4326e9dbede8e018868c7d317450da6340c332fc04",
+      "after_sha256": "cebf783ff8ffbbbb981fbf085c4f7001bae552bdf012bdcc9b5c19cb6c6f24a0",
+      "edits": [
+        {
+          "start": 2835,
+          "end": 2940,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidDuctGauge.java",
+      "owner": "com.hbm.blocks.network.FluidDuctGauge",
+      "ancestry": [
+        "com.hbm.blocks.network.FluidDuctGauge",
+        "com.hbm.blocks.network.FluidDuctBase",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "57bce90e7e946112598c76a2c79aed6f85f2bf39ac014c0c82ed2a55511a7f2d",
+      "after_sha256": "38d109ac86ef57a32f41f0728669e4fccfd3e7e5353b7ebdb84bf23bfeb390d0",
+      "edits": [
+        {
+          "start": 2817,
+          "end": 2922,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack stack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/network/FluidPump.java",
+      "owner": "com.hbm.blocks.network.FluidPump",
+      "ancestry": [
+        "com.hbm.blocks.network.FluidPump",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "7386578b828c9bff6d34e31cdf4928dd2df26c785b8c979c70798f330b67b15a",
+      "after_sha256": "d22a1fbb09cf8cee0179766b08e87167bef44bddb6fed7f4f4937f9b96babf0d",
+      "edits": [
+        {
+          "start": 2460,
+          "end": 2569,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/test/TestObjTester.java",
+      "owner": "com.hbm.blocks.test.TestObjTester",
+      "ancestry": [
+        "com.hbm.blocks.test.TestObjTester",
+        "net.minecraft.block.BlockContainer"
+      ],
+      "before_sha256": "f6588f2f5b36d477b02b652d4ac558367208d75f1ee525c6b5b9f39a6d333c30",
+      "after_sha256": "0e077a7beaf03401f83590f5723eba89ff1baf77c35dc01176a99b7775c6dd70",
+      "edits": [
+        {
+          "start": 1448,
+          "end": 1557,
+          "old": "public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {",
+          "new": "public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {\n\t\tint x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "owner": "com.hbm.blocks.BlockDummyable",
+      "reason": "Existing native callback/domain overload bridge."
+    },
+    {
+      "owner": "com.hbm.blocks.bomb.CompactLauncher",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockBedrockOreTE",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockOre",
+      "reason": "Existing native callback/domain overload bridge."
+    },
+    {
+      "owner": "com.hbm.blocks.generic.BlockStorageCrate",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.BlockMassStorage",
+      "reason": "Explicit superclass invocation requires separate body transition; not selected."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.BlockTransporterRocket",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineEPress",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineHeatBoiler",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineITER",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineLargeTurbine",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineSawmill",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.MachineStirling",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    },
+    {
+      "owner": "com.hbm.blocks.machine.SoyuzLauncher",
+      "reason": "Existing native-to-domain bridge in BlockDummyable; preserve virtual old-shaped domain descendants."
+    }
+  ]
+}

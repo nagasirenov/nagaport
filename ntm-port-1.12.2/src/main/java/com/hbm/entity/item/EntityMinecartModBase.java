@@ -207,7 +207,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
 
                 if (flag || this.getDamage() > 40.0F)
                 {
-                    if (this.riddenByEntity != null)
+                    if (this.isBeingRidden())
                     {
                         this.riddenByEntity.mountEntity(this);
                     }
@@ -323,7 +323,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
             {
                 if (minecraftserver.getAllowNether())
                 {
-                    if (this.ridingEntity == null && this.portalCounter++ >= i)
+                    if (this.getRidingEntity() == null && this.portalCounter++ >= i)
                     {
                         this.portalCounter = i;
                         this.timeUntilPortal = this.getPortalCooldown();
@@ -469,7 +469,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
                 }
             }
 
-            if (this.riddenByEntity != null && this.riddenByEntity.isDead)
+            if (this.isBeingRidden() && this.riddenByEntity.isDead)
             {
                 if (this.riddenByEntity.ridingEntity == this)
                 {
@@ -611,7 +611,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         double d9;
         double d10;
 
-        if (this.riddenByEntity != null && this.riddenByEntity instanceof EntityLivingBase)
+        if (this.isBeingRidden() && this.riddenByEntity instanceof EntityLivingBase)
         {
             d7 = ((EntityLivingBase)this.riddenByEntity).moveForward;
 
@@ -760,7 +760,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
     @Override
 	protected void applyDrag()
     {
-        if (this.riddenByEntity != null)
+        if (this.isBeingRidden())
         {
             this.motionX *= 0.996999979019165D;
             this.motionY *= 0.0D;
@@ -968,7 +968,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         {
             if (p_70108_1_ != this.riddenByEntity)
             {
-                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && this.riddenByEntity == null && p_70108_1_.ridingEntity == null)
+                if (p_70108_1_ instanceof EntityLivingBase && !(p_70108_1_ instanceof EntityPlayer) && !(p_70108_1_ instanceof EntityIronGolem) && canBeRidden()               && this.motionX * this.motionX + this.motionZ * this.motionZ > 0.01D && !this.isBeingRidden() && p_70108_1_.getRidingEntity() == null)
                 {
                     p_70108_1_.mountEntity(this);
                 }
@@ -1261,7 +1261,7 @@ public abstract class EntityMinecartModBase extends EntityMinecart
         double d12 = this.motionX;
         double d13 = this.motionZ;
 
-        if (this.riddenByEntity != null)
+        if (this.isBeingRidden())
         {
             d12 *= 0.75D;
             d13 *= 0.75D;

@@ -57,10 +57,10 @@ public class ItemModBathwater extends ItemArmorMod {
 				if(attacker instanceof EntityLivingBase) {
 					
 					if(this == ModItems.bathwater)
-						((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(Potion.poison.id, 200, 2));
+						((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.POISON, 200, 2));
 					
 					if(this == ModItems.bathwater_mk2)
-						((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(Potion.wither.id, 200, 4));
+						((EntityLivingBase)attacker).addPotionEffect(new PotionEffect(net.minecraft.init.MobEffects.WITHER, 200, 4));
 				}
 			}
 		}

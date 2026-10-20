@@ -1,0 +1,76 @@
+{
+  "baseline": "175b014cbb5c5990107fced236f7131f234998b6",
+  "write": false,
+  "files": [
+    {
+      "path": "com/hbm/blocks/generic/BlockOreBasalt.java",
+      "status": "already applied",
+      "sha256": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/CrystalPulsar.java",
+      "status": "already applied",
+      "sha256": "bf58bf1aa47413dfa62eb2a23ec71d6fead139a5d0e4ccf4c259e5a0cd6d9e64"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeAntimatter.java",
+      "status": "already applied",
+      "sha256": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFlameWar.java",
+      "status": "already applied",
+      "sha256": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeBalefire.java",
+      "status": "already applied",
+      "sha256": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "status": "already applied",
+      "sha256": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/DetMiner.java",
+      "status": "already applied",
+      "sha256": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombThermo.java",
+      "status": "already applied",
+      "sha256": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BombFloat.java",
+      "status": "already applied",
+      "sha256": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockChargeBase.java",
+      "status": "already applied",
+      "sha256": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockTNTBase.java",
+      "status": "already applied",
+      "sha256": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/NukeCustom.java",
+      "status": "already applied",
+      "sha256": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81"
+    },
+    {
+      "path": "com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "status": "already applied",
+      "sha256": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c"
+    },
+    {
+      "path": "com/hbm/blocks/machine/PistonInserter.java",
+      "status": "already applied",
+      "sha256": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395"
+    }
+  ]
+}

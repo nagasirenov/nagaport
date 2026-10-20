@@ -1,0 +1,31 @@
+PASS all 27 production paths match staged tree and independent snapshot; 27 edited Java sources match generated compiler inputs among 4064.
+Production tree ced785491a8b268068f08e99919d57987ee2aaed
+{
+  "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46",
+  "src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c",
+  "src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce",
+  "src/main/java/com/hbm/blocks/bomb/BombFlameWar.java": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2",
+  "src/main/java/com/hbm/blocks/bomb/BombFloat.java": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091",
+  "src/main/java/com/hbm/blocks/bomb/BombThermo.java": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61",
+  "src/main/java/com/hbm/blocks/bomb/CrystalPulsar.java": "bf58bf1aa47413dfa62eb2a23ec71d6fead139a5d0e4ccf4c259e5a0cd6d9e64",
+  "src/main/java/com/hbm/blocks/bomb/DetMiner.java": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d",
+  "src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07",
+  "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb",
+  "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433",
+  "src/main/java/com/hbm/blocks/bomb/NukeCustom.java": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81",
+  "src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271",
+  "src/main/java/com/hbm/blocks/machine/PistonInserter.java": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395",
+  "src/main/java/com/hbm/dim/Ike/WorldProviderIke.java": "222e9a029a9fd3f2990e3e8dff33072ddf9aa9036003c4dbbbc1d94bf0dd9d34",
+  "src/main/java/com/hbm/dim/WorldProviderCelestial.java": "8934dd1a871f7e773d6985e9d60bc7311922bbd6263879df5800c87766a037d2",
+  "src/main/java/com/hbm/dim/dres/WorldProviderDres.java": "4491d7b7ad8799715bd913c74d22905ae0f36fe013b26ecafd26bd1edd500e36",
+  "src/main/java/com/hbm/dim/duna/WorldProviderDuna.java": "12dad418bbec514f4204e892b195ad23591b95d3bcfc37c339768905caa8160b",
+  "src/main/java/com/hbm/dim/eve/WorldProviderEve.java": "db96bfe4fea2d6822d6c282a737e0672c87814480b1dd5a4337a13fa12acd960",
+  "src/main/java/com/hbm/dim/laythe/WorldProviderLaythe.java": "67024e3c52ad74377c685ae0146e6fc6765dff0aea4375f86c8e372cbe6fdb72",
+  "src/main/java/com/hbm/dim/minmus/WorldProviderMinmus.java": "891c086b6316fc324300523dc6a3ad47a40306bbe63b5ff56c965b935b52fa33",
+  "src/main/java/com/hbm/dim/moho/WorldProviderMoho.java": "411ba47bbf71cf34253e87322daeb10cdc4be46d72e024551f2330237cd17ae4",
+  "src/main/java/com/hbm/dim/moon/WorldProviderMoon.java": "772b38593480c5f0599f7d0e5540f8d4d392856e8c58cfd34e18220013d4410c",
+  "src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java": "624e67c8fe837e3f225f8d531d9c1f52abb25659fd8b7b2f418c3703b87ed87f",
+  "src/main/java/com/hbm/dim/tekto/WorldProviderTekto.java": "4dbc8a3b6ddd755a29a0f4cabacd3812838c22cda6d60e9b8fd02157705d9fcb",
+  "src/main/java/com/hbm/dim/thatmo/WorldProviderThatmo.java": "ac6151248fad892ae1b9caa8151181a663e11f1737688f0cd58a9cacfb486ae9",
+  "src/main/java/com/hbm/world/WorldProviderTom.java": "238f137b631863f1eb498c4f5a71f47d28349562a4b83c30e16f9ed41f6680ee"
+}

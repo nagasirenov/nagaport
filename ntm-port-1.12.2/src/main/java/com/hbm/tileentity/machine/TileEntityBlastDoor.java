@@ -40,7 +40,7 @@ public class TileEntityBlastDoor extends TileEntityLockableBase implements net.m
 
 		if(!this.world.isRemote) {
 
-			if(!isLocked() && this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY(), this.pos.getZ()) || this.world.isBlockIndirectlyGettingPowered(this.pos.getX(), this.pos.getY() + 6, this.pos.getZ())) {
+			if(!isLocked() && this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY(), this.pos.getZ())) || this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(this.pos.getX(), this.pos.getY() + 6, this.pos.getZ()))) {
 
 				if(!redstoned) {
 					this.tryToggle();

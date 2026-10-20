@@ -128,7 +128,7 @@ public class ItemWandD extends Item {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		list.add("Dimension teleporter and atmosphere debugger.");
 
 		if(stack.getTagCompound() != null) {

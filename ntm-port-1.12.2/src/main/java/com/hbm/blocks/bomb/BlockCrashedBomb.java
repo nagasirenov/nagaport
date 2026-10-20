@@ -43,9 +43,11 @@ public class BlockCrashedBomb extends BlockEnumMulti implements ITileEntityProvi
 		return new TileEntityCrashedBomb();
 	}
 
-	@Override public int getRenderType() { return -1; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float fx, float fy, float fz) {
 		if(world.isRemote) return true;

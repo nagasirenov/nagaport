@@ -33,7 +33,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 	@Override
 	public void init() {
 		super.init();
-		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderDuna(this.worldObj, this.getSeed(), false);
+		return new ChunkProviderDuna(this.world, this.getSeed(), false);
 	}
 
 
@@ -57,25 +57,25 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 
 		dustStormSmoothed = (float)BobMathUtil.lerp(0.008, dustStormSmoothed, dustStormIntensity);
 
-		if(!worldObj.isRemote) {
+		if(!this.world.isRemote) {
 			if(dustStormTimer <= 0) {
 				if(dustStormIntensity >= 0.05F) {
 					dustStormIntensity = 0;
-					dustStormTimer = worldObj.rand.nextInt(168000) + 12000;
+					dustStormTimer = this.world.rand.nextInt(168000) + 12000;
 				} else {
-					dustStormIntensity = worldObj.rand.nextFloat() * 0.75F + 0.25F;
-					dustStormTimer = worldObj.rand.nextInt(12000) + 12000;
+					dustStormIntensity = this.world.rand.nextFloat() * 0.75F + 0.25F;
+					dustStormTimer = this.world.rand.nextInt(12000) + 12000;
 				}
 			}
 
 			dustStormTimer--;
 		} else {
-			if(dustStormSmoothed >= 0.05F && worldObj.rand.nextFloat() < dustStormSmoothed) {
+			if(dustStormSmoothed >= 0.05F && this.world.rand.nextFloat() < dustStormSmoothed) {
 				EntityLivingBase viewEntity = Minecraft.getMinecraft().renderViewEntity;
 				com.hbm.util.Vec3NT vec = new com.hbm.util.Vec3NT(20, 0, 50);
-				vec.rotateAroundZRad((float)(worldObj.rand.nextDouble() * Math.PI * 10));
-				vec.rotateAroundYRad((float)(worldObj.rand.nextDouble() * Math.PI * 2 * 5));
-				ParticleUtil.spawnDustFlame(worldObj, viewEntity.posX + vec.x, viewEntity.posY, viewEntity.posZ + vec.z, -4, 0, 0);
+				vec.rotateAroundZRad((float)(this.world.rand.nextDouble() * Math.PI * 10));
+				vec.rotateAroundYRad((float)(this.world.rand.nextDouble() * Math.PI * 2 * 5));
+				ParticleUtil.spawnDustFlame(this.world, viewEntity.posX + vec.x, viewEntity.posY, viewEntity.posZ + vec.z, -4, 0, 0);
 			}
 		}
 	}
@@ -125,7 +125,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 		super.resetRainAndThunder();
 		dustStormIntensity = 0;
 		dustStormSmoothed = 0;
-		dustStormTimer = worldObj.rand.nextInt(168000) + 12000;
+		dustStormTimer = this.world.rand.nextInt(168000) + 12000;
 	}
 
 	@Override
@@ -143,7 +143,7 @@ public class WorldProviderDuna extends WorldProviderCelestial {
 		// BRING
 		//  HIM
 		// HOMIE
-		if(worldObj.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian)
+		if(this.world.getWorldInfo().getTerrainType() == WorldTypeTeleport.martian)
 			return this.getDimension();
 
 		return super.getRespawnDimension(player);

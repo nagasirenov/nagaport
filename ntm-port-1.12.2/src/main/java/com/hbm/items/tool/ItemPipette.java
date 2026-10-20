@@ -100,7 +100,7 @@ public class ItemPipette extends Item implements IFillableItem {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		if(this == ModItems.pipette_laboratory) {
 			list.add(I18nUtil.resolveKey("desc.item.pipette.corrosive"));
 			list.add(I18nUtil.resolveKey("desc.item.pipette.laboratory"));

@@ -15,7 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 public class RenderHydroponic extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float interp) {
+	public void render(TileEntity tile, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		if(!(tile instanceof TileEntityHydroponic)) return;
 		TileEntityHydroponic hydro = (TileEntityHydroponic) tile;
 

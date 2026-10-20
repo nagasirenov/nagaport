@@ -1,0 +1,151 @@
+{
+  "baseline": "91da806c9ad17b279ef5142d83d4fe60365d563f",
+  "patches": [
+    {
+      "path": "/workspace/shared/native-provider-world-production.patch",
+      "sha256": "8110587e2d013cf45b78b41efbeb59dc15d1dc7b49763ac25fe6093b809deb6b"
+    },
+    {
+      "path": "/workspace/shared/nagaport-block-neighbors-production.patch",
+      "sha256": "b042987d548bd6f5fafff74c8a7357b4a64a966dac6f98364983eecd3814fe8e"
+    }
+  ],
+  "files": [
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+      "before": "c6abb832cc8fbf3e38584da1c2d8ff96c293be7356ba5feaba743c77140f94c6",
+      "after": "1d0bda07d4c9e8992d480c33df2788d93a8b14fc156677f6e18f46cf1d7a4c46"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockPlasticExplosive.java",
+      "before": "480e7207b5aa4b7c74009c43403c6afda247932a9651db6a95aacdd20c5a5fac",
+      "after": "a855c09d59749a4fdbcf12587857f0974875c344c526c7f40accdd5c650e7c5c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BlockTNTBase.java",
+      "before": "2a979a6c7cc8990379fdb89e19bf98b3c6ef97cfd71e6c6dec8a4604c63dbae1",
+      "after": "c8fd8d6ef8e7126bee8ba61546f3f0327649bf0339a5a896b9ac3d433ef879ce"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFlameWar.java",
+      "before": "1a9fec6a948036c6778a4814f29a9c0089077a4efce4b6ed667ccb41436b44e3",
+      "after": "158146fe910d519ec9cac9b2f1dae9f8be503f409d9dab1abe59db03fea385a2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombFloat.java",
+      "before": "bef25f59da9d19b9377ae3cc91266ccc76aa000e0fdf252917fa49cc81018e3f",
+      "after": "d5b73fe78595002a8c63daf8b67ce36b434cf13183e1a6340e8154e7065f0091"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/BombThermo.java",
+      "before": "e3f60cd2003a12e3a5413d5c63d6f963bfb48031e82161af1360e195b5aa7856",
+      "after": "03d68a78b77016fddc7f2fe62e549576196092c6db0bdefd4e03d2063e183b61"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/CrystalPulsar.java",
+      "before": "5d7691ed51625b7444198d7a219c29ea89589af6a2f3705ae5bfc96603e20509",
+      "after": "bf58bf1aa47413dfa62eb2a23ec71d6fead139a5d0e4ccf4c259e5a0cd6d9e64"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/DetMiner.java",
+      "before": "f9eefbc59c42e5adb7132efec958fdea5e7d0075b04b0caffc2cce55e8d8b813",
+      "after": "b3a0614e342dc9fb7c79960ad85ac9285fbc99c9d01091ac3eda0ba1f2d88d2d"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/ExplosiveCharge.java",
+      "before": "3b8ed10ede40c65ef0802087faf2a76311555d33f9482a4532be7e3503503f71",
+      "after": "1908fb2a5bc17175d1b69ef67509a1eaa6bf7bdf3749b10b1b9a56d89a6dbd07"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+      "before": "5ac5be8b5b8d6bf7accbcf40b6b5a00e776f6b0a4eae57a44abe2c55ae0d2aa9",
+      "after": "f3f70e2eec5e078da92300dec9c6b549691db0fa1c846112c4cb0e495dc6e1fb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+      "before": "0436806b7b16a728b064946577ecece25693574cc7e6b4167f1693d62fdf22ce",
+      "after": "bad19703f3088c0e316a4989d23760d4dc7b97ad004d80cdddc43057730a7433"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+      "before": "63550b384bd7c114bb7a0c39992408df2443fec6b2113a3ce360030569ba86bd",
+      "after": "e416df9a91ba4364e398064e61ede5b6a0703c6dae8c064e30a7da65083d6e81"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/generic/BlockOreBasalt.java",
+      "before": "8ea535a639d4d2dd7226049b0b47ee2bc9aa88060a573f5b69e1e4f5a692a855",
+      "after": "ed4a51434554274b7b2d3ae144e237e2f4ba837017a6ec5cd37ed2bf53d7a271"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+      "before": "783c42329a8bac39db7d23845900a62884b508ad2f2ca77ee1e9c4e26960e132",
+      "after": "e423e57f1b4bb4aa4b8afdc861dbe6c53c5a10ca02928744d660e3db702db395"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/Ike/WorldProviderIke.java",
+      "before": "302847071ef660b11ea2d8ac7afba0c2045642b5b6e28e92782753a617d0761f",
+      "after": "222e9a029a9fd3f2990e3e8dff33072ddf9aa9036003c4dbbbc1d94bf0dd9d34"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/WorldProviderCelestial.java",
+      "before": "f546f1a8c2fe82c5e7aa4d4c0839a34b98b56c27fd19d3c6f1bf97f51f3a01ed",
+      "after": "8934dd1a871f7e773d6985e9d60bc7311922bbd6263879df5800c87766a037d2"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/dres/WorldProviderDres.java",
+      "before": "d2dc5286c598e163cd917c48ff0addfd9ab37a4fe215ffca52b82dcb5d2290b3",
+      "after": "4491d7b7ad8799715bd913c74d22905ae0f36fe013b26ecafd26bd1edd500e36"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/duna/WorldProviderDuna.java",
+      "before": "17da3f17e81501fda5186692b157274305d45d6bc72e0fdea710536997ffb398",
+      "after": "12dad418bbec514f4204e892b195ad23591b95d3bcfc37c339768905caa8160b"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/eve/WorldProviderEve.java",
+      "before": "e0560d77800cab48630b5d441c05d45f64b2f2c1d37446dff6f1900e9312eb48",
+      "after": "db96bfe4fea2d6822d6c282a737e0672c87814480b1dd5a4337a13fa12acd960"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/laythe/WorldProviderLaythe.java",
+      "before": "5159109f6aed29e58153e8f8b929f34c89ca3f59e2322dad6168a44d49c05a88",
+      "after": "67024e3c52ad74377c685ae0146e6fc6765dff0aea4375f86c8e372cbe6fdb72"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/minmus/WorldProviderMinmus.java",
+      "before": "463312ed073f9986f0464eb899e43bfdc6a39f5c92f0069a934b0ba00179ceb8",
+      "after": "891c086b6316fc324300523dc6a3ad47a40306bbe63b5ff56c965b935b52fa33"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/moho/WorldProviderMoho.java",
+      "before": "11a76b45cdb79ce8187b7e7ff413ca329da59ed7851e9cce05eaf0b56c2dabbf",
+      "after": "411ba47bbf71cf34253e87322daeb10cdc4be46d72e024551f2330237cd17ae4"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/moon/WorldProviderMoon.java",
+      "before": "ecbd748f6ac5f2f7632f1ae45695928f5213f44a55004e1be4a72655e6c6b71e",
+      "after": "772b38593480c5f0599f7d0e5540f8d4d392856e8c58cfd34e18220013d4410c"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/orbit/WorldProviderOrbit.java",
+      "before": "ddffb95f3dd12bec28ec65a1f9a4bce50870b3d2fa42b98cb68f586b74be9296",
+      "after": "624e67c8fe837e3f225f8d531d9c1f52abb25659fd8b7b2f418c3703b87ed87f"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/tekto/WorldProviderTekto.java",
+      "before": "60224e1a57d532b5e37c4cac3d0671d3acd0de6fc5da58e8d61ccd9c8103d212",
+      "after": "4dbc8a3b6ddd755a29a0f4cabacd3812838c22cda6d60e9b8fd02157705d9fcb"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/dim/thatmo/WorldProviderThatmo.java",
+      "before": "90ff43a4805079957e148c223f71a4947bd53da03f40050c7b5f276454359157",
+      "after": "ac6151248fad892ae1b9caa8151181a663e11f1737688f0cd58a9cacfb486ae9"
+    },
+    {
+      "path": "ntm-port-1.12.2/src/main/java/com/hbm/world/WorldProviderTom.java",
+      "before": "0b701812646370eb8e91c36f7c425e76f32330be32bb16a076e3b0ab6ac8c071",
+      "after": "238f137b631863f1eb498c4f5a71f47d28349562a4b83c30e16f9ed41f6680ee"
+    }
+  ],
+  "result": "All patches compose in native Git. Forward byte-identical to integrated main; reverse byte-identical to CP69, only own new files removed. Historical isolated whole-file guards retain original baseline scopes; no regeneration or false blanket pass claimed."
+}

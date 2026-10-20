@@ -86,7 +86,7 @@ public class EntityTankbot extends EntityMob implements IMob, IRadiationImmune, 
 	}
 	@Override
 	protected Entity findPlayerToAttack() {
-		if(this.isPotionActive(Potion.blindness)) return null;
+		if(this.isPotionActive(net.minecraft.init.MobEffects.BLINDNESS)) return null;
 
 		return this.world.getClosestVulnerablePlayerToEntity(this, 64D);
 	}

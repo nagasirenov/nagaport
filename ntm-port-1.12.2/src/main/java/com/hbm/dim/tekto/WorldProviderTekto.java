@@ -22,7 +22,7 @@ public class WorldProviderTekto extends WorldProviderCelestial {
 	@Override
 	public void init() {
 		super.init();
-		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(worldObj.getSeed()));
+		this.biomeProvider = new WorldChunkManagerCelestial(createBiomeGenerators(this.world.getSeed()));
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class WorldProviderTekto extends WorldProviderCelestial {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderTekto(this.worldObj, this.getSeed(), false);
+		return new ChunkProviderTekto(this.world, this.getSeed(), false);
 	}
 
 	@Override

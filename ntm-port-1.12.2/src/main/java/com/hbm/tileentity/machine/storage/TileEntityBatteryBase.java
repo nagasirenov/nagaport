@@ -168,7 +168,7 @@ public abstract class TileEntityBatteryBase extends TileEntityMachineBase implem
 	public short getRelevantMode(boolean useCache) {
 		if(useCache) return this.modeCache;
 		boolean powered = false;
-		for(BlockPos pos : getPortPos()) if(this.world.isBlockIndirectlyGettingPowered(pos.getX(), pos.getY(), pos.getZ())) { powered = true; break; }
+		for(BlockPos pos : getPortPos()) if(this.world.isBlockPowered(new net.minecraft.util.math.BlockPos(pos.getX(), pos.getY(), pos.getZ()))) { powered = true; break; }
 		this.modeCache = powered ? this.redHigh : this.redLow;
 		return this.modeCache;
 	}

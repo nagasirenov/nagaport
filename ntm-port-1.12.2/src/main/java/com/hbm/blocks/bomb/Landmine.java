@@ -53,9 +53,11 @@ public class Landmine extends BlockContainer implements IBomb {
 		return new TileEntityLandmine();
 	}
 
-	@Override public int getRenderType() { return -1; }
-	@Override public boolean isOpaqueCube() { return false; }
-	@Override public boolean renderAsNormalBlock() { return false; }
+	@Override public net.minecraft.util.EnumBlockRenderType getRenderType(net.minecraft.block.state.IBlockState state) {
+		return net.minecraft.util.EnumBlockRenderType.INVISIBLE;
+	}
+	@Override public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) { return false; }
+	@Override public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }
 
 	@Override
 	public Item getItemDropped(net.minecraft.block.state.IBlockState i, Random rand, int j) {
@@ -82,7 +84,7 @@ public class Landmine extends BlockContainer implements IBomb {
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
 
-		if(world.isBlockIndirectlyGettingPowered(x, y, z)) {
+		if(world.isBlockPowered(new net.minecraft.util.math.BlockPos(x, y, z))) {
 			explode(world, x, y, z);
 		}
 
@@ -217,7 +219,8 @@ public class Landmine extends BlockContainer implements IBomb {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemStack) {
+	public void onBlockPlacedBy(World world, net.minecraft.util.math.BlockPos nativePlacementPos, net.minecraft.block.state.IBlockState nativePlacementState, EntityLivingBase player, ItemStack itemStack) {
+		int x = nativePlacementPos.getX(), y = nativePlacementPos.getY(), z = nativePlacementPos.getZ();
 		if(!world.isRemote) {
 			if(GeneralConfig.enableExtendedLogging) {
 				MainRegistry.logger.log(Level.INFO, "[BOMBPL]" + this.getLocalizedName() + " placed at " + x + " / " + y + " / " + z + "! " + "by "+ player.getCommandSenderName());

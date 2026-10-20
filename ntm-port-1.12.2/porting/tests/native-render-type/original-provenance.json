@@ -1,0 +1,250 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "sha256": "b6f30a732da19a8968f907176b030384e2140704214dfe6de0593e5f94767127"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "sha256": "38786dcb0b561c2dae0f4cd461097024f77e9233b65278e740957b295f530e4c"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "sha256": "d079064e445d310785b9ed48de5f073afb0c8a38944fa89cfa8fadee17503deb"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "sha256": "2881900203a6afc155dc332c674102e5de8e71d18fb985ca5bee0bddeeb453af"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "sha256": "9d8dd33c6913aff2ad7316bac60fba5b15053ee8b2eae22664635e7d3809acc3"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "sha256": "b3e105902ced1c7e1f8b3a69636d88e75bc27a635949c26e8c5cf03b3845588d"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "sha256": "2b8764fa0dfa6db733a8ff0dc819e5bd62690072fb61b6064e37f8f5cd43f3c7"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "sha256": "1a7ab2bac7445cbfe80cc0c627050b30dfbfcde6f3576e4a5706d4d5f4fc1e26"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "sha256": "0184305be69c014a38ebb9bcbc3adcc0932eb67bdf6b4b77dccf7c996e4ff48f"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "sha256": "c188fe62734d8cba1a456210dca3aee921c05867729c0eb822850514619f5bf7"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "sha256": "8b81a61f20b9fa8f0f063991cc1f662c63800a1d296444a9d3ad91a06a91a3b2"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "sha256": "6a8d009ffae03d4c5ae00d1479debe9449d321955af65b1f83030caad4f560dd"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "sha256": "6843a6f2defd65c16de160983c37670ba29b7541215a80cfbfab274ee9c4e501"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "sha256": "ff90d779997a7583445f847dbd0d6910e160fdf08141606852a4f9e048b70fd6"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "sha256": "510ba87a3ffeec3e768929048baf633cdff36ae9fe2e74aa40a6571fe5a1bf78"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "sha256": "654b8daf1b111bcbe52c84c99d56ebbad8c2b9c1e04b822313c22bfae86afdb9"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "sha256": "2418f9a2268cfd22bf95edd2e2b58f84237793eb6e7e69dbcd296513c802a82e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "sha256": "6491acb8780a6e6a3f0d739f7dfd23bcac1aeb39bebaced85f99f4d361490446"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "sha256": "6dc6cd4195e22a2b0753cbfb6f871cc38412a9792e43fa71dd2abca098ec6cb8"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "sha256": "e5f5dc0eb5a08b13dc55ec21fb43ecbc1a883b02faad8be995a58375162fb4ee"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "sha256": "5e6c64a2210b3a18bb2c01f8be76d2f05c232251ad90d78d133e571df60913cc"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "sha256": "8c24fd193b8851771f15708b51b1263bb3c69f935e739d851169de65237de0a6"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "sha256": "97e0719d2105a3417c57f080e2aefc7962893540b305ec1db1f44040a04e9d83"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "sha256": "18c869389bf7d553dbee5d21de2150e94fa5e0bbbe052d2495e2897cdb635556"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "sha256": "d99cbbac0a5eb97af099e58266356b2b2d7e80abe74372080712334f6b05eb83"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "sha256": "23057301175c0b64987fd402c6fe36e2428375e3925f74310a9c5c39ff6773e2"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "sha256": "1bea19e3dc0aae2b5a2735a7988e4372f8aba108ee6faf90a250d1801607e27d"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "sha256": "3a839c9d42d0c9a84d37027a48ce7f0e13a081ab1f60ceaf4185b04d5676704e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "sha256": "da8ef19d7066bcfb18c94e0a976508aa37bb30203ac39cd544ee11ed7f280161"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "sha256": "c0fb71144ce815a33ca1f8f0fc46920e832383d0853358682a4bb41b879700ed"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "sha256": "2be281716a9ae5b79e454fc868b5bf7a2a84ec6b64535e1d3d8447b8c1b0ca2b"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "sha256": "54a8b6713449791fdd28e047c55210a90f180a07f2a8d388ae4811677f1422ed"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "sha256": "e2cbb0f551e380b9692f10d90c1205699e2557eb3a4954749331344c45b58e52"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "sha256": "ca270a184c64ab18aeda351a086c366d9256d47364cffbb5e2e5d75fe051f7ae"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "sha256": "8d0c4a9349547c7dbce68a24ea082a9d72efb8cf66495a55bf42b02dbca1a4db"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "sha256": "84a64f1f598cd5bdb7786893e760f55e89e23fcc5167e21acd3e2558ec448481"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "sha256": "45bd3a843ed20e46250b9cfcfd387f0d4b4fd2f1e66278237dfe1392edb32f00"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "sha256": "34d47787c02f7dae35bc761adf6bed9046826eb2e2303c13426b5f3d5c4d309c"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "sha256": "26c6681390f5a36a05e62aa97d287604b8d83d4a7e4d81b6dc32d0067f5cc271"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "sha256": "51526ee537d93d7e09213f6a118739ebf26f2b4b76e012c19f9c8cb74e08e851"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "sha256": "6f8b7ae5a8d79e3fdaa2e0df2c4a9d1f4fb4a843905c8f824f442670b0ecf4ce"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "sha256": "486a97d6bf256a5a4763f9994714eed117ab9d5a83f5ea8377f3b194dc31f044"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "sha256": "d632b891d8f45c7ac9aead57ee09338f8f8bf3d45a67a782ce9ea1716dee9965"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "sha256": "5f6585d65add3508ada463d6b11a82806cfa44a19618b5d5dbc247fa5179d067"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "sha256": "465dba79bf16be82cd6e36981a04786daa232f0aa2637dcc2124ad4ccd9cf266"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "sha256": "0018c5f200deade25fc7a88b75a8f469e469b2bb05e21c3b65dfac47980522d1"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+    "sha256": "66f9f92d37f9889f6df93b661fc2df9c9f9c1c364d82553a3a1899488201d920"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "sha256": "56a41c38bc30649dec4c79f5cf29040e5263682aef5c6fb2aeab288d8b1755f4"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "sha256": "67cdd7471b7b3458ff6b8a8097eaec6608f8b21a1c36b93f95eb73d45c732638"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "sha256": "f33177aaaa1598b5d64177701711ebd65460f1f6ffa25605745b7368f5c35408"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "sha256": "958e2fd91dca2c9adec42890e3584a22931fe2c58c750cf87321453544dcea02"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "sha256": "19fc455a33152681454498893d87ffe370289e119e8f1c2810ecbd09ab07fc3d"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "sha256": "5e00a74bea2b27b962ce24e24947e2fd3f1b7e2fa8f8b8ff40db5f1519ceec69"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "sha256": "3633ce6f903efb778ce8b97abc52d576f39f8af70787edc9198571251c7bd7d6"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "sha256": "530c45e32cd41618b1a40b4fdca1340a39e1997469a2e654a1a487d64f09bdcf"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "sha256": "3f8def12e7555b848d717f10d74a17b5ddc2d925782b7be3391efa8379946930"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "sha256": "ded5e15ef0a4cf22e0b4ec384d9ed1219d353f445c1a86d037d0ded9065c97c7"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "sha256": "6d9e4b783e6554a2a4a81b56d476837abbb13521c878f163ac8b3d3e145a05cb"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "sha256": "e34984655d6d3a599b3d90be9f8a52dfc4a102fe97cafc7c84a92333e90ab257"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "sha256": "b73894207378372194004f3d2f21b98db7435af56378ca8670ecdad4263837a9"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "sha256": "5c73c612ae71d6abf6a40283ea784b8249bc8ce0453d4f651584a47b8bcd060e"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "sha256": "2ba4ac35f7770ae866bf6e4f865db49e745744bca6175fb28d3fc5f49fc6efdf"
+  }
+]

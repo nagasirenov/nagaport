@@ -28,6 +28,8 @@ import com.hbm.util.i18n.I18nUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -224,15 +226,16 @@ public class GUIMachineStardar extends GuiInfoContainer {
 
 			Minecraft.getMinecraft().getTextureManager().bindTexture(CelestialBody.getBody(star.getWorld()).texture);
 
-			Tessellator tessellator = Tessellator.instance;
-			tessellator.startDrawingQuads();
+			Tessellator tessellator = Tessellator.getInstance();
+			BufferBuilder tessellatorBuffer = tessellator.getBuffer();
+			tessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 			int offsetX = 85;
 			int offsetY = 60;
 
-			tessellator.addVertexWithUV(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY + 11, 0, 0, 1);
-			tessellator.addVertexWithUV(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY + 11, 0, 1, 1);
-			tessellator.addVertexWithUV(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY - 5, 0, 1, 0);
-			tessellator.addVertexWithUV(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY - 5, 0, 0, 0);
+			tessellatorBuffer.pos(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY + 11, 0).tex(0, 1).endVertex();
+			tessellatorBuffer.pos(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY + 11, 0).tex(1, 1).endVertex();
+			tessellatorBuffer.pos(guiLeft + starX + offsetX + 11, guiTop + starY + offsetY - 5, 0).tex(1, 0).endVertex();
+			tessellatorBuffer.pos(guiLeft + starX + offsetX - 5, guiTop + starY + offsetY - 5, 0).tex(0, 0).endVertex();
 
 			tessellator.draw();
 

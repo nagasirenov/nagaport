@@ -1,0 +1,50 @@
+{
+  "base": "112cf44057e5cd1d1173561e66dbcca97edc9bdb",
+  "pristine_metadata_audit": [
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineICFPress.java",
+      "sha256": "c1a1ba39029415826a74ec2b596e8ec549124baf71a270511bb70df51fa7e13e",
+      "method_sha256": "e9262e3aeb328b19ed802edc13769a8d3aebe4fd630b3d9d3ea330e39ff10645",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineSatLinker.java",
+      "sha256": "3acc39032e116b455dec060c372c784256d2a819ce9dc8f34cc6d1c246f5a5f0",
+      "method_sha256": "a293f3c34c394d3baa88c11b88f3a777657da3870fcad10602a0286c17158be9",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineReactorControl.java",
+      "sha256": "0325fd6004fbf2f9d814b3ca3425cbf7685ade910fc7cb21065e8fd8fb61ea5b",
+      "method_sha256": "a293f3c34c394d3baa88c11b88f3a777657da3870fcad10602a0286c17158be9",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineTurbine.java",
+      "sha256": "cf14fbba2c2a2e4e3b1b128f0f6016a866299070cd5be7c7a6c432608e4b9497",
+      "method_sha256": "fbf847cbda2f800a0691ba9cacddd24cacfa72f132565f07944ff44687534ba6",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineSiren.java",
+      "sha256": "3a01fba0e4aea07e88ce9bd23ec347b3d12a73b067192eb956ca0ba0a49ebac8",
+      "method_sha256": "a293f3c34c394d3baa88c11b88f3a777657da3870fcad10602a0286c17158be9",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    },
+    {
+      "path": "ntm-original-pristine/src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+      "sha256": "c0fb71144ce815a33ca1f8f0fc46920e832383d0853358682a4bb41b879700ed",
+      "method_sha256": "aa436f4609818522daf48cca26fb799ad673541ee44e01ee27d5682d3a21854d",
+      "metadata_only_used_in_super": true,
+      "super_order": "last statement"
+    }
+  ],
+  "production_spill_helper_sha256": "43d6e088bd0c9886da6c9fc259345b67af4104f105532bcd29f9ed770e239fad",
+  "legacy_client_sha256": "a4fc2284657544e0f4bcc964f927c2fda3e3a205178ed1d5d58883aaf9780cce",
+  "srg_sha256": "d49df5c445dcf00ada532ab3b0e4283bf4b05ac13f210647658dfd3cec8b34c2"
+}

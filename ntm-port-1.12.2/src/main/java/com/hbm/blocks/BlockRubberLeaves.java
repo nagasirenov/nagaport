@@ -28,7 +28,7 @@ public class BlockRubberLeaves extends BlockLeaves {
 	}
 
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(net.minecraft.block.state.IBlockState state) {
 		return false;
 	}
 

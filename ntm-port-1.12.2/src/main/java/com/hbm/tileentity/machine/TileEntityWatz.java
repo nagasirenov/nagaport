@@ -38,6 +38,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -361,7 +362,7 @@ public class TileEntityWatz extends TileEntityMachineBase implements IFluidStand
 			NBTTagCompound nbt1 = list.getCompoundTagAt(i);
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length) {
-				locks[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				locks[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 		

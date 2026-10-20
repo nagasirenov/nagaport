@@ -3,6 +3,7 @@ package com.hbm.tileentity.network;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import com.hbm.util.NullableInventoryStackNbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
@@ -35,8 +36,8 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 
 	@Override public int getSizeInventory() { return slots.length; }
 	@Override public ItemStack getStackInSlot(int i) { return slots[i]; }
-	@Override public void openInventory() { }
-	@Override public void closeInventory() { }
+	@Override public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
+	@Override public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) { }
 	@Override public boolean isItemValidForSlot(int slot, ItemStack itemStack) { return false; }
 	@Override public boolean canInsertItem(int slot, ItemStack itemStack, net.minecraft.util.EnumFacing nativeFace) {
 		int side = com.hbm.lib.ForgeDirection.fromEnumFacing(nativeFace).ordinal(); return this.isItemValidForSlot(slot, itemStack); }
@@ -118,7 +119,7 @@ public abstract class TileEntityRequestNetworkContainer extends TileEntityReques
 			byte b0 = nbt1.getByte("slot");
 			if(b0 >= 0 && b0 < slots.length)
 			{
-				slots[b0] = ItemStack.loadItemStackFromNBT(nbt1);
+				slots[b0] = NullableInventoryStackNbt.read(nbt1);
 			}
 		}
 

@@ -1,0 +1,1057 @@
+[
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockKelp.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.BlockKelp",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.BlockKelp",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/BlockWaterPlant.java",
+    "line": 30,
+    "owner": "com.hbm.blocks.BlockWaterPlant",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.BlockWaterPlant",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockChargeBase.java",
+    "line": 85,
+    "owner": "com.hbm.blocks.bomb.BlockChargeBase",
+    "parent": "com.hbm.blocks.BlockContainerBase",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockChargeBase",
+      "com.hbm.blocks.BlockContainerBase",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BlockCrashedBomb.java",
+    "line": 48,
+    "owner": "com.hbm.blocks.bomb.BlockCrashedBomb",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.bomb.BlockCrashedBomb",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/BombMulti.java",
+    "line": 201,
+    "owner": "com.hbm.blocks.bomb.BombMulti",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.BombMulti",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/CompactLauncher.java",
+    "line": 49,
+    "owner": "com.hbm.blocks.bomb.CompactLauncher",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.CompactLauncher",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaFlame.java",
+    "line": 41,
+    "owner": "com.hbm.blocks.bomb.DigammaFlame",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.bomb.DigammaFlame",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/DigammaMatter.java",
+    "line": 30,
+    "owner": "com.hbm.blocks.bomb.DigammaMatter",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.bomb.DigammaMatter",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/Landmine.java",
+    "line": 58,
+    "owner": "com.hbm.blocks.bomb.Landmine",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.Landmine",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/LaunchTable.java",
+    "line": 48,
+    "owner": "com.hbm.blocks.bomb.LaunchTable",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.LaunchTable",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeAntimatter.java",
+    "line": 42,
+    "owner": "com.hbm.blocks.bomb.NukeAntimatter",
+    "parent": "com.hbm.blocks.machine.BlockMachineBase",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeAntimatter",
+      "com.hbm.blocks.machine.BlockMachineBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBalefire.java",
+    "line": 41,
+    "owner": "com.hbm.blocks.bomb.NukeBalefire",
+    "parent": "com.hbm.blocks.machine.BlockMachineBase",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeBalefire",
+      "com.hbm.blocks.machine.BlockMachineBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeBoy.java",
+    "line": 153,
+    "owner": "com.hbm.blocks.bomb.NukeBoy",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeBoy",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeCustom.java",
+    "line": 235,
+    "owner": "com.hbm.blocks.bomb.NukeCustom",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeCustom",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeFleija.java",
+    "line": 152,
+    "owner": "com.hbm.blocks.bomb.NukeFleija",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeFleija",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeGadget.java",
+    "line": 153,
+    "owner": "com.hbm.blocks.bomb.NukeGadget",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeGadget",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMan.java",
+    "line": 147,
+    "owner": "com.hbm.blocks.bomb.NukeMan",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeMan",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeMike.java",
+    "line": 154,
+    "owner": "com.hbm.blocks.bomb.NukeMike",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeMike",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeN2.java",
+    "line": 143,
+    "owner": "com.hbm.blocks.bomb.NukeN2",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeN2",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukePrototype.java",
+    "line": 162,
+    "owner": "com.hbm.blocks.bomb.NukePrototype",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukePrototype",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeSolinium.java",
+    "line": 150,
+    "owner": "com.hbm.blocks.bomb.NukeSolinium",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeSolinium",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/bomb/NukeTsar.java",
+    "line": 152,
+    "owner": "com.hbm.blocks.bomb.NukeTsar",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.bomb.NukeTsar",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/fluid/MeltedFlesh.java",
+    "line": 31,
+    "owner": "com.hbm.blocks.fluid.MeltedFlesh",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.fluid.MeltedFlesh",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockGasBase.java",
+    "line": 58,
+    "owner": "com.hbm.blocks.gas.BlockGasBase",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.gas.BlockGasBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/gas/BlockVacuum.java",
+    "line": 48,
+    "owner": "com.hbm.blocks.gas.BlockVacuum",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.gas.BlockVacuum",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockBobble.java",
+    "line": 53,
+    "owner": "com.hbm.blocks.generic.BlockBobble",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockBobble",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockDeadPlant.java",
+    "line": 66,
+    "owner": "com.hbm.blocks.generic.BlockDeadPlant",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockDeadPlant",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockFallout.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.generic.BlockFallout",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.BlockFallout",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLayering.java",
+    "line": 38,
+    "owner": "com.hbm.blocks.generic.BlockLayering",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.BlockLayering",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockLoot.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.generic.BlockLoot",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockLoot",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockModDoor.java",
+    "line": 115,
+    "owner": "com.hbm.blocks.generic.BlockModDoor",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.BlockModDoor",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockMush.java",
+    "line": 119,
+    "owner": "com.hbm.blocks.generic.BlockMush",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.BlockMush",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockNTMFlower.java",
+    "line": 129,
+    "owner": "com.hbm.blocks.generic.BlockNTMFlower",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockNTMFlower",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockOrrery.java",
+    "line": 24,
+    "owner": "com.hbm.blocks.generic.BlockOrrery",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockOrrery",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlasma.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.generic.BlockPlasma",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.BlockPlasma",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockPlushie.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.generic.BlockPlushie",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockPlushie",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockRubberPlant.java",
+    "line": 63,
+    "owner": "com.hbm.blocks.generic.BlockRubberPlant",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockRubberPlant",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSkeletonHolder.java",
+    "line": 30,
+    "owner": "com.hbm.blocks.generic.BlockSkeletonHolder",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockSkeletonHolder",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockSnowglobe.java",
+    "line": 50,
+    "owner": "com.hbm.blocks.generic.BlockSnowglobe",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.BlockSnowglobe",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\r\n\t\treturn false;\r\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\r\n\t\treturn false;\r\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockStalagmite.java",
+    "line": 30,
+    "owner": "com.hbm.blocks.generic.BlockStalagmite",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockStalagmite",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlant.java",
+    "line": 113,
+    "owner": "com.hbm.blocks.generic.BlockTallPlant",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockTallPlant",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/BlockTallPlantWater.java",
+    "line": 78,
+    "owner": "com.hbm.blocks.generic.BlockTallPlantWater",
+    "parent": "com.hbm.blocks.BlockEnumMulti",
+    "chain": [
+      "com.hbm.blocks.generic.BlockTallPlantWater",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlock.java",
+    "line": 83,
+    "owner": "com.hbm.blocks.generic.DecoBlock",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.DecoBlock",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoBlockAlt.java",
+    "line": 50,
+    "owner": "com.hbm.blocks.generic.DecoBlockAlt",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.DecoBlockAlt",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/DecoPoleSatelliteReceiver.java",
+    "line": 35,
+    "owner": "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.generic.DecoPoleSatelliteReceiver",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/generic/WasteLeaves.java",
+    "line": 69,
+    "owner": "com.hbm.blocks.generic.WasteLeaves",
+    "parent": "net.minecraft.block.Block",
+    "chain": [
+      "com.hbm.blocks.generic.WasteLeaves",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlastDoor.java",
+    "line": 39,
+    "owner": "com.hbm.blocks.machine.BlastDoor",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.BlastDoor",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockCMGlass.java",
+    "line": 20,
+    "owner": "com.hbm.blocks.machine.BlockCMGlass",
+    "parent": "com.hbm.blocks.machine.BlockCM",
+    "chain": [
+      "com.hbm.blocks.machine.BlockCMGlass",
+      "com.hbm.blocks.machine.BlockCM",
+      "com.hbm.blocks.BlockEnumMulti",
+      "com.hbm.blocks.BlockMulti",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockFF.java",
+    "line": 31,
+    "owner": "com.hbm.blocks.machine.BlockFF",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.BlockFF",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/BlockRefueler.java",
+    "line": 43,
+    "owner": "com.hbm.blocks.machine.BlockRefueler",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.BlockRefueler",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Charger.java",
+    "line": 37,
+    "owner": "com.hbm.blocks.machine.Charger",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.Charger",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CombatDropPod.java",
+    "line": 42,
+    "owner": "com.hbm.blocks.machine.CombatDropPod",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.CombatDropPod",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreComponent.java",
+    "line": 51,
+    "owner": "com.hbm.blocks.machine.CoreComponent",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.CoreComponent",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/CoreCore.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.machine.CoreCore",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.CoreCore",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DemonLamp.java",
+    "line": 31,
+    "owner": "com.hbm.blocks.machine.DemonLamp",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.DemonLamp",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyBlockBlast.java",
+    "line": 63,
+    "owner": "com.hbm.blocks.machine.DummyBlockBlast",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.DummyBlockBlast",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/DummyOldBase.java",
+    "line": 62,
+    "owner": "com.hbm.blocks.machine.DummyOldBase",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.DummyOldBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Floodlight.java",
+    "line": 43,
+    "owner": "com.hbm.blocks.machine.Floodlight",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.Floodlight",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/GeigerCounter.java",
+    "line": 38,
+    "owner": "com.hbm.blocks.machine.GeigerCounter",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.GeigerCounter",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineAutosaw.java",
+    "line": 47,
+    "owner": "com.hbm.blocks.machine.MachineAutosaw",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineAutosaw",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineDiesel.java",
+    "line": 35,
+    "owner": "com.hbm.blocks.machine.MachineDiesel",
+    "parent": "com.hbm.blocks.machine.BlockMachineBase",
+    "chain": [
+      "com.hbm.blocks.machine.MachineDiesel",
+      "com.hbm.blocks.machine.BlockMachineBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineFan.java",
+    "line": 71,
+    "owner": "com.hbm.blocks.machine.MachineFan",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineFan",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineForceField.java",
+    "line": 46,
+    "owner": "com.hbm.blocks.machine.MachineForceField",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineForceField",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMicrowave.java",
+    "line": 31,
+    "owner": "com.hbm.blocks.machine.MachineMicrowave",
+    "parent": "com.hbm.blocks.machine.BlockMachineBase",
+    "chain": [
+      "com.hbm.blocks.machine.MachineMicrowave",
+      "com.hbm.blocks.machine.BlockMachineBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineMissileAssembly.java",
+    "line": 43,
+    "owner": "com.hbm.blocks.machine.MachineMissileAssembly",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineMissileAssembly",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachinePuF6Tank.java",
+    "line": 36,
+    "owner": "com.hbm.blocks.machine.MachinePuF6Tank",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachinePuF6Tank",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineRadar.java",
+    "line": 38,
+    "owner": "com.hbm.blocks.machine.MachineRadar",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineRadar",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineSatDock.java",
+    "line": 48,
+    "owner": "com.hbm.blocks.machine.MachineSatDock",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineSatDock",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineTesla.java",
+    "line": 31,
+    "owner": "com.hbm.blocks.machine.MachineTesla",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineTesla",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/MachineUF6Tank.java",
+    "line": 36,
+    "owner": "com.hbm.blocks.machine.MachineUF6Tank",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.MachineUF6Tank",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PinkCloudBroadcaster.java",
+    "line": 35,
+    "owner": "com.hbm.blocks.machine.PinkCloudBroadcaster",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.PinkCloudBroadcaster",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/PistonInserter.java",
+    "line": 181,
+    "owner": "com.hbm.blocks.machine.PistonInserter",
+    "parent": "com.hbm.blocks.BlockContainerBase",
+    "chain": [
+      "com.hbm.blocks.machine.PistonInserter",
+      "com.hbm.blocks.BlockContainerBase",
+      "com.hbm.blocks.BlockBase",
+      "net.minecraft.block.Block"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/RadioRec.java",
+    "line": 44,
+    "owner": "com.hbm.blocks.machine.RadioRec",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.RadioRec",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/Radiobox.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.machine.Radiobox",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.Radiobox",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/SoyuzCapsule.java",
+    "line": 41,
+    "owner": "com.hbm.blocks.machine.SoyuzCapsule",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.machine.SoyuzCapsule",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/machine/StorageDrum.java",
+    "line": 32,
+    "owner": "com.hbm.blocks.machine.StorageDrum",
+    "parent": "com.hbm.blocks.machine.BlockMachineBase",
+    "chain": [
+      "com.hbm.blocks.machine.StorageDrum",
+      "com.hbm.blocks.machine.BlockMachineBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypoint.java",
+    "line": 51,
+    "owner": "com.hbm.blocks.network.DroneWaypoint",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.network.DroneWaypoint",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/DroneWaypointRequest.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.network.DroneWaypointRequest",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.network.DroneWaypointRequest",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPipeAnchor.java",
+    "line": 39,
+    "owner": "com.hbm.blocks.network.FluidPipeAnchor",
+    "parent": "com.hbm.blocks.network.FluidDuctBase",
+    "chain": [
+      "com.hbm.blocks.network.FluidPipeAnchor",
+      "com.hbm.blocks.network.FluidDuctBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/FluidPump.java",
+    "line": 64,
+    "owner": "com.hbm.blocks.network.FluidPump",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.network.FluidPump",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() { return false; }",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) { return false; }"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/network/PylonBase.java",
+    "line": 40,
+    "owner": "com.hbm.blocks.network.PylonBase",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.network.PylonBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/test/TestObjTester.java",
+    "line": 33,
+    "owner": "com.hbm.blocks.test.TestObjTester",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.test.TestObjTester",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretBase.java",
+    "line": 27,
+    "owner": "com.hbm.blocks.turret.TurretBase",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.turret.TurretBase",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentry.java",
+    "line": 54,
+    "owner": "com.hbm.blocks.turret.TurretSentry",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.turret.TurretSentry",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  },
+  {
+    "path": "src/main/java/com/hbm/blocks/turret/TurretSentryDamaged.java",
+    "line": 34,
+    "owner": "com.hbm.blocks.turret.TurretSentryDamaged",
+    "parent": "net.minecraft.block.BlockContainer",
+    "chain": [
+      "com.hbm.blocks.turret.TurretSentryDamaged",
+      "net.minecraft.block.BlockContainer"
+    ],
+    "before": "public boolean renderAsNormalBlock() {\n\t\treturn false;\n\t}",
+    "after": "public boolean isFullCube(net.minecraft.block.state.IBlockState state) {\n\t\treturn false;\n\t}"
+  }
+]

@@ -12,7 +12,7 @@ import net.minecraft.util.math.Vec3d;
 public class RenderTurretArty extends TileEntitySpecialRenderer {
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float interp) {
+	public void render(TileEntity te, double x, double y, double z, float interp, int nativeDestroyStage, float nativeAlpha) {
 		
 		TileEntityTurretArty turret = (TileEntityTurretArty)te;
 		Vec3d pos = turret.getHorizontalOffset();

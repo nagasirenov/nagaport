@@ -85,7 +85,7 @@ public class ItemAmmoContainer extends Item {
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
+	public void addInformation(ItemStack stack, net.minecraft.world.World tooltipWorld, List<String> list, net.minecraft.client.util.ITooltipFlag tooltipFlag) {
 		String[] lines = I18nUtil.resolveKeyArray(this.getTranslationKey() + (stack.getItemDamage() == 1 ? ".1" : "") + ".desc");
 		for(String line : lines) list.add(TextFormatting.YELLOW + line);
 	}

@@ -1,0 +1,747 @@
+{
+  "base": "c878491b82ae4b5c50051b6806a143f856435027",
+  "files": {
+    "src/main/java/com/hbm/inventory/gui/GUIFEL.java": {
+      "before_sha256": "fea0c6537022aaa21289c0d0531f37146c8dc1529f27bc599fed4d55e7627c5e",
+      "after_sha256": "1c65969db3ffd8eb2bb08ee8ffb7d46cde9482c25560e045e8f7d37038b39a62",
+      "name": "tessellator",
+      "batches": [
+        {
+          "kind": "Opaque_I",
+          "args": [
+            "color"
+          ],
+          "vertices": 2
+        },
+        {
+          "kind": "Opaque_I",
+          "args": [
+            "color"
+          ],
+          "vertices": 2
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 16,
+          "new_start": 16,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 86,
+          "new_start": 88,
+          "old": [
+            "\t\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\t\ttessellator.startDrawing(1);\n",
+            "\t\t\ttessellator.setColorOpaque_I(color);\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\t\ttessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor0 = color;\n"
+          ]
+        },
+        {
+          "old_start": 90,
+          "new_start": 93,
+          "old": [
+            "\t\t\ttessellator.addVertex(guiLeft + 113, guiTop + 31.5F, this.zLevel);\n",
+            "\t\t\ttessellator.addVertex(guiLeft + 135, guiTop + 31.5F, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.pos(guiLeft + 113, guiTop + 31.5F, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(guiLeft + 135, guiTop + 31.5F, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 94,
+          "new_start": 97,
+          "old": [
+            "\t\t\ttessellator.startDrawing(1);\n",
+            "\t\t\ttessellator.setColorOpaque_I(color);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor1 = color;\n"
+          ]
+        },
+        {
+          "old_start": 97,
+          "new_start": 100,
+          "old": [
+            "\t\t\ttessellator.addVertex(0, guiTop + 31.5F, this.zLevel);\n",
+            "\t\t\ttessellator.addVertex(guiLeft + 4, guiTop + 31.5F, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.pos(0, guiTop + 31.5F, this.zLevel).color((tessellatorColor1 >> 16) & 255, (tessellatorColor1 >> 8) & 255, tessellatorColor1 & 255, 255).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(guiLeft + 4, guiTop + 31.5F, this.zLevel).color((tessellatorColor1 >> 16) & 255, (tessellatorColor1 >> 8) & 255, tessellatorColor1 & 255, 255).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUISILEX.java": {
+      "before_sha256": "88e44b828105563c5f5d726625a4b5794d67579effd97b0256054562cd4f6168",
+      "after_sha256": "0662c9f666640b42ce0ae2061d4882138696348efeb0f0d5f2173eacded8d1ff",
+      "name": "tessellator",
+      "batches": [
+        {
+          "kind": "Opaque_I",
+          "args": [
+            "color"
+          ],
+          "vertices": 2
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 20,
+          "new_start": 20,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 129,
+          "new_start": 131,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n",
+            "\t\ttessellator.startDrawing(1);\n",
+            "\t\ttessellator.setColorOpaque_I(color);\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n",
+            "\t\ttessellatorBuffer.begin(1, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessellatorColor0 = color;\n"
+          ]
+        },
+        {
+          "old_start": 133,
+          "new_start": 136,
+          "old": [
+            "\t\ttessellator.addVertex(guiLeft + x1, guiTop + y1, this.zLevel);\n",
+            "\t\ttessellator.addVertex(guiLeft + x2, guiTop + y2, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\ttessellatorBuffer.pos(guiLeft + x1, guiTop + y1, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();\n",
+            "\t\ttessellatorBuffer.pos(guiLeft + x2, guiTop + y2, this.zLevel).color((tessellatorColor0 >> 16) & 255, (tessellatorColor0 >> 8) & 255, tessellatorColor0 & 255, 255).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenBobble.java": {
+      "before_sha256": "fde63ae15b8e6be47314c133cb8df930d87cdfb5cb74881b686c856ee0db9187",
+      "after_sha256": "4f755973a101b47c61e7c024969d04de9bfeb55b8db7bed1242f05b1db4528ec",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "0F",
+            "0.2F",
+            "0F",
+            "0.8F"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 16,
+          "new_start": 16,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 46,
+          "new_start": 48,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorRGBA_F(0F, 0.2F, 0F, 0.8F);\n",
+            "\t\ttess.addVertex(left + sizeX, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top + sizeY, this.zLevel);\n",
+            "\t\ttess.addVertex(left + sizeX, top + sizeY, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n",
+            "\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.8F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(left + sizeX, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left + sizeX, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenHolotape.java": {
+      "before_sha256": "bb535a973ef33ef2c9a17287cdfc4afef211e523878535de4c3c51c84d5be080",
+      "after_sha256": "bdaa4c2e3eff43e2457985fc44533a344e78e86a5448fd925d8fcab0d80ae043",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "0F",
+            "0.2F",
+            "0F",
+            "0.8F"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 16,
+          "new_start": 16,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 54,
+          "new_start": 56,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorRGBA_F(0F, 0.2F, 0F, 0.8F);\n",
+            "\t\ttess.addVertex(left + sizeX, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top + sizeY, this.zLevel);\n",
+            "\t\ttess.addVertex(left + sizeX, top + sizeY, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n",
+            "\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.8F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(left + sizeX, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left + sizeX, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/inventory/gui/GUIScreenSnowglobe.java": {
+      "before_sha256": "d71ae93168b64781c6e88a47719a50962293aedd9c6b4eb730a1ef731810c054",
+      "after_sha256": "46377bd25b0c2f8e9bc41a78b6a45ccec736bed4f14c76b3fa55a4db472d85a6",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "0F",
+            "0.2F",
+            "0F",
+            "0.8F"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 43,
+          "new_start": 45,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorRGBA_F(0F, 0.2F, 0F, 0.8F);\n",
+            "\t\ttess.addVertex(left + sizeX, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top, this.zLevel);\n",
+            "\t\ttess.addVertex(left, top + sizeY, this.zLevel);\n",
+            "\t\ttess.addVertex(left + sizeX, top + sizeY, this.zLevel);\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.2F) * 255.0F)));\n",
+            "\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0F) * 255.0F)));\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.8F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(left + sizeX, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(left + sizeX, top + sizeY, this.zLevel).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/module/NumberDisplay.java": {
+      "before_sha256": "dcbdd6802f6b02581ee5068343300768ef9344a95601a3cb05b8c9e72cf1ac24",
+      "after_sha256": "4cf146ef2b2e5b7074d1b4d2627d55bf94b81dab719cdc8986079fe0f09ea571",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "Opaque_I",
+          "args": [
+            "color"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 15,
+          "new_start": 15,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 314,
+          "new_start": 316,
+          "old": [
+            "\t\tfinal Tessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tfinal Tessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 318,
+          "new_start": 321,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorOpaque_I(color);\n",
+            "\t\ttess.addVertex(renX, renY + height, z);\n",
+            "\t\ttess.addVertex(renX + width, renY + height, z);\n",
+            "\t\ttess.addVertex(renX + width, renY + 0, z);\n",
+            "\t\ttess.addVertex(renX, renY, z);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0 = color;\n",
+            "\t\ttessBuffer.pos(renX, renY + height, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(renX + width, renY + height, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(renX + width, renY + 0, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(renX, renY, z).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/entity/projectile/RenderBeam5.java": {
+      "before_sha256": "5c1d3f78fa781bc3c861ae0cafdd449f9b71b9279734f549eea1094fa1e3c677",
+      "after_sha256": "7537ea3e0ee1c8a3465060d1faf2775984c1a374de20e1aae2e1ef261aff8e56",
+      "name": "tessellator",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "red ? 1 : color",
+            "green ? 1 : color",
+            "blue ? 1 : color",
+            "1f"
+          ],
+          "vertices": 4
+        },
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "red ? 1 : color",
+            "green ? 1 : color",
+            "blue ? 1 : color",
+            "1f"
+          ],
+          "vertices": 4
+        },
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "red ? 1 : color",
+            "green ? 1 : color",
+            "blue ? 1 : color",
+            "1f"
+          ],
+          "vertices": 4
+        },
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "red ? 1 : color",
+            "green ? 1 : color",
+            "blue ? 1 : color",
+            "1f"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 9,
+          "new_start": 9,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 23,
+          "new_start": 25,
+          "old": [
+            "\t\tTessellator tessellator = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tessellator = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessellatorBuffer = tessellator.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 43,
+          "new_start": 46,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.setColorRGBA_F(red ? 1 : color, green ? 1 : color, blue ? 1 : color, 1f);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 - o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 + o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 + o, 0 + distance);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 - o, 0 + distance);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor0Red = Math.max(0, Math.min(255, (int) ((red ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor0Green = Math.max(0, Math.min(255, (int) ((green ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor0Blue = Math.max(0, Math.min(255, (int) ((blue ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor0Alpha = Math.max(0, Math.min(255, (int) ((1f) * 255.0F)));\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 - o, 0).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 + o, 0).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 + o, 0 + distance).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 - o, 0 + distance).color(tessellatorColor0Red, tessellatorColor0Green, tessellatorColor0Blue, tessellatorColor0Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 50,
+          "new_start": 56,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.setColorRGBA_F(red ? 1 : color, green ? 1 : color, blue ? 1 : color, 1f);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 - o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 - o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 - o, 0 + distance);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 - o, 0 + distance);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor1Red = Math.max(0, Math.min(255, (int) ((red ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor1Green = Math.max(0, Math.min(255, (int) ((green ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor1Blue = Math.max(0, Math.min(255, (int) ((blue ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor1Alpha = Math.max(0, Math.min(255, (int) ((1f) * 255.0F)));\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 - o, 0).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 - o, 0).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 - o, 0 + distance).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 - o, 0 + distance).color(tessellatorColor1Red, tessellatorColor1Green, tessellatorColor1Blue, tessellatorColor1Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 57,
+          "new_start": 66,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.setColorRGBA_F(red ? 1 : color, green ? 1 : color, blue ? 1 : color, 1f);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 + o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 - o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 - o, 0 + distance);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 + o, 0 + distance);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor2Red = Math.max(0, Math.min(255, (int) ((red ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor2Green = Math.max(0, Math.min(255, (int) ((green ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor2Blue = Math.max(0, Math.min(255, (int) ((blue ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor2Alpha = Math.max(0, Math.min(255, (int) ((1f) * 255.0F)));\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 + o, 0).color(tessellatorColor2Red, tessellatorColor2Green, tessellatorColor2Blue, tessellatorColor2Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 - o, 0).color(tessellatorColor2Red, tessellatorColor2Green, tessellatorColor2Blue, tessellatorColor2Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 - o, 0 + distance).color(tessellatorColor2Red, tessellatorColor2Green, tessellatorColor2Blue, tessellatorColor2Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 + o, 0 + distance).color(tessellatorColor2Red, tessellatorColor2Green, tessellatorColor2Blue, tessellatorColor2Alpha).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 64,
+          "new_start": 76,
+          "old": [
+            "\t\t\ttessellator.startDrawingQuads();\n",
+            "\t\t\ttessellator.setColorRGBA_F(red ? 1 : color, green ? 1 : color, blue ? 1 : color, 1f);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 + o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 + o, 0);\n",
+            "\t\t\ttessellator.addVertex(0 - o, 0 + o, 0 + distance);\n",
+            "\t\t\ttessellator.addVertex(0 + o, 0 + o, 0 + distance);\n"
+          ],
+          "new": [
+            "\t\t\ttessellatorBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessellatorColor3Red = Math.max(0, Math.min(255, (int) ((red ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor3Green = Math.max(0, Math.min(255, (int) ((green ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor3Blue = Math.max(0, Math.min(255, (int) ((blue ? 1 : color) * 255.0F)));\n",
+            "\t\t\tint tessellatorColor3Alpha = Math.max(0, Math.min(255, (int) ((1f) * 255.0F)));\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 + o, 0).color(tessellatorColor3Red, tessellatorColor3Green, tessellatorColor3Blue, tessellatorColor3Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 + o, 0).color(tessellatorColor3Red, tessellatorColor3Green, tessellatorColor3Blue, tessellatorColor3Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 - o, 0 + o, 0 + distance).color(tessellatorColor3Red, tessellatorColor3Green, tessellatorColor3Blue, tessellatorColor3Alpha).endVertex();\n",
+            "\t\t\ttessellatorBuffer.pos(0 + o, 0 + o, 0 + distance).color(tessellatorColor3Red, tessellatorColor3Green, tessellatorColor3Blue, tessellatorColor3Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderBAT9000.java": {
+      "before_sha256": "9debed63e44948f1e7903e6b62b2a2b2ab226b763d5933f2e2d9f478b19f0d40",
+      "after_sha256": "6e824a26750d3d546cabc1b9c9adca49fe932440b93cd3c1ff8d772d6e447215",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "Opaque_I",
+          "args": [
+            "type.getColor()"
+          ],
+          "vertices": 16
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 13,
+          "new_start": 13,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 64,
+          "new_start": 66,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n"
+          ]
+        },
+        {
+          "old_start": 69,
+          "new_start": 72,
+          "old": [
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorOpaque_I(type.getColor());\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0 = type.getColor();\n"
+          ]
+        },
+        {
+          "old_start": 72,
+          "new_start": 75,
+          "old": [
+            "\t\ttess.addVertex(-off, 1.5, -0.5);\n",
+            "\t\ttess.addVertex(-off, 1.5 + height, -0.5);\n",
+            "\t\ttess.addVertex(-off, 1.5 + height, 0.5);\n",
+            "\t\ttess.addVertex(-off, 1.5, 0.5);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.pos(-off, 1.5, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(-off, 1.5 + height, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(-off, 1.5 + height, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(-off, 1.5, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 77,
+          "new_start": 80,
+          "old": [
+            "\t\ttess.addVertex(off, 1.5, -0.5);\n",
+            "\t\ttess.addVertex(off, 1.5 + height, -0.5);\n",
+            "\t\ttess.addVertex(off, 1.5 + height, 0.5);\n",
+            "\t\ttess.addVertex(off, 1.5, 0.5);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.pos(off, 1.5, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(off, 1.5 + height, -0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(off, 1.5 + height, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(off, 1.5, 0.5).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 82,
+          "new_start": 85,
+          "old": [
+            "\t\ttess.addVertex(-0.5, 1.5, -off);\n",
+            "\t\ttess.addVertex(-0.5, 1.5 + height, -off);\n",
+            "\t\ttess.addVertex(0.5, 1.5 + height, -off);\n",
+            "\t\ttess.addVertex(0.5, 1.5, -off);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.pos(-0.5, 1.5, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(-0.5, 1.5 + height, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(0.5, 1.5 + height, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(0.5, 1.5, -off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n"
+          ]
+        },
+        {
+          "old_start": 87,
+          "new_start": 90,
+          "old": [
+            "\t\ttess.addVertex(-0.5, 1.5, off);\n",
+            "\t\ttess.addVertex(-0.5, 1.5 + height, off);\n",
+            "\t\ttess.addVertex(0.5, 1.5 + height, off);\n",
+            "\t\ttess.addVertex(0.5, 1.5, off);\n"
+          ],
+          "new": [
+            "\t\ttessBuffer.pos(-0.5, 1.5, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(-0.5, 1.5 + height, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(0.5, 1.5 + height, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n",
+            "\t\ttessBuffer.pos(0.5, 1.5, off).color((tessColor0 >> 16) & 255, (tessColor0 >> 8) & 255, tessColor0 & 255, 255).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/tileentity/RenderRBMKFuelChannel.java": {
+      "before_sha256": "cf25d95b59274f0d24759bc4bee2ead7a0999cdf109e4519d560e85bb9314e7b",
+      "after_sha256": "2429b5a79362b61bbee703e8cd9afef5d6cb04276c852d9f696f21dfffebe51e",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "0.4F",
+            "0.9F",
+            "1.0F",
+            "0.1F"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 10,
+          "new_start": 10,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 76,
+          "new_start": 78,
+          "old": [
+            "\t\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\t\ttess.startDrawingQuads();\n",
+            "\t\t\ttess.setColorRGBA_F(0.4F, 0.9F, 1.0F, 0.1F);\n"
+          ],
+          "new": [
+            "\t\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0.4F) * 255.0F)));\n",
+            "\t\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.9F) * 255.0F)));\n",
+            "\t\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((1.0F) * 255.0F)));\n",
+            "\t\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.1F) * 255.0F)));\n"
+          ]
+        },
+        {
+          "old_start": 81,
+          "new_start": 87,
+          "old": [
+            "\t\t\t\ttess.addVertex(-0.5, j, -0.5);\n",
+            "\t\t\t\ttess.addVertex(-0.5, j, 0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, j, 0.5);\n",
+            "\t\t\t\ttess.addVertex(0.5, j, -0.5);\n"
+          ],
+          "new": [
+            "\t\t\t\ttessBuffer.pos(-0.5, j, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(-0.5, j, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, j, 0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\t\t\ttessBuffer.pos(0.5, j, -0.5).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    },
+    "src/main/java/com/hbm/render/util/RenderInfoSystem.java": {
+      "before_sha256": "62529d0222d99e9ae1179f6e346b5a88cf523770a064985cf64af4701b80edcd",
+      "after_sha256": "e57c6e9e303d1b614d5b51a1902e7df57cb85d72805af8e43f17b25918aa3c36",
+      "name": "tess",
+      "batches": [
+        {
+          "kind": "RGBA_F",
+          "args": [
+            "0.25F",
+            "0.25F",
+            "0.25F",
+            "0.5F"
+          ],
+          "vertices": 4
+        }
+      ],
+      "edits": [
+        {
+          "old_start": 18,
+          "new_start": 18,
+          "old": [],
+          "new": [
+            "import net.minecraft.client.renderer.BufferBuilder;\n",
+            "import net.minecraft.client.renderer.vertex.DefaultVertexFormats;\n"
+          ]
+        },
+        {
+          "old_start": 90,
+          "new_start": 92,
+          "old": [
+            "\t\tTessellator tess = Tessellator.instance;\n",
+            "\t\ttess.startDrawingQuads();\n",
+            "\t\ttess.setColorRGBA_F(0.25F, 0.25F, 0.25F, 0.5F);\n",
+            "\t\ttess.addVertex(pX - 5, pZ - 5, z);\n",
+            "\t\ttess.addVertex(pX - 5, height, z);\n",
+            "\t\ttess.addVertex(side, height, z);\n",
+            "\t\ttess.addVertex(side, pZ - 5, z);\n"
+          ],
+          "new": [
+            "\t\tTessellator tess = Tessellator.getInstance();\n",
+            "\t\tBufferBuilder tessBuffer = tess.getBuffer();\n",
+            "\t\ttessBuffer.begin(7, DefaultVertexFormats.POSITION_COLOR);\n",
+            "\t\tint tessColor0Red = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\tint tessColor0Green = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\tint tessColor0Blue = Math.max(0, Math.min(255, (int) ((0.25F) * 255.0F)));\n",
+            "\t\tint tessColor0Alpha = Math.max(0, Math.min(255, (int) ((0.5F) * 255.0F)));\n",
+            "\t\ttessBuffer.pos(pX - 5, pZ - 5, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(pX - 5, height, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(side, height, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n",
+            "\t\ttessBuffer.pos(side, pZ - 5, z).color(tessColor0Red, tessColor0Green, tessColor0Blue, tessColor0Alpha).endVertex();\n"
+          ]
+        }
+      ]
+    }
+  }
+}

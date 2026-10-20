@@ -1,0 +1,20 @@
+[
+  {
+    "mutant": "old-signature",
+    "result": "compiled and runtime rejected",
+    "diagnostic": "Caused by: java.lang.AssertionError: null argument remains ignored",
+    "full_log_sha256": "2d2a8490b1408bd74e4a9f6581d07f7a04cc5ef5c6a77646e033ae32508bccbc"
+  },
+  {
+    "mutant": "true-body",
+    "result": "compiled and runtime rejected",
+    "diagnostic": "Caused by: java.lang.AssertionError: null argument remains ignored",
+    "full_log_sha256": "8fdfbf1437cb7b86a9e3a3e53069616faab8647e9723339fea2f3fcf243fd4fe"
+  },
+  {
+    "mutant": "state-dependent",
+    "result": "compiled and runtime rejected",
+    "diagnostic": "Caused by: java.lang.NullPointerException",
+    "full_log_sha256": "772396adc1d3da0d29b098b859b7e6b8778435cc0f909d5e1a5aa12e8a2e3edd"
+  }
+]

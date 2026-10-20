@@ -1,0 +1,120 @@
+Actual 1.7.10 client
+
+  public static add a(dh);
+    Code:
+       0: new           #37                 // class add
+       3: dup
+       4: invokespecial #135                // Method "<init>":()V
+       7: astore_1
+       8: aload_1
+       9: aload_0
+      10: invokevirtual #144                // Method c:(Ldh;)V
+      13: aload_1
+      14: invokevirtual #142                // Method b:()Ladb;
+      17: ifnull        24
+      20: aload_1
+      21: goto          25
+      24: aconst_null
+      25: areturn
+
+  public void c(dh);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: ldc           #28                 // String id
+       4: invokevirtual #180                // Method dh.e:(Ljava/lang/String;)S
+       7: invokestatic  #121                // Method adb.d:(I)Ladb;
+      10: putfield      #90                 // Field e:Ladb;
+      13: aload_0
+      14: aload_1
+      15: ldc           #13                 // String Count
+      17: invokevirtual #179                // Method dh.d:(Ljava/lang/String;)B
+      20: putfield      #87                 // Field b:I
+      23: aload_0
+      24: aload_1
+      25: ldc           #14                 // String Damage
+      27: invokevirtual #180                // Method dh.e:(Ljava/lang/String;)S
+      30: putfield      #91                 // Field f:I
+      33: aload_0
+      34: getfield      #91                 // Field f:I
+      37: ifge          45
+      40: aload_0
+      41: iconst_0
+      42: putfield      #91                 // Field f:I
+      45: aload_1
+      46: ldc           #32                 // String tag
+      48: bipush        10
+      50: invokevirtual #176                // Method dh.b:(Ljava/lang/String;I)Z
+      53: ifeq          66
+      56: aload_0
+      57: aload_1
+      58: ldc           #32                 // String tag
+      60: invokevirtual #184                // Method dh.m:(Ljava/lang/String;)Ldh;
+      63: putfield      #89                 // Field d:Ldh;
+      66: return
+
+Actual mapped Forge 1.12.2
+
+  public net.minecraft.item.ItemStack(net.minecraft.nbt.NBTTagCompound);
+    Code:
+       0: aload_0
+       1: invokespecial #86                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: ldc           #114                // String ForgeCaps
+       8: invokevirtual #118                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;)Z
+      11: ifeq          23
+      14: aload_1
+      15: ldc           #114                // String ForgeCaps
+      17: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      20: goto          24
+      23: aconst_null
+      24: putfield      #88                 // Field capNBT:Lnet/minecraft/nbt/NBTTagCompound;
+      27: aload_0
+      28: aload_1
+      29: ldc           #124                // String id
+      31: bipush        8
+      33: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      36: ifeq          51
+      39: aload_1
+      40: ldc           #124                // String id
+      42: invokevirtual #131                // Method net/minecraft/nbt/NBTTagCompound.getString:(Ljava/lang/String;)Ljava/lang/String;
+      45: invokestatic  #135                // Method net/minecraft/item/Item.getByNameOrId:(Ljava/lang/String;)Lnet/minecraft/item/Item;
+      48: goto          54
+      51: getstatic     #140                // Field net/minecraft/init/Items.AIR:Lnet/minecraft/item/Item;
+      54: putfield      #90                 // Field item:Lnet/minecraft/item/Item;
+      57: aload_0
+      58: aload_1
+      59: ldc           #142                // String Count
+      61: invokevirtual #146                // Method net/minecraft/nbt/NBTTagCompound.getByte:(Ljava/lang/String;)B
+      64: putfield      #94                 // Field stackSize:I
+      67: aload_0
+      68: iconst_0
+      69: aload_1
+      70: ldc           #148                // String Damage
+      72: invokevirtual #152                // Method net/minecraft/nbt/NBTTagCompound.getShort:(Ljava/lang/String;)S
+      75: invokestatic  #158                // Method java/lang/Math.max:(II)I
+      78: putfield      #92                 // Field itemDamage:I
+      81: aload_1
+      82: ldc           #160                // String tag
+      84: bipush        10
+      86: invokevirtual #127                // Method net/minecraft/nbt/NBTTagCompound.hasKey:(Ljava/lang/String;I)Z
+      89: ifeq          118
+      92: aload_0
+      93: aload_1
+      94: ldc           #160                // String tag
+      96: invokevirtual #122                // Method net/minecraft/nbt/NBTTagCompound.getCompoundTag:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+      99: putfield      #162                // Field stackTagCompound:Lnet/minecraft/nbt/NBTTagCompound;
+     102: aload_0
+     103: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     106: ifnull        118
+     109: aload_0
+     110: getfield      #90                 // Field item:Lnet/minecraft/item/Item;
+     113: aload_1
+     114: invokevirtual #166                // Method net/minecraft/item/Item.updateItemStackNBT:(Lnet/minecraft/nbt/NBTTagCompound;)Z
+     117: pop
+     118: aload_0
+     119: invokespecial #99                 // Method updateEmptyState:()V
+     122: aload_0
+     123: invokespecial #102                // Method forgeInit:()V
+     126: return

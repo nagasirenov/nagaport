@@ -39,7 +39,7 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	@Override
-	public String getInventoryName() {
+	public String getName() {
 		return "container.massStorage";
 	}
 
@@ -263,12 +263,12 @@ public class TileEntityMassStorage extends TileEntityCrateBase implements IContr
 	}
 
 	@Override
-	public void openInventory() {
+	public void openInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageOpen", 0.5F, 1.0F);
 	}
 
 	@Override
-	public void closeInventory() {
+	public void closeInventory(net.minecraft.entity.player.EntityPlayer viewer) {
 		com.hbm.sound.WorldSoundEffects.play(this.world, this.pos.getX() + 0.5, this.pos.getY() + 0.5, this.pos.getZ() + 0.5, "hbm:block.storageClose", 0.5F, 1.0F);
 	}
 
